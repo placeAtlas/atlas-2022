@@ -3242,7 +3242,178 @@ var atlas = [
     			908.5
     		]
     	]
-    }
+    },
+    {
+		"id": 68,
+		"name": "Madotsuki",
+		"description": "Madotsuki from the surrealistic game Yume Nikki",
+		"website": "",
+		"subreddit": "/r/yumenikki",
+		"center": [
+			779.5,
+			71.5
+		],
+		"path": [
+			[
+				771.5,
+				57.5
+			],
+			[
+				771.5,
+				84.5
+			],
+			[
+				787.5,
+				84.5
+			],
+			[
+				787.5,
+				57.5
+			],
+			[
+				780.5,
+				57.5
+			]
+		]
+	},
+	{
+		"id": 69,
+		"name": "Anarcho-Communist Flag",
+		"description": "Flag of a far-left anarchist ideology that proposing getting rid of the government and ordinary working people controlling the means of making things.",
+		"website": "",
+		"subreddit": "/r/TheFarLeftSide",
+		"center": [
+			43.5,
+			455.5
+		],
+		"path": [
+			[
+				62.5,
+				442.5
+			],
+			[
+				62.5,
+				468.5
+			],
+			[
+				24.5,
+				468.5
+			],
+			[
+				24.5,
+				442.5
+			]
+		]
+	},
+	{
+    "id": 70,
+    "name": "Niko",
+    "description": "The main character of the indie game \"OneShot\".",
+    "website": "http://www.oneshot-game.com/",
+    "subreddit": "/r/oneshot",
+    "center": [
+        920.5,
+        52.5
+    ],
+    "path": [
+        [
+            909.5,
+            37.5
+        ],
+        [
+            909.5,
+            42.5
+        ],
+        [
+            908.5,
+            43.5
+        ],
+        [
+            908.5,
+            64.5
+        ],
+        [
+            912.5,
+            64.5
+        ],
+        [
+            913.5,
+            65.5
+        ],
+        [
+            914.5,
+            65.5
+        ],
+        [
+            915.5,
+            66.5
+        ],
+        [
+            922.5,
+            66.5
+        ],
+        [
+            923.5,
+            65.5
+        ],
+        [
+            924.5,
+            64.5
+        ],
+        [
+            929.5,
+            64.5
+        ],
+        [
+            929.5,
+            60.5
+        ],
+        [
+            936.5,
+            60.5
+        ],
+        [
+            936.5,
+            51.5
+        ],
+        [
+            929.5,
+            51.5
+        ],
+        [
+            929.5,
+            43.5
+        ],
+        [
+            928.5,
+            42.5
+        ],
+        [
+            928.5,
+            37.5
+        ],
+        [
+            923.5,
+            37.5
+        ],
+        [
+            923.5,
+            38.5
+        ],
+        [
+            914.5,
+            38.5
+        ],
+        [
+            914.5,
+            37.5
+        ],
+        [
+            909.5,
+            37.5
+        ]
+    ]
+}
 ];
 
 
