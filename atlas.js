@@ -3144,6 +3144,104 @@ var atlas = [
     			447.5
     		]
     	]
+    },
+    {
+    	"id": 66,
+    	"name": "Flag of Ireland",
+    	"description": "",
+    	"website": "",
+    	"subreddit": "/r/ireland",
+    	"center": [
+    		476.5,
+    		636.5
+    	],
+    	"path": [
+    		[
+    			445.5,
+    			546.5
+    		],
+    		[
+    			445.5,
+    			579.5
+    		],
+    		[
+    			466.5,
+    			579.5
+    		],
+    		[
+    			466.5,
+    			614.5
+    		],
+    		[
+    			444.5,
+    			613.5
+    		],
+    		[
+    			446.5,
+    			684.5
+    		],
+    		[
+    			452.5,
+    			688.5
+    		],
+    		[
+    			452.5,
+    			715.5
+    		],
+    		[
+    			492.5,
+    			715.5
+    		],
+    		[
+    			492.5,
+    			697.5
+    		],
+    		[
+    			508.5,
+    			697.5
+    		],
+    		[
+    			508.5,
+    			589.5
+    		],
+    		[
+    			487.5,
+    			589.5
+    		],
+    		[
+    			487.5,
+    			547.5
+    		]
+    	]
+    },
+    {
+    	"id": 67,
+    	"name": "The Blue Corner",
+    	"description": "The Blue Corner was one of the earliest projects on /r/place.\\n\nIt quickly grew to cover a significant part of the map, but later was pushed back to its current size.",
+    	"website": "",
+    	"subreddit": "/r/thebluecorner",
+    	"center": [
+    		962.5,
+    		954.5
+    	],
+    	"path": [
+    		[
+    			925.5,
+    			908.5
+    		],
+    		[
+    			925.5,
+    			999.5
+    		],
+    		[
+    			999.5,
+    			999.5
+    		],
+    		[
+    			999.5,
+    			908.5
+    		]
+    	]
     }
 ];
 
