@@ -1,0 +1,389 @@
+
+
+
+/*
+	========================================================================
+	The /r/place Atlas
+	
+	An Atlas of Reddit's /r/place, with information to each
+	artwork	of the canvas provided by the community.
+	
+	Copyright (C) 2017 Roland Rytz <roland@draemm.li>
+	Licensed under the GNU Affero General Public License Version 3
+	This program is free software: you can redistribute it and/or modify
+	it under the terms of the GNU Affero General Public License as
+	published by the Free Software Foundation, either version 3 of the
+	License, or (at your option) any later version.
+	This program is distributed in the hope that it will be useful,
+	but WITHOUT ANY WARRANTY; without even the implied warranty of
+	MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.
+	For more information, see:
+	https://draemm.li/various/place-atlas/license.txt
+	
+	========================================================================
+*/
+
+
+*{
+	margin: 0px;
+	padding: 0px;
+	border: none;
+	box-sizing: border-box;
+}
+
+html, body{
+	height: 100%;
+	width: 100%;
+}
+
+body{
+	font-family: sans;
+	background-color: #333333;
+	color: #FFFFFF;
+	overflow: hidden;
+}
+
+a{
+	color: #FFAA00;
+	text-decoration: none;
+}
+
+a:hover{
+	text-decoration: underline;
+}
+
+button{
+	background-image: linear-gradient(to bottom, #888888, #666666);
+	border: 1px #000000 solid;
+	color: #FFFFFF;
+	text-align: center;
+	display: inline-block;
+	padding: 5px;
+	cursor: pointer;
+}
+
+button:disabled,
+button:disabled:hover{
+	background-image: none;
+	background-color: #666666;
+	color: #AAAAAA;
+	cursor: default;
+}
+
+button:hover{
+	background-image: linear-gradient(to bottom, #999999, #777777);
+}
+
+input[type="text"],
+textArea{
+	background-color: #444444;
+	border: 1px #000000 solid;
+	margin-bottom: 4px;
+	padding: 5px 5px;
+	color: #FFFFFF;
+	box-sizing: border-box;
+}
+
+input[type="text"]{
+	height: 25px;
+}
+
+#logo{
+	padding: 3px;
+	/*background-color: #FFFFFF;*/
+}
+
+h1{
+	font-weight: 300;
+	padding: 5px 10px;
+	display: block;
+	vertical-align: center;
+}
+
+header{
+	width: 100%;
+	height: 50px;
+	background-color: #555555;
+	border-bottom: 1px #000000 solid;
+	z-index: 1000;
+	display: flex;
+}
+
+header nav{
+	display: block;
+	margin-top: 20px;
+}
+
+header nav a{
+	display: inline-block;
+	height: 30px;
+	width: 100px;
+	background-image: linear-gradient(to bottom, #888888, #666666);
+	border: 1px #000000 solid;
+	color: #FFFFFF;
+	text-align: center;
+	text-decoration: none;
+	cursor: pointer;
+	padding: 5px;
+}
+
+header nav a:hover{
+	background-image: linear-gradient(to bottom, rgba(255, 255, 255, 0.6), rgba(180, 180, 180, 0.5));
+}
+
+header nav a.current{
+	background-image: none;
+	background: #333333;
+	border-bottom: 1px #333333 solid;
+	outline: none;
+}
+
+#linesCanvas{
+	position: absolute;
+	height: calc(100% - 50px);
+	width: 100%;
+	z-index: -500;
+}
+
+#container{
+	width: 100%;
+	height: calc(100% - 50px);
+}
+
+#innerContainer{
+	height: 1000px;
+	width: 1000px;
+	position: absolute;
+	z-index: -1000;
+}
+
+#image{
+	position: absolute;
+	height: 100%;
+	width: 100%;
+	z-index: -1500;
+	image-rendering: -moz-crisp-edges;
+	image-rendering: pixelated;
+	-ms-interpolation-mode: nearest-neighbor;
+}
+
+#highlightCanvas{
+	z-index: -1200;
+	position: absolute;
+	height: 100%;
+	width: 100%;
+	image-rendering: -moz-crisp-edges;
+	image-rendering: pixelated;
+	-ms-interpolation-mode: nearest-neighbor;
+}
+
+#objectsList{
+	width: 300px;
+	position: absolute;
+	left: 0px;
+	top: 50px;
+	padding: 0px;
+	max-height: calc(100% - 50px);
+	overflow-y: auto;
+}
+
+.object{
+	background-color: #555555;
+	border: 1px #000000 solid;
+	margin: 10px 0px 0px 10px;
+	padding: 10px;
+}
+
+.object *{
+	display: block;
+}
+
+.object h2{
+	font-size: 20px;
+	background-color: #666666;
+	text-shadow: 1px 1px 0px #000000;
+	padding: 3px 10px;
+	margin: 0px -10px 10px -10px;
+	font-weight: 300;
+}
+
+.object a{
+	background-color: #666666;
+	text-align: center;
+	padding: 3px;
+	margin-bottom: 5px;
+}
+
+.object a:hover{
+	background-color: #777777;
+	text-decoration: none;
+}
+
+.object p{
+	margin-bottom: 10px;
+}
+
+#drawControls{
+	width: 200px;
+	max-height: 400px;
+	background-color: #555555;
+	border: 1px #000000 solid;
+	position: absolute;
+	left: 10px;
+	top: 60px;
+	bottom: 10px;
+	padding: 15px;
+	overflow-y: auto;
+	display: none;
+}
+
+#drawControls > *{
+	width: 100%;
+	display: flex;
+	justify-content: center;
+	margin-bottom: 5px;
+}
+
+#drawControls > * > *{
+	flex-grow: 1;
+	margin-right: 5px;
+}
+
+#drawControls > * > *:last-child{
+	margin-right: 0px;
+}
+
+#hint{
+	display: block;
+}
+
+#hint p{
+	margin-bottom: 10px;
+}
+
+#objectInfo{
+	display: none;
+}
+
+#objectInfo input{
+	width: 100%;
+}
+
+#descriptionField{
+	width: 168px;
+	height: 70px;
+}
+
+#infoButtons{
+	display: flex;
+	margin-top: 10px;
+}
+
+#infoButtons button{
+	width: 50px;
+	flex-grow: 1;
+	margin-right: 10px;
+}
+
+#infoButtons button:last-child{
+	margin-right: 0px;
+}
+
+.overlay{
+	position: absolute;
+	top: 0px;
+	left: 0px;
+	right: 0px;
+	bottom: 0px;
+	background-color: rgba(0, 0, 0, 0.8);
+}
+
+#exportWindow{
+	margin: 50px auto;
+	padding: 10px;
+	width: 100%;
+	height: calc(100% - 100px);
+	max-width: 500px;
+	/*max-height: 300px*/;
+
+	border: 1px #000000 solid;
+	background-color: #555555;
+
+	display: flex;
+	flex-direction: column;
+	overflow-y: auto;
+}
+
+#exportWindow *{
+	flex-shrink: 0;
+	margin-bottom: 10px;
+}
+
+#exportWindow p{
+	
+}
+
+#exportString{
+	flex-grow: 1;
+	flex-shrink: 0;
+}
+
+#exportCloseButton{
+	margin-bottom: 0px;
+	width: 100px;
+	align-self: flex-end;
+}
+
+#exportOverlay{
+	display: none;
+}
+
+#author{
+	position: absolute;
+	bottom: 10px;
+	right: 10px;
+	background-color: rgba(128, 128, 128, 0.2);
+	padding: 3px;
+	font-size: 12px;
+}
+
+#aboutContainer{
+	position: absolute;
+	top: 50px;
+	left: 0px;
+	right: 0px;
+	bottom: 0px;
+	background-color: #333333;
+	display: none;
+}
+
+#about{
+	margin: 0px auto;
+	width: 100%;
+	max-width: 1000px;
+}
+
+#about h2{
+	font-weight: 300;
+	font-size: 30px;
+	margin-top: 30px;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

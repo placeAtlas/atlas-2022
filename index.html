@@ -1,0 +1,130 @@
+
+<!--
+	========================================================================
+	The /r/place Atlas
+	
+	An Atlas of Reddit's /r/place, with information to each
+	artwork	of the canvas provided by the community.
+	
+	Copyright (C) 2017 Roland Rytz <roland@draemm.li>
+	Licensed under the GNU Affero General Public License Version 3
+	This program is free software: you can redistribute it and/or modify
+	it under the terms of the GNU Affero General Public License as
+	published by the Free Software Foundation, either version 3 of the
+	License, or (at your option) any later version.
+	This program is distributed in the hope that it will be useful,
+	but WITHOUT ANY WARRANTY; without even the implied warranty of
+	MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.
+	For more information, see:
+	https://draemm.li/various/place-atlas/license.txt
+	
+	========================================================================
+-->
+
+
+<!doctype html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<link href="./style.css?version=1.0" rel="stylesheet" type="text/css" media="all">
+		<title>
+			The /r/place Atlas
+		</title>
+
+		<meta name="description" content="An Atlas of Reddit's /r/place, with information to each artwork of the canvas.">
+		<meta name="author" content="Roland Rytz">
+		<meta name="keywords" content="reddit, /r/place, april">
+		<meta name="application-name" content="/r/place Atlas">
+		<meta name="robots" content="index, follow">
+	</head>
+	<body>
+		<header>
+			<img id="logo" src="logo.png" height="50" width="50" alt="">
+			<h1>The /r/place Atlas</h1>
+			<nav>
+				<a id="viewLink" href="./" class="current">View</a>
+				<a id="drawLink" href="./?mode=draw">Draw</a>
+				<a id="aboutLink" href="./?mode=about">About</a>
+			</nav>
+		</header>
+
+		<div id="aboutContainer">
+			<div id="about">
+				<h2>The /r/place Atlas</h2>
+				<p>This is an Atlas aiming to chart all the artworks created during the <a href="https://www.reddit.com/r/place/">/r/place</a> April's fools event on <a href="https://www.reddit.com/" target="_blank">Reddit</a> in 2017.</p>
+				<p>The code was developed by <a href="/" target="_blank" rel="author">Roland Rytz</a> and is available under the free <a href="https://www.gnu.org/licenses/agpl-3.0.en.html">AGPL license</a> on <a target="_blank" href="https://github.com/RolandR/place-atlas">GitHub</a>.
+				<h2>How to contribute</h2>
+				<p>Everybody is encouraged to collaborate in mapping all of /r/place on the Atlas.</p>
+				<p>To do so, head over to the <a href="./?mode=draw">Draw tab</a>, draw the outline of the piece you want to submit, and post it on the <a href="https://www.reddit.com/r/placeAtlas/">/r/placeAtlas</a> subreddit.</p>
+				<p>This is also the place to submit all bug reports, feature requests or questions.</p>
+			</div>
+		</div>
+		
+		<div id="container">
+			<canvas id="linesCanvas"></canvas>
+			<div id="innerContainer">
+				<canvas id="highlightCanvas" width="1000" height="1000"></canvas>
+				<img id="image" src="./place.png" width="1000" height="1000" />
+			</div>
+		</div>
+
+		<div id="drawControls">
+			<div>
+				<button id="undoButton" disabled>Undo</button>
+				<button disabled id="redoButton">Redo</button>
+			</div>
+			<button disabled id="finishButton">Finish (Enter)</button>
+			<button id="resetButton">Reset</button>
+			<span id="hint">
+				<p>Click anywhere on the image to start drawing a shape.</p>
+				<p>When you're happy with the result, click the "Finish" button above or press the Enter key.</p>
+				<p>You can then add more information about your object.</p>
+			</span>
+			<div id="objectInfo">
+				<label for="nameField">Name</label>
+				<input id="nameField" type="text" value="" placeholder="A short title">
+				<label for="descriptionField" rows="20" cols="3">Description</label>
+				<textarea id="descriptionField" placeholder="A short description to be understood by everyone"></textarea>
+				<label for="websiteField">Website</label>
+				<input id="websiteField" type="text" value="" placeholder="https://example.com">
+				<label for="subredditField">Subreddit</label>
+				<input id="subredditField" type="text" value="" placeholder="/r/example">
+				<div id="infoButtons">
+					<button id="cancelButton">Cancel</button>
+					<button id="exportButton">OK</button>
+				</div>
+			</div>
+		</div>
+
+		<div id="objectsList">
+			<!--div class="object">
+				<h2>Tux</h2>
+				<p>Tux is the official mascot of the Linux operating system.</p>
+				<a href="Website">Website</a>
+				<a href="">/r/linux</a>
+			</div-->
+		</div>
+
+		<div id="exportOverlay" class="overlay">
+			<div id="exportWindow">
+				<p>Please copy the text below and submit it as a<br>
+				new text post to <a target="_blank" href="https://www.reddit.com/r/placeAtlas/">/r/placeAtlas</a> on Reddit.</p>
+				<p>I will then check it and add it to the atlas.</p>
+				<textarea cols="50" rows="5" id="exportString"></textarea>
+				<button id="exportCloseButton">Done</button>
+			</div>
+		</div>
+
+		<div id="author">
+			Code by <a href="/" target="_blank" rel="author">Roland Rytz</a>. Source on <a target="_blank" href="https://github.com/RolandR/place-atlas">GitHub</a>.
+		</div>
+		
+		<script type="text/javascript" src="./pointInPolygon.js?version=1.0"></script>
+		<script type="text/javascript" src="./atlas.js?version=1.0"></script>
+		<script type="text/javascript" src="./view.js?version=1.0"></script>
+		<script type="text/javascript" src="./draw.js?version=1.0"></script>
+		<script type="text/javascript" src="./main.js?version=1.0"></script>
+		
+	</body>
+</html>
+
