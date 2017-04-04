@@ -343,6 +343,50 @@ header nav a.current{
 	display: none;
 }
 
+#zoomControls{
+	position: absolute;
+	top: 60px;
+	right: 10px;
+	display: flex;
+	width: 90px;
+}
+
+#zoomControls button{
+	display: block;
+	height: 30px;
+	margin-left: -1px;
+	width: 10px;
+	flex-grow: 1;
+	font-size: 20px;
+	line-height: 0px;
+	font-weight: 300;
+	background-size: 15px;
+	background-repeat: no-repeat;
+	background-position: center;
+	background-color: #555555;
+}
+
+#zoomControls button:focus{
+	outline: none;
+}
+
+#zoomControls button:hover{
+	background-color: #666666;
+}
+
+#zoomInButton{
+	background-image: url(plus.svg);
+}
+
+button#zoomResetButton{
+	background-image: url(original.svg);
+	background-size: 20px;
+}
+
+#zoomOutButton{
+	background-image: url(minus.svg);
+}
+
 #author{
 	position: absolute;
 	bottom: 10px;
@@ -360,6 +404,7 @@ header nav a.current{
 	bottom: 0px;
 	background-color: #333333;
 	display: none;
+	z-index: 1000;
 }
 
 #about{

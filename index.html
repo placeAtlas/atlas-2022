@@ -26,7 +26,7 @@
 <html>
 	<head>
 		<meta charset="utf-8">
-		<link href="./style.css?version=1.0.1" rel="stylesheet" type="text/css" media="all">
+		<link href="./style.css?version=1.0.2" rel="stylesheet" type="text/css" media="all">
 		<title>
 			The /r/place Atlas
 		</title>
@@ -66,6 +66,12 @@
 				<canvas id="highlightCanvas" width="1000" height="1000"></canvas>
 				<img id="image" src="./place.png" width="1000" height="1000" />
 			</div>
+		</div>
+
+		<div id="zoomControls">
+			<button title="Zoom In" id="zoomInButton"></button>
+			<button title="Reset View" id="zoomResetButton"></button>
+			<button title="Zoom Out" id="zoomOutButton"></button>
 		</div>
 
 		<div id="drawControls">
@@ -123,7 +129,7 @@
 		<script type="text/javascript" src="./atlas.js?version=1.0.35"></script>
 		<script type="text/javascript" src="./view.js?version=1.0"></script>
 		<script type="text/javascript" src="./draw.js?version=1.0.1"></script>
-		<script type="text/javascript" src="./main.js?version=1.0"></script>
+		<script type="text/javascript" src="./main.js?version=1.0.1"></script>
 		
 	</body>
 </html>

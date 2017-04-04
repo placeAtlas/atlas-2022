@@ -116,6 +116,20 @@ function init(){
 		applyView();
 	}
 
+	document.getElementById("zoomInButton").addEventListener("click", function(e){
+		zoomIn(container.clientWidth/2, container.clientHeight/2);
+	});
+
+	document.getElementById("zoomOutButton").addEventListener("click", function(e){
+		zoomOut(container.clientWidth/2, container.clientHeight/2);
+	});
+
+	document.getElementById("zoomResetButton").addEventListener("click", function(e){
+		zoom = 1;
+		zoomOrigin = [0, 50];
+		applyView();
+	});
+
 	container.addEventListener("dblclick", function(e){
 		if(e.ctrlKey){
 
