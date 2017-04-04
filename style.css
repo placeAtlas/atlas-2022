@@ -214,6 +214,11 @@ header nav a.current{
 	margin-bottom: 5px;
 }
 
+.object a.inline{
+	background-color: transparent;
+	display: inline;
+}
+
 .object a:hover{
 	background-color: #777777;
 	text-decoration: none;
