@@ -47,23 +47,39 @@ function initDraw(){
 	var drawing = true;
 
 	var undoHistory = [];
+  var _global_key_status = {"L_SHIFT":0, "R_SHIFT":0, buff:{}};
 
 	var lastPos = [0, 0];
 
 	render(path);
 
 	container.addEventListener("mousedown", function(e){
+    var e_clientX = e.clientX;
+    var e_clientY = e.clientY;
+    if(_global_key_status.R_SHIFT || _global_key_status.L_SHIFT === 1){
+      var r = lockHorV(e);
+      e_clientX=r[0];
+      e_clientY=r[1];
+    }
 		lastPos = [
-			 e.clientX
-			,e.clientY
+			 e_clientX
+			,e_clientY
 		];
 	});
 
 	container.addEventListener("mouseup", function(e){
-		if(Math.abs(lastPos[0] - e.clientX) + Math.abs(lastPos[1] - e.clientY) <= 4 && drawing){
+    var e_clientX = e.clientX;
+    var e_clientY = e.clientY;
+
+      if(_global_key_status.R_SHIFT || _global_key_status.L_SHIFT === 1){
+        e_clientX = lastPos[0];
+        e_clientY = lastPos[1];
+      }
+
+		if(Math.abs(lastPos[0] - e_clientX) + Math.abs(lastPos[1] - e_clientY) <= 4 && drawing){
 			path.push([
-				 ~~((e.clientX - (container.clientWidth/2 - innerContainer.clientWidth/2 + zoomOrigin[0]))/zoom)+0.5
-				,~~((e.clientY - (container.clientHeight/2 - innerContainer.clientHeight/2 + zoomOrigin[1]))/zoom)+0.5
+				 ~~((e_clientX - (container.clientWidth/2 - innerContainer.clientWidth/2 + zoomOrigin[0]))/zoom)+0.5
+				,~~((e_clientY - (container.clientHeight/2 - innerContainer.clientHeight/2 + zoomOrigin[1]))/zoom)+0.5
 			]);
 			render(path);
 			
@@ -77,11 +93,31 @@ function initDraw(){
 		}
 	});
 
+  function lockHorV(e){
+    var e_clientX = e.clientX;
+    var e_clientY = e.clientY;
+    var x_offset = Math.abs(e.clientX -lastPos[0]);
+    var y_offset = Math.abs(e.clientY-lastPos[1]);
+    var offset = y_offset - x_offset ;
+    if(y_offset > x_offset ) //keep x 
+      e_clientX = lastPos[0];
+    else if (x_offset > y_offset) //keep y
+      e_clientY =lastPos[1];
+    return [e_clientX,e_clientY];
+  }
+
 	window.addEventListener("mousemove", function(e){
+    var e_clientX = e.clientX;
+    var e_clientY = e.clientY;
 		if(!dragging && drawing){
+      if(_global_key_status.R_SHIFT || _global_key_status.L_SHIFT === 1){
+        var r = lockHorV(e);
+        e_clientX=r[0];
+        e_clientY=r[1];
+      }
 			var last = [
-				 ~~((e.clientX - (container.clientWidth/2 - innerContainer.clientWidth/2 + zoomOrigin[0]))/zoom)+0.5
-				,~~((e.clientY - (container.clientHeight/2 - innerContainer.clientHeight/2 + zoomOrigin[1]))/zoom)+0.5
+				 ~~((e_clientX - (container.clientWidth/2 - innerContainer.clientWidth/2 + zoomOrigin[0]))/zoom)+0.5
+				,~~((e_clientY - (container.clientHeight/2 - innerContainer.clientHeight/2 + zoomOrigin[1]))/zoom)+0.5
 			];
 			render(path.concat([last]));
 		}
@@ -96,8 +132,23 @@ function initDraw(){
 			redo();
 		} else if(e.key == "Escape"){
 			exportOverlay.style.display = "none";
-		}
+		} else if (e.key === "Shift" ){
+      if(e.code === "ShiftRight")
+        _global_key_status.R_SHIFT = 0;
+      else if(e.code === "ShiftLeft")
+        _global_key_status.L_SHIFT = 0;
+    }
 	});
+
+	window.addEventListener("keydown", function(e){
+   if (e.key === "Shift" ){
+      if(e.code === "ShiftRight")
+        _global_key_status.R_SHIFT = 1;
+      else if(e.code === "ShiftLeft")
+        _global_key_status.L_SHIFT = 1;
+    }
+ 
+  });
 
 	finishButton.addEventListener("click", function(e){
 		finish();
