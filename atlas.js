@@ -14627,7 +14627,7 @@ var atlas = [
 		]
 	},
 	{
-		"id": 0,
+		"id": 259,
 		"name": "Flag of the Métis Peoples",
 		"description": "The Métis are a group of peoples in Canada and the northern United States who trace their descent to First Nations peoples and European settlers. Over time they have developed a unique culture.",
 		"website": "http://www.metisnation.ca/",
@@ -14652,6 +14652,221 @@ var atlas = [
 			[
 				297.5,
 				225.5
+			]
+		]
+	},
+	{
+		"id": 260,
+		"name": "Daft Punk and Beanie Collab",
+		"description": "Daft Punk is a French electronic music duo formed in 1993 by Guy-Manuel de Homem-Christo and Thomas Bangalter. Below them is a beanie with the name \"DAFT PUNK\" created with members of the H3H3 subreddit",
+		"website": "https://www.daftpunk.com/",
+		"subreddit": "/r/DaftPunk",
+		"center": [
+			989.5,
+			321.5
+		],
+		"path": [
+			[
+				988.5,
+				307.5
+			],
+			[
+				979.5,
+				307.5
+			],
+			[
+				978.5,
+				308.5
+			],
+			[
+				978.5,
+				309.5
+			],
+			[
+				978.5,
+				307.5
+			],
+			[
+				977.5,
+				315.5
+			],
+			[
+				979.5,
+				316.5
+			],
+			[
+				979.5,
+				321.5
+			],
+			[
+				980.5,
+				323.5
+			],
+			[
+				983.5,
+				333.5
+			],
+			[
+				981.5,
+				337.5
+			],
+			[
+				998.5,
+				337.5
+			],
+			[
+				997.5,
+				329.5
+			],
+			[
+				997.5,
+				325.5
+			],
+			[
+				997.5,
+				321.5
+			],
+			[
+				998.5,
+				321.5
+			],
+			[
+				998.5,
+				316.5
+			],
+			[
+				999.5,
+				316.5
+			],
+			[
+				999.5,
+				307.5
+			],
+			[
+				989.5,
+				307.5
+			],
+			[
+				988.5,
+				307.5
+			]
+		]
+	},
+	{
+		"id": 261,
+		"name": "Forsenboys",
+		"description": "Forsen is one of the veterans of Hearthstone streaming on Twitch.tv\nHis emote ForsenE has been vandalised a couple of times and the last attempt at restoring the emote is visible",
+		"website": "",
+		"subreddit": "/r/forsen",
+		"center": [
+			898.5,
+			100.5
+		],
+		"path": [
+			[
+				879.5,
+				93.5
+			],
+			[
+				918.5,
+				93.5
+			],
+			[
+				918.5,
+				107.5
+			],
+			[
+				904.5,
+				105.5
+			],
+			[
+				897.5,
+				105.5
+			],
+			[
+				894.5,
+				107.5
+			],
+			[
+				892.5,
+				103.5
+			],
+			[
+				888.5,
+				105.5
+			],
+			[
+				883.5,
+				105.5
+			],
+			[
+				880.5,
+				110.5
+			],
+			[
+				880.5,
+				117.5
+			],
+			[
+				879.5,
+				117.5
+			],
+			[
+				879.5,
+				93.5
+			]
+		]
+	},
+	{
+		"id": 262,
+		"name": "Kanye West Discography",
+		"description": "Kanye Omari West is an American rapper, songwriter, record producer, fashion designer, and entrepreneur.",
+		"website": "",
+		"subreddit": "/r/kanye",
+		"center": [
+			83.5,
+			553.5
+		],
+		"path": [
+			[
+				0.5,
+				581.5
+			],
+			[
+				0.5,
+				549.5
+			],
+			[
+				28.5,
+				549.5
+			],
+			[
+				28.5,
+				497.5
+			],
+			[
+				61.5,
+				497.5
+			],
+			[
+				61.5,
+				531.5
+			],
+			[
+				155.5,
+				531.5
+			],
+			[
+				155.5,
+				562.5
+			],
+			[
+				187.5,
+				562.5
+			],
+			[
+				187.5,
+				581.5
 			]
 		]
 	}
