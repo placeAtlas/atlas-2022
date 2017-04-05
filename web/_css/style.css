@@ -138,6 +138,41 @@ header nav a.current{
 	outline: none;
 }
 
+select{	
+	background: none;
+	background-image: linear-gradient(to bottom, #888888, #666666);
+	border: 1px #222222 outset;
+	color: #FFFFFF;
+	cursor: pointer;
+	padding: 3px;
+}
+
+select{
+	-moz-appearance: none;
+	-webkit-appearance: none;
+	appearance: none;
+	background-image: url(../_img/arrowDown.svg), linear-gradient(to bottom, #888888, #666666);
+	background-repeat: no-repeat, repeat;
+	background-position: calc(100% - 10px) center, 0 0;
+	background-size: 10px, cover;
+	padding-left: 7px;
+}
+
+select:hover{
+	background-image: url(../_img/arrowDown.svg), linear-gradient(to bottom, rgba(255, 255, 255, 0.6), rgba(180, 180, 180, 0.5));
+}
+
+select:active{
+	background-image: url(../_img/arrowDown.svg), linear-gradient(to bottom, rgba(255, 255, 255, 0.6), rgba(180, 180, 180, 0.8));
+}
+
+option,
+optgroup{
+	background-color: #555555;
+	font-size: 16px;
+	border-color: #BBBBBB
+}
+
 #linesCanvas{
 	position: absolute;
 	height: calc(100% - 50px);
@@ -192,6 +227,7 @@ header nav a.current{
 	border: 1px #000000 solid;
 	margin: 10px 0px 0px 10px;
 	padding: 10px;
+	overflow-x: auto;
 }
 
 .object *{
@@ -368,7 +404,7 @@ input[type="checkbox"]{
 #zoomControls{
 	position: absolute;
 	top: 60px;
-	right: 10px;
+	right: 320px;
 	display: flex;
 	width: 90px;
 }
@@ -406,6 +442,56 @@ button#zoomResetButton{
 
 #zoomOutButton{
 	background-image: url(../_img/minus.svg?version=1.0.0);
+}
+
+#entriesListContainer{
+	position: absolute;
+	right: 10px;
+	top: 60px;
+	bottom: 40px;
+	width: 300px;
+	display: flex;
+	flex-direction: column;
+}
+
+#entriesListControls{
+	background-color: #444444;
+	border: 1px #000000 solid;
+	padding: 5px;
+	margin-bottom: 5px;
+}
+
+#atlasSize{
+	display: block;
+	margin: 3px 0px 5px 0px;
+}
+
+#searchList{
+	width: 100%;
+}
+
+#sortContainer{
+	
+}
+
+#sortContainer label{
+	width: 70px;
+}
+
+#sort{
+	width: 150px;
+}
+
+#entriesListControls{
+	width: 100%;
+}
+
+#entriesList{
+	overflow-y: auto;
+}
+
+#entriesList .object{
+	margin: 0px 5px 10px 0px;
 }
 
 #author{

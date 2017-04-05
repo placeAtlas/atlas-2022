@@ -35,6 +35,16 @@ var zoomOrigin = [0, 50];
 var dragging = false;
 var lastPosition = [0, 0];
 
+function applyView(){
+
+	//console.log(zoom);
+
+	innerContainer.style.height = (zoom*1000)+"px";
+	innerContainer.style.width = (zoom*1000)+"px";
+	
+	innerContainer.style.left = (container.clientWidth/2 - innerContainer.clientWidth/2 + zoomOrigin[0])+"px";
+	innerContainer.style.top = (container.clientHeight/2 - innerContainer.clientHeight/2 + zoomOrigin[1])+"px";
+}
 
 init();
 
@@ -58,6 +68,9 @@ function init(){
 		document.getElementById("aboutLink").className = "";
 		document.getElementById("drawControls").style.display = "none";
 		document.getElementById("aboutContainer").style.display = "none";
+		document.getElementById("entriesListContainer").style.display = "flex";
+		//document.getElementById("author").style.right = "320px";
+		document.getElementById("zoomControls").style.right = "320px";
 
 		initView();
 		
@@ -67,6 +80,9 @@ function init(){
 		document.getElementById("aboutLink").className = "";
 		document.getElementById("drawControls").style.display = "block";
 		document.getElementById("aboutContainer").style.display = "none";
+		document.getElementById("entriesListContainer").style.display = "none";
+		//document.getElementById("author").style.right = "10px";
+		document.getElementById("zoomControls").style.right = "10px";
 
 		initDraw();
 	} else if(mode=="about"){
@@ -75,20 +91,12 @@ function init(){
 		document.getElementById("aboutLink").className = "current";
 		document.getElementById("drawControls").style.display = "none";
 		document.getElementById("aboutContainer").style.display = "block";
+		document.getElementById("entriesListContainer").style.display = "none";
+		//document.getElementById("author").style.right = "10px";
+		document.getElementById("zoomControls").style.right = "10px";
 	}
 
 	applyView();
-
-	function applyView(){
-
-		//console.log(zoom);
-
-		innerContainer.style.height = (zoom*1000)+"px";
-		innerContainer.style.width = (zoom*1000)+"px";
-		
-		innerContainer.style.left = (container.clientWidth/2 - innerContainer.clientWidth/2 + zoomOrigin[0])+"px";
-		innerContainer.style.top = (container.clientHeight/2 - innerContainer.clientHeight/2 + zoomOrigin[1])+"px";
-	}
 
 	function zoomOut(x, y){
 

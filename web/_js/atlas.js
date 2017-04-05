@@ -5080,7 +5080,7 @@ var atlas = [
 	},
 	{
 		"id": 100,
-		"name": "\"Menacing\"",
+		"name": "Menacing",
 		"description": "This is the Japanese katakana ゴゴゴゴ or \"gogogo\" in romanji which emulates a \"Menacing\" sound effect that is used frequently by the popular anime/manga series JoJo’s Bizarre Adventure. \"Is that a JoJo reference!?\"",
 		"website": "",
 		"subreddit": "/r/StardustCrusaders/",
@@ -7485,7 +7485,7 @@ var atlas = [
 	},
 	{
 		"id": 145,
-		"name": "/r/Parahumans Banner",
+		"name": "Parahumans",
 		"description": "Banner for /r/parahumans, fan subreddit for web serials by Wildbow. Read Worm!",
 		"website": "https://parahumans.wordpress.com",
 		"subreddit": "/r/parahumans",
@@ -13549,8 +13549,8 @@ var atlas = [
 		"id": 241,
 		"name": "Rickroll QR code",
 		"description": "Intended to be QR code leading to <a class=\"inline\" target=\"_blank\"   href=\"https://goo.gl/vcgo0O\">goo.gl/vcgo0O</a>, which, in turn, leads to <a class=\"inline\" target=\"_blank\"   href=\"https://www.youtube.com/watch?v=dQw4w9WgXcQ\">YouTube</a><br>Was vandalized during the last moments, and no longer works.\nVideo of the QR code in action during the times of its glory: <a class=\"inline\" target=\"_blank\"   href=\"https://www.youtube.com/watch?v=S-GFbM0vN3g\">YouTube</a>",
-		"website": "https://www.youtube.com/watch?v=dQw4w9WgXcQ",
-		"subreddit": "/r/place/comments/62zs4y/rick_roll_qr_code_idea/",
+		"website": "https://reddit.com/r/place/comments/62zs4y/rick_roll_qr_code_idea/",
+		"subreddit": "",
 		"center": [
 			15.5,
 			51.5
@@ -17138,7 +17138,7 @@ var atlas = [
     			730.5
     		]
     	]
-    },    {
+    },  /*  {
     	"id": 284,
     	"name": "/r/reddevils",
     	"description": "Supporter subreddit for the English Premier League football team Manchester United",
@@ -17178,7 +17178,7 @@ var atlas = [
     			124.5
     		]
     	]
-    },    {
+    },  */  {
     	"id": 285,
     	"name": "AMD Radeo, Ryzen, and ATI",
     	"description": "AMD is a computer hardware company that manufactures graphics cards and CPUs for PCs. RYZEN is its latest CPU architecture, and Radeon is the name of its GPU lineup.",
@@ -27547,8 +27547,8 @@ var atlas = [
     	]
     },    {
     	"id": 405,
-    	"name": "",
-    	"description": "Crown of the Crown- Prince of Norway. A show of solidarity between the Crusader Kings and Norway",
+    	"name": "Crown of Haakon",
+    	"description": "Crown of the Crown Prince of Norway. A show of solidarity between the Crusader Kings and Norway",
     	"website": "",
     	"subreddit": "",
     	"center": [
@@ -31510,7 +31510,7 @@ var atlas = [
     	]
     },    {
     	"id": 476,
-    	"name": "",
+    	"name": "Kinda Funny",
     	"description": "Kinda Funny is an online entertainment company that produces videos on video game culture, film, television, and comics.",
     	"website": "https://www.kindafunny.com/",
     	"subreddit": "/r/kindafunny",
@@ -50754,7 +50754,7 @@ var atlas = [
     },    {
     	"id": 781,
 		"submitted_by": "Gnome_of_Nome",
-    	"name": "/r/TFLS",
+    	"name": "TFLS",
     	"description": "the label for /r/thefarleftside",
     	"website": "",
     	"subreddit": "/r/thefarleftside",
@@ -51022,7 +51022,7 @@ var atlas = [
     			622.5
     		]
     	]
-    }, */   {
+    }, *//*   {
     	"id": 788,
 		"submitted_by": "insert_funny_here",
     	"name": "/r/Weezer advertisement",
@@ -51055,7 +51055,7 @@ var atlas = [
     			945.5
     		]
     	]
-    },    {
+    },  */  {
     	"id": 789,
 		"submitted_by": "BrennanofOrange",
     	"name": "2112",
@@ -58537,7 +58537,7 @@ var atlas = [
 		"submitted_by": "Swordficsh",
     	"name": "Toucan",
     	"description": "le toucan has arrived sheepoToucan",
-    	"website": "twitch.tv/sheepsticked",
+    	"website": "https://twitch.tv/sheepsticked",
     	"subreddit": "",
     	"center": [
     		830.5,
@@ -64243,7 +64243,7 @@ var atlas = [
     },*/ {
     	"id": 1037,
 		"submitted_by": "amoliski",
-    	"name": "\"Weon\"",
+    	"name": "Weon",
     	"description": "Slang word said in Chile. Can be used as: \na)dude \nb)screwing around \nc)thing or object\n",
     	"website": "http://www.urbandictionary.com/define.php?term=weon",
     	"subreddit": "",

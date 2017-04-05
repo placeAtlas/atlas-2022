@@ -26,7 +26,7 @@
 <html>
 	<head>
 		<meta charset="utf-8">
-		<link href="./_css/style.css?version=1.0.4" rel="stylesheet" type="text/css" media="all">
+		<link href="./_css/style.css?version=1.0.5" rel="stylesheet" type="text/css" media="all">
 		<title>
 			The /r/place Atlas
 		</title>
@@ -53,6 +53,24 @@
 			<div id="innerContainer">
 				<canvas id="highlightCanvas" width="1000" height="1000"></canvas>
 				<img id="image" src="./_img/place.png" width="1000" height="1000" />
+			</div>
+		</div>
+
+		<div id="entriesListContainer">
+			<div id="entriesListControls">
+				<input id="searchList" type="text" placeholder="Search...">
+				<span id="atlasSize"></span>
+				<div id="sortContainer"><label>Sort:</label>
+					<select id="sort">
+						<option value="alphaAsc" selected>↓ Alphabetical</option>
+						<option value="alphaDesc">↑ Alphabetical</option>
+						<option value="newest">Newest</option>
+						<option value="oldest">Oldest</option>
+					</select>
+				</div>
+			</div>
+			<div id="entriesList">
+				
 			</div>
 		</div>
 
@@ -763,10 +781,10 @@
 		</div>
 		
 		<script type="text/javascript" src="./_js/pointInPolygon.js?version=1.0"></script>
-		<script type="text/javascript" src="./_js/atlas-min.js?version=1.0.42"></script>
-		<script type="text/javascript" src="./_js/view.js?version=1.0.1"></script>
+		<script type="text/javascript" src="./_js/atlas-min.js?version=1.0.43"></script>
+		<script type="text/javascript" src="./_js/view.js?version=1.0.2"></script>
 		<script type="text/javascript" src="./_js/draw.js?version=1.0.3"></script>
-		<script type="text/javascript" src="./_js/main.js?version=1.0.1"></script>
+		<script type="text/javascript" src="./_js/main.js?version=1.0.2"></script>
 		
 	</body>
 </html>
