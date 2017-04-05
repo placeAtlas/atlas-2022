@@ -375,16 +375,16 @@ header nav a.current{
 }
 
 #zoomInButton{
-	background-image: url(plus.svg);
+	background-image: url(../_img/plus.svg);
 }
 
 button#zoomResetButton{
-	background-image: url(original.svg);
+	background-image: url(../_img/original.svg);
 	background-size: 20px;
 }
 
 #zoomOutButton{
-	background-image: url(minus.svg);
+	background-image: url(../_img/minus.svg);
 }
 
 #author{
