@@ -41,13 +41,22 @@ function initDraw(){
 	var exportOverlay = document.getElementById("exportOverlay");
 	var exportCloseButton = document.getElementById("exportCloseButton");
 
+	var backgroundCanvas = document.createElement("canvas");
+	backgroundCanvas.width = 1000;
+	backgroundCanvas.height = 1000;
+	var backgroundContext = backgroundCanvas.getContext("2d");
+
+	var highlightUncharted = true;
+
+	renderBackground();
+
 	container.style.cursor = "crosshair";
 	
 	var path = [];
 	var drawing = true;
 
 	var undoHistory = [];
-  var _global_key_status = {"L_SHIFT":0, "R_SHIFT":0, buff:{}};
+	var _global_key_status = {"L_SHIFT":0, "R_SHIFT":0, buff:{}};
 
 	var lastPos = [0, 0];
 
@@ -197,6 +206,11 @@ function initDraw(){
 		exportOverlay.style.display = "none";
 	});
 
+	document.getElementById("highlightUncharted").addEventListener("click", function(e){
+		highlightUncharted = this.checked;
+		render(path);
+	});
+
 	function exportJson(){		
 		var exportObject = {
 			 id: 0
@@ -307,12 +321,45 @@ function initDraw(){
 		document.getElementById("subredditField").value = "";
 	}
 
+	function renderBackground(){
+
+		backgroundContext.clearRect(0, 0, canvas.width, canvas.height);
+			
+		backgroundContext.fillStyle = "rgba(0, 0, 0, 0.8)";
+		//backgroundContext.fillRect(0, 0, canvas.width, canvas.height);
+		
+		for(var i = 0; i < atlas.length; i++){
+
+			var path = atlas[i].path;
+			
+			backgroundContext.beginPath();
+
+			if(path[0]){
+				backgroundContext.moveTo(path[0][0], path[0][1]);
+			}
+			
+			for(var p = 1; p < path.length; p++){
+				backgroundContext.lineTo(path[p][0], path[p][1]);
+			}
+
+			backgroundContext.closePath();
+			
+			backgroundContext.fill();
+		}
+	}
+
 	function render(path){
 
 		context.globalCompositeOperation = "source-over";
 		context.clearRect(0, 0, canvas.width, canvas.height);
 		
-		context.fillStyle = "rgba(0, 0, 0, 0.6)";
+		if(highlightUncharted){
+			context.drawImage(backgroundCanvas, 0, 0);
+			context.fillStyle = "rgba(0, 0, 0, 0.4)";
+		} else {
+			context.fillStyle = "rgba(0, 0, 0, 0.6)";
+		}
+		
 		context.fillRect(0, 0, canvas.width, canvas.height);
 
 		context.beginPath();
