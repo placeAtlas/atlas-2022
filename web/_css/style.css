@@ -248,12 +248,24 @@ optgroup{
 }
 
 .object h2{
+	display: block;
 	font-size: 20px;
 	background-color: #666666;
 	text-shadow: 1px 1px 0px #000000;
-	padding: 3px 10px;
 	margin: 0px -10px 10px -10px;
 	font-weight: 300;
+}
+
+.object h2 a{
+	color: #FFFFFF;
+	padding: 3px 10px;
+	display: block;
+	height: 100%;
+	width: 100%;
+}
+
+.object h2 a:hover{
+	color: #FFAA00;
 }
 
 .object a{

@@ -23,29 +23,6 @@
 	========================================================================
 */
 
-function createInfoBlock(entry){
-	var element = document.createElement("div");
-	element.className = "object";
-
-	var html = '<h2><a href="#id'+entry.id+'">'+entry.name+'</a></h2>';
-	if(entry.description){
-		html += '<p>'+entry.description+'</p>';
-	}
-	if(entry.website){
-		html += '<a target="_blank" href='+entry.website+'>Website</a>';
-	}
-	if(entry.subreddit){
-		if(entry.subreddit.substring(0, 2) == "r/"){
-			entry.subreddit = "/" + entry.subreddit;
-		} else if(entry.subreddit.substring(0, 1) != "/"){
-			entry.subreddit = "/r/" + entry.subreddit;
-		}
-		html += '<a target="_blank" href=https://reddit.com'+entry.subreddit+'>'+entry.subreddit+'</a>';
-	}
-	element.innerHTML = html;
-	return element;
-}
-
 function initView(){
 
 	var objectsContainer = document.getElementById("objectsList");
@@ -84,27 +61,19 @@ function initView(){
 	buildObjectsList();
 
 	// parse linked atlas entry id from link hash
-	if (window.location.hash.substring(3)){
-		var id = parseInt(window.location.hash.substring(3));
-		var entry = atlas.filter(function(e){
-			return e.id === id;
-		});
+	/*if (window.location.hash.substring(3)){
+		zoom = 4;
+		applyView();
+		highlightEntryFromUrl();
+	}*/
 
-		if (entry.length === 1){
-			entry = entry[0];
-			var infoElement = createInfoBlock(entry);
-			objectsContainer.appendChild(infoElement);
-
-			zoomOrigin = [
-				(-(container.clientWidth/2 - innerContainer.clientWidth/2) + container.clientWidth/2 - entry.center[0]* zoom)
-				,(-(container.clientHeight/2 - innerContainer.clientHeight/2) + container.clientHeight/2 + 50 - entry.center[1]* zoom)
-			]
+	var args = window.location.search;
+	if(args){
+		id = args.split("id=")[1];
+		if(id){
+			zoom = 4;
 			applyView();
-			hovered = [entry];
-			fixed = true;
-			render();
-			hovered[0].element = infoElement;
-			updateLines();
+			highlightEntryFromUrl();
 		}
 	}
 
@@ -129,6 +98,70 @@ function initView(){
 		buildObjectsList(filterInput.value.toLowerCase());
 
 	});
+
+	function createInfoBlock(entry){
+		var element = document.createElement("div");
+		element.className = "object";
+
+		var html = '<h2><a href="?id='+entry.id+'">'+entry.name+'</a></h2>';
+		
+		if(entry.description){
+			html += '<p>'+entry.description+'</p>';
+		}
+		if(entry.website){
+			html += '<a target="_blank" href='+entry.website+'>Website</a>';
+		}
+		if(entry.subreddit){
+			if(entry.subreddit.substring(0, 2) == "r/"){
+				entry.subreddit = "/" + entry.subreddit;
+			} else if(entry.subreddit.substring(0, 1) != "/"){
+				entry.subreddit = "/r/" + entry.subreddit;
+			}
+			html += '<a target="_blank" href=https://reddit.com'+entry.subreddit+'>'+entry.subreddit+'</a>';
+		}
+		element.innerHTML += html;
+		
+		return element;
+	}
+
+	function highlightEntryFromUrl(){
+
+		var objectsContainer = document.getElementById("objectsList");
+
+		var id = 0;
+		
+		var args = window.location.search;
+		if(args){
+			id = args.split("id=")[1];
+			if(id){
+				id = parseInt(id.split("&")[0]);
+			}
+		}
+
+		//var id = parseInt(window.location.hash.substring(3));
+		
+		var entry = atlas.filter(function(e){
+			return e.id === id;
+		});
+
+		if (entry.length === 1){
+			entry = entry[0];
+			var infoElement = createInfoBlock(entry);
+			objectsContainer.innerHTML = "";
+			objectsContainer.appendChild(infoElement);
+
+			zoomOrigin = [
+				 (innerContainer.clientWidth/2 - entry.center[0]* zoom)
+				,(innerContainer.clientWidth/2 + 50 - entry.center[1]* zoom)
+			]
+			applyView();
+			hovered = [entry];
+			render();
+			hovered[0].element = infoElement;
+			updateLines();
+			fixed = true;
+		}
+	}
 
 	function updateHovering(e){
 		if(!dragging && !fixed){
@@ -243,11 +276,11 @@ function initView(){
 			break;
 			case "alphaDesc":
 				sortFunction = function(a, b){
-					if (a.name > b.name) {
-						return -1;
-					}
 					if (a.name < b.name) {
 						return 1;
+					}
+					if (a.name > b.name) {
+						return -1;
 					}
 						// a must be equal to b
 					return 0;
@@ -290,27 +323,30 @@ function initView(){
 
 			var element = createInfoBlock(sortedAtlas[i]);
 
-			element.foo = sortedAtlas[i];
+			element.entry = sortedAtlas[i];
 
 			element.addEventListener("mouseenter", function(e){
-				objectsContainer.innerHTML = "";
-				zoomOrigin = [
-					(-(container.clientWidth/2 - innerContainer.clientWidth/2) + container.clientWidth/2 - this.foo.center[0]* zoom)
-					,(-(container.clientHeight/2 - innerContainer.clientHeight/2) + container.clientHeight/2 + 50 - this.foo.center[1]* zoom)
-				]
-				applyView();
-				hovered = [this.foo];
-				render();
-				hovered[0].element = this;
-				updateLines();
+				if(!fixed){
+					objectsContainer.innerHTML = "";
+					zoomOrigin = [
+						(innerContainer.clientWidth/2 - this.entry.center[0]* zoom)
+						,(innerContainer.clientWidth/2 + 50 - this.entry.center[1]* zoom)
+					]
+					applyView();
+					hovered = [this.entry];
+					render();
+					hovered[0].element = this;
+					updateLines();
+				}
 
 			});
 
 			element.addEventListener("mouseleave", function(e){
-				hovered = [];
-				fixed = false;
-				updateLines();
-				render();
+				if(!fixed){
+					hovered = [];
+					updateLines();
+					render();
+				}
 			});
 
 			entriesList.appendChild(element);
