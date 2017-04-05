@@ -397,16 +397,15 @@ input[type="checkbox"]{
 }
 
 #zoomInButton{
-	background-image: url(../_img/plus.svg);
+	background-image: url(../_img/plus.svg?version=1.0.0);
 }
 
 button#zoomResetButton{
-	background-image: url(../_img/original.svg);
-	background-size: 20px;
+	background-image: url(../_img/original.svg?version=1.0.1);
 }
 
 #zoomOutButton{
-	background-image: url(../_img/minus.svg);
+	background-image: url(../_img/minus.svg?version=1.0.0);
 }
 
 #author{

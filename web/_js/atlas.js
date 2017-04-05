@@ -38091,7 +38091,7 @@ var atlas = [
     	"name": "Dreddit",
     	"description": "The original reddit corporation in the game EVE Online and their lovable mascot: Middle-Management Dino",
     	"website": "http://www.dredditisrecruiting.com",
-    	"subreddit": "/r/dreddit",
+    	"subreddit": "/r/evedreddit",
     	"center": [
     		708.5,
     		133.5
@@ -45770,9 +45770,402 @@ var atlas = [
     			599.5
     		]
     	]
+    },    {
+    	"id": 687,
+		"submitted_by": "kodykid168",
+    	"name": "Kingdom Key",
+    	"description": "The default Keyblade from Kingdom Hearts.",
+    	"website": "",
+    	"subreddit": "/r/KingdomHearts",
+    	"center": [
+    		980.5,
+    		399.5
+    	],
+    	"path": [
+    		[
+    			982.5,
+    			388.5
+    		],
+    		[
+    			990.5,
+    			388.5
+    		],
+    		[
+    			990.5,
+    			397.5
+    		],
+    		[
+    			969.5,
+    			411.5
+    		],
+    		[
+    			965.5,
+    			405.5
+    		],
+    		[
+    			969.5,
+    			401.5
+    		],
+    		[
+    			972.5,
+    			404.5
+    		],
+    		[
+    			978.5,
+    			399.5
+    		],
+    		[
+    			978.5,
+    			394.5
+    		],
+    		[
+    			978.5,
+    			393.5
+    		]
+    	]
+    },    {
+    	"id": 688,
+		"submitted_by": "ImNotHimBut",
+    	"name": "Bird That Carries You Over A Disproportionately Small Gap (Undertale)",
+    	"description": "Bird That Carries You Over A Disproportionately Small Gap (yes, it is the full name) is a minor NPC from video game Undertale.\nThe small bird to the right is not from the game, but probably inspired by this one.",
+    	"website": "https://undertale.com",
+    	"subreddit": "r/Undertale/comments/62n209/with_reddits_new_rplace_we_should_work_together/",
+    	"center": [
+    		563.5,
+    		917.5
+    	],
+    	"path": [
+    		[
+    			565.5,
+    			908.5
+    		],
+    		[
+    			559.5,
+    			908.5
+    		],
+    		[
+    			555.5,
+    			912.5
+    		],
+    		[
+    			559.5,
+    			916.5
+    		],
+    		[
+    			557.5,
+    			919.5
+    		],
+    		[
+    			557.5,
+    			926.5
+    		],
+    		[
+    			568.5,
+    			926.5
+    		],
+    		[
+    			568.5,
+    			922.5
+    		],
+    		[
+    			570.5,
+    			920.5
+    		],
+    		[
+    			570.5,
+    			914.5
+    		]
+    	]
+    },    {
+    	"id": 689,
+		"submitted_by": "Derek_Goons",
+    	"name": "Script Cal",
+    	"description": "Logo of the University of California, Berkeley",
+    	"website": "",
+    	"subreddit": "/r/berkeley",
+    	"center": [
+    		984.5,
+    		61.5
+    	],
+    	"path": [
+    		[
+    			993.5,
+    			49.5
+    		],
+    		[
+    			994.5,
+    			50.5
+    		],
+    		[
+    			977.5,
+    			51.5
+    		],
+    		[
+    			969.5,
+    			62.5
+    		],
+    		[
+    			972.5,
+    			72.5
+    		],
+    		[
+    			993.5,
+    			71.5
+    		],
+    		[
+    			997.5,
+    			68.5
+    		],
+    		[
+    			996.5,
+    			54.5
+    		]
+    	]
+    },    {
+    	"id": 690,
+		"submitted_by": "Noobkiller1821",
+    	"name": "Drum Core International",
+    	"description": "From modest beginnings more than three decades ago, Drum Corps International (DCI) has developed into a powerful, nonprofit, global youth activity with far-reaching artistic, educational and organizational influence. Through the annual DCI Tour and World Championships, Drum Corps International provides entertainment to millions through live performances and nationally-broadcast events. Drum Corps International is Marching Music’s Major League™.",
+    	"website": "http://www.dci.org/",
+    	"subreddit": "/r/drumcorps",
+    	"center": [
+    		810.5,
+    		657.5
+    	],
+    	"path": [
+    		[
+    			822.5,
+    			664.5
+    		],
+    		[
+    			822.5,
+    			649.5
+    		],
+    		[
+    			798.5,
+    			649.5
+    		],
+    		[
+    			798.5,
+    			664.5
+    		]
+    	]
+    },    {
+    	"id": 691,
+		"submitted_by": "amazingpikachu_38",
+    	"name": "/r/livecounting banner",
+    	"description": "This was a banner for /r/livecounting. It used to have a /r/counting banner below it and a Pincus ({:'-D) above it but both were eventually destroyed, and this was what remained.",
+    	"website": "",
+    	"subreddit": "/r/livecounting",
+    	"center": [
+    		33.5,
+    		366.5
+    	],
+    	"path": [
+    		[
+    			6.5,
+    			361.5
+    		],
+    		[
+    			6.5,
+    			371.5
+    		],
+    		[
+    			60.5,
+    			371.5
+    		],
+    		[
+    			59.5,
+    			361.5
+    		],
+    		[
+    			6.5,
+    			361.5
+    		]
+    	]
+    },    {
+    	"id": 692,
+		"submitted_by": "Seminal_Sound",
+    	"name": "Star Citizen Ship",
+    	"description": "A last-minute addition to /r/ainbowroad, the beginning of a StarCitzen Spaceship. The place finished before it could be completed.",
+    	"website": "https://www.robertsspaceindustries.com/",
+    	"subreddit": "/r/starcitizen",
+    	"center": [
+    		616.5,
+    		481.5
+    	],
+    	"path": [
+    		[
+    			600.5,
+    			482.5
+    		],
+    		[
+    			614.5,
+    			475.5
+    		],
+    		[
+    			614.5,
+    			473.5
+    		],
+    		[
+    			611.5,
+    			473.5
+    		],
+    		[
+    			612.5,
+    			470.5
+    		],
+    		[
+    			618.5,
+    			469.5
+    		],
+    		[
+    			621.5,
+    			473.5
+    		],
+    		[
+    			626.5,
+    			478.5
+    		],
+    		[
+    			633.5,
+    			476.5
+    		],
+    		[
+    			636.5,
+    			480.5
+    		],
+    		[
+    			626.5,
+    			485.5
+    		],
+    		[
+    			615.5,
+    			489.5
+    		],
+    		[
+    			610.5,
+    			492.5
+    		],
+    		[
+    			600.5,
+    			488.5
+    		],
+    		[
+    			599.5,
+    			485.5
+    		]
+    	]
+    },    {
+    	"id": 693,
+		"submitted_by": "kodykid168",
+    	"name": "Phoenix Wright",
+    	"description": "",
+    	"website": "",
+    	"subreddit": "",
+    	"center": [
+    		954.5,
+    		648.5
+    	],
+    	"path": [
+    		[
+    			949.5,
+    			643.5
+    		],
+    		[
+    			958.5,
+    			643.5
+    		],
+    		[
+    			959.5,
+    			652.5
+    		],
+    		[
+    			955.5,
+    			656.5
+    		],
+    		[
+    			953.5,
+    			656.5
+    		],
+    		[
+    			948.5,
+    			646.5
+    		],
+    		[
+    			948.5,
+    			642.5
+    		]
+    	]
+    },    {
+    	"id": 694,
+		"submitted_by": "DistraughtStrawberry",
+    	"name": "Texas A&M University",
+    	"description": "The oldest public university in Texas, this flagship university provides the best return-on-investment among Texas' public schools, with almost 400 degrees. (2017)",
+    	"website": "http://www.tamu.edu/",
+    	"subreddit": "/r/aggies",
+    	"center": [
+    		7.5,
+    		867.5
+    	],
+    	"path": [
+    		[
+    			0.5,
+    			856.5
+    		],
+    		[
+    			15.5,
+    			856.5
+    		],
+    		[
+    			15.5,
+    			878.5
+    		],
+    		[
+    			-0.5,
+    			878.5
+    		],
+    		[
+    			-0.5,
+    			878.5
+    		]
+    	]
+    },    {
+    	"id": 695,
+		"submitted_by": "SomeGuyWithAProfile",
+    	"name": "Unturned",
+    	"description": "Zombie from Unturned, a free-to-play sandbox game.",
+    	"website": "",
+    	"subreddit": "/r/unturned",
+    	"center": [
+    		31.5,
+    		939.5
+    	],
+    	"path": [
+    		[
+    			24.5,
+    			931.5
+    		],
+    		[
+    			37.5,
+    			931.5
+    		],
+    		[
+    			37.5,
+    			945.5
+    		],
+    		[
+    			37.5,
+    			946.5
+    		],
+    		[
+    			24.5,
+    			946.5
+    		]
+    	]
     }
 
-    //686
+    //695
 ];
 
 console.log("There are "+atlas.length+" entries in the Atlas.");
