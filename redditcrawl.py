@@ -9,7 +9,7 @@ credentials = open('credentials', 'r')
 client_id = credentials.readline().strip(' \t\n\r')
 client_secret = credentials.readline().strip(' \t\n\r')
 
-startId = 546
+startId = 687
 
 reddit = praw.Reddit(client_id=client_id, client_secret=client_secret, user_agent='atlas_bot')
 

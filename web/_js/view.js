@@ -167,9 +167,6 @@ function initView(){
 
 			context.closePath();
 
-			//context.strokeStyle = "rgba(255, 255, 255, 1)";
-			//context.stroke();
-
 			context.globalCompositeOperation = "source-over";
 
 			context.fillStyle = "rgba(0, 0, 0, 1)";
@@ -180,6 +177,30 @@ function initView(){
 
 		context.globalCompositeOperation = "source-out";
 		context.drawImage(backgroundCanvas, 0, 0);
+
+		for(var i = 0; i < hovered.length; i++){
+			
+			var path = hovered[i].path;
+			
+			context.beginPath();
+
+			if(path[0]){
+				context.moveTo(path[0][0], path[0][1]);
+			}
+			
+			for(var p = 1; p < path.length; p++){
+				context.lineTo(path[p][0], path[p][1]);
+			}
+
+			context.closePath();
+
+			context.globalCompositeOperation = "source-over";
+
+			context.strokeStyle = "rgba(0, 0, 0, 1)";
+			context.stroke();
+		}
+
+		
 	}
 
 	function toggleFixed(e){
