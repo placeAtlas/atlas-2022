@@ -258,6 +258,28 @@ header nav a.current{
 	margin-right: 0px;
 }
 
+.checkboxLabel{
+	background-color: #666666;
+	padding: 3px;
+	cursor: pointer;
+}
+
+.checkboxLabel:hover{
+	background-color: #777777;
+}
+
+#drawControls .checkboxLabel{
+	display: inline-block;
+}
+
+input[type="checkbox"]{
+	margin: 3px;
+	vertical-align: middle;
+	display: inline-block;
+	width: 15px;
+	height: 15px;
+}
+
 #hint{
 	display: block;
 }
