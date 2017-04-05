@@ -4,10 +4,10 @@
 /*
 	========================================================================
 	The /r/place Atlas
-	
+
 	An Atlas of Reddit's /r/place, with information to each
 	artwork	of the canvas provided by the community.
-	
+
 	Copyright (C) 2017 Roland Rytz <roland@draemm.li>
 	Licensed under the GNU Affero General Public License Version 3
 	This program is free software: you can redistribute it and/or modify
@@ -19,10 +19,32 @@
 	MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.
 	For more information, see:
 	https://draemm.li/various/place-atlas/license.txt
-	
+
 	========================================================================
 */
 
+function createInfoBlock(entry){
+	var element = document.createElement("div");
+	element.className = "object";
+
+	var html = '<h2><a href="#id'+entry.id+'">'+entry.name+'</a></h2>';
+	if(entry.description){
+		html += '<p>'+entry.description+'</p>';
+	}
+	if(entry.website){
+		html += '<a target="_blank" href='+entry.website+'>Website</a>';
+	}
+	if(entry.subreddit){
+		if(entry.subreddit.substring(0, 2) == "r/"){
+			entry.subreddit = "/" + entry.subreddit;
+		} else if(entry.subreddit.substring(0, 1) != "/"){
+			entry.subreddit = "/r/" + entry.subreddit;
+		}
+		html += '<a target="_blank" href=https://reddit.com'+entry.subreddit+'>'+entry.subreddit+'</a>';
+	}
+	element.innerHTML = html;
+	return element;
+}
 
 function initView(){
 
@@ -30,14 +52,14 @@ function initView(){
 
 	var linesCanvas = document.getElementById("linesCanvas");
 	var linesContext = linesCanvas.getContext("2d");
-	
+
 	var backgroundCanvas = document.createElement("canvas");
 	backgroundCanvas.width = 1000;
 	backgroundCanvas.height = 1000;
 	var backgroundContext = backgroundCanvas.getContext("2d");
 
 	var filterInput = document.getElementById("searchList");
-	
+
 	var entriesList = document.getElementById("entriesList");
 
 	var entriesLimit = 50;
@@ -61,6 +83,31 @@ function initView(){
 
 	buildObjectsList();
 
+	// parse linked atlas entry id from link hash
+	if (window.location.hash.substring(3)){
+		var id = parseInt(window.location.hash.substring(3));
+		var entry = atlas.filter(function(e){
+			return e.id === id;
+		});
+
+		if (entry.length === 1){
+			entry = entry[0];
+			var infoElement = createInfoBlock(entry);
+			objectsContainer.appendChild(infoElement);
+
+			zoomOrigin = [
+				(-(container.clientWidth/2 - innerContainer.clientWidth/2) + container.clientWidth/2 - entry.center[0]* zoom)
+				,(-(container.clientHeight/2 - innerContainer.clientHeight/2) + container.clientHeight/2 + 50 - entry.center[1]* zoom)
+			]
+			applyView();
+			hovered = [entry];
+			fixed = true;
+			render();
+			hovered[0].element = infoElement;
+			updateLines();
+		}
+	}
+
 	container.addEventListener("mousemove", function(e){
 		updateHovering(e);
 	});
@@ -71,7 +118,7 @@ function initView(){
 		entriesList.appendChild(moreEntriesButton);
 
 		buildObjectsList(this.value.toLowerCase());
-		
+
 	});
 
 	document.getElementById("sort").addEventListener("input", function(e){
@@ -80,7 +127,7 @@ function initView(){
 		entriesList.appendChild(moreEntriesButton);
 
 		buildObjectsList(filterInput.value.toLowerCase());
-		
+
 	});
 
 	function updateHovering(e){
@@ -117,32 +164,14 @@ function initView(){
 					objectsContainer.innerHTML = "";
 
 					for(var i in hovered){
-						var element = document.createElement("div");
-						element.className = "object";
-						
-						var html = '<h2>'+hovered[i].name+'</h2>';
-						if(hovered[i].description){
-							html += '<p>'+hovered[i].description+'</p>';
-						}
-						if(hovered[i].website){
-							html += '<a target="_blank" href='+hovered[i].website+'>Website</a>';
-						}
-						if(hovered[i].subreddit){
-							if(hovered[i].subreddit.substring(0, 2) == "r/"){
-								hovered[i].subreddit = "/" + hovered[i].subreddit;
-							} else if(hovered[i].subreddit.substring(0, 1) != "/"){
-								hovered[i].subreddit = "/r/" + hovered[i].subreddit;
-							}
-							html += '<a target="_blank" href=https://reddit.com'+hovered[i].subreddit+'>'+hovered[i].subreddit+'</a>';
-						}
-						element.innerHTML = html;
+						var element = createInfoBlock(hovered[i]);
 
 						objectsContainer.appendChild(element);
 
 						hovered[i].element = element;
 					}
 
-					
+
 					render();
 				}
 			}
@@ -152,20 +181,20 @@ function initView(){
 	function renderBackground(){
 
 		backgroundContext.clearRect(0, 0, canvas.width, canvas.height);
-			
+
 		backgroundContext.fillStyle = "rgba(0, 0, 0, 0.6)";
 		backgroundContext.fillRect(0, 0, canvas.width, canvas.height);
-		
+
 		for(var i = 0; i < atlas.length; i++){
 
 			var path = atlas[i].path;
-			
+
 			backgroundContext.beginPath();
 
 			if(path[0]){
 				backgroundContext.moveTo(path[0][0], path[0][1]);
 			}
-			
+
 			for(var p = 1; p < path.length; p++){
 				backgroundContext.lineTo(path[p][0], path[p][1]);
 			}
@@ -251,40 +280,22 @@ function initView(){
 		}
 
 		sortedAtlas.sort(sortFunction);
-			
+
 		for(var i = entriesOffset; i < entriesOffset+entriesLimit; i++){
 
 			if(i >= sortedAtlas.length){
 				break;
 			}
 
-			
-			var element = document.createElement("div");
-			element.className = "object";
-			
-			var html = '<h2>'+sortedAtlas[i].name+'</h2>';
-			if(sortedAtlas[i].description){
-				html += '<p>'+sortedAtlas[i].description+'</p>';
-			}
-			if(sortedAtlas[i].website){
-				html += '<a target="_blank" href='+sortedAtlas[i].website+'>Website</a>';
-			}
-			if(sortedAtlas[i].subreddit){
-				if(sortedAtlas[i].subreddit.substring(0, 2) == "r/"){
-					sortedAtlas[i].subreddit = "/" + sortedAtlas[i].subreddit;
-				} else if(sortedAtlas[i].subreddit.substring(0, 1) != "/"){
-					sortedAtlas[i].subreddit = "/r/" + sortedAtlas[i].subreddit;
-				}
-				html += '<a target="_blank" href=https://reddit.com'+sortedAtlas[i].subreddit+'>'+sortedAtlas[i].subreddit+'</a>';
-			}
-			element.innerHTML = html;
+
+			var element = createInfoBlock(sortedAtlas[i]);
 
 			element.foo = sortedAtlas[i];
 
 			element.addEventListener("mouseenter", function(e){
 				objectsContainer.innerHTML = "";
 				zoomOrigin = [
-					(-(container.clientWidth/2 - innerContainer.clientWidth/2) + container.clientWidth/2 - this.foo.center[0]* zoom) 
+					(-(container.clientWidth/2 - innerContainer.clientWidth/2) + container.clientWidth/2 - this.foo.center[0]* zoom)
 					,(-(container.clientHeight/2 - innerContainer.clientHeight/2) + container.clientHeight/2 + 50 - this.foo.center[1]* zoom)
 				]
 				applyView();
@@ -292,7 +303,7 @@ function initView(){
 				render();
 				hovered[0].element = this;
 				updateLines();
-				
+
 			});
 
 			element.addEventListener("mouseleave", function(e){
@@ -323,19 +334,19 @@ function initView(){
 		} else {
 			container.style.cursor = "default";
 		}
-		
+
 
 		for(var i = 0; i < hovered.length; i++){
 
-			
+
 			var path = hovered[i].path;
-			
+
 			context.beginPath();
 
 			if(path[0]){
 				context.moveTo(path[0][0], path[0][1]);
 			}
-			
+
 			for(var p = 1; p < path.length; p++){
 				context.lineTo(path[p][0], path[p][1]);
 			}
@@ -352,15 +363,15 @@ function initView(){
 		context.drawImage(backgroundCanvas, 0, 0);
 
 		for(var i = 0; i < hovered.length; i++){
-			
+
 			var path = hovered[i].path;
-			
+
 			context.beginPath();
 
 			if(path[0]){
 				context.moveTo(path[0][0], path[0][1]);
 			}
-			
+
 			for(var p = 1; p < path.length; p++){
 				context.lineTo(path[p][0], path[p][1]);
 			}
@@ -373,7 +384,7 @@ function initView(){
 			context.stroke();
 		}
 
-		
+
 	}
 
 	function toggleFixed(e){
@@ -388,16 +399,16 @@ function initView(){
 	}
 
 	function updateLines(){
-		
+
 		linesCanvas.width = container.clientWidth;
 		linesCanvas.height = container.clientHeight;
 		linesContext.lineCap = "round";
 		linesContext.lineWidth = Math.max(Math.min(zoom*1.5, 16*1.5), 1)*2;
 		linesContext.strokeStyle = "#000000";
-		
+
 		for(var i = 0; i < hovered.length; i++){
 			var element = hovered[i].element;
-			
+
 			linesContext.beginPath();
 			//linesContext.moveTo(element.offsetLeft + element.clientWidth - 10, element.offsetTop + 20);
 			linesContext.moveTo(
@@ -410,13 +421,13 @@ function initView(){
 			);
 			linesContext.stroke();
 		}
-		
+
 		linesContext.lineWidth = Math.max(Math.min(zoom, 16), 1)*2;
 		linesContext.strokeStyle = "#FFFFFF";
-		
+
 		for(var i = 0; i < hovered.length; i++){
 			var element = hovered[i].element;
-			
+
 			linesContext.beginPath();
 			linesContext.moveTo(
 				 element.getBoundingClientRect().left + document.documentElement.scrollLeft + element.clientWidth/2
@@ -451,6 +462,5 @@ function initView(){
 	objectsContainer.addEventListener("scroll", function(e){
 		updateLines();
 	});
-	
-}
 
+}
