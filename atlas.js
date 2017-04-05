@@ -14817,59 +14817,6 @@ var atlas = [
 			]
 		]
 	},
-	{
-		"id": 262,
-		"name": "Kanye West Discography",
-		"description": "Kanye Omari West is an American rapper, songwriter, record producer, fashion designer, and entrepreneur.",
-		"website": "",
-		"subreddit": "/r/kanye",
-		"center": [
-			83.5,
-			553.5
-		],
-		"path": [
-			[
-				0.5,
-				581.5
-			],
-			[
-				0.5,
-				549.5
-			],
-			[
-				28.5,
-				549.5
-			],
-			[
-				28.5,
-				497.5
-			],
-			[
-				61.5,
-				497.5
-			],
-			[
-				61.5,
-				531.5
-			],
-			[
-				155.5,
-				531.5
-			],
-			[
-				155.5,
-				562.5
-			],
-			[
-				187.5,
-				562.5
-			],
-			[
-				187.5,
-				581.5
-			]
-		]
-	},
 	    {
     	"id": 263,
     	"name": "a red panda",
@@ -28925,182 +28872,6 @@ var atlas = [
     			159.5
     		]
     	]
-    },    {
-    	"id": 425,
-    	"name": "Kanye West",
-    	"description": "Clockwise from top: the cover of Graduation (2007), an Adidas Yeezy Boost 350, 808s and Heartbreak (2008), Yeezus (2013), The College Dropout (2004), Late Registration (2005) [across the transgender cross], a WHICH/ONE banner with waves for The Life of Pablo (2016, working title \"Waves\"), My BeautifuL Dark Twisted Fantasy (2010), his \"Dropout Bear\" mascot (above his mother's name, Donda), George Condo's portrait of Kanye as a decapitated king (from MBDTF), and a popular /r/Kanye catchphrase - \"The Wave is Here\" (taken from an intermission on Pablo).",
-    	"website": "http://www.kanyewest.com/",
-    	"subreddit": "/r/Kanye",
-    	"center": [
-    		88.5,
-    		549.5
-    	],
-    	"path": [
-    		[
-    			186.5,
-    			578.5
-    		],
-    		[
-    			60.5,
-    			578.5
-    		],
-    		[
-    			60.5,
-    			581.5
-    		],
-    		[
-    			0.5,
-    			581.5
-    		],
-    		[
-    			0.5,
-    			516.5
-    		],
-    		[
-    			28.5,
-    			516.5
-    		],
-    		[
-    			28.5,
-    			497.5
-    		],
-    		[
-    			61.5,
-    			497.5
-    		],
-    		[
-    			61.5,
-    			510.5
-    		],
-    		[
-    			88.5,
-    			510.5
-    		],
-    		[
-    			89.5,
-    			510.5
-    		],
-    		[
-    			89.5,
-    			511.5
-    		],
-    		[
-    			92.5,
-    			511.5
-    		],
-    		[
-    			92.5,
-    			513.5
-    		],
-    		[
-    			93.5,
-    			513.5
-    		],
-    		[
-    			93.5,
-    			514.5
-    		],
-    		[
-    			94.5,
-    			514.5
-    		],
-    		[
-    			94.5,
-    			515.5
-    		],
-    		[
-    			97.5,
-    			515.5
-    		],
-    		[
-    			97.5,
-    			516.5
-    		],
-    		[
-    			98.5,
-    			516.5
-    		],
-    		[
-    			99.5,
-    			516.5
-    		],
-    		[
-    			99.5,
-    			515.5
-    		],
-    		[
-    			99.5,
-    			517.5
-    		],
-    		[
-    			102.5,
-    			517.5
-    		],
-    		[
-    			102.5,
-    			518.5
-    		],
-    		[
-    			105.5,
-    			518.5
-    		],
-    		[
-    			105.5,
-    			519.5
-    		],
-    		[
-    			101.5,
-    			519.5
-    		],
-    		[
-    			101.5,
-    			530.5
-    		],
-    		[
-    			105.5,
-    			530.5
-    		],
-    		[
-    			105.5,
-    			531.5
-    		],
-    		[
-    			155.5,
-    			531.5
-    		],
-    		[
-    			155.5,
-    			562.5
-    		],
-    		[
-    			186.5,
-    			562.5
-    		],
-    		[
-    			186.5,
-    			578.5
-    		],
-    		[
-    			201.5,
-    			578.5
-    		],
-    		[
-    			201.5,
-    			546.5
-    		],
-    		[
-    			233.5,
-    			546.5
-    		],
-    		[
-    			233.5,
-    			578.5
-    		],
-    		[
-    			201.5,
-    			578.5
-    		]
-    	]
     },
         {
     	"id": 438,
@@ -30968,182 +30739,6 @@ var atlas = [
     		[
     			854.5,
     			499.5
-    		]
-    	]
-    },    {
-    	"id": 466,
-    	"name": "Kanye West",
-    	"description": "Clockwise from top: the cover of Graduation (2007), an Adidas Yeezy Boost 350, 808s and Heartbreak (2008), Yeezus (2013), The College Dropout (2004), Late Registration (2005) [across the transgender cross], a WHICH/ONE banner with waves for The Life of Pablo (2016, working title \"Waves\"), My BeautifuL Dark Twisted Fantasy (2010), his \"Dropout Bear\" mascot (above his mother's name, Donda), George Condo's portrait of Kanye as a decapitated king (from MBDTF), and a popular /r/Kanye catchphrase - \"The Wave is Here\" (taken from an intermission on Pablo).",
-    	"website": "http://www.kanyewest.com/",
-    	"subreddit": "/r/Kanye",
-    	"center": [
-    		88.5,
-    		549.5
-    	],
-    	"path": [
-    		[
-    			186.5,
-    			578.5
-    		],
-    		[
-    			60.5,
-    			578.5
-    		],
-    		[
-    			60.5,
-    			581.5
-    		],
-    		[
-    			0.5,
-    			581.5
-    		],
-    		[
-    			0.5,
-    			516.5
-    		],
-    		[
-    			28.5,
-    			516.5
-    		],
-    		[
-    			28.5,
-    			497.5
-    		],
-    		[
-    			61.5,
-    			497.5
-    		],
-    		[
-    			61.5,
-    			510.5
-    		],
-    		[
-    			88.5,
-    			510.5
-    		],
-    		[
-    			89.5,
-    			510.5
-    		],
-    		[
-    			89.5,
-    			511.5
-    		],
-    		[
-    			92.5,
-    			511.5
-    		],
-    		[
-    			92.5,
-    			513.5
-    		],
-    		[
-    			93.5,
-    			513.5
-    		],
-    		[
-    			93.5,
-    			514.5
-    		],
-    		[
-    			94.5,
-    			514.5
-    		],
-    		[
-    			94.5,
-    			515.5
-    		],
-    		[
-    			97.5,
-    			515.5
-    		],
-    		[
-    			97.5,
-    			516.5
-    		],
-    		[
-    			98.5,
-    			516.5
-    		],
-    		[
-    			99.5,
-    			516.5
-    		],
-    		[
-    			99.5,
-    			515.5
-    		],
-    		[
-    			99.5,
-    			517.5
-    		],
-    		[
-    			102.5,
-    			517.5
-    		],
-    		[
-    			102.5,
-    			518.5
-    		],
-    		[
-    			105.5,
-    			518.5
-    		],
-    		[
-    			105.5,
-    			519.5
-    		],
-    		[
-    			101.5,
-    			519.5
-    		],
-    		[
-    			101.5,
-    			530.5
-    		],
-    		[
-    			105.5,
-    			530.5
-    		],
-    		[
-    			105.5,
-    			531.5
-    		],
-    		[
-    			155.5,
-    			531.5
-    		],
-    		[
-    			155.5,
-    			562.5
-    		],
-    		[
-    			186.5,
-    			562.5
-    		],
-    		[
-    			186.5,
-    			578.5
-    		],
-    		[
-    			201.5,
-    			578.5
-    		],
-    		[
-    			201.5,
-    			546.5
-    		],
-    		[
-    			233.5,
-    			546.5
-    		],
-    		[
-    			233.5,
-    			578.5
-    		],
-    		[
-    			201.5,
-    			578.5
     		]
     	]
     },    {
@@ -37354,8 +36949,5711 @@ var atlas = [
     			692.5
     		]
     	]
+    },
+        {
+    	"id": 546,
+		"submitted_by": "WeAreMili",
+    	"name": "The Lovers' Heart",
+    	"description": "Made by two lovers, this heart was originally placed left of the USA flag, after some deliberation with the American community, it was moved here. Consisting of the lovers' two favourite colours, it represents their strong bond.",
+    	"website": "",
+    	"subreddit": "",
+    	"center": [
+    		578.5,
+    		525.5
+    	],
+    	"path": [
+    		[
+    			578.5,
+    			527.5
+    		],
+    		[
+    			578.5,
+    			527.5
+    		],
+    		[
+    			576.5,
+    			525.5
+    		],
+    		[
+    			576.5,
+    			524.5
+    		],
+    		[
+    			577.5,
+    			523.5
+    		],
+    		[
+    			578.5,
+    			524.5
+    		],
+    		[
+    			579.5,
+    			523.5
+    		],
+    		[
+    			580.5,
+    			524.5
+    		],
+    		[
+    			580.5,
+    			525.5
+    		],
+    		[
+    			578.5,
+    			527.5
+    		]
+    	]
+    }, {
+    	"id": 547,
+		"submitted_by": "KittensAnStuff",
+    	"name": "Kanye Heart",
+    	"description": "A heart created by /r/TransFlagPlace for /r/Kanye to represent their strong alliance.",
+    	"website": "",
+    	"subreddit": "/r/Kanye",
+    	"center": [
+    		193.5,
+    		565.5
+    	],
+    	"path": [
+    		[
+    			190.5,
+    			562.5
+    		],
+    		[
+    			196.5,
+    			562.5
+    		],
+    		[
+    			197.5,
+    			563.5
+    		],
+    		[
+    			197.5,
+    			567.5
+    		],
+    		[
+    			193.5,
+    			570.5
+    		],
+    		[
+    			189.5,
+    			567.5
+    		],
+    		[
+    			189.5,
+    			563.5
+    		],
+    		[
+    			190.5,
+    			562.5
+    		]
+    	]
+    },{
+    	"id": 548,
+		"submitted_by": "KittensAnStuff",
+    	"name": "Pansexual Heart",
+    	"description": "A heart created by /r/TransFlagPlace to represent pansexuality, the attraction to people regardless of gender.",
+    	"website": "",
+    	"subreddit": "/r/TransFlagPlace",
+    	"center": [
+    		193.5,
+    		574.5
+    	],
+    	"path": [
+    		[
+    			190.5,
+    			571.5
+    		],
+    		[
+    			196.5,
+    			571.5
+    		],
+    		[
+    			197.5,
+    			572.5
+    		],
+    		[
+    			197.5,
+    			576.5
+    		],
+    		[
+    			193.5,
+    			579.5
+    		],
+    		[
+    			189.5,
+    			576.5
+    		],
+    		[
+    			189.5,
+    			572.5
+    		],
+    		[
+    			190.5,
+    			571.5
+    		]
+    	]
+    },{
+    	"id": 549,
+		"submitted_by": "KittensAnStuff",
+    	"name": "Trans Heart",
+    	"description": "The first heart created by /r/TransFlagPlace, marking the centerpoint of the flag.",
+    	"website": "",
+    	"subreddit": "/r/TransFlagPlace",
+    	"center": [
+    		193.5,
+    		583.5
+    	],
+    	"path": [
+    		[
+    			190.5,
+    			580.5
+    		],
+    		[
+    			196.5,
+    			580.5
+    		],
+    		[
+    			197.5,
+    			581.5
+    		],
+    		[
+    			197.5,
+    			585.5
+    		],
+    		[
+    			193.5,
+    			588.5
+    		],
+    		[
+    			189.5,
+    			585.5
+    		],
+    		[
+    			189.5,
+    			581.5
+    		],
+    		[
+    			190.5,
+    			580.5
+    		]
+    	]
+    },{
+    	"id": 550,
+		"submitted_by": "KittensAnStuff",
+    	"name": "Asexual Flag",
+    	"description": "A flag created by /r/TransFlagPlace for /r/AcePlace to represent asexuality, the lack of sexual attraction to anyone.",
+    	"website": "",
+    	"subreddit": "/r/AcePlace",
+    	"center": [
+    		193.5,
+    		592.5
+    	],
+    	"path": [
+    		[
+    			190.5,
+    			589.5
+    		],
+    		[
+    			196.5,
+    			589.5
+    		],
+    		[
+    			197.5,
+    			590.5
+    		],
+    		[
+    			197.5,
+    			594.5
+    		],
+    		[
+    			193.5,
+    			597.5
+    		],
+    		[
+    			189.5,
+    			594.5
+    		],
+    		[
+    			189.5,
+    			590.5
+    		]
+    	]
+    },{
+    	"id": 551,
+		"submitted_by": "KittensAnStuff",
+    	"name": "Nonbinary Heart",
+    	"description": "A heart created by /r/TransFlagPlace to represent nonbinary people, those who do not identify as either male or female.",
+    	"website": "",
+    	"subreddit": "/r/TransFlagPlace",
+    	"center": [
+    		193.5,
+    		601.5
+    	],
+    	"path": [
+    		[
+    			190.5,
+    			598.5
+    		],
+    		[
+    			196.5,
+    			598.5
+    		],
+    		[
+    			197.5,
+    			599.5
+    		],
+    		[
+    			197.5,
+    			603.5
+    		],
+    		[
+    			193.5,
+    			606.5
+    		],
+    		[
+    			189.5,
+    			603.5
+    		],
+    		[
+    			189.5,
+    			599.5
+    		]
+    	]
+    }, {
+    	"id": 552,
+		"submitted_by": "KittensAnStuff",
+    	"name": "Intersex Heart",
+    	"description": "A heart created by /r/TransFlagPlace to represent intersex people, those born with sexual anatomy that does not fit the definitions for male or female.",
+    	"website": "",
+    	"subreddit": "/r/TransFlagPlace",
+    	"center": [
+    		193.5,
+    		724.5
+    	],
+    	"path": [
+    		[
+    			190.5,
+    			721.5
+    		],
+    		[
+    			196.5,
+    			721.5
+    		],
+    		[
+    			197.5,
+    			722.5
+    		],
+    		[
+    			197.5,
+    			726.5
+    		],
+    		[
+    			193.5,
+    			729.5
+    		],
+    		[
+    			189.5,
+    			726.5
+    		],
+    		[
+    			189.5,
+    			722.5
+    		]
+    	]
+    },{
+    	"id": 553,
+		"submitted_by": "KittensAnStuff",
+    	"name": "Lesbian Heart",
+    	"description": "A heart created by /r/TransFlagPlace to represent lesbians, women who are attracted to women.",
+    	"website": "",
+    	"subreddit": "/r/TransFlagPlace",
+    	"center": [
+    		193.5,
+    		733.5
+    	],
+    	"path": [
+    		[
+    			190.5,
+    			730.5
+    		],
+    		[
+    			196.5,
+    			730.5
+    		],
+    		[
+    			197.5,
+    			731.5
+    		],
+    		[
+    			197.5,
+    			735.5
+    		],
+    		[
+    			193.5,
+    			738.5
+    		],
+    		[
+    			189.5,
+    			735.5
+    		],
+    		[
+    			189.5,
+    			731.5
+    		]
+    	]
+    }, {
+    	"id": 554,
+		"submitted_by": "KittensAnStuff",
+    	"name": "Genderqueer Heart",
+    	"description": "A heart created by /r/TransFlagPlace to represent genderqueer people, those who identify with neither, both, or a combination of male and female genders.",
+    	"website": "",
+    	"subreddit": "/r/TransFlagPlace",
+    	"center": [
+    		193.5,
+    		742.5
+    	],
+    	"path": [
+    		[
+    			190.5,
+    			739.5
+    		],
+    		[
+    			196.5,
+    			739.5
+    		],
+    		[
+    			197.5,
+    			740.5
+    		],
+    		[
+    			197.5,
+    			744.5
+    		],
+    		[
+    			193.5,
+    			747.5
+    		],
+    		[
+    			189.5,
+    			744.5
+    		],
+    		[
+    			189.5,
+    			740.5
+    		]
+    	]
+    }, {
+    	"id": 555,
+		"submitted_by": "KittensAnStuff",
+    	"name": "Bisexual Heart",
+    	"description": "A heart created by /r/TransFlagPlaces, representing bisexuality, the attraction to both men and women.",
+    	"website": "",
+    	"subreddit": "/r/TransFlagPlace",
+    	"center": [
+    		193.5,
+    		751.5
+    	],
+    	"path": [
+    		[
+    			190.5,
+    			748.5
+    		],
+    		[
+    			196.5,
+    			748.5
+    		],
+    		[
+    			197.5,
+    			749.5
+    		],
+    		[
+    			197.5,
+    			753.5
+    		],
+    		[
+    			193.5,
+    			756.5
+    		],
+    		[
+    			189.5,
+    			752.5
+    		],
+    		[
+    			189.5,
+    			749.5
+    		],
+    		[
+    			190.5,
+    			748.5
+    		]
+    	]
     },    {
-    	"id": 541,
+    	"id": 556,
+		"submitted_by": "The_InternetExplorer",
+    	"name": "Stranger Things",
+    	"description": "Logo/Title card of the 2016 Netflix original series, \"Stranger Things\"",
+    	"website": "",
+    	"subreddit": "/r/StrangerThings",
+    	"center": [
+    		307.5,
+    		770.5
+    	],
+    	"path": [
+    		[
+    			281.5,
+    			761.5
+    		],
+    		[
+    			333.5,
+    			761.5
+    		],
+    		[
+    			333.5,
+    			773.5
+    		],
+    		[
+    			325.5,
+    			773.5
+    		],
+    		[
+    			325.5,
+    			780.5
+    		],
+    		[
+    			289.5,
+    			780.5
+    		],
+    		[
+    			289.5,
+    			773.5
+    		],
+    		[
+    			281.5,
+    			773.5
+    		]
+    	]
+    },    {
+    	"id": 557,
+		"submitted_by": "Not-the-batman",
+    	"name": "Porter Robinson - Worlds",
+    	"description": "Pixel art adaptation of part of the logo for the Porter Robinson debut album, Worlds.",
+    	"website": "",
+    	"subreddit": "/r/porterrobinson",
+    	"center": [
+    		473.5,
+    		291.5
+    	],
+    	"path": [
+    		[
+    			451.5,
+    			280.5
+    		],
+    		[
+    			494.5,
+    			280.5
+    		],
+    		[
+    			494.5,
+    			302.5
+    		],
+    		[
+    			452.5,
+    			301.5
+    		]
+    	]
+    },    {
+    	"id": 558,
+		"submitted_by": "terriblestperson",
+    	"name": "R/ARMOK",
+    	"description": "The R/ARMOK text is one of Dwarf Fortress earlier truly organized placing efforts, after the original art below the ANZAC flag and the Urist Empire plan to color the dwarves. Coming in the wake of earlier failed attempts to create signage and /u/7y14r's creation of /r/armok, the original design was by /u/7yl4r https://redd.it/62ujp3/, and much of the original placing was done by /u/MGStan as seen here https://reddit.com/comments/62tz5v//dfpt40i/. Realizing that he was outnumbered by people unaware of the plan, organization for it was moved into the Dwarf Fortress discord server, and those working against it (or attempting to work for it but not in concert with the plan) were recruited to the discord via reddit PMs. As /r/place activity on the DF discord grew rapidly, a new text channel was created for it.  Soon after it was completed according to the original plan despite the counter-efforts of a redditor very upset about the destruction of a dwarf they had been working on. Later, the 3 tile wide slash was compacted to 2 tiles during an effort to reorganize and compact the lower row of dwarves to gain more room for art. ",
+    	"website": "",
+    	"subreddit": "/r/armok",
+    	"center": [
+    		103.5,
+    		653.5
+    	],
+    	"path": [
+    		[
+    			115.5,
+    			650.5
+    		],
+    		[
+    			90.5,
+    			650.5
+    		],
+    		[
+    			90.5,
+    			655.5
+    		],
+    		[
+    			115.5,
+    			655.5
+    		]
+    	]
+    },    {
+    	"id": 559,
+		"submitted_by": "transam617",
+    	"name": "Garrus Vakarian",
+    	"description": "One of the most popular NPC's from the Mass Effect games.",
+    	"website": "https://www.masseffect.com/",
+    	"subreddit": "/r/masseffect",
+    	"center": [
+    		861.5,
+    		972.5
+    	],
+    	"path": [
+    		[
+    			845.5,
+    			957.5
+    		],
+    		[
+    			845.5,
+    			983.5
+    		],
+    		[
+    			855.5,
+    			983.5
+    		],
+    		[
+    			855.5,
+    			989.5
+    		],
+    		[
+    			875.5,
+    			989.5
+    		],
+    		[
+    			875.5,
+    			957.5
+    		]
+    	]
+    },    {
+    	"id": 560,
+		"submitted_by": "Advanderar",
+    	"name": "The Drifter",
+    	"description": "The MC from the game Hyper Light Drifter",
+    	"website": "",
+    	"subreddit": "r/hyperlightdrifer",
+    	"center": [
+    		857.5,
+    		271.5
+    	],
+    	"path": [
+    		[
+    			850.5,
+    			257.5
+    		],
+    		[
+    			855.5,
+    			257.5
+    		],
+    		[
+    			856.5,
+    			259.5
+    		],
+    		[
+    			860.5,
+    			260.5
+    		],
+    		[
+    			863.5,
+    			264.5
+    		],
+    		[
+    			865.5,
+    			281.5
+    		],
+    		[
+    			863.5,
+    			283.5
+    		],
+    		[
+    			854.5,
+    			283.5
+    		],
+    		[
+    			852.5,
+    			280.5
+    		],
+    		[
+    			851.5,
+    			266.5
+    		],
+    		[
+    			850.5,
+    			266.5
+    		]
+    	]
+    },    {
+    	"id": 561,
+		"submitted_by": "terriblestperson",
+    	"name": "DF Cat",
+    	"description": "This letter C is the Dwarf Fortress symbol representing a cat. Originally a dwarf was present here, but efforts to restore the upper portion of The Diamond kept getting reverted by people trying to protect the dwarf who were unaware of the BOPP/Dwarf Fortress alliance. The dwarf was replaced with a cat, and most of the efforts to cut off the tip of the diamond ceased.",
+    	"website": "",
+    	"subreddit": "",
+    	"center": [
+    		41.5,
+    		652.5
+    	],
+    	"path": [
+    		[
+    			38.5,
+    			649.5
+    		],
+    		[
+    			43.5,
+    			649.5
+    		],
+    		[
+    			43.5,
+    			654.5
+    		],
+    		[
+    			38.5,
+    			654.5
+    		]
+    	]
+    },    {
+    	"id": 562,
+		"submitted_by": "transam617",
+    	"name": "Mass Effect Andromeda",
+    	"description": "The fourth game in the Mass Effect series released just prior to the map's creation.",
+    	"website": "https://www.masseffect.com/",
+    	"subreddit": "/r/masseffect",
+    	"center": [
+    		864.5,
+    		994.5
+    	],
+    	"path": [
+    		[
+    			855.5,
+    			989.5
+    		],
+    		[
+    			873.5,
+    			989.5
+    		],
+    		[
+    			873.5,
+    			999.5
+    		],
+    		[
+    			855.5,
+    			999.5
+    		]
+    	]
+    },    {
+    	"id": 563,
+		"submitted_by": "ImNotHimBut",
+    	"name": "Team Dignitas logo",
+    	"description": "Team Dignitas is an International e-Sports team",
+    	"website": "http://team-dignitas.net/",
+    	"subreddit": "r/TeamDignitas/",
+    	"center": [
+    		986.5,
+    		604.5
+    	],
+    	"path": [
+    		[
+    			990.5,
+    			594.5
+    		],
+    		[
+    			988.5,
+    			594.5
+    		],
+    		[
+    			986.5,
+    			596.5
+    		],
+    		[
+    			981.5,
+    			596.5
+    		],
+    		[
+    			979.5,
+    			598.5
+    		],
+    		[
+    			979.5,
+    			600.5
+    		],
+    		[
+    			978.5,
+    			601.5
+    		],
+    		[
+    			978.5,
+    			606.5
+    		],
+    		[
+    			979.5,
+    			607.5
+    		],
+    		[
+    			979.5,
+    			609.5
+    		],
+    		[
+    			982.5,
+    			612.5
+    		],
+    		[
+    			989.5,
+    			612.5
+    		],
+    		[
+    			994.5,
+    			607.5
+    		],
+    		[
+    			994.5,
+    			600.5
+    		],
+    		[
+    			990.5,
+    			595.5
+    		]
+    	]
+    },    {
+    	"id": 564,
+		"submitted_by": "DJMooray",
+    	"name": "Club Penguin",
+    	"description": "/r/clubpenguin teamed up with /r/placestart to help mourn the loss of the beloved game",
+    	"website": "www.clubpenguin.com",
+    	"subreddit": "/r/clubpenguin",
+    	"center": [
+    		622.5,
+    		988.5
+    	],
+    	"path": [
+    		[
+    			611.5,
+    			978.5
+    		],
+    		[
+    			624.5,
+    			978.5
+    		],
+    		[
+    			613.5,
+    			977.5
+    		],
+    		[
+    			626.5,
+    			977.5
+    		],
+    		[
+    			632.5,
+    			977.5
+    		],
+    		[
+    			632.5,
+    			998.5
+    		],
+    		[
+    			611.5,
+    			998.5
+    		],
+    		[
+    			611.5,
+    			977.5
+    		],
+    		[
+    			613.5,
+    			977.5
+    		]
+    	]
+    },    {
+    	"id": 565,
+		"submitted_by": "terriblestperson",
+    	"name": "BOPP Dwarf",
+    	"description": "The creation of a military dwarf (in Dwarf Fortress, military dwarves are represented by a filled in dwarf icon) using the BOPP may have been planned as early as the 1st of April, not as part of a treaty requirement but simply as a gesture of friendship and solidarity towards BOPP. \nUnfortunately, a lack of clear communication early on in the /r/place efforts of the Dwarf Fortress community meant that the BOPP dwarf was not successfully built until the last day of /r/place. On the last day, enough of the Dwarf Fortress placing community was present in the Dwarf Fortress discord channel that effective coordination was possible, and those working against the pattern could be notified through reddit PMs. Ironically, some of the people initially working against the patterned dwarf were members of /r/placeportalpattern under the impression that some on their side were overstepping their bounds, as happened with the continuation of The Diamond beyond the standard border of the BOPP. ",
+    	"website": "",
+    	"subreddit": "",
+    	"center": [
+    		58.5,
+    		653.5
+    	],
+    	"path": [
+    		[
+    			60.5,
+    			657.5
+    		],
+    		[
+    			61.5,
+    			656.5
+    		],
+    		[
+    			61.5,
+    			650.5
+    		],
+    		[
+    			60.5,
+    			649.5
+    		],
+    		[
+    			55.5,
+    			649.5
+    		],
+    		[
+    			54.5,
+    			650.5
+    		],
+    		[
+    			54.5,
+    			656.5
+    		],
+    		[
+    			55.5,
+    			657.5
+    		],
+    		[
+    			58.5,
+    			657.5
+    		]
+    	]
+    },    {
+    	"id": 566,
+		"submitted_by": "Miitomud",
+    	"name": "RAMA",
+    	"description": "An artisan producer of metal keycaps and other accessories.",
+    	"website": "https://rama.works/",
+    	"subreddit": "/r/mechanicalkeyboards",
+    	"center": [
+    		849.5,
+    		593.5
+    	],
+    	"path": [
+    		[
+    			844.5,
+    			588.5
+    		],
+    		[
+    			854.5,
+    			588.5
+    		],
+    		[
+    			854.5,
+    			597.5
+    		],
+    		[
+    			844.5,
+    			597.5
+    		],
+    		[
+    			844.5,
+    			588.5
+    		]
+    	]
+    },    {
+    	"id": 567,
+		"submitted_by": "terriblestperson",
+    	"name": "Blue Orange Portal Pattern",
+    	"description": "The creation of the Blue Orange Portal Pattern (also known as bopp and found at /r/bopp) was organized in the /r/placeportalpattern subreddit. It's one of the oldest patterns to have survived until the freezing of the canvas, and was generally willing to welcome other art into the pattern, as seen in the Buizel art and the FLUFFHEAD text. At one point, an offer was made to permit /r/MMA to create a small sign in the corner of their pattern, though that was rendered unnecessary by the Dwarf Fortress-/r/MMA alliance. Perhaps the most notable of the patterns included in BOPP is the Diamond, originally built by /u/Uncentury and absorbed intact as the pattern grew. BOPP allied with Dwarf Fortress early on, and after several attempts came to an agreement permitting Dwarf Fortress to create a second row of dwarves.\n",
+    	"website": "",
+    	"subreddit": "/r/placeportalpattern",
+    	"center": [
+    		55.5,
+    		680.5
+    	],
+    	"path": [
+    		[
+    			31.5,
+    			700.5
+    		],
+    		[
+    			32.5,
+    			701.5
+    		],
+    		[
+    			66.5,
+    			701.5
+    		],
+    		[
+    			67.5,
+    			700.5
+    		],
+    		[
+    			67.5,
+    			696.5
+    		],
+    		[
+    			68.5,
+    			696.5
+    		],
+    		[
+    			87.5,
+    			696.5
+    		],
+    		[
+    			89.5,
+    			699.5
+    		],
+    		[
+    			89.5,
+    			706.5
+    		],
+    		[
+    			96.5,
+    			706.5
+    		],
+    		[
+    			96.5,
+    			709.5
+    		],
+    		[
+    			98.5,
+    			709.5
+    		],
+    		[
+    			99.5,
+    			710.5
+    		],
+    		[
+    			99.5,
+    			708.5
+    		],
+    		[
+    			100.5,
+    			708.5
+    		],
+    		[
+    			101.5,
+    			707.5
+    		],
+    		[
+    			104.5,
+    			707.5
+    		],
+    		[
+    			104.5,
+    			708.5
+    		],
+    		[
+    			105.5,
+    			708.5
+    		],
+    		[
+    			105.5,
+    			710.5
+    		],
+    		[
+    			106.5,
+    			710.5
+    		],
+    		[
+    			107.5,
+    			708.5
+    		],
+    		[
+    			108.5,
+    			708.5
+    		],
+    		[
+    			108.5,
+    			704.5
+    		],
+    		[
+    			90.5,
+    			704.5
+    		],
+    		[
+    			90.5,
+    			687.5
+    		],
+    		[
+    			92.5,
+    			685.5
+    		],
+    		[
+    			92.5,
+    			660.5
+    		],
+    		[
+    			91.5,
+    			659.5
+    		],
+    		[
+    			44.5,
+    			659.5
+    		],
+    		[
+    			41.5,
+    			656.5
+    		],
+    		[
+    			35.5,
+    			662.5
+    		],
+    		[
+    			34.5,
+    			662.5
+    		],
+    		[
+    			37.5,
+    			659.5
+    		],
+    		[
+    			29.5,
+    			659.5
+    		],
+    		[
+    			29.5,
+    			675.5
+    		],
+    		[
+    			7.5,
+    			675.5
+    		],
+    		[
+    			7.5,
+    			687.5
+    		],
+    		[
+    			10.5,
+    			687.5
+    		],
+    		[
+    			10.5,
+    			694.5
+    		],
+    		[
+    			31.5,
+    			694.5
+    		],
+    		[
+    			31.5,
+    			700.5
+    		]
+    	]
+    },    {
+    	"id": 568,
+		"submitted_by": "The_Kisho",
+    	"name": "Macedonia",
+    	"description": "",
+    	"website": "",
+    	"subreddit": "",
+    	"center": [
+    		641.5,
+    		727.5
+    	],
+    	"path": [
+    		[
+    			641.5,
+    			722.5
+    		],
+    		[
+    			636.5,
+    			727.5
+    		],
+    		[
+    			636.5,
+    			729.5
+    		],
+    		[
+    			638.5,
+    			731.5
+    		],
+    		[
+    			639.5,
+    			731.5
+    		],
+    		[
+    			641.5,
+    			729.5
+    		],
+    		[
+    			643.5,
+    			731.5
+    		],
+    		[
+    			644.5,
+    			731.5
+    		],
+    		[
+    			646.5,
+    			729.5
+    		],
+    		[
+    			646.5,
+    			727.5
+    		],
+    		[
+    			641.5,
+    			722.5
+    		]
+    	]
+    },    {
+    	"id": 569,
+		"submitted_by": "saikado",
+    	"name": "Dreddit",
+    	"description": "The original reddit corporation in the game EVE Online and their lovable mascot: Middle-Management Dino",
+    	"website": "http://www.dredditisrecruiting.com",
+    	"subreddit": "/r/dreddit",
+    	"center": [
+    		708.5,
+    		133.5
+    	],
+    	"path": [
+    		[
+    			668.5,
+    			120.5
+    		],
+    		[
+    			748.5,
+    			120.5
+    		],
+    		[
+    			748.5,
+    			146.5
+    		],
+    		[
+    			668.5,
+    			146.5
+    		]
+    	]
+    },    {
+    	"id": 570,
+		"submitted_by": "soonerguy11",
+    	"name": "University of Oklahoma Logo",
+    	"description": "Nicknamed the Sooners, this is the official logo for the University of Oklahoma. ",
+    	"website": "",
+    	"subreddit": "/r/sooners",
+    	"center": [
+    		459.5,
+    		448.5
+    	],
+    	"path": [
+    		[
+    			454.5,
+    			442.5
+    		],
+    		[
+    			464.5,
+    			443.5
+    		],
+    		[
+    			464.5,
+    			453.5
+    		],
+    		[
+    			456.5,
+    			453.5
+    		]
+    	]
+    },    {
+    	"id": 571,
+		"submitted_by": "StudentRadical",
+    	"name": "Mr. Saturn from Earthbound",
+    	"description": "Mr. Saturn is a race of sentient beings from the cult classic role-playing game Earthbound. /r/EarthBound made this one meet and greet Chrono Trigger characters to show their admiration for another classic SNES RPG.",
+    	"website": "",
+    	"subreddit": "/r/EarthBound",
+    	"center": [
+    		209.5,
+    		534.5
+    	],
+    	"path": [
+    		[
+    			200.5,
+    			527.5
+    		],
+    		[
+    			222.5,
+    			527.5
+    		],
+    		[
+    			223.5,
+    			529.5
+    		],
+    		[
+    			206.5,
+    			546.5
+    		],
+    		[
+    			201.5,
+    			546.5
+    		],
+    		[
+    			200.5,
+    			536.5
+    		]
+    	]
+    },    {
+    	"id": 572,
+		"submitted_by": "Qiqz",
+    	"name": "Bisexual pride flag",
+    	"description": "The bisexual pride flag was designed by Michael Page in 1998 in order to give the bisexual community its own symbol comparable to the gay pride flag of the larger LGBT community. According to Page, \"the pink color represents sexual attraction to the same sex only (gay and lesbian), the blue represents sexual attraction to the opposite sex only (straight) and the resultant overlap color purple represents sexual attraction to both sexes (bi).",
+    	"website": "",
+    	"subreddit": "/r/bisexual",
+    	"center": [
+    		533.5,
+    		563.5
+    	],
+    	"path": [
+    		[
+    			521.5,
+    			556.5
+    		],
+    		[
+    			521.5,
+    			556.5
+    		],
+    		[
+    			544.5,
+    			556.5
+    		],
+    		[
+    			544.5,
+    			570.5
+    		],
+    		[
+    			521.5,
+    			570.5
+    		]
+    	]
+    },    {
+    	"id": 573,
+		"submitted_by": "AustinAuranymph",
+    	"name": "Asexual Pride Flag",
+    	"description": "The flag for the Asexual community. Asexuality is the lack of sexual attraction towards any gender. It is recognized as part of the LGBT community.",
+    	"website": "https://www.asexuality.org/",
+    	"subreddit": "/r/asexuality",
+    	"center": [
+    		95.5,
+    		596.5
+    	],
+    	"path": [
+    		[
+    			0.5,
+    			589.5
+    		],
+    		[
+    			0.5,
+    			602.5
+    		],
+    		[
+    			154.5,
+    			600.5
+    		],
+    		[
+    			153.5,
+    			607.5
+    		],
+    		[
+    			178.5,
+    			607.5
+    		],
+    		[
+    			178.5,
+    			599.5
+    		],
+    		[
+    			185.5,
+    			599.5
+    		],
+    		[
+    			185.5,
+    			589.5
+    		],
+    		[
+    			80.5,
+    			589.5
+    		],
+    		[
+    			1.5,
+    			589.5
+    		]
+    	]
+    },    {
+    	"id": 574,
+		"submitted_by": "hlixed1",
+    	"name": "Broken \"1hlixed\"",
+    	"description": "An attempt to write out the name \"1hlixed\" in black pixels over a green background that got defaced by purple pixels before it could be fixed",
+    	"website": "",
+    	"subreddit": "/u/hlixed1",
+    	"center": [
+    		22.5,
+    		911.5
+    	],
+    	"path": [
+    		[
+    			10.5,
+    			909.5
+    		],
+    		[
+    			33.5,
+    			909.5
+    		],
+    		[
+    			33.5,
+    			912.5
+    		],
+    		[
+    			10.5,
+    			912.5
+    		]
+    	]
+    },    {
+    	"id": 575,
+		"submitted_by": "The_Kisho",
+    	"name": "AIE (Academy of Interactive Entertainment",
+    	"description": "AIE is a specialist games and film educator established by industry with alumni in studios around the world.",
+    	"website": "http://www.aie.edu.au/",
+    	"subreddit": "",
+    	"center": [
+    		733.5,
+    		609.5
+    	],
+    	"path": [
+    		[
+    			724.5,
+    			605.5
+    		],
+    		[
+    			724.5,
+    			613.5
+    		],
+    		[
+    			742.5,
+    			613.5
+    		],
+    		[
+    			742.5,
+    			605.5
+    		],
+    		[
+    			736.5,
+    			605.5
+    		],
+    		[
+    			736.5,
+    			603.5
+    		],
+    		[
+    			730.5,
+    			603.5
+    		],
+    		[
+    			730.5,
+    			605.5
+    		],
+    		[
+    			724.5,
+    			605.5
+    		]
+    	]
+    },    {
+    	"id": 576,
+		"submitted_by": "F33N1X",
+    	"name": "CLG logo",
+    	"description": "The logo for Counter Logic Gaming, an American eSports organization with teams in League of Legends, Overwatch, Counter Strike: Global Offensive, the Super Smash Bros. Series, and Hearthstone.",
+    	"website": "https://clgaming.net",
+    	"subreddit": "/r/clg",
+    	"center": [
+    		258.5,
+    		884.5
+    	],
+    	"path": [
+    		[
+    			257.5,
+    			878.5
+    		],
+    		[
+    			249.5,
+    			887.5
+    		],
+    		[
+    			255.5,
+    			888.5
+    		],
+    		[
+    			255.5,
+    			891.5
+    		],
+    		[
+    			259.5,
+    			891.5
+    		],
+    		[
+    			267.5,
+    			881.5
+    		],
+    		[
+    			262.5,
+    			880.5
+    		],
+    		[
+    			258.5,
+    			878.5
+    		]
+    	]
+    },    {
+    	"id": 577,
+		"submitted_by": "echo-flower",
+    	"name": "Dangan Ronpa",
+    	"description": "A murder-mystery visual novel series about high school students who get forced into a mutual killing game.\nThe second game's mascots, Monokuma (on the right) and Monomi (on the left, obscured by a banner) are shown here.",
+    	"website": "http://danganronpa.us/",
+    	"subreddit": "/r/danganronpa",
+    	"center": [
+    		973.5,
+    		686.5
+    	],
+    	"path": [
+    		[
+    			999.5,
+    			671.5
+    		],
+    		[
+    			942.5,
+    			671.5
+    		],
+    		[
+    			942.5,
+    			677.5
+    		],
+    		[
+    			954.5,
+    			677.5
+    		],
+    		[
+    			954.5,
+    			680.5
+    		],
+    		[
+    			959.5,
+    			680.5
+    		],
+    		[
+    			959.5,
+    			677.5
+    		],
+    		[
+    			961.5,
+    			677.5
+    		],
+    		[
+    			961.5,
+    			680.5
+    		],
+    		[
+    			966.5,
+    			680.5
+    		],
+    		[
+    			966.5,
+    			677.5
+    		],
+    		[
+    			977.5,
+    			677.5
+    		],
+    		[
+    			977.5,
+    			690.5
+    		],
+    		[
+    			949.5,
+    			690.5
+    		],
+    		[
+    			949.5,
+    			697.5
+    		],
+    		[
+    			952.5,
+    			697.5
+    		],
+    		[
+    			952.5,
+    			700.5
+    		],
+    		[
+    			955.5,
+    			704.5
+    		],
+    		[
+    			957.5,
+    			704.5
+    		],
+    		[
+    			959.5,
+    			702.5
+    		],
+    		[
+    			961.5,
+    			702.5
+    		],
+    		[
+    			963.5,
+    			704.5
+    		],
+    		[
+    			965.5,
+    			704.5
+    		],
+    		[
+    			968.5,
+    			700.5
+    		],
+    		[
+    			968.5,
+    			697.5
+    		],
+    		[
+    			972.5,
+    			696.5
+    		],
+    		[
+    			976.5,
+    			697.5
+    		],
+    		[
+    			976.5,
+    			700.5
+    		],
+    		[
+    			979.5,
+    			704.5
+    		],
+    		[
+    			981.5,
+    			704.5
+    		],
+    		[
+    			984.5,
+    			702.5
+    		],
+    		[
+    			987.5,
+    			704.5
+    		],
+    		[
+    			989.5,
+    			704.5
+    		],
+    		[
+    			993.5,
+    			697.5
+    		],
+    		[
+    			995.5,
+    			697.5
+    		],
+    		[
+    			995.5,
+    			695.5
+    		],
+    		[
+    			991.5,
+    			691.5
+    		],
+    		[
+    			992.5,
+    			690.5
+    		],
+    		[
+    			992.5,
+    			684.5
+    		],
+    		[
+    			990.5,
+    			682.5
+    		],
+    		[
+    			991.5,
+    			681.5
+    		],
+    		[
+    			991.5,
+    			680.5
+    		],
+    		[
+    			990.5,
+    			679.5
+    		],
+    		[
+    			991.5,
+    			677.5
+    		],
+    		[
+    			999.5,
+    			677.5
+    		],
+    		[
+    			999.5,
+    			671.5
+    		]
+    	]
+    },    {
+    	"id": 578,
+		"submitted_by": "TheLemon_UBC",
+    	"name": "UBC Crest",
+    	"description": "University of British Columbia. The Premier university in Western Canada and one of the top 40 universities in the world",
+    	"website": "https://www.ubc.ca/",
+    	"subreddit": "r/UBC",
+    	"center": [
+    		312.5,
+    		131.5
+    	],
+    	"path": [
+    		[
+    			301.5,
+    			118.5
+    		],
+    		[
+    			301.5,
+    			139.5
+    		],
+    		[
+    			302.5,
+    			139.5
+    		],
+    		[
+    			303.5,
+    			139.5
+    		],
+    		[
+    			303.5,
+    			140.5
+    		],
+    		[
+    			304.5,
+    			140.5
+    		],
+    		[
+    			304.5,
+    			141.5
+    		],
+    		[
+    			305.5,
+    			141.5
+    		],
+    		[
+    			305.5,
+    			142.5
+    		],
+    		[
+    			306.5,
+    			142.5
+    		],
+    		[
+    			306.5,
+    			143.5
+    		],
+    		[
+    			307.5,
+    			143.5
+    		],
+    		[
+    			307.5,
+    			144.5
+    		],
+    		[
+    			308.5,
+    			144.5
+    		],
+    		[
+    			308.5,
+    			145.5
+    		],
+    		[
+    			309.5,
+    			145.5
+    		],
+    		[
+    			309.5,
+    			146.5
+    		],
+    		[
+    			310.5,
+    			146.5
+    		],
+    		[
+    			310.5,
+    			147.5
+    		],
+    		[
+    			314.5,
+    			147.5
+    		],
+    		[
+    			314.5,
+    			146.5
+    		],
+    		[
+    			315.5,
+    			146.5
+    		],
+    		[
+    			315.5,
+    			145.5
+    		],
+    		[
+    			316.5,
+    			145.5
+    		],
+    		[
+    			316.5,
+    			144.5
+    		],
+    		[
+    			317.5,
+    			144.5
+    		],
+    		[
+    			317.5,
+    			143.5
+    		],
+    		[
+    			318.5,
+    			143.5
+    		],
+    		[
+    			318.5,
+    			142.5
+    		],
+    		[
+    			319.5,
+    			142.5
+    		],
+    		[
+    			319.5,
+    			141.5
+    		],
+    		[
+    			320.5,
+    			141.5
+    		],
+    		[
+    			320.5,
+    			140.5
+    		],
+    		[
+    			321.5,
+    			140.5
+    		],
+    		[
+    			321.5,
+    			139.5
+    		],
+    		[
+    			322.5,
+    			139.5
+    		],
+    		[
+    			322.5,
+    			138.5
+    		],
+    		[
+    			323.5,
+    			139.5
+    		],
+    		[
+    			323.5,
+    			118.5
+    		],
+    		[
+    			301.5,
+    			118.5
+    		]
+    	]
+    },    {
+    	"id": 579,
+		"submitted_by": "INFEKTEK",
+    	"name": "Australian Aboriginal Flag",
+    	"description": "The flag of the indigenous Australians. (Aboriginals) ",
+    	"website": "",
+    	"subreddit": "/r/straya",
+    	"center": [
+    		669.5,
+    		560.5
+    	],
+    	"path": [
+    		[
+    			664.5,
+    			556.5
+    		],
+    		[
+    			664.5,
+    			563.5
+    		],
+    		[
+    			674.5,
+    			563.5
+    		],
+    		[
+    			674.5,
+    			562.5
+    		],
+    		[
+    			673.5,
+    			561.5
+    		],
+    		[
+    			673.5,
+    			558.5
+    		],
+    		[
+    			674.5,
+    			557.5
+    		],
+    		[
+    			674.5,
+    			556.5
+    		]
+    	]
+    }, {
+    	"id": 580,
+		"submitted_by": "INFEKTEK",
+    	"name": "AFL Football",
+    	"description": "Australian Football League ball.",
+    	"website": "",
+    	"subreddit": "/r/straya",
+    	"center": [
+    		653.5,
+    		572.5
+    	],
+    	"path": [
+    		[
+    			650.5,
+    			568.5
+    		],
+    		[
+    			646.5,
+    			572.5
+    		],
+    		[
+    			650.5,
+    			576.5
+    		],
+    		[
+    			656.5,
+    			576.5
+    		],
+    		[
+    			659.5,
+    			573.5
+    		],
+    		[
+    			659.5,
+    			571.5
+    		],
+    		[
+    			656.5,
+    			568.5
+    		]
+    	]
+    },   {
+    	"id": 581,
+		"submitted_by": "DiplomaticMeatball",
+    	"name": "The First Void",
+    	"description": "The place where the Void started. The place it consumed first.\nProbably the most controversial faction had its birth here with the destiny to merely consume.\nOut of intense disapproval, the complete canvas joined forces to eradicate the Void and protect the most beautiful art on the internet.\nMany pixels have been wasted, many fights have been fought.\nThe folks at /r/TransFlagPlace tried all they could to drive away the darkness, with limited success.\nIdeas were thrown around to create the first (and horrible) version of what is now known as The Void Prism that shined only dynasties later.\nOnly after several organised attacks and the persistence of those who bear the blue/pink/white-ribbon and companions, the darkness was defeated, and the canvas was at peace.\n“The true mind can weather all lies and illusions without being lost.\nThe true heart can touch the poison of hatred without being harmed.\nSince beginning-less time, darkness thrives in the void, but always yields to purifying light.”\n- Lion Turtle",
+    	"website": "",
+    	"subreddit": "/r/Thegreatblackhole",
+    	"center": [
+    		398.5,
+    		575.5
+    	],
+    	"path": [
+    		[
+    			336.5,
+    			592.5
+    		],
+    		[
+    			364.5,
+    			617.5
+    		],
+    		[
+    			376.5,
+    			624.5
+    		],
+    		[
+    			385.5,
+    			624.5
+    		],
+    		[
+    			392.5,
+    			624.5
+    		],
+    		[
+    			412.5,
+    			623.5
+    		],
+    		[
+    			424.5,
+    			621.5
+    		],
+    		[
+    			439.5,
+    			612.5
+    		],
+    		[
+    			446.5,
+    			608.5
+    		],
+    		[
+    			449.5,
+    			604.5
+    		],
+    		[
+    			451.5,
+    			600.5
+    		],
+    		[
+    			453.5,
+    			595.5
+    		],
+    		[
+    			455.5,
+    			588.5
+    		],
+    		[
+    			456.5,
+    			578.5
+    		],
+    		[
+    			456.5,
+    			573.5
+    		],
+    		[
+    			445.5,
+    			553.5
+    		],
+    		[
+    			442.5,
+    			545.5
+    		],
+    		[
+    			440.5,
+    			539.5
+    		],
+    		[
+    			403.5,
+    			520.5
+    		],
+    		[
+    			398.5,
+    			518.5
+    		],
+    		[
+    			389.5,
+    			519.5
+    		],
+    		[
+    			372.5,
+    			526.5
+    		],
+    		[
+    			368.5,
+    			534.5
+    		],
+    		[
+    			362.5,
+    			543.5
+    		],
+    		[
+    			332.5,
+    			584.5
+    		],
+    		[
+    			333.5,
+    			590.5
+    		]
+    	]
+    },    {
+    	"id": 582,
+		"submitted_by": "Qiqz",
+    	"name": "Flags of Hungary",
+    	"description": "The hearts shared with Denmark on the western border and Romania on the southern border represent friendship.",
+    	"website": "",
+    	"subreddit": "/r/hungary",
+    	"center": [
+    		701.5,
+    		304.5
+    	],
+    	"path": [
+    		[
+    			660.5,
+    			322.5
+    		],
+    		[
+    			749.5,
+    			322.5
+    		],
+    		[
+    			748.5,
+    			306.5
+    		],
+    		[
+    			728.5,
+    			306.5
+    		],
+    		[
+    			727.5,
+    			299.5
+    		],
+    		[
+    			703.5,
+    			298.5
+    		],
+    		[
+    			701.5,
+    			276.5
+    		],
+    		[
+    			720.5,
+    			276.5
+    		],
+    		[
+    			721.5,
+    			268.5
+    		],
+    		[
+    			690.5,
+    			267.5
+    		],
+    		[
+    			689.5,
+    			298.5
+    		],
+    		[
+    			661.5,
+    			298.5
+    		]
+    	]
+    },    {
+    	"id": 583,
+		"submitted_by": "Nytoria",
+    	"name": "The heart of Esperanto",
+    	"description": "Esperanto, created 26 July 1887, is an international auxiliary language and the most widely-spoken constructed language in the world.",
+    	"website": "http://www.akademio-de-esperanto.org/",
+    	"subreddit": "/r/esperanto",
+    	"center": [
+    		527.5,
+    		754.5
+    	],
+    	"path": [
+    		[
+    			525.5,
+    			750.5
+    		],
+    		[
+    			527.5,
+    			752.5
+    		],
+    		[
+    			529.5,
+    			750.5
+    		],
+    		[
+    			530.5,
+    			750.5
+    		],
+    		[
+    			532.5,
+    			752.5
+    		],
+    		[
+    			532.5,
+    			754.5
+    		],
+    		[
+    			527.5,
+    			759.5
+    		],
+    		[
+    			522.5,
+    			754.5
+    		],
+    		[
+    			522.5,
+    			752.5
+    		],
+    		[
+    			525.5,
+    			750.5
+    		],
+    		[
+    			525.5,
+    			750.5
+    		]
+    	]
+    },    {
+    	"id": 584,
+		"submitted_by": "Hologuardian",
+    	"name": "Brave Newbies",
+    	"description": "A EvE online Alliance dedicated to accepting newbros.",
+    	"website": "https://wiki.braveineve.com/",
+    	"subreddit": "https://www.reddit.com/r/Bravenewbies/",
+    	"center": [
+    		362.5,
+    		285.5
+    	],
+    	"path": [
+    		[
+    			352.5,
+    			270.5
+    		],
+    		[
+    			372.5,
+    			270.5
+    		],
+    		[
+    			372.5,
+    			299.5
+    		],
+    		[
+    			352.5,
+    			299.5
+    		]
+    	]
+    },    {
+    	"id": 585,
+		"submitted_by": "BlackSynder",
+    	"name": "Re: Zero",
+    	"description": "The characters Subaru, Rem, Ram and Emilia from the anime Re: Zero, along with the series name.",
+    	"website": "",
+    	"subreddit": "/r/re_zero",
+    	"center": [
+    		599.5,
+    		855.5
+    	],
+    	"path": [
+    		[
+    			618.5,
+    			864.5
+    		],
+    		[
+    			578.5,
+    			864.5
+    		],
+    		[
+    			578.5,
+    			850.5
+    		],
+    		[
+    			586.5,
+    			850.5
+    		],
+    		[
+    			586.5,
+    			851.5
+    		],
+    		[
+    			587.5,
+    			852.5
+    		],
+    		[
+    			588.5,
+    			852.5
+    		],
+    		[
+    			589.5,
+    			851.5
+    		],
+    		[
+    			589.5,
+    			850.5
+    		],
+    		[
+    			593.5,
+    			850.5
+    		],
+    		[
+    			593.5,
+    			845.5
+    		],
+    		[
+    			618.5,
+    			845.5
+    		],
+    		[
+    			618.5,
+    			864.5
+    		]
+    	]
+    },    {
+    	"id": 586,
+		"submitted_by": "jakej1097",
+    	"name": "Metal Gear Solid",
+    	"description": "Metal Gear is a series of action-adventure stealth video games, created by Hideo Kojima and developed and published by Konami.",
+    	"website": "https://en.wikipedia.org/wiki/Metal_Gear",
+    	"subreddit": "/r/metalgearsolid",
+    	"center": [
+    		7.5,
+    		225.5
+    	],
+    	"path": [
+    		[
+    			0.5,
+    			198.5
+    		],
+    		[
+    			5.5,
+    			198.5
+    		],
+    		[
+    			5.5,
+    			205.5
+    		],
+    		[
+    			9.5,
+    			205.5
+    		],
+    		[
+    			9.5,
+    			217.5
+    		],
+    		[
+    			18.5,
+    			217.5
+    		],
+    		[
+    			24.5,
+    			223.5
+    		],
+    		[
+    			16.5,
+    			225.5
+    		],
+    		[
+    			25.5,
+    			234.5
+    		],
+    		[
+    			20.5,
+    			239.5
+    		],
+    		[
+    			21.5,
+    			234.5
+    		],
+    		[
+    			19.5,
+    			231.5
+    		],
+    		[
+    			15.5,
+    			230.5
+    		],
+    		[
+    			13.5,
+    			232.5
+    		],
+    		[
+    			11.5,
+    			235.5
+    		],
+    		[
+    			6.5,
+    			236.5
+    		],
+    		[
+    			5.5,
+    			256.5
+    		],
+    		[
+    			0.5,
+    			256.5
+    		]
+    	]
+    },    {
+    	"id": 587,
+		"submitted_by": "DiplomaticMeatball",
+    	"name": "Kayne Heart",
+    	"description": "A heart that was specially created by /r/TransFlagPlace in appreciation of the alliance with /r/Kayne, whose members helped to protect the far west of the transgender ribbon.",
+    	"website": "",
+    	"subreddit": "/r/TransFlagPlace",
+    	"center": [
+    		193.5,
+    		566.5
+    	],
+    	"path": [
+    		[
+    			190.5,
+    			562.5
+    		],
+    		[
+    			189.5,
+    			563.5
+    		],
+    		[
+    			189.5,
+    			567.5
+    		],
+    		[
+    			192.5,
+    			570.5
+    		],
+    		[
+    			193.5,
+    			571.5
+    		],
+    		[
+    			194.5,
+    			570.5
+    		],
+    		[
+    			197.5,
+    			567.5
+    		],
+    		[
+    			197.5,
+    			563.5
+    		],
+    		[
+    			196.5,
+    			562.5
+    		],
+    		[
+    			194.5,
+    			562.5
+    		],
+    		[
+    			193.5,
+    			563.5
+    		],
+    		[
+    			192.5,
+    			562.5
+    		],
+    		[
+    			190.5,
+    			562.5
+    		]
+    	]
+    },    {
+    	"id": 588,
+		"submitted_by": "Emiwater",
+    	"name": "Re:Zero ",
+    	"description": "Re:Zero Kara Hajimeru Isekai Seikatsu is a Japanese fantasy Anime aired in April to September, 2016.",
+    	"website": "",
+    	"subreddit": "/r/re_zero",
+    	"center": [
+    		600.5,
+    		855.5
+    	],
+    	"path": [
+    		[
+    			578.5,
+    			864.5
+    		],
+    		[
+    			578.5,
+    			862.5
+    		],
+    		[
+    			578.5,
+    			850.5
+    		],
+    		[
+    			593.5,
+    			850.5
+    		],
+    		[
+    			594.5,
+    			845.5
+    		],
+    		[
+    			618.5,
+    			845.5
+    		],
+    		[
+    			619.5,
+    			864.5
+    		],
+    		[
+    			619.5,
+    			845.5
+    		]
+    	]
+    },
+
+    {
+    	"id": 589,
+		"submitted_by": "bb010g",
+    	"name": "Juan Potato",
+    	"description": "The Classy Potato, avatar of programmer Juan Potato. One of the oldest pieces on the canvas. The black dot, while ironic, is not intentional.",
+    	"website": "https://github.com/JuanPotato",
+    	"subreddit": "",
+    	"center": [
+    		418.5,
+    		333.5
+    	],
+    	"path": [
+    		[
+    			411.5,
+    			321.5
+    		],
+    		[
+    			421.5,
+    			321.5
+    		],
+    		[
+    			421.5,
+    			323.5
+    		],
+    		[
+    			423.5,
+    			323.5
+    		],
+    		[
+    			423.5,
+    			326.5
+    		],
+    		[
+    			424.5,
+    			326.5
+    		],
+    		[
+    			424.5,
+    			327.5
+    		],
+    		[
+    			425.5,
+    			327.5
+    		],
+    		[
+    			425.5,
+    			328.5
+    		],
+    		[
+    			430.5,
+    			328.5
+    		],
+    		[
+    			430.5,
+    			329.5
+    		],
+    		[
+    			431.5,
+    			329.5
+    		],
+    		[
+    			431.5,
+    			332.5
+    		],
+    		[
+    			428.5,
+    			332.5
+    		],
+    		[
+    			428.5,
+    			341.5
+    		],
+    		[
+    			427.5,
+    			341.5
+    		],
+    		[
+    			427.5,
+    			343.5
+    		],
+    		[
+    			420.5,
+    			343.5
+    		],
+    		[
+    			420.5,
+    			344.5
+    		],
+    		[
+    			414.5,
+    			344.5
+    		],
+    		[
+    			414.5,
+    			343.5
+    		],
+    		[
+    			412.5,
+    			343.5
+    		],
+    		[
+    			412.5,
+    			342.5
+    		],
+    		[
+    			411.5,
+    			342.5
+    		],
+    		[
+    			411.5,
+    			341.5
+    		],
+    		[
+    			410.5,
+    			341.5
+    		],
+    		[
+    			410.5,
+    			340.5
+    		],
+    		[
+    			409.5,
+    			340.5
+    		],
+    		[
+    			409.5,
+    			338.5
+    		],
+    		[
+    			408.5,
+    			338.5
+    		],
+    		[
+    			408.5,
+    			337.5
+    		],
+    		[
+    			407.5,
+    			337.5
+    		],
+    		[
+    			407.5,
+    			336.5
+    		],
+    		[
+    			406.5,
+    			336.5
+    		],
+    		[
+    			406.5,
+    			332.5
+    		],
+    		[
+    			407.5,
+    			332.5
+    		],
+    		[
+    			407.5,
+    			331.5
+    		],
+    		[
+    			408.5,
+    			331.5
+    		],
+    		[
+    			408.5,
+    			330.5
+    		],
+    		[
+    			409.5,
+    			330.5
+    		],
+    		[
+    			409.5,
+    			328.5
+    		],
+    		[
+    			410.5,
+    			328.5
+    		],
+    		[
+    			410.5,
+    			326.5
+    		],
+    		[
+    			409.5,
+    			326.5
+    		],
+    		[
+    			409.5,
+    			323.5
+    		],
+    		[
+    			411.5,
+    			323.5
+    		],
+    		[
+    			411.5,
+    			321.5
+    		]
+    	]
+    },    {
+    	"id": 590,
+		"submitted_by": "kspehik",
+    	"name": "Marked mine from Minesweeper",
+    	"description": "Icon, which is represent marked tile as \"mine\" in classic Windows game Minesweeper (1989)",
+    	"website": "",
+    	"subreddit": "",
+    	"center": [
+    		302.5,
+    		968.5
+    	],
+    	"path": [
+    		[
+    			298.5,
+    			962.5
+    		],
+    		[
+    			298.5,
+    			973.5
+    		],
+    		[
+    			306.5,
+    			973.5
+    		],
+    		[
+    			306.5,
+    			962.5
+    		],
+    		[
+    			298.5,
+    			962.5
+    		]
+    	]
+    },    {
+    	"id": 591,
+		"submitted_by": "DiplomaticMeatball",
+    	"name": "Aromantic Flag",
+    	"description": "Pride flag for people who lack romantic attractions to others.",
+    	"website": "",
+    	"subreddit": "/r/aromantic",
+    	"center": [
+    		170.5,
+    		611.5
+    	],
+    	"path": [
+    		[
+    			49.5,
+    			603.5
+    		],
+    		[
+    			53.5,
+    			599.5
+    		],
+    		[
+    			53.5,
+    			596.5
+    		],
+    		[
+    			52.5,
+    			596.5
+    		],
+    		[
+    			48.5,
+    			600.5
+    		],
+    		[
+    			48.5,
+    			591.5
+    		],
+    		[
+    			45.5,
+    			591.5
+    		],
+    		[
+    			45.5,
+    			600.5
+    		],
+    		[
+    			41.5,
+    			596.5
+    		],
+    		[
+    			40.5,
+    			596.5
+    		],
+    		[
+    			40.5,
+    			599.5
+    		],
+    		[
+    			46.5,
+    			605.5
+    		],
+    		[
+    			48.5,
+    			605.5
+    		],
+    		[
+    			50.5,
+    			603.5
+    		],
+    		[
+    			73.5,
+    			603.5
+    		],
+    		[
+    			107.5,
+    			603.5
+    		],
+    		[
+    			107.5,
+    			605.5
+    		],
+    		[
+    			111.5,
+    			608.5
+    		],
+    		[
+    			116.5,
+    			608.5
+    		],
+    		[
+    			121.5,
+    			605.5
+    		],
+    		[
+    			121.5,
+    			604.5
+    		],
+    		[
+    			120.5,
+    			603.5
+    		],
+    		[
+    			153.5,
+    			603.5
+    		],
+    		[
+    			153.5,
+    			608.5
+    		],
+    		[
+    			179.5,
+    			608.5
+    		],
+    		[
+    			179.5,
+    			603.5
+    		],
+    		[
+    			185.5,
+    			603.5
+    		],
+    		[
+    			185.5,
+    			614.5
+    		],
+    		[
+    			184.5,
+    			614.5
+    		],
+    		[
+    			182.5,
+    			612.5
+    		],
+    		[
+    			180.5,
+    			614.5
+    		],
+    		[
+    			176.5,
+    			614.5
+    		],
+    		[
+    			176.5,
+    			613.5
+    		],
+    		[
+    			173.5,
+    			610.5
+    		],
+    		[
+    			172.5,
+    			611.5
+    		],
+    		[
+    			171.5,
+    			612.5
+    		],
+    		[
+    			171.5,
+    			614.5
+    		],
+    		[
+    			137.5,
+    			614.5
+    		],
+    		[
+    			137.5,
+    			612.5
+    		],
+    		[
+    			136.5,
+    			612.5
+    		],
+    		[
+    			136.5,
+    			606.5
+    		],
+    		[
+    			134.5,
+    			606.5
+    		],
+    		[
+    			132.5,
+    			604.5
+    		],
+    		[
+    			124.5,
+    			604.5
+    		],
+    		[
+    			124.5,
+    			605.5
+    		],
+    		[
+    			123.5,
+    			606.5
+    		],
+    		[
+    			121.5,
+    			606.5
+    		],
+    		[
+    			121.5,
+    			612.5
+    		],
+    		[
+    			120.5,
+    			613.5
+    		],
+    		[
+    			119.5,
+    			614.5
+    		],
+    		[
+    			119.5,
+    			608.5
+    		],
+    		[
+    			107.5,
+    			608.5
+    		],
+    		[
+    			107.5,
+    			604.5
+    		],
+    		[
+    			78.5,
+    			604.5
+    		],
+    		[
+    			77.5,
+    			605.5
+    		],
+    		[
+    			73.5,
+    			605.5
+    		],
+    		[
+    			73.5,
+    			608.5
+    		],
+    		[
+    			73.5,
+    			603.5
+    		]
+    	]
+    },    {
+    	"id": 592,
+		"submitted_by": "escapeepacse",
+    	"name": "Tiny Fox",
+    	"description": "A one-man effort to make art on /r/place, this very small fox stayed intact and hidden in the corner of the canvas for the last 24 hours of the event.",
+    	"website": "",
+    	"subreddit": "",
+    	"center": [
+    		35.5,
+    		905.5
+    	],
+    	"path": [
+    		[
+    			32.5,
+    			902.5
+    		],
+    		[
+    			32.5,
+    			908.5
+    		],
+    		[
+    			37.5,
+    			908.5
+    		],
+    		[
+    			37.5,
+    			902.5
+    		],
+    		[
+    			32.5,
+    			902.5
+    		]
+    	]
+    },    {
+    	"id": 593,
+		"submitted_by": "Tekar",
+    	"name": "Place Portal Pattern (bopp)",
+    	"description": "Place Portal Pattern came about during /r/place when patterned and coloured sections were dominant. Before sprites conquered much of the map. bopp was able to successfully keep much of their initial starting area. They were a strong force within this region, were able to fend off many attacks, and acted as a protector to many of the smaller communities nearby. ",
+    	"website": "",
+    	"subreddit": "/r/placeportalpattern",
+    	"center": [
+    		56.5,
+    		679.5
+    	],
+    	"path": [
+    		[
+    			7.5,
+    			675.5
+    		],
+    		[
+    			28.5,
+    			675.5
+    		],
+    		[
+    			29.5,
+    			659.5
+    		],
+    		[
+    			92.5,
+    			659.5
+    		],
+    		[
+    			93.5,
+    			684.5
+    		],
+    		[
+    			90.5,
+    			685.5
+    		],
+    		[
+    			91.5,
+    			703.5
+    		],
+    		[
+    			108.5,
+    			704.5
+    		],
+    		[
+    			108.5,
+    			709.5
+    		],
+    		[
+    			90.5,
+    			709.5
+    		],
+    		[
+    			87.5,
+    			696.5
+    		],
+    		[
+    			31.5,
+    			695.5
+    		],
+    		[
+    			29.5,
+    			694.5
+    		],
+    		[
+    			10.5,
+    			694.5
+    		],
+    		[
+    			9.5,
+    			687.5
+    		],
+    		[
+    			7.5,
+    			686.5
+    		],
+    		[
+    			7.5,
+    			680.5
+    		]
+    	]
+    },    {
+    	"id": 594,
+		"submitted_by": "kspehik",
+    	"name": "Overwatch logo and Torbjörn",
+    	"description": "r/overwatch tried finish logo of their beloved game multiple times, but Swedes defended their territory with brave. As a compromise, r/overwatch decided to add Torbjörn to their art, because he is originated from Sweden",
+    	"website": "",
+    	"subreddit": "/r/overwatch",
+    	"center": [
+    		900.5,
+    		116.5
+    	],
+    	"path": [
+    		[
+    			880.5,
+    			106.5
+    		],
+    		[
+    			880.5,
+    			120.5
+    		],
+    		[
+    			885.5,
+    			127.5
+    		],
+    		[
+    			895.5,
+    			131.5
+    		],
+    		[
+    			900.5,
+    			131.5
+    		],
+    		[
+    			900.5,
+    			133.5
+    		],
+    		[
+    			914.5,
+    			133.5
+    		],
+    		[
+    			914.5,
+    			128.5
+    		],
+    		[
+    			919.5,
+    			128.5
+    		],
+    		[
+    			918.5,
+    			105.5
+    		],
+    		[
+    			910.5,
+    			100.5
+    		],
+    		[
+    			905.5,
+    			100.5
+    		],
+    		[
+    			895.5,
+    			103.5
+    		],
+    		[
+    			889.5,
+    			102.5
+    		],
+    		[
+    			881.5,
+    			103.5
+    		],
+    		[
+    			881.5,
+    			106.5
+    		],
+    		[
+    			880.5,
+    			108.5
+    		]
+    	]
+    },    {
+    	"id": 595,
+		"submitted_by": "DoomAngelBlade",
+    	"name": "Pandemic Horde ",
+    	"description": "One of major EVE ONLINE alliances which consists from 10 000 members.",
+    	"website": "",
+    	"subreddit": "",
+    	"center": [
+    		383.5,
+    		279.5
+    	],
+    	"path": [
+    		[
+    			372.5,
+    			261.5
+    		],
+    		[
+    			372.5,
+    			297.5
+    		],
+    		[
+    			394.5,
+    			297.5
+    		],
+    		[
+    			394.5,
+    			261.5
+    		]
+    	]
+    }, {
+    	"id": 596,
+		"submitted_by": "DoomAngelBlade",
+    	"name": "Shantae Half-Genie Hero, Shantae",
+    	"description": "Shantae is main protagonist in the game",
+    	"website": "",
+    	"subreddit": "",
+    	"center": [
+    		758.5,
+    		599.5
+    	],
+    	"path": [
+    		[
+    			752.5,
+    			585.5
+    		],
+    		[
+    			747.5,
+    			585.5
+    		],
+    		[
+    			745.5,
+    			587.5
+    		],
+    		[
+    			745.5,
+    			591.5
+    		],
+    		[
+    			746.5,
+    			592.5
+    		],
+    		[
+    			746.5,
+    			595.5
+    		],
+    		[
+    			747.5,
+    			595.5
+    		],
+    		[
+    			747.5,
+    			600.5
+    		],
+    		[
+    			745.5,
+    			602.5
+    		],
+    		[
+    			744.5,
+    			602.5
+    		],
+    		[
+    			743.5,
+    			601.5
+    		],
+    		[
+    			743.5,
+    			603.5
+    		],
+    		[
+    			744.5,
+    			604.5
+    		],
+    		[
+    			747.5,
+    			604.5
+    		],
+    		[
+    			751.5,
+    			600.5
+    		],
+    		[
+    			752.5,
+    			600.5
+    		],
+    		[
+    			753.5,
+    			599.5
+    		],
+    		[
+    			755.5,
+    			599.5
+    		],
+    		[
+    			756.5,
+    			600.5
+    		],
+    		[
+    			757.5,
+    			600.5
+    		],
+    		[
+    			757.5,
+    			601.5
+    		],
+    		[
+    			754.5,
+    			604.5
+    		],
+    		[
+    			750.5,
+    			604.5
+    		],
+    		[
+    			750.5,
+    			606.5
+    		],
+    		[
+    			751.5,
+    			606.5
+    		],
+    		[
+    			752.5,
+    			607.5
+    		],
+    		[
+    			753.5,
+    			606.5
+    		],
+    		[
+    			755.5,
+    			606.5
+    		],
+    		[
+    			756.5,
+    			605.5
+    		],
+    		[
+    			758.5,
+    			603.5
+    		],
+    		[
+    			760.5,
+    			603.5
+    		],
+    		[
+    			761.5,
+    			604.5
+    		],
+    		[
+    			762.5,
+    			604.5
+    		],
+    		[
+    			762.5,
+    			608.5
+    		],
+    		[
+    			763.5,
+    			609.5
+    		],
+    		[
+    			763.5,
+    			610.5
+    		],
+    		[
+    			761.5,
+    			612.5
+    		],
+    		[
+    			760.5,
+    			613.5
+    		],
+    		[
+    			760.5,
+    			616.5
+    		],
+    		[
+    			758.5,
+    			616.5
+    		],
+    		[
+    			758.5,
+    			619.5
+    		],
+    		[
+    			762.5,
+    			619.5
+    		],
+    		[
+    			762.5,
+    			617.5
+    		],
+    		[
+    			763.5,
+    			616.5
+    		],
+    		[
+    			764.5,
+    			615.5
+    		],
+    		[
+    			765.5,
+    			616.5
+    		],
+    		[
+    			766.5,
+    			616.5
+    		],
+    		[
+    			767.5,
+    			617.5
+    		],
+    		[
+    			767.5,
+    			618.5
+    		],
+    		[
+    			768.5,
+    			619.5
+    		],
+    		[
+    			769.5,
+    			618.5
+    		],
+    		[
+    			769.5,
+    			617.5
+    		],
+    		[
+    			768.5,
+    			616.5
+    		],
+    		[
+    			769.5,
+    			615.5
+    		],
+    		[
+    			770.5,
+    			615.5
+    		],
+    		[
+    			771.5,
+    			614.5
+    		],
+    		[
+    			771.5,
+    			611.5
+    		],
+    		[
+    			770.5,
+    			610.5
+    		],
+    		[
+    			770.5,
+    			609.5
+    		],
+    		[
+    			769.5,
+    			608.5
+    		],
+    		[
+    			768.5,
+    			607.5
+    		],
+    		[
+    			768.5,
+    			607.5
+    		],
+    		[
+    			769.5,
+    			606.5
+    		],
+    		[
+    			769.5,
+    			605.5
+    		],
+    		[
+    			768.5,
+    			604.5
+    		],
+    		[
+    			767.5,
+    			604.5
+    		],
+    		[
+    			766.5,
+    			604.5
+    		],
+    		[
+    			765.5,
+    			603.5
+    		],
+    		[
+    			765.5,
+    			601.5
+    		],
+    		[
+    			764.5,
+    			601.5
+    		],
+    		[
+    			764.5,
+    			599.5
+    		],
+    		[
+    			765.5,
+    			599.5
+    		],
+    		[
+    			766.5,
+    			598.5
+    		],
+    		[
+    			767.5,
+    			597.5
+    		],
+    		[
+    			767.5,
+    			596.5
+    		],
+    		[
+    			768.5,
+    			595.5
+    		],
+    		[
+    			768.5,
+    			594.5
+    		],
+    		[
+    			767.5,
+    			593.5
+    		],
+    		[
+    			767.5,
+    			593.5
+    		],
+    		[
+    			767.5,
+    			593.5
+    		],
+    		[
+    			766.5,
+    			593.5
+    		],
+    		[
+    			766.5,
+    			591.5
+    		],
+    		[
+    			765.5,
+    			590.5
+    		],
+    		[
+    			764.5,
+    			589.5
+    		],
+    		[
+    			763.5,
+    			589.5
+    		],
+    		[
+    			762.5,
+    			588.5
+    		],
+    		[
+    			754.5,
+    			588.5
+    		],
+    		[
+    			754.5,
+    			587.5
+    		],
+    		[
+    			753.5,
+    			586.5
+    		]
+    	]
+    }, {
+    	"id": 597,
+		"submitted_by": "DoomAngelBlade",
+    	"name": "TEST ALLIANCE PLEASE IGNORE alliance in EVE ONLINE",
+    	"description": "TEST ALLIANCE is one of major EVE ONLINE alliances. ",
+    	"website": "https://www.pleaseignore.com/",
+    	"subreddit": "",
+    	"center": [
+    		708.5,
+    		133.5
+    	],
+    	"path": [
+    		[
+    			668.5,
+    			120.5
+    		],
+    		[
+    			668.5,
+    			147.5
+    		],
+    		[
+    			748.5,
+    			146.5
+    		],
+    		[
+    			748.5,
+    			120.5
+    		]
+    	]
+    },    {
+    	"id": 598,
+		"submitted_by": "AdventureFreddy",
+    	"name": "Five Nights at Freddy's",
+    	"description": "A small piece displaying Fredbear, The Purple Guy and The Crying Child from the indie horror game Five Nights at Freddy's. This monument was originally fixed further right, until being absorbed by the OSU! circle. With the help of /r/philippines, it relocated further left and formed an alliance with /r/splatoon.",
+    	"website": "",
+    	"subreddit": "/r/fivenightsatfreddys",
+    	"center": [
+    		408.5,
+    		949.5
+    	],
+    	"path": [
+    		[
+    			395.5,
+    			940.5
+    		],
+    		[
+    			419.5,
+    			940.5
+    		],
+    		[
+    			419.5,
+    			962.5
+    		],
+    		[
+    			413.5,
+    			963.5
+    		],
+    		[
+    			405.5,
+    			951.5
+    		],
+    		[
+    			402.5,
+    			951.5
+    		],
+    		[
+    			395.5,
+    			957.5
+    		],
+    		[
+    			395.5,
+    			956.5
+    		],
+    		[
+    			395.5,
+    			942.5
+    		]
+    	]
+    },    {
+    	"id": 599,
+		"submitted_by": "escapeepacse",
+    	"name": "Bisexual Flag",
+    	"description": "One of two pride flags representing the bisexual community.",
+    	"website": "",
+    	"subreddit": "/r/bisexual",
+    	"center": [
+    		278.5,
+    		593.5
+    	],
+    	"path": [
+    		[
+    			264.5,
+    			589.5
+    		],
+    		[
+    			264.5,
+    			597.5
+    		],
+    		[
+    			291.5,
+    			597.5
+    		],
+    		[
+    			291.5,
+    			589.5
+    		],
+    		[
+    			264.5,
+    			589.5
+    		]
+    	]
+    },    {
+    	"id": 600,
+		"submitted_by": "Atomfried",
+    	"name": "German Carrot",
+    	"description": "Originally a present from Germany's southern neighbours, /r/farmcarrots, to commemorate peace between the two factions. Unfortunately, /r/farmcarrots got attacked by Kekistan and burned down almost entirely. Germany granted this carrot asylum and vowed to liberate the carrot lands. Although making good progress in fighting back the invaders, r/place ended just as the battle over Kekistan reached its peak, and the ultimate fate of the farmcarrots remains uncertain.",
+    	"website": "",
+    	"subreddit": "/r/farmcarrots",
+    	"center": [
+    		547.5,
+    		872.5
+    	],
+    	"path": [
+    		[
+    			551.5,
+    			865.5
+    		],
+    		[
+    			549.5,
+    			868.5
+    		],
+    		[
+    			547.5,
+    			867.5
+    		],
+    		[
+    			543.5,
+    			871.5
+    		],
+    		[
+    			540.5,
+    			876.5
+    		],
+    		[
+    			540.5,
+    			878.5
+    		],
+    		[
+    			544.5,
+    			878.5
+    		],
+    		[
+    			548.5,
+    			876.5
+    		],
+    		[
+    			552.5,
+    			871.5
+    		],
+    		[
+    			551.5,
+    			870.5
+    		],
+    		[
+    			554.5,
+    			868.5
+    		],
+    		[
+    			554.5,
+    			866.5
+    		]
+    	]
+    },    {
+    	"id": 601,
+		"submitted_by": "Bshow",
+    	"name": "Paladins Symbol",
+    	"description": "Paladins is a online team-based FPS developed by HI-REZ",
+    	"website": "",
+    	"subreddit": "r/Paladins",
+    	"center": [
+    		925.5,
+    		434.5
+    	],
+    	"path": [
+    		[
+    			925.5,
+    			420.5
+    		],
+    		[
+    			914.5,
+    			434.5
+    		],
+    		[
+    			925.5,
+    			446.5
+    		],
+    		[
+    			936.5,
+    			436.5
+    		],
+    		[
+    			936.5,
+    			435.5
+    		],
+    		[
+    			932.5,
+    			429.5
+    		]
+    	]
+    },    {
+    	"id": 602,
+		"submitted_by": "jojo6311",
+    	"name": "College Football",
+    	"description": "A Banner for the College Football Sub",
+    	"website": "",
+    	"subreddit": "/r/cfb",
+    	"center": [
+    		830.5,
+    		197.5
+    	],
+    	"path": [
+    		[
+    			816.5,
+    			179.5
+    		],
+    		[
+    			844.5,
+    			179.5
+    		],
+    		[
+    			845.5,
+    			215.5
+    		],
+    		[
+    			816.5,
+    			214.5
+    		]
+    	]
+    },    {
+    	"id": 603,
+		"submitted_by": "ElliottB1",
+    	"name": "Play-Yan",
+    	"description": "A character from the Rhythm Heaven series of games.",
+    	"website": "",
+    	"subreddit": "/r/rhythmheaven",
+    	"center": [
+    		875.5,
+    		886.5
+    	],
+    	"path": [
+    		[
+    			875.5,
+    			897.5
+    		],
+    		[
+    			875.5,
+    			895.5
+    		],
+    		[
+    			877.5,
+    			893.5
+    		],
+    		[
+    			881.5,
+    			893.5
+    		],
+    		[
+    			881.5,
+    			879.5
+    		],
+    		[
+    			868.5,
+    			879.5
+    		],
+    		[
+    			868.5,
+    			886.5
+    		],
+    		[
+    			869.5,
+    			892.5
+    		]
+    	]
+    },    {
+    	"id": 604,
+		"submitted_by": "DoomAngelBlade",
+    	"name": "Be Brave 7o Corporation",
+    	"description": "One of the EVE ONLINE Corporations/Alliances.\n ",
+    	"website": "",
+    	"subreddit": "",
+    	"center": [
+    		363.5,
+    		285.5
+    	],
+    	"path": [
+    		[
+    			353.5,
+    			270.5
+    		],
+    		[
+    			353.5,
+    			299.5
+    		],
+    		[
+    			372.5,
+    			299.5
+    		],
+    		[
+    			372.5,
+    			270.5
+    		]
+    	]
+    },    {
+    	"id": 605,
+		"submitted_by": "Tekar",
+    	"name": "Minecraft",
+    	"description": "This Shovel, Pick and semi-constructed set of armour are from the game Minecraft a popular sandbox video game with survival aspects. These Icons were constructed by a small group of users that often used scripts for their construction. This group was problematic in this region. They had conflicts with AR, Dwarf Fortress, and Indonesia. At one time Indonesia destroyed their pick, and almost destroyed their shovel. Eventually they formed an alliance with Dwarf Fortress to create a collaborative image over Indonesia's flag. At the end of /r/place they were once again fighting with Dwarf Fortress over the remains of Indonesia \n",
+    	"website": "https://minecraft.net/en-us/",
+    	"subreddit": "/r/Minecraft/",
+    	"center": [
+    		97.5,
+    		614.5
+    	],
+    	"path": [
+    		[
+    			106.5,
+    			609.5
+    		],
+    		[
+    			107.5,
+    			615.5
+    		],
+    		[
+    			103.5,
+    			616.5
+    		],
+    		[
+    			102.5,
+    			625.5
+    		],
+    		[
+    			108.5,
+    			626.5
+    		],
+    		[
+    			109.5,
+    			637.5
+    		],
+    		[
+    			123.5,
+    			639.5
+    		],
+    		[
+    			120.5,
+    			627.5
+    		],
+    		[
+    			118.5,
+    			624.5
+    		],
+    		[
+    			118.5,
+    			609.5
+    		],
+    		[
+    			108.5,
+    			609.5
+    		],
+    		[
+    			142.5,
+    			641.5
+    		],
+    		[
+    			153.5,
+    			640.5
+    		],
+    		[
+    			153.5,
+    			653.5
+    		],
+    		[
+    			143.5,
+    			653.5
+    		],
+    		[
+    			143.5,
+    			640.5
+    		]
+    	]
+    },    {
+    	"id": 606,
+		"submitted_by": "xSty864",
+    	"name": "Internet Explorer",
+    	"description": "The icon of world-famous Microsoft Internet Explorer.",
+    	"website": "",
+    	"subreddit": "",
+    	"center": [
+    		687.5,
+    		933.5
+    	],
+    	"path": [
+    		[
+    			682.5,
+    			928.5
+    		],
+    		[
+    			682.5,
+    			937.5
+    		],
+    		[
+    			691.5,
+    			937.5
+    		],
+    		[
+    			691.5,
+    			928.5
+    		]
+    	]
+    },    {
+    	"id": 607,
+		"submitted_by": "altyr",
+    	"name": "Fox",
+    	"description": "What remains of a cute fox",
+    	"website": "",
+    	"subreddit": "/r/foxes",
+    	"center": [
+    		49.5,
+    		55.5
+    	],
+    	"path": [
+    		[
+    			33.5,
+    			45.5
+    		],
+    		[
+    			72.5,
+    			46.5
+    		],
+    		[
+    			55.5,
+    			67.5
+    		],
+    		[
+    			33.5,
+    			67.5
+    		]
+    	]
+    },    {
+    	"id": 608,
+		"submitted_by": "escapeepacse",
+    	"name": "Bisexual Flag",
+    	"description": "One of two pride flags representing the bisexual community.",
+    	"website": "",
+    	"subreddit": "/r/bisexual",
+    	"center": [
+    		533.5,
+    		563.5
+    	],
+    	"path": [
+    		[
+    			520.5,
+    			555.5
+    		],
+    		[
+    			520.5,
+    			571.5
+    		],
+    		[
+    			545.5,
+    			571.5
+    		],
+    		[
+    			545.5,
+    			555.5
+    		],
+    		[
+    			520.5,
+    			555.5
+    		]
+    	]
+    },    {
+    	"id": 609,
+		"submitted_by": "DiplomaticMeatball",
+    	"name": "Genderqueer flag",
+    	"description": "Genderqueer pride flag. Genderqueer is an identity taken on by a variety of people who feel that, in some way, the very substance of their genders lies outside the gender binary's two labels of \"male\" and \"female.\" ",
+    	"website": "",
+    	"subreddit": "/r/genderqueer/",
+    	"center": [
+    		251.5,
+    		593.5
+    	],
+    	"path": [
+    		[
+    			238.5,
+    			589.5
+    		],
+    		[
+    			238.5,
+    			596.5
+    		],
+    		[
+    			263.5,
+    			596.5
+    		],
+    		[
+    			263.5,
+    			589.5
+    		]
+    	]
+    },
+
+    {
+    	"id": 610,
+		"submitted_by": "Galaruss",
+    	"name": "Porter Robinson",
+    	"description": "American DJ and electronic music producer",
+    	"website": "http://porterrobinson.com/",
+    	"subreddit": "/r/PorterRobinson",
+    	"center": [
+    		473.5,
+    		291.5
+    	],
+    	"path": [
+    		[
+    			451.5,
+    			280.5
+    		],
+    		[
+    			451.5,
+    			301.5
+    		],
+    		[
+    			495.5,
+    			301.5
+    		],
+    		[
+    			495.5,
+    			280.5
+    		]
+    	]
+    },
+
+    {
+    	"id": 611,
+		"submitted_by": "Galaruss",
+    	"name": "Madeon - Adventure",
+    	"description": "Madeon is a French DJ and electronic music producer. This is the symbol from his first album, Adventure",
+    	"website": "http://www.madeon.fr/",
+    	"subreddit": "/r/Madeon",
+    	"center": [
+    		492.5,
+    		308.5
+    	],
+    	"path": [
+    		[
+    			482.5,
+    			308.5
+    		],
+    		[
+    			487.5,
+    			303.5
+    		],
+    		[
+    			488.5,
+    			303.5
+    		],
+    		[
+    			488.5,
+    			304.5
+    		],
+    		[
+    			491.5,
+    			304.5
+    		],
+    		[
+    			491.5,
+    			303.5
+    		],
+    		[
+    			493.5,
+    			303.5
+    		],
+    		[
+    			493.5,
+    			304.5
+    		],
+    		[
+    			496.5,
+    			304.5
+    		],
+    		[
+    			496.5,
+    			303.5
+    		],
+    		[
+    			497.5,
+    			303.5
+    		],
+    		[
+    			502.5,
+    			308.5
+    		],
+    		[
+    			497.5,
+    			313.5
+    		],
+    		[
+    			496.5,
+    			313.5
+    		],
+    		[
+    			496.5,
+    			312.5
+    		],
+    		[
+    			493.5,
+    			312.5
+    		],
+    		[
+    			493.5,
+    			313.5
+    		],
+    		[
+    			491.5,
+    			313.5
+    		],
+    		[
+    			491.5,
+    			312.5
+    		],
+    		[
+    			488.5,
+    			312.5
+    		],
+    		[
+    			488.5,
+    			313.5
+    		],
+    		[
+    			487.5,
+    			313.5
+    		]
+    	]
+    },
+
+    {
+    	"id": 612,
+		"submitted_by": "Galaruss",
+    	"name": "Shelter Tour",
+    	"description": "Electronic music producers and DJs, Madeon and Porter Robinson's 2016-17 tour",
+    	"website": "https://shelterlivetour.com/",
+    	"subreddit": "/r/madeon",
+    	"center": [
+    		503.5,
+    		287.5
+    	],
+    	"path": [
+    		[
+    			495.5,
+    			293.5
+    		],
+    		[
+    			495.5,
+    			280.5
+    		],
+    		[
+    			511.5,
+    			280.5
+    		],
+    		[
+    			511.5,
+    			293.5
+    		]
+    	]
+    },    {
+    	"id": 613,
+		"submitted_by": "Tekar",
+    	"name": "Battle with the Void/Relocated Indonesian Flag",
+    	"description": "This entire region, near the Square Spiral was attacked by the void. Eventually Tiny Rick, Brazil, Dwarf Fortress, BOPP, SqSP and Indonesia fought off the void. The conclusion of Indonesia's battle with Dwarf Fortress was to relocate the Indonesian flag within the former void battle area. Due to scriptors, the flag was not able to be completed when /r/place ended",
+    	"website": "",
+    	"subreddit": "/r/indonesia",
+    	"center": [
+    		128.5,
+    		709.5
+    	],
+    	"path": [
+    		[
+    			109.5,
+    			697.5
+    		],
+    		[
+    			148.5,
+    			698.5
+    		],
+    		[
+    			146.5,
+    			720.5
+    		],
+    		[
+    			109.5,
+    			720.5
+    		]
+    	]
+    },    {
+    	"id": 614,
+		"submitted_by": "Waneupe",
+    	"name": "French FF Mage",
+    	"description": "A collaboration between Final Fantasy and France's subreddits.",
+    	"website": "",
+    	"subreddit": "",
+    	"center": [
+    		421.5,
+    		671.5
+    	],
+    	"path": [
+    		[
+    			414.5,
+    			663.5
+    		],
+    		[
+    			426.5,
+    			655.5
+    		],
+    		[
+    			430.5,
+    			664.5
+    		],
+    		[
+    			429.5,
+    			675.5
+    		],
+    		[
+    			430.5,
+    			683.5
+    		],
+    		[
+    			413.5,
+    			683.5
+    		],
+    		[
+    			411.5,
+    			677.5
+    		]
+    	]
+    },    {
+    	"id": 615,
+		"submitted_by": "dojure",
+    	"name": "Hunter × Hunter",
+    	"description": "Hunter Association logo from the Japanese manga series Hunter × Hunter",
+    	"website": "",
+    	"subreddit": "/r/HunterXHunter/",
+    	"center": [
+    		687.5,
+    		601.5
+    	],
+    	"path": [
+    		[
+    			671.5,
+    			590.5
+    		],
+    		[
+    			702.5,
+    			590.5
+    		],
+    		[
+    			702.5,
+    			611.5
+    		],
+    		[
+    			671.5,
+    			611.5
+    		]
+    	]
+    },    {
+    	"id": 616,
+		"submitted_by": "NIPPLE_POOP",
+    	"name": "THE_PACK",
+    	"description": "THESE ARE SOME BAD MFERS who just want to express themselves",
+    	"website": "",
+    	"subreddit": "/r/the_pack",
+    	"center": [
+    		307.5,
+    		604.5
+    	],
+    	"path": [
+    		[
+    			280.5,
+    			599.5
+    		],
+    		[
+    			280.5,
+    			607.5
+    		],
+    		[
+    			293.5,
+    			607.5
+    		],
+    		[
+    			293.5,
+    			611.5
+    		],
+    		[
+    			328.5,
+    			611.5
+    		],
+    		[
+    			329.5,
+    			605.5
+    		],
+    		[
+    			332.5,
+    			605.5
+    		],
+    		[
+    			332.5,
+    			598.5
+    		],
+    		[
+    			280.5,
+    			598.5
+    		]
+    	]
+    },    {
+    	"id": 617,
+		"submitted_by": "DiplomaticMeatball",
+    	"name": "Asexual Flag",
+    	"description": "Pride flag for people who do not experience sexual attraction. Organised by /r/AcePlace",
+    	"website": "http://asexuality.org/",
+    	"subreddit": "/r/Asexuality",
+    	"center": [
+    		98.5,
+    		596.5
+    	],
+    	"path": [
+    		[
+    			0.5,
+    			589.5
+    		],
+    		[
+    			0.5,
+    			602.5
+    		],
+    		[
+    			42.5,
+    			602.5
+    		],
+    		[
+    			39.5,
+    			599.5
+    		],
+    		[
+    			39.5,
+    			595.5
+    		],
+    		[
+    			41.5,
+    			595.5
+    		],
+    		[
+    			44.5,
+    			598.5
+    		],
+    		[
+    			44.5,
+    			590.5
+    		],
+    		[
+    			49.5,
+    			590.5
+    		],
+    		[
+    			48.5,
+    			598.5
+    		],
+    		[
+    			52.5,
+    			595.5
+    		],
+    		[
+    			54.5,
+    			595.5
+    		],
+    		[
+    			54.5,
+    			600.5
+    		],
+    		[
+    			51.5,
+    			602.5
+    		],
+    		[
+    			107.5,
+    			602.5
+    		],
+    		[
+    			107.5,
+    			600.5
+    		],
+    		[
+    			108.5,
+    			600.5
+    		],
+    		[
+    			108.5,
+    			597.5
+    		],
+    		[
+    			109.5,
+    			597.5
+    		],
+    		[
+    			109.5,
+    			596.5
+    		],
+    		[
+    			112.5,
+    			596.5
+    		],
+    		[
+    			112.5,
+    			597.5
+    		],
+    		[
+    			115.5,
+    			600.5
+    		],
+    		[
+    			118.5,
+    			600.5
+    		],
+    		[
+    			118.5,
+    			601.5
+    		],
+    		[
+    			119.5,
+    			601.5
+    		],
+    		[
+    			120.5,
+    			602.5
+    		],
+    		[
+    			154.5,
+    			602.5
+    		],
+    		[
+    			154.5,
+    			607.5
+    		],
+    		[
+    			178.5,
+    			607.5
+    		],
+    		[
+    			178.5,
+    			599.5
+    		],
+    		[
+    			178.5,
+    			602.5
+    		],
+    		[
+    			185.5,
+    			602.5
+    		],
+    		[
+    			185.5,
+    			589.5
+    		]
+    	]
+    },
+
+    {
+    	"id": 618,
+		"submitted_by": "Galaruss",
+    	"name": "IKEA logo",
+    	"description": "This logo of the Swedish company is built on top of the Swedish flag",
+    	"website": "http://www.ikea.com/",
+    	"subreddit": "",
+    	"center": [
+    		556.5,
+    		125.5
+    	],
+    	"path": [
+    		[
+    			539.5,
+    			117.5
+    		],
+    		[
+    			573.5,
+    			117.5
+    		],
+    		[
+    			573.5,
+    			133.5
+    		],
+    		[
+    			539.5,
+    			133.5
+    		]
+    	]
+    },
+
+    {
+    	"id": 619,
+		"submitted_by": "Galaruss",
+    	"name": "nope.avi",
+    	"description": "A Team Fortress 2 meme",
+    	"website": "https://www.youtube.com/watch?v=gvdf5n-zI14",
+    	"subreddit": "/r/tf2",
+    	"center": [
+    		313.5,
+    		384.5
+    	],
+    	"path": [
+    		[
+    			298.5,
+    			405.5
+    		],
+    		[
+    			298.5,
+    			362.5
+    		],
+    		[
+    			328.5,
+    			362.5
+    		],
+    		[
+    			328.5,
+    			405.5
+    		]
+    	]
+    },
+
+    {
+    	"id": 620,
+		"submitted_by": "Galaruss",
+    	"name": "Reddit inbox icon",
+    	"description": "The symbol for Reddit's messaging inbox.",
+    	"website": "",
+    	"subreddit": "",
+    	"center": [
+    		346.5,
+    		368.5
+    	],
+    	"path": [
+    		[
+    			339.5,
+    			372.5
+    		],
+    		[
+    			339.5,
+    			363.5
+    		],
+    		[
+    			353.5,
+    			363.5
+    		],
+    		[
+    			353.5,
+    			372.5
+    		]
+    	]
+    },
+
+    {
+    	"id": 621,
+		"submitted_by": "Galaruss",
+    	"name": "Iowa State University",
+    	"description": "",
+    	"website": "https://www.iastate.edu/",
+    	"subreddit": "/r/iastate",
+    	"center": [
+    		369.5,
+    		366.5
+    	],
+    	"path": [
+    		[
+    			378.5,
+    			373.5
+    		],
+    		[
+    			378.5,
+    			359.5
+    		],
+    		[
+    			360.5,
+    			359.5
+    		],
+    		[
+    			360.5,
+    			373.5
+    		]
+    	]
+    },
+
+    {
+    	"id": 622,
+		"submitted_by": "Galaruss",
+    	"name": "Protostar",
+    	"description": "A UK based electronic music artist signed to the Monstercat label",
+    	"website": "https://www.monstercat.com/artist/protostar",
+    	"subreddit": "/r/Monstercat",
+    	"center": [
+    		930.5,
+    		614.5
+    	],
+    	"path": [
+    		[
+    			913.5,
+    			630.5
+    		],
+    		[
+    			913.5,
+    			597.5
+    		],
+    		[
+    			946.5,
+    			597.5
+    		],
+    		[
+    			946.5,
+    			630.5
+    		]
+    	]
+    },
+
+    {
+    	"id": 623,
+		"submitted_by": "Galaruss",
+    	"name": "NPR",
+    	"description": "the National Public Radio of the US",
+    	"website": "http://www.npr.org/",
+    	"subreddit": "/r/NPR",
+    	"center": [
+    		530.5,
+    		550.5
+    	],
+    	"path": [
+    		[
+    			514.5,
+    			553.5
+    		],
+    		[
+    			514.5,
+    			546.5
+    		],
+    		[
+    			545.5,
+    			546.5
+    		],
+    		[
+    			545.5,
+    			555.5
+    		],
+    		[
+    			520.5,
+    			555.5
+    		],
+    		[
+    			520.5,
+    			553.5
+    		]
+    	]
+    },
+
+    {
+    	"id": 624,
+		"submitted_by": "Galaruss",
+    	"name": "Club Penguin",
+    	"description": "A tribute to the recently-closed online kids game done by the /r/placeStart community",
+    	"website": "https://www.clubpenguin.com/",
+    	"subreddit": "/r/clubpenguin",
+    	"center": [
+    		622.5,
+    		988.5
+    	],
+    	"path": [
+    		[
+    			632.5,
+    			998.5
+    		],
+    		[
+    			632.5,
+    			977.5
+    		],
+    		[
+    			611.5,
+    			977.5
+    		],
+    		[
+    			611.5,
+    			998.5
+    		]
+    	]
+    },
+
+    {
+    	"id": 625,
+		"submitted_by": "Galaruss",
+    	"name": "Bitcoin",
+    	"description": "The second, smaller drawing on /r/place for the cryptocurrency, Bitcoin",
+    	"website": "https://bitcoin.org/",
+    	"subreddit": "/r/btc",
+    	"center": [
+    		291.5,
+    		919.5
+    	],
+    	"path": [
+    		[
+    			288.5,
+    			925.5
+    		],
+    		[
+    			288.5,
+    			912.5
+    		],
+    		[
+    			294.5,
+    			912.5
+    		],
+    		[
+    			294.5,
+    			925.5
+    		]
+    	]
+    },
+
+    {
+    	"id": 626,
+		"submitted_by": "Galaruss",
+    	"name": "Game Boy",
+    	"description": "The original design of the hand-held console from Nintendo",
+    	"website": "http://www.nintendo.com/",
+    	"subreddit": "/r/GameBoy",
+    	"center": [
+    		851.5,
+    		205.5
+    	],
+    	"path": [
+    		[
+    			854.5,
+    			211.5
+    		],
+    		[
+    			847.5,
+    			211.5
+    		],
+    		[
+    			847.5,
+    			199.5
+    		],
+    		[
+    			855.5,
+    			199.5
+    		],
+    		[
+    			855.5,
+    			210.5
+    		]
+    	]
+    },    {
+    	"id": 627,
+		"submitted_by": "_Peavey",
+    	"name": "Hydra",
+    	"description": "Hydra is MARVEL Comics' Wolrd-wide criminal organization which wants to dominate the Earth.",
+    	"website": "http://agentsofshield.wikia.com/wiki/Agents_of_S.H.I.E.L.D._Wiki",
+    	"subreddit": "/r/Shield",
+    	"center": [
+    		840.5,
+    		861.5
+    	],
+    	"path": [
+    		[
+    			835.5,
+    			847.5
+    		],
+    		[
+    			845.5,
+    			847.5
+    		],
+    		[
+    			855.5,
+    			856.5
+    		],
+    		[
+    			856.5,
+    			864.5
+    		],
+    		[
+    			853.5,
+    			869.5
+    		],
+    		[
+    			848.5,
+    			874.5
+    		],
+    		[
+    			838.5,
+    			876.5
+    		],
+    		[
+    			830.5,
+    			873.5
+    		],
+    		[
+    			824.5,
+    			867.5
+    		],
+    		[
+    			824.5,
+    			862.5
+    		],
+    		[
+    			825.5,
+    			856.5
+    		],
+    		[
+    			829.5,
+    			851.5
+    		]
+    	]
+    },    {
+    	"id": 628,
+		"submitted_by": "CaptainMeme",
+    	"name": "Northern Mexican Territory",
+    	"description": "The territory controlled by r/mexico began with a flag in the top right of this area and grew to create a sign reading 'Viva Mexico Cabrones!' to the left. Further expansion of this area was done by extending the flag downwards and claiming the territory to the left to match, parts of which were already held by other factions. Some, such as a Spanish Flag, were overwritten, and some were incorporated into the design, such as a Duck from r/duckgame and a pixelart Yoshi.\nTension between r/ukplace and r/mexico grew when a cactus was built which began extending up into the dress of r/ukplace's depiction of Queen Elizabeth II, but negotiations brought about a peaceful resolution and a non-aggression pact between the two powers.\nIn the final hours of Place, a Void Core was created in the left hand side of this territory and quickly expanded to cover the flag and destroy the pixelart, but was beaten back by a combined effort of r/mexico and several surrounding factions.\nThe flag was quickly rebuilt, but the empty space to the left became contested territory as r/ukplace began construction of Big Ben in the area, to which r/Mexico responded by attempting to expand their flag over it - a project which was only partially completed as Place came to an end.",
+    	"website": "",
+    	"subreddit": "/r/mexico",
+    	"center": [
+    		259.5,
+    		367.5
+    	],
+    	"path": [
+    		[
+    			221.5,
+    			341.5
+    		],
+    		[
+    			296.5,
+    			342.5
+    		],
+    		[
+    			297.5,
+    			392.5
+    		],
+    		[
+    			221.5,
+    			392.5
+    		]
+    	]
+    },    {
+    	"id": 629,
+		"submitted_by": "_Peavey",
+    	"name": "Chelsea FC",
+    	"description": "Chelsea is a British football club from London.",
+    	"website": "",
+    	"subreddit": "/r/Chelsea",
+    	"center": [
+    		812.5,
+    		835.5
+    	],
+    	"path": [
+    		[
+    			820.5,
+    			810.5
+    		],
+    		[
+    			827.5,
+    			813.5
+    		],
+    		[
+    			833.5,
+    			820.5
+    		],
+    		[
+    			837.5,
+    			826.5
+    		],
+    		[
+    			839.5,
+    			832.5
+    		],
+    		[
+    			840.5,
+    			839.5
+    		],
+    		[
+    			840.5,
+    			844.5
+    		],
+    		[
+    			838.5,
+    			847.5
+    		],
+    		[
+    			833.5,
+    			849.5
+    		],
+    		[
+    			828.5,
+    			854.5
+    		],
+    		[
+    			824.5,
+    			856.5
+    		],
+    		[
+    			824.5,
+    			860.5
+    		],
+    		[
+    			823.5,
+    			865.5
+    		],
+    		[
+    			821.5,
+    			867.5
+    		],
+    		[
+    			804.5,
+    			869.5
+    		],
+    		[
+    			804.5,
+    			854.5
+    		],
+    		[
+    			808.5,
+    			853.5
+    		],
+    		[
+    			810.5,
+    			856.5
+    		],
+    		[
+    			814.5,
+    			851.5
+    		],
+    		[
+    			814.5,
+    			849.5
+    		],
+    		[
+    			805.5,
+    			850.5
+    		],
+    		[
+    			805.5,
+    			847.5
+    		],
+    		[
+    			807.5,
+    			844.5
+    		],
+    		[
+    			810.5,
+    			842.5
+    		],
+    		[
+    			804.5,
+    			838.5
+    		],
+    		[
+    			797.5,
+    			838.5
+    		],
+    		[
+    			793.5,
+    			841.5
+    		],
+    		[
+    			791.5,
+    			846.5
+    		],
+    		[
+    			789.5,
+    			849.5
+    		],
+    		[
+    			788.5,
+    			845.5
+    		],
+    		[
+    			787.5,
+    			840.5
+    		],
+    		[
+    			783.5,
+    			838.5
+    		],
+    		[
+    			780.5,
+    			839.5
+    		],
+    		[
+    			778.5,
+    			839.5
+    		],
+    		[
+    			777.5,
+    			832.5
+    		],
+    		[
+    			783.5,
+    			826.5
+    		],
+    		[
+    			783.5,
+    			823.5
+    		],
+    		[
+    			788.5,
+    			817.5
+    		],
+    		[
+    			793.5,
+    			812.5
+    		],
+    		[
+    			799.5,
+    			812.5
+    		],
+    		[
+    			804.5,
+    			810.5
+    		]
+    	]
+    },    {
+    	"id": 630,
+		"submitted_by": "sciencegey",
+    	"name": "USS Enterprise D",
+    	"description": "The USS Enterprise (NCC-1701-D) is the 5th USS Enterprise in Star Trek, and is the main setting for Star Trek: The Next Generation.",
+    	"website": "",
+    	"subreddit": "/r/startrek",
+    	"center": [
+    		78.5,
+    		83.5
+    	],
+    	"path": [
+    		[
+    			72.5,
+    			68.5
+    		],
+    		[
+    			76.5,
+    			68.5
+    		],
+    		[
+    			76.5,
+    			69.5
+    		],
+    		[
+    			77.5,
+    			69.5
+    		],
+    		[
+    			77.5,
+    			70.5
+    		],
+    		[
+    			78.5,
+    			71.5
+    		],
+    		[
+    			79.5,
+    			72.5
+    		],
+    		[
+    			80.5,
+    			73.5
+    		],
+    		[
+    			81.5,
+    			74.5
+    		],
+    		[
+    			81.5,
+    			75.5
+    		],
+    		[
+    			80.5,
+    			76.5
+    		],
+    		[
+    			85.5,
+    			76.5
+    		],
+    		[
+    			86.5,
+    			76.5
+    		],
+    		[
+    			87.5,
+    			77.5
+    		],
+    		[
+    			88.5,
+    			78.5
+    		],
+    		[
+    			89.5,
+    			79.5
+    		],
+    		[
+    			90.5,
+    			81.5
+    		],
+    		[
+    			92.5,
+    			82.5
+    		],
+    		[
+    			93.5,
+    			83.5
+    		],
+    		[
+    			93.5,
+    			87.5
+    		],
+    		[
+    			92.5,
+    			88.5
+    		],
+    		[
+    			92.5,
+    			89.5
+    		],
+    		[
+    			91.5,
+    			90.5
+    		],
+    		[
+    			90.5,
+    			91.5
+    		],
+    		[
+    			89.5,
+    			93.5
+    		],
+    		[
+    			87.5,
+    			93.5
+    		],
+    		[
+    			86.5,
+    			94.5
+    		],
+    		[
+    			85.5,
+    			94.5
+    		],
+    		[
+    			84.5,
+    			95.5
+    		],
+    		[
+    			82.5,
+    			95.5
+    		],
+    		[
+    			81.5,
+    			96.5
+    		],
+    		[
+    			76.5,
+    			96.5
+    		],
+    		[
+    			75.5,
+    			95.5
+    		],
+    		[
+    			73.5,
+    			95.5
+    		],
+    		[
+    			71.5,
+    			93.5
+    		],
+    		[
+    			69.5,
+    			91.5
+    		],
+    		[
+    			69.5,
+    			90.5
+    		],
+    		[
+    			68.5,
+    			89.5
+    		],
+    		[
+    			68.5,
+    			84.5
+    		],
+    		[
+    			69.5,
+    			84.5
+    		],
+    		[
+    			69.5,
+    			83.5
+    		],
+    		[
+    			67.5,
+    			83.5
+    		],
+    		[
+    			66.5,
+    			83.5
+    		],
+    		[
+    			66.5,
+    			82.5
+    		],
+    		[
+    			65.5,
+    			82.5
+    		],
+    		[
+    			65.5,
+    			81.5
+    		],
+    		[
+    			64.5,
+    			81.5
+    		],
+    		[
+    			64.5,
+    			80.5
+    		],
+    		[
+    			61.5,
+    			77.5
+    		],
+    		[
+    			60.5,
+    			76.5
+    		],
+    		[
+    			60.5,
+    			73.5
+    		],
+    		[
+    			64.5,
+    			73.5
+    		],
+    		[
+    			64.5,
+    			74.5
+    		],
+    		[
+    			65.5,
+    			75.5
+    		],
+    		[
+    			67.5,
+    			75.5
+    		],
+    		[
+    			68.5,
+    			74.5
+    		],
+    		[
+    			69.5,
+    			74.5
+    		],
+    		[
+    			70.5,
+    			73.5
+    		],
+    		[
+    			71.5,
+    			73.5
+    		],
+    		[
+    			72.5,
+    			72.5
+    		],
+    		[
+    			72.5,
+    			68.5
+    		]
+    	]
+    },    {
+    	"id": 631,
+		"submitted_by": "bilwis",
+    	"name": "Superbowl LI Scoreboard",
+    	"description": "The scoreboard of Superbowl LI, 3rd Quarter, 2:08 to play. New England 3, Atlanta 28. It is at this very second that James White catches a 5-yd touchdown from Tom Brady to start an unprecedented comeback for the New England Patriots, who go on to win the game 34-28 in overtime.",
+    	"website": "",
+    	"subreddit": "/r/falcons",
+    	"center": [
+    		133.5,
+    		72.5
+    	],
+    	"path": [
+    		[
+    			105.5,
+    			54.5
+    		],
+    		[
+    			160.5,
+    			54.5
+    		],
+    		[
+    			160.5,
+    			90.5
+    		],
+    		[
+    			105.5,
+    			89.5
+    		],
+    		[
+    			105.5,
+    			54.5
+    		]
+    	]
+    },    {
+    	"id": 632,
+		"submitted_by": "ModJon",
+    	"name": "Clannad Dango & Tuturu!",
+    	"description": "A Discord and Reddit community for people who shares a common passion/love towards the anime/visual novel Clannad.\nThe Tuturu is an added bonus because who doesn't love Mayushii from Steins;Gate :3\nTuturu!",
+    	"website": "https://www.discord.me/clannad",
+    	"subreddit": "/r/Clannad",
+    	"center": [
+    		208.5,
+    		190.5
+    	],
+    	"path": [
+    		[
+    			185.5,
+    			184.5
+    		],
+    		[
+    			185.5,
+    			196.5
+    		],
+    		[
+    			231.5,
+    			196.5
+    		],
+    		[
+    			231.5,
+    			184.5
+    		],
+    		[
+    			185.5,
+    			184.5
+    		]
+    	]
+    },    {
+    	"id": 633,
+		"submitted_by": "3Dee8",
+    	"name": "Megaman",
+    	"description": "Mega Man, alternatively written as Megaman and MegaMan, known as Rockman in Japan, is a video game franchise created by Capcom, starring the robot character Mega Man, or one of his many counterparts.",
+    	"website": "megaman.capcom.com",
+    	"subreddit": "/r/megaman",
+    	"center": [
+    		399.5,
+    		885.5
+    	],
+    	"path": [
+    		[
+    			397.5,
+    			874.5
+    		],
+    		[
+    			388.5,
+    			881.5
+    		],
+    		[
+    			390.5,
+    			889.5
+    		],
+    		[
+    			384.5,
+    			895.5
+    		],
+    		[
+    			403.5,
+    			898.5
+    		],
+    		[
+    			401.5,
+    			889.5
+    		],
+    		[
+    			412.5,
+    			885.5
+    		],
+    		[
+    			416.5,
+    			883.5
+    		],
+    		[
+    			412.5,
+    			875.5
+    		],
+    		[
+    			407.5,
+    			880.5
+    		],
+    		[
+    			403.5,
+    			873.5
+    		],
+    		[
+    			398.5,
+    			871.5
+    		]
+    	]
+    },    {
+    	"id": 634,
+		"submitted_by": "i_was_actually_phone",
+    	"name": "Deccepticon Insignia",
+    	"description": "The logo of the Deceptions from the Transformers series of cartoons and comics",
+    	"website": "",
+    	"subreddit": "/r/transformers",
+    	"center": [
+    		976.5,
+    		855.5
+    	],
+    	"path": [
+    		[
+    			977.5,
+    			867.5
+    		],
+    		[
+    			985.5,
+    			864.5
+    		],
+    		[
+    			987.5,
+    			844.5
+    		],
+    		[
+    			983.5,
+    			848.5
+    		],
+    		[
+    			981.5,
+    			847.5
+    		],
+    		[
+    			980.5,
+    			843.5
+    		],
+    		[
+    			976.5,
+    			848.5
+    		],
+    		[
+    			972.5,
+    			843.5
+    		],
+    		[
+    			971.5,
+    			847.5
+    		],
+    		[
+    			969.5,
+    			847.5
+    		],
+    		[
+    			965.5,
+    			843.5
+    		],
+    		[
+    			967.5,
+    			864.5
+    		],
+    		[
+    			976.5,
+    			868.5
+    		]
+    	]
+    },    {
+    	"id": 635,
+		"submitted_by": "sciencegey",
+    	"name": "Pusheen the Cat",
+    	"description": "Pusheen the Cat is an animated webcomic about a Grey Tabby and the mischief she gets up to.",
+    	"website": "http://www.pusheen.com/",
+    	"subreddit": "/r/pusheen/",
+    	"center": [
+    		659.5,
+    		964.5
+    	],
+    	"path": [
+    		[
+    			652.5,
+    			955.5
+    		],
+    		[
+    			653.5,
+    			956.5
+    		],
+    		[
+    			654.5,
+    			957.5
+    		],
+    		[
+    			656.5,
+    			957.5
+    		],
+    		[
+    			657.5,
+    			956.5
+    		],
+    		[
+    			658.5,
+    			955.5
+    		],
+    		[
+    			659.5,
+    			956.5
+    		],
+    		[
+    			659.5,
+    			957.5
+    		],
+    		[
+    			660.5,
+    			958.5
+    		],
+    		[
+    			666.5,
+    			958.5
+    		],
+    		[
+    			667.5,
+    			959.5
+    		],
+    		[
+    			668.5,
+    			959.5
+    		],
+    		[
+    			668.5,
+    			960.5
+    		],
+    		[
+    			669.5,
+    			960.5
+    		],
+    		[
+    			669.5,
+    			961.5
+    		],
+    		[
+    			670.5,
+    			962.5
+    		],
+    		[
+    			670.5,
+    			963.5
+    		],
+    		[
+    			669.5,
+    			964.5
+    		],
+    		[
+    			669.5,
+    			967.5
+    		],
+    		[
+    			668.5,
+    			968.5
+    		],
+    		[
+    			667.5,
+    			969.5
+    		],
+    		[
+    			665.5,
+    			970.5
+    		],
+    		[
+    			664.5,
+    			971.5
+    		],
+    		[
+    			663.5,
+    			970.5
+    		],
+    		[
+    			662.5,
+    			970.5
+    		],
+    		[
+    			661.5,
+    			971.5
+    		],
+    		[
+    			660.5,
+    			970.5
+    		],
+    		[
+    			658.5,
+    			970.5
+    		],
+    		[
+    			657.5,
+    			971.5
+    		],
+    		[
+    			656.5,
+    			970.5
+    		],
+    		[
+    			655.5,
+    			970.5
+    		],
+    		[
+    			654.5,
+    			971.5
+    		],
+    		[
+    			653.5,
+    			970.5
+    		],
+    		[
+    			652.5,
+    			970.5
+    		],
+    		[
+    			651.5,
+    			969.5
+    		],
+    		[
+    			650.5,
+    			968.5
+    		],
+    		[
+    			649.5,
+    			967.5
+    		],
+    		[
+    			649.5,
+    			964.5
+    		],
+    		[
+    			648.5,
+    			963.5
+    		],
+    		[
+    			649.5,
+    			962.5
+    		],
+    		[
+    			648.5,
+    			961.5
+    		],
+    		[
+    			649.5,
+    			960.5
+    		],
+    		[
+    			650.5,
+    			959.5
+    		],
+    		[
+    			650.5,
+    			958.5
+    		],
+    		[
+    			651.5,
+    			957.5
+    		],
+    		[
+    			651.5,
+    			956.5
+    		],
+    		[
+    			652.5,
+    			955.5
+    		]
+    	]
+    },    {
+    	"id": 636,
+		"submitted_by": "Tekar",
+    	"name": "Dwarf in Honour of the war with Indonesia",
+    	"description": "This Dwarf was created to honour the war between /r/indonesia and /r/dwarffortress",
+    	"website": "",
+    	"subreddit": "/r/dwarffortress",
+    	"center": [
+    		49.5,
+    		653.5
+    	],
+    	"path": [
+    		[
+    			45.5,
+    			657.5
+    		],
+    		[
+    			45.5,
+    			649.5
+    		],
+    		[
+    			52.5,
+    			649.5
+    		],
+    		[
+    			52.5,
+    			657.5
+    		]
+    	]
+    },    {
+    	"id": 637,
+		"submitted_by": "Missy_Elliott_Smith",
     	"name": "Kanye West",
     	"description": "Clockwise from top: the cover of Graduation (2007), an Adidas Yeezy Boost 350, 808s and Heartbreak (2008), Yeezus (2013), The College Dropout (2004), Late Registration (2005) [across the transgender cross], a WHICH/ONE banner with waves for The Life of Pablo (2016, working title \"Waves\"), My BeautifuL Dark Twisted Fantasy (2010), his \"Dropout Bear\" mascot (above his mother's name, Donda), George Condo's portrait of Kanye as a decapitated king (from MBDTF), and a popular /r/Kanye catchphrase - \"The Wave is Here\" (taken from an intermission on Pablo).",
     	"website": "http://www.kanyewest.com/",
@@ -37532,10 +42830,10 @@ var atlas = [
     	]
     }
 
-    //545
+    //637
 ];
 
-console.log(atlas.length);
+console.log("There are "+atlas.length+" entries in the Atlas.");
 
 
 // sort by center.y, so that lines will overlap less

@@ -405,6 +405,7 @@ button#zoomResetButton{
 	background-color: #333333;
 	display: none;
 	z-index: 1000;
+	overflow-y: auto;
 }
 
 #about{
@@ -417,9 +418,19 @@ button#zoomResetButton{
 	font-weight: 300;
 	font-size: 30px;
 	margin-top: 30px;
+	margin-bottom: 10px;
 }
 
+#contributors{
+	text-align: justify;
+	margin-top: 15px;
+	margin-bottom: 60px;
+}
 
+#contributors a{
+	margin: 3px;
+    line-height: 26px;
+}
 
 
 
