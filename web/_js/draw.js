@@ -325,7 +325,7 @@ function initDraw(){
 
 		backgroundContext.clearRect(0, 0, canvas.width, canvas.height);
 			
-		backgroundContext.fillStyle = "rgba(0, 0, 0, 0.8)";
+		backgroundContext.fillStyle = "rgba(0, 0, 0, 1)";
 		//backgroundContext.fillRect(0, 0, canvas.width, canvas.height);
 		
 		for(var i = 0; i < atlas.length; i++){
