@@ -13,7 +13,10 @@ reddit = praw.Reddit(client_id=client_id, client_secret=client_secret, user_agen
 
 users = set()
 
-for submission in reddit.subreddit('placeAtlas').new(limit=1000):
+# Manual entries:
+users.add("MoonShinez");
+
+for submission in reddit.subreddit('placeAtlas').new(limit=10000):
 	users.add(submission.author.name)
 
 users = list(users)

@@ -230,6 +230,19 @@ optgroup{
 	overflow-x: auto;
 }
 
+.object:hover{
+	background-color: #666666;
+	border-color: #FFFFFF;
+}
+
+.object:hover a{
+	background-color: #555555;
+}
+
+.object:hover h2{
+	background-color: #777777;
+}
+
 .object *{
 	display: block;
 }
