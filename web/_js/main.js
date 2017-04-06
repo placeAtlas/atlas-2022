@@ -66,11 +66,16 @@ function init(){
 		document.getElementById("viewLink").className = "current";
 		document.getElementById("drawLink").className = "";
 		document.getElementById("aboutLink").className = "";
+		
+		document.getElementById("container").style.width = "calc(100% - 320px)";
 		document.getElementById("drawControls").style.display = "none";
 		document.getElementById("aboutContainer").style.display = "none";
 		document.getElementById("entriesListContainer").style.display = "flex";
-		//document.getElementById("author").style.right = "320px";
-		document.getElementById("zoomControls").style.right = "320px";
+		document.getElementById("entriesListBackground").style.display = "block";
+		document.getElementById("author").style.right = "10px";
+		document.getElementById("author").style.width = "300px";
+		document.getElementById("zoomControls").style.right = "330px";
+		document.getElementById("hideListButton").style.display = "block";
 
 		initView();
 		
@@ -78,11 +83,16 @@ function init(){
 		document.getElementById("viewLink").className = "";
 		document.getElementById("drawLink").className = "current";
 		document.getElementById("aboutLink").className = "";
+
+		document.getElementById("container").style.width = "100%";
 		document.getElementById("drawControls").style.display = "block";
 		document.getElementById("aboutContainer").style.display = "none";
 		document.getElementById("entriesListContainer").style.display = "none";
-		//document.getElementById("author").style.right = "10px";
+		document.getElementById("entriesListBackground").style.display = "none";
+		document.getElementById("author").style.right = "10px";
+		document.getElementById("author").style.width = "auto";
 		document.getElementById("zoomControls").style.right = "10px";
+		document.getElementById("hideListButton").style.display = "none";
 
 		initDraw();
 	} else if(mode=="about"){
@@ -92,7 +102,9 @@ function init(){
 		document.getElementById("drawControls").style.display = "none";
 		document.getElementById("aboutContainer").style.display = "block";
 		document.getElementById("entriesListContainer").style.display = "none";
-		//document.getElementById("author").style.right = "10px";
+		document.getElementById("entriesListBackground").style.display = "none";
+		document.getElementById("author").style.right = "25px";
+		document.getElementById("author").style.width = "auto";
 		document.getElementById("zoomControls").style.right = "10px";
 	}
 

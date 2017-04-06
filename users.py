@@ -15,6 +15,7 @@ users = set()
 
 # Manual entries:
 users.add("MoonShinez");
+users.add("Shovel_Ship");
 
 for submission in reddit.subreddit('placeAtlas').new(limit=10000):
 	users.add(submission.author.name)

@@ -176,12 +176,13 @@ optgroup{
 #linesCanvas{
 	position: absolute;
 	height: calc(100% - 50px);
+	/*width: calc(100% - 320px);*/
 	width: 100%;
 	z-index: -500;
 }
 
 #container{
-	width: 100%;
+	width: calc(100% - 320px);
 	height: calc(100% - 50px);
 }
 
@@ -473,10 +474,55 @@ button#zoomResetButton{
 	position: absolute;
 	right: 10px;
 	top: 60px;
-	bottom: 40px;
+	bottom: 0px;
+	padding-bottom: 40px;
 	width: 300px;
 	display: flex;
 	flex-direction: column;
+}
+
+#entriesListBackground{
+	position: absolute;
+	right: 0px;
+	top: 50px;
+	bottom: 0px;
+	width: 320px;
+	z-index: -600;
+	background-color: #333333;
+	border-left: 1px #000000 solid;
+}
+
+#hideListButton{
+	position: absolute;
+	height: 70px;
+	width: 15px;
+	top: 100px;
+	right: 320px;
+	border-right: none;
+	background-color: #444444;
+	background-image: url(../_img/arrow-right.svg?version=1.0.1);
+	background-size: 7px;
+	background-repeat: no-repeat;
+	background-position: center;
+}
+
+#hideListButton:hover{
+	background-color: #555555;
+}
+
+#hideListButton.reverse{
+	background-image: url(../_img/arrow-left.svg?version=1.0.1);
+	right: 0px;
+	width: 30px;
+	background-color: #555555;
+}
+
+#hideListButton:hover{
+	background-color: #666666;
+}
+
+#hideListButton:focus{
+	outline: none;
 }
 
 #entriesListControls{
@@ -523,9 +569,11 @@ button#zoomResetButton{
 	position: absolute;
 	bottom: 10px;
 	right: 10px;
-	background-color: rgba(128, 128, 128, 0.2);
+	background-color: #555555;
 	padding: 3px;
 	font-size: 12px;
+	z-index: 1100;
+	text-align: center;
 }
 
 #aboutContainer{

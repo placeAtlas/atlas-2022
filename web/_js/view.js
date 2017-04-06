@@ -38,6 +38,8 @@ function initView(){
 	var filterInput = document.getElementById("searchList");
 
 	var entriesList = document.getElementById("entriesList");
+	var hideListButton = document.getElementById("hideListButton");
+	var entriesListShown = true;
 
 	var entriesLimit = 50;
 	var entriesOffset = 0;
@@ -97,6 +99,29 @@ function initView(){
 
 		buildObjectsList(filterInput.value.toLowerCase());
 
+	});
+	
+	hideListButton.addEventListener("click", function(e){
+		entriesListShown = !entriesListShown;
+		if(entriesListShown){
+			hideListButton.className = "";
+			document.getElementById("container").style.width = "calc(100% - 320px)";
+			document.getElementById("entriesListContainer").style.display = "flex";
+			document.getElementById("entriesListBackground").style.display = "block";
+			document.getElementById("author").style.width = "300px";
+			document.getElementById("zoomControls").style.right = "330px";
+		} else {
+			hideListButton.className = "reverse";
+			document.getElementById("container").style.width = "100%";
+			document.getElementById("entriesListContainer").style.display = "none";
+			document.getElementById("entriesListBackground").style.display = "none";
+			document.getElementById("author").style.width = "auto";
+			document.getElementById("zoomControls").style.right = "10px";
+		}
+		applyView();
+		updateHovering(e);
+		render();
+		updateLines();
 	});
 
 	function createInfoBlock(entry){
@@ -234,7 +259,7 @@ function initView(){
 
 			backgroundContext.closePath();
 
-			backgroundContext.strokeStyle = "rgba(255, 255, 255, 1)";
+			backgroundContext.strokeStyle = "rgba(255, 255, 255, 0.8)";
 			backgroundContext.stroke();
 		}
 	}
@@ -436,10 +461,10 @@ function initView(){
 
 	function updateLines(){
 
-		linesCanvas.width = container.clientWidth;
-		linesCanvas.height = container.clientHeight;
+		linesCanvas.width = linesCanvas.clientWidth;
+		linesCanvas.height = linesCanvas.clientHeight;
 		linesContext.lineCap = "round";
-		linesContext.lineWidth = Math.max(Math.min(zoom*1.5, 16*1.5), 1)*2;
+		linesContext.lineWidth = Math.max(Math.min(zoom*1.5, 16*1.5), 6);
 		linesContext.strokeStyle = "#000000";
 
 		for(var i = 0; i < hovered.length; i++){
@@ -458,7 +483,7 @@ function initView(){
 			linesContext.stroke();
 		}
 
-		linesContext.lineWidth = Math.max(Math.min(zoom, 16), 1)*2;
+		linesContext.lineWidth = Math.max(Math.min(zoom, 16), 4);
 		linesContext.strokeStyle = "#FFFFFF";
 
 		for(var i = 0; i < hovered.length; i++){
