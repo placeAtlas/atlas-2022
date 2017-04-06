@@ -77974,7 +77974,7 @@ var atlas = [
     //1314
 ];
 
-console.log("There are "+atlas.length+" entries in the Atlas.");
+//console.log("There are "+atlas.length+" entries in the Atlas.");
 
 
 // sort by center.y, so that lines will overlap less
@@ -79003,7 +79003,6 @@ function init(){
 		
 		document.getElementById("container").style.width = "calc(100% - 320px)";
 		document.getElementById("drawControls").style.display = "none";
-		document.getElementById("aboutContainer").style.display = "none";
 		document.getElementById("entriesListContainer").style.display = "flex";
 		document.getElementById("entriesListBackground").style.display = "block";
 		document.getElementById("author").style.right = "10px";
@@ -79020,7 +79019,6 @@ function init(){
 
 		document.getElementById("container").style.width = "100%";
 		document.getElementById("drawControls").style.display = "block";
-		document.getElementById("aboutContainer").style.display = "none";
 		document.getElementById("entriesListContainer").style.display = "none";
 		document.getElementById("entriesListBackground").style.display = "none";
 		document.getElementById("author").style.right = "10px";
@@ -79030,16 +79028,7 @@ function init(){
 
 		initDraw();
 	} else if(mode=="about"){
-		document.getElementById("viewLink").className = "";
-		document.getElementById("drawLink").className = "";
-		document.getElementById("aboutLink").className = "current";
-		document.getElementById("drawControls").style.display = "none";
-		document.getElementById("aboutContainer").style.display = "block";
-		document.getElementById("entriesListContainer").style.display = "none";
-		document.getElementById("entriesListBackground").style.display = "none";
-		document.getElementById("author").style.right = "25px";
-		document.getElementById("author").style.width = "auto";
-		document.getElementById("zoomControls").style.right = "10px";
+		window.location = "./about.html";
 	}
 
 	applyView();

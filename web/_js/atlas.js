@@ -77974,7 +77974,7 @@ var atlas = [
     //1314
 ];
 
-console.log("There are "+atlas.length+" entries in the Atlas.");
+//console.log("There are "+atlas.length+" entries in the Atlas.");
 
 
 // sort by center.y, so that lines will overlap less
