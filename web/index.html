@@ -26,7 +26,7 @@
 <html>
 	<head>
 		<meta charset="utf-8">
-		<link href="./_css/style.css?version=1.0.10" rel="stylesheet" type="text/css" media="all">
+		<link href="./_css/style.css?version=1.0.12" rel="stylesheet" type="text/css" media="all">
 		<title>
 			The /r/place Atlas
 		</title>
@@ -39,8 +39,10 @@
 	</head>
 	<body>
 		<header>
-			<img id="logo" src="./_img/logo-100x100.png" height="50" width="50" alt="">
-			<h1>The /r/place Atlas</h1>
+			<a href="./">
+				<img id="logo" src="./_img/logo-100x100.png" height="50" width="50" alt="">
+				<h1>The /r/place Atlas</h1>
+			</a>
 			<nav>
 				<a id="viewLink" href="./" class="current">View</a>
 				<a id="drawLink" href="./?mode=draw">Draw</a>
@@ -52,7 +54,7 @@
 			<canvas id="linesCanvas"></canvas>
 			<div id="innerContainer">
 				<canvas id="highlightCanvas" width="1000" height="1000"></canvas>
-				<img id="image" src="./_img/place-indexed.png" width="1000" height="1000" />
+				<img id="image" src="./_img/place-indexed.png" width="1000" height="1000" alt="Canvas of /r/place in the state of when the experiment was concluded." />
 			</div>
 		</div>
 
@@ -91,15 +93,15 @@
 			<button disabled id="finishButton">Finish (Enter)</button>
 			<button id="resetButton">Reset</button>
 			<label title="Highlight uncharted areas of the map" class="checkboxLabel"><input type="checkbox" id="highlightUncharted" checked> Highlight Empty</label>
-			<span id="hint">
+			<div id="hint">
 				<p>Click anywhere on the image to start drawing a shape.</p>
 				<p>When you're happy with the result, click the "Finish" button above or press the Enter key.</p>
 				<p>You can then add more information about your object.</p>
-			</span>
+			</div>
 			<div id="objectInfo">
 				<label for="nameField">Name</label>
 				<input id="nameField" type="text" value="" placeholder="A short title">
-				<label for="descriptionField" rows="20" cols="3">Description</label>
+				<label for="descriptionField">Description</label>
 				<textarea id="descriptionField" placeholder="A short description to be understood by everyone"></textarea>
 				<label for="websiteField">Website</label>
 				<input id="websiteField" type="text" value="" placeholder="https://example.com">
@@ -141,7 +143,7 @@
 		<script type="text/javascript" src="./_js/draw.js?version=1.0.3"></script>
 		<script type="text/javascript" src="./_js/main.js?version=1.0.3"></script-->
 		
-		<script type="text/javascript" src="./_js/minified.js?version=1.0.2"></script>
+		<script type="text/javascript" src="./_js/minified.js?version=1.0.4"></script>
 		
 	</body>
 </html>

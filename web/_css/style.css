@@ -88,6 +88,25 @@ input[type="text"]{
 	height: 25px;
 }
 
+header{
+	width: 100%;
+	height: 50px;
+	background-color: #555555;
+	border-bottom: 1px #000000 solid;
+	z-index: 1000;
+	display: flex;
+}
+
+header > a{
+	display: flex;
+	color: #FFFFFF;
+}
+
+header > a:hover{
+	text-decoration: none;
+	color: #FFAA00;
+}
+
 #logo{
 	padding: 3px;
 	/*background-color: #FFFFFF;*/
@@ -96,17 +115,8 @@ input[type="text"]{
 h1{
 	font-weight: 300;
 	padding: 5px 10px;
-	display: block;
+	display: inline-block;
 	vertical-align: center;
-}
-
-header{
-	width: 100%;
-	height: 50px;
-	background-color: #555555;
-	border-bottom: 1px #000000 solid;
-	z-index: 1000;
-	display: flex;
 }
 
 header nav{
@@ -134,7 +144,7 @@ header nav a:hover{
 header nav a.current{
 	background-image: none;
 	background: #333333;
-	border-bottom: 1px #333333 solid;
+	border-bottom: none;
 	outline: none;
 }
 
@@ -431,7 +441,7 @@ input[type="checkbox"]{
 #zoomControls{
 	position: absolute;
 	top: 60px;
-	right: 320px;
+	right: 330px;
 	display: flex;
 	width: 90px;
 }

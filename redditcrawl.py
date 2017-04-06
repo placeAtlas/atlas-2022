@@ -9,11 +9,11 @@ credentials = open('credentials', 'r')
 client_id = credentials.readline().strip(' \t\n\r')
 client_secret = credentials.readline().strip(' \t\n\r')
 
-startId = 1259
+startId = 1315
 
 reddit = praw.Reddit(client_id=client_id, client_secret=client_secret, user_agent='atlas_bot')
 
-for submission in reddit.subreddit('placeAtlas').new(limit=77):
+for submission in reddit.subreddit('placeAtlas').new(limit=90):
 	#print(dir(submission))
 	if(submission.link_flair_text == "New Entry"):
 		text = submission.selftext

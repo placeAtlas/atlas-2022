@@ -77968,6 +77968,3270 @@ var atlas = [
     			173.5
     		]
     	]
+    },
+
+    /* =========== */
+
+        {
+    	"id": 1315,
+		"submitted_by": "DoYouEvenNep",
+    	"name": "Remilia Scarlet",
+    	"description": "Powerful vampire and owner of Gensokyo's \"Scarlet Devil Mansion\".  Once filled the skies with a scarlet mist so that she could enjoy leisurely walks outside without the interference of the sun.",
+    	"website": "https://en.touhouwiki.net/wiki/Remilia_Scarlet",
+    	"subreddit": "/r/touhou",
+    	"center": [
+    		137.5,
+    		840.5
+    	],
+    	"path": [
+    		[
+    			122.5,
+    			856.5
+    		],
+    		[
+    			122.5,
+    			824.5
+    		],
+    		[
+    			152.5,
+    			824.5
+    		],
+    		[
+    			152.5,
+    			856.5
+    		]
+    	]
+    },    {
+    	"id": 1316,
+		"submitted_by": "Kelsew",
+    	"name": "73 and 35",
+    	"description": "73 and 35 refers to an Oldschool Runescape PKer B0aty.\n73 refers to an old vide of his where his friend bets him he won't die to a weapon when he is at 73 health, and immediately after gets hit a 73.\n35 refers to him getting hit with an obscure weapon called a Dragon Warhammer during his stream of Deadman mode, a special PvP mode of Oldschool Runescape.",
+    	"website": "",
+    	"subreddit": "/r/2007scape",
+    	"center": [
+    		926.5,
+    		163.5
+    	],
+    	"path": [
+    		[
+    			921.5,
+    			154.5
+    		],
+    		[
+    			932.5,
+    			154.5
+    		],
+    		[
+    			932.5,
+    			171.5
+    		],
+    		[
+    			920.5,
+    			171.5
+    		],
+    		[
+    			921.5,
+    			154.5
+    		]
+    	]
+    },    {
+    	"id": 1317,
+		"submitted_by": "k_awah",
+    	"name": "Mamamoo",
+    	"description": "Mamamoo is a South Korean girl group that debuted in 2014 with their song Piano Man.",
+    	"website": "https://www.youtube.com/watch?v=y2OFPvYxZuY",
+    	"subreddit": "/r/mamamoo",
+    	"center": [
+    		559.5,
+    		793.5
+    	],
+    	"path": [
+    		[
+    			556.5,
+    			799.5
+    		],
+    		[
+    			556.5,
+    			787.5
+    		],
+    		[
+    			561.5,
+    			787.5
+    		],
+    		[
+    			562.5,
+    			787.5
+    		],
+    		[
+    			562.5,
+    			799.5
+    		],
+    		[
+    			556.5,
+    			799.5
+    		]
+    	]
+    },    {
+    	"id": 1318,
+		"submitted_by": "Susto",
+    	"name": "Halo",
+    	"description": "r/halo's tribute to their beloved video game series.  \n\nThis community project began with the commissioning of Spartan Master Chief John-117's iconic visage. Early plans to complete a blue Spartan helmet were dashed when r/funhaus annexed the territory at the top right of the Master Chief. Work then began in the left on what would become the Red/Blue Spartan to commemorate those fighting the never-ending Red vs. Blue wars.\n\nFixMCC is a jab at the developers about the technical shortcomings of the Master Chief Collection (2014). Its inclusion was divisive amongst fans as some saw it in poor taste.\n\nThe last additions made were adding fan favorite AIs, the floating monitor 343 Guilty Spark and the Chief's blue companion, Cortana.",
+    	"website": "",
+    	"subreddit": "/r/halo",
+    	"center": [
+    		775.5,
+    		392.5
+    	],
+    	"path": [
+    		[
+    			749.5,
+    			378.5
+    		],
+    		[
+    			749.5,
+    			405.5
+    		],
+    		[
+    			768.5,
+    			405.5
+    		],
+    		[
+    			768.5,
+    			406.5
+    		],
+    		[
+    			800.5,
+    			406.5
+    		],
+    		[
+    			800.5,
+    			397.5
+    		],
+    		[
+    			798.5,
+    			397.5
+    		],
+    		[
+    			798.5,
+    			391.5
+    		],
+    		[
+    			799.5,
+    			391.5
+    		],
+    		[
+    			799.5,
+    			388.5
+    		],
+    		[
+    			800.5,
+    			388.5
+    		],
+    		[
+    			800.5,
+    			386.5
+    		],
+    		[
+    			801.5,
+    			386.5
+    		],
+    		[
+    			801.5,
+    			383.5
+    		],
+    		[
+    			802.5,
+    			383.5
+    		],
+    		[
+    			803.5,
+    			382.5
+    		],
+    		[
+    			803.5,
+    			381.5
+    		],
+    		[
+    			804.5,
+    			381.5
+    		],
+    		[
+    			804.5,
+    			379.5
+    		],
+    		[
+    			804.5,
+    			378.5
+    		],
+    		[
+    			749.5,
+    			378.5
+    		]
+    	]
+    },    {
+    	"id": 1319,
+		"submitted_by": "DefinitiveDubs",
+    	"name": "(Incomplete) Miles \"Tails\" Prower",
+    	"description": "Sonic the Hedgehog's best friend and sidekick. Formerly located near The Blue Corner and nearly completed, it was unintentionally erased when The Blue Empire expanded. Reconstruction began in a new location, but r/place unfortunately ended before any significant work could be done.",
+    	"website": "",
+    	"subreddit": "r/SonicTheHedgehog",
+    	"center": [
+    		176.5,
+    		48.5
+    	],
+    	"path": [
+    		[
+    			176.5,
+    			49.5
+    		],
+    		[
+    			177.5,
+    			48.5
+    		],
+    		[
+    			177.5,
+    			47.5
+    		],
+    		[
+    			176.5,
+    			47.5
+    		]
+    	]
+    },    {
+    	"id": 1320,
+		"submitted_by": "DoYouEvenNep",
+    	"name": "Cirno",
+    	"description": "An ice fairy who resides in Gensokyo, she is incredibly powerful in comparison to the rest of her kind.  Likes to boast about her strength.",
+    	"website": "https://en.touhouwiki.net/wiki/Cirno",
+    	"subreddit": "/r/touhou",
+    	"center": [
+    		169.5,
+    		840.5
+    	],
+    	"path": [
+    		[
+    			154.5,
+    			856.5
+    		],
+    		[
+    			154.5,
+    			824.5
+    		],
+    		[
+    			183.5,
+    			824.5
+    		],
+    		[
+    			183.5,
+    			856.5
+    		]
+    	]
+    },    {
+    	"id": 1321,
+		"submitted_by": "DoYouEvenNep",
+    	"name": "Marisa Kirisame",
+    	"description": "An ordinary human magician residing in the land of Gensokyo.  Has a penchant for collecting items and for using overly-flashy magic.",
+    	"website": "https://en.touhouwiki.net/wiki/Marisa_Kirisame",
+    	"subreddit": "/r/touhou",
+    	"center": [
+    		169.5,
+    		874.5
+    	],
+    	"path": [
+    		[
+    			154.5,
+    			858.5
+    		],
+    		[
+    			154.5,
+    			889.5
+    		],
+    		[
+    			184.5,
+    			889.5
+    		],
+    		[
+    			184.5,
+    			858.5
+    		]
+    	]
+    },    {
+    	"id": 1322,
+		"submitted_by": "DoYouEvenNep",
+    	"name": "Reimu Hakurei",
+    	"description": "Iconic protagonist of the Touhou franchise.  Serving as the Shrine Maiden of the Hakurei Shrine, she is often solicited to resolve youkai-related problems in the land of Gensokyo.",
+    	"website": "https://en.touhouwiki.net/wiki/Reimu_Hakurei",
+    	"subreddit": "/r/touhou",
+    	"center": [
+    		137.5,
+    		874.5
+    	],
+    	"path": [
+    		[
+    			122.5,
+    			858.5
+    		],
+    		[
+    			122.5,
+    			889.5
+    		],
+    		[
+    			152.5,
+    			889.5
+    		],
+    		[
+    			152.5,
+    			858.5
+    		]
+    	]
+    },    {
+    	"id": 1323,
+		"submitted_by": "Qiqz",
+    	"name": "Flag of Prince Edward Island",
+    	"description": "The upper third of the flag features the English heraldic lion, which appeared both on the coat of arms of Prince Edward, Duke of Kent, for whom the province is named, and on that of King Edward VII. The lower two-thirds show an island on which appear small oak saplings  – representing the three counties of PEI (Prince, Queens, and Kings) – under the protection of a great oak tree, which represents Great Britain.",
+    	"website": "",
+    	"subreddit": "/r/PEI",
+    	"center": [
+    		343.5,
+    		230.5
+    	],
+    	"path": [
+    		[
+    			335.5,
+    			225.5
+    		],
+    		[
+    			352.5,
+    			225.5
+    		],
+    		[
+    			352.5,
+    			235.5
+    		],
+    		[
+    			335.5,
+    			236.5
+    		]
+    	]
+    },    {
+    	"id": 1324,
+		"submitted_by": "Qiqz",
+    	"name": "Flag of Yukon",
+    	"description": "Yukon is the smallest and westernmost of Canada's three federal territories. The territory has the smallest population of any province or territory in Canada. Whitehorse is the territorial capital and Yukon's only city.",
+    	"website": "",
+    	"subreddit": "/r/yukon",
+    	"center": [
+    		344.5,
+    		220.5
+    	],
+    	"path": [
+    		[
+    			335.5,
+    			214.5
+    		],
+    		[
+    			352.5,
+    			214.5
+    		],
+    		[
+    			352.5,
+    			225.5
+    		],
+    		[
+    			336.5,
+    			225.5
+    		],
+    		[
+    			336.5,
+    			214.5
+    		]
+    	]
+    },    {
+    	"id": 1325,
+		"submitted_by": "cubi1oh",
+    	"name": "University of Virginia",
+    	"description": "The 'Crossed Sabers' logo of the University of Virginia (UVA) Cavaliers. There is also a smaller UVA patch at the other side of the canvas. \n",
+    	"website": "",
+    	"subreddit": "/r/UVA",
+    	"center": [
+    		993.5,
+    		645.5
+    	],
+    	"path": [
+    		[
+    			987.5,
+    			639.5
+    		],
+    		[
+    			999.5,
+    			639.5
+    		],
+    		[
+    			999.5,
+    			650.5
+    		],
+    		[
+    			987.5,
+    			650.5
+    		]
+    	]
+    }, {
+    	"id": 1326,
+		"submitted_by": "cubi1oh",
+    	"name": "Smaller UVA logo",
+    	"description": "Intended to spell out the common abbreviation of the University of Virginia. Came under attack by the University of North Carolina, but mostly survived. There is a larger version at the right side of the canvas.",
+    	"website": "",
+    	"subreddit": "/r/UVA",
+    	"center": [
+    		52.5,
+    		888.5
+    	],
+    	"path": [
+    		[
+    			46.5,
+    			890.5
+    		],
+    		[
+    			46.5,
+    			885.5
+    		],
+    		[
+    			58.5,
+    			885.5
+    		],
+    		[
+    			58.5,
+    			890.5
+    		]
+    	]
+    },    {
+    	"id": 1327,
+		"submitted_by": "cubi1oh",
+    	"name": "Ned Kelly Helmet",
+    	"description": "Helmet worn at the siege of Glenrowan as part of a suit of armour by Australian outlaw Ned Kelly. Made of stolen plough mouldboards, it proved rather useless; he was captured after being maimed in his unprotected legs.\nPart of the Australian tableau.",
+    	"website": "",
+    	"subreddit": "r/Straya",
+    	"center": [
+    		630.5,
+    		569.5
+    	],
+    	"path": [
+    		[
+    			618.5,
+    			557.5
+    		],
+    		[
+    			620.5,
+    			555.5
+    		],
+    		[
+    			639.5,
+    			555.5
+    		],
+    		[
+    			641.5,
+    			557.5
+    		],
+    		[
+    			641.5,
+    			580.5
+    		],
+    		[
+    			639.5,
+    			582.5
+    		],
+    		[
+    			620.5,
+    			582.5
+    		],
+    		[
+    			618.5,
+    			580.5
+    		]
+    	]
+    },    {
+    	"id": 1328,
+		"submitted_by": "letsthrowawayit",
+    	"name": "Heart: Flag of Catalonian",
+    	"description": "Heart that contains the flag of Catalonia, an autonomous region in the northeast of Spain.",
+    	"website": "",
+    	"subreddit": "/r/catalonia/",
+    	"center": [
+    		425.5,
+    		727.5
+    	],
+    	"path": [
+    		[
+    			425.5,
+    			722.5
+    		],
+    		[
+    			420.5,
+    			728.5
+    		],
+    		[
+    			422.5,
+    			731.5
+    		],
+    		[
+    			425.5,
+    			728.5
+    		],
+    		[
+    			429.5,
+    			731.5
+    		],
+    		[
+    			430.5,
+    			728.5
+    		]
+    	]
+    },    {
+    	"id": 1329,
+		"submitted_by": "D4nkPepes",
+    	"name": "Free Tyler1",
+    	"description": "Fans of loltyler1, a popular League of Legends streamer stole this space from r/eesti to write the phrase: \"free tyler 1\" and \"hehe xd\" common memes on his livestream and r/loltyler1. It took over the Estonian flag for a short time and a small portrait of Tyler1 was created. It didn't survive constant attacks from r/eesti and r/leagueoflegends, and thus is no longer visible.",
+    	"website": "",
+    	"subreddit": "www.reddit.com/r/loltyler1",
+    	"center": [
+    		338.5,
+    		634.5
+    	],
+    	"path": [
+    		[
+    			281.5,
+    			619.5
+    		],
+    		[
+    			281.5,
+    			648.5
+    		],
+    		[
+    			396.5,
+    			648.5
+    		],
+    		[
+    			395.5,
+    			621.5
+    		]
+    	]
+    },    {
+    	"id": 1330,
+		"submitted_by": "aeqnai",
+    	"name": "Bebe/Charlotte",
+    	"description": "A prominent Witch from the Madoka franchise, made popular after her appearance in the third episode, and the alternate form of the magical girl Momoe Nagisa.",
+    	"website": "",
+    	"subreddit": "/r/MadokaMagica",
+    	"center": [
+    		320.5,
+    		203.5
+    	],
+    	"path": [
+    		[
+    			315.5,
+    			208.5
+    		],
+    		[
+    			314.5,
+    			208.5
+    		],
+    		[
+    			313.5,
+    			207.5
+    		],
+    		[
+    			313.5,
+    			204.5
+    		],
+    		[
+    			314.5,
+    			203.5
+    		],
+    		[
+    			313.5,
+    			202.5
+    		],
+    		[
+    			313.5,
+    			199.5
+    		],
+    		[
+    			314.5,
+    			198.5
+    		],
+    		[
+    			315.5,
+    			198.5
+    		],
+    		[
+    			317.5,
+    			200.5
+    		],
+    		[
+    			318.5,
+    			199.5
+    		],
+    		[
+    			321.5,
+    			199.5
+    		],
+    		[
+    			322.5,
+    			200.5
+    		],
+    		[
+    			324.5,
+    			198.5
+    		],
+    		[
+    			325.5,
+    			198.5
+    		],
+    		[
+    			326.5,
+    			199.5
+    		],
+    		[
+    			326.5,
+    			202.5
+    		],
+    		[
+    			325.5,
+    			203.5
+    		],
+    		[
+    			326.5,
+    			204.5
+    		],
+    		[
+    			326.5,
+    			207.5
+    		],
+    		[
+    			325.5,
+    			208.5
+    		],
+    		[
+    			324.5,
+    			208.5
+    		],
+    		[
+    			323.5,
+    			207.5
+    		],
+    		[
+    			322.5,
+    			208.5
+    		],
+    		[
+    			317.5,
+    			208.5
+    		],
+    		[
+    			316.5,
+    			207.5
+    		],
+    		[
+    			315.5,
+    			208.5
+    		]
+    	]
+    },    {
+    	"id": 1331,
+		"submitted_by": "cubi1oh",
+    	"name": "RMTK",
+    	"description": "RMTK (Reddit Model Tweede Kamer) is a community devoted to political simulation of the Dutch House of Representatives.",
+    	"website": "",
+    	"subreddit": "/r/RMTK",
+    	"center": [
+    		561.5,
+    		4.5
+    	],
+    	"path": [
+    		[
+    			547.5,
+    			1.5
+    		],
+    		[
+    			575.5,
+    			1.5
+    		],
+    		[
+    			575.5,
+    			6.5
+    		],
+    		[
+    			547.5,
+    			6.5
+    		]
+    	]
+    },    {
+    	"id": 1332,
+		"submitted_by": "letsthrowawayit",
+    	"name": "Heart: Flag of Spain",
+    	"description": "A heart that contains the flag of Spain",
+    	"website": "",
+    	"subreddit": "/r/spain",
+    	"center": [
+    		437.5,
+    		727.5
+    	],
+    	"path": [
+    		[
+    			437.5,
+    			722.5
+    		],
+    		[
+    			432.5,
+    			727.5
+    		],
+    		[
+    			435.5,
+    			730.5
+    		],
+    		[
+    			436.5,
+    			729.5
+    		],
+    		[
+    			441.5,
+    			731.5
+    		],
+    		[
+    			442.5,
+    			728.5
+    		]
+    	]
+    },    {
+    	"id": 1333,
+		"submitted_by": "Emily006",
+    	"name": "Nittany Lion",
+    	"description": "The Nittany Lion is the mascot of Pennsylvania State University in University Park, Pennsylvania, USA and its athletic teams. It refers to the mountain lions that are thought to have once roamed Mount Nittany, a local landmark.",
+    	"website": "",
+    	"subreddit": "",
+    	"center": [
+    		202.5,
+    		876.5
+    	],
+    	"path": [
+    		[
+    			185.5,
+    			863.5
+    		],
+    		[
+    			185.5,
+    			863.5
+    		],
+    		[
+    			185.5,
+    			863.5
+    		],
+    		[
+    			220.5,
+    			863.5
+    		],
+    		[
+    			220.5,
+    			888.5
+    		],
+    		[
+    			185.5,
+    			889.5
+    		]
+    	]
+    },    {
+    	"id": 1334,
+		"submitted_by": "Ryonne",
+    	"name": "Pippi and Madotsuki Holding Hands",
+    	"description": "Although originally Madotsuki was meant to stand alone, Pippi Longstocking was added in holding her hand to symbolize the alliance and friendship between /r/YumeNikki and /r/Sweden, who fiercely defended Madotsuki's sprite against griefers together. Now Madotsuki finally has a friend.",
+    	"website": "",
+    	"subreddit": "",
+    	"center": [
+    		788.5,
+    		72.5
+    	],
+    	"path": [
+    		[
+    			772.5,
+    			56.5
+    		],
+    		[
+    			805.5,
+    			56.5
+    		],
+    		[
+    			805.5,
+    			88.5
+    		],
+    		[
+    			771.5,
+    			86.5
+    		],
+    		[
+    			771.5,
+    			86.5
+    		],
+    		[
+    			770.5,
+    			72.5
+    		]
+    	]
+    },    {
+    	"id": 1335,
+		"submitted_by": "hum4n4",
+    	"name": "Quebec",
+    	"description": "Quebec is the second-most populous province of Canada and the only one to have a predominantly French-speaking population, with French as the sole provincial official language.\n\nQuebec is Canada's largest province by area and its second-largest administrative division; only the territory of Nunavut is larger. It is bordered to the west by the province of Ontario, James Bay, and Hudson Bay; to the north by Hudson Strait and Ungava Bay; to the east by the Gulf of Saint Lawrence and the province of Newfoundland and Labrador; and to the south by the province of New Brunswick and the US states of Maine, New Hampshire, Vermont, and New York. It also shares maritime borders with Nunavut, Prince Edward Island, and Nova Scotia.\n\nQuebec is Canada's second-most populous province, after Ontario. Most inhabitants live in urban areas near the Saint Lawrence River between Montreal and Quebec City, the capital. Approximately half of Quebec residents live in the Greater Montreal Area, including the Island of Montreal. English-speaking communities and English-language institutions are concentrated in the west of the island of Montreal but are also significantly present in the Outaouais, Eastern Townships, and Gaspé regions. The Nord-du-Québec region, occupying the northern half of the province, is sparsely populated and inhabited primarily by Aboriginal peoples. The climate around the major cities is four-season continental with cold and snowy winters combined with warm to hot humid summers, but further north long winter seasons dominate and as a result the northern areas of the province are marked by tundra conditions. Even in central Quebec at comparatively southerly latitudes winters are severe in inland areas.\n\nQuebec independence debates have played a large role in the politics of the province. Parti Québécois governments held referendums on sovereignty in 1980 and 1995; both were voted down by voters, the latter defeated by a very narrow margin.[14] In 2006, the House of Commons of Canada passed a symbolic motion recognizing the \"Québécois as a nation within a united Canada.\"\n\nWhile the province's substantial natural resources have long been the mainstay of its economy, sectors of the knowledge economy such as aerospace, information and communication technologies, biotechnology, and the pharmaceutical industry also play leading roles. These many industries have all contributed to helping Quebec become an economically influential province within Canada, second only to Ontario in economic output.\n-Wikipedia",
+    	"website": "",
+    	"subreddit": "/r/Quebec",
+    	"center": [
+    		399.5,
+    		237.5
+    	],
+    	"path": [
+    		[
+    			383.5,
+    			232.5
+    		],
+    		[
+    			416.5,
+    			232.5
+    		],
+    		[
+    			416.5,
+    			241.5
+    		],
+    		[
+    			382.5,
+    			241.5
+    		],
+    		[
+    			382.5,
+    			232.5
+    		]
+    	]
+    },
+
+    {
+    	"id": 1336,
+		"submitted_by": "IG-64",
+    	"name": "The Elements of Harmony",
+    	"description": "A miniature depiction of the Elements of Harmony, powerful artifacts associated with the six main characters of My Little Pony: Friendship is Magic",
+    	"website": "http://mlp.wikia.com/wiki/Elements_of_Harmony",
+    	"subreddit": "/r/mylittlepony",
+    	"center": [
+    		764.5,
+    		409.5
+    	],
+    	"path": [
+    		[
+    			764.5,
+    			405.5
+    		],
+    		[
+    			767.5,
+    			407.5
+    		],
+    		[
+    			767.5,
+    			412.5
+    		],
+    		[
+    			761.5,
+    			412.5
+    		],
+    		[
+    			761.5,
+    			408.5
+    		]
+    	]
+    },{
+    	"id": 1337,
+		"submitted_by": "IG-64",
+    	"name": "Cutie Marks",
+    	"description": "Cutie marks of characters from My Little Pony: Friendship is Magic. The sun and moon represent the sister Princesses Celestia and Luna, co-rulers of Equestria; the bottom row are minimalist versions of the six main characters; and the blue one off to the side is the Great and Powerful Trixie.",
+    	"website": "http://mlp.wikia.com/wiki/Cutie_marks",
+    	"subreddit": "/r/mylittlepony",
+    	"center": [
+    		786.5,
+    		465.5
+    	],
+    	"path": [
+    		[
+    			762.5,
+    			471.5
+    		],
+    		[
+    			764.5,
+    			459.5
+    		],
+    		[
+    			769.5,
+    			458.5
+    		],
+    		[
+    			770.5,
+    			461.5
+    		],
+    		[
+    			771.5,
+    			467.5
+    		],
+    		[
+    			790.5,
+    			468.5
+    		],
+    		[
+    			792.5,
+    			461.5
+    		],
+    		[
+    			794.5,
+    			459.5
+    		],
+    		[
+    			796.5,
+    			459.5
+    		],
+    		[
+    			803.5,
+    			456.5
+    		],
+    		[
+    			809.5,
+    			456.5
+    		],
+    		[
+    			809.5,
+    			463.5
+    		],
+    		[
+    			803.5,
+    			463.5
+    		],
+    		[
+    			798.5,
+    			470.5
+    		]
+    	]
+    },    {
+        	"id": 1338,
+		"submitted_by": "IG-64",
+        	"name": "The Great Diamond Authority",
+        	"description": "The emblem for the Diamond Authority from Steven Universe",
+        	"website": "https://www.cartoonnetwork.com/video/steven-universe/",
+        	"subreddit": "/r/stevenuniverse",
+        	"center": [
+        		357.5,
+        		103.5
+        	],
+        	"path": [
+        		[
+        			357.5,
+        			87.5
+        		],
+        		[
+        			372.5,
+        			103.5
+        		],
+        		[
+        			357.5,
+        			119.5
+        		],
+        		[
+        			341.5,
+        			103.5
+        		],
+        		[
+        			357.5,
+        			87.5
+        		]
+        	]
+        },{
+        	"id": 1339,
+		"submitted_by": "IG-64",
+        	"name": "Peridot",
+        	"description": "The character Peridot from Steven Universe",
+        	"website": "https://www.cartoonnetwork.com/video/steven-universe/",
+        	"subreddit": "/r/stevenuniverse",
+        	"center": [
+        		376.5,
+        		94.5
+        	],
+        	"path": [
+        		[
+        			376.5,
+        			81.5
+        		],
+        		[
+        			384.5,
+        			91.5
+        		],
+        		[
+        			384.5,
+        			93.5
+        		],
+        		[
+        			379.5,
+        			95.5
+        		],
+        		[
+        			378.5,
+        			97.5
+        		],
+        		[
+        			381.5,
+        			98.5
+        		],
+        		[
+        			383.5,
+        			97.5
+        		],
+        		[
+        			383.5,
+        			100.5
+        		],
+        		[
+        			378.5,
+        			100.5
+        		],
+        		[
+        			379.5,
+        			107.5
+        		],
+        		[
+        			373.5,
+        			107.5
+        		],
+        		[
+        			375.5,
+        			100.5
+        		],
+        		[
+        			369.5,
+        			100.5
+        		],
+        		[
+        			369.5,
+        			97.5
+        		],
+        		[
+        			374.5,
+        			98.5
+        		],
+        		[
+        			368.5,
+        			92.5
+        		],
+        		[
+        			369.5,
+        			89.5
+        		],
+        		[
+        			376.5,
+        			81.5
+        		]
+        	]
+        }, {
+        	"id": 1340,
+		"submitted_by": "IG-64",
+        	"name": "Pearl",
+        	"description": "Pearl's gem from Steven Universe",
+        	"website": "https://www.cartoonnetwork.com/video/steven-universe/",
+        	"subreddit": "/r/stevenuniverse",
+        	"center": [
+        		371.5,
+        		112.5
+        	],
+        	"path": [
+        		[
+        			368.5,
+        			110.5
+        		],
+        		[
+        			370.5,
+        			107.5
+        		],
+        		[
+        			373.5,
+        			107.5
+        		],
+        		[
+        			374.5,
+        			110.5
+        		],
+        		[
+        			374.5,
+        			115.5
+        		],
+        		[
+        			372.5,
+        			116.5
+        		],
+        		[
+        			370.5,
+        			116.5
+        		],
+        		[
+        			368.5,
+        			114.5
+        		],
+        		[
+        			368.5,
+        			110.5
+        		]
+        	]
+        }, {
+        	"id": 1341,
+		"submitted_by": "IG-64",
+        	"name": "Amethyst",
+        	"description": "Amethyst's gem from Steven Universe",
+        	"website": "https://www.cartoonnetwork.com/video/steven-universe/",
+        	"subreddit": "/r/stevenuniverse",
+        	"center": [
+        		328.5,
+        		95.5
+        	],
+        	"path": [
+        		[
+        			325.5,
+        			95.5
+        		],
+        		[
+        			326.5,
+        			92.5
+        		],
+        		[
+        			330.5,
+        			92.5
+        		],
+        		[
+        			331.5,
+        			94.5
+        		],
+        		[
+        			331.5,
+        			96.5
+        		],
+        		[
+        			329.5,
+        			98.5
+        		],
+        		[
+        			327.5,
+        			98.5
+        		],
+        		[
+        			325.5,
+        			96.5
+        		],
+        		[
+        			325.5,
+        			94.5
+        		]
+        	]
+        }, {
+        	"id": 1342,
+		"submitted_by": "IG-64",
+        	"name": "Ruby",
+        	"description": "Ruby's gem from Steven Universe",
+        	"website": "https://www.cartoonnetwork.com/video/steven-universe/",
+        	"subreddit": "/r/stevenuniverse",
+        	"center": [
+        		328.5,
+        		103.5
+        	],
+        	"path": [
+        		[
+        			325.5,
+        			102.5
+        		],
+        		[
+        			326.5,
+        			100.5
+        		],
+        		[
+        			329.5,
+        			100.5
+        		],
+        		[
+        			331.5,
+        			102.5
+        		],
+        		[
+        			331.5,
+        			104.5
+        		],
+        		[
+        			329.5,
+        			106.5
+        		],
+        		[
+        			327.5,
+        			106.5
+        		],
+        		[
+        			325.5,
+        			104.5
+        		],
+        		[
+        			325.5,
+        			101.5
+        		]
+        	]
+        }, {
+        	"id": 1343,
+		"submitted_by": "IG-64",
+        	"name": "Sapphire",
+        	"description": "Sapphire's gem from Steven Universe",
+        	"website": "https://www.cartoonnetwork.com/video/steven-universe/",
+        	"subreddit": "/r/stevenuniverse",
+        	"center": [
+        		336.5,
+        		103.5
+        	],
+        	"path": [
+        		[
+        			333.5,
+        			102.5
+        		],
+        		[
+        			335.5,
+        			100.5
+        		],
+        		[
+        			337.5,
+        			100.5
+        		],
+        		[
+        			339.5,
+        			102.5
+        		],
+        		[
+        			339.5,
+        			104.5
+        		],
+        		[
+        			337.5,
+        			106.5
+        		],
+        		[
+        			335.5,
+        			106.5
+        		],
+        		[
+        			333.5,
+        			104.5
+        		]
+        	]
+        }, {
+        	"id": 1344,
+		"submitted_by": "IG-64",
+        	"name": "Centipeedle",
+        	"description": "Centipeedle's gem from Steven Universe",
+        	"website": "https://www.cartoonnetwork.com/video/steven-universe/",
+        	"subreddit": "/r/stevenuniverse",
+        	"center": [
+        		340.5,
+        		112.5
+        	],
+        	"path": [
+        		[
+        			336.5,
+        			111.5
+        		],
+        		[
+        			338.5,
+        			108.5
+        		],
+        		[
+        			341.5,
+        			108.5
+        		],
+        		[
+        			343.5,
+        			109.5
+        		],
+        		[
+        			344.5,
+        			111.5
+        		],
+        		[
+        			344.5,
+        			114.5
+        		],
+        		[
+        			341.5,
+        			116.5
+        		],
+        		[
+        			338.5,
+        			116.5
+        		],
+        		[
+        			336.5,
+        			114.5
+        		]
+        	]
+        }, {
+        	"id": 1345,
+		"submitted_by": "IG-64",
+        	"name": "Rose Quartz/Steven Universe",
+        	"description": "Rose and Steven's gem from Steven Universe (blue pixel is vandalism)",
+        	"website": "https://www.cartoonnetwork.com/video/steven-universe/",
+        	"subreddit": "/r/stevenuniverse",
+        	"center": [
+        		365.5,
+        		86.5
+        	],
+        	"path": [
+        		[
+        			362.5,
+        			85.5
+        		],
+        		[
+        			364.5,
+        			83.5
+        		],
+        		[
+        			367.5,
+        			83.5
+        		],
+        		[
+        			368.5,
+        			85.5
+        		],
+        		[
+        			368.5,
+        			87.5
+        		],
+        		[
+        			366.5,
+        			90.5
+        		],
+        		[
+        			364.5,
+        			89.5
+        		],
+        		[
+        			362.5,
+        			87.5
+        		]
+        	]
+        },    {
+    	"id": 1346,
+		"submitted_by": "WThieves",
+    	"name": "ik_ihe",
+    	"description": "\"ik_ihe\" is the Dutch version of \"me_irl\", a popular meme subreddit which currently contains mostly ironic memes. The Dutch version follows the same style of memes but with Dutch related imagery.",
+    	"website": "",
+    	"subreddit": "/r/ik_ihe",
+    	"center": [
+    		802.5,
+    		4.5
+    	],
+    	"path": [
+    		[
+    			782.5,
+    			0.5
+    		],
+    		[
+    			821.5,
+    			0.5
+    		],
+    		[
+    			821.5,
+    			8.5
+    		],
+    		[
+    			782.5,
+    			8.5
+    		]
+    	]
+    },    {
+    	"id": 1347,
+		"submitted_by": "Magmorphic",
+    	"name": "The Pointer",
+    	"description": "A depiction of a standard computer cursor. The first version of the pointer was one of the earliest pieces of art to appear on the canvas, but was soon lost due to aggressive expansion of the anime_irl banner. A truce was later reached between the two factions when anime_irl agreed to help reconstruct the pointer in a new location and protect it within their borders.",
+    	"website": "",
+    	"subreddit": "/r/thepointing",
+    	"center": [
+    		232.5,
+    		218.5
+    	],
+    	"path": [
+    		[
+    			228.5,
+    			208.5
+    		],
+    		[
+    			228.5,
+    			208.5
+    		],
+    		[
+    			228.5,
+    			208.5
+    		],
+    		[
+    			228.5,
+    			211.5
+    		],
+    		[
+    			228.5,
+    			211.5
+    		],
+    		[
+    			227.5,
+    			211.5
+    		],
+    		[
+    			227.5,
+    			224.5
+    		],
+    		[
+    			230.5,
+    			224.5
+    		],
+    		[
+    			232.5,
+    			222.5
+    		],
+    		[
+    			233.5,
+    			222.5
+    		],
+    		[
+    			233.5,
+    			224.5
+    		],
+    		[
+    			237.5,
+    			224.5
+    		],
+    		[
+    			236.5,
+    			223.5
+    		],
+    		[
+    			236.5,
+    			221.5
+    		],
+    		[
+    			239.5,
+    			221.5
+    		],
+    		[
+    			240.5,
+    			220.5
+    		]
+    	]
+    },    {
+    	"id": 1348,
+		"submitted_by": "reoll",
+    	"name": "Mamamoo (마마무)",
+    	"description": "Mamamoo (Hangul: 마마무) is a South Korean Pop group.",
+    	"website": "",
+    	"subreddit": "/r/mamamoo",
+    	"center": [
+    		559.5,
+    		793.5
+    	],
+    	"path": [
+    		[
+    			556.5,
+    			787.5
+    		],
+    		[
+    			562.5,
+    			787.5
+    		],
+    		[
+    			562.5,
+    			799.5
+    		],
+    		[
+    			556.5,
+    			799.5
+    		],
+    		[
+    			556.5,
+    			787.5
+    		]
+    	]
+    },    {
+    	"id": 1349,
+		"submitted_by": "MichaelS10",
+    	"name": "Seahawks 12th Man Flag",
+    	"description": "The remains of what was once the 12th man flag of the Seattle Seahawks",
+    	"website": "",
+    	"subreddit": "/r/Seahawks",
+    	"center": [
+    		957.5,
+    		517.5
+    	],
+    	"path": [
+    		[
+    			948.5,
+    			511.5
+    		],
+    		[
+    			966.5,
+    			511.5
+    		],
+    		[
+    			966.5,
+    			523.5
+    		],
+    		[
+    			950.5,
+    			522.5
+    		],
+    		[
+    			948.5,
+    			517.5
+    		],
+    		[
+    			949.5,
+    			521.5
+    		],
+    		[
+    			949.5,
+    			521.5
+    		]
+    	]
+    },    {
+    	"id": 1350,
+		"submitted_by": "c10701",
+    	"name": "R/ockytop attack of the University of Florida",
+    	"description": "In this spot at 8pm on April 2nd, r/floridagators successfully fended off an attack from r/ockytop bringing their record against Tennessee to 12-1 in recent history.  The R/ockytop logo would later fall to r/ukplace in the waning hours of r/place, but at least they can sleep happy knowing that they are champions of life.",
+    	"website": "https://www.reddit.com/r/FloridaGators/comments/633n0m/postgame_thread_1_rfloridagators_10_rockyflop_in/",
+    	"subreddit": "r/floridagators",
+    	"center": [
+    		16.5,
+    		964.5
+    	],
+    	"path": [
+    		[
+    			1.5,
+    			979.5
+    		],
+    		[
+    			1.5,
+    			976.5
+    		],
+    		[
+    			29.5,
+    			975.5
+    		],
+    		[
+    			-0.5,
+    			950.5
+    		],
+    		[
+    			0.5,
+    			977.5
+    		],
+    		[
+    			38.5,
+    			975.5
+    		],
+    		[
+    			36.5,
+    			950.5
+    		],
+    		[
+    			1.5,
+    			950.5
+    		]
+    	]
+    },    {
+    	"id": 1351,
+		"submitted_by": "aerasalum",
+    	"name": "Colorado Heart",
+    	"description": "A small heart depicting the flag of the US state of Colorado.",
+    	"website": "",
+    	"subreddit": "",
+    	"center": [
+    		605.5,
+    		744.5
+    	],
+    	"path": [
+    		[
+    			603.5,
+    			748.5
+    		],
+    		[
+    			602.5,
+    			748.5
+    		],
+    		[
+    			600.5,
+    			746.5
+    		],
+    		[
+    			600.5,
+    			744.5
+    		],
+    		[
+    			605.5,
+    			739.5
+    		],
+    		[
+    			610.5,
+    			744.5
+    		],
+    		[
+    			610.5,
+    			746.5
+    		],
+    		[
+    			608.5,
+    			748.5
+    		],
+    		[
+    			607.5,
+    			748.5
+    		],
+    		[
+    			605.5,
+    			746.5
+    		],
+    		[
+    			603.5,
+    			748.5
+    		]
+    	]
+    },    {
+    	"id": 1352,
+		"submitted_by": "Magmorphic",
+    	"name": "Mealie-Chan",
+    	"description": "A depiction of Mealie-Chan, the mascot of the unofficial anime_irl discord chat.",
+    	"website": "http://imgur.com/a/Osg5U",
+    	"subreddit": "/r/bannedfromanime_irl",
+    	"center": [
+    		214.5,
+    		212.5
+    	],
+    	"path": [
+    		[
+    			206.5,
+    			213.5
+    		],
+    		[
+    			206.5,
+    			209.5
+    		],
+    		[
+    			207.5,
+    			208.5
+    		],
+    		[
+    			208.5,
+    			207.5
+    		],
+    		[
+    			209.5,
+    			206.5
+    		],
+    		[
+    			210.5,
+    			205.5
+    		],
+    		[
+    			212.5,
+    			205.5
+    		],
+    		[
+    			212.5,
+    			204.5
+    		],
+    		[
+    			216.5,
+    			204.5
+    		],
+    		[
+    			217.5,
+    			206.5
+    		],
+    		[
+    			218.5,
+    			206.5
+    		],
+    		[
+    			219.5,
+    			207.5
+    		],
+    		[
+    			220.5,
+    			208.5
+    		],
+    		[
+    			221.5,
+    			209.5
+    		],
+    		[
+    			222.5,
+    			210.5
+    		],
+    		[
+    			223.5,
+    			210.5
+    		],
+    		[
+    			224.5,
+    			211.5
+    		],
+    		[
+    			223.5,
+    			212.5
+    		],
+    		[
+    			223.5,
+    			214.5
+    		],
+    		[
+    			222.5,
+    			215.5
+    		],
+    		[
+    			220.5,
+    			215.5
+    		],
+    		[
+    			220.5,
+    			216.5
+    		],
+    		[
+    			219.5,
+    			217.5
+    		],
+    		[
+    			218.5,
+    			218.5
+    		],
+    		[
+    			209.5,
+    			218.5
+    		],
+    		[
+    			209.5,
+    			219.5
+    		],
+    		[
+    			208.5,
+    			218.5
+    		],
+    		[
+    			208.5,
+    			214.5
+    		]
+    	]
+    },    {
+    	"id": 1353,
+		"submitted_by": "VIDCAs17",
+    	"name": "The Ohio State University",
+    	"description": "The Block \"O\" is the logo for OSU (not to be confused with the rhythm game \"osu!\"). This logo appeared and was covered over several times during the duration  of r/place. The first location was at the current location of Northwestern University. Here, OSU and the U of Michigan had colliding corners, prompting a second \"War of Toledo\" as they fought over a small 10 pixel space. After this, the logo was ultimately vandalized and covered over. After other attempts of making the logo, the final incarnation of the \"O\" stood strong by the end of r/Place. A second block \"O\" is situated next to the flag of Ohio elsewhere on r/place. \n ",
+    	"website": "https://www.osu.edu/",
+    	"subreddit": "https://www.reddit.com/r/OSU/",
+    	"center": [
+    		78.5,
+    		836.5
+    	],
+    	"path": [
+    		[
+    			69.5,
+    			827.5
+    		],
+    		[
+    			86.5,
+    			827.5
+    		],
+    		[
+    			86.5,
+    			845.5
+    		],
+    		[
+    			69.5,
+    			845.5
+    		],
+    		[
+    			69.5,
+    			836.5
+    		]
+    	]
+    },    {
+    	"id": 1354,
+		"submitted_by": "somethinbetter",
+    	"name": "r/quebec",
+    	"description": "The subreddit for quebec",
+    	"website": "",
+    	"subreddit": "/r/Quebec",
+    	"center": [
+    		399.5,
+    		237.5
+    	],
+    	"path": [
+    		[
+    			382.5,
+    			233.5
+    		],
+    		[
+    			416.5,
+    			233.5
+    		],
+    		[
+    			416.5,
+    			241.5
+    		],
+    		[
+    			382.5,
+    			241.5
+    		]
+    	]
+    },    {
+    	"id": 1355,
+		"submitted_by": "VIDCAs17",
+    	"name": "Michigan State University",
+    	"description": "The logo for MSU, part of the Big Ten, is the Sparty Helmet for their sports team, the Spartans. Additionally in this space is part of the chant \"GO GREEN, GO WHITE\" and their subreddit r/MSU. ",
+    	"website": "https://msu.edu/",
+    	"subreddit": "r/msu",
+    	"center": [
+    		53.5,
+    		927.5
+    	],
+    	"path": [
+    		[
+    			38.5,
+    			911.5
+    		],
+    		[
+    			67.5,
+    			911.5
+    		],
+    		[
+    			67.5,
+    			943.5
+    		],
+    		[
+    			38.5,
+    			943.5
+    		]
+    	]
+    },    {
+    	"id": 1356,
+		"submitted_by": "VIDCAs17",
+    	"name": "Nebraska Huskers",
+    	"description": "The Huskers is the name of the sports team for the University of Nebraska-Lincoln, part of the Big Ten. Originally meant to say \"HUSKERS\" with a small picture of corn, this area was contested with the University of Houston, and is now referred to as \"Iloykibs\", \"lloYh'i8s\", or other such variations. \n\n",
+    	"website": "https://www.unl.edu/",
+    	"subreddit": "https://www.reddit.com/r/UNLincoln/",
+    	"center": [
+    		16.5,
+    		881.5
+    	],
+    	"path": [
+    		[
+    			0.5,
+    			877.5
+    		],
+    		[
+    			32.5,
+    			877.5
+    		],
+    		[
+    			32.5,
+    			885.5
+    		],
+    		[
+    			0.5,
+    			885.5
+    		],
+    		[
+    			0.5,
+    			877.5
+    		]
+    	]
+    },    {
+    	"id": 1357,
+		"submitted_by": "SassyGary",
+    	"name": "Palestinian Heart",
+    	"description": "",
+    	"website": "",
+    	"subreddit": "",
+    	"center": [
+    		473.5,
+    		727.5
+    	],
+    	"path": [
+    		[
+    			472.5,
+    			722.5
+    		],
+    		[
+    			467.5,
+    			729.5
+    		],
+    		[
+    			471.5,
+    			732.5
+    		],
+    		[
+    			473.5,
+    			730.5
+    		],
+    		[
+    			477.5,
+    			732.5
+    		],
+    		[
+    			479.5,
+    			728.5
+    		],
+    		[
+    			474.5,
+    			722.5
+    		]
+    	]
+    }, {
+    	"id": 1358,
+		"submitted_by": "SassyGary",
+    	"name": "Jordanian Heart",
+    	"description": "Made by a few users from /r/palestine because of competition over The Palestinian heart",
+    	"website": "",
+    	"subreddit": "",
+    	"center": [
+    		509.5,
+    		761.5
+    	],
+    	"path": [
+    		[
+    			509.5,
+    			754.5
+    		],
+    		[
+    			503.5,
+    			760.5
+    		],
+    		[
+    			504.5,
+    			764.5
+    		],
+    		[
+    			507.5,
+    			766.5
+    		],
+    		[
+    			509.5,
+    			764.5
+    		],
+    		[
+    			512.5,
+    			766.5
+    		],
+    		[
+    			515.5,
+    			763.5
+    		]
+    	]
+    }, {
+    	"id": 1359,
+		"submitted_by": "SassyGary",
+    	"name": "Omani Heart",
+    	"description": "",
+    	"website": "",
+    	"subreddit": "",
+    	"center": [
+    		515.5,
+    		754.5
+    	],
+    	"path": [
+    		[
+    			515.5,
+    			760.5
+    		],
+    		[
+    			521.5,
+    			753.5
+    		],
+    		[
+    			518.5,
+    			750.5
+    		],
+    		[
+    			516.5,
+    			751.5
+    		],
+    		[
+    			515.5,
+    			753.5
+    		],
+    		[
+    			512.5,
+    			750.5
+    		],
+    		[
+    			511.5,
+    			750.5
+    		],
+    		[
+    			509.5,
+    			753.5
+    		],
+    		[
+    			515.5,
+    			760.5
+    		]
+    	]
+    },    {
+    	"id": 1360,
+		"submitted_by": "somethinbetter",
+    	"name": "Minecraft torch",
+    	"description": "A minecraft torch",
+    	"website": "",
+    	"subreddit": "/r/minecraft",
+    	"center": [
+    		105.5,
+    		632.5
+    	],
+    	"path": [
+    		[
+    			102.5,
+    			626.5
+    		],
+    		[
+    			107.5,
+    			626.5
+    		],
+    		[
+    			107.5,
+    			637.5
+    		],
+    		[
+    			102.5,
+    			637.5
+    		]
+    	]
+    },    {
+    	"id": 1361,
+		"submitted_by": "VIDCAs17",
+    	"name": "Flag of Yukon",
+    	"description": "Flag to the Yukon Territory of Canada",
+    	"website": "",
+    	"subreddit": "",
+    	"center": [
+    		344.5,
+    		220.5
+    	],
+    	"path": [
+    		[
+    			335.5,
+    			214.5
+    		],
+    		[
+    			335.5,
+    			225.5
+    		],
+    		[
+    			352.5,
+    			225.5
+    		],
+    		[
+    			352.5,
+    			214.5
+    		]
+    	]
+    },    {
+    	"id": 1362,
+		"submitted_by": "J-Nastee",
+    	"name": "University of Michigan",
+    	"description": "One of the earliest universities on r/place, this is the block M logo and \"Go Blue\" slogan of the University of Michigan. Constantly at odds with adjacent rival Ohio State. ",
+    	"website": "",
+    	"subreddit": "/r/uofm",
+    	"center": [
+    		87.5,
+    		815.5
+    	],
+    	"path": [
+    		[
+    			70.5,
+    			802.5
+    		],
+    		[
+    			104.5,
+    			802.5
+    		],
+    		[
+    			104.5,
+    			827.5
+    		],
+    		[
+    			70.5,
+    			827.5
+    		],
+    		[
+    			70.5,
+    			819.5
+    		],
+    		[
+    			70.5,
+    			811.5
+    		]
+    	]
+    },    {
+    	"id": 1363,
+		"submitted_by": "VIDCAs17",
+    	"name": "Flag of Prince Edward Island",
+    	"description": "Eastern Province of Canada ",
+    	"website": "",
+    	"subreddit": "",
+    	"center": [
+    		344.5,
+    		231.5
+    	],
+    	"path": [
+    		[
+    			335.5,
+    			225.5
+    		],
+    		[
+    			352.5,
+    			225.5
+    		],
+    		[
+    			352.5,
+    			236.5
+    		],
+    		[
+    			335.5,
+    			236.5
+    		]
+    	]
+    },    {
+    	"id": 1364,
+		"submitted_by": "VIDCAs17",
+    	"name": "University of Iowa",
+    	"description": "The \"I\" symbol for the University of Iowa, located in Iowa City, Iowa. ",
+    	"website": "https://uiowa.edu/",
+    	"subreddit": "r/uiowa",
+    	"center": [
+    		64.5,
+    		819.5
+    	],
+    	"path": [
+    		[
+    			58.5,
+    			811.5
+    		],
+    		[
+    			58.5,
+    			826.5
+    		],
+    		[
+    			69.5,
+    			826.5
+    		],
+    		[
+    			69.5,
+    			811.5
+    		]
+    	]
+    },    {
+    	"id": 1365,
+		"submitted_by": "VIDCAs17",
+    	"name": "Northwestern University ",
+    	"description": "Logo for Northwestern University, located in Evanston, Illinois, north of Chicago. ",
+    	"website": "http://www.northwestern.edu/",
+    	"subreddit": "r/Northwestern",
+    	"center": [
+    		64.5,
+    		833.5
+    	],
+    	"path": [
+    		[
+    			59.5,
+    			826.5
+    		],
+    		[
+    			59.5,
+    			840.5
+    		],
+    		[
+    			69.5,
+    			840.5
+    		],
+    		[
+    			69.5,
+    			826.5
+    		]
+    	]
+    },    {
+    	"id": 1366,
+		"submitted_by": "TheEvilKetchup",
+    	"name": "The Traveler",
+    	"description": "The Traveler is a mysterious, city-sized sphere featured in the game Destiny, that hangs low over the Earth. It also gives players their space magic, and their door-openers.",
+    	"website": "",
+    	"subreddit": "/r/DestinyTheGame",
+    	"center": [
+    		732.5,
+    		773.5
+    	],
+    	"path": [
+    		[
+    			741.5,
+    			782.5
+    		],
+    		[
+    			741.5,
+    			764.5
+    		],
+    		[
+    			723.5,
+    			764.5
+    		],
+    		[
+    			722.5,
+    			782.5
+    		],
+    		[
+    			741.5,
+    			782.5
+    		]
+    	]
+    },    {
+    	"id": 1367,
+		"submitted_by": "TheEvilKetchup",
+    	"name": "Destiny Factions",
+    	"description": "Logos of the three secondary factions found within the game Destiny. Features New Monarchy, Dead Orbit, and Future War Cult.",
+    	"website": "",
+    	"subreddit": "/r/DestinyTheGame",
+    	"center": [
+    		753.5,
+    		784.5
+    	],
+    	"path": [
+    		[
+    			738.5,
+    			788.5
+    		],
+    		[
+    			738.5,
+    			783.5
+    		],
+    		[
+    			742.5,
+    			783.5
+    		],
+    		[
+    			742.5,
+    			778.5
+    		],
+    		[
+    			750.5,
+    			782.5
+    		],
+    		[
+    			756.5,
+    			783.5
+    		],
+    		[
+    			768.5,
+    			777.5
+    		],
+    		[
+    			770.5,
+    			779.5
+    		],
+    		[
+    			763.5,
+    			785.5
+    		],
+    		[
+    			763.5,
+    			788.5
+    		],
+    		[
+    			738.5,
+    			788.5
+    		]
+    	]
+    },    {
+    	"id": 1368,
+		"submitted_by": "TheEvilKetchup",
+    	"name": "Destiny Coat of Arms",
+    	"description": "A coat of arms designed by members of the Destiny subreddit.It features the logos for Titans, Hunters, and Warlocks as well as a Ghost.",
+    	"website": "",
+    	"subreddit": "/r/DestinyTheGame",
+    	"center": [
+    		753.5,
+    		765.5
+    	],
+    	"path": [
+    		[
+    			743.5,
+    			751.5
+    		],
+    		[
+    			764.5,
+    			751.5
+    		],
+    		[
+    			764.5,
+    			777.5
+    		],
+    		[
+    			755.5,
+    			781.5
+    		],
+    		[
+    			752.5,
+    			781.5
+    		],
+    		[
+    			742.5,
+    			776.5
+    		],
+    		[
+    			743.5,
+    			751.5
+    		]
+    	]
+    },    {
+    	"id": 1369,
+		"submitted_by": "TheEvilKetchup",
+    	"name": "Eye of Osiris",
+    	"description": "Logo of the Trials of Osiris gamemode featured in the game Destiny, where one tries to go to the mythical Lighthouse, but never will.",
+    	"website": "",
+    	"subreddit": "/r/DestinyTheGame",
+    	"center": [
+    		788.5,
+    		783.5
+    	],
+    	"path": [
+    		[
+    			782.5,
+    			784.5
+    		],
+    		[
+    			788.5,
+    			788.5
+    		],
+    		[
+    			794.5,
+    			783.5
+    		],
+    		[
+    			788.5,
+    			778.5
+    		],
+    		[
+    			782.5,
+    			784.5
+    		]
+    	]
+    },    {
+    	"id": 1370,
+		"submitted_by": "quinntan2222",
+    	"name": "Karl Marx",
+    	"description": "Pixel art representing Karl Marx, well known for developing economic and philosophical theories collectively known as Marxism and writing the Communist Manifesto",
+    	"website": "",
+    	"subreddit": "/r/thefarleftside",
+    	"center": [
+    		102.5,
+    		414.5
+    	],
+    	"path": [
+    		[
+    			99.5,
+    			409.5
+    		],
+    		[
+    			106.5,
+    			409.5
+    		],
+    		[
+    			106.5,
+    			419.5
+    		],
+    		[
+    			98.5,
+    			418.5
+    		]
+    	]
+    },    {
+    	"id": 1371,
+		"submitted_by": "Hoodiebashoo",
+    	"name": "Ushanka Cube",
+    	"description": "One of many icons in the rhythm game Geometry Dash, wearing an ushanka. This particular cube is used on the app icon",
+    	"website": "",
+    	"subreddit": "/r/geometrydash",
+    	"center": [
+    		596.5,
+    		805.5
+    	],
+    	"path": [
+    		[
+    			593.5,
+    			801.5
+    		],
+    		[
+    			600.5,
+    			801.5
+    		],
+    		[
+    			601.5,
+    			809.5
+    		],
+    		[
+    			592.5,
+    			809.5
+    		],
+    		[
+    			592.5,
+    			801.5
+    		],
+    		[
+    			601.5,
+    			801.5
+    		]
+    	]
+    },    {
+    	"id": 1372,
+		"submitted_by": "averhan",
+    	"name": "Israel",
+    	"description": "The official seal of the State of Israel, and the Israeli flag underneath it.",
+    	"website": "",
+    	"subreddit": "",
+    	"center": [
+    		747.5,
+    		851.5
+    	],
+    	"path": [
+    		[
+    			730.5,
+    			823.5
+    		],
+    		[
+    			730.5,
+    			879.5
+    		],
+    		[
+    			764.5,
+    			879.5
+    		],
+    		[
+    			764.5,
+    			823.5
+    		]
+    	]
+    },    {
+    	"id": 1373,
+		"submitted_by": "HitMonChon",
+    	"name": "Femdon",
+    	"description": "A sign made by the Femdom subreddit, a subreddit dedicated to Women being the Dom in a BDSM situation",
+    	"website": "",
+    	"subreddit": "r/Femdom",
+    	"center": [
+    		354.5,
+    		719.5
+    	],
+    	"path": [
+    		[
+    			334.5,
+    			715.5
+    		],
+    		[
+    			374.5,
+    			715.5
+    		],
+    		[
+    			374.5,
+    			722.5
+    		],
+    		[
+    			334.5,
+    			722.5
+    		],
+    		[
+    			334.5,
+    			721.5
+    		],
+    		[
+    			334.5,
+    			718.5
+    		],
+    		[
+    			334.5,
+    			715.5
+    		]
+    	]
+    },    {
+    	"id": 1374,
+		"submitted_by": "cubi1oh",
+    	"name": "YPG/YPJ",
+    	"description": "The YPG (People's Protection Units) are the primary military forces of Rojava engaged in the Syrian conflict; their flag is nearby.\nThe YPJ is the all-female sister army of the YPG.",
+    	"website": "",
+    	"subreddit": "/r/rojava",
+    	"center": [
+    		65.5,
+    		418.5
+    	],
+    	"path": [
+    		[
+    			65.5,
+    			425.5
+    		],
+    		[
+    			65.5,
+    			420.5
+    		],
+    		[
+    			61.5,
+    			422.5
+    		],
+    		[
+    			58.5,
+    			422.5
+    		],
+    		[
+    			57.5,
+    			417.5
+    		],
+    		[
+    			61.5,
+    			415.5
+    		],
+    		[
+    			66.5,
+    			412.5
+    		],
+    		[
+    			69.5,
+    			412.5
+    		],
+    		[
+    			70.5,
+    			413.5
+    		],
+    		[
+    			70.5,
+    			420.5
+    		],
+    		[
+    			69.5,
+    			425.5
+    		]
+    	]
+    },    {
+    	"id": 1375,
+		"submitted_by": "cubi1oh",
+    	"name": "(Covered) QC libre",
+    	"description": "Now occupied by the subreddit name, this formerly read \"QC LIBRE\", a reference to Charles De Gaulle's controversial 1967 speech advocating for the independence of Québec.",
+    	"website": "https://en.wikipedia.org/wiki/Vive_le_Qu%C3%A9bec_libre",
+    	"subreddit": "/r/Quebec",
+    	"center": [
+    		399.5,
+    		237.5
+    	],
+    	"path": [
+    		[
+    			383.5,
+    			240.5
+    		],
+    		[
+    			383.5,
+    			234.5
+    		],
+    		[
+    			415.5,
+    			234.5
+    		],
+    		[
+    			415.5,
+    			240.5
+    		]
+    	]
+    },    {
+    	"id": 1376,
+		"submitted_by": "cubi1oh",
+    	"name": "Sydney FC",
+    	"description": "An A-League soccer club located in Sydney, Australia.",
+    	"website": "",
+    	"subreddit": "/r/SydneyFC/",
+    	"center": [
+    		897.5,
+    		847.5
+    	],
+    	"path": [
+    		[
+    			889.5,
+    			849.5
+    		],
+    		[
+    			889.5,
+    			845.5
+    		],
+    		[
+    			905.5,
+    			845.5
+    		],
+    		[
+    			905.5,
+    			849.5
+    		]
+    	]
+    },    {
+    	"id": 1377,
+		"submitted_by": "Omega_Haxors",
+    	"name": "Wooden Bender",
+    	"description": "Bender was once changed to brown and the text was modified to \"BITE MY SPLINTERY WOODEN ASS\"",
+    	"website": "",
+    	"subreddit": "",
+    	"center": [
+    		637.5,
+    		920.5
+    	],
+    	"path": [
+    		[
+    			617.5,
+    			893.5
+    		],
+    		[
+    			675.5,
+    			896.5
+    		],
+    		[
+    			676.5,
+    			922.5
+    		],
+    		[
+    			637.5,
+    			923.5
+    		],
+    		[
+    			632.5,
+    			959.5
+    		],
+    		[
+    			609.5,
+    			960.5
+    		],
+    		[
+    			609.5,
+    			924.5
+    		],
+    		[
+    			617.5,
+    			917.5
+    		]
+    	]
+    },  {
+    	"id": 1378,
+		"submitted_by": "Infernette",
+    	"name": "(Covered) Bill Cipher",
+    	"description": "This area was a spot home to a depiction of Bill Cipher from the now cancelled DisneyXD show \"Gravity Falls\" for most of the canvas' time, until the Void Triangle overtook it.",
+    	"website": "",
+    	"subreddit": "/r/gravityfalls",
+    	"center": [
+    		116.5,
+    		43.5
+    	],
+    	"path": [
+    		[
+    			107.5,
+    			35.5
+    		],
+    		[
+    			124.5,
+    			36.5
+    		],
+    		[
+    			123.5,
+    			52.5
+    		],
+    		[
+    			108.5,
+    			51.5
+    		]
+    	]
+    },    {
+    	"id": 1379,
+		"submitted_by": "FuzzyCatPotato",
+    	"name": "Red Triangle",
+    	"description": "The Red Triangle was an expansion effort by the Far Left Side. TFLS's triangular dreams faced the unstoppable force of the Manning face.",
+    	"website": "",
+    	"subreddit": "/r/TheFarLeftside",
+    	"center": [
+    		37.5,
+    		360.5
+    	],
+    	"path": [
+    		[
+    			61.5,
+    			371.5
+    		],
+    		[
+    			6.5,
+    			371.5
+    		],
+    		[
+    			6.5,
+    			377.5
+    		],
+    		[
+    			76.5,
+    			377.5
+    		],
+    		[
+    			61.5,
+    			361.5
+    		],
+    		[
+    			36.5,
+    			338.5
+    		],
+    		[
+    			12.5,
+    			342.5
+    		],
+    		[
+    			16.5,
+    			344.5
+    		],
+    		[
+    			16.5,
+    			359.5
+    		],
+    		[
+    			59.5,
+    			359.5
+    		]
+    	]
+    },   {
+    	"id": 1380,
+		"submitted_by": "ProxyNorr",
+    	"name": "Former GW2 Logo",
+    	"description": "Former site of the Guild Wars 2 logo, before it was ravaged by the void and vandalism by bots.",
+    	"website": "",
+    	"subreddit": "r/GuildWars2",
+    	"center": [
+    		901.5,
+    		543.5
+    	],
+    	"path": [
+    		[
+    			871.5,
+    			550.5
+    		],
+    		[
+    			933.5,
+    			549.5
+    		],
+    		[
+    			899.5,
+    			531.5
+    		]
+    	]
+    },    {
+    	"id": 1381,
+		"submitted_by": "cubi1oh",
+    	"name": "Kansas State University",
+    	"description": "The abbreviation of Kansas State University (K-State), a public university located in Manhattan, KS.\nWas vandalized just prior to the closure of r/place. ",
+    	"website": "",
+    	"subreddit": "/r/KState",
+    	"center": [
+    		23.5,
+    		926.5
+    	],
+    	"path": [
+    		[
+    			17.5,
+    			929.5
+    		],
+    		[
+    			17.5,
+    			923.5
+    		],
+    		[
+    			28.5,
+    			923.5
+    		],
+    		[
+    			28.5,
+    			929.5
+    		]
+    	]
+    },    {
+    	"id": 1382,
+		"submitted_by": "Jako3334074",
+    	"name": "Costa Rican Flag",
+    	"description": "Costa Rica's flag was here until it was eaten by the Green Lattice",
+    	"website": "",
+    	"subreddit": "r/costa_rica",
+    	"center": [
+    		921.5,
+    		190.5
+    	],
+    	"path": [
+    		[
+    			897.5,
+    			183.5
+    		],
+    		[
+    			897.5,
+    			196.5
+    		],
+    		[
+    			944.5,
+    			196.5
+    		],
+    		[
+    			944.5,
+    			183.5
+    		]
+    	]
+    },    {
+    	"id": 1383,
+		"submitted_by": "Omega_Haxors",
+    	"name": "PINLAND",
+    	"description": "It was very common for users to change these few pixels so the F turned into a P",
+    	"website": "",
+    	"subreddit": "",
+    	"center": [
+    		59.5,
+    		796.5
+    	],
+    	"path": [
+    		[
+    			59.5,
+    			794.5
+    		],
+    		[
+    			59.5,
+    			797.5
+    		],
+    		[
+    			58.5,
+    			797.5
+    		]
+    	]
+    },    {
+    	"id": 1384,
+		"submitted_by": "Tekar",
+    	"name": "Dwarf Fortress Dead Goblin",
+    	"description": "This g surrounded by red square represents a dead goblin the the game Dwarf Fortress",
+    	"website": "http://www.bay12games.com/dwarves/",
+    	"subreddit": "/r/dwarffortress",
+    	"center": [
+    		10.5,
+    		642.5
+    	],
+    	"path": [
+    		[
+    			3.5,
+    			637.5
+    		],
+    		[
+    			15.5,
+    			637.5
+    		],
+    		[
+    			16.5,
+    			647.5
+    		],
+    		[
+    			4.5,
+    			647.5
+    		]
+    	]
+    },    {
+    	"id": 1385,
+		"submitted_by": "francineismyname",
+    	"name": "Dominican Republic heart",
+    	"description": "",
+    	"website": "",
+    	"subreddit": "/r/Dominican",
+    	"center": [
+    		581.5,
+    		744.5
+    	],
+    	"path": [
+    		[
+    			582.5,
+    			739.5
+    		],
+    		[
+    			576.5,
+    			749.5
+    		],
+    		[
+    			587.5,
+    			748.5
+    		],
+    		[
+    			576.5,
+    			741.5
+    		],
+    		[
+    			576.5,
+    			749.5
+    		],
+    		[
+    			588.5,
+    			747.5
+    		],
+    		[
+    			587.5,
+    			741.5
+    		],
+    		[
+    			579.5,
+    			738.5
+    		],
+    		[
+    			576.5,
+    			741.5
+    		],
+    		[
+    			579.5,
+    			737.5
+    		],
+    		[
+    			576.5,
+    			748.5
+    		],
+    		[
+    			583.5,
+    			737.5
+    		],
+    		[
+    			579.5,
+    			736.5
+    		],
+    		[
+    			587.5,
+    			739.5
+    		],
+    		[
+    			583.5,
+    			738.5
+    		],
+    		[
+    			578.5,
+    			738.5
+    		],
+    		[
+    			575.5,
+    			750.5
+    		],
+    		[
+    			577.5,
+    			740.5
+    		]
+    	]
+    },    {
+    	"id": 1386,
+		"submitted_by": "Thedmatch",
+    	"name": "Clash Royale Princess",
+    	"description": "A legendary card in the mobile game Clash Royale",
+    	"website": "",
+    	"subreddit": "r/ClashRoyale",
+    	"center": [
+    		839.5,
+    		936.5
+    	],
+    	"path": [
+    		[
+    			830.5,
+    			926.5
+    		],
+    		[
+    			830.5,
+    			946.5
+    		],
+    		[
+    			844.5,
+    			951.5
+    		],
+    		[
+    			844.5,
+    			944.5
+    		],
+    		[
+    			850.5,
+    			944.5
+    		],
+    		[
+    			850.5,
+    			932.5
+    		],
+    		[
+    			839.5,
+    			922.5
+    		],
+    		[
+    			833.5,
+    			922.5
+    		],
+    		[
+    			834.5,
+    			925.5
+    		]
+    	]
+    },    {
+    	"id": 1387,
+		"submitted_by": "Meteowritten",
+    	"name": "Flag of Yukon",
+    	"description": "The flag of one of Canada's 3 territories",
+    	"website": "http://www.gov.yk.ca/",
+    	"subreddit": "/r/Yukon",
+    	"center": [
+    		344.5,
+    		220.5
+    	],
+    	"path": [
+    		[
+    			335.5,
+    			214.5
+    		],
+    		[
+    			335.5,
+    			225.5
+    		],
+    		[
+    			352.5,
+    			225.5
+    		],
+    		[
+    			352.5,
+    			214.5
+    		]
+    	]
+    },    {
+    	"id": 1388,
+		"submitted_by": "Meteowritten",
+    	"name": "Flag of Prince Edward Island",
+    	"description": "A flag of Canada's smallest province by population and land area",
+    	"website": "http://www.gov.pe.ca/",
+    	"subreddit": "/r/PEI",
+    	"center": [
+    		343.5,
+    		230.5
+    	],
+    	"path": [
+    		[
+    			335.5,
+    			225.5
+    		],
+    		[
+    			335.5,
+    			236.5
+    		],
+    		[
+    			351.5,
+    			236.5
+    		],
+    		[
+    			352.5,
+    			225.5
+    		]
+    	]
+    },    {
+    	"id": 1389,
+		"submitted_by": "Kunfuxu",
+    	"name": "Euro 2016 trophy",
+    	"description": "Portugal is the current European football champion, this is a representation of the trophy awarded to the country's national football team for their victory.",
+    	"website": "",
+    	"subreddit": "/r/Portugal",
+    	"center": [
+    		681.5,
+    		415.5
+    	],
+    	"path": [
+    		[
+    			676.5,
+    			421.5
+    		],
+    		[
+    			686.5,
+    			421.5
+    		],
+    		[
+    			686.5,
+    			408.5
+    		],
+    		[
+    			676.5,
+    			408.5
+    		]
+    	]
+    },    {
+    	"id": 1390,
+		"submitted_by": "PvtMuffin",
+    	"name": "Carey Price",
+    	"description": "Current Canadiens netminder who sports the number 31. Meant to be part of the Montreal Canadiens section but was attacked by trolls near the end of r/place/'s lifespan. ",
+    	"website": "",
+    	"subreddit": "/r/Habs",
+    	"center": [
+    		120.5,
+    		257.5
+    	],
+    	"path": [
+    		[
+    			110.5,
+    			247.5
+    		],
+    		[
+    			115.5,
+    			247.5
+    		],
+    		[
+    			121.5,
+    			254.5
+    		],
+    		[
+    			133.5,
+    			253.5
+    		],
+    		[
+    			135.5,
+    			263.5
+    		],
+    		[
+    			110.5,
+    			262.5
+    		],
+    		[
+    			109.5,
+    			247.5
+    		],
+    		[
+    			109.5,
+    			247.5
+    		],
+    		[
+    			109.5,
+    			247.5
+    		]
+    	]
+    },    {
+    	"id": 1391,
+		"submitted_by": "BattleFalcon",
+    	"name": "Transgender Heart",
+    	"description": "A heart bearing the transgender flag.",
+    	"website": "",
+    	"subreddit": "",
+    	"center": [
+    		539.5,
+    		737.5
+    	],
+    	"path": [
+    		[
+    			536.5,
+    			733.5
+    		],
+    		[
+    			537.5,
+    			733.5
+    		],
+    		[
+    			539.5,
+    			735.5
+    		],
+    		[
+    			542.5,
+    			733.5
+    		],
+    		[
+    			544.5,
+    			735.5
+    		],
+    		[
+    			544.5,
+    			737.5
+    		],
+    		[
+    			539.5,
+    			742.5
+    		],
+    		[
+    			534.5,
+    			737.5
+    		],
+    		[
+    			534.5,
+    			735.5
+    		],
+    		[
+    			536.5,
+    			733.5
+    		]
+    	]
+    },    {
+    	"id": 1392,
+		"submitted_by": "Kunfuxu",
+    	"name": "Squirtle Vaz de Camões",
+    	"description": "Squirtle is a very well known water type Pokemon. While other redditors were making Squirlte pixel art next to the Portuguese flag, /r/Portugal decided to adopt the Squirle.\n\nHere it's not depicted as a pirate, but as the great Portuguese poet Luís Vaz de Camões, author of the epic poem \"Os Lusíadas\"",
+    	"website": "",
+    	"subreddit": "/r/pokemon",
+    	"center": [
+    		703.5,
+    		433.5
+    	],
+    	"path": [
+    		[
+    			710.5,
+    			449.5
+    		],
+    		[
+    			687.5,
+    			449.5
+    		],
+    		[
+    			687.5,
+    			434.5
+    		],
+    		[
+    			681.5,
+    			434.5
+    		],
+    		[
+    			681.5,
+    			422.5
+    		],
+    		[
+    			685.5,
+    			422.5
+    		],
+    		[
+    			686.5,
+    			422.5
+    		],
+    		[
+    			687.5,
+    			411.5
+    		],
+    		[
+    			706.5,
+    			411.5
+    		],
+    		[
+    			706.5,
+    			423.5
+    		],
+    		[
+    			713.5,
+    			423.5
+    		],
+    		[
+    			713.5,
+    			427.5
+    		],
+    		[
+    			727.5,
+    			427.5
+    		],
+    		[
+    			726.5,
+    			449.5
+    		]
+    	]
     }
 
 
