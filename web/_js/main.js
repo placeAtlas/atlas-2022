@@ -70,30 +70,24 @@ function init(){
 		}
 	}
 
-	if(mode=="view"){
-		/*document.getElementById("viewLink").className = "current";
-		document.getElementById("drawLink").className = "";
-		document.getElementById("aboutLink").className = "";*/
+	if(mode == "view"){
 		
-		document.getElementById("drawControlsContainer").style.display = "none";
-		document.getElementById("entriesListContainer").style.display = "flex";
-		document.getElementById("entriesListBackground").style.display = "block";
-		document.getElementById("hideListButton").style.display = "block";
-		document.getElementById("objectsList").style.display = "block";
-		
-		/*
-		document.getElementById("container").style.width = "100vw";
-		document.getElementById("drawControls").style.display = "none";
-		document.getElementById("entriesListContainer").style.display = "none";
-		document.getElementById("entriesListBackground").style.display = "none";
-		document.getElementById("author").style.display = "none";
-		document.getElementById("zoomControls").style.right = "10px";
-		document.getElementById("zoomControls").style.top = "10px";
-		document.getElementById("hideListButton").style.display = "none";
-		document.getElementById("objectsList").style.display = "none";
-		*/
-
+		wrapper.className = wrapper.className.replace(/ drawMode/g, "");
 		initView();
+		
+	} else if(mode=="draw"){
+		
+		wrapper.className += " draw";
+		initDraw();
+		
+	} else if(mode=="about"){
+		window.location = "./about.html";
+	}
+
+	if(mode=="view"){
+		
+
+		
 		
 	} else if(mode=="draw"){
 		/*document.getElementById("viewLink").className = "";
@@ -105,7 +99,7 @@ function init(){
 		document.getElementById("entriesListBackground").style.display = "none";
 		document.getElementById("hideListButton").style.display = "none";
 
-		initDraw();
+		
 	} else if(mode=="about"){
 		window.location = "./about.html";
 	}
@@ -208,8 +202,6 @@ function init(){
 
 	window.addEventListener("resize", function(){
 		//console.log(document.documentElement.clientWidth, document.documentElement.clientHeight);
-
-		
 		
 		applyView();
 	});

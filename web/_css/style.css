@@ -245,6 +245,11 @@ optgroup{
 	overflow-y: hidden;
 }
 
+.listHidden #container{
+	width: 100%;
+	margin-left: 0px;
+}
+
 #innerContainer{
 	height: 1000px;
 	width: 1000px;
@@ -360,6 +365,10 @@ optgroup{
 	overflow-y: auto;
 	display: none;
 	padding: 0px 20px;
+}
+
+.draw #drawControlsContainer{
+	display: block;
 }
 
 #drawControls{
@@ -508,6 +517,10 @@ input[type="checkbox"]{
 	width: 90px;
 }
 
+.listHidden #zoomControls{
+	left: 10px;
+}
+
 #zoomControls button{
 	display: block;
 	height: 30px;
@@ -554,6 +567,14 @@ button#zoomResetButton{
 	flex-direction: column;
 }
 
+.draw #entriesListContainer{
+	display: none;
+}
+
+.listHidden #entriesListContainer{
+	display: none;
+}
+
 #entriesListContainer > nav{
 	text-align: center;
 	margin: 10px 0px;
@@ -591,6 +612,14 @@ button#zoomResetButton{
 	border-right: 1px #000000 solid;
 }
 
+.draw #entriesListBackground{
+	display: none;
+}
+
+.listHidden #entriesListBackground{
+	display: none;
+}
+
 #hideListButton{
 	position: absolute;
 	height: 100px;
@@ -609,7 +638,11 @@ button#zoomResetButton{
 	background-color: #555555;
 }
 
-#hideListButton.reverse{
+.draw #hideListButton{
+	display: none;
+}
+
+.listHidden #hideListButton{
 	background-image: url("data:image/svg+xml;utf8,%3Csvg%0A%20%20%20xmlns%3Adc%3D%22http%3A//purl.org/dc/elements/1.1/%22%0A%20%20%20xmlns%3Acc%3D%22http%3A//creativecommons.org/ns%23%22%0A%20%20%20xmlns%3Ardf%3D%22http%3A//www.w3.org/1999/02/22-rdf-syntax-ns%23%22%0A%20%20%20xmlns%3Asvg%3D%22http%3A//www.w3.org/2000/svg%22%0A%20%20%20xmlns%3D%22http%3A//www.w3.org/2000/svg%22%0A%20%20%20version%3D%221.1%22%0A%20%20%20width%3D%22272.84375%22%0A%20%20%20height%3D%22177.59375%22%0A%20%20%20id%3D%22svg2%22%3E%0A%20%20%3Cdefs%0A%20%20%20%20%20id%3D%22defs4%22%20/%3E%0A%20%20%3Cmetadata%0A%20%20%20%20%20id%3D%22metadata7%22%3E%0A%20%20%20%20%3Crdf%3ARDF%3E%0A%20%20%20%20%20%20%3Ccc%3AWork%0A%20%20%20%20%20%20%20%20%20rdf%3Aabout%3D%22%22%3E%0A%20%20%20%20%20%20%20%20%3Cdc%3Aformat%3Eimage/svg+xml%3C/dc%3Aformat%3E%0A%20%20%20%20%20%20%20%20%3Cdc%3Atype%0A%20%20%20%20%20%20%20%20%20%20%20rdf%3Aresource%3D%22http%3A//purl.org/dc/dcmitype/StillImage%22%20/%3E%0A%20%20%20%20%20%20%20%20%3Cdc%3Atitle%3E%3C/dc%3Atitle%3E%0A%20%20%20%20%20%20%3C/cc%3AWork%3E%0A%20%20%20%20%3C/rdf%3ARDF%3E%0A%20%20%3C/metadata%3E%0A%20%20%3Cg%0A%20%20%20%20%20transform%3D%22translate%28-116.4375%2C-348.78125%29%22%0A%20%20%20%20%20id%3D%22layer1%22%3E%0A%20%20%20%20%3Cpath%0A%20%20%20%20%20%20%20d%3D%22M%20368.07001%2C380.00645%20252.85714%2C495.16383%20137.64427%2C380.00645%22%0A%20%20%20%20%20%20%20id%3D%22path2985%22%0A%20%20%20%20%20%20%20style%3D%22fill%3Anone%3Bstroke%3A%23ffffff%3Bstroke-width%3A30%3Bstroke-linecap%3Asquare%3Bstroke-linejoin%3Amiter%3Bstroke-miterlimit%3A4%3Bstroke-opacity%3A1%3Bstroke-dasharray%3Anone%22%20/%3E%0A%20%20%3C/g%3E%0A%3C/svg%3E");
 	background-size: 15px;
 	top: 50px;

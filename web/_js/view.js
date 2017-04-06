@@ -25,6 +25,8 @@
 
 function initView(){
 
+	var wrapper = document.getElementById("wrapper");
+	
 	var objectsContainer = document.getElementById("objectsList");
 
 	var linesCanvas = document.getElementById("linesCanvas");
@@ -49,7 +51,8 @@ function initView(){
 	moreEntriesButton.onclick = function(){
 		buildObjectsList();
 	};
-	//entriesList.appendChild(moreEntriesButton);
+
+	var viewportWidth = document.documentElement.clientWidth;
 
 	var hovered = [];
 
@@ -68,6 +71,22 @@ function initView(){
 		applyView();
 		highlightEntryFromUrl();
 	}*/
+
+	if(document.documentElement.clientWidth > 1000){
+		entriesListShown = true;
+		wrapper.className = wrapper.className.replace(/ listHidden/g, "");
+	}
+
+	if(document.documentElement.clientWidth < 1000){
+		entriesListShown = false;
+		wrapper.className += " listHidden";
+	}
+
+	applyView();
+	render();
+	updateLines();
+
+	
 
 	var args = window.location.search;
 	if(args){
@@ -102,19 +121,9 @@ function initView(){
 	hideListButton.addEventListener("click", function(e){
 		entriesListShown = !entriesListShown;
 		if(entriesListShown){
-			hideListButton.className = "";
-			document.getElementById("container").style.width = "calc(100% - 360px)";
-			document.getElementById("container").style.marginLeft = "360px";
-			document.getElementById("entriesListContainer").style.display = "flex";
-			document.getElementById("entriesListBackground").style.display = "block";
-			document.getElementById("zoomControls").style.left = "370px";
+			wrapper.className = wrapper.className.replace(/ listHidden/g, "");
 		} else {
-			hideListButton.className = "reverse";
-			document.getElementById("container").style.width = "100%";
-			document.getElementById("container").style.marginLeft = "0px";
-			document.getElementById("entriesListContainer").style.display = "none";
-			document.getElementById("entriesListBackground").style.display = "none";
-			document.getElementById("zoomControls").style.left = "10px";
+			wrapper.className += " listHidden";
 		}
 		applyView();
 		updateHovering(e);
@@ -521,6 +530,27 @@ function initView(){
 
 	objectsContainer.addEventListener("scroll", function(e){
 		updateLines();
+	});
+
+	window.addEventListener("resize", function(){
+		//console.log(document.documentElement.clientWidth, document.documentElement.clientHeight);
+
+		if(document.documentElement.clientWidth > 1000 && viewportWidth <= 1000){
+			entriesListShown = true;
+			wrapper.className = wrapper.className.replace(/ listHidden/g, "");
+		}
+
+		if(document.documentElement.clientWidth < 1000 && viewportWidth >= 1000){
+			entriesListShown = false;
+			wrapper.className += " listHidden";
+		}
+
+		viewportWidth = document.documentElement.clientWidth;
+		
+		applyView();
+		render();
+		updateLines();
+		
 	});
 
 }
