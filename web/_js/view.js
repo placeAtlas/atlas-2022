@@ -293,29 +293,17 @@ function initView(){
 
 		var sortFunction;
 
+		//console.log(sort);
+
 		switch(sort){
 			case "alphaAsc":
 				sortFunction = function(a, b){
-					if (a.name < b.name) {
-						return -1;
-					}
-					if (a.name > b.name) {
-						return 1;
-					}
-						// a must be equal to b
-					return 0;
+					return a.name.toLowerCase().localeCompare(b.name.toLowerCase());
 				}
 			break;
 			case "alphaDesc":
 				sortFunction = function(a, b){
-					if (a.name < b.name) {
-						return 1;
-					}
-					if (a.name > b.name) {
-						return -1;
-					}
-						// a must be equal to b
-					return 0;
+					return b.name.toLowerCase().localeCompare(a.name.toLowerCase());
 				}
 			break;
 			case "newest":

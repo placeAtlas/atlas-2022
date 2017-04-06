@@ -81355,8 +81355,6 @@ function initView(){
 	if(args){
 		id = args.split("id=")[1];
 		if(id){
-			zoom = 4;
-			applyView();
 			highlightEntryFromUrl();
 		}
 	}
@@ -81387,18 +81385,18 @@ function initView(){
 		entriesListShown = !entriesListShown;
 		if(entriesListShown){
 			hideListButton.className = "";
-			document.getElementById("container").style.width = "calc(100% - 320px)";
+			document.getElementById("container").style.width = "calc(100% - 360px)";
+			document.getElementById("container").style.marginLeft = "360px";
 			document.getElementById("entriesListContainer").style.display = "flex";
 			document.getElementById("entriesListBackground").style.display = "block";
-			document.getElementById("author").style.width = "300px";
-			document.getElementById("zoomControls").style.right = "330px";
+			document.getElementById("zoomControls").style.left = "370px";
 		} else {
 			hideListButton.className = "reverse";
 			document.getElementById("container").style.width = "100%";
+			document.getElementById("container").style.marginLeft = "0px";
 			document.getElementById("entriesListContainer").style.display = "none";
 			document.getElementById("entriesListBackground").style.display = "none";
-			document.getElementById("author").style.width = "auto";
-			document.getElementById("zoomControls").style.right = "10px";
+			document.getElementById("zoomControls").style.left = "10px";
 		}
 		applyView();
 		updateHovering(e);
@@ -81457,10 +81455,19 @@ function initView(){
 			objectsContainer.innerHTML = "";
 			objectsContainer.appendChild(infoElement);
 
+			//console.log(entry.center[0]);
+			//console.log(entry.center[1]);
+
+			zoom = 4;
+			applyView();
+			
 			zoomOrigin = [
-				 (innerContainer.clientWidth/2 - entry.center[0]* zoom)
-				,(innerContainer.clientWidth/2 + 50 - entry.center[1]* zoom)
-			]
+				 innerContainer.clientWidth/2  - entry.center[0]* zoom// + container.offsetLeft
+				,innerContainer.clientHeight/2 - entry.center[1]* zoom// + container.offsetTop
+			];
+
+			//console.log(zoomOrigin);
+			
 			applyView();
 			hovered = [entry];
 			render();
@@ -81473,8 +81480,8 @@ function initView(){
 	function updateHovering(e){
 		if(!dragging && !fixed){
 			var pos = [
-				 (e.clientX - (container.clientWidth/2 - innerContainer.clientWidth/2 + zoomOrigin[0]))/zoom
-				,(e.clientY - (container.clientHeight/2 - innerContainer.clientHeight/2 + zoomOrigin[1]))/zoom
+				 (e.clientX - (container.clientWidth/2 - innerContainer.clientWidth/2 + zoomOrigin[0] + container.offsetLeft))/zoom
+				,(e.clientY - (container.clientHeight/2 - innerContainer.clientHeight/2 + zoomOrigin[1] + container.offsetTop))/zoom
 			];
 
 			if(pos[0] <= 1100 && pos[0] >= -100 && pos[0] <= 1100 && pos[0] >= -100){
@@ -81633,12 +81640,16 @@ function initView(){
 			element.entry = sortedAtlas[i];
 
 			element.addEventListener("mouseenter", function(e){
-				if(!fixed){
+				if(!fixed && !dragging){
 					objectsContainer.innerHTML = "";
 					zoomOrigin = [
-						(innerContainer.clientWidth/2 - this.entry.center[0]* zoom)
-						,(innerContainer.clientWidth/2 + 50 - this.entry.center[1]* zoom)
+						 innerContainer.clientWidth/2  - this.entry.center[0]* zoom// + container.offsetLeft
+						,innerContainer.clientHeight/2 - this.entry.center[1]* zoom// + container.offsetTop
 					]
+
+					//console.log(zoomOrigin);
+
+					
 					applyView();
 					hovered = [this.entry];
 					render();
@@ -81649,7 +81660,7 @@ function initView(){
 			});
 
 			element.addEventListener("mouseleave", function(e){
-				if(!fixed){
+				if(!fixed && !dragging){
 					hovered = [];
 					updateLines();
 					render();
@@ -81756,11 +81767,11 @@ function initView(){
 			//linesContext.moveTo(element.offsetLeft + element.clientWidth - 10, element.offsetTop + 20);
 			linesContext.moveTo(
 				 element.getBoundingClientRect().left + document.documentElement.scrollLeft + element.clientWidth/2
-				,element.getBoundingClientRect().top + document.documentElement.scrollTop
+				,element.getBoundingClientRect().top + document.documentElement.scrollTop + 20
 			);
 			linesContext.lineTo(
-				 ~~(hovered[i].center[0]*zoom) + innerContainer.offsetLeft// + container.clientWidth/2 - innerContainer.clientWidth/2
-				,~~(hovered[i].center[1]*zoom) + innerContainer.offsetTop - 50// + container.clientHeight/2 - innerContainer.clientHeight/2
+				 ~~(hovered[i].center[0]*zoom) + innerContainer.offsetLeft
+				,~~(hovered[i].center[1]*zoom) + innerContainer.offsetTop
 			);
 			linesContext.stroke();
 		}
@@ -81774,11 +81785,11 @@ function initView(){
 			linesContext.beginPath();
 			linesContext.moveTo(
 				 element.getBoundingClientRect().left + document.documentElement.scrollLeft + element.clientWidth/2
-				,element.getBoundingClientRect().top + document.documentElement.scrollTop
+				,element.getBoundingClientRect().top + document.documentElement.scrollTop + 20
 			);
 			linesContext.lineTo(
-				 ~~(hovered[i].center[0]*zoom) + innerContainer.offsetLeft// + container.clientWidth/2 - innerContainer.clientWidth/2
-				,~~(hovered[i].center[1]*zoom) + innerContainer.offsetTop - 50// + container.clientHeight/2 - innerContainer.clientHeight/2
+				 ~~(hovered[i].center[0]*zoom) + innerContainer.offsetLeft
+				,~~(hovered[i].center[1]*zoom) + innerContainer.offsetTop
 			);
 			linesContext.stroke();
 		}
@@ -81840,6 +81851,7 @@ function initDraw(){
 	var resetButton = document.getElementById("resetButton");
 	var undoButton = document.getElementById("undoButton");
 	var redoButton = document.getElementById("redoButton");
+	var highlightUnchartedLabel = document.getElementById("highlightUnchartedLabel");
 	
 	var objectInfoBox = document.getElementById("objectInfo");
 	var hintText = document.getElementById("hint");
@@ -81849,6 +81861,10 @@ function initDraw(){
 
 	var exportOverlay = document.getElementById("exportOverlay");
 	var exportCloseButton = document.getElementById("exportCloseButton");
+
+	var rShiftPressed = false;
+	var lShiftPressed = false;
+	var shiftPressed = false;
 
 	var backgroundCanvas = document.createElement("canvas");
 	backgroundCanvas.width = 1000;
@@ -81865,80 +81881,68 @@ function initDraw(){
 	var drawing = true;
 
 	var undoHistory = [];
-	var _global_key_status = {"L_SHIFT":0, "R_SHIFT":0, buff:{}};
 
 	var lastPos = [0, 0];
 
 	render(path);
 
 	container.addEventListener("mousedown", function(e){
-    var e_clientX = e.clientX;
-    var e_clientY = e.clientY;
-    if(_global_key_status.R_SHIFT || _global_key_status.L_SHIFT === 1){
-      var r = lockHorV(e);
-      e_clientX=r[0];
-      e_clientY=r[1];
-    }
 		lastPos = [
-			 e_clientX
-			,e_clientY
+			 e.clientX
+			,e.clientY
 		];
 	});
 
-	container.addEventListener("mouseup", function(e){
-    var e_clientX = e.clientX;
-    var e_clientY = e.clientY;
+	function getCanvasCoords(x, y){
+		x = x - container.offsetLeft;
+		y = y - container.offsetTop;
 
-      if(_global_key_status.R_SHIFT || _global_key_status.L_SHIFT === 1){
-        e_clientX = lastPos[0];
-        e_clientY = lastPos[1];
-      }
-
-		if(Math.abs(lastPos[0] - e_clientX) + Math.abs(lastPos[1] - e_clientY) <= 4 && drawing){
-			path.push([
-				 ~~((e_clientX - (container.clientWidth/2 - innerContainer.clientWidth/2 + zoomOrigin[0]))/zoom)+0.5
-				,~~((e_clientY - (container.clientHeight/2 - innerContainer.clientHeight/2 + zoomOrigin[1]))/zoom)+0.5
-			]);
-			render(path);
+		var pos = [
+			 ~~((x - (container.clientWidth/2  - innerContainer.clientWidth/2  + zoomOrigin[0]))/zoom)+0.5
+			,~~((y - (container.clientHeight/2 - innerContainer.clientHeight/2 + zoomOrigin[1]))/zoom)+0.5
+		];
+		
+		if(shiftPressed && path.length > 0){
+			var previous = path[path.length-1];
 			
+			if(Math.abs(pos[1] - previous[1]) > Math.abs(pos[0] - previous[0]) ){
+				pos[0] = previous[0];
+			} else {
+				pos[1] = previous[1];
+			}
+		}
+
+		return pos;
+	}
+
+	container.addEventListener("mouseup", function(e){
+		
+
+		if(Math.abs(lastPos[0] - e.clientX) + Math.abs(lastPos[1] - e.clientY) <= 4 && drawing){
+
+			var coords = getCanvasCoords(e.clientX, e.clientY);
+			
+			path.push(coords);
+			render(path);
+
 			undoHistory = [];
 			redoButton.disabled = true;
 			undoButton.disabled = false;
-			
+
 			if(path.length >= 3){
 				finishButton.disabled = false;
 			}
 		}
 	});
 
-  function lockHorV(e){
-    var e_clientX = e.clientX;
-    var e_clientY = e.clientY;
-    var x_offset = Math.abs(e.clientX -lastPos[0]);
-    var y_offset = Math.abs(e.clientY-lastPos[1]);
-    var offset = y_offset - x_offset ;
-    if(y_offset > x_offset ) //keep x 
-      e_clientX = lastPos[0];
-    else if (x_offset > y_offset) //keep y
-      e_clientY =lastPos[1];
-    return [e_clientX,e_clientY];
-  }
-
 	window.addEventListener("mousemove", function(e){
-    var e_clientX = e.clientX;
-    var e_clientY = e.clientY;
-		if(!dragging && drawing){
-      if(_global_key_status.R_SHIFT || _global_key_status.L_SHIFT === 1){
-        var r = lockHorV(e);
-        e_clientX=r[0];
-        e_clientY=r[1];
-      }
-			var last = [
-				 ~~((e_clientX - (container.clientWidth/2 - innerContainer.clientWidth/2 + zoomOrigin[0]))/zoom)+0.5
-				,~~((e_clientY - (container.clientHeight/2 - innerContainer.clientHeight/2 + zoomOrigin[1]))/zoom)+0.5
-			];
-			render(path.concat([last]));
+		
+		if(!dragging && drawing && path.length > 0){
+			
+			var coords = getCanvasCoords(e.clientX, e.clientY);
+			render(path.concat([coords]));
 		}
+		
 	});
 
 	window.addEventListener("keyup", function(e){
@@ -81951,22 +81955,25 @@ function initDraw(){
 		} else if(e.key == "Escape"){
 			exportOverlay.style.display = "none";
 		} else if (e.key === "Shift" ){
-      if(e.code === "ShiftRight")
-        _global_key_status.R_SHIFT = 0;
-      else if(e.code === "ShiftLeft")
-        _global_key_status.L_SHIFT = 0;
-    }
+			if(e.code === "ShiftRight"){
+				rShiftPressed = false;
+			} else if(e.code === "ShiftLeft"){
+				lShiftPressed = false;
+			}
+			shiftPressed = rShiftPressed || lShiftPressed;
+		}
 	});
 
 	window.addEventListener("keydown", function(e){
-   if (e.key === "Shift" ){
-      if(e.code === "ShiftRight")
-        _global_key_status.R_SHIFT = 1;
-      else if(e.code === "ShiftLeft")
-        _global_key_status.L_SHIFT = 1;
-    }
- 
-  });
+		if (e.key === "Shift" ){
+			if(e.code === "ShiftRight"){
+				rShiftPressed = true;
+			} else if(e.code === "ShiftLeft"){
+				lShiftPressed = true;
+			}
+			shiftPressed = rShiftPressed || lShiftPressed;
+		}
+	});
 
 	finishButton.addEventListener("click", function(e){
 		finish();
@@ -82106,6 +82113,7 @@ function initDraw(){
 		undoButton.style.display = "none";
 		redoButton.style.display = "none";
 		resetButton.style.display = "none";
+		highlightUnchartedLabel.style.display = "none";
 		document.getElementById("nameField").focus();
 	}
 
@@ -82123,6 +82131,7 @@ function initDraw(){
 		undoButton.style.display = "block";
 		redoButton.style.display = "block";
 		resetButton.style.display = "block";
+		highlightUnchartedLabel.style.display = "block";
 
 		document.getElementById("nameField").value = "";
 		document.getElementById("descriptionField").value = "";
@@ -82221,6 +82230,7 @@ function initDraw(){
 	========================================================================
 */
 
+var mobile = false;
 
 var innerContainer = document.getElementById("innerContainer");
 var container = document.getElementById("container");
@@ -82228,10 +82238,12 @@ var canvas = document.getElementById("highlightCanvas");
 var context = canvas.getContext("2d");
 
 var zoom = 1;
-var zoomOrigin = [0, 50];
+var zoomOrigin = [0, 0];
 
 var dragging = false;
 var lastPosition = [0, 0];
+
+var viewportSize = [0, 0];
 
 function applyView(){
 
@@ -82240,13 +82252,18 @@ function applyView(){
 	innerContainer.style.height = (zoom*1000)+"px";
 	innerContainer.style.width = (zoom*1000)+"px";
 	
-	innerContainer.style.left = (container.clientWidth/2 - innerContainer.clientWidth/2 + zoomOrigin[0])+"px";
-	innerContainer.style.top = (container.clientHeight/2 - innerContainer.clientHeight/2 + zoomOrigin[1])+"px";
+	innerContainer.style.left = (container.clientWidth/2 - innerContainer.clientWidth/2 + zoomOrigin[0] + container.offsetLeft)+"px";
+	innerContainer.style.top = (container.clientHeight/2 - innerContainer.clientHeight/2 + zoomOrigin[1] + container.offsetTop)+"px";
 }
 
 init();
 
 function init(){
+
+	//console.log(document.documentElement.clientWidth, document.documentElement.clientHeight);
+
+	zoomOrigin = [0, 0];
+	applyView();
 
 	var mode = "view";
 
@@ -82261,41 +82278,44 @@ function init(){
 	}
 
 	if(mode=="view"){
-		document.getElementById("viewLink").className = "current";
+		/*document.getElementById("viewLink").className = "current";
 		document.getElementById("drawLink").className = "";
-		document.getElementById("aboutLink").className = "";
+		document.getElementById("aboutLink").className = "";*/
 		
-		document.getElementById("container").style.width = "calc(100% - 320px)";
-		document.getElementById("drawControls").style.display = "none";
+		document.getElementById("drawControlsContainer").style.display = "none";
 		document.getElementById("entriesListContainer").style.display = "flex";
 		document.getElementById("entriesListBackground").style.display = "block";
-		document.getElementById("author").style.right = "10px";
-		document.getElementById("author").style.width = "300px";
-		document.getElementById("zoomControls").style.right = "330px";
 		document.getElementById("hideListButton").style.display = "block";
+		document.getElementById("objectsList").style.display = "block";
+		
+		/*
+		document.getElementById("container").style.width = "100vw";
+		document.getElementById("drawControls").style.display = "none";
+		document.getElementById("entriesListContainer").style.display = "none";
+		document.getElementById("entriesListBackground").style.display = "none";
+		document.getElementById("author").style.display = "none";
+		document.getElementById("zoomControls").style.right = "10px";
+		document.getElementById("zoomControls").style.top = "10px";
+		document.getElementById("hideListButton").style.display = "none";
+		document.getElementById("objectsList").style.display = "none";
+		*/
 
 		initView();
 		
 	} else if(mode=="draw"){
-		document.getElementById("viewLink").className = "";
+		/*document.getElementById("viewLink").className = "";
 		document.getElementById("drawLink").className = "current";
-		document.getElementById("aboutLink").className = "";
-
-		document.getElementById("container").style.width = "100%";
-		document.getElementById("drawControls").style.display = "block";
+		document.getElementById("aboutLink").className = "";*/
+		
+		document.getElementById("drawControlsContainer").style.display = "block";
 		document.getElementById("entriesListContainer").style.display = "none";
 		document.getElementById("entriesListBackground").style.display = "none";
-		document.getElementById("author").style.right = "10px";
-		document.getElementById("author").style.width = "auto";
-		document.getElementById("zoomControls").style.right = "10px";
 		document.getElementById("hideListButton").style.display = "none";
 
 		initDraw();
 	} else if(mode=="about"){
 		window.location = "./about.html";
 	}
-
-	applyView();
 
 	function zoomOut(x, y){
 
@@ -82333,7 +82353,7 @@ function init(){
 
 	document.getElementById("zoomResetButton").addEventListener("click", function(e){
 		zoom = 1;
-		zoomOrigin = [0, 50];
+		zoomOrigin = [0, 0];
 		applyView();
 	});
 
@@ -82346,6 +82366,8 @@ function init(){
 			
 			zoomIn(e.layerX, e.layerY);
 		}
+		
+		e.preventDefault();
 	});
 
 
@@ -82359,11 +82381,14 @@ function init(){
 			
 			zoomIn(e.layerX, e.layerY);
 		}
+
+		e.preventDefault();
 	});
 
 	container.addEventListener("mousedown", function(e){
 		lastPosition = [e.clientX, e.clientY];
 		dragging = true;
+		e.preventDefault();
 	});
 
 	window.addEventListener("mousemove", function(e){
@@ -82376,15 +82401,24 @@ function init(){
 			zoomOrigin[1] += deltaY;
 
 			applyView();
+
+			e.preventDefault();
 		}
 	});
 
 	window.addEventListener("mouseup", function(e){
 		if(dragging){
 			dragging = false;
+			e.preventDefault();
 		}
 	});
 
-	window.addEventListener("resize", applyView);
+	window.addEventListener("resize", function(){
+		//console.log(document.documentElement.clientWidth, document.documentElement.clientHeight);
+
+		
+		
+		applyView();
+	});
 	
 }
