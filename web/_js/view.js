@@ -73,8 +73,6 @@ function initView(){
 	if(args){
 		id = args.split("id=")[1];
 		if(id){
-			zoom = 4;
-			applyView();
 			highlightEntryFromUrl();
 		}
 	}
@@ -105,18 +103,18 @@ function initView(){
 		entriesListShown = !entriesListShown;
 		if(entriesListShown){
 			hideListButton.className = "";
-			document.getElementById("container").style.width = "calc(100% - 320px)";
+			document.getElementById("container").style.width = "calc(100% - 360px)";
+			document.getElementById("container").style.marginLeft = "360px";
 			document.getElementById("entriesListContainer").style.display = "flex";
 			document.getElementById("entriesListBackground").style.display = "block";
-			document.getElementById("author").style.width = "300px";
-			document.getElementById("zoomControls").style.right = "330px";
+			document.getElementById("zoomControls").style.left = "370px";
 		} else {
 			hideListButton.className = "reverse";
 			document.getElementById("container").style.width = "100%";
+			document.getElementById("container").style.marginLeft = "0px";
 			document.getElementById("entriesListContainer").style.display = "none";
 			document.getElementById("entriesListBackground").style.display = "none";
-			document.getElementById("author").style.width = "auto";
-			document.getElementById("zoomControls").style.right = "10px";
+			document.getElementById("zoomControls").style.left = "10px";
 		}
 		applyView();
 		updateHovering(e);
@@ -175,10 +173,19 @@ function initView(){
 			objectsContainer.innerHTML = "";
 			objectsContainer.appendChild(infoElement);
 
+			//console.log(entry.center[0]);
+			//console.log(entry.center[1]);
+
+			zoom = 4;
+			applyView();
+			
 			zoomOrigin = [
-				 (innerContainer.clientWidth/2 - entry.center[0]* zoom)
-				,(innerContainer.clientWidth/2 + 50 - entry.center[1]* zoom)
-			]
+				 innerContainer.clientWidth/2  - entry.center[0]* zoom// + container.offsetLeft
+				,innerContainer.clientHeight/2 - entry.center[1]* zoom// + container.offsetTop
+			];
+
+			//console.log(zoomOrigin);
+			
 			applyView();
 			hovered = [entry];
 			render();
@@ -191,8 +198,8 @@ function initView(){
 	function updateHovering(e){
 		if(!dragging && !fixed){
 			var pos = [
-				 (e.clientX - (container.clientWidth/2 - innerContainer.clientWidth/2 + zoomOrigin[0]))/zoom
-				,(e.clientY - (container.clientHeight/2 - innerContainer.clientHeight/2 + zoomOrigin[1]))/zoom
+				 (e.clientX - (container.clientWidth/2 - innerContainer.clientWidth/2 + zoomOrigin[0] + container.offsetLeft))/zoom
+				,(e.clientY - (container.clientHeight/2 - innerContainer.clientHeight/2 + zoomOrigin[1] + container.offsetTop))/zoom
 			];
 
 			if(pos[0] <= 1100 && pos[0] >= -100 && pos[0] <= 1100 && pos[0] >= -100){
@@ -354,9 +361,13 @@ function initView(){
 				if(!fixed){
 					objectsContainer.innerHTML = "";
 					zoomOrigin = [
-						(innerContainer.clientWidth/2 - this.entry.center[0]* zoom)
-						,(innerContainer.clientWidth/2 + 50 - this.entry.center[1]* zoom)
+						 innerContainer.clientWidth/2  - this.entry.center[0]* zoom// + container.offsetLeft
+						,innerContainer.clientHeight/2 - this.entry.center[1]* zoom// + container.offsetTop
 					]
+
+					//console.log(zoomOrigin);
+
+					
 					applyView();
 					hovered = [this.entry];
 					render();
@@ -474,11 +485,11 @@ function initView(){
 			//linesContext.moveTo(element.offsetLeft + element.clientWidth - 10, element.offsetTop + 20);
 			linesContext.moveTo(
 				 element.getBoundingClientRect().left + document.documentElement.scrollLeft + element.clientWidth/2
-				,element.getBoundingClientRect().top + document.documentElement.scrollTop
+				,element.getBoundingClientRect().top + document.documentElement.scrollTop + 20
 			);
 			linesContext.lineTo(
-				 ~~(hovered[i].center[0]*zoom) + innerContainer.offsetLeft// + container.clientWidth/2 - innerContainer.clientWidth/2
-				,~~(hovered[i].center[1]*zoom) + innerContainer.offsetTop - 50// + container.clientHeight/2 - innerContainer.clientHeight/2
+				 ~~(hovered[i].center[0]*zoom) + innerContainer.offsetLeft
+				,~~(hovered[i].center[1]*zoom) + innerContainer.offsetTop
 			);
 			linesContext.stroke();
 		}
@@ -492,11 +503,11 @@ function initView(){
 			linesContext.beginPath();
 			linesContext.moveTo(
 				 element.getBoundingClientRect().left + document.documentElement.scrollLeft + element.clientWidth/2
-				,element.getBoundingClientRect().top + document.documentElement.scrollTop
+				,element.getBoundingClientRect().top + document.documentElement.scrollTop + 20
 			);
 			linesContext.lineTo(
-				 ~~(hovered[i].center[0]*zoom) + innerContainer.offsetLeft// + container.clientWidth/2 - innerContainer.clientWidth/2
-				,~~(hovered[i].center[1]*zoom) + innerContainer.offsetTop - 50// + container.clientHeight/2 - innerContainer.clientHeight/2
+				 ~~(hovered[i].center[0]*zoom) + innerContainer.offsetLeft
+				,~~(hovered[i].center[1]*zoom) + innerContainer.offsetTop
 			);
 			linesContext.stroke();
 		}

@@ -23,6 +23,7 @@
 	========================================================================
 */
 
+var mobile = false;
 
 var innerContainer = document.getElementById("innerContainer");
 var container = document.getElementById("container");
@@ -30,10 +31,12 @@ var canvas = document.getElementById("highlightCanvas");
 var context = canvas.getContext("2d");
 
 var zoom = 1;
-var zoomOrigin = [0, 50];
+var zoomOrigin = [0, 0];
 
 var dragging = false;
 var lastPosition = [0, 0];
+
+var viewportSize = [0, 0];
 
 function applyView(){
 
@@ -42,13 +45,18 @@ function applyView(){
 	innerContainer.style.height = (zoom*1000)+"px";
 	innerContainer.style.width = (zoom*1000)+"px";
 	
-	innerContainer.style.left = (container.clientWidth/2 - innerContainer.clientWidth/2 + zoomOrigin[0])+"px";
-	innerContainer.style.top = (container.clientHeight/2 - innerContainer.clientHeight/2 + zoomOrigin[1])+"px";
+	innerContainer.style.left = (container.clientWidth/2 - innerContainer.clientWidth/2 + zoomOrigin[0] + container.offsetLeft)+"px";
+	innerContainer.style.top = (container.clientHeight/2 - innerContainer.clientHeight/2 + zoomOrigin[1] + container.offsetTop)+"px";
 }
 
 init();
 
 function init(){
+
+	//console.log(document.documentElement.clientWidth, document.documentElement.clientHeight);
+
+	zoomOrigin = [0, 0];
+	applyView();
 
 	var mode = "view";
 
@@ -63,41 +71,44 @@ function init(){
 	}
 
 	if(mode=="view"){
-		document.getElementById("viewLink").className = "current";
+		/*document.getElementById("viewLink").className = "current";
 		document.getElementById("drawLink").className = "";
-		document.getElementById("aboutLink").className = "";
+		document.getElementById("aboutLink").className = "";*/
 		
-		document.getElementById("container").style.width = "calc(100% - 320px)";
-		document.getElementById("drawControls").style.display = "none";
+		document.getElementById("drawControlsContainer").style.display = "none";
 		document.getElementById("entriesListContainer").style.display = "flex";
 		document.getElementById("entriesListBackground").style.display = "block";
-		document.getElementById("author").style.right = "10px";
-		document.getElementById("author").style.width = "300px";
-		document.getElementById("zoomControls").style.right = "330px";
 		document.getElementById("hideListButton").style.display = "block";
+		document.getElementById("objectsList").style.display = "block";
+		
+		/*
+		document.getElementById("container").style.width = "100vw";
+		document.getElementById("drawControls").style.display = "none";
+		document.getElementById("entriesListContainer").style.display = "none";
+		document.getElementById("entriesListBackground").style.display = "none";
+		document.getElementById("author").style.display = "none";
+		document.getElementById("zoomControls").style.right = "10px";
+		document.getElementById("zoomControls").style.top = "10px";
+		document.getElementById("hideListButton").style.display = "none";
+		document.getElementById("objectsList").style.display = "none";
+		*/
 
 		initView();
 		
 	} else if(mode=="draw"){
-		document.getElementById("viewLink").className = "";
+		/*document.getElementById("viewLink").className = "";
 		document.getElementById("drawLink").className = "current";
-		document.getElementById("aboutLink").className = "";
-
-		document.getElementById("container").style.width = "100%";
-		document.getElementById("drawControls").style.display = "block";
+		document.getElementById("aboutLink").className = "";*/
+		
+		document.getElementById("drawControlsContainer").style.display = "block";
 		document.getElementById("entriesListContainer").style.display = "none";
 		document.getElementById("entriesListBackground").style.display = "none";
-		document.getElementById("author").style.right = "10px";
-		document.getElementById("author").style.width = "auto";
-		document.getElementById("zoomControls").style.right = "10px";
 		document.getElementById("hideListButton").style.display = "none";
 
 		initDraw();
 	} else if(mode=="about"){
 		window.location = "./about.html";
 	}
-
-	applyView();
 
 	function zoomOut(x, y){
 
@@ -135,7 +146,7 @@ function init(){
 
 	document.getElementById("zoomResetButton").addEventListener("click", function(e){
 		zoom = 1;
-		zoomOrigin = [0, 50];
+		zoomOrigin = [0, 0];
 		applyView();
 	});
 
@@ -187,6 +198,12 @@ function init(){
 		}
 	});
 
-	window.addEventListener("resize", applyView);
+	window.addEventListener("resize", function(){
+		//console.log(document.documentElement.clientWidth, document.documentElement.clientHeight);
+
+		
+		
+		applyView();
+	});
 	
 }

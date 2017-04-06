@@ -32,15 +32,31 @@
 }
 
 html, body{
+	min-height: 100%;
+	min-width: 100%;
 	height: 100%;
 	width: 100%;
+	overflow: hidden;
 }
 
 body{
+	/*height: 100%;*/
+	/*height: 100vh;*/
+	/*width: 100%;*/
+	/*width: 100vw;*/
+	
 	font-family: sans;
-	background-color: #333333;
+	background-color: #111111;
 	color: #FFFFFF;
-	overflow: hidden;
+}
+
+#wrapper{
+	min-height: 100%;
+	min-width: 100%;
+	height: 100%;
+	width: 100%;
+	overflow-x: hidden;
+	overflow-y: hidden;
 }
 
 a{
@@ -52,7 +68,9 @@ a:hover{
 	text-decoration: underline;
 }
 
-button{
+button,
+#aboutBackButton,
+#drawBackButton{
 	background-image: linear-gradient(to bottom, #888888, #666666);
 	border: 1px #000000 solid;
 	color: #FFFFFF;
@@ -60,6 +78,10 @@ button{
 	display: inline-block;
 	padding: 5px;
 	cursor: pointer;
+}
+
+button::-moz-focus-inner {
+	border: 0;
 }
 
 button:disabled,
@@ -70,8 +92,11 @@ button:disabled:hover{
 	cursor: default;
 }
 
-button:hover{
+button:hover,
+#aboutBackButton:hover,
+#drawBackButton:hover{
 	background-image: linear-gradient(to bottom, #999999, #777777);
+	text-decoration: none;
 }
 
 input[type="text"],
@@ -89,12 +114,19 @@ input[type="text"]{
 }
 
 header{
-	width: 100%;
+	min-width: 360px;
 	height: 50px;
+	position: absolute;
 	background-color: #555555;
+	border-right: 1px #000000 solid;
 	border-bottom: 1px #000000 solid;
 	z-index: 1000;
-	display: flex;
+	display: inline-block;
+}
+
+header.aboutHeader{
+	width: 100%;
+	border-right: 0px;
 }
 
 header > a{
@@ -108,7 +140,7 @@ header > a:hover{
 }
 
 #logo{
-	padding: 3px;
+	padding: 5px;
 	/*background-color: #FFFFFF;*/
 }
 
@@ -122,6 +154,10 @@ h1{
 header nav{
 	display: block;
 	margin-top: 20px;
+}
+
+body.mobile header nav{
+	display: none;
 }
 
 header nav a{
@@ -186,7 +222,9 @@ optgroup{
 
 #linesCanvas{
 	position: absolute;
-	height: calc(100% - 50px);
+	left: 0px;
+	top: 0px;
+	height: 100%;
 	/*width: calc(100% - 320px);*/
 	width: 100%;
 	z-index: -500;
@@ -194,7 +232,10 @@ optgroup{
 
 #container{
 	width: calc(100% - 320px);
-	height: calc(100% - 50px);
+	height: 100%;
+	margin-left: 320px;
+
+	overflow: hidden;
 }
 
 #innerContainer{
@@ -227,17 +268,17 @@ optgroup{
 #objectsList{
 	width: 300px;
 	position: absolute;
-	left: 0px;
-	top: 50px;
+	right: 0px;
+	top: 0px;
 	padding: 0px;
-	max-height: calc(100% - 50px);
+	max-height: calc(100% - 40px);
 	overflow-y: auto;
 }
 
 .object{
 	background-color: #555555;
 	border: 1px #000000 solid;
-	margin: 10px 0px 0px 10px;
+	margin: 10px 10px 0px 0px;
 	padding: 10px;
 	overflow-x: auto;
 }
@@ -301,18 +342,30 @@ optgroup{
 	margin-bottom: 10px;
 }
 
-#drawControls{
-	width: 200px;
-	max-height: 400px;
-	background-color: #555555;
-	border: 1px #000000 solid;
+#drawControlsContainer{
+	background-color: #444444;
+	border-right: 1px #000000 solid;
+	width: 360px;
 	position: absolute;
-	left: 10px;
-	top: 60px;
-	bottom: 10px;
-	padding: 15px;
+	left: 0px;
+	top: 50px;
+	bottom: 0px;
 	overflow-y: auto;
 	display: none;
+	padding: 0px 20px;
+}
+
+#drawControls{
+	width: 250px;
+	padding: 15px;
+	margin: 10px auto;
+	background-color: #555555;
+}
+
+#drawBackButton{
+	margin: 10px auto 0px auto;
+	display: block;
+	width: 170px;
 }
 
 #drawControls > *{
@@ -355,6 +408,8 @@ input[type="checkbox"]{
 
 #hint{
 	display: block;
+	text-align: left;
+	color: #DDDDDD;
 }
 
 #hint p{
@@ -370,7 +425,7 @@ input[type="checkbox"]{
 }
 
 #descriptionField{
-	width: 168px;
+	width: 220px;
 	height: 70px;
 }
 
@@ -440,8 +495,8 @@ input[type="checkbox"]{
 
 #zoomControls{
 	position: absolute;
-	top: 60px;
-	right: 330px;
+	bottom: 10px;
+	left: 370px;
 	display: flex;
 	width: 90px;
 }
@@ -483,38 +538,64 @@ button#zoomResetButton{
 
 #entriesListContainer{
 	position: absolute;
-	right: 10px;
-	top: 60px;
+	left: 10px;
+	top: 50px;
 	bottom: 0px;
-	padding-bottom: 40px;
-	width: 300px;
+	padding-bottom: 0px;
+	width: 340px;
 	display: flex;
 	flex-direction: column;
 }
 
+#entriesListContainer > nav{
+	text-align: center;
+	margin: 10px 0px;
+}
+
+#entriesListContainer > nav > a{
+	background-image: linear-gradient(to bottom, #888888, #666666);
+	border: 1px #000000 solid;
+	color: #FFFFFF;
+	text-align: center;
+	display: inline-block;
+	padding: 5px;
+	cursor: pointer;
+	width: 130px;
+	margin-right: 10px;
+}
+
+#entriesListContainer > nav > a:last-child{
+	margin-right: 0px;
+}
+
+#entriesListContainer > nav > a:hover{
+	text-decoration: none;
+	background-image: linear-gradient(to bottom, #999999, #777777);
+}
+
 #entriesListBackground{
 	position: absolute;
-	right: 0px;
+	left: 0px;
 	top: 50px;
 	bottom: 0px;
-	width: 320px;
+	width: 360px;
 	z-index: -600;
 	background-color: #333333;
-	border-left: 1px #000000 solid;
+	border-right: 1px #000000 solid;
 }
 
 #hideListButton{
 	position: absolute;
-	height: 70px;
+	height: 100px;
 	width: 15px;
-	top: 100px;
-	right: 320px;
-	border-right: none;
+	top: 60px;
+	left: 360px;
+	border-left: none;
 	background-color: #444444;
-	background-image: url("data:image/svg+xml;utf8,%3Csvg%0A%20%20%20xmlns%3Adc%3D%22http%3A//purl.org/dc/elements/1.1/%22%0A%20%20%20xmlns%3Acc%3D%22http%3A//creativecommons.org/ns%23%22%0A%20%20%20xmlns%3Ardf%3D%22http%3A//www.w3.org/1999/02/22-rdf-syntax-ns%23%22%0A%20%20%20xmlns%3Asvg%3D%22http%3A//www.w3.org/2000/svg%22%0A%20%20%20xmlns%3D%22http%3A//www.w3.org/2000/svg%22%0A%20%20%20xmlns%3Asodipodi%3D%22http%3A//sodipodi.sourceforge.net/DTD/sodipodi-0.dtd%22%0A%20%20%20xmlns%3Ainkscape%3D%22http%3A//www.inkscape.org/namespaces/inkscape%22%0A%20%20%20width%3D%22165.15738%22%0A%20%20%20height%3D%22260.42575%22%0A%20%20%20id%3D%22svg2%22%0A%20%20%20version%3D%221.1%22%0A%20%20%20inkscape%3Aversion%3D%220.48.5%20r10040%22%0A%20%20%20sodipodi%3Adocname%3D%22arrow-right.svg%22%3E%0A%20%20%3Cdefs%0A%20%20%20%20%20id%3D%22defs4%22%20/%3E%0A%20%20%3Csodipodi%3Anamedview%0A%20%20%20%20%20id%3D%22base%22%0A%20%20%20%20%20pagecolor%3D%22%23ffffff%22%0A%20%20%20%20%20bordercolor%3D%22%23666666%22%0A%20%20%20%20%20borderopacity%3D%221.0%22%0A%20%20%20%20%20inkscape%3Apageopacity%3D%220.0%22%0A%20%20%20%20%20inkscape%3Apageshadow%3D%222%22%0A%20%20%20%20%20inkscape%3Azoom%3D%223.669697%22%0A%20%20%20%20%20inkscape%3Acx%3D%2287.132045%22%0A%20%20%20%20%20inkscape%3Acy%3D%22156.56585%22%0A%20%20%20%20%20inkscape%3Adocument-units%3D%22px%22%0A%20%20%20%20%20inkscape%3Acurrent-layer%3D%22layer1%22%0A%20%20%20%20%20showgrid%3D%22false%22%0A%20%20%20%20%20fit-margin-top%3D%220%22%0A%20%20%20%20%20fit-margin-left%3D%2210%22%0A%20%20%20%20%20fit-margin-right%3D%2210%22%0A%20%20%20%20%20fit-margin-bottom%3D%220%22%0A%20%20%20%20%20inkscape%3Awindow-width%3D%221596%22%0A%20%20%20%20%20inkscape%3Awindow-height%3D%22877%22%0A%20%20%20%20%20inkscape%3Awindow-x%3D%220%22%0A%20%20%20%20%20inkscape%3Awindow-y%3D%2219%22%0A%20%20%20%20%20inkscape%3Awindow-maximized%3D%220%22%20/%3E%0A%20%20%3Cmetadata%0A%20%20%20%20%20id%3D%22metadata7%22%3E%0A%20%20%20%20%3Crdf%3ARDF%3E%0A%20%20%20%20%20%20%3Ccc%3AWork%0A%20%20%20%20%20%20%20%20%20rdf%3Aabout%3D%22%22%3E%0A%20%20%20%20%20%20%20%20%3Cdc%3Aformat%3Eimage/svg+xml%3C/dc%3Aformat%3E%0A%20%20%20%20%20%20%20%20%3Cdc%3Atype%0A%20%20%20%20%20%20%20%20%20%20%20rdf%3Aresource%3D%22http%3A//purl.org/dc/dcmitype/StillImage%22%20/%3E%0A%20%20%20%20%20%20%20%20%3Cdc%3Atitle%3E%3C/dc%3Atitle%3E%0A%20%20%20%20%20%20%3C/cc%3AWork%3E%0A%20%20%20%20%3C/rdf%3ARDF%3E%0A%20%20%3C/metadata%3E%0A%20%20%3Cg%0A%20%20%20%20%20inkscape%3Alabel%3D%22Layer%201%22%0A%20%20%20%20%20inkscape%3Agroupmode%3D%22layer%22%0A%20%20%20%20%20id%3D%22layer1%22%0A%20%20%20%20%20transform%3D%22translate%28-170.27845%2C-307.37227%29%22%3E%0A%20%20%20%20%3Cpath%0A%20%20%20%20%20%20%20style%3D%22fill%3Anone%3Bstroke%3A%23ffffff%3Bstroke-width%3A30%3Bstroke-linecap%3Asquare%3Bstroke-linejoin%3Amiter%3Bstroke-miterlimit%3A4%3Bstroke-opacity%3A1%3Bstroke-dasharray%3Anone%22%0A%20%20%20%20%20%20%20d%3D%22M%20195.27845%2C552.79802%20310.43583%2C437.58514%20195.27845%2C322.37227%22%0A%20%20%20%20%20%20%20id%3D%22path2985%22%0A%20%20%20%20%20%20%20inkscape%3Aconnector-curvature%3D%220%22%0A%20%20%20%20%20%20%20sodipodi%3Anodetypes%3D%22ccc%22%20/%3E%0A%20%20%3C/g%3E%0A%3C/svg%3E%0A");
 	background-size: 7px;
 	background-repeat: no-repeat;
 	background-position: center;
+	background-image: url("data:image/svg+xml;utf8,%0A%3Csvg%0A%20%20%20xmlns%3Adc%3D%22http%3A//purl.org/dc/elements/1.1/%22%0A%20%20%20xmlns%3Acc%3D%22http%3A//creativecommons.org/ns%23%22%0A%20%20%20xmlns%3Ardf%3D%22http%3A//www.w3.org/1999/02/22-rdf-syntax-ns%23%22%0A%20%20%20xmlns%3Asvg%3D%22http%3A//www.w3.org/2000/svg%22%0A%20%20%20xmlns%3D%22http%3A//www.w3.org/2000/svg%22%0A%20%20%20xmlns%3Asodipodi%3D%22http%3A//sodipodi.sourceforge.net/DTD/sodipodi-0.dtd%22%0A%20%20%20xmlns%3Ainkscape%3D%22http%3A//www.inkscape.org/namespaces/inkscape%22%0A%20%20%20width%3D%22165.15738%22%0A%20%20%20height%3D%22260.42575%22%0A%20%20%20id%3D%22svg2%22%0A%20%20%20version%3D%221.1%22%0A%20%20%20inkscape%3Aversion%3D%220.48.5%20r10040%22%0A%20%20%20sodipodi%3Adocname%3D%22arrow-right.svg%22%3E%0A%20%20%3Cdefs%0A%20%20%20%20%20id%3D%22defs4%22%20/%3E%0A%20%20%3Csodipodi%3Anamedview%0A%20%20%20%20%20id%3D%22base%22%0A%20%20%20%20%20pagecolor%3D%22%23ffffff%22%0A%20%20%20%20%20bordercolor%3D%22%23666666%22%0A%20%20%20%20%20borderopacity%3D%221.0%22%0A%20%20%20%20%20inkscape%3Apageopacity%3D%220.0%22%0A%20%20%20%20%20inkscape%3Apageshadow%3D%222%22%0A%20%20%20%20%20inkscape%3Azoom%3D%223.669697%22%0A%20%20%20%20%20inkscape%3Acx%3D%2287.132045%22%0A%20%20%20%20%20inkscape%3Acy%3D%22156.56585%22%0A%20%20%20%20%20inkscape%3Adocument-units%3D%22px%22%0A%20%20%20%20%20inkscape%3Acurrent-layer%3D%22layer1%22%0A%20%20%20%20%20showgrid%3D%22false%22%0A%20%20%20%20%20fit-margin-top%3D%220%22%0A%20%20%20%20%20fit-margin-left%3D%2210%22%0A%20%20%20%20%20fit-margin-right%3D%2210%22%0A%20%20%20%20%20fit-margin-bottom%3D%220%22%0A%20%20%20%20%20inkscape%3Awindow-width%3D%221596%22%0A%20%20%20%20%20inkscape%3Awindow-height%3D%22877%22%0A%20%20%20%20%20inkscape%3Awindow-x%3D%220%22%0A%20%20%20%20%20inkscape%3Awindow-y%3D%2219%22%0A%20%20%20%20%20inkscape%3Awindow-maximized%3D%220%22%20/%3E%0A%20%20%3Cmetadata%0A%20%20%20%20%20id%3D%22metadata7%22%3E%0A%20%20%20%20%3Crdf%3ARDF%3E%0A%20%20%20%20%20%20%3Ccc%3AWork%0A%20%20%20%20%20%20%20%20%20rdf%3Aabout%3D%22%22%3E%0A%20%20%20%20%20%20%20%20%3Cdc%3Aformat%3Eimage/svg+xml%3C/dc%3Aformat%3E%0A%20%20%20%20%20%20%20%20%3Cdc%3Atype%0A%20%20%20%20%20%20%20%20%20%20%20rdf%3Aresource%3D%22http%3A//purl.org/dc/dcmitype/StillImage%22%20/%3E%0A%20%20%20%20%20%20%20%20%3Cdc%3Atitle%3E%3C/dc%3Atitle%3E%0A%20%20%20%20%20%20%3C/cc%3AWork%3E%0A%20%20%20%20%3C/rdf%3ARDF%3E%0A%20%20%3C/metadata%3E%0A%20%20%3Cg%0A%20%20%20%20%20inkscape%3Alabel%3D%22Layer%201%22%0A%20%20%20%20%20inkscape%3Agroupmode%3D%22layer%22%0A%20%20%20%20%20id%3D%22layer1%22%0A%20%20%20%20%20transform%3D%22translate%28-170.27845%2C-307.37227%29%22%3E%0A%20%20%20%20%3Cpath%0A%20%20%20%20%20%20%20style%3D%22fill%3Anone%3Bstroke%3A%23ffffff%3Bstroke-width%3A30%3Bstroke-linecap%3Asquare%3Bstroke-linejoin%3Amiter%3Bstroke-miterlimit%3A4%3Bstroke-opacity%3A1%3Bstroke-dasharray%3Anone%22%0A%20%20%20%20%20%20%20d%3D%22M%20310.43583%2C552.79802%20195.27845%2C437.58514%20310.43583%2C322.37227%22%0A%20%20%20%20%20%20%20id%3D%22path2985%22%0A%20%20%20%20%20%20%20inkscape%3Aconnector-curvature%3D%220%22%0A%20%20%20%20%20%20%20sodipodi%3Anodetypes%3D%22ccc%22%20/%3E%0A%20%20%3C/g%3E%0A%3C/svg%3E%0A");
 }
 
 #hideListButton:hover{
@@ -522,14 +603,14 @@ button#zoomResetButton{
 }
 
 #hideListButton.reverse{
-	background-image: url("data:image/svg+xml;utf8,%0A%3Csvg%0A%20%20%20xmlns%3Adc%3D%22http%3A//purl.org/dc/elements/1.1/%22%0A%20%20%20xmlns%3Acc%3D%22http%3A//creativecommons.org/ns%23%22%0A%20%20%20xmlns%3Ardf%3D%22http%3A//www.w3.org/1999/02/22-rdf-syntax-ns%23%22%0A%20%20%20xmlns%3Asvg%3D%22http%3A//www.w3.org/2000/svg%22%0A%20%20%20xmlns%3D%22http%3A//www.w3.org/2000/svg%22%0A%20%20%20xmlns%3Asodipodi%3D%22http%3A//sodipodi.sourceforge.net/DTD/sodipodi-0.dtd%22%0A%20%20%20xmlns%3Ainkscape%3D%22http%3A//www.inkscape.org/namespaces/inkscape%22%0A%20%20%20width%3D%22165.15738%22%0A%20%20%20height%3D%22260.42575%22%0A%20%20%20id%3D%22svg2%22%0A%20%20%20version%3D%221.1%22%0A%20%20%20inkscape%3Aversion%3D%220.48.5%20r10040%22%0A%20%20%20sodipodi%3Adocname%3D%22arrow-right.svg%22%3E%0A%20%20%3Cdefs%0A%20%20%20%20%20id%3D%22defs4%22%20/%3E%0A%20%20%3Csodipodi%3Anamedview%0A%20%20%20%20%20id%3D%22base%22%0A%20%20%20%20%20pagecolor%3D%22%23ffffff%22%0A%20%20%20%20%20bordercolor%3D%22%23666666%22%0A%20%20%20%20%20borderopacity%3D%221.0%22%0A%20%20%20%20%20inkscape%3Apageopacity%3D%220.0%22%0A%20%20%20%20%20inkscape%3Apageshadow%3D%222%22%0A%20%20%20%20%20inkscape%3Azoom%3D%223.669697%22%0A%20%20%20%20%20inkscape%3Acx%3D%2287.132045%22%0A%20%20%20%20%20inkscape%3Acy%3D%22156.56585%22%0A%20%20%20%20%20inkscape%3Adocument-units%3D%22px%22%0A%20%20%20%20%20inkscape%3Acurrent-layer%3D%22layer1%22%0A%20%20%20%20%20showgrid%3D%22false%22%0A%20%20%20%20%20fit-margin-top%3D%220%22%0A%20%20%20%20%20fit-margin-left%3D%2210%22%0A%20%20%20%20%20fit-margin-right%3D%2210%22%0A%20%20%20%20%20fit-margin-bottom%3D%220%22%0A%20%20%20%20%20inkscape%3Awindow-width%3D%221596%22%0A%20%20%20%20%20inkscape%3Awindow-height%3D%22877%22%0A%20%20%20%20%20inkscape%3Awindow-x%3D%220%22%0A%20%20%20%20%20inkscape%3Awindow-y%3D%2219%22%0A%20%20%20%20%20inkscape%3Awindow-maximized%3D%220%22%20/%3E%0A%20%20%3Cmetadata%0A%20%20%20%20%20id%3D%22metadata7%22%3E%0A%20%20%20%20%3Crdf%3ARDF%3E%0A%20%20%20%20%20%20%3Ccc%3AWork%0A%20%20%20%20%20%20%20%20%20rdf%3Aabout%3D%22%22%3E%0A%20%20%20%20%20%20%20%20%3Cdc%3Aformat%3Eimage/svg+xml%3C/dc%3Aformat%3E%0A%20%20%20%20%20%20%20%20%3Cdc%3Atype%0A%20%20%20%20%20%20%20%20%20%20%20rdf%3Aresource%3D%22http%3A//purl.org/dc/dcmitype/StillImage%22%20/%3E%0A%20%20%20%20%20%20%20%20%3Cdc%3Atitle%3E%3C/dc%3Atitle%3E%0A%20%20%20%20%20%20%3C/cc%3AWork%3E%0A%20%20%20%20%3C/rdf%3ARDF%3E%0A%20%20%3C/metadata%3E%0A%20%20%3Cg%0A%20%20%20%20%20inkscape%3Alabel%3D%22Layer%201%22%0A%20%20%20%20%20inkscape%3Agroupmode%3D%22layer%22%0A%20%20%20%20%20id%3D%22layer1%22%0A%20%20%20%20%20transform%3D%22translate%28-170.27845%2C-307.37227%29%22%3E%0A%20%20%20%20%3Cpath%0A%20%20%20%20%20%20%20style%3D%22fill%3Anone%3Bstroke%3A%23ffffff%3Bstroke-width%3A30%3Bstroke-linecap%3Asquare%3Bstroke-linejoin%3Amiter%3Bstroke-miterlimit%3A4%3Bstroke-opacity%3A1%3Bstroke-dasharray%3Anone%22%0A%20%20%20%20%20%20%20d%3D%22M%20310.43583%2C552.79802%20195.27845%2C437.58514%20310.43583%2C322.37227%22%0A%20%20%20%20%20%20%20id%3D%22path2985%22%0A%20%20%20%20%20%20%20inkscape%3Aconnector-curvature%3D%220%22%0A%20%20%20%20%20%20%20sodipodi%3Anodetypes%3D%22ccc%22%20/%3E%0A%20%20%3C/g%3E%0A%3C/svg%3E%0A");
-	right: 0px;
-	width: 30px;
-	background-color: #555555;
-}
-
-#hideListButton:hover{
-	background-color: #666666;
+	background-image: url("data:image/svg+xml;utf8,%3Csvg%0A%20%20%20xmlns%3Adc%3D%22http%3A//purl.org/dc/elements/1.1/%22%0A%20%20%20xmlns%3Acc%3D%22http%3A//creativecommons.org/ns%23%22%0A%20%20%20xmlns%3Ardf%3D%22http%3A//www.w3.org/1999/02/22-rdf-syntax-ns%23%22%0A%20%20%20xmlns%3Asvg%3D%22http%3A//www.w3.org/2000/svg%22%0A%20%20%20xmlns%3D%22http%3A//www.w3.org/2000/svg%22%0A%20%20%20version%3D%221.1%22%0A%20%20%20width%3D%22272.84375%22%0A%20%20%20height%3D%22177.59375%22%0A%20%20%20id%3D%22svg2%22%3E%0A%20%20%3Cdefs%0A%20%20%20%20%20id%3D%22defs4%22%20/%3E%0A%20%20%3Cmetadata%0A%20%20%20%20%20id%3D%22metadata7%22%3E%0A%20%20%20%20%3Crdf%3ARDF%3E%0A%20%20%20%20%20%20%3Ccc%3AWork%0A%20%20%20%20%20%20%20%20%20rdf%3Aabout%3D%22%22%3E%0A%20%20%20%20%20%20%20%20%3Cdc%3Aformat%3Eimage/svg+xml%3C/dc%3Aformat%3E%0A%20%20%20%20%20%20%20%20%3Cdc%3Atype%0A%20%20%20%20%20%20%20%20%20%20%20rdf%3Aresource%3D%22http%3A//purl.org/dc/dcmitype/StillImage%22%20/%3E%0A%20%20%20%20%20%20%20%20%3Cdc%3Atitle%3E%3C/dc%3Atitle%3E%0A%20%20%20%20%20%20%3C/cc%3AWork%3E%0A%20%20%20%20%3C/rdf%3ARDF%3E%0A%20%20%3C/metadata%3E%0A%20%20%3Cg%0A%20%20%20%20%20transform%3D%22translate%28-116.4375%2C-348.78125%29%22%0A%20%20%20%20%20id%3D%22layer1%22%3E%0A%20%20%20%20%3Cpath%0A%20%20%20%20%20%20%20d%3D%22M%20368.07001%2C380.00645%20252.85714%2C495.16383%20137.64427%2C380.00645%22%0A%20%20%20%20%20%20%20id%3D%22path2985%22%0A%20%20%20%20%20%20%20style%3D%22fill%3Anone%3Bstroke%3A%23ffffff%3Bstroke-width%3A30%3Bstroke-linecap%3Asquare%3Bstroke-linejoin%3Amiter%3Bstroke-miterlimit%3A4%3Bstroke-opacity%3A1%3Bstroke-dasharray%3Anone%22%20/%3E%0A%20%20%3C/g%3E%0A%3C/svg%3E");
+	background-size: 15px;
+	top: 50px;
+	left: 20px;
+	border: 1px #000000 solid;
+	border-top: 0px;
+	width: 100px;
+	height: 30px;
 }
 
 #hideListButton:focus{
@@ -537,10 +618,16 @@ button#zoomResetButton{
 }
 
 #entriesListControls{
-	background-color: #444444;
+	background-color: #555555;
 	border: 1px #000000 solid;
-	padding: 5px;
-	margin-bottom: 5px;
+	color: #CCCCCC;
+	padding: 10px;
+	margin-bottom: 10px;
+}
+
+#entriesListControls input:focus{
+	outline: none;
+	border-color: #CCCCCC;
 }
 
 #atlasSize{
@@ -570,10 +657,15 @@ button#zoomResetButton{
 
 #entriesList{
 	overflow-y: auto;
+	direction: rtl;
+	padding-bottom: 10px;
+	text-align: center;
 }
 
 #entriesList .object{
-	margin: 0px 5px 10px 0px;
+	direction: ltr;
+	margin: 0px 0px 10px 5px;
+	text-align: left;
 }
 
 #author{
@@ -597,6 +689,17 @@ button#zoomResetButton{
 	display: block;
 	z-index: 1000;
 	overflow-y: auto;
+}
+
+#aboutBackButton{
+	margin: 20px 20px 0px 20px;
+	padding: 10px 20px;
+}
+
+#aboutBackButtonContainer{
+	/*margin: 0px auto;
+	width: 100%;
+	max-width: 1300px;*/
 }
 
 #about{

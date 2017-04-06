@@ -31,6 +31,7 @@ function initDraw(){
 	var resetButton = document.getElementById("resetButton");
 	var undoButton = document.getElementById("undoButton");
 	var redoButton = document.getElementById("redoButton");
+	var highlightUnchartedLabel = document.getElementById("highlightUnchartedLabel");
 	
 	var objectInfoBox = document.getElementById("objectInfo");
 	var hintText = document.getElementById("hint");
@@ -40,6 +41,10 @@ function initDraw(){
 
 	var exportOverlay = document.getElementById("exportOverlay");
 	var exportCloseButton = document.getElementById("exportCloseButton");
+
+	var rShiftPressed = false;
+	var lShiftPressed = false;
+	var shiftPressed = false;
 
 	var backgroundCanvas = document.createElement("canvas");
 	backgroundCanvas.width = 1000;
@@ -56,80 +61,68 @@ function initDraw(){
 	var drawing = true;
 
 	var undoHistory = [];
-	var _global_key_status = {"L_SHIFT":0, "R_SHIFT":0, buff:{}};
 
 	var lastPos = [0, 0];
 
 	render(path);
 
 	container.addEventListener("mousedown", function(e){
-    var e_clientX = e.clientX;
-    var e_clientY = e.clientY;
-    if(_global_key_status.R_SHIFT || _global_key_status.L_SHIFT === 1){
-      var r = lockHorV(e);
-      e_clientX=r[0];
-      e_clientY=r[1];
-    }
 		lastPos = [
-			 e_clientX
-			,e_clientY
+			 e.clientX
+			,e.clientY
 		];
 	});
 
-	container.addEventListener("mouseup", function(e){
-    var e_clientX = e.clientX;
-    var e_clientY = e.clientY;
+	function getCanvasCoords(x, y){
+		x = x - container.offsetLeft;
+		y = y - container.offsetTop;
 
-      if(_global_key_status.R_SHIFT || _global_key_status.L_SHIFT === 1){
-        e_clientX = lastPos[0];
-        e_clientY = lastPos[1];
-      }
-
-		if(Math.abs(lastPos[0] - e_clientX) + Math.abs(lastPos[1] - e_clientY) <= 4 && drawing){
-			path.push([
-				 ~~((e_clientX - (container.clientWidth/2 - innerContainer.clientWidth/2 + zoomOrigin[0]))/zoom)+0.5
-				,~~((e_clientY - (container.clientHeight/2 - innerContainer.clientHeight/2 + zoomOrigin[1]))/zoom)+0.5
-			]);
-			render(path);
+		var pos = [
+			 ~~((x - (container.clientWidth/2  - innerContainer.clientWidth/2  + zoomOrigin[0]))/zoom)+0.5
+			,~~((y - (container.clientHeight/2 - innerContainer.clientHeight/2 + zoomOrigin[1]))/zoom)+0.5
+		];
+		
+		if(shiftPressed && path.length > 0){
+			var previous = path[path.length-1];
 			
+			if(Math.abs(pos[1] - previous[1]) > Math.abs(pos[0] - previous[0]) ){
+				pos[0] = previous[0];
+			} else {
+				pos[1] = previous[1];
+			}
+		}
+
+		return pos;
+	}
+
+	container.addEventListener("mouseup", function(e){
+		
+
+		if(Math.abs(lastPos[0] - e.clientX) + Math.abs(lastPos[1] - e.clientY) <= 4 && drawing){
+
+			var coords = getCanvasCoords(e.clientX, e.clientY);
+			
+			path.push(coords);
+			render(path);
+
 			undoHistory = [];
 			redoButton.disabled = true;
 			undoButton.disabled = false;
-			
+
 			if(path.length >= 3){
 				finishButton.disabled = false;
 			}
 		}
 	});
 
-  function lockHorV(e){
-    var e_clientX = e.clientX;
-    var e_clientY = e.clientY;
-    var x_offset = Math.abs(e.clientX -lastPos[0]);
-    var y_offset = Math.abs(e.clientY-lastPos[1]);
-    var offset = y_offset - x_offset ;
-    if(y_offset > x_offset ) //keep x 
-      e_clientX = lastPos[0];
-    else if (x_offset > y_offset) //keep y
-      e_clientY =lastPos[1];
-    return [e_clientX,e_clientY];
-  }
-
 	window.addEventListener("mousemove", function(e){
-    var e_clientX = e.clientX;
-    var e_clientY = e.clientY;
-		if(!dragging && drawing){
-      if(_global_key_status.R_SHIFT || _global_key_status.L_SHIFT === 1){
-        var r = lockHorV(e);
-        e_clientX=r[0];
-        e_clientY=r[1];
-      }
-			var last = [
-				 ~~((e_clientX - (container.clientWidth/2 - innerContainer.clientWidth/2 + zoomOrigin[0]))/zoom)+0.5
-				,~~((e_clientY - (container.clientHeight/2 - innerContainer.clientHeight/2 + zoomOrigin[1]))/zoom)+0.5
-			];
-			render(path.concat([last]));
+		
+		if(!dragging && drawing && path.length > 0){
+			
+			var coords = getCanvasCoords(e.clientX, e.clientY);
+			render(path.concat([coords]));
 		}
+		
 	});
 
 	window.addEventListener("keyup", function(e){
@@ -142,22 +135,25 @@ function initDraw(){
 		} else if(e.key == "Escape"){
 			exportOverlay.style.display = "none";
 		} else if (e.key === "Shift" ){
-      if(e.code === "ShiftRight")
-        _global_key_status.R_SHIFT = 0;
-      else if(e.code === "ShiftLeft")
-        _global_key_status.L_SHIFT = 0;
-    }
+			if(e.code === "ShiftRight"){
+				rShiftPressed = false;
+			} else if(e.code === "ShiftLeft"){
+				lShiftPressed = false;
+			}
+			shiftPressed = rShiftPressed || lShiftPressed;
+		}
 	});
 
 	window.addEventListener("keydown", function(e){
-   if (e.key === "Shift" ){
-      if(e.code === "ShiftRight")
-        _global_key_status.R_SHIFT = 1;
-      else if(e.code === "ShiftLeft")
-        _global_key_status.L_SHIFT = 1;
-    }
- 
-  });
+		if (e.key === "Shift" ){
+			if(e.code === "ShiftRight"){
+				rShiftPressed = true;
+			} else if(e.code === "ShiftLeft"){
+				lShiftPressed = true;
+			}
+			shiftPressed = rShiftPressed || lShiftPressed;
+		}
+	});
 
 	finishButton.addEventListener("click", function(e){
 		finish();
@@ -297,6 +293,7 @@ function initDraw(){
 		undoButton.style.display = "none";
 		redoButton.style.display = "none";
 		resetButton.style.display = "none";
+		highlightUnchartedLabel.style.display = "none";
 		document.getElementById("nameField").focus();
 	}
 
@@ -314,6 +311,7 @@ function initDraw(){
 		undoButton.style.display = "block";
 		redoButton.style.display = "block";
 		resetButton.style.display = "block";
+		highlightUnchartedLabel.style.display = "block";
 
 		document.getElementById("nameField").value = "";
 		document.getElementById("descriptionField").value = "";
