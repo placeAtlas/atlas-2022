@@ -358,7 +358,7 @@ function initView(){
 			element.entry = sortedAtlas[i];
 
 			element.addEventListener("mouseenter", function(e){
-				if(!fixed){
+				if(!fixed && !dragging){
 					objectsContainer.innerHTML = "";
 					zoomOrigin = [
 						 innerContainer.clientWidth/2  - this.entry.center[0]* zoom// + container.offsetLeft
@@ -378,7 +378,7 @@ function initView(){
 			});
 
 			element.addEventListener("mouseleave", function(e){
-				if(!fixed){
+				if(!fixed && !dragging){
 					hovered = [];
 					updateLines();
 					render();

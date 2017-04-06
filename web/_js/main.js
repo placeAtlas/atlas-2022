@@ -159,6 +159,8 @@ function init(){
 			
 			zoomIn(e.layerX, e.layerY);
 		}
+		
+		e.preventDefault();
 	});
 
 
@@ -172,11 +174,14 @@ function init(){
 			
 			zoomIn(e.layerX, e.layerY);
 		}
+
+		e.preventDefault();
 	});
 
 	container.addEventListener("mousedown", function(e){
 		lastPosition = [e.clientX, e.clientY];
 		dragging = true;
+		e.preventDefault();
 	});
 
 	window.addEventListener("mousemove", function(e){
@@ -189,12 +194,15 @@ function init(){
 			zoomOrigin[1] += deltaY;
 
 			applyView();
+
+			e.preventDefault();
 		}
 	});
 
 	window.addEventListener("mouseup", function(e){
 		if(dragging){
 			dragging = false;
+			e.preventDefault();
 		}
 	});
 
