@@ -82,6 +82,11 @@ function init(){
 		
 	} else if(mode=="about"){
 		window.location = "./about.html";
+	} else if(mode=="overlap"){
+		wrapper.className = wrapper.className.replace(/ drawMode/g, "");
+		if(initOverlap){
+			initOverlap();
+		}
 	}
 
 	if(mode=="view"){
