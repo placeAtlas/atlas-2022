@@ -80853,76 +80853,24 @@ var atlas = [
     	],
     	"path": [
     		[
-    			582.5,
+    			581.5,
     			739.5
     		],
     		[
     			576.5,
-    			749.5
-    		],
-    		[
-    			587.5,
-    			748.5
-    		],
-    		[
-    			576.5,
-    			741.5
-    		],
-    		[
-    			576.5,
-    			749.5
-    		],
-    		[
-    			588.5,
-    			747.5
-    		],
-    		[
-    			587.5,
-    			741.5
-    		],
-    		[
-    			579.5,
-    			738.5
-    		],
-    		[
-    			576.5,
-    			741.5
-    		],
-    		[
-    			579.5,
-    			737.5
-    		],
-    		[
-    			576.5,
-    			748.5
-    		],
-    		[
-    			583.5,
-    			737.5
-    		],
-    		[
-    			579.5,
-    			736.5
-    		],
-    		[
-    			587.5,
-    			739.5
-    		],
-    		[
-    			583.5,
-    			738.5
+    			744.5
     		],
     		[
     			578.5,
-    			738.5
+    			748.5
     		],
     		[
-    			575.5,
-    			750.5
+    			584.5,
+    			748.5
     		],
     		[
-    			577.5,
-    			740.5
+    			586.5,
+    			745.5
     		]
     	]
     },    {
@@ -81232,10 +81180,1191 @@ var atlas = [
     			449.5
     		]
     	]
+    },
+
+	/* =========== */
+
+	    {
+    	"id": 1393,
+		"submitted_by": "Minecraft_Redstoning",
+    	"name": "IB Logo",
+    	"description": "An effort made by many IB students to make the IB logo.",
+    	"website": "reddit.com/r/IBO",
+    	"subreddit": "/r/IBO",
+    	"center": [
+    		781.5,
+    		700.5
+    	],
+    	"path": [
+    		[
+    			771.5,
+    			692.5
+    		],
+    		[
+    			770.5,
+    			700.5
+    		],
+    		[
+    			775.5,
+    			711.5
+    		],
+    		[
+    			786.5,
+    			712.5
+    		],
+    		[
+    			791.5,
+    			702.5
+    		],
+    		[
+    			792.5,
+    			697.5
+    		],
+    		[
+    			787.5,
+    			691.5
+    		],
+    		[
+    			782.5,
+    			690.5
+    		],
+    		[
+    			776.5,
+    			689.5
+    		]
+    	]
+    },    {
+    	"id": 1394,
+		"submitted_by": "Vekter",
+    	"name": "Destiny 2 Logo",
+    	"description": "A logo for Destiny 2, submitted by /r/destinythegame. Placed exactly at coordinates (777,777) as a tribute to Bungie, the game's developer.",
+    	"website": "",
+    	"subreddit": "/r/destinythegame",
+    	"center": [
+    		778.5,
+    		776.5
+    	],
+    	"path": [
+    		[
+    			766.5,
+    			753.5
+    		],
+    		[
+    			790.5,
+    			753.5
+    		],
+    		[
+    			792.5,
+    			797.5
+    		],
+    		[
+    			765.5,
+    			798.5
+    		]
+    	]
+    }, {
+    	"id": 1395,
+		"submitted_by": "Risiki",
+    	"name": "Contested territory",
+    	"description": "Baltic redditors had planed to build flag of Estonia as well, but most of the space was taken over by r/archlinux/ and later the top of it was cut off by the portrait of the king of Sweden, leaving this little corner that some people still kept trying to expand. It appears that someone has built a small flag of Ethiopia over it, probably to make fun of the Lithuanian flag having similar colors",
+    	"website": "",
+    	"subreddit": "",
+    	"center": [
+    		656.5,
+    		124.5
+    	],
+    	"path": [
+    		[
+    			659.5,
+    			128.5
+    		],
+    		[
+    			659.5,
+    			119.5
+    		],
+    		[
+    			654.5,
+    			119.5
+    		],
+    		[
+    			653.5,
+    			128.5
+    		]
+    	]
+    },    {
+    	"id": 1396,
+		"submitted_by": "ArrowDusk",
+    	"name": "Jakkid166",
+    	"description": "The remains of the name of Jakkid166, the greatest author on fanfiction.net",
+    	"website": "https://www.fanfiction.net/u/7051166/jakkid166",
+    	"subreddit": "https://www.reddit.com/r/jakkid166/",
+    	"center": [
+    		274.5,
+    		18.5
+    	],
+    	"path": [
+    		[
+    			269.5,
+    			15.5
+    		],
+    		[
+    			279.5,
+    			15.5
+    		],
+    		[
+    			279.5,
+    			22.5
+    		],
+    		[
+    			270.5,
+    			22.5
+    		]
+    	]
+    },    {
+    	"id": 1397,
+		"submitted_by": "Jaffixan",
+    	"name": "Latvia and Lithuania",
+    	"description": "The words \"Latvia\" and \"Lithuania\" in their respective lanuages with hearts next to them, each with their own flag. This represents the solid and almost brotherlike relations between the two countries.",
+    	"website": "",
+    	"subreddit": "r/latvia, r/lithuania",
+    	"center": [
+    		635.5,
+    		163.5
+    	],
+    	"path": [
+    		[
+    			611.5,
+    			166.5
+    		],
+    		[
+    			659.5,
+    			166.5
+    		],
+    		[
+    			659.5,
+    			160.5
+    		],
+    		[
+    			611.5,
+    			160.5
+    		]
+    	]
+    },    {
+    	"id": 1398,
+		"submitted_by": "cubi1oh",
+    	"name": "Pansexual pride flag",
+    	"description": "Pride flag for those attracted to people of all genders, including non-binary ones.",
+    	"website": "",
+    	"subreddit": "/r/pansexual",
+    	"center": [
+    		246.5,
+    		573.5
+    	],
+    	"path": [
+    		[
+    			234.5,
+    			567.5
+    		],
+    		[
+    			257.5,
+    			567.5
+    		],
+    		[
+    			257.5,
+    			578.5
+    		],
+    		[
+    			234.5,
+    			578.5
+    		]
+    	]
+    },
+    {
+    	"id": 1399,
+		"submitted_by": "cubi1oh",
+    	"name": "Lipstick Lesbian pride flag",
+    	"description": "Part of a lipstick lesbian flag at the end of the row of pride flags. While there seems to be no one dominant design for this identity, this is the version most often seen on Reddit and Wikipedia.",
+    	"website": "",
+    	"subreddit": "",
+    	"center": [
+    		296.5,
+    		593.5
+    	],
+    	"path": [
+    		[
+    			292.5,
+    			597.5
+    		],
+    		[
+    			292.5,
+    			589.5
+    		],
+    		[
+    			301.5,
+    			589.5
+    		],
+    		[
+    			301.5,
+    			594.5
+    		],
+    		[
+    			299.5,
+    			594.5
+    		],
+    		[
+    			299.5,
+    			597.5
+    		]
+    	]
+    },    {
+    	"id": 1400,
+		"submitted_by": "Qiqz",
+    	"name": "Hungary Heart",
+    	"description": "This heart-shaped Hungarian flag is connected with the heart-shaped Australian flag as these two countries were once united.",
+    	"website": "",
+    	"subreddit": "/r/hungary",
+    	"center": [
+    		533.5,
+    		744.5
+    	],
+    	"path": [
+    		[
+    			529.5,
+    			742.5
+    		],
+    		[
+    			529.5,
+    			741.5
+    		],
+    		[
+    			530.5,
+    			741.5
+    		],
+    		[
+    			530.5,
+    			740.5
+    		],
+    		[
+    			531.5,
+    			740.5
+    		],
+    		[
+    			531.5,
+    			739.5
+    		],
+    		[
+    			532.5,
+    			739.5
+    		],
+    		[
+    			532.5,
+    			738.5
+    		],
+    		[
+    			533.5,
+    			738.5
+    		],
+    		[
+    			534.5,
+    			738.5
+    		],
+    		[
+    			534.5,
+    			739.5
+    		],
+    		[
+    			535.5,
+    			739.5
+    		],
+    		[
+    			535.5,
+    			740.5
+    		],
+    		[
+    			536.5,
+    			740.5
+    		],
+    		[
+    			536.5,
+    			741.5
+    		],
+    		[
+    			537.5,
+    			741.5
+    		],
+    		[
+    			537.5,
+    			742.5
+    		],
+    		[
+    			538.5,
+    			742.5
+    		],
+    		[
+    			538.5,
+    			743.5
+    		],
+    		[
+    			539.5,
+    			743.5
+    		],
+    		[
+    			539.5,
+    			747.5
+    		],
+    		[
+    			538.5,
+    			747.5
+    		],
+    		[
+    			538.5,
+    			748.5
+    		],
+    		[
+    			537.5,
+    			748.5
+    		],
+    		[
+    			537.5,
+    			749.5
+    		],
+    		[
+    			534.5,
+    			749.5
+    		],
+    		[
+    			534.5,
+    			748.5
+    		],
+    		[
+    			533.5,
+    			748.5
+    		],
+    		[
+    			533.5,
+    			747.5
+    		],
+    		[
+    			533.5,
+    			748.5
+    		],
+    		[
+    			532.5,
+    			748.5
+    		],
+    		[
+    			532.5,
+    			749.5
+    		],
+    		[
+    			531.5,
+    			749.5
+    		],
+    		[
+    			530.5,
+    			749.5
+    		],
+    		[
+    			529.5,
+    			749.5
+    		],
+    		[
+    			529.5,
+    			748.5
+    		],
+    		[
+    			528.5,
+    			748.5
+    		],
+    		[
+    			528.5,
+    			747.5
+    		],
+    		[
+    			528.5,
+    			742.5
+    		]
+    	]
+    },    {
+    	"id": 1401,
+		"submitted_by": "Zonisic",
+    	"name": "Green Carrot",
+    	"description": "One of the few surviving carrots from /r/farmcarrots. Its colors have been swapped making it a green carrot with orange leaves. You can find what it originally looked like here:\nhttp://imgur.com/xUWgFoJ",
+    	"website": "http://imgur.com/xUWgFoJ",
+    	"subreddit": "/r/farmcarrots",
+    	"center": [
+    		275.5,
+    		889.5
+    	],
+    	"path": [
+    		[
+    			273.5,
+    			883.5
+    		],
+    		[
+    			271.5,
+    			885.5
+    		],
+    		[
+    			271.5,
+    			886.5
+    		],
+    		[
+    			272.5,
+    			887.5
+    		],
+    		[
+    			273.5,
+    			887.5
+    		],
+    		[
+    			274.5,
+    			888.5
+    		],
+    		[
+    			273.5,
+    			889.5
+    		],
+    		[
+    			273.5,
+    			890.5
+    		],
+    		[
+    			274.5,
+    			891.5
+    		],
+    		[
+    			275.5,
+    			892.5
+    		],
+    		[
+    			276.5,
+    			893.5
+    		],
+    		[
+    			277.5,
+    			894.5
+    		],
+    		[
+    			278.5,
+    			895.5
+    		],
+    		[
+    			279.5,
+    			895.5
+    		],
+    		[
+    			280.5,
+    			894.5
+    		],
+    		[
+    			280.5,
+    			893.5
+    		],
+    		[
+    			279.5,
+    			892.5
+    		],
+    		[
+    			280.5,
+    			891.5
+    		],
+    		[
+    			279.5,
+    			891.5
+    		],
+    		[
+    			278.5,
+    			891.5
+    		],
+    		[
+    			276.5,
+    			891.5
+    		],
+    		[
+    			275.5,
+    			891.5
+    		],
+    		[
+    			275.5,
+    			891.5
+    		],
+    		[
+    			275.5,
+    			889.5
+    		],
+    		[
+    			275.5,
+    			889.5
+    		],
+    		[
+    			276.5,
+    			888.5
+    		],
+    		[
+    			277.5,
+    			887.5
+    		],
+    		[
+    			277.5,
+    			886.5
+    		],
+    		[
+    			276.5,
+    			886.5
+    		],
+    		[
+    			275.5,
+    			885.5
+    		],
+    		[
+    			275.5,
+    			884.5
+    		],
+    		[
+    			274.5,
+    			883.5
+    		],
+    		[
+    			273.5,
+    			883.5
+    		],
+    		[
+    			272.5,
+    			884.5
+    		],
+    		[
+    			271.5,
+    			885.5
+    		]
+    	]
+    },    {
+    	"id": 1402,
+		"submitted_by": "Ramipro",
+    	"name": "Flag of the Spanish 2nd Republic",
+    	"description": "Flag of the Spanish 2nd Republic, and banner of the subreddit /r/epublica",
+    	"website": "",
+    	"subreddit": "/r/epublica",
+    	"center": [
+    		724.5,
+    		187.5
+    	],
+    	"path": [
+    		[
+    			708.5,
+    			191.5
+    		],
+    		[
+    			706.5,
+    			181.5
+    		],
+    		[
+    			720.5,
+    			181.5
+    		],
+    		[
+    			720.5,
+    			187.5
+    		],
+    		[
+    			750.5,
+    			187.5
+    		],
+    		[
+    			750.5,
+    			191.5
+    		]
+    	]
+    },    {
+    	"id": 1403,
+		"submitted_by": "Red-Panda-",
+    	"name": "Celtic Heart ",
+    	"description": "/r/CelticFc",
+    	"website": "",
+    	"subreddit": "/r/CelticFc",
+    	"center": [
+    		665.5,
+    		778.5
+    	],
+    	"path": [
+    		[
+    			664.5,
+    			773.5
+    		],
+    		[
+    			660.5,
+    			778.5
+    		],
+    		[
+    			660.5,
+    			780.5
+    		],
+    		[
+    			663.5,
+    			782.5
+    		],
+    		[
+    			664.5,
+    			781.5
+    		],
+    		[
+    			666.5,
+    			781.5
+    		],
+    		[
+    			668.5,
+    			782.5
+    		],
+    		[
+    			669.5,
+    			781.5
+    		],
+    		[
+    			670.5,
+    			778.5
+    		],
+    		[
+    			665.5,
+    			773.5
+    		],
+    		[
+    			665.5,
+    			773.5
+    		]
+    	]
+    },    {
+    	"id": 1404,
+		"submitted_by": "Ramipro",
+    	"name": "Black Lives Matter",
+    	"description": "Initials for Black Lives Matter, the activist movement against systemic racism and police brutality.",
+    	"website": "",
+    	"subreddit": "",
+    	"center": [
+    		12.5,
+    		468.5
+    	],
+    	"path": [
+    		[
+    			1.5,
+    			464.5
+    		],
+    		[
+    			23.5,
+    			464.5
+    		],
+    		[
+    			22.5,
+    			473.5
+    		],
+    		[
+    			1.5,
+    			473.5
+    		]
+    	]
+    },    {
+    	"id": 1405,
+		"submitted_by": "mardulak",
+    	"name": "Hungary Heart",
+    	"description": "",
+    	"website": "",
+    	"subreddit": "/r/hungary",
+    	"center": [
+    		533.5,
+    		744.5
+    	],
+    	"path": [
+    		[
+    			533.5,
+    			738.5
+    		],
+    		[
+    			528.5,
+    			743.5
+    		],
+    		[
+    			528.5,
+    			747.5
+    		],
+    		[
+    			530.5,
+    			749.5
+    		],
+    		[
+    			531.5,
+    			749.5
+    		],
+    		[
+    			533.5,
+    			747.5
+    		],
+    		[
+    			535.5,
+    			749.5
+    		],
+    		[
+    			536.5,
+    			749.5
+    		],
+    		[
+    			539.5,
+    			746.5
+    		],
+    		[
+    			539.5,
+    			744.5
+    		],
+    		[
+    			533.5,
+    			738.5
+    		]
+    	]
+    },    {
+    	"id": 1406,
+		"submitted_by": "Qiqz",
+    	"name": "Green Lattice Heart",
+    	"description": "",
+    	"website": "",
+    	"subreddit": "/r/greenlattice",
+    	"center": [
+    		647.5,
+    		720.5
+    	],
+    	"path": [
+    		[
+    			647.5,
+    			725.5
+    		],
+    		[
+    			652.5,
+    			720.5
+    		],
+    		[
+    			650.5,
+    			716.5
+    		],
+    		[
+    			644.5,
+    			716.5
+    		],
+    		[
+    			642.5,
+    			718.5
+    		],
+    		[
+    			642.5,
+    			720.5
+    		]
+    	]
+    },    {
+    	"id": 1407,
+		"submitted_by": "Qiqz",
+    	"name": "Poland heart",
+    	"description": "",
+    	"website": "",
+    	"subreddit": "/r/poland",
+    	"center": [
+    		551.5,
+    		720.5
+    	],
+    	"path": [
+    		[
+    			548.5,
+    			715.5
+    		],
+    		[
+    			548.5,
+    			715.5
+    		],
+    		[
+    			550.5,
+    			715.5
+    		],
+    		[
+    			550.5,
+    			716.5
+    		],
+    		[
+    			551.5,
+    			716.5
+    		],
+    		[
+    			551.5,
+    			717.5
+    		],
+    		[
+    			551.5,
+    			716.5
+    		],
+    		[
+    			552.5,
+    			716.5
+    		],
+    		[
+    			552.5,
+    			715.5
+    		],
+    		[
+    			553.5,
+    			715.5
+    		],
+    		[
+    			553.5,
+    			715.5
+    		],
+    		[
+    			554.5,
+    			715.5
+    		],
+    		[
+    			555.5,
+    			715.5
+    		],
+    		[
+    			555.5,
+    			716.5
+    		],
+    		[
+    			556.5,
+    			716.5
+    		],
+    		[
+    			556.5,
+    			717.5
+    		],
+    		[
+    			557.5,
+    			717.5
+    		],
+    		[
+    			557.5,
+    			718.5
+    		],
+    		[
+    			557.5,
+    			719.5
+    		],
+    		[
+    			557.5,
+    			720.5
+    		],
+    		[
+    			557.5,
+    			721.5
+    		],
+    		[
+    			556.5,
+    			721.5
+    		],
+    		[
+    			556.5,
+    			722.5
+    		],
+    		[
+    			555.5,
+    			722.5
+    		],
+    		[
+    			555.5,
+    			723.5
+    		],
+    		[
+    			554.5,
+    			723.5
+    		],
+    		[
+    			554.5,
+    			724.5
+    		],
+    		[
+    			553.5,
+    			724.5
+    		],
+    		[
+    			553.5,
+    			725.5
+    		],
+    		[
+    			552.5,
+    			725.5
+    		],
+    		[
+    			552.5,
+    			726.5
+    		],
+    		[
+    			550.5,
+    			726.5
+    		],
+    		[
+    			550.5,
+    			725.5
+    		],
+    		[
+    			549.5,
+    			725.5
+    		],
+    		[
+    			549.5,
+    			724.5
+    		],
+    		[
+    			548.5,
+    			724.5
+    		],
+    		[
+    			548.5,
+    			723.5
+    		],
+    		[
+    			547.5,
+    			723.5
+    		],
+    		[
+    			547.5,
+    			722.5
+    		],
+    		[
+    			546.5,
+    			722.5
+    		],
+    		[
+    			546.5,
+    			721.5
+    		],
+    		[
+    			545.5,
+    			721.5
+    		],
+    		[
+    			545.5,
+    			717.5
+    		],
+    		[
+    			546.5,
+    			717.5
+    		],
+    		[
+    			546.5,
+    			716.5
+    		],
+    		[
+    			547.5,
+    			716.5
+    		],
+    		[
+    			547.5,
+    			715.5
+    		]
+    	]
+    },    {
+    	"id": 1408,
+		"submitted_by": "Qiqz",
+    	"name": "Italy heart",
+    	"description": "A random heart or a symbol of cooperation between Scott Pilgrim and Italy?",
+    	"website": "",
+    	"subreddit": "",
+    	"center": [
+    		104.5,
+    		336.5
+    	],
+    	"path": [
+    		[
+    			104.5,
+    			339.5
+    		],
+    		[
+    			105.5,
+    			339.5
+    		],
+    		[
+    			105.5,
+    			338.5
+    		],
+    		[
+    			106.5,
+    			338.5
+    		],
+    		[
+    			106.5,
+    			337.5
+    		],
+    		[
+    			107.5,
+    			337.5
+    		],
+    		[
+    			107.5,
+    			336.5
+    		],
+    		[
+    			107.5,
+    			335.5
+    		],
+    		[
+    			106.5,
+    			334.5
+    		],
+    		[
+    			105.5,
+    			334.5
+    		],
+    		[
+    			104.5,
+    			334.5
+    		],
+    		[
+    			103.5,
+    			334.5
+    		],
+    		[
+    			102.5,
+    			334.5
+    		],
+    		[
+    			101.5,
+    			334.5
+    		],
+    		[
+    			101.5,
+    			335.5
+    		],
+    		[
+    			101.5,
+    			336.5
+    		],
+    		[
+    			102.5,
+    			337.5
+    		],
+    		[
+    			103.5,
+    			338.5
+    		]
+    	]
+    },    {
+    	"id": 1409,
+		"submitted_by": "leofar",
+    	"name": "Portuguese Heart",
+    	"description": "Portuguese Heart Flag",
+    	"website": "",
+    	"subreddit": "/r/Portugal",
+    	"center": [
+    		515.5,
+    		771.5
+    	],
+    	"path": [
+    		[
+    			515.5,
+    			769.5
+    		],
+    		[
+    			513.5,
+    			767.5
+    		],
+    		[
+    			511.5,
+    			767.5
+    		],
+    		[
+    			510.5,
+    			770.5
+    		],
+    		[
+    			511.5,
+    			772.5
+    		],
+    		[
+    			513.5,
+    			774.5
+    		],
+    		[
+    			515.5,
+    			775.5
+    		],
+    		[
+    			517.5,
+    			774.5
+    		],
+    		[
+    			520.5,
+    			771.5
+    		],
+    		[
+    			521.5,
+    			770.5
+    		],
+    		[
+    			519.5,
+    			768.5
+    		],
+    		[
+    			518.5,
+    			767.5
+    		],
+    		[
+    			516.5,
+    			767.5
+    		],
+    		[
+    			515.5,
+    			769.5
+    		],
+    		[
+    			515.5,
+    			769.5
+    		],
+    		[
+    			515.5,
+    			769.5
+    		]
+    	]
+    },    {
+    	"id": 1410,
+		"submitted_by": "Kelsew",
+    	"name": "2147m Cash Stack",
+    	"description": "This represents the maximum amount of cash you are able to hold at one time in Runescape or Oldschool Runescape.\nThe exact number is 2,174,483,674, but gets shortened by the M, meaning million.\nThis is due to the maximum 32bit integer in java being this number.",
+    	"website": "",
+    	"subreddit": "/r/2007scape",
+    	"center": [
+    		929.5,
+    		195.5
+    	],
+    	"path": [
+    		[
+    			916.5,
+    			184.5
+    		],
+    		[
+    			915.5,
+    			195.5
+    		],
+    		[
+    			916.5,
+    			207.5
+    		],
+    		[
+    			926.5,
+    			207.5
+    		],
+    		[
+    			926.5,
+    			206.5
+    		],
+    		[
+    			943.5,
+    			206.5
+    		],
+    		[
+    			944.5,
+    			184.5
+    		],
+    		[
+    			916.5,
+    			184.5
+    		]
+    	]
     }
-
-
-    //1314
+    
 ];
 
 //console.log("There are "+atlas.length+" entries in the Atlas.");

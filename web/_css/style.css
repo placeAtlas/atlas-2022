@@ -680,6 +680,7 @@ button#zoomResetButton{
 	bottom: 10px;
 	right: 10px;
 	background-color: #555555;
+	border: 1px #000000 solid;
 	padding: 3px;
 	font-size: 12px;
 	z-index: 1100;
