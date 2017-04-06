@@ -75133,9 +75133,2845 @@ var atlas = [
     			654.5
     		]
     	]
+    },     {
+    	"id": 1259,
+		"submitted_by": "LacsiraxAriscal",
+    	"name": "Album covers",
+    	"description": "Two album covers mainly constructed by /r/indieheads. The first, on the right, is Neutral Milk Hotel's 'In the Aeroplane Over the Sea', an incredibly revered 90s indie-folk album. It was originally constructed further to the left but was moved with help from /r/AFIP to accommodate the new US flag. To the left is the album cover for The Velvet Underground's 'The Velvet Underground & Nico', featuring art from Andy Warhol, and sometimes considered the first ever indie album. /r/indieheads intended to use this canvas (which was frequently vandalised) to feature a rotating number of albums that would change daily, with the designs for Bjork's Homogenic already having been drawn up. Of course, Place ended before this plan could be brought into action.",
+    	"website": "",
+    	"subreddit": "/r/indieheads",
+    	"center": [
+    		573.5,
+    		551.5
+    	],
+    	"path": [
+    		[
+    			599.5,
+    			531.5
+    		],
+    		[
+    			599.5,
+    			557.5
+    		],
+    		[
+    			571.5,
+    			559.5
+    		],
+    		[
+    			571.5,
+    			571.5
+    		],
+    		[
+    			547.5,
+    			572.5
+    		],
+    		[
+    			545.5,
+    			547.5
+    		],
+    		[
+    			571.5,
+    			546.5
+    		],
+    		[
+    			571.5,
+    			531.5
+    		]
+    	]
+    },    {
+    	"id": 1260,
+		"submitted_by": "Itonoma",
+    	"name": "Flag of Brittany",
+    	"description": "Brittany is a region in the north-west of France, known for its historic fondness for independence and preservation of local culture, language and symbols.",
+    	"website": "http://www.brittanytourism.com/",
+    	"subreddit": "https://www.reddit.com/r/Bretagne/",
+    	"center": [
+    		419.5,
+    		737.5
+    	],
+    	"path": [
+    		[
+    			419.5,
+    			742.5
+    		],
+    		[
+    			424.5,
+    			737.5
+    		],
+    		[
+    			424.5,
+    			735.5
+    		],
+    		[
+    			422.5,
+    			733.5
+    		],
+    		[
+    			420.5,
+    			733.5
+    		],
+    		[
+    			419.5,
+    			735.5
+    		],
+    		[
+    			417.5,
+    			733.5
+    		],
+    		[
+    			416.5,
+    			733.5
+    		],
+    		[
+    			414.5,
+    			735.5
+    		],
+    		[
+    			414.5,
+    			737.5
+    		],
+    		[
+    			419.5,
+    			742.5
+    		],
+    		[
+    			419.5,
+    			741.5
+    		]
+    	]
+    },    {
+    	"id": 1261,
+		"submitted_by": "Blinkle",
+    	"name": "Yoshi Eggs",
+    	"description": "Yoshi eggs, from Nintendo's Super Mario Bros. franchise. The Yoshi egg stood alongside the Hulk during the first day of r/place, but relocated to the rainbow road following an unprovoked assault by Croatia.",
+    	"website": "",
+    	"subreddit": "",
+    	"center": [
+    		515.5,
+    		308.5
+    	],
+    	"path": [
+    		[
+    			502.5,
+    			293.5
+    		],
+    		[
+    			508.5,
+    			293.5
+    		],
+    		[
+    			511.5,
+    			296.5
+    		],
+    		[
+    			511.5,
+    			299.5
+    		],
+    		[
+    			528.5,
+    			311.5
+    		],
+    		[
+    			534.5,
+    			317.5
+    		],
+    		[
+    			532.5,
+    			323.5
+    		],
+    		[
+    			528.5,
+    			326.5
+    		],
+    		[
+    			521.5,
+    			320.5
+    		],
+    		[
+    			499.5,
+    			304.5
+    		],
+    		[
+    			495.5,
+    			296.5
+    		]
+    	]
+    },    {
+    	"id": 1262,
+		"submitted_by": "Matt111098",
+    	"name": "The Yellow Triangle",
+    	"description": "When red, green, blue, and eventually purple claimed corners, fans of yellow attempted to carve out their own area.  After fleeing from a failed right-side colony to the left side and then losing half their territory to the rainbow, they decided to fill the triangle that it made. Agreements were made with HLG, the batman logo, babymetal, the mushroom, FRC, the Nerd Cubed N, and others, and after losing the top half of the triangle to the Poland flag, the remaining background was successfully colored yellow. A few individuals began turning part of it into a yellow/orange checkerboard pattern near the end.",
+    	"website": "",
+    	"subreddit": "/r/TeamYellowPlace",
+    	"center": [
+    		28.5,
+    		207.5
+    	],
+    	"path": [
+    		[
+    			0.5,
+    			124.5
+    		],
+    		[
+    			84.5,
+    			210.5
+    		],
+    		[
+    			0.5,
+    			288.5
+    		]
+    	]
+    },    {
+    	"id": 1263,
+		"submitted_by": "Myers747",
+    	"name": "FRC team #4611",
+    	"description": "As one of thousands of FRC (below) teams, 4611 was dedicated to representing themselves via a 4611 on the Poland Flag. 4611 met heavy resistance from both Poland and other FRC teams who didn't want to be outdone. By the end of the second day, 4611 had inspired many teams to rise up against Poland, only to be struck down in the early hours of day 3. Some say this act was the beginning of Poland's invasion of FRC.",
+    	"website": "http://www.olentangyfrc.org/",
+    	"subreddit": "/r/FRC/",
+    	"center": [
+    		11.5,
+    		156.5
+    	],
+    	"path": [
+    		[
+    			2.5,
+    			159.5
+    		],
+    		[
+    			19.5,
+    			159.5
+    		],
+    		[
+    			19.5,
+    			152.5
+    		],
+    		[
+    			2.5,
+    			152.5
+    		],
+    		[
+    			2.5,
+    			159.5
+    		]
+    	]
+    },    {
+    	"id": 1264,
+		"submitted_by": "Vikinggiraffe",
+    	"name": "ew York Rangers",
+    	"description": "This spot used to be occupied by the New York Rangers before being taken over by Pakistan in a joint effort with India",
+    	"website": "nhl.com/rangers",
+    	"subreddit": "/r/rangers",
+    	"center": [
+    		220.5,
+    		691.5
+    	],
+    	"path": [
+    		[
+    			200.5,
+    			672.5
+    		],
+    		[
+    			240.5,
+    			672.5
+    		],
+    		[
+    			240.5,
+    			711.5
+    		],
+    		[
+    			200.5,
+    			710.5
+    		]
+    	]
+    },    {
+    	"id": 1265,
+		"submitted_by": "finder787",
+    	"name": "Planetside's Attempted Invasion",
+    	"description": "Planetside tried to recreate part of their logo here. Planetside managed to turn the corner grey. However, after much fighting Greenlattice overwhelmed and stomped out the invasion. ",
+    	"website": "https://dk.reddit.com/r/Planetside/comments/6319f2/lets_contribute_something_to_rplace_and_show_that/",
+    	"subreddit": "/r/planetside",
+    	"center": [
+    		965.5,
+    		223.5
+    	],
+    	"path": [
+    		[
+    			973.5,
+    			215.5
+    		],
+    		[
+    			973.5,
+    			230.5
+    		],
+    		[
+    			957.5,
+    			230.5
+    		],
+    		[
+    			957.5,
+    			215.5
+    		]
+    	]
+    },    {
+    	"id": 1266,
+		"submitted_by": "MachaHack",
+    	"name": "Watchmen Badge",
+    	"description": "A smiley face badge used by the character \"The Comedian\" in the graphic novel & film \"Watchmen\". Effectively the logo of the show.",
+    	"website": "",
+    	"subreddit": "/r/watchmen",
+    	"center": [
+    		28.5,
+    		254.5
+    	],
+    	"path": [
+    		[
+    			25.5,
+    			258.5
+    		],
+    		[
+    			23.5,
+    			252.5
+    		],
+    		[
+    			30.5,
+    			248.5
+    		],
+    		[
+    			33.5,
+    			252.5
+    		],
+    		[
+    			31.5,
+    			258.5
+    		],
+    		[
+    			28.5,
+    			260.5
+    		]
+    	]
+    },    {
+    	"id": 1267,
+		"submitted_by": "triftcity",
+    	"name": "FREESM!",
+    	"description": "CLG's main chant against its biggest rival TSM. I think this should be added to the adjacent CLG logo which already has a description on place",
+    	"website": "",
+    	"subreddit": "/r/clg",
+    	"center": [
+    		236.5,
+    		884.5
+    	],
+    	"path": [
+    		[
+    			222.5,
+    			881.5
+    		],
+    		[
+    			249.5,
+    			881.5
+    		],
+    		[
+    			249.5,
+    			887.5
+    		],
+    		[
+    			222.5,
+    			887.5
+    		],
+    		[
+    			222.5,
+    			884.5
+    		]
+    	]
+    },    {
+    	"id": 1268,
+		"submitted_by": "Pepperyena",
+    	"name": "Hbox Jigglypuff",
+    	"description": "A Jigglypuff with a green headband, the alternate costume most often used by professional Super Smash Bros. Melee player 'HungryBox'. One of his emotes on Twitch depicts the stretchiness of one of Jigglypuff's aerial moves.",
+    	"website": "https://www.google.ca/url?sa=t&rct=j&q=&esrc=s&source=web&cd=9&cad=rja&uact=8&ved=0ahUKEwj6_a3Zr47TAhUoxlQKHTwvArgQFghMMAg&url=https%3A%2F%2Fwww.twitch.tv%2Fhungrybox&usg=AFQjCNEn9a8NyLEWRb9uE91YRFhdtj2_2w&sig2=vzXuCdk0-QdnVXpLcYPRTw",
+    	"subreddit": "/r/smashbros",
+    	"center": [
+    		64.5,
+    		964.5
+    	],
+    	"path": [
+    		[
+    			71.5,
+    			974.5
+    		],
+    		[
+    			68.5,
+    			971.5
+    		],
+    		[
+    			65.5,
+    			971.5
+    		],
+    		[
+    			62.5,
+    			969.5
+    		],
+    		[
+    			61.5,
+    			968.5
+    		],
+    		[
+    			42.5,
+    			968.5
+    		],
+    		[
+    			42.5,
+    			965.5
+    		],
+    		[
+    			47.5,
+    			963.5
+    		],
+    		[
+    			57.5,
+    			963.5
+    		],
+    		[
+    			59.5,
+    			962.5
+    		],
+    		[
+    			62.5,
+    			960.5
+    		],
+    		[
+    			59.5,
+    			959.5
+    		],
+    		[
+    			59.5,
+    			957.5
+    		],
+    		[
+    			63.5,
+    			956.5
+    		],
+    		[
+    			65.5,
+    			955.5
+    		],
+    		[
+    			65.5,
+    			955.5
+    		],
+    		[
+    			69.5,
+    			955.5
+    		],
+    		[
+    			72.5,
+    			958.5
+    		],
+    		[
+    			73.5,
+    			957.5
+    		],
+    		[
+    			76.5,
+    			957.5
+    		],
+    		[
+    			76.5,
+    			967.5
+    		],
+    		[
+    			74.5,
+    			969.5
+    		],
+    		[
+    			74.5,
+    			969.5
+    		],
+    		[
+    			72.5,
+    			970.5
+    		],
+    		[
+    			74.5,
+    			974.5
+    		]
+    	]
+    },    {
+    	"id": 1269,
+		"submitted_by": "doggoboi",
+    	"name": "Watchmen Logo",
+    	"description": "The logo for the DC Comics graphic novel, Watchmen.",
+    	"website": "",
+    	"subreddit": "/r/watchmen",
+    	"center": [
+    		28.5,
+    		254.5
+    	],
+    	"path": [
+    		[
+    			27.5,
+    			259.5
+    		],
+    		[
+    			24.5,
+    			258.5
+    		],
+    		[
+    			23.5,
+    			255.5
+    		],
+    		[
+    			24.5,
+    			251.5
+    		],
+    		[
+    			26.5,
+    			249.5
+    		],
+    		[
+    			28.5,
+    			249.5
+    		],
+    		[
+    			30.5,
+    			249.5
+    		],
+    		[
+    			33.5,
+    			251.5
+    		],
+    		[
+    			33.5,
+    			254.5
+    		],
+    		[
+    			33.5,
+    			256.5
+    		],
+    		[
+    			30.5,
+    			258.5
+    		],
+    		[
+    			29.5,
+    			259.5
+    		],
+    		[
+    			29.5,
+    			259.5
+    		],
+    		[
+    			27.5,
+    			259.5
+    		]
+    	]
+    },     {
+     	"id": 1270,
+		"submitted_by": "Rograden",
+     	"name": "SKIN",
+     	"description": "A small project headed by reddit admins, some of which worked on the implementation of /r/place",
+     	"website": "Reddit",
+     	"subreddit": "Admins",
+     	"center": [
+     		884.5,
+     		982.5
+     	],
+     	"path": [
+     		[
+     			873.5,
+     			989.5
+     		],
+     		[
+     			873.5,
+     			999.5
+     		],
+     		[
+     			895.5,
+     			1000.5
+     		],
+     		[
+     			894.5,
+     			965.5
+     		],
+     		[
+     			878.5,
+     			965.5
+     		],
+     		[
+     			873.5,
+     			965.5
+     		]
+     	]
+     }, {
+
+		"id": 1271,
+		"submitted_by": "zurbayuluk52",
+    	"name": "King Viridian XV",
+    	"description": "The personal logo of King Viridian XV, also known as /u/zurbayuluk52.",
+    	"website": "http://imgur.com/a/qQkrO",
+    	"subreddit": "",
+    	"center": [
+    		966.5,
+    		467.5
+    	],
+    	"path": [
+    		[
+    			963.5,
+    			465.5
+    		],
+    		[
+    			963.5,
+    			469.5
+    		],
+    		[
+    			969.5,
+    			469.5
+    		],
+    		[
+    			969.5,
+    			465.5
+    		]
+    	]
+    },    {
+    	"id": 1272,
+		"submitted_by": "splitframe",
+    	"name": "Pot of Gold",
+    	"description": "The rainbowroad once ended here in a pot of Gold. In Irish folklore it was believed that a Leprechauns ( a type of Gnome-Fairy ) hide a pot of Gold at the end of a rainbow. It was overwritten in the somewhere second third of the event.",
+    	"website": "https://en.wikipedia.org/wiki/Leprechaun",
+    	"subreddit": "/r/ainbowroad/",
+    	"center": [
+    		994.5,
+    		874.5
+    	],
+    	"path": [
+    		[
+    			999.5,
+    			882.5
+    		],
+    		[
+    			999.5,
+    			867.5
+    		],
+    		[
+    			989.5,
+    			867.5
+    		],
+    		[
+    			990.5,
+    			882.5
+    		]
+    	]
+    },    {
+    	"id": 1273,
+		"submitted_by": "Gon11",
+    	"name": "Costa Rica Hearth",
+    	"description": "",
+    	"website": "",
+    	"subreddit": "/r/costa_rica",
+    	"center": [
+    		557.5,
+    		744.5
+    	],
+    	"path": [
+    		[
+    			556.5,
+    			739.5
+    		],
+    		[
+    			552.5,
+    			743.5
+    		],
+    		[
+    			551.5,
+    			744.5
+    		],
+    		[
+    			551.5,
+    			746.5
+    		],
+    		[
+    			551.5,
+    			747.5
+    		],
+    		[
+    			552.5,
+    			747.5
+    		],
+    		[
+    			552.5,
+    			748.5
+    		],
+    		[
+    			553.5,
+    			748.5
+    		],
+    		[
+    			553.5,
+    			749.5
+    		],
+    		[
+    			554.5,
+    			749.5
+    		],
+    		[
+    			555.5,
+    			749.5
+    		],
+    		[
+    			556.5,
+    			749.5
+    		],
+    		[
+    			556.5,
+    			748.5
+    		],
+    		[
+    			557.5,
+    			748.5
+    		],
+    		[
+    			557.5,
+    			747.5
+    		],
+    		[
+    			557.5,
+    			748.5
+    		],
+    		[
+    			558.5,
+    			748.5
+    		],
+    		[
+    			558.5,
+    			749.5
+    		],
+    		[
+    			559.5,
+    			749.5
+    		],
+    		[
+    			560.5,
+    			749.5
+    		],
+    		[
+    			561.5,
+    			749.5
+    		],
+    		[
+    			561.5,
+    			748.5
+    		],
+    		[
+    			562.5,
+    			748.5
+    		],
+    		[
+    			562.5,
+    			747.5
+    		],
+    		[
+    			563.5,
+    			747.5
+    		],
+    		[
+    			563.5,
+    			746.5
+    		],
+    		[
+    			563.5,
+    			745.5
+    		],
+    		[
+    			563.5,
+    			744.5
+    		],
+    		[
+    			563.5,
+    			743.5
+    		],
+    		[
+    			562.5,
+    			743.5
+    		],
+    		[
+    			562.5,
+    			742.5
+    		],
+    		[
+    			561.5,
+    			742.5
+    		],
+    		[
+    			561.5,
+    			741.5
+    		],
+    		[
+    			560.5,
+    			741.5
+    		],
+    		[
+    			560.5,
+    			740.5
+    		],
+    		[
+    			559.5,
+    			740.5
+    		],
+    		[
+    			559.5,
+    			739.5
+    		],
+    		[
+    			558.5,
+    			739.5
+    		],
+    		[
+    			558.5,
+    			738.5
+    		],
+    		[
+    			557.5,
+    			738.5
+    		],
+    		[
+    			556.5,
+    			738.5
+    		],
+    		[
+    			556.5,
+    			739.5
+    		],
+    		[
+    			555.5,
+    			739.5
+    		],
+    		[
+    			555.5,
+    			740.5
+    		],
+    		[
+    			554.5,
+    			740.5
+    		],
+    		[
+    			553.5,
+    			741.5
+    		],
+    		[
+    			552.5,
+    			742.5
+    		],
+    		[
+    			551.5,
+    			743.5
+    		]
+    	]
+    },    {
+    	"id": 1274,
+		"submitted_by": "Camuu",
+    	"name": "camu.",
+    	"description": "For 3 days three friends kept this small purple text \"camu\" alive in between the Scott Pilgrim and the Spelunky characters. Every now and then some random griefers would come by, but we managed to fight them off every time. We got a little too close to Scott Pilgrim so with team Scott's help we moved our text slightly to the left. Then came Spelunky, they wanted to build a border around their pixel art and asked us to move one pixel up, so we did, again with their cooperation. Then came Lehigh university from the left. This guy just wanted the text \"Lehigh\" there to represent his university, again we came to a compromise together. \nBut then, after 3 days of cooperation with strangers and battling griefers, about 20 minutes before /r/place was going to end, came the Lehigh university marching band, \"Lehigh 97\". They did not want the text to simply represent their university, it had to represent their marching band. So they trampled their \"97\" over our \"ca\". We were outnumbered. Even the original creator of \"Lehigh\" tried to help stopping them destroying our very small project. We were proud of being able to keep our pixels alive in the giant internet WW3 for 3 days long. After actually meeting some decent people on the internet we were reminded of the usual internet trolls, the jerks of Lehigh University's marching band. All there is left now is half a purple M and the U.",
+    	"website": "",
+    	"subreddit": "/r/place",
+    	"center": [
+    		70.5,
+    		323.5
+    	],
+    	"path": [
+    		[
+    			78.5,
+    			321.5
+    		],
+    		[
+    			61.5,
+    			321.5
+    		],
+    		[
+    			61.5,
+    			324.5
+    		],
+    		[
+    			78.5,
+    			324.5
+    		]
+    	]
+    },    {
+    	"id": 1275,
+		"submitted_by": "drpepper7557",
+    	"name": "Florida",
+    	"description": "An orange and aqua rectangle that used to read \"FLORIDA,\" with a palm tree and sunset in the background. \nIt was largely destroyed by the expansion of various flags towards the end of /r/place.",
+    	"website": "",
+    	"subreddit": "",
+    	"center": [
+    		312.5,
+    		42.5
+    	],
+    	"path": [
+    		[
+    			291.5,
+    			39.5
+    		],
+    		[
+    			331.5,
+    			38.5
+    		],
+    		[
+    			332.5,
+    			46.5
+    		],
+    		[
+    			291.5,
+    			45.5
+    		],
+    		[
+    			291.5,
+    			43.5
+    		]
+    	]
+    },    {
+    	"id": 1276,
+		"submitted_by": "TeeMee123",
+    	"name": "Imgur logo",
+    	"description": "It is very small",
+    	"website": "imgur.com",
+    	"subreddit": "",
+    	"center": [
+    		157.5,
+    		662.5
+    	],
+    	"path": [
+    		[
+    			156.5,
+    			656.5
+    		],
+    		[
+    			157.5,
+    			656.5
+    		],
+    		[
+    			157.5,
+    			667.5
+    		],
+    		[
+    			156.5,
+    			667.5
+    		]
+    	]
+    },    {
+    	"id": 1277,
+		"submitted_by": "makzk",
+    	"name": "Chile",
+    	"description": "A heart with the pattern of the chilean flag",
+    	"website": "",
+    	"subreddit": "/r/chile",
+    	"center": [
+    		647.5,
+    		737.5
+    	],
+    	"path": [
+    		[
+    			647.5,
+    			735.5
+    		],
+    		[
+    			644.5,
+    			733.5
+    		],
+    		[
+    			642.5,
+    			735.5
+    		],
+    		[
+    			642.5,
+    			737.5
+    		],
+    		[
+    			647.5,
+    			742.5
+    		],
+    		[
+    			652.5,
+    			737.5
+    		],
+    		[
+    			652.5,
+    			735.5
+    		],
+    		[
+    			650.5,
+    			733.5
+    		],
+    		[
+    			649.5,
+    			733.5
+    		],
+    		[
+    			648.5,
+    			734.5
+    		],
+    		[
+    			647.5,
+    			735.5
+    		]
+    	]
+    },    {
+    	"id": 1278,
+		"submitted_by": "lillod",
+    	"name": "Minecraft watermelon",
+    	"description": "Edible food item in the popular sandbox game, Minecraft",
+    	"website": "",
+    	"subreddit": "/r/minecraft",
+    	"center": [
+    		9.5,
+    		271.5
+    	],
+    	"path": [
+    		[
+    			1.5,
+    			274.5
+    		],
+    		[
+    			13.5,
+    			263.5
+    		],
+    		[
+    			16.5,
+    			270.5
+    		],
+    		[
+    			12.5,
+    			276.5
+    		],
+    		[
+    			6.5,
+    			278.5
+    		]
+    	]
+    },    {
+    	"id": 1279,
+		"submitted_by": "sunnyotakuu",
+    	"name": "Originally a gun for a Bulletkin.",
+    	"description": "Before being overrun by pixels, there was a Bulletkin from the game 'Enter the Gungeon' residing in this area, and this was his gun.",
+    	"website": "http://dodgeroll.com/gungeon/",
+    	"subreddit": "/r/EnterTheGungeon/",
+    	"center": [
+    		977.5,
+    		900.5
+    	],
+    	"path": [
+    		[
+    			983.5,
+    			895.5
+    		],
+    		[
+    			965.5,
+    			895.5
+    		],
+    		[
+    			964.5,
+    			898.5
+    		],
+    		[
+    			966.5,
+    			899.5
+    		],
+    		[
+    			971.5,
+    			899.5
+    		],
+    		[
+    			975.5,
+    			905.5
+    		],
+    		[
+    			979.5,
+    			905.5
+    		],
+    		[
+    			980.5,
+    			904.5
+    		],
+    		[
+    			982.5,
+    			903.5
+    		],
+    		[
+    			984.5,
+    			907.5
+    		],
+    		[
+    			988.5,
+    			907.5
+    		],
+    		[
+    			988.5,
+    			903.5
+    		],
+    		[
+    			982.5,
+    			897.5
+    		]
+    	]
+    },    {
+    	"id": 1280,
+		"submitted_by": "dalmins",
+    	"name": "Connected hearts of Armenia & The Nagorno-Karabakh Republic",
+    	"description": "A heart with the Armenian flag inside it. It's connected with the heart representing The Nagorno-Karabakh Republic, an unrecognized country within Armenias borders.",
+    	"website": "",
+    	"subreddit": "/r/armenia",
+    	"center": [
+    		545.5,
+    		754.5
+    	],
+    	"path": [
+    		[
+    			539.5,
+    			759.5
+    		],
+    		[
+    			543.5,
+    			755.5
+    		],
+    		[
+    			547.5,
+    			755.5
+    		],
+    		[
+    			551.5,
+    			759.5
+    		],
+    		[
+    			556.5,
+    			754.5
+    		],
+    		[
+    			556.5,
+    			752.5
+    		],
+    		[
+    			554.5,
+    			750.5
+    		],
+    		[
+    			553.5,
+    			750.5
+    		],
+    		[
+    			551.5,
+    			752.5
+    		],
+    		[
+    			549.5,
+    			750.5
+    		],
+    		[
+    			548.5,
+    			750.5
+    		],
+    		[
+    			546.5,
+    			752.5
+    		],
+    		[
+    			544.5,
+    			752.5
+    		],
+    		[
+    			542.5,
+    			750.5
+    		],
+    		[
+    			541.5,
+    			750.5
+    		],
+    		[
+    			539.5,
+    			752.5
+    		],
+    		[
+    			538.5,
+    			751.5
+    		],
+    		[
+    			537.5,
+    			750.5
+    		],
+    		[
+    			536.5,
+    			750.5
+    		],
+    		[
+    			534.5,
+    			752.5
+    		],
+    		[
+    			534.5,
+    			754.5
+    		],
+    		[
+    			534.5,
+    			754.5
+    		]
+    	]
+    },    {
+    	"id": 1281,
+		"submitted_by": "Bloo-jay",
+    	"name": "The sad Remnants of the Nerdcubed logo",
+    	"description": "This poor neglected and vandalized \"N\" represents the shattered dreams of the Nerdcubed reddit fanbase. What was almost a proud statue to the beloved Youtuber \"Nerdcubed\" is now and forever will be a forgotten icon of Daniel Hardcastle, sentenced to a sad afterlife of being mistaken for the symbol of the Northeastern University of Boston, Massachusetts. ",
+    	"website": "https://www.reddit.com/r/nerdcubed/",
+    	"subreddit": "/r/nerdcubed",
+    	"center": [
+    		8.5,
+    		930.5
+    	],
+    	"path": [
+    		[
+    			1.5,
+    			923.5
+    		],
+    		[
+    			7.5,
+    			923.5
+    		],
+    		[
+    			7.5,
+    			925.5
+    		],
+    		[
+    			8.5,
+    			925.5
+    		],
+    		[
+    			8.5,
+    			927.5
+    		],
+    		[
+    			10.5,
+    			927.5
+    		],
+    		[
+    			10.5,
+    			923.5
+    		],
+    		[
+    			15.5,
+    			923.5
+    		],
+    		[
+    			15.5,
+    			927.5
+    		],
+    		[
+    			14.5,
+    			927.5
+    		],
+    		[
+    			14.5,
+    			933.5
+    		],
+    		[
+    			15.5,
+    			933.5
+    		],
+    		[
+    			15.5,
+    			937.5
+    		],
+    		[
+    			9.5,
+    			937.5
+    		],
+    		[
+    			9.5,
+    			935.5
+    		],
+    		[
+    			8.5,
+    			935.5
+    		],
+    		[
+    			8.5,
+    			933.5
+    		],
+    		[
+    			7.5,
+    			933.5
+    		],
+    		[
+    			7.5,
+    			932.5
+    		],
+    		[
+    			6.5,
+    			932.5
+    		],
+    		[
+    			6.5,
+    			937.5
+    		],
+    		[
+    			1.5,
+    			937.5
+    		],
+    		[
+    			1.5,
+    			933.5
+    		],
+    		[
+    			2.5,
+    			933.5
+    		],
+    		[
+    			2.5,
+    			928.5
+    		],
+    		[
+    			1.5,
+    			928.5
+    		]
+    	]
+    },    {
+    	"id": 1282,
+		"submitted_by": "Cutiepia",
+    	"name": "Chess piece",
+    	"description": "A chess piece which was to be built by both r/chess and r/norge, as a reference to Magnus Carlssen, winner of the last three World Chess Championships. r/place ended before they could finish it.",
+    	"website": "",
+    	"subreddit": "r/chess and r/norge",
+    	"center": [
+    		417.5,
+    		65.5
+    	],
+    	"path": [
+    		[
+    			426.5,
+    			77.5
+    		],
+    		[
+    			426.5,
+    			53.5
+    		],
+    		[
+    			409.5,
+    			53.5
+    		],
+    		[
+    			408.5,
+    			77.5
+    		],
+    		[
+    			426.5,
+    			77.5
+    		]
+    	]
+    },    {
+    	"id": 1283,
+		"submitted_by": "lillod",
+    	"name": "Homer Simpson",
+    	"description": "Main character of the long running TV show, The Simpsons. He was made fairly early but did not make it to the end intact.",
+    	"website": "",
+    	"subreddit": "/r/thesimpsons",
+    	"center": [
+    		44.5,
+    		896.5
+    	],
+    	"path": [
+    		[
+    			33.5,
+    			895.5
+    		],
+    		[
+    			44.5,
+    			909.5
+    		],
+    		[
+    			54.5,
+    			905.5
+    		],
+    		[
+    			54.5,
+    			891.5
+    		],
+    		[
+    			45.5,
+    			890.5
+    		],
+    		[
+    			44.5,
+    			885.5
+    		],
+    		[
+    			33.5,
+    			885.5
+    		]
+    	]
+    },    {
+    	"id": 1284,
+		"submitted_by": "sunnyotakuu",
+    	"name": "(Incomplete) Oregon Trail Carriage",
+    	"description": "A carriage from the computer game \"The Oregon Trail) was in the works. Unfortunately, the piece was incomplete when r/Place had ended.",
+    	"website": "http://playdosgamesonline.com/oregon-trail.html",
+    	"subreddit": "",
+    	"center": [
+    		962.5,
+    		823.5
+    	],
+    	"path": [
+    		[
+    			952.5,
+    			818.5
+    		],
+    		[
+    			947.5,
+    			819.5
+    		],
+    		[
+    			946.5,
+    			828.5
+    		],
+    		[
+    			979.5,
+    			827.5
+    		],
+    		[
+    			979.5,
+    			824.5
+    		],
+    		[
+    			980.5,
+    			819.5
+    		],
+    		[
+    			966.5,
+    			819.5
+    		],
+    		[
+    			952.5,
+    			818.5
+    		]
+    	]
+    },    {
+    	"id": 1285,
+		"submitted_by": "dalmins",
+    	"name": "Lebanon Triple Heart",
+    	"description": "Three hearts sporting the flag of lebanon. Towards the end of r/place, it's creators tried to merge the three into one big heart.",
+    	"website": "",
+    	"subreddit": "/r/lebanon",
+    	"center": [
+    		473.5,
+    		767.5
+    	],
+    	"path": [
+    		[
+    			473.5,
+    			756.5
+    		],
+    		[
+    			462.5,
+    			768.5
+    		],
+    		[
+    			462.5,
+    			771.5
+    		],
+    		[
+    			467.5,
+    			776.5
+    		],
+    		[
+    			472.5,
+    			771.5
+    		],
+    		[
+    			474.5,
+    			771.5
+    		],
+    		[
+    			479.5,
+    			776.5
+    		],
+    		[
+    			484.5,
+    			771.5
+    		],
+    		[
+    			484.5,
+    			769.5
+    		],
+    		[
+    			478.5,
+    			763.5
+    		],
+    		[
+    			478.5,
+    			761.5
+    		],
+    		[
+    			473.5,
+    			756.5
+    		]
+    	]
+    },    {
+    	"id": 1286,
+		"submitted_by": "lillod",
+    	"name": "Transformers Autobot logo",
+    	"description": "Built directly above the decepticon, It was being built while the game ended.",
+    	"website": "",
+    	"subreddit": "/r/transformers",
+    	"center": [
+    		975.5,
+    		835.5
+    	],
+    	"path": [
+    		[
+    			967.5,
+    			828.5
+    		],
+    		[
+    			967.5,
+    			835.5
+    		],
+    		[
+    			973.5,
+    			840.5
+    		],
+    		[
+    			978.5,
+    			840.5
+    		],
+    		[
+    			984.5,
+    			837.5
+    		],
+    		[
+    			983.5,
+    			834.5
+    		],
+    		[
+    			976.5,
+    			831.5
+    		]
+    	]
+    },    {
+    	"id": 1287,
+		"submitted_by": "laikamonkey",
+    	"name": "Portuguese Sardine",
+    	"description": "The small Sardine is one of the most recognizable symbols of Portugal. Eaten in the summer, well grilled. A Portuguese delicacy.",
+    	"website": "https://en.wikipedia.org/wiki/Sardine",
+    	"subreddit": "",
+    	"center": [
+    		745.5,
+    		413.5
+    	],
+    	"path": [
+    		[
+    			745.5,
+    			403.5
+    		],
+    		[
+    			742.5,
+    			406.5
+    		],
+    		[
+    			743.5,
+    			422.5
+    		],
+    		[
+    			748.5,
+    			422.5
+    		],
+    		[
+    			748.5,
+    			406.5
+    		],
+    		[
+    			745.5,
+    			403.5
+    		]
+    	]
+    },    {
+    	"id": 1288,
+		"submitted_by": "dalmins",
+    	"name": "r/wine",
+    	"description": "A sign for the wine subreddit, conveniently placed next to the wine and baguette.",
+    	"website": "",
+    	"subreddit": "/r/wine",
+    	"center": [
+    		451.5,
+    		786.5
+    	],
+    	"path": [
+    		[
+    			463.5,
+    			789.5
+    		],
+    		[
+    			439.5,
+    			789.5
+    		],
+    		[
+    			439.5,
+    			783.5
+    		],
+    		[
+    			463.5,
+    			783.5
+    		]
+    	]
+    },    {
+    	"id": 1289,
+		"submitted_by": "Kazoology",
+    	"name": "(Former) Void Triangle",
+    	"description": "One of the Void's cores. Created by \"Operation Potato Famine,\" this was one of the Void's cleanest structures.",
+    	"website": "",
+    	"subreddit": "/r/theblackvoid",
+    	"center": [
+    		27.5,
+    		61.5
+    	],
+    	"path": [
+    		[
+    			0.5,
+    			117.5
+    		],
+    		[
+    			0.5,
+    			33.5
+    		],
+    		[
+    			83.5,
+    			34.5
+    		],
+    		[
+    			80.5,
+    			36.5
+    		],
+    		[
+    			78.5,
+    			38.5
+    		]
+    	]
+    },    {
+    	"id": 1290,
+		"submitted_by": "Chipbonk",
+    	"name": "Green Lantern",
+    	"description": "Symbol of the Green Lantern, DC hero, person, thing.",
+    	"website": "",
+    	"subreddit": "/r/Greenlantern",
+    	"center": [
+    		17.5,
+    		235.5
+    	],
+    	"path": [
+    		[
+    			15.5,
+    			230.5
+    		],
+    		[
+    			18.5,
+    			230.5
+    		],
+    		[
+    			19.5,
+    			231.5
+    		],
+    		[
+    			20.5,
+    			232.5
+    		],
+    		[
+    			21.5,
+    			233.5
+    		],
+    		[
+    			21.5,
+    			236.5
+    		],
+    		[
+    			20.5,
+    			237.5
+    		],
+    		[
+    			19.5,
+    			238.5
+    		],
+    		[
+    			18.5,
+    			239.5
+    		],
+    		[
+    			15.5,
+    			239.5
+    		],
+    		[
+    			14.5,
+    			238.5
+    		],
+    		[
+    			13.5,
+    			237.5
+    		],
+    		[
+    			12.5,
+    			236.5
+    		],
+    		[
+    			12.5,
+    			233.5
+    		],
+    		[
+    			13.5,
+    			232.5
+    		],
+    		[
+    			14.5,
+    			231.5
+    		]
+    	]
+    },    {
+    	"id": 1291,
+		"submitted_by": "_negachin_",
+    	"name": "Rocket League Boost Meter",
+    	"description": "Part of the Rocket League artwork. It is a boost meter, as featured in the game. Before the boost meter, this spot on the canvas was reserved for a Grand Champion icon, the highest achievable rank in the competitive playlists in the game.\nFun fact: the boost meter was originally at 69, but was later changed to 99 and ultimately to 88, because it was not the right color for a boost that was only 69% filled",
+    	"website": "",
+    	"subreddit": "/r/RocketLeague",
+    	"center": [
+    		747.5,
+    		722.5
+    	],
+    	"path": [
+    		[
+    			744.5,
+    			714.5
+    		],
+    		[
+    			739.5,
+    			724.5
+    		],
+    		[
+    			744.5,
+    			730.5
+    		],
+    		[
+    			752.5,
+    			728.5
+    		],
+    		[
+    			755.5,
+    			721.5
+    		],
+    		[
+    			754.5,
+    			718.5
+    		],
+    		[
+    			752.5,
+    			716.5
+    		]
+    	]
+    },    {
+    	"id": 1292,
+		"submitted_by": "Zirr",
+    	"name": "Science icons from Factorio",
+    	"description": "These are icons used in the game Factorio for progressing your research and unlocking new items.",
+    	"website": "factorio.com",
+    	"subreddit": "/r/Factorio",
+    	"center": [
+    		518.5,
+    		139.5
+    	],
+    	"path": [
+    		[
+    			513.5,
+    			130.5
+    		],
+    		[
+    			513.5,
+    			136.5
+    		],
+    		[
+    			573.5,
+    			137.5
+    		],
+    		[
+    			573.5,
+    			131.5
+    		],
+    		[
+    			513.5,
+    			130.5
+    		],
+    		[
+    			513.5,
+    			143.5
+    		],
+    		[
+    			513.5,
+    			141.5
+    		],
+    		[
+    			476.5,
+    			141.5
+    		],
+    		[
+    			469.5,
+    			141.5
+    		],
+    		[
+    			464.5,
+    			141.5
+    		],
+    		[
+    			464.5,
+    			147.5
+    		],
+    		[
+    			513.5,
+    			148.5
+    		]
+    	]
+    },    {
+    	"id": 1293,
+		"submitted_by": "Rhamuk",
+    	"name": "Martian Navy Flag",
+    	"description": "The Flag of the martian navy in the fictional universe of the \"The Expanse\" TV series created by /r/theexpanse",
+    	"website": "",
+    	"subreddit": "/r/theexpanse",
+    	"center": [
+    		672.5,
+    		174.5
+    	],
+    	"path": [
+    		[
+    			684.5,
+    			148.5
+    		],
+    		[
+    			684.5,
+    			199.5
+    		],
+    		[
+    			660.5,
+    			199.5
+    		],
+    		[
+    			660.5,
+    			148.5
+    		]
+    	]
+    },    {
+    	"id": 1294,
+		"submitted_by": "daboswinney123",
+    	"name": "Original Nyan Cat",
+    	"description": "The Original Nyan Cat was made by the /r/TotalDramaRoleplay2 community, in reference to the popular internet video.",
+    	"website": "https://www.youtube.com/watch?v=QH2-TGUlwu4",
+    	"subreddit": "/r/TotalDramaRoleplay2",
+    	"center": [
+    		236.5,
+    		50.5
+    	],
+    	"path": [
+    		[
+    			272.5,
+    			61.5
+    		],
+    		[
+    			272.5,
+    			39.5
+    		],
+    		[
+    			199.5,
+    			39.5
+    		],
+    		[
+    			199.5,
+    			61.5
+    		]
+    	]
+    },{
+     "id": 1295,
+		"submitted_by": "pablohoney102",
+     "name": "FTP",
+     "description": "Shorthand for \n\"Fuck The Packers\" A popular phrase on /r/detroitlions",
+     "website": "",
+     "subreddit": "/r/detroitlions",
+     "center": [
+     967.5,
+     461.5
+     ],
+     "path": [
+     [
+     963.5,
+     458.5
+     ],
+     [
+     970.5,
+     458.5
+     ],
+     [
+     970.5,
+     464.5
+     ],
+     [
+     963.5,
+     464.5
+     ],
+     [
+     963.5,
+     458.5
+     ]
+     ]
+    },    {
+    	"id": 1296,
+		"submitted_by": "Leash_Me_Blue",
+    	"name": "Yellow/Black pattern",
+    	"description": "Started out as a black line by /u/Leash_Me_Blue, this yellow/black pattern became the final form of what was supposed to become a small sword. RIP sword",
+    	"website": "",
+    	"subreddit": "",
+    	"center": [
+    		70.5,
+    		178.5
+    	],
+    	"path": [
+    		[
+    			66.5,
+    			168.5
+    		],
+    		[
+    			74.5,
+    			168.5
+    		],
+    		[
+    			73.5,
+    			191.5
+    		],
+    		[
+    			66.5,
+    			184.5
+    		],
+    		[
+    			66.5,
+    			175.5
+    		]
+    	]
+    },  {
+    	"id": 1297,
+		"submitted_by": "Empty_Engie",
+    	"name": "The Purity Triangle",
+    	"description": "Made by r/EraseThePlace, this triangle represents what was once the grand white circle, and formed when EraseThePlace started making alliances and wasn't focused on cleaning the entire canvas.",
+    	"website": "",
+    	"subreddit": "r/EraseThePlace",
+    	"center": [
+    		495.5,
+    		419.5
+    	],
+    	"path": [
+    		[
+    			470.5,
+    			428.5
+    		],
+    		[
+    			496.5,
+    			401.5
+    		],
+    		[
+    			519.5,
+    			429.5
+    		],
+    		[
+    			468.5,
+    			427.5
+    		]
+    	]
+    },    {
+    	"id": 1298,
+		"submitted_by": "NomNomNomNation",
+    	"name": "Canadian Flag",
+    	"description": "The flag of Canada.",
+    	"website": "",
+    	"subreddit": "/r/canada",
+    	"center": [
+    		251.5,
+    		256.5
+    	],
+    	"path": [
+    		[
+    			243.5,
+    			252.5
+    		],
+    		[
+    			259.5,
+    			252.5
+    		],
+    		[
+    			259.5,
+    			260.5
+    		],
+    		[
+    			255.5,
+    			260.5
+    		],
+    		[
+    			255.5,
+    			261.5
+    		],
+    		[
+    			243.5,
+    			261.5
+    		]
+    	]
+    },    {
+    	"id": 1299,
+		"submitted_by": "madoxster",
+    	"name": "SRTViper",
+    	"description": "Signature of /u/SRTViper. This battle weary sig made it to the end despite being constantly displaced and overwritten",
+    	"website": "",
+    	"subreddit": "",
+    	"center": [
+    		83.5,
+    		307.5
+    	],
+    	"path": [
+    		[
+    			76.5,
+    			304.5
+    		],
+    		[
+    			90.5,
+    			304.5
+    		],
+    		[
+    			90.5,
+    			310.5
+    		],
+    		[
+    			76.5,
+    			310.5
+    		],
+    		[
+    			76.5,
+    			304.5
+    		]
+    	]
+    },    {
+    	"id": 1300,
+		"submitted_by": "orodruinx",
+    	"name": "Dragon Radar & Four-Star Ball",
+    	"description": "The iconic four-star ball from the Dragon Ball manga/anime franchise, and a Dragon Radar - a device used to locate the dragon balls.",
+    	"website": "",
+    	"subreddit": "r/dbz",
+    	"center": [
+    		908.5,
+    		185.5
+    	],
+    	"path": [
+    		[
+    			898.5,
+    			176.5
+    		],
+    		[
+    			918.5,
+    			176.5
+    		],
+    		[
+    			920.5,
+    			176.5
+    		],
+    		[
+    			920.5,
+    			183.5
+    		],
+    		[
+    			915.5,
+    			183.5
+    		],
+    		[
+    			915.5,
+    			196.5
+    		],
+    		[
+    			898.5,
+    			196.5
+    		]
+    	]
+    },    {
+    	"id": 1301,
+		"submitted_by": "madokamadokamadoka",
+    	"name": "Sayaka",
+    	"description": "Miki Sayaka is a magical girl in the Madoka franchise known for her quixotic tendencies and an inflexible sense of justice which she is incapable of living up to, leading her down a dark path of despair and self-loathing.",
+    	"website": "",
+    	"subreddit": "/r/sayaka",
+    	"center": [
+    		279.5,
+    		188.5
+    	],
+    	"path": [
+    		[
+    			284.5,
+    			173.5
+    		],
+    		[
+    			292.5,
+    			180.5
+    		],
+    		[
+    			288.5,
+    			197.5
+    		],
+    		[
+    			284.5,
+    			203.5
+    		],
+    		[
+    			275.5,
+    			204.5
+    		],
+    		[
+    			272.5,
+    			200.5
+    		],
+    		[
+    			268.5,
+    			200.5
+    		],
+    		[
+    			268.5,
+    			197.5
+    		],
+    		[
+    			272.5,
+    			194.5
+    		],
+    		[
+    			267.5,
+    			189.5
+    		],
+    		[
+    			269.5,
+    			179.5
+    		],
+    		[
+    			274.5,
+    			173.5
+    		]
+    	]
+    },    {
+    	"id": 1302,
+		"submitted_by": "TheFrozenSlime",
+    	"name": "Former location of the Texas flag",
+    	"description": "The original location of the Texas flag before Norway's flag expanded and eventually consumed it.",
+    	"website": "",
+    	"subreddit": "r/Texas",
+    	"center": [
+    		430.5,
+    		65.5
+    	],
+    	"path": [
+    		[
+    			408.5,
+    			52.5
+    		],
+    		[
+    			451.5,
+    			53.5
+    		],
+    		[
+    			451.5,
+    			78.5
+    		],
+    		[
+    			408.5,
+    			76.5
+    		],
+    		[
+    			408.5,
+    			53.5
+    		]
+    	]
+    },    {
+    	"id": 1303,
+		"submitted_by": "Zacoftheaxes",
+    	"name": "r/EVEX",
+    	"description": "r/EVEX is an experimental subreddit where rules are voted on weekly to see how a subreddit would evolve over time.",
+    	"website": "",
+    	"subreddit": "/r/evex",
+    	"center": [
+    		405.5,
+    		299.5
+    	],
+    	"path": [
+    		[
+    			409.5,
+    			300.5
+    		],
+    		[
+    			398.5,
+    			302.5
+    		],
+    		[
+    			392.5,
+    			295.5
+    		],
+    		[
+    			420.5,
+    			297.5
+    		],
+    		[
+    			419.5,
+    			303.5
+    		],
+    		[
+    			395.5,
+    			302.5
+    		],
+    		[
+    			393.5,
+    			302.5
+    		],
+    		[
+    			393.5,
+    			295.5
+    		]
+    	]
+    },    {
+    	"id": 1304,
+		"submitted_by": "Kdog0073",
+    	"name": "UIUC",
+    	"description": "University of Illinois Urbana-Champaign, Largest university sub with over 15k Reddit subscribers",
+    	"website": "illinois.edu",
+    	"subreddit": "/r/UIUC",
+    	"center": [
+    		66.5,
+    		853.5
+    	],
+    	"path": [
+    		[
+    			53.5,
+    			839.5
+    		],
+    		[
+    			69.5,
+    			840.5
+    		],
+    		[
+    			69.5,
+    			845.5
+    		],
+    		[
+    			104.5,
+    			846.5
+    		],
+    		[
+    			104.5,
+    			857.5
+    		],
+    		[
+    			76.5,
+    			857.5
+    		],
+    		[
+    			76.5,
+    			864.5
+    		],
+    		[
+    			32.5,
+    			864.5
+    		],
+    		[
+    			32.5,
+    			855.5
+    		],
+    		[
+    			44.5,
+    			854.5
+    		],
+    		[
+    			43.5,
+    			847.5
+    		],
+    		[
+    			53.5,
+    			846.5
+    		]
+    	]
+    },    {
+    	"id": 1305,
+		"submitted_by": "madokamadokamadoka",
+    	"name": "Kyoko",
+    	"description": "Sakura Kyoko is a magical girl from the Madoka Magica franchise, known for a superficially violent me-first attitude that is ultimately belied by her ultimate self-sacrifice to save the blue-haired Sayaka.\nKyoko's magical girl activities drove her father to commit a murder-suicide that killed all her family.",
+    	"website": "",
+    	"subreddit": "/r/SakuraKyouko",
+    	"center": [
+    		305.5,
+    		186.5
+    	],
+    	"path": [
+    		[
+    			308.5,
+    			203.5
+    		],
+    		[
+    			312.5,
+    			203.5
+    		],
+    		[
+    			312.5,
+    			198.5
+    		],
+    		[
+    			315.5,
+    			198.5
+    		],
+    		[
+    			317.5,
+    			195.5
+    		],
+    		[
+    			317.5,
+    			177.5
+    		],
+    		[
+    			310.5,
+    			171.5
+    		],
+    		[
+    			302.5,
+    			171.5
+    		],
+    		[
+    			296.5,
+    			174.5
+    		],
+    		[
+    			292.5,
+    			180.5
+    		],
+    		[
+    			292.5,
+    			186.5
+    		],
+    		[
+    			299.5,
+    			192.5
+    		],
+    		[
+    			296.5,
+    			196.5
+    		],
+    		[
+    			299.5,
+    			203.5
+    		],
+    		[
+    			304.5,
+    			201.5
+    		]
+    	]
+    },    {
+    	"id": 1306,
+		"submitted_by": "khbre",
+    	"name": "Armenia NKR",
+    	"description": "The hearts with Armenia and NKR flags",
+    	"website": "",
+    	"subreddit": "/r/armenia",
+    	"center": [
+    		545.5,
+    		754.5
+    	],
+    	"path": [
+    		[
+    			534.5,
+    			752.5
+    		],
+    		[
+    			534.5,
+    			754.5
+    		],
+    		[
+    			539.5,
+    			759.5
+    		],
+    		[
+    			543.5,
+    			755.5
+    		],
+    		[
+    			547.5,
+    			755.5
+    		],
+    		[
+    			551.5,
+    			759.5
+    		],
+    		[
+    			556.5,
+    			754.5
+    		],
+    		[
+    			556.5,
+    			752.5
+    		],
+    		[
+    			554.5,
+    			750.5
+    		],
+    		[
+    			553.5,
+    			750.5
+    		],
+    		[
+    			551.5,
+    			752.5
+    		],
+    		[
+    			549.5,
+    			750.5
+    		],
+    		[
+    			548.5,
+    			750.5
+    		],
+    		[
+    			546.5,
+    			752.5
+    		],
+    		[
+    			544.5,
+    			752.5
+    		],
+    		[
+    			542.5,
+    			750.5
+    		],
+    		[
+    			541.5,
+    			750.5
+    		],
+    		[
+    			539.5,
+    			752.5
+    		],
+    		[
+    			537.5,
+    			750.5
+    		],
+    		[
+    			536.5,
+    			750.5
+    		],
+    		[
+    			534.5,
+    			752.5
+    		]
+    	]
+    },    {
+    	"id": 1307,
+		"submitted_by": "Chipbonk",
+    	"name": "20XX",
+    	"description": "The year is 20XX. Everybody plays Fox at TAS levels of perfection. All matches end in a tie, and the winner is determined by a rock-paper-scissors match for port priority. The RPS metagame has evolved to ridiculous levels.",
+    	"website": "",
+    	"subreddit": "",
+    	"center": [
+    		117.5,
+    		914.5
+    	],
+    	"path": [
+    		[
+    			102.5,
+    			909.5
+    		],
+    		[
+    			115.5,
+    			900.5
+    		],
+    		[
+    			118.5,
+    			900.5
+    		],
+    		[
+    			131.5,
+    			909.5
+    		],
+    		[
+    			131.5,
+    			920.5
+    		],
+    		[
+    			117.5,
+    			929.5
+    		],
+    		[
+    			116.5,
+    			929.5
+    		],
+    		[
+    			102.5,
+    			920.5
+    		]
+    	]
+    },    {
+    	"id": 1308,
+		"submitted_by": "FelixLive44",
+    	"name": "(Covered) Skeletor's blunt",
+    	"description": "Once upon a time, Skeletor had a joint drawn by the /r/trees sub-reddit. Said blunt was slowly ereased to simulate Skeletor smoking the joint. You can see a sped up gif of it on this reddit post on /r/Place:\nhttps://www.reddit.com/r/place/comments/635aqv/skeletor_smokes_a_blunt_through_timelapse/",
+    	"website": "",
+    	"subreddit": "/r/trees",
+    	"center": [
+    		444.5,
+    		410.5
+    	],
+    	"path": [
+    		[
+    			454.5,
+    			402.5
+    		],
+    		[
+    			441.5,
+    			418.5
+    		],
+    		[
+    			434.5,
+    			416.5
+    		],
+    		[
+    			450.5,
+    			400.5
+    		]
+    	]
+    },    {
+    	"id": 1309,
+		"submitted_by": "-reid",
+    	"name": "lofi.hiphop",
+    	"description": "A community of beatmakers and listeners.",
+    	"website": "http://lofi.hiphop",
+    	"subreddit": "/r/lofihiphop",
+    	"center": [
+    		867.5,
+    		731.5
+    	],
+    	"path": [
+    		[
+    			852.5,
+    			727.5
+    		],
+    		[
+    			882.5,
+    			728.5
+    		],
+    		[
+    			882.5,
+    			735.5
+    		],
+    		[
+    			853.5,
+    			736.5
+    		]
+    	]
     },
 
-    //1227
+    {
+    	"id": 1310,
+		"submitted_by": "madokamadokamadoka",
+    	"name": "Madoka",
+    	"description": "Kaname Madoka is the title character of Madoka Magica. She is known for her selfless-self-sacrifice complex and incredible potential as a magical girl. She is an avatar of Hope.",
+    	"website": "",
+    	"subreddit": "/r/madoka",
+    	"center": [
+    		333.5,
+    		186.5
+    	],
+    	"path": [
+    		[
+    			340.5,
+    			172.5
+    		],
+    		[
+    			342.5,
+    			172.5
+    		],
+    		[
+    			342.5,
+    			175.5
+    		],
+    		[
+    			343.5,
+    			175.5
+    		],
+    		[
+    			344.5,
+    			176.5
+    		],
+    		[
+    			347.5,
+    			180.5
+    		],
+    		[
+    			347.5,
+    			184.5
+    		],
+    		[
+    			344.5,
+    			191.5
+    		],
+    		[
+    			342.5,
+    			196.5
+    		],
+    		[
+    			338.5,
+    			202.5
+    		],
+    		[
+    			329.5,
+    			202.5
+    		],
+    		[
+    			326.5,
+    			198.5
+    		],
+    		[
+    			326.5,
+    			192.5
+    		],
+    		[
+    			324.5,
+    			190.5
+    		],
+    		[
+    			322.5,
+    			193.5
+    		],
+    		[
+    			320.5,
+    			191.5
+    		],
+    		[
+    			320.5,
+    			186.5
+    		],
+    		[
+    			318.5,
+    			187.5
+    		],
+    		[
+    			319.5,
+    			183.5
+    		],
+    		[
+    			320.5,
+    			181.5
+    		],
+    		[
+    			322.5,
+    			175.5
+    		],
+    		[
+    			326.5,
+    			174.5
+    		],
+    		[
+    			328.5,
+    			173.5
+    		],
+    		[
+    			340.5,
+    			173.5
+    		]
+    	]
+    },    {
+    	"id": 1311,
+		"submitted_by": "AwayNotAFK",
+    	"name": "/r/signal",
+    	"description": "The name of a subreddit for Signal, an encrypted messaging service",
+    	"website": "",
+    	"subreddit": "r/signal",
+    	"center": [
+    		650.5,
+    		924.5
+    	],
+    	"path": [
+    		[
+    			664.5,
+    			926.5
+    		],
+    		[
+    			664.5,
+    			923.5
+    		],
+    		[
+    			635.5,
+    			923.5
+    		],
+    		[
+    			636.5,
+    			924.5
+    		],
+    		[
+    			636.5,
+    			925.5
+    		],
+    		[
+    			637.5,
+    			926.5
+    		]
+    	]
+    },    {
+    	"id": 1312,
+		"submitted_by": "Qwertdd",
+    	"name": "Rainbow 6 - Sent to the Team",
+    	"description": "An Ubisoft Community Manager, /u/its_epi, often informs the Rainbow 6 developers about bugs posted on the game's subreddit, notifying the community with the phrase, \"Sent to the team!\".",
+    	"website": "",
+    	"subreddit": "/r/Rainbow6",
+    	"center": [
+    		975.5,
+    		890.5
+    	],
+    	"path": [
+    		[
+    			958.5,
+    			886.5
+    		],
+    		[
+    			958.5,
+    			894.5
+    		],
+    		[
+    			991.5,
+    			894.5
+    		],
+    		[
+    			991.5,
+    			886.5
+    		],
+    		[
+    			990.5,
+    			886.5
+    		]
+    	]
+    },    {
+    	"id": 1313,
+		"submitted_by": "Nyrbee",
+    	"name": "Vulfpeck",
+    	"description": "Minified logo of the American funk group, Vulfpeck",
+    	"website": "http://vulfpeck.com/",
+    	"subreddit": "r/Vulfpeck",
+    	"center": [
+    		186.5,
+    		460.5
+    	],
+    	"path": [
+    		[
+    			182.5,
+    			463.5
+    		],
+    		[
+    			191.5,
+    			463.5
+    		],
+    		[
+    			187.5,
+    			455.5
+    		],
+    		[
+    			183.5,
+    			457.5
+    		],
+    		[
+    			183.5,
+    			457.5
+    		],
+    		[
+    			183.5,
+    			457.5
+    		]
+    	]
+    },    {
+    	"id": 1314,
+		"submitted_by": "madokamadokamadoka",
+    	"name": "Homura",
+    	"description": "Akemi Homura is the actual protagonist of both the Madoka Magica anime and the movie \"Rebellion\". She is known for her time manipulation powers, including time stop and time-rewind capabilities, as well as her obsessive devotion to saving Madoka from an untimely death in a campaign that lasted over twelve (subjective) years.",
+    	"website": "",
+    	"subreddit": "/r/Homura",
+    	"center": [
+    		360.5,
+    		188.5
+    	],
+    	"path": [
+    		[
+    			363.5,
+    			173.5
+    		],
+    		[
+    			369.5,
+    			176.5
+    		],
+    		[
+    			370.5,
+    			179.5
+    		],
+    		[
+    			371.5,
+    			179.5
+    		],
+    		[
+    			371.5,
+    			189.5
+    		],
+    		[
+    			372.5,
+    			189.5
+    		],
+    		[
+    			372.5,
+    			191.5
+    		],
+    		[
+    			373.5,
+    			191.5
+    		],
+    		[
+    			373.5,
+    			197.5
+    		],
+    		[
+    			369.5,
+    			200.5
+    		],
+    		[
+    			363.5,
+    			204.5
+    		],
+    		[
+    			360.5,
+    			202.5
+    		],
+    		[
+    			354.5,
+    			203.5
+    		],
+    		[
+    			352.5,
+    			199.5
+    		],
+    		[
+    			351.5,
+    			196.5
+    		],
+    		[
+    			348.5,
+    			185.5
+    		],
+    		[
+    			348.5,
+    			179.5
+    		],
+    		[
+    			354.5,
+    			173.5
+    		]
+    	]
+    }
+
+
+    //1314
 ];
 
 console.log("There are "+atlas.length+" entries in the Atlas.");
