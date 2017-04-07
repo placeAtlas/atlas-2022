@@ -126,9 +126,9 @@ function initView(){
 			wrapper.className += " listHidden";
 		}
 		applyView();
-		updateHovering(e);
 		render();
 		updateLines();
+		return false;
 	});
 
 	function createInfoBlock(entry){
