@@ -35,6 +35,9 @@ if(window.devicePixelRatio){
 	zoom = 1/window.devicePixelRatio;
 }
 
+var maxZoom = 128;
+var minZoom = 0.1;
+
 var zoomOrigin = [0, 0];
 var scaleZoomOrigin = [0, 0];
 
@@ -66,6 +69,9 @@ function init(){
 	var initialPinchDistance = 0;
 	var initialPinchZoom = 0;
 	var initialPinchZoomOrigin = [0, 0];
+
+	var desiredZoom;
+	var zoomAnimationFrame;
 
 	var mode = "view";
 
@@ -118,38 +124,51 @@ function init(){
 		window.location = "./about.html";
 	}
 
-	function zoomOut(x, y){
-
-		zoomOrigin[0] += x - container.clientWidth/2;
-		zoomOrigin[1] += y - container.clientHeight/2;
-
-		zoomOrigin[0] = zoomOrigin[0]/2;
-		zoomOrigin[1] = zoomOrigin[1]/2;
-	
-		zoom = zoom / 2;
-
-		applyView();
-	}
-
-	function zoomIn(x, y){
-		
-		zoomOrigin[0] = zoomOrigin[0]*2;
-		zoomOrigin[1] = zoomOrigin[1]*2;
-
-		zoomOrigin[0] -= x - container.clientWidth/2;
-		zoomOrigin[1] -= y - container.clientHeight/2;
-		
-		zoom = zoom * 2;
-
-		applyView();
-	}
-
 	document.getElementById("zoomInButton").addEventListener("click", function(e){
-		zoomIn(container.clientWidth/2, container.clientHeight/2);
+
+		if(zoomAnimationFrame){
+			window.cancelAnimationFrame(zoomAnimationFrame);
+		}
+		
+		var x = container.clientWidth/2;
+		var y = container.clientHeight/2;
+
+		initialPinchZoomOrigin = [
+			scaleZoomOrigin[0],
+			scaleZoomOrigin[1]
+		];
+
+		initialPinchZoom = zoom;
+		
+		lastPosition = [x, y];
+		var desiredZoom = zoom * 2;
+		desiredZoom = Math.max(minZoom, Math.min(maxZoom, desiredZoom));
+		
+		setDesiredZoom(x, y, desiredZoom);
+		
 	});
 
 	document.getElementById("zoomOutButton").addEventListener("click", function(e){
-		zoomOut(container.clientWidth/2, container.clientHeight/2);
+
+		if(zoomAnimationFrame){
+			window.cancelAnimationFrame(zoomAnimationFrame);
+		}
+		
+		var x = container.clientWidth/2;
+		var y = container.clientHeight/2;
+
+		initialPinchZoomOrigin = [
+			scaleZoomOrigin[0],
+			scaleZoomOrigin[1]
+		];
+
+		initialPinchZoom = zoom;
+		
+		lastPosition = [x, y];
+		var desiredZoom = zoom / 2;
+		desiredZoom = Math.max(minZoom, Math.min(maxZoom, desiredZoom));
+		
+		setDesiredZoom(x, y, desiredZoom);
 	});
 
 	document.getElementById("zoomResetButton").addEventListener("click", function(e){
@@ -159,32 +178,88 @@ function init(){
 	});
 
 	container.addEventListener("dblclick", function(e){
+		if(zoomAnimationFrame){
+			window.cancelAnimationFrame(zoomAnimationFrame);
+		}
+
+		var x = e.layerX;
+		var y = e.layerY;
+
+		initialPinchZoomOrigin = [
+			scaleZoomOrigin[0],
+			scaleZoomOrigin[1]
+		];
+
+		initialPinchZoom = zoom;
+		
+		lastPosition = [x, y];
+
+		var desiredZoom = 0;
+
 		if(e.ctrlKey){
 
-			zoomOut(e.layerX, e.layerY);
+			desiredZoom = zoom / 2;
 			
 		} else {
 			
-			zoomIn(e.layerX, e.layerY);
+			desiredZoom = zoom * 2;
 		}
-		
+
+		desiredZoom = Math.max(minZoom, Math.min(maxZoom, desiredZoom));
+		setDesiredZoom(x, y, desiredZoom);
+
 		e.preventDefault();
 	});
 
 
 	container.addEventListener("wheel", function(e){
+
+		if(zoomAnimationFrame){
+			window.cancelAnimationFrame(zoomAnimationFrame);
+		}
+
+		var x = e.layerX;
+		var y = e.layerY;
+
+		initialPinchZoomOrigin = [
+			scaleZoomOrigin[0],
+			scaleZoomOrigin[1]
+		];
+
+		initialPinchZoom = zoom;
+		
+		lastPosition = [x, y];
+
+		var desiredZoom = 0;
 		
 		if(e.deltaY > 0){
 
-			zoomOut(e.layerX, e.layerY);
+			desiredZoom = zoom / 2;
 			
 		} else if(e.deltaY < 0){
 			
-			zoomIn(e.layerX, e.layerY);
+			desiredZoom = zoom * 2;
 		}
+
+		desiredZoom = Math.max(minZoom, Math.min(maxZoom, desiredZoom));
+		setDesiredZoom(x, y, desiredZoom);
 
 		e.preventDefault();
 	});
+
+	function setDesiredZoom(x, y, target){
+		zoom = (zoom*2 + target)/3;
+		console.log(zoom);
+		if(Math.abs(1 - zoom/target) <= 0.01){
+			zoom = target;
+		}
+		applyZoom(x, y, zoom);
+		if(zoom != target){
+			zoomAnimationFrame = window.requestAnimationFrame(function(){
+				setDesiredZoom(x, y, target);
+			});
+		}
+	}
 
 	container.addEventListener("mousedown", function(e){
 		mousedown(e.clientX, e.clientY);
@@ -266,22 +341,28 @@ function init(){
 			var x = (e.touches[0].clientX + e.touches[1].clientX)/2 - container.offsetLeft;
 			var y = (e.touches[0].clientY + e.touches[1].clientY)/2 - container.offsetTop;
 
-			var deltaX = x - lastPosition[0];
-			var deltaY = y - lastPosition[1];
-
-			var pinchTranslateX = (x - container.clientWidth/2 - deltaX)
-			var pinchTranslateY = (y - container.clientHeight/2 - deltaY)
-
-			scaleZoomOrigin[0] = initialPinchZoomOrigin[0] + deltaX/zoom + pinchTranslateX/zoom - pinchTranslateX/initialPinchZoom;
-			scaleZoomOrigin[1] = initialPinchZoomOrigin[1] + deltaY/zoom + pinchTranslateY/zoom - pinchTranslateY/initialPinchZoom;
-
-			zoomOrigin[0] = scaleZoomOrigin[0]*zoom;
-			zoomOrigin[1] = scaleZoomOrigin[1]*zoom;
-			
-			applyView();
+			applyZoom(x, y, zoom);
 			
 		}
 		
+	}
+
+	function applyZoom(x, y, zoom){
+
+		var deltaX = x - lastPosition[0];
+		var deltaY = y - lastPosition[1];
+
+		var pinchTranslateX = (x - container.clientWidth/2 - deltaX);
+		var pinchTranslateY = (y - container.clientHeight/2 - deltaY);
+
+		scaleZoomOrigin[0] = initialPinchZoomOrigin[0] + deltaX/zoom + pinchTranslateX/zoom - pinchTranslateX/initialPinchZoom;
+		scaleZoomOrigin[1] = initialPinchZoomOrigin[1] + deltaY/zoom + pinchTranslateY/zoom - pinchTranslateY/initialPinchZoom;
+
+		zoomOrigin[0] = scaleZoomOrigin[0]*zoom;
+		zoomOrigin[1] = scaleZoomOrigin[1]*zoom;
+		
+		applyView();
+		updateLines();
 	}
 
 	window.addEventListener("mouseup", function(e){

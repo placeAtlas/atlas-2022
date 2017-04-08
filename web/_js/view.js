@@ -22,15 +22,58 @@
 
 	========================================================================
 */
+var linesCanvas = document.getElementById("linesCanvas");
+var linesContext = linesCanvas.getContext("2d");
+var hovered = [];
+
+function updateLines(){
+
+	linesCanvas.width = linesCanvas.clientWidth;
+	linesCanvas.height = linesCanvas.clientHeight;
+	linesContext.lineCap = "round";
+	linesContext.lineWidth = Math.max(Math.min(zoom*1.5, 16*1.5), 6);
+	linesContext.strokeStyle = "#000000";
+
+	for(var i = 0; i < hovered.length; i++){
+		var element = hovered[i].element;
+
+		linesContext.beginPath();
+		//linesContext.moveTo(element.offsetLeft + element.clientWidth - 10, element.offsetTop + 20);
+		linesContext.moveTo(
+			 element.getBoundingClientRect().left + document.documentElement.scrollLeft + element.clientWidth/2
+			,element.getBoundingClientRect().top + document.documentElement.scrollTop + 20
+		);
+		linesContext.lineTo(
+			 ~~(hovered[i].center[0]*zoom) + innerContainer.offsetLeft
+			,~~(hovered[i].center[1]*zoom) + innerContainer.offsetTop
+		);
+		linesContext.stroke();
+	}
+
+	linesContext.lineWidth = Math.max(Math.min(zoom, 16), 4);
+	linesContext.strokeStyle = "#FFFFFF";
+
+	for(var i = 0; i < hovered.length; i++){
+		var element = hovered[i].element;
+
+		linesContext.beginPath();
+		linesContext.moveTo(
+			 element.getBoundingClientRect().left + document.documentElement.scrollLeft + element.clientWidth/2
+			,element.getBoundingClientRect().top + document.documentElement.scrollTop + 20
+		);
+		linesContext.lineTo(
+			 ~~(hovered[i].center[0]*zoom) + innerContainer.offsetLeft
+			,~~(hovered[i].center[1]*zoom) + innerContainer.offsetTop
+		);
+		linesContext.stroke();
+	}
+}
 
 function initView(){
 
 	var wrapper = document.getElementById("wrapper");
 	
 	var objectsContainer = document.getElementById("objectsList");
-
-	var linesCanvas = document.getElementById("linesCanvas");
-	var linesContext = linesCanvas.getContext("2d");
 
 	var backgroundCanvas = document.createElement("canvas");
 	backgroundCanvas.width = 1000;
@@ -53,8 +96,6 @@ function initView(){
 	};
 
 	var viewportWidth = document.documentElement.clientWidth;
-
-	var hovered = [];
 
 	var lastPos = [0, 0];
 	var previousZoomOrigin = [0, 0];
@@ -468,49 +509,6 @@ function initView(){
 		if(!fixed){
 			updateHovering(e);
 			render();
-		}
-	}
-
-	function updateLines(){
-
-		linesCanvas.width = linesCanvas.clientWidth;
-		linesCanvas.height = linesCanvas.clientHeight;
-		linesContext.lineCap = "round";
-		linesContext.lineWidth = Math.max(Math.min(zoom*1.5, 16*1.5), 6);
-		linesContext.strokeStyle = "#000000";
-
-		for(var i = 0; i < hovered.length; i++){
-			var element = hovered[i].element;
-
-			linesContext.beginPath();
-			//linesContext.moveTo(element.offsetLeft + element.clientWidth - 10, element.offsetTop + 20);
-			linesContext.moveTo(
-				 element.getBoundingClientRect().left + document.documentElement.scrollLeft + element.clientWidth/2
-				,element.getBoundingClientRect().top + document.documentElement.scrollTop + 20
-			);
-			linesContext.lineTo(
-				 ~~(hovered[i].center[0]*zoom) + innerContainer.offsetLeft
-				,~~(hovered[i].center[1]*zoom) + innerContainer.offsetTop
-			);
-			linesContext.stroke();
-		}
-
-		linesContext.lineWidth = Math.max(Math.min(zoom, 16), 4);
-		linesContext.strokeStyle = "#FFFFFF";
-
-		for(var i = 0; i < hovered.length; i++){
-			var element = hovered[i].element;
-
-			linesContext.beginPath();
-			linesContext.moveTo(
-				 element.getBoundingClientRect().left + document.documentElement.scrollLeft + element.clientWidth/2
-				,element.getBoundingClientRect().top + document.documentElement.scrollTop + 20
-			);
-			linesContext.lineTo(
-				 ~~(hovered[i].center[0]*zoom) + innerContainer.offsetLeft
-				,~~(hovered[i].center[1]*zoom) + innerContainer.offsetTop
-			);
-			linesContext.stroke();
 		}
 	}
 
