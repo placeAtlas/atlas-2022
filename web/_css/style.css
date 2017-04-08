@@ -48,7 +48,7 @@ body{
 	overflow-x: hidden;
 	overflow-y: hidden;
 	
-	font-family: sans;
+	font-family: Sans-Serif, sans;
 	background-color: #111111;
 	color: #FFFFFF;
 }

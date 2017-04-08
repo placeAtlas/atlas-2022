@@ -57,6 +57,7 @@ function initView(){
 	var hovered = [];
 
 	var lastPos = [0, 0];
+	var previousZoomOrigin = [0, 0];
 
 	var fixed = false; // Fix hovered items in place, so that clicking on links is possible
 
@@ -357,6 +358,7 @@ function initView(){
 			element.addEventListener("mouseenter", function(e){
 				if(!fixed && !dragging){
 					objectsContainer.innerHTML = "";
+					previousZoomOrigin = zoomOrigin;
 					zoomOrigin = [
 						 innerContainer.clientWidth/2  - this.entry.center[0]* zoom// + container.offsetLeft
 						,innerContainer.clientHeight/2 - this.entry.center[1]* zoom// + container.offsetTop
@@ -376,6 +378,8 @@ function initView(){
 
 			element.addEventListener("mouseleave", function(e){
 				if(!fixed && !dragging){
+					zoomOrigin = previousZoomOrigin;
+					applyView();
 					hovered = [];
 					updateLines();
 					render();

@@ -82363,6 +82363,2187 @@ var atlas = [
     			184.5
     		]
     	]
+    },
+
+    /* ============ */
+
+        {
+    	"id": 1411,
+		"submitted_by": "dogdogdogdogdogdo",
+    	"name": "The r/picturegame logo",
+    	"description": "This little logo was created by the users of /r/picturegame",
+    	"website": "https://discordapp.com/channels/189581845376008202/189581845376008202",
+    	"subreddit": "/r/picturegame",
+    	"center": [
+    		930.5,
+    		663.5
+    	],
+    	"path": [
+    		[
+    			924.5,
+    			658.5
+    		],
+    		[
+    			936.5,
+    			658.5
+    		],
+    		[
+    			936.5,
+    			667.5
+    		],
+    		[
+    			924.5,
+    			667.5
+    		]
+    	]
+    },    {
+    	"id": 1412,
+		"submitted_by": "tbone747",
+    	"name": "(Covered) SkiFree Yeti",
+    	"description": "For much of the time that r/place was up, the iconic monster from the classic Windows game, SkiFree took up this portion of the canvas. Unfortunately, as the final day of r/place dawned, the Netherlands took over the Yeti's long-defended territory, and finally put the beast to rest.",
+    	"website": "https://www.reddit.com/r/place/comments/62mw8v/operation_skifree/",
+    	"subreddit": "",
+    	"center": [
+    		355.5,
+    		24.5
+    	],
+    	"path": [
+    		[
+    			335.5,
+    			47.5
+    		],
+    		[
+    			377.5,
+    			48.5
+    		],
+    		[
+    			376.5,
+    			0.5
+    		],
+    		[
+    			335.5,
+    			-0.5
+    		],
+    		[
+    			334.5,
+    			14.5
+    		]
+    	]
+    },    {
+    	"id": 1413,
+		"submitted_by": "Eggy216",
+    	"name": "Indian Flag Heart",
+    	"description": "A heart containing the Indian flag",
+    	"website": "",
+    	"subreddit": "",
+    	"center": [
+    		665.5,
+    		761.5
+    	],
+    	"path": [
+    		[
+    			665.5,
+    			755.5
+    		],
+    		[
+    			660.5,
+    			761.5
+    		],
+    		[
+    			660.5,
+    			763.5
+    		],
+    		[
+    			663.5,
+    			765.5
+    		],
+    		[
+    			665.5,
+    			763.5
+    		],
+    		[
+    			668.5,
+    			765.5
+    		],
+    		[
+    			670.5,
+    			762.5
+    		],
+    		[
+    			665.5,
+    			756.5
+    		]
+    	]
+    }, {
+    	"id": 1414,
+		"submitted_by": "MedicInDisquise",
+    	"name": "SS13 RevHead and Nuke Disk",
+    	"description": "In SS13, players can be chosen to be randomly antagonists. They fight the stations in multiple ways. One antag is the Revolutionary Head, or RevHead. They cause a revolution to uprise on the station. The Blue R indicates this clown is a RevHead. Another antag is the Nuclear Operatives, whose objective is to grab the nuke disk below the Blue R and destroy the station with it.",
+    	"website": "",
+    	"subreddit": "/r/ss13",
+    	"center": [
+    		0.5,
+    		0.5
+    	],
+    	"path": []
+    }, {
+    	"id": 1415,
+		"submitted_by": "MedicInDisquise",
+    	"name": "SS13 SecHud",
+    	"description": "Security in SS13 can use a sechud that tells them people's jobs and wanted status on sight. This clown has the clown job (smiley face) and is currently wanted (red W)",
+    	"website": "",
+    	"subreddit": "/r/ss13",
+    	"center": [
+    		237.5,
+    		97.5
+    	],
+    	"path": [
+    		[
+    			233.5,
+    			104.5
+    		],
+    		[
+    			233.5,
+    			89.5
+    		],
+    		[
+    			241.5,
+    			90.5
+    		],
+    		[
+    			241.5,
+    			104.5
+    		]
+    	]
+    },    {
+    	"id": 1416,
+		"submitted_by": "soeesenpai",
+    	"name": "Uwus and animeems",
+    	"description": "A down to earth, anime and gaming community on discord. Feels so ever free to stop by for a talk and some fresh memes :3",
+    	"website": "https://discord.gg/uwu",
+    	"subreddit": "",
+    	"center": [
+    		652.5,
+    		370.5
+    	],
+    	"path": [
+    		[
+    			670.5,
+    			363.5
+    		],
+    		[
+    			670.5,
+    			377.5
+    		],
+    		[
+    			634.5,
+    			377.5
+    		],
+    		[
+    			634.5,
+    			363.5
+    		]
+    	]
+    },    {
+    	"id": 1417,
+		"submitted_by": "AgenderCaterpie",
+    	"name": "Yellow Duck",
+    	"description": "Possibly a pixel art rendition of an American Pekin Duckling.",
+    	"website": "https://en.wikipedia.org/wiki/American_Pekin",
+    	"subreddit": "",
+    	"center": [
+    		573.5,
+    		925.5
+    	],
+    	"path": [
+    		[
+    			571.5,
+    			930.5
+    		],
+    		[
+    			575.5,
+    			930.5
+    		],
+    		[
+    			575.5,
+    			927.5
+    		],
+    		[
+    			577.5,
+    			926.5
+    		],
+    		[
+    			576.5,
+    			923.5
+    		],
+    		[
+    			575.5,
+    			920.5
+    		],
+    		[
+    			572.5,
+    			920.5
+    		],
+    		[
+    			571.5,
+    			922.5
+    		],
+    		[
+    			569.5,
+    			922.5
+    		],
+    		[
+    			572.5,
+    			923.5
+    		],
+    		[
+    			571.5,
+    			924.5
+    		],
+    		[
+    			570.5,
+    			925.5
+    		],
+    		[
+    			571.5,
+    			928.5
+    		],
+    		[
+    			572.5,
+    			928.5
+    		]
+    	]
+    },    {
+    	"id": 1418,
+		"submitted_by": "VIDCAs17",
+    	"name": "(Covered) WSOFT",
+    	"description": "For a long duration of r/place was \"WSOFT\", short for \"Wolverine Soft\", a game development group at the University of Michigan. The logo stood by the Michigan \"M\" for the first several days, but was covered up during the last day of r/place. ",
+    	"website": "https://wsoft.eecs.umich.edu/",
+    	"subreddit": "",
+    	"center": [
+    		55.5,
+    		815.5
+    	],
+    	"path": [
+    		[
+    			70.5,
+    			811.5
+    		],
+    		[
+    			70.5,
+    			818.5
+    		],
+    		[
+    			40.5,
+    			818.5
+    		],
+    		[
+    			40.5,
+    			811.5
+    		]
+    	]
+    },    {
+    	"id": 1419,
+		"submitted_by": "AgenderCaterpie",
+    	"name": "Smiley Face",
+    	"description": "A universal symbol of happiness rendered on a small scale for bite sized fun.",
+    	"website": "",
+    	"subreddit": "",
+    	"center": [
+    		711.5,
+    		227.5
+    	],
+    	"path": [
+    		[
+    			709.5,
+    			225.5
+    		],
+    		[
+    			709.5,
+    			229.5
+    		],
+    		[
+    			713.5,
+    			230.5
+    		],
+    		[
+    			714.5,
+    			226.5
+    		],
+    		[
+    			713.5,
+    			225.5
+    		]
+    	]
+    },    {
+    	"id": 1420,
+		"submitted_by": "VIDCAs17",
+    	"name": "The Big Ten \"B1G\" Logo",
+    	"description": "\"B1G\" is a condensed  version of \"The Big Ten\" by combining \"BIG\" and \"10\", and is the logo used for marketing the conference. On r/place, several universities came together to form this logo and defend it from numerous attackers, and is an anchor to \"The Big Ten Corner\". \n",
+    	"website": "http://www.bigten.org/",
+    	"subreddit": "r/TheB1G",
+    	"center": [
+    		16.5,
+    		823.5
+    	],
+    	"path": [
+    		[
+    			0.5,
+    			815.5
+    		],
+    		[
+    			31.5,
+    			815.5
+    		],
+    		[
+    			31.5,
+    			830.5
+    		],
+    		[
+    			0.5,
+    			830.5
+    		]
+    	]
+    },    {
+    	"id": 1421,
+		"submitted_by": "IllJustPutThisIGuess",
+    	"name": "Glyndŵr's Banner",
+    	"description": "15th century Welsh Royal Standard of Owain Glyndŵr.",
+    	"website": "",
+    	"subreddit": "/r/wales",
+    	"center": [
+    		654.5,
+    		602.5
+    	],
+    	"path": [
+    		[
+    			649.5,
+    			597.5
+    		],
+    		[
+    			658.5,
+    			597.5
+    		],
+    		[
+    			658.5,
+    			606.5
+    		],
+    		[
+    			649.5,
+    			606.5
+    		]
+    	]
+    },    {
+    	"id": 1422,
+		"submitted_by": "Horsefur",
+    	"name": "Bretagne <3 Riley Furson",
+    	"description": "A heart made to show peace between Bretagne and the fursona of Riley Winters. Left side is the Bretagne flag, left is a small mountain lion colored piece.",
+    	"website": "",
+    	"subreddit": "",
+    	"center": [
+    		859.5,
+    		827.5
+    	],
+    	"path": [
+    		[
+    			854.5,
+    			823.5
+    		],
+    		[
+    			855.5,
+    			827.5
+    		],
+    		[
+    			856.5,
+    			829.5
+    		],
+    		[
+    			857.5,
+    			830.5
+    		],
+    		[
+    			858.5,
+    			831.5
+    		],
+    		[
+    			860.5,
+    			832.5
+    		],
+    		[
+    			862.5,
+    			831.5
+    		],
+    		[
+    			863.5,
+    			830.5
+    		],
+    		[
+    			863.5,
+    			823.5
+    		],
+    		[
+    			862.5,
+    			823.5
+    		],
+    		[
+    			861.5,
+    			824.5
+    		],
+    		[
+    			860.5,
+    			825.5
+    		],
+    		[
+    			858.5,
+    			823.5
+    		],
+    		[
+    			855.5,
+    			823.5
+    		],
+    		[
+    			855.5,
+    			823.5
+    		],
+    		[
+    			855.5,
+    			823.5
+    		]
+    	]
+    },    {
+    	"id": 1423,
+		"submitted_by": "Kunfuxu",
+    	"name": "The Senate",
+    	"description": "Here we can see the Senate (the apprentice of Darth Plagueis) using his UNLIMITED POWER.",
+    	"website": "",
+    	"subreddit": "/r/PrequelMemes",
+    	"center": [
+    		604.5,
+    		268.5
+    	],
+    	"path": [
+    		[
+    			606.5,
+    			277.5
+    		],
+    		[
+    			611.5,
+    			273.5
+    		],
+    		[
+    			611.5,
+    			258.5
+    		],
+    		[
+    			602.5,
+    			258.5
+    		],
+    		[
+    			593.5,
+    			276.5
+    		]
+    	]
+    },    {
+    	"id": 1424,
+		"submitted_by": "ericbthomas86",
+    	"name": "Canadian Poppies",
+    	"description": "Drawn by the Canadian group, these poppies are drawn in honour and remembrance of our veterans",
+    	"website": "https://en.wikipedia.org/wiki/Remembrance_poppy#Canada",
+    	"subreddit": "r/placecanada",
+    	"center": [
+    		263.5,
+    		224.5
+    	],
+    	"path": [
+    		[
+    			260.5,
+    			211.5
+    		],
+    		[
+    			260.5,
+    			211.5
+    		],
+    		[
+    			266.5,
+    			211.5
+    		],
+    		[
+    			266.5,
+    			236.5
+    		],
+    		[
+    			260.5,
+    			236.5
+    		]
+    	]
+    },    {
+    	"id": 1425,
+		"submitted_by": "HitMonChon",
+    	"name": "sPWN",
+    	"description": "sPWN is a live streaming SFX program.",
+    	"website": "http://www.spwn.tv/",
+    	"subreddit": "",
+    	"center": [
+    		302.5,
+    		865.5
+    	],
+    	"path": [
+    		[
+    			283.5,
+    			863.5
+    		],
+    		[
+    			321.5,
+    			863.5
+    		],
+    		[
+    			321.5,
+    			866.5
+    		],
+    		[
+    			283.5,
+    			866.5
+    		]
+    	]
+    },    {
+    	"id": 1426,
+		"submitted_by": "davidjl123",
+    	"name": "/r/counting",
+    	"description": "The remnants of a second sign for /r/counting (the first being adjacent to the /r/livecounting sign), a subreddit dedicated to counting numbers. The sign was overwritten along with the first.",
+    	"website": "",
+    	"subreddit": "/r/counting",
+    	"center": [
+    		908.5,
+    		353.5
+    	],
+    	"path": [
+    		[
+    			895.5,
+    			350.5
+    		],
+    		[
+    			895.5,
+    			356.5
+    		],
+    		[
+    			927.5,
+    			356.5
+    		],
+    		[
+    			925.5,
+    			353.5
+    		],
+    		[
+    			911.5,
+    			353.5
+    		],
+    		[
+    			911.5,
+    			350.5
+    		]
+    	]
+    },    {
+    	"id": 1427,
+		"submitted_by": "HitMonChon",
+    	"name": "BNE",
+    	"description": "BNE is a New York-based graffiti artist most known for stickers that read \"BNE\". He has left his mark in cities throughout the world, including the United States, Canada, Asia, Australia, Europe, and South America.",
+    	"website": "https://en.wikipedia.org/wiki/BNE_(artist)",
+    	"subreddit": "",
+    	"center": [
+    		19.5,
+    		703.5
+    	],
+    	"path": [
+    		[
+    			7.5,
+    			695.5
+    		],
+    		[
+    			31.5,
+    			695.5
+    		],
+    		[
+    			31.5,
+    			710.5
+    		],
+    		[
+    			7.5,
+    			710.5
+    		]
+    	]
+    },    {
+    	"id": 1428,
+		"submitted_by": "sinvis",
+    	"name": "(Covered/ Destroyed) Dickmander",
+    	"description": "he remnants of Dickmander, covered and destroyed by Rainbow Road's unwarranted expansion, Jerma985 and Hello Internet. He was one of the very first pieces on the canvas, destroyed by blue, restored, and constantly restored and destroyed. Sadly, he did not make it.",
+    	"website": "",
+    	"subreddit": "",
+    	"center": [
+    		903.5,
+    		748.5
+    	],
+    	"path": [
+    		[
+    			901.5,
+    			737.5
+    		],
+    		[
+    			901.5,
+    			741.5
+    		],
+    		[
+    			905.5,
+    			741.5
+    		],
+    		[
+    			905.5,
+    			740.5
+    		],
+    		[
+    			906.5,
+    			740.5
+    		],
+    		[
+    			906.5,
+    			739.5
+    		],
+    		[
+    			907.5,
+    			738.5
+    		],
+    		[
+    			907.5,
+    			737.5
+    		],
+    		[
+    			901.5,
+    			737.5
+    		],
+    		[
+    			903.5,
+    			752.5
+    		],
+    		[
+    			902.5,
+    			753.5
+    		],
+    		[
+    			901.5,
+    			754.5
+    		],
+    		[
+    			901.5,
+    			755.5
+    		],
+    		[
+    			900.5,
+    			755.5
+    		],
+    		[
+    			900.5,
+    			756.5
+    		],
+    		[
+    			899.5,
+    			756.5
+    		],
+    		[
+    			899.5,
+    			757.5
+    		],
+    		[
+    			898.5,
+    			757.5
+    		],
+    		[
+    			898.5,
+    			758.5
+    		],
+    		[
+    			898.5,
+    			759.5
+    		],
+    		[
+    			901.5,
+    			759.5
+    		],
+    		[
+    			901.5,
+    			758.5
+    		],
+    		[
+    			903.5,
+    			758.5
+    		],
+    		[
+    			903.5,
+    			757.5
+    		],
+    		[
+    			904.5,
+    			757.5
+    		],
+    		[
+    			904.5,
+    			754.5
+    		],
+    		[
+    			902.5,
+    			753.5
+    		]
+    	]
+    },    {
+    	"id": 1429,
+		"submitted_by": "oxguy3",
+    	"name": "Human Rights Campaign",
+    	"description": "The logo of the Human Rights Campaign. It is an equals sign, to symbolize equality.",
+    	"website": "https://www.hrc.org/",
+    	"subreddit": "",
+    	"center": [
+    		610.5,
+    		569.5
+    	],
+    	"path": [
+    		[
+    			603.5,
+    			562.5
+    		],
+    		[
+    			603.5,
+    			576.5
+    		],
+    		[
+    			617.5,
+    			576.5
+    		],
+    		[
+    			617.5,
+    			562.5
+    		]
+    	]
+    },    {
+    	"id": 1430,
+		"submitted_by": "oxguy3",
+    	"name": "South African flag heart",
+    	"description": "",
+    	"website": "",
+    	"subreddit": "",
+    	"center": [
+    		455.5,
+    		771.5
+    	],
+    	"path": [
+    		[
+    			450.5,
+    			771.5
+    		],
+    		[
+    			455.5,
+    			776.5
+    		],
+    		[
+    			460.5,
+    			771.5
+    		],
+    		[
+    			460.5,
+    			769.5
+    		],
+    		[
+    			458.5,
+    			767.5
+    		],
+    		[
+    			457.5,
+    			767.5
+    		],
+    		[
+    			455.5,
+    			770.5
+    		],
+    		[
+    			453.5,
+    			767.5
+    		],
+    		[
+    			452.5,
+    			767.5
+    		],
+    		[
+    			450.5,
+    			769.5
+    		],
+    		[
+    			450.5,
+    			771.5
+    		]
+    	]
+    },  {
+    	"id": 1431,
+		"submitted_by": "Risiki",
+    	"name": "Mini flag of Ukraine",
+    	"description": "",
+    	"website": "",
+    	"subreddit": "",
+    	"center": [
+    		664.5,
+    		139.5
+    	],
+    	"path": [
+    		[
+    			659.5,
+    			137.5
+    		],
+    		[
+    			659.5,
+    			140.5
+    		],
+    		[
+    			668.5,
+    			140.5
+    		],
+    		[
+    			668.5,
+    			137.5
+    		]
+    	]
+    },    {
+    	"id": 1432,
+		"submitted_by": "Risiki",
+    	"name": "Mini flag of Lithuania",
+    	"description": "",
+    	"website": "",
+    	"subreddit": "",
+    	"center": [
+    		664.5,
+    		134.5
+    	],
+    	"path": [
+    		[
+    			659.5,
+    			130.5
+    		],
+    		[
+    			659.5,
+    			137.5
+    		],
+    		[
+    			668.5,
+    			137.5
+    		],
+    		[
+    			668.5,
+    			130.5
+    		]
+    	]
+    },    {
+    	"id": 1433,
+		"submitted_by": "Ronding",
+    	"name": "Blue flag carrier",
+    	"description": "In TagPro, each player is a ball. This is the player from the blue team holding the enemy flag.",
+    	"website": "",
+    	"subreddit": "",
+    	"center": [
+    		279.5,
+    		460.5
+    	],
+    	"path": [
+    		[
+    			287.5,
+    			458.5
+    		],
+    		[
+    			286.5,
+    			459.5
+    		],
+    		[
+    			283.5,
+    			459.5
+    		],
+    		[
+    			281.5,
+    			458.5
+    		],
+    		[
+    			279.5,
+    			460.5
+    		],
+    		[
+    			280.5,
+    			461.5
+    		],
+    		[
+    			280.5,
+    			464.5
+    		],
+    		[
+    			278.5,
+    			466.5
+    		],
+    		[
+    			275.5,
+    			466.5
+    		],
+    		[
+    			273.5,
+    			464.5
+    		],
+    		[
+    			273.5,
+    			461.5
+    		],
+    		[
+    			275.5,
+    			459.5
+    		],
+    		[
+    			276.5,
+    			459.5
+    		],
+    		[
+    			281.5,
+    			454.5
+    		],
+    		[
+    			282.5,
+    			454.5
+    		],
+    		[
+    			286.5,
+    			458.5
+    		],
+    		[
+    			287.5,
+    			458.5
+    		]
+    	]
+    },    {
+    	"id": 1434,
+		"submitted_by": "Ronding",
+    	"name": "Red flag carrier",
+    	"description": "In TagPro, each player is a ball. This is the player from the red team holding the enemy flag.",
+    	"website": "",
+    	"subreddit": "",
+    	"center": [
+    		211.5,
+    		460.5
+    	],
+    	"path": [
+    		[
+    			202.5,
+    			458.5
+    		],
+    		[
+    			204.5,
+    			459.5
+    		],
+    		[
+    			207.5,
+    			459.5
+    		],
+    		[
+    			209.5,
+    			458.5
+    		],
+    		[
+    			211.5,
+    			460.5
+    		],
+    		[
+    			210.5,
+    			461.5
+    		],
+    		[
+    			210.5,
+    			464.5
+    		],
+    		[
+    			212.5,
+    			466.5
+    		],
+    		[
+    			215.5,
+    			466.5
+    		],
+    		[
+    			217.5,
+    			464.5
+    		],
+    		[
+    			217.5,
+    			461.5
+    		],
+    		[
+    			215.5,
+    			459.5
+    		],
+    		[
+    			214.5,
+    			459.5
+    		],
+    		[
+    			209.5,
+    			454.5
+    		],
+    		[
+    			208.5,
+    			454.5
+    		],
+    		[
+    			204.5,
+    			458.5
+    		],
+    		[
+    			202.5,
+    			458.5
+    		]
+    	]
+    },    {
+    	"id": 1435,
+		"submitted_by": "Wind-Watcher",
+    	"name": "Totoro",
+    	"description": "The mascot of Studio Ghibli, featured in their film, My Neighbor Totoro.",
+    	"website": "",
+    	"subreddit": "",
+    	"center": [
+    		176.5,
+    		81.5
+    	],
+    	"path": [
+    		[
+    			169.5,
+    			72.5
+    		],
+    		[
+    			182.5,
+    			72.5
+    		],
+    		[
+    			182.5,
+    			89.5
+    		],
+    		[
+    			169.5,
+    			89.5
+    		]
+    	]
+    },    {
+    	"id": 1436,
+		"submitted_by": "Risiki",
+    	"name": "Mini flag of Estonia",
+    	"description": "",
+    	"website": "",
+    	"subreddit": "",
+    	"center": [
+    		664.5,
+    		122.5
+    	],
+    	"path": [
+    		[
+    			659.5,
+    			124.5
+    		],
+    		[
+    			668.5,
+    			124.5
+    		],
+    		[
+    			668.5,
+    			120.5
+    		],
+    		[
+    			659.5,
+    			120.5
+    		]
+    	]
+    },    {
+    	"id": 1437,
+		"submitted_by": "Qiqz",
+    	"name": "Luxembourg heart",
+    	"description": "Heart-shaped flag of Luxembourg.",
+    	"website": "",
+    	"subreddit": "/r/luxembourg",
+    	"center": [
+    		461.5,
+    		727.5
+    	],
+    	"path": [
+    		[
+    			461.5,
+    			721.5
+    		],
+    		[
+    			462.5,
+    			721.5
+    		],
+    		[
+    			462.5,
+    			722.5
+    		],
+    		[
+    			463.5,
+    			722.5
+    		],
+    		[
+    			463.5,
+    			723.5
+    		],
+    		[
+    			464.5,
+    			723.5
+    		],
+    		[
+    			464.5,
+    			724.5
+    		],
+    		[
+    			465.5,
+    			724.5
+    		],
+    		[
+    			465.5,
+    			725.5
+    		],
+    		[
+    			466.5,
+    			725.5
+    		],
+    		[
+    			466.5,
+    			731.5
+    		],
+    		[
+    			465.5,
+    			731.5
+    		],
+    		[
+    			465.5,
+    			732.5
+    		],
+    		[
+    			462.5,
+    			732.5
+    		],
+    		[
+    			462.5,
+    			731.5
+    		],
+    		[
+    			461.5,
+    			731.5
+    		],
+    		[
+    			461.5,
+    			730.5
+    		],
+    		[
+    			461.5,
+    			731.5
+    		],
+    		[
+    			460.5,
+    			731.5
+    		],
+    		[
+    			460.5,
+    			732.5
+    		],
+    		[
+    			457.5,
+    			732.5
+    		],
+    		[
+    			457.5,
+    			731.5
+    		],
+    		[
+    			456.5,
+    			731.5
+    		],
+    		[
+    			456.5,
+    			730.5
+    		],
+    		[
+    			455.5,
+    			730.5
+    		],
+    		[
+    			455.5,
+    			726.5
+    		],
+    		[
+    			456.5,
+    			726.5
+    		],
+    		[
+    			456.5,
+    			725.5
+    		],
+    		[
+    			457.5,
+    			725.5
+    		],
+    		[
+    			457.5,
+    			724.5
+    		],
+    		[
+    			458.5,
+    			724.5
+    		],
+    		[
+    			458.5,
+    			723.5
+    		],
+    		[
+    			459.5,
+    			723.5
+    		],
+    		[
+    			459.5,
+    			722.5
+    		],
+    		[
+    			460.5,
+    			722.5
+    		],
+    		[
+    			460.5,
+    			721.5
+    		]
+    	]
+    },    {
+    	"id": 1438,
+		"submitted_by": "Ronding",
+    	"name": "Rolling Bomb power-up",
+    	"description": "Rolling Bomb acts as both a defensive and crowd control power-up. Upon rolling over the power-up, your ball is filled with unstable energy. When you touch an opponent, you release a huge burst of energy, knocking back all players around you. This removes the power-up. Additionally, the burst of energy protects you from being popped. It is a single-use invulnerability.",
+    	"website": "",
+    	"subreddit": "",
+    	"center": [
+    		245.5,
+    		485.5
+    	],
+    	"path": [
+    		[
+    			242.5,
+    			479.5
+    		],
+    		[
+    			248.5,
+    			479.5
+    		],
+    		[
+    			251.5,
+    			482.5
+    		],
+    		[
+    			251.5,
+    			488.5
+    		],
+    		[
+    			248.5,
+    			491.5
+    		],
+    		[
+    			242.5,
+    			491.5
+    		],
+    		[
+    			239.5,
+    			488.5
+    		],
+    		[
+    			239.5,
+    			482.5
+    		]
+    	]
+    },    {
+    	"id": 1439,
+		"submitted_by": "Qiqz",
+    	"name": "Japan heart",
+    	"description": "Heart-shaped flag of Japan.",
+    	"website": "",
+    	"subreddit": "/r/japan",
+    	"center": [
+    		575.5,
+    		720.5
+    	],
+    	"path": [
+    		[
+    			572.5,
+    			715.5
+    		],
+    		[
+    			573.5,
+    			715.5
+    		],
+    		[
+    			574.5,
+    			715.5
+    		],
+    		[
+    			574.5,
+    			716.5
+    		],
+    		[
+    			575.5,
+    			716.5
+    		],
+    		[
+    			575.5,
+    			717.5
+    		],
+    		[
+    			575.5,
+    			716.5
+    		],
+    		[
+    			576.5,
+    			716.5
+    		],
+    		[
+    			576.5,
+    			715.5
+    		],
+    		[
+    			578.5,
+    			715.5
+    		],
+    		[
+    			579.5,
+    			715.5
+    		],
+    		[
+    			579.5,
+    			716.5
+    		],
+    		[
+    			580.5,
+    			716.5
+    		],
+    		[
+    			580.5,
+    			717.5
+    		],
+    		[
+    			581.5,
+    			717.5
+    		],
+    		[
+    			581.5,
+    			721.5
+    		],
+    		[
+    			580.5,
+    			721.5
+    		],
+    		[
+    			580.5,
+    			722.5
+    		],
+    		[
+    			579.5,
+    			722.5
+    		],
+    		[
+    			579.5,
+    			723.5
+    		],
+    		[
+    			578.5,
+    			723.5
+    		],
+    		[
+    			578.5,
+    			724.5
+    		],
+    		[
+    			577.5,
+    			724.5
+    		],
+    		[
+    			577.5,
+    			725.5
+    		],
+    		[
+    			576.5,
+    			725.5
+    		],
+    		[
+    			575.5,
+    			725.5
+    		],
+    		[
+    			574.5,
+    			725.5
+    		],
+    		[
+    			574.5,
+    			724.5
+    		],
+    		[
+    			573.5,
+    			724.5
+    		],
+    		[
+    			573.5,
+    			723.5
+    		],
+    		[
+    			572.5,
+    			723.5
+    		],
+    		[
+    			571.5,
+    			723.5
+    		],
+    		[
+    			571.5,
+    			722.5
+    		],
+    		[
+    			570.5,
+    			722.5
+    		],
+    		[
+    			570.5,
+    			721.5
+    		],
+    		[
+    			569.5,
+    			721.5
+    		],
+    		[
+    			569.5,
+    			717.5
+    		],
+    		[
+    			570.5,
+    			717.5
+    		],
+    		[
+    			570.5,
+    			716.5
+    		],
+    		[
+    			571.5,
+    			716.5
+    		],
+    		[
+    			571.5,
+    			715.5
+    		]
+    	]
+    },    {
+    	"id": 1440,
+		"submitted_by": "Risiki",
+    	"name": "Mini flag of Latvia",
+    	"description": "Bearing scars of yet another Danish invasion ",
+    	"website": "",
+    	"subreddit": "",
+    	"center": [
+    		664.5,
+    		127.5
+    	],
+    	"path": [
+    		[
+    			659.5,
+    			124.5
+    		],
+    		[
+    			659.5,
+    			130.5
+    		],
+    		[
+    			668.5,
+    			130.5
+    		],
+    		[
+    			668.5,
+    			124.5
+    		]
+    	]
+    },    {
+    	"id": 1441,
+		"submitted_by": "Ronding",
+    	"name": "Juke Juice power-up",
+    	"description": "Juke Juice allows you to accelerate and reach your maximum speed at faster rates, making it easier to avoid contact with other players and escape tricky situations.",
+    	"website": "",
+    	"subreddit": "",
+    	"center": [
+    		254.5,
+    		473.5
+    	],
+    	"path": [
+    		[
+    			251.5,
+    			467.5
+    		],
+    		[
+    			257.5,
+    			467.5
+    		],
+    		[
+    			260.5,
+    			470.5
+    		],
+    		[
+    			260.5,
+    			476.5
+    		],
+    		[
+    			257.5,
+    			479.5
+    		],
+    		[
+    			251.5,
+    			479.5
+    		],
+    		[
+    			248.5,
+    			476.5
+    		],
+    		[
+    			248.5,
+    			470.5
+    		]
+    	]
+    },    {
+    	"id": 1442,
+		"submitted_by": "Qiqz",
+    	"name": "Greek heart",
+    	"description": "Heart-shaped Greek flag.",
+    	"website": "",
+    	"subreddit": "/r/greece",
+    	"center": [
+    		539.5,
+    		770.5
+    	],
+    	"path": [
+    		[
+    			536.5,
+    			766.5
+    		],
+    		[
+    			537.5,
+    			766.5
+    		],
+    		[
+    			538.5,
+    			766.5
+    		],
+    		[
+    			538.5,
+    			767.5
+    		],
+    		[
+    			539.5,
+    			767.5
+    		],
+    		[
+    			539.5,
+    			768.5
+    		],
+    		[
+    			539.5,
+    			767.5
+    		],
+    		[
+    			540.5,
+    			767.5
+    		],
+    		[
+    			540.5,
+    			766.5
+    		],
+    		[
+    			541.5,
+    			766.5
+    		],
+    		[
+    			543.5,
+    			766.5
+    		],
+    		[
+    			543.5,
+    			767.5
+    		],
+    		[
+    			544.5,
+    			767.5
+    		],
+    		[
+    			544.5,
+    			768.5
+    		],
+    		[
+    			545.5,
+    			768.5
+    		],
+    		[
+    			545.5,
+    			771.5
+    		],
+    		[
+    			545.5,
+    			772.5
+    		],
+    		[
+    			544.5,
+    			772.5
+    		],
+    		[
+    			544.5,
+    			773.5
+    		],
+    		[
+    			543.5,
+    			773.5
+    		],
+    		[
+    			543.5,
+    			774.5
+    		],
+    		[
+    			542.5,
+    			774.5
+    		],
+    		[
+    			542.5,
+    			775.5
+    		],
+    		[
+    			536.5,
+    			775.5
+    		],
+    		[
+    			536.5,
+    			774.5
+    		],
+    		[
+    			535.5,
+    			774.5
+    		],
+    		[
+    			535.5,
+    			773.5
+    		],
+    		[
+    			534.5,
+    			773.5
+    		],
+    		[
+    			534.5,
+    			772.5
+    		],
+    		[
+    			533.5,
+    			771.5
+    		],
+    		[
+    			533.5,
+    			768.5
+    		],
+    		[
+    			533.5,
+    			768.5
+    		],
+    		[
+    			534.5,
+    			768.5
+    		],
+    		[
+    			534.5,
+    			767.5
+    		],
+    		[
+    			535.5,
+    			767.5
+    		],
+    		[
+    			535.5,
+    			766.5
+    		]
+    	]
+    },    {
+    	"id": 1443,
+		"submitted_by": "Ronding",
+    	"name": "TagPro power-up",
+    	"description": "TagPro gives your ball a green ring. Any opponents who come in contact with you will be popped. If you have both TagPro and the opponent flag, touching an opponent will pop both of you.",
+    	"website": "",
+    	"subreddit": "",
+    	"center": [
+    		236.5,
+    		473.5
+    	],
+    	"path": [
+    		[
+    			233.5,
+    			467.5
+    		],
+    		[
+    			239.5,
+    			467.5
+    		],
+    		[
+    			242.5,
+    			470.5
+    		],
+    		[
+    			242.5,
+    			476.5
+    		],
+    		[
+    			239.5,
+    			479.5
+    		],
+    		[
+    			233.5,
+    			479.5
+    		],
+    		[
+    			230.5,
+    			476.5
+    		],
+    		[
+    			230.5,
+    			470.5
+    		]
+    	]
+    },    {
+    	"id": 1444,
+		"submitted_by": "Denmarkdot",
+    	"name": "Peace-heart (Denmark-Hungary)",
+    	"description": "One of the many symbols in r/place of an alliance (or friendship) between two flags that touch each other.",
+    	"website": "",
+    	"subreddit": "r/denmark, r/hungary",
+    	"center": [
+    		660.5,
+    		312.5
+    	],
+    	"path": [
+    		[
+    			660.5,
+    			310.5
+    		],
+    		[
+    			658.5,
+    			309.5
+    		],
+    		[
+    			656.5,
+    			309.5
+    		],
+    		[
+    			655.5,
+    			311.5
+    		],
+    		[
+    			656.5,
+    			313.5
+    		],
+    		[
+    			658.5,
+    			315.5
+    		],
+    		[
+    			660.5,
+    			317.5
+    		],
+    		[
+    			663.5,
+    			314.5
+    		],
+    		[
+    			664.5,
+    			313.5
+    		],
+    		[
+    			665.5,
+    			312.5
+    		],
+    		[
+    			665.5,
+    			311.5
+    		],
+    		[
+    			664.5,
+    			310.5
+    		],
+    		[
+    			663.5,
+    			309.5
+    		],
+    		[
+    			662.5,
+    			309.5
+    		],
+    		[
+    			661.5,
+    			310.5
+    		],
+    		[
+    			660.5,
+    			311.5
+    		],
+    		[
+    			659.5,
+    			310.5
+    		],
+    		[
+    			658.5,
+    			309.5
+    		],
+    		[
+    			656.5,
+    			309.5
+    		]
+    	]
+    },    {
+    	"id": 1445,
+		"submitted_by": "Denmarkdot",
+    	"name": "Frame",
+    	"description": "This frame was primarily built by r/denmark when they promised to help r/elitedangerous build their frame. It was supposed to be another colour, but the Danes decided to use their own colours instead.",
+    	"website": "",
+    	"subreddit": "r/elitedangerous, r/denmark",
+    	"center": [
+    		661.5,
+    		247.5
+    	],
+    	"path": [
+    		[
+    			658.5,
+    			228.5
+    		],
+    		[
+    			630.5,
+    			228.5
+    		],
+    		[
+    			630.5,
+    			257.5
+    		],
+    		[
+    			630.5,
+    			268.5
+    		],
+    		[
+    			694.5,
+    			268.5
+    		],
+    		[
+    			693.5,
+    			229.5
+    		],
+    		[
+    			660.5,
+    			228.5
+    		],
+    		[
+    			659.5,
+    			232.5
+    		],
+    		[
+    			689.5,
+    			232.5
+    		],
+    		[
+    			690.5,
+    			265.5
+    		],
+    		[
+    			634.5,
+    			265.5
+    		],
+    		[
+    			634.5,
+    			232.5
+    		],
+    		[
+    			658.5,
+    			232.5
+    		],
+    		[
+    			658.5,
+    			228.5
+    		]
+    	]
+    },    {
+    	"id": 1446,
+		"submitted_by": "gwennoirs",
+    	"name": "Remnants of Minor Void",
+    	"description": "One of the last areas of the void, which largely targeted the nearby trans flag and the spiral in the area. ",
+    	"website": "",
+    	"subreddit": "",
+    	"center": [
+    		163.5,
+    		709.5
+    	],
+    	"path": [
+    		[
+    			182.5,
+    			720.5
+    		],
+    		[
+    			184.5,
+    			715.5
+    		],
+    		[
+    			175.5,
+    			697.5
+    		],
+    		[
+    			146.5,
+    			697.5
+    		],
+    		[
+    			146.5,
+    			719.5
+    		],
+    		[
+    			182.5,
+    			720.5
+    		]
+    	]
+    },    {
+    	"id": 1447,
+		"submitted_by": "CeSium_Shark",
+    	"name": "SS13 Security HUD icons",
+    	"description": "Icons from the game Space Station 13 that appear over players when you wear the Security HUD sunglasses. The top icon shows the player's job, in this case, a Clown, and the red \"W\" means the player is wanted by the security team.",
+    	"website": "",
+    	"subreddit": "r/SS13",
+    	"center": [
+    		238.5,
+    		96.5
+    	],
+    	"path": [
+    		[
+    			234.5,
+    			89.5
+    		],
+    		[
+    			241.5,
+    			89.5
+    		],
+    		[
+    			241.5,
+    			102.5
+    		],
+    		[
+    			234.5,
+    			102.5
+    		],
+    		[
+    			234.5,
+    			89.5
+    		]
+    	]
+    },    {
+    	"id": 1448,
+		"submitted_by": "xiwan",
+    	"name": "China Heart",
+    	"description": "National flag of China",
+    	"website": "https://zh.wikipedia.org/wiki/%E4%B8%AD%E5%9B%BD%E5%9B%BD%E6%97%97",
+    	"subreddit": "",
+    	"center": [
+    		617.5,
+    		727.5
+    	],
+    	"path": [
+    		[
+    			617.5,
+    			722.5
+    		],
+    		[
+    			617.5,
+    			722.5
+    		],
+    		[
+    			621.5,
+    			727.5
+    		],
+    		[
+    			622.5,
+    			728.5
+    		],
+    		[
+    			622.5,
+    			729.5
+    		],
+    		[
+    			621.5,
+    			730.5
+    		],
+    		[
+    			620.5,
+    			731.5
+    		],
+    		[
+    			618.5,
+    			730.5
+    		],
+    		[
+    			617.5,
+    			728.5
+    		],
+    		[
+    			615.5,
+    			731.5
+    		],
+    		[
+    			612.5,
+    			729.5
+    		],
+    		[
+    			612.5,
+    			728.5
+    		],
+    		[
+    			617.5,
+    			723.5
+    		],
+    		[
+    			617.5,
+    			722.5
+    		]
+    	]
+    },    {
+    	"id": 1449,
+		"submitted_by": "CeSium_Shark",
+    	"name": "Revolutionary Symbol",
+    	"description": "A symbol belonging to an antagonist team on Space Station 13. The team must use flashes to convert people into fellow revs and overthrow the Captain, Head of Security, Chief Engineer, etc.",
+    	"website": "",
+    	"subreddit": "r/SS13",
+    	"center": [
+    		265.5,
+    		93.5
+    	],
+    	"path": [
+    		[
+    			261.5,
+    			89.5
+    		],
+    		[
+    			269.5,
+    			89.5
+    		],
+    		[
+    			269.5,
+    			97.5
+    		],
+    		[
+    			261.5,
+    			97.5
+    		],
+    		[
+    			261.5,
+    			90.5
+    		]
+    	]
+    },    {
+    	"id": 1450,
+		"submitted_by": "Vekter",
+    	"name": "Mudkip Square",
+    	"description": "A Mudkip, one of the starters from the 3rd generation of Pokemon games.",
+    	"website": "",
+    	"subreddit": "/r/pokemon",
+    	"center": [
+    		4.5,
+    		707.5
+    	],
+    	"path": [
+    		[
+    			0.5,
+    			703.5
+    		],
+    		[
+    			7.5,
+    			703.5
+    		],
+    		[
+    			7.5,
+    			710.5
+    		],
+    		[
+    			0.5,
+    			710.5
+    		]
+    	]
+    },    {
+    	"id": 1451,
+		"submitted_by": "Kunfuxu",
+    	"name": "Caravel",
+    	"description": "A caravel (Portuguese: caravela) is a small, highly maneuverable sailing ship developed in the 15th century by the Portuguese to explore along the West African coast and into the Atlantic Ocean. Caravels were used by the Portuguese for the oceanic exploration voyages during the 15th and 16th centuries in the Age of Discovery. Prince Henry, Christopher Columbus, and Bartolomeu Dias all used caravels.",
+    	"website": "",
+    	"subreddit": "/r/Portugal",
+    	"center": [
+    		737.5,
+    		433.5
+    	],
+    	"path": [
+    		[
+    			728.5,
+    			442.5
+    		],
+    		[
+    			747.5,
+    			442.5
+    		],
+    		[
+    			748.5,
+    			423.5
+    		],
+    		[
+    			726.5,
+    			425.5
+    		]
+    	]
+    },    {
+    	"id": 1452,
+		"submitted_by": "ochotonaprinceps",
+    	"name": "Diamond Club <>",
+    	"description": "The Diamond Club is a podcasting/streaming community of talented and quirky people. The <> is their symbol and \"secret handshake\". The symbol was incomplete at the time of Place's closing and that makes us sad.",
+    	"website": "http://diamondclub.tv/",
+    	"subreddit": "/r/DiamondClub/",
+    	"center": [
+    		0.5,
+    		0.5
+    	],
+    	"path": []
+    },    {
+    	"id": 1453,
+		"submitted_by": "Reddit-Mengzy",
+    	"name": "Nuke Ops Disk",
+    	"description": "Space Station 13 (or SS13) is a top-down role-playing multiplayer video game on the BYOND game engine, originally released in 2003. The image depicts the Nuclear Operative Disk, a high risk item often sought after by traitors from the opposing syndicate faction.",
+    	"website": "",
+    	"subreddit": "/r/SS13",
+    	"center": [
+    		267.5,
+    		102.5
+    	],
+    	"path": [
+    		[
+    			262.5,
+    			97.5
+    		],
+    		[
+    			262.5,
+    			107.5
+    		],
+    		[
+    			272.5,
+    			107.5
+    		],
+    		[
+    			273.5,
+    			97.5
+    		],
+    		[
+    			262.5,
+    			97.5
+    		]
+    	]
     }
     
 ];
