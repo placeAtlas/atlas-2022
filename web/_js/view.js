@@ -113,7 +113,7 @@ function initView(){
 
 	var fixed = false; // Fix hovered items in place, so that clicking on links is possible
 
-	renderBackground();
+	renderBackground(atlas);
 	render();
 
 	buildObjectsList(null, null);
@@ -331,7 +331,7 @@ function initView(){
 		}
 	}
 
-	function renderBackground(){
+	function renderBackground(atlas){
 
 		backgroundContext.clearRect(0, 0, canvas.width, canvas.height);
 
@@ -375,6 +375,7 @@ function initView(){
 				);
 			});
 			document.getElementById("atlasSize").innerHTML = "Found "+sortedAtlas.length+" entries.";
+			
 		} else {
 			sortedAtlas = atlas.concat();
 			document.getElementById("atlasSize").innerHTML = "The Atlas contains "+sortedAtlas.length+" entries.";
@@ -383,6 +384,9 @@ function initView(){
 		if(sort === null){
 			sort = defaultSort;
 		}
+
+		renderBackground(sortedAtlas);
+		render();
 
 		document.getElementById("sort").value = sort;
 

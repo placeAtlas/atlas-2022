@@ -68580,8 +68580,8 @@ var atlas = [
     	"id": 1114,
 		"submitted_by": "donwilson",
     	"name": "Parabola",
-    	"description": "Parabola GNU/Linux-libre, a distribution based on Arch that prioritizes simple package and system management.",
-    	"website": "",
+    	"description": "Parabola GNU/Linux-libre, a Linux distribution based on Arch that prioritizes simple package and system management.",
+    	"website": "https://www.parabola.nu/",
     	"subreddit": "/r/parabola",
     	"center": [
     		905.5,
@@ -70392,7 +70392,7 @@ var atlas = [
     	]
     },*/
 
-    {
+    /*{
     	"id": 1147,
 		"submitted_by": "11tron",
     	"name": "r/Parabola",
@@ -70433,7 +70433,7 @@ var atlas = [
     			490.5
     		]
     	]
-    }, {
+    },*/ {
     	"id": 1148,
 		"submitted_by": "11tron",
     	"name": "Link",
