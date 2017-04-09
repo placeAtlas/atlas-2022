@@ -103,7 +103,7 @@ function initView(){
 		buildObjectsList(null, null);
 	};
 
-	var defaultSort = "alphaDesc";
+	var defaultSort = "alphaAsc";
 	document.getElementById("sort").value = defaultSort;
 
 	var viewportWidth = document.documentElement.clientWidth;
@@ -386,7 +386,7 @@ function initView(){
 
 		document.getElementById("sort").value = sort;
 
-		console.log(sort);
+		//console.log(sort);
 
 		var sortFunction;
 
@@ -436,7 +436,7 @@ function initView(){
 						else if (a.name.toLowerCase().indexOf(filter) > b.name.toLowerCase().indexOf(filter)) {
 							return 1;
 						} else {
-							return 0;
+							return a.name.toLowerCase().localeCompare(b.name.toLowerCase());
 						}
 					} else if(a.name.toLowerCase().indexOf(filter) !== -1){
 						return -1;
@@ -449,7 +449,7 @@ function initView(){
 						else if (a.description.toLowerCase().indexOf(filter) > b.description.toLowerCase().indexOf(filter)) {
 							return 1;
 						} else {
-							return 0;
+							return a.name.toLowerCase().localeCompare(b.name.toLowerCase());
 						}
 					}
 				}
