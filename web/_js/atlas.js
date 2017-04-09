@@ -90,8 +90,8 @@ var atlas = [
     	"website": "",
     	"subreddit": "monalisaclan",
     	"center": [
-    		377.5,
-    		452.5
+    		374.5,
+    		451.5
     	],
     	"path": [
     		[
@@ -99,8 +99,116 @@ var atlas = [
     			374.5
     		],
     		[
-    			430.5,
+    			394.5,
     			374.5
+    		],
+    		[
+    			392.5,
+    			380.5
+    		],
+    		[
+    			396.5,
+    			380.5
+    		],
+    		[
+    			403.5,
+    			374.5
+    		],
+    		[
+    			430.5,
+    			373.5
+    		],
+    		[
+    			426.5,
+    			387.5
+    		],
+    		[
+    			427.5,
+    			399.5
+    		],
+    		[
+    			430.5,
+    			405.5
+    		],
+    		[
+    			426.5,
+    			405.5
+    		],
+    		[
+    			423.5,
+    			415.5
+    		],
+    		[
+    			416.5,
+    			409.5
+    		],
+    		[
+    			414.5,
+    			411.5
+    		],
+    		[
+    			416.5,
+    			419.5
+    		],
+    		[
+    			413.5,
+    			419.5
+    		],
+    		[
+    			418.5,
+    			425.5
+    		],
+    		[
+    			417.5,
+    			427.5
+    		],
+    		[
+    			418.5,
+    			432.5
+    		],
+    		[
+    			409.5,
+    			432.5
+    		],
+    		[
+    			409.5,
+    			443.5
+    		],
+    		[
+    			418.5,
+    			443.5
+    		],
+    		[
+    			418.5,
+    			449.5
+    		],
+    		[
+    			430.5,
+    			457.5
+    		],
+    		[
+    			430.5,
+    			490.5
+    		],
+    		[
+    			390.5,
+    			490.5
+    		],
+    		[
+    			390.5,
+    			516.5
+    		],
+    		[
+    			416.5,
+    			516.5
+    		],
+    		[
+    			416.5,
+    			491.5
+    		],
+    		[
+    			430.5,
+    			491.5
     		],
     		[
     			430.5,
@@ -2550,7 +2658,7 @@ var atlas = [
     {
     	"id": 52,
     	"name": "Flag of Greece",
-    	"description": "",
+    	"description": "The location occupied by the flag of Greece was originally occupied by the flag of Singapore, however, Singapore was unable to preserve the bottom white stripe and so their flag was taken over by the flag of Turkey, which resembles the top half of the flag of Singapore. The Turkish flag remained in a crude state until the Netherlands decided to make amends for the earlier destruction of a Greek flag and placed the Greek flag on top of Turkey in a plan called \"Operation Erdogan\". Originally a Dutch-tricolored friendship heart was placed with its center at the top of the border between the Turkish and Greek flags, but was wiped out in later edits.",
     	"website": "",
     	"subreddit": "/r/greece",
     	"center": [
@@ -3455,8 +3563,8 @@ var atlas = [
 	},
 	{
 		"id": 70,
-		"name": "Niko",
-		"description": "The main character of the indie game \"OneShot\".",
+		"name": "Niko and Puzzle",
+		"description": "Niko is the main character of a meta indie game called \"Oneshot\". Featured alongside Niko is one of the puzzles encountered in the game. There was a brief scuffle that occurred between the Oneshot faction and a sect of the Overwatch faction. At one point, some Overwatch faction members attempted to create the phrase \"HANZO SWITCH PLS\", basing it around the \"SWITCH\" from the neighboring Nintendo Switch sprite. This occured roughly at the same time that the Oneshot faction began to create Niko, and eventually the \"PLS\" and the Niko sprite began to overlap. The Oneshot faction attempted to move the S below the Niko sprite, and a bit of dialogue between various members of both factions proved fruitful at first, until some more agressive members began to put the S over Niko anyway. This started a war of attrition between the two factions, resulting in a compromise of the S being highlighted over the highlighted Niko sprite. Sadly, the pun was not to last, as the Swedish flag would soon invade and conquer much of the north eastern corner, taking the Hanzo and Pls along with it, yet allowing Niko to remain.",
 		"website": "http://www.oneshot-game.com/",
 		"subreddit": "/r/oneshot",
 		"center": [
@@ -4341,8 +4449,8 @@ var atlas = [
 	{
 		"id": 87,
 		"name": "TagPro",
-		"description": "Subreddit art for the web game TagPro",
-		"website": "https://tagpro.gg",
+		"description": "The first pre-existing community on /r/place and arguably the longest lasting artwork - TagPro is a free-to-play capture-the-flag webgame with a dedicated community on /r/Tagpro. The final design was developed after only around 10 hours and remained largely unchanged from then.",
+		"website": "http://tagpro.gg",
 		"subreddit": "/r/tagpro",
 		"center": [
 			244.5,
@@ -6042,9 +6150,9 @@ var atlas = [
 	{
 		"id": 118,
 		"name": "In the Aeroplane Over the Sea",
-		"description": "The cover of \"In the Aeroplane Over the Sea\", a 1998 album by Neutral Milk Hotel",
+		"description": "The cover of \"In the Aeroplane Over the Sea\", a 1998 album by Neutral Milk Hotel, which has become a meme for the indie music community. After relocating from conflict with r/zootopia, our artwork was built on planned space for the USA flag, but was relocated to the right with the help of the Americans.",
 		"website": "",
-		"subreddit": "",
+		"subreddit": "/r/neutralmilkhotel, /r/indieheads",
 		"center": [
 			585.5,
 			545.5
@@ -8950,9 +9058,9 @@ var atlas = [
 	{
 		"id": 162,
 		"name": "The Velvet Underground",
-		"description": "The cover (a banana sticker designed and signed by Andy Warhol) for The Velvet Underground's classic 1967 debut album The Velvet Underground & Nico.",
+		"description": "The cover (a banana sticker designed and signed by Andy Warhol) for The Velvet Underground's classic 1967 debut album The Velvet Underground & Nico. Chosen as r/indieheads second project to celebrate the 50th anniversary of the seminal album.",
 		"website": "",
-		"subreddit": "/r/VelvetUnderground",
+		"subreddit": "/r/VelvetUnderground, /r/indieheads",
 		"center": [
 			557.5,
 			559.5
@@ -10060,7 +10168,7 @@ var atlas = [
 	{
     	"id": 187,
     	"name": "Space Station 13",
-    	"description": "Space Station 13 (or SS13) is a top-down role-playing multiplayer video game on the BYOND game engine, originally released in 2003.\nThe image depicts the clown, the unofficial mascot of SS13.",
+    	"description": "A sprite-based role-playing multiplayer game running on the BYOND Engine, originally released in 2003 and developed collaboratively by the community since 2008. Pictured here is the in-game sprite of the clown, which is the unofficial mascot of SS13.",
     	"website": "",
     	"subreddit": "/r/SS13",
     	"center": [
@@ -10240,7 +10348,7 @@ var atlas = [
 	{
 		"id": 191,
 		"name": "Wario",
-		"description": "First drawn on the backdrop of Rainbow Road from the Nintendo game Super Mario 64 as Mario, quickly redditors changed him to Pinocchio, Luigi, Waluigi, and finally, Wario.",
+		"description": "Started as a piece for r/ainbowroad, this artwork was going to originally be by the r/ainbowroad sign, but had to be moved due to the hivemind trying to fix the road by the sign. This pixel art was originally based off of Mario from Super Mario Kart, but got vandalized by the void as an attempt to take over the rainbow road. People quickly fixed the artwork, but in the middle of fixing the artwork, Mario got changed into Luigi. Then people tried to change him into Waluigi, and it got so vandalized, that r/ainbowroad held a event to rebuild Mario. But people kept changing him back to Waluigi and Luigi, and it got vandalized again. r/ainbowroad put a notice on their discord that fixing Mario and the road was the main priority. Mario got changed into Wario, and that's when r/place ended. And while all this was happening, everyone tried giving Mario a long nose. This piece inspired the Yoshi piece by it.",
 		"website": "",
 		"subreddit": "",
 		"center": [
@@ -10693,31 +10801,43 @@ var atlas = [
 		"website": "https://www.monstercat.com/",
 		"subreddit": "/r/monstercat",
 		"center": [
-			895.5,
-			612.5
-		],
-		"path": [
-			[
-				878.5,
-				593.5
-			],
-			[
-				912.5,
-				594.5
-			],
-			[
-				911.5,
-				631.5
-			],
-			[
-				878.5,
-				632.5
-			],
-			[
-				878.5,
-				593.5
-			]
-		]
+    		894.5,
+    		615.5
+    	],
+    	"path": [
+    		[
+    			878.5,
+    			593.5
+    		],
+    		[
+    			911.5,
+    			593.5
+    		],
+    		[
+    			911.5,
+    			631.5
+    		],
+    		[
+    			902.5,
+    			631.5
+    		],
+    		[
+    			902.5,
+    			639.5
+    		],
+    		[
+    			882.5,
+    			639.5
+    		],
+    		[
+    			882.5,
+    			631.5
+    		],
+    		[
+    			878.5,
+    			631.5
+    		]
+    	]
 	},
 	{
 		"id": 198,
@@ -13035,7 +13155,7 @@ var atlas = [
 		"id": 232,
 		"name": "Megumin / Konosuba",
 		"description": "Arch Wizard Megumin, a character of KonoSuba: God’s Blessing on this Wonderful World!, a comedic Japanese novel series written by Natsume Akatsuki.",
-		"website": "http://kissanime.ru/Anime/Kono-Subarashii-Sekai-ni-Shukufuku-wo",
+		"website": "https://myanimelist.net/anime/30831/Kono_Subarashii_Sekai_ni_Shukufuku_wo",
 		"subreddit": "/r/Konosuba",
 		"center": [
 			568.5,
@@ -14395,7 +14515,7 @@ var atlas = [
 		"id": 254,
 		"name": "BerryTube",
 		"description": "BerryTube is a community website around My Little Pony: Friendship Is Magic, a children's animated fantasy television series developed by Lauren Faust.",
-		"website": "https://berrytube.tv",
+		"website": "http://berrytube.tv",
 		"subreddit": "",
 		"center": [
 			383.5,
@@ -14727,7 +14847,7 @@ var atlas = [
 		"name": "Saint Louis Blues",
 		"description": "The logo of the Saint Louis Blues National Hockey League (NHL) team.",
 		"website": "",
-		"subreddit": "/r/saintlouisblues",
+		"subreddit": "/r/stlouisblues",
 		"center": [
     		587.5,
     		785.5
@@ -18095,7 +18215,7 @@ var atlas = [
     	]
     },    {
     	"id": 289,
-    	"name": "Chatot",
+    	"name": "Chatot (Pokémon)",
     	"description": "Chatot is a popular Pokemon in twitch plays pokemon, starting with the copypasta \"Twitch chat is like a parrot\" changed to \"Twitch chat is like a Chatot\", derived to \"I like Chatot\", ultimately leading to the \"Chatty Yellow\" hack with Pikachu replaced by Chatot",
     	"website": "",
     	"subreddit": "/r/twitchplayspokemon",
@@ -25166,7 +25286,7 @@ var atlas = [
     			41.5
     		]
     	]
-    },  */  {
+    },  *//*  {
     	"id": 370,
     	"name": "Chatot (Pokémon)",
     	"description": "Chatot is a Bird Pokémon, and also a meme in the Twitch Plays Pokémon community.",
@@ -25218,7 +25338,7 @@ var atlas = [
     			203.5
     		]
     	]
-    },    {
+    },  */  {
     	"id": 371,
     	"name": "Flag of Iceland",
     	"description": "",
@@ -28784,8 +28904,8 @@ var atlas = [
     	]
     },  */  {
     	"id": 419,
-    	"name": "Yiff Me Daddy!",
-    	"description": "",
+    	"name": "furry_irl",
+    	"description": "A spinoff of the popular me_irl subreddit, but for furries and /r/furry users. Humor is mainly based around knots, bad dragon, sea salt, being gay, yiffing, and the seemingly endless debate between \"fans\" of Kass and Sidon from the Zelda universe.",
     	"website": "",
     	"subreddit": "/r/furry_irl",
     	"center": [
@@ -32519,7 +32639,7 @@ var atlas = [
     },    {
     	"id": 482,
     	"name": "Flag of Belarus",
-    	"description": "alternative version of Belarussian flag",
+    	"description": "This used to be state flag of Belarus, but currently is used by opposition to authoritarian regime in Belarus.",
     	"website": "",
     	"subreddit": "",
     	"center": [
@@ -36064,7 +36184,7 @@ var atlas = [
     },    {
     	"id": 517,
     	"name": "Austria",
-    	"description": "",
+    	"description": "The Austrian heart is connected with that of Hungary next to it, symbolising that they were once united as Austria-Hungary.",
     	"website": "",
     	"subreddit": "r/austria",
     	"center": [
@@ -36550,7 +36670,7 @@ var atlas = [
         },    */{
     	"id": 529,
     	"name": "Chara (undertale)",
-    	"description": "Chara is a spoileriffic human character from the indie game Undertale, released 2016 by Toby Fox.",
+    	"description": "Chara is a spoileriffic human character from the indie game Undertale, released 2015 by Toby Fox.",
     	"website": "",
     	"subreddit": "/r/undertale",
     	"center": [
@@ -40823,7 +40943,7 @@ var atlas = [
     	"id": 603,
 		"submitted_by": "ElliottB1",
     	"name": "Play-Yan",
-    	"description": "Play-Yan is a character from the Rhythm Heaven series of games.",
+    	"description": "A character from the Rhythm Heaven series (now with a nose), appearing in the first instalment of the series on the Game boy advanced called \"Rhythm Tengoku\" and also appears in the GBA media player as well as the Nintendo 3DS Music Player. Rhythm heaven is a rhythm based game published by Nintendo and has had 4 games so far. The game is made up of smaller mini-games, the one Play-yan appears in is called \"Night-Walk\". Night-Walk and Play-yan return in Rhythm Heaven Fever, and Rhythm Heaven Megamix. \"What could be better than a stroll in the starlight? How about a series of jumps in the starlight?\"",
     	"website": "",
     	"subreddit": "/r/rhythmheaven",
     	"center": [
@@ -45455,7 +45575,7 @@ var atlas = [
     	"name": "Former place of Fred Flinstone (Grand Dad)",
     	"description": "The former place of an image of Fred Flintstone from the title screen of the NES game \"The Flintstones: The Rescue of Dino & Hoppy\", and of the bootleg version of the game called \"7 Grand Dad\". Originally a Vinsauce meme, 7 Grand Dad recently spread (last year) to the uploader of high quality video-game rips, SiIvaGunner. His image may be lost to the void, but Grand Dad lives on in our hearts as the greatest modern stone-age man we ever knew.",
     	"website": "",
-    	"subreddit": "/r/Vinesauce & /r/GiIvaSunner",
+    	"subreddit": "/r/Vinesauce, /r/GiIvaSunner",
     	"center": [
     		225.5,
     		385.5
@@ -45568,149 +45688,173 @@ var atlas = [
     	"website": "",
     	"subreddit": "/r/Megaman",
     	"center": [
-    		469.5,
-    		885.5
+    		474.5,
+    		884.5
     	],
     	"path": [
     		[
-    			396.5,
-    			875.5
+    			385.5,
+    			895.5
     		],
     		[
-    			390.5,
-    			879.5
-    		],
-    		[
-    			387.5,
-    			886.5
-    		],
-    		[
-    			391.5,
-    			890.5
-    		],
-    		[
-    			384.5,
-    			896.5
-    		],
-    		[
-    			402.5,
-    			896.5
-    		],
-    		[
-    			403.5,
-    			892.5
-    		],
-    		[
-    			400.5,
-    			890.5
-    		],
-    		[
-    			402.5,
-    			887.5
-    		],
-    		[
-    			414.5,
-    			885.5
-    		],
-    		[
-    			420.5,
-    			891.5
-    		],
-    		[
-    			523.5,
-    			891.5
-    		],
-    		[
-    			524.5,
-    			904.5
-    		],
-    		[
-    			527.5,
-    			903.5
-    		],
-    		[
-    			527.5,
-    			893.5
-    		],
-    		[
-    			531.5,
-    			888.5
-    		],
-    		[
-    			531.5,
-    			894.5
-    		],
-    		[
-    			535.5,
-    			888.5
-    		],
-    		[
-    			538.5,
-    			896.5
-    		],
-    		[
-    			538.5,
-    			904.5
-    		],
-    		[
-    			541.5,
-    			905.5
-    		],
-    		[
-    			541.5,
+    			392.5,
     			889.5
     		],
     		[
-    			536.5,
-    			883.5
+    			387.5,
+    			884.5
     		],
     		[
-    			536.5,
+    			387.5,
+    			882.5
+    		],
+    		[
+    			398.5,
     			873.5
     		],
     		[
-    			531.5,
-    			867.5
-    		],
-    		[
-    			524.5,
-    			868.5
-    		],
-    		[
-    			523.5,
-    			876.5
-    		],
-    		[
-    			523.5,
-    			879.5
-    		],
-    		[
-    			419.5,
-    			878.5
-    		],
-    		[
-    			414.5,
-    			883.5
-    		],
-    		[
-    			405.5,
-    			882.5
+    			400.5,
+    			873.5
     		],
     		[
     			404.5,
     			877.5
     		],
     		[
-    			400.5,
-    			872.5
+    			404.5,
+    			882.5
     		],
     		[
-    			393.5,
-    			876.5
+    			410.5,
+    			881.5
     		],
     		[
-    			391.5,
+    			411.5,
+    			878.5
+    		],
+    		[
+    			413.5,
+    			878.5
+    		],
+    		[
+    			415.5,
+    			882.5
+    		],
+    		[
+    			420.5,
+    			877.5
+    		],
+    		[
+    			435.5,
+    			877.5
+    		],
+    		[
+    			435.5,
     			879.5
+    		],
+    		[
+    			522.5,
+    			879.5
+    		],
+    		[
+    			524.5,
+    			869.5
+    		],
+    		[
+    			527.5,
+    			867.5
+    		],
+    		[
+    			531.5,
+    			867.5
+    		],
+    		[
+    			539.5,
+    			879.5
+    		],
+    		[
+    			556.5,
+    			879.5
+    		],
+    		[
+    			556.5,
+    			885.5
+    		],
+    		[
+    			539.5,
+    			885.5
+    		],
+    		[
+    			542.5,
+    			889.5
+    		],
+    		[
+    			539.5,
+    			905.5
+    		],
+    		[
+    			536.5,
+    			904.5
+    		],
+    		[
+    			538.5,
+    			894.5
+    		],
+    		[
+    			535.5,
+    			890.5
+    		],
+    		[
+    			531.5,
+    			893.5
+    		],
+    		[
+    			530.5,
+    			890.5
+    		],
+    		[
+    			527.5,
+    			893.5
+    		],
+    		[
+    			526.5,
+    			903.5
+    		],
+    		[
+    			522.5,
+    			899.5
+    		],
+    		[
+    			518.5,
+    			889.5
+    		],
+    		[
+    			493.5,
+    			889.5
+    		],
+    		[
+    			491.5,
+    			890.5
+    		],
+    		[
+    			419.5,
+    			890.5
+    		],
+    		[
+    			415.5,
+    			886.5
+    		],
+    		[
+    			402.5,
+    			886.5
+    		],
+    		[
+    			400.5,
+    			889.5
+    		],
+    		[
+    			403.5,
+    			895.5
     		]
     	]
     }
@@ -49560,7 +49704,7 @@ var atlas = [
     	"id": 748,
 		"submitted_by": "M4RV1N_",
     	"name": "Totoro",
-    	"description": "Toto​ro is the title character in My Neighbor Totoro. He has been a spirit from the forest, as well as simply an animal. He has made several appearances in popular culture.",
+    	"description": "Toto​ro is the title character in Studio Ghibli's 1988 movie My Neighbor Totoro. He has been a spirit from the forest, as well as simply an animal. He has made several appearances in popular culture and is Studio Ghibli's mascot and logo.",
     	"website": "",
     	"subreddit": "r/ghibli",
     	"center": [
@@ -50426,8 +50570,8 @@ var atlas = [
     },    {
     	"id": 767,
 		"submitted_by": "dienamight",
-    	"name": "Gnome Kid",
-    	"description": "After the Dutch won the battle against the void, an agreement between /r/placenl, /r/2007scape and /r/dankmemes was reached which allowed the latter two to rebuild Gnome Kid on Dutch soil",
+    	"name": "Gnome Child",
+    	"description": "After the Dutch won the battle against the void, an agreement between /r/placenl, /r/2007scape and /r/dankmemes was reached which allowed the latter two to rebuild Gnome Child on Dutch soil. The Gnome Child is a common meme in the community of the MMORPG Runescape, especially the \"Old School\" version of the game.",
     	"website": "",
     	"subreddit": "/r/2007scape",
     	"center": [
@@ -61057,7 +61201,7 @@ var atlas = [
 		"submitted_by": "riajuung",
     	"name": "Akane Hino",
     	"description": "Character Akane Hino from the Japanese anime franchise \"iDOLM@STER Cinderella Girls,\" placed here by a subreddit about one of the games of the franchise",
-    	"website": "",
+    	"website": "http://www.project-imas.com/wiki/Akane_Hino",
     	"subreddit": "/r/StarlightStage",
     	"center": [
     		162.5,
@@ -62681,7 +62825,7 @@ var atlas = [
     			900.5
     		]
     	]
-    },    {
+    },  /*  {
     	"id": 1004,
 		"submitted_by": "pvt13krebs",
     	"name": "The Original 6",
@@ -62862,7 +63006,7 @@ var atlas = [
     			231.5
     		]
     	]
-    },   /* {
+    },   *//* {
     	"id": 1005,
 		"submitted_by": "eutral",
     	"name": "Animal Crossing: New Leaf",
@@ -64179,7 +64323,7 @@ var atlas = [
     			895.5
     		]
     	]
-    },  */  {
+    },  *//*  {
     	"id": 1029,
 		"submitted_by": "kimilil",
     	"name": "Totoro",
@@ -64208,7 +64352,7 @@ var atlas = [
     			458.5
     		]
     	]
-    },    {
+    }, */   {
     	"id": 1030,
 		"submitted_by": "Valandir",
     	"name": "University of Pennsylvania",
@@ -64260,10 +64404,10 @@ var atlas = [
     },    {
     	"id": 1031,
 		"submitted_by": "amoliski",
-    	"name": "Colorado Buffaloes",
-    	"description": "The Colorado Buffaloes are the athletic teams that represent the University of Colorado Boulder. The university sponsors 17 varsity sports teams. Both the men's and women's teams are called the Buffaloes or, rarely, the Golden Buffaloes. ",
-    	"website": "",
-    	"subreddit": "",
+    	"name": "University of Colorado Boulder",
+    	"description": "The CU buffalo is the mascot of the University of Colorado Boulder, USA. The university sponsors 17 varsity sports teams. Both the men's and women's teams are called the Buffaloes or, rarely, the Golden Buffaloes. ",
+    	"website": "https://www.colorado.edu",
+    	"subreddit": "/r/cuboulder",
     	"center": [
     		450.5,
     		453.5
@@ -65550,7 +65694,7 @@ var atlas = [
     			891.5
     		]
     	]
-    },    {
+    }, /*   {
     	"id": 1060,
 		"submitted_by": "amoliski",
     	"name": "Totoro",
@@ -65579,7 +65723,7 @@ var atlas = [
     			449.5
     		]
     	]
-    },    {
+    },  */  {
     	"id": 1061,
 		"submitted_by": "DeltaCharlieNiner",
     	"name": "Hentai",
@@ -65608,7 +65752,7 @@ var atlas = [
     			707.5
     		]
     	]
-    },    {
+    },  /*  {
     	"id": 1062,
 		"submitted_by": "ChartreuseLotus",
     	"name": "University of Colorado Boulder",
@@ -65657,7 +65801,7 @@ var atlas = [
     			455.5
     		]
     	]
-    },    {
+    },  */  {
     	"id": 1063,
 		"submitted_by": "MehKnight",
     	"name": "HUEBR",
@@ -65752,7 +65896,7 @@ var atlas = [
     	"id": 1066,
 		"submitted_by": "Qweiop_123",
     	"name": "The Blue Empire",
-    	"description": "A simple project started to make the bottom right corner completely blue, quickly grew to be the largest piece of art in r/place history. Within 48 hours it had covered more than half of the bottom edge, completely in blue, with thousand of dedicated supporters. The blue corner was pushed back gradually as more organised projects superseded the early pattern-based structures. The current blue corner is a mere reminder of what the empire was in it's former glory.",
+    	"description": "A simple project started to make the bottom right corner completely blue, quickly grew to be the largest piece of art in r/place history. Within 12 hours it had covered more than half of the bottom canvas, completely in blue, with thousand of dedicated supporters. The blue corner was pushed back gradually as more organised projects superseded the early pattern-based structures. The current blue corner is a mere reminder of what the empire was in it's former glory.",
     	"website": "",
     	"subreddit": "r/orderofthebluecorner, /r/thebluecorner",
     	"center": [
@@ -66043,30 +66187,42 @@ var atlas = [
     },    {
     	"id": 1074,
 		"submitted_by": "ae28",
-    	"name": "Muse ",
-    	"description": "Muse is an English rock band, perhaps known best for their 2006 song Knights of Cydonia.\n\nTo the left of their logo is an orange icon representing the cover of their second album, Origin of Symmetry\n\n\n\n\n",
+    	"name": "Muse",
+    	"description": "Muse are an English rock band from Teignmouth, Devon, UK, formed in 1994. The band consists of Matt Bellamy (lead vocals, guitar, piano, keyboards), Chris Wolstenholme (bass guitar, backing vocals, keyboards) and Dominic Howard (drums, percussion).",
     	"website": "https://en.wikipedia.org/wiki/Muse_(band)",
     	"subreddit": "/r/muse",
     	"center": [
-    		158.5,
+    		151.5,
     		470.5
     	],
     	"path": [
     		[
     			135.5,
-    			462.5
+    			463.5
     		],
     		[
     			135.5,
+    			478.5
+    		],
+    		[
+    			137.5,
     			477.5
     		],
     		[
-    			181.5,
+    			145.5,
     			477.5
     		],
     		[
-    			181.5,
-    			462.5
+    			145.5,
+    			478.5
+    		],
+    		[
+    			167.5,
+    			478.5
+    		],
+    		[
+    			167.5,
+    			463.5
     		]
     	]
     },  /*  {
@@ -71230,9 +71386,9 @@ var atlas = [
     	"id": 1166,
 		"submitted_by": "MizGunner",
     	"name": "The Great Kansas Massacre",
-    	"description": "Before the Pakistani/Belgium their was the Great Kansas Massacre. This piece of /r/place was first held by the University of Kansas. It was symbolized by a small white \"KU\" on a blue background. The University of Missouri noticed this piece of the map and invaded. The Tigers were able to hold on this piece of /r/place for well over a day with their gold lettered MIZ, ZOU and an MU logo on a black background. This was until Pakistani aggression forced the University of Missouri to downsize and keep just the \"MU.\" However when Belgium and Pakistan went to war, the smaller Missouri forces were no match to two sovereign countries. ",
+    	"description": "Before the Pakistan-Belgium-Bakchodi war, there was the Great Kansas Massacre. This piece of /r/place was first held by the University of Kansas. It was symbolized by a small white \"KU\" on a blue background. The University of Missouri noticed this piece of the map and invaded. The Tigers were able to hold on this piece of /r/place for well over a day with their gold lettered MIZ, ZOU and an MU logo on a black background. This was until Pakistani aggression forced the University of Missouri to downsize and keep just the \"MU.\" However when Belgium and Pakistan went to war, the smaller Missouri forces were no match to two sovereign countries. ",
     	"website": "",
-    	"subreddit": "https://www.reddit.com/r/mizzou/",
+    	"subreddit": "/r/mizzou",
     	"center": [
     		211.5,
     		686.5
@@ -71497,10 +71653,10 @@ var atlas = [
     },    {
     	"id": 1174,
 		"submitted_by": "11tron",
-    	"name": "Kiwi (only beak remaining)",
-    	"description": "A beak is the only remainder of the second kiwi on the canvas. The kiwi is the national icon of New Zealand. The link is its previous state. https://cdn.discordapp.com/attachments/189581845376008202/298048765867196416/image.png",
-    	"website": "http://www.doc.govt.nz/nature/native-animals/birds/birds-a-z/kiwi/",
-    	"subreddit": "/r/newzealand",
+    	"name": "Remnants of the /r/PictureGame Kiwi",
+    	"description": "The original /r/PictureGame Kiwi was located here. Its remnants such as the beak /r/PICT and the PictureFrame(the snoo) are still visible.",
+    	"website": "https://cdn.discordapp.com/attachments/189581845376008202/298048765867196416/image.png",
+    	"subreddit": "/r/PictureGame",
     	"center": [
     		912.5,
     		643.5
@@ -71807,7 +71963,7 @@ var atlas = [
     	"id": 1179,
 		"submitted_by": "A_Dubious_Rat",
     	"name": "Nonbinary flag",
-    	"description": "Nonbinary pride flag,representing people whose gender identity exists outside of the male-female binary.",
+    	"description": "Nonbinary pride flag, representing people whose gender identity exists outside of the male-female binary.",
     	"website": "",
     	"subreddit": "/r/nonbinary",
     	"center": [
@@ -74023,7 +74179,7 @@ var atlas = [
     			209.5
     		]
     	]
-    },    {
+    }, /*   {
     	"id": 1230,
 		"submitted_by": "WarmerClimates",
     	"name": "[Deleted] Five-dick Charmander",
@@ -74056,7 +74212,7 @@ var atlas = [
     			863.5
     		]
     	]
-    },    {
+    }, */   {
     	"id": 1231,
 		"submitted_by": "agow",
     	"name": "Half of a golden apple",
@@ -75380,7 +75536,7 @@ var atlas = [
     			654.5
     		]
     	]
-    },  */   {
+    },  */ /*  {
     	"id": 1259,
 		"submitted_by": "LacsiraxAriscal",
     	"name": "Album covers",
@@ -75425,7 +75581,7 @@ var atlas = [
     			531.5
     		]
     	]
-    },    {
+    }, */   {
     	"id": 1260,
 		"submitted_by": "Itonoma",
     	"name": "Flag of Brittany",
@@ -77541,40 +77697,24 @@ var atlas = [
     	"website": "",
     	"subreddit": "/r/evex",
     	"center": [
-    		405.5,
+    		408.5,
     		299.5
     	],
     	"path": [
     		[
-    			409.5,
-    			300.5
-    		],
-    		[
-    			398.5,
-    			302.5
-    		],
-    		[
-    			392.5,
+    			394.5,
     			295.5
     		],
     		[
-    			420.5,
-    			297.5
-    		],
-    		[
-    			419.5,
+    			394.5,
     			303.5
     		],
     		[
-    			395.5,
-    			302.5
+    			421.5,
+    			303.5
     		],
     		[
-    			393.5,
-    			302.5
-    		],
-    		[
-    			393.5,
+    			421.5,
     			295.5
     		]
     	]
@@ -78324,7 +78464,7 @@ var atlas = [
     	"name": "Halo",
     	"description": "r/halo's tribute to their beloved video game series.  \n\nThis community project began with the commissioning of Spartan Master Chief John-117's iconic visage. Early plans to complete a blue Spartan helmet were dashed when r/funhaus annexed the territory at the top right of the Master Chief. Work then began in the left on what would become the Red/Blue Spartan to commemorate those fighting the never-ending Red vs. Blue wars.\n\nFixMCC is a jab at the developers about the technical shortcomings of the Master Chief Collection (2014). Its inclusion was divisive amongst fans as some saw it in poor taste.\n\nThe last additions made were adding fan favorite AIs, the floating monitor 343 Guilty Spark and the Chief's blue companion, Cortana.",
     	"website": "",
-    	"subreddit": "/r/halo",
+    	"subreddit": "/r/halo, /r/RedVsBlue",
     	"center": [
     		775.5,
     		392.5
@@ -78699,7 +78839,7 @@ var atlas = [
     },    {
     	"id": 1328,
 		"submitted_by": "letsthrowawayit",
-    	"name": "Heart: Flag of Catalonian",
+    	"name": "Catalonia Heart",
     	"description": "Heart that contains the flag of Catalonia, an autonomous region in the northeast of Spain.",
     	"website": "",
     	"subreddit": "/r/catalonia/",
@@ -78766,9 +78906,9 @@ var atlas = [
     	"id": 1330,
 		"submitted_by": "aeqnai",
     	"name": "Bebe/Charlotte",
-    	"description": "A prominent Witch from the Madoka franchise, made popular after her appearance in the third episode, and the alternate form of the magical girl Momoe Nagisa.",
+    	"description": "A prominent Witch from the Madoka franchise, made popular after her appearance in the third episode, and the alternate form of the magical girl Momoe Nagisa. The witch Charlotte looks cute like a tiny plush doll with a candy-wrapper head, but inside the wrapper is an hideous worm-monster with sharp teeth and a tendency to bite people's heads off. In Madoka sequels, she has been converted to the cause of good and is known by the name Bebe and is obsessed with cheese.",
     	"website": "",
-    	"subreddit": "/r/MadokaMagica",
+    	"subreddit": "/r/nagisamomoe",
     	"center": [
     		320.5,
     		203.5
@@ -82733,7 +82873,7 @@ var atlas = [
     		0.5
     	],
     	"path": []
-    }, {
+    }, /*{
     	"id": 1415,
 		"submitted_by": "MedicInDisquise",
     	"name": "SS13 SecHud",
@@ -82762,7 +82902,7 @@ var atlas = [
     			104.5
     		]
     	]
-    },    {
+    },  */  {
     	"id": 1416,
 		"submitted_by": "soeesenpai",
     	"name": "Uwus and animeems",
@@ -84990,7 +85130,446 @@ var atlas = [
     			292.5
     		]
     	]
-    }
+    },
+
+    {
+    	"id": 1458,
+    	"name": "Snoo",
+    	"description": "The Alien \"Snoo\" is the logo and mascot of reddit.",
+    	"website": "",
+    	"subreddit": "/r/Snoo",
+    	"center": [
+    		635.5,
+    		351.5
+    	],
+    	"path": [
+    		[
+    			630.5,
+    			362.5
+    		],
+    		[
+    			641.5,
+    			362.5
+    		],
+    		[
+    			641.5,
+    			350.5
+    		],
+    		[
+    			643.5,
+    			347.5
+    		],
+    		[
+    			643.5,
+    			341.5
+    		],
+    		[
+    			628.5,
+    			341.5
+    		],
+    		[
+    			628.5,
+    			352.5
+    		],
+    		[
+    			625.5,
+    			352.5
+    		],
+    		[
+    			628.5,
+    			355.5
+    		],
+    		[
+    			632.5,
+    			357.5
+    		]
+    	]
+    },
+
+    {
+    	"id": 1459,
+    	"name": "Luigi",
+    	"description": "Luigi is the slightly younger but taller fraternal twin brother of Nintendo's mascot Mario, and appears in many games throughout the Mario franchise, often as a sidekick to his brother.",
+    	"website": "",
+    	"subreddit": "/r/nintendo",
+    	"center": [
+    		517.5,
+    		300.5
+    	],
+    	"path": [
+    		[
+    			521.5,
+    			287.5
+    		],
+    		[
+    			516.5,
+    			287.5
+    		],
+    		[
+    			509.5,
+    			294.5
+    		],
+    		[
+    			510.5,
+    			298.5
+    		],
+    		[
+    			514.5,
+    			302.5
+    		],
+    		[
+    			511.5,
+    			305.5
+    		],
+    		[
+    			511.5,
+    			312.5
+    		],
+    		[
+    			517.5,
+    			314.5
+    		],
+    		[
+    			521.5,
+    			314.5
+    		],
+    		[
+    			521.5,
+    			308.5
+    		],
+    		[
+    			518.5,
+    			303.5
+    		],
+    		[
+    			524.5,
+    			297.5
+    		],
+    		[
+    			524.5,
+    			290.5
+    		]
+    	]
+    },
+
+    {
+    	"id": 1460,
+    	"name": "Greek Temple",
+    	"description": "Greece is famed for the remnants of Ancient Greek architecture.",
+    	"website": "",
+    	"subreddit": "/r/greece",
+    	"center": [
+    		376.5,
+    		165.5
+    	],
+    	"path": [
+    		[
+    			371.5,
+    			159.5
+    		],
+    		[
+    			371.5,
+    			170.5
+    		],
+    		[
+    			381.5,
+    			170.5
+    		],
+    		[
+    			381.5,
+    			159.5
+    		]
+    	]
+    },
+
+    {
+    	"id": 1461,
+    	"name": "Muse - Origin of Symmetry",
+    	"description": "Origin of Symmetry is the second studio album by English rock band Muse, released on 17 July 2001 by Mushroom Records and Taste Media. The album was a critical and commercial success in the UK, it peaked at number 3 in the UK Albums Chart and was certified platinum.",
+    	"website": "",
+    	"subreddit": "/r/muse",
+    	"center": [
+    		174.5,
+    		471.5
+    	],
+    	"path": [
+    		[
+    			167.5,
+    			464.5
+    		],
+    		[
+    			167.5,
+    			478.5
+    		],
+    		[
+    			169.5,
+    			478.5
+    		],
+    		[
+    			171.5,
+    			476.5
+    		],
+    		[
+    			176.5,
+    			478.5
+    		],
+    		[
+    			181.5,
+    			477.5
+    		],
+    		[
+    			181.5,
+    			464.5
+    		]
+    	]
+    },
+
+    {
+    "id": 1462,
+    "name": "The TARDIS",
+    "description": "The TARDIS is from the british television show Doctor Who.\n'TARDIS' stands for 'Time And Relative Dimension in Space'.\nIt can travel to (almost) any place in time and space, and is an iconic symbol of the show.\nThis was the first part of the Doctor Who artwork, and began in the Blue Corner, to fit with the blue theme.",
+    "website": "",
+    "subreddit": "/r/placetardis",
+    "center": [
+        786.5,
+        948.5
+    ],
+    "path": [
+        [
+            785.5,
+            940.5
+        ],
+        [
+            787.5,
+            940.5
+        ],
+        [
+            787.5,
+            941.5
+        ],
+        [
+            788.5,
+            941.5
+        ],
+        [
+            789.5,
+            942.5
+        ],
+        [
+            790.5,
+            942.5
+        ],
+        [
+            791.5,
+            943.5
+        ],
+        [
+            790.5,
+            944.5
+        ],
+        [
+            790.5,
+            955.5
+        ],
+        [
+            791.5,
+            956.5
+        ],
+        [
+            781.5,
+            956.5
+        ],
+        [
+            782.5,
+            955.5
+        ],
+        [
+            782.5,
+            944.5
+        ],
+        [
+            781.5,
+            943.5
+        ],
+        [
+            782.5,
+            942.5
+        ],
+        [
+            783.5,
+            942.5
+        ],
+        [
+            784.5,
+            941.5
+        ]
+    ]
+},
+{
+    "id": 1463,
+    "name": "Kurdistan Heart",
+    "description": "Heart-shaped Kurdish flag",
+    "website": "",
+    "subreddit": "/r/kurdistan",
+    "center": [
+    		659.5,
+    		771.5
+    	],
+    	"path": [
+    		[
+    			659.5,
+    			776.5
+    		],
+    		[
+    			664.5,
+    			771.5
+    		],
+    		[
+    			664.5,
+    			769.5
+    		],
+    		[
+    			662.5,
+    			767.5
+    		],
+    		[
+    			656.5,
+    			767.5
+    		],
+    		[
+    			654.5,
+    			769.5
+    		],
+    		[
+    			654.5,
+    			771.5
+    		]
+    	]
+},
+{
+    "id": 1464,
+    "name": "Galicia Heart",
+    "description": "Heart-shaped national flag of Galicia, an autonomous community of Spain.",
+    "website": "",
+    "subreddit": "/r/plazagalicia",
+    "center": [
+    		437.5,
+    		744.5
+    	],
+    	"path": [
+    		[
+    			437.5,
+    			738.5
+    		],
+    		[
+    			431.5,
+    			744.5
+    		],
+    		[
+    			431.5,
+    			746.5
+    		],
+    		[
+    			434.5,
+    			749.5
+    		],
+    		[
+    			440.5,
+    			749.5
+    		],
+    		[
+    			443.5,
+    			746.5
+    		],
+    		[
+    			443.5,
+    			744.5
+    		]
+    	]
+},
+
+{
+    "id": 1465,
+    "name": "Basque Country Heart",
+    "description": "Heart-shaped flag of the Basque Country, an autonomous community of Spain.",
+    "website": "",
+    "subreddit": "/r/PlazaEuskadi",
+    "center": [
+    		431.5,
+    		737.5
+    	],
+    	"path": [
+    		[
+    			431.5,
+    			743.5
+    		],
+    		[
+    			437.5,
+    			737.5
+    		],
+    		[
+    			437.5,
+    			735.5
+    		],
+    		[
+    			434.5,
+    			732.5
+    		],
+    		[
+    			428.5,
+    			732.5
+    		],
+    		[
+    			425.5,
+    			735.5
+    		],
+    		[
+    			425.5,
+    			737.5
+    		]
+    	]
+},
+{
+    "id": 1466,
+    "name": "Vertical Catalonia Heart",
+    "description": "Heart-shaped flag of Catalonia (in vertical position), an autonomous region of Spain.",
+    "website": "",
+    "subreddit": "/r/PlazaCatalunya",
+    "center": [
+    		431.5,
+    		754.5
+    	],
+    	"path": [
+    		[
+    			431.5,
+    			760.5
+    		],
+    		[
+    			437.5,
+    			754.5
+    		],
+    		[
+    			437.5,
+    			752.5
+    		],
+    		[
+    			434.5,
+    			749.5
+    		],
+    		[
+    			428.5,
+    			749.5
+    		],
+    		[
+    			425.5,
+    			752.5
+    		],
+    		[
+    			425.5,
+    			754.5
+    		]
+    	]
+}
 		
 ];
 
