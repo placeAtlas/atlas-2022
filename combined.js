@@ -8004,7 +8004,7 @@ var atlas = [
 		"name": "The Binding of Isaac",
 		"description": "Isaac from the roguelite game The Binding of Isaac: Rebirth, after picking up The Halo, 20/20, Fate, The Pentagram and Lucky Foot as well as activating Book of Belial.",
 		"website": "http://bindingofisaac.com/",
-		"subreddit": "reddit.com/r/bindingofisaac",
+		"subreddit": "/r/bindingofisaac",
 		"center": [
 			222.5,
 			122.5
@@ -15839,7 +15839,7 @@ var atlas = [
     	"id": 272,
     	"name": "Formula 1",
     	"description": "The official Reddit Formula 1 community project. This features the Formula 1 logo, Ayrton Senna's helmet and a Ferrari F1 car. The JB17 is a tribute to the late Jules Bianchi. ",
-    	"website": "https://www.reddit.com/r/formula1/",
+    	"website": "",
     	"subreddit": "/r/formula1",
     	"center": [
     		138.5,
@@ -19731,7 +19731,7 @@ var atlas = [
     	"name": "Summit1G",
     	"description": "a Twitch streamer and pro Counter Strike player",
     	"website": "http://summit1g.com/",
-    	"subreddit": "https://www.reddit.com/r/Summit1G",
+    	"subreddit": "/r/Summit1G",
     	"center": [
     		282.5,
     		215.5
@@ -27721,7 +27721,7 @@ var atlas = [
     	"name": "University Of Texas at Austin",
     	"description": "University located in Austin, Texas USA. Their school colors are white and burnt orange.  ",
     	"website": "http://www.utexas.edu/",
-    	"subreddit": "https://www.reddit.com/r/UTAustin/",
+    	"subreddit": "/r/UTAustin",
     	"center": [
     		24.5,
     		867.5
@@ -30448,7 +30448,7 @@ var atlas = [
     	"name": "Wall St. Bets",
     	"description": "",
     	"website": "",
-    	"subreddit": "reddit.com/r/wallstreetbets",
+    	"subreddit": "/r/wallstreetbets",
     	"center": [
     		879.5,
     		386.5
@@ -37724,7 +37724,7 @@ var atlas = [
     	"id": 558,
 		"submitted_by": "terriblestperson",
     	"name": "R/ARMOK",
-    	"description": "The R/ARMOK text is one of Dwarf Fortress earlier truly organized placing efforts, after the original art below the ANZAC flag and the Urist Empire plan to color the dwarves. Coming in the wake of earlier failed attempts to create signage and /u/7y14r's creation of /r/armok, the original design was by /u/7yl4r https://redd.it/62ujp3/, and much of the original placing was done by /u/MGStan as seen here https://reddit.com/comments/62tz5v//dfpt40i/. Realizing that he was outnumbered by people unaware of the plan, organization for it was moved into the Dwarf Fortress discord server, and those working against it (or attempting to work for it but not in concert with the plan) were recruited to the discord via reddit PMs. As /r/place activity on the DF discord grew rapidly, a new text channel was created for it.  Soon after it was completed according to the original plan despite the counter-efforts of a redditor very upset about the destruction of a dwarf they had been working on. Later, the 3 tile wide slash was compacted to 2 tiles during an effort to reorganize and compact the lower row of dwarves to gain more room for art. ",
+    	"description": "The R/ARMOK text is one of Dwarf Fortress earlier truly organized placing efforts, after the original art below the ANZAC flag and the Urist Empire plan to color the dwarves. Coming in the wake of earlier failed attempts to create signage and /u/7y14r's creation of /r/armok, the original design was by /u/7yl4r https://redd.it/62ujp3/, and much of the original placing was done by /u/MGStan as seen <a class=\"inline\" href=\"https://reddit.com/comments/62tz5v//dfpt40i/\">here</a>. Realizing that he was outnumbered by people unaware of the plan, organization for it was moved into the Dwarf Fortress discord server, and those working against it (or attempting to work for it but not in concert with the plan) were recruited to the discord via reddit PMs. As /r/place activity on the DF discord grew rapidly, a new text channel was created for it.  Soon after it was completed according to the original plan despite the counter-efforts of a redditor very upset about the destruction of a dwarf they had been working on. Later, the 3 tile wide slash was compacted to 2 tiles during an effort to reorganize and compact the lower row of dwarves to gain more room for art. ",
     	"website": "",
     	"subreddit": "/r/armok",
     	"center": [
@@ -43338,7 +43338,7 @@ var atlas = [
     	"name": "YPG Flag",
     	"description": "Flag of the YPG, a militia defending the Democratic Confederalist autonomous region Rojava",
     	"website": "https://twitter.com/defenseunits",
-    	"subreddit": "https://www.reddit.com/r/rojava/",
+    	"subreddit": "/r/rojava",
     	"center": [
     		52.5,
     		411.5
@@ -43419,7 +43419,7 @@ var atlas = [
     	"id": 646,
 		"submitted_by": "ImNotHimBut",
     	"name": "Pastor Lul",
-    	"description": "Obscure meme from Forsen (twitch.tv streamer) chat. The meme seems rather undocumented. See for context: http://i.imgur.com/kLWTvuT.jpg https://www.youtube.com/watch?v=q2_3MsrJl5s https://www.reddit.com/r/forsen/comments/53yi8a/pastor_lul_profile_deleted_feelsbadman/",
+    	"description": "Obscure meme from Forsen (twitch.tv streamer) chat. The meme seems rather undocumented. See for context: <a class=\"inline\" href=\"http://i.imgur.com/kLWTvuT.jpg\">Image</a>, <a class=\"inline\" href=\"https://www.youtube.com/watch?v=q2_3MsrJl5s\">Video</a>, <a class=\"inline\" href=\"https://www.reddit.com/r/forsen/comments/53yi8a/pastor_lul_profile_deleted_feelsbadman/\">reddit thread</a>.",
     	"website": "http://twitch.tv/forsenlol",
     	"subreddit": "/r/forsen",
     	"center": [
@@ -44020,9 +44020,9 @@ var atlas = [
     },    {
     	"id": 661,
 		"submitted_by": "aer-o",
-    	"name": "WorldPowers Sign",
-    	"description": "A sign showing the name and the on the subreddit, along with a globe. ",
-    	"website": "https://www.reddit.com/r/worldpowers",
+    	"name": "WorldPowers",
+    	"description": "/r/worldpowers is a group of dedicated political lovers and roleplayers. Players run their own fictional country in a mass of other countries claimed by their fellow state heads. The community is curated by a set of mods, to allow the playerbase to realistically found alliances, form treaties, initiate war, declare trade, instate royalty, along with much more.",
+    	"website": "",
     	"subreddit": "/r/worldpowers",
     	"center": [
     		634.5,
@@ -45331,7 +45331,7 @@ var atlas = [
 		"submitted_by": "CaptainMeme",
     	"name": "Mexico-Robin Heart",
     	"description": "In response to the void's invasion of Mexico's territory, a number of surrounding factions worked with Mexico to push them back. One of these, Robin, formed an alliance with Mexico afterwards, and this heart was created to symbolise that. The bottom of the heart depicts the Flag of Mexico, and the top depicts the three colours of the vote buttons in Robin.",
-    	"website": "https://www.reddit.com/r/ccKufiPrFaShleWoli0/",
+    	"website": "",
     	"subreddit": "/r/mexico",
     	"center": [
     		276.5,
@@ -46513,7 +46513,7 @@ var atlas = [
     	"name": "flag of cornwall",
     	"description": "flag of cornwall, a county of the UK",
     	"website": "",
-    	"subreddit": "https://www.reddit.com/r/Cornwall/",
+    	"subreddit": "/r/Cornwall",
     	"center": [
     		216.5,
     		385.5
@@ -54349,8 +54349,8 @@ var atlas = [
 		"submitted_by": "Creativation",
     	"name": "Mega Man's briefs",
     	"description": "Since the existing Mega Man creation had been integrated  into the southern French flag  the folks of /r/france asked to make his briefs correspond to the French tricolor. The Mega Man folks accepted it.",
-    	"website": "https://www.reddit.com/r/Megaman/",
-    	"subreddit": "/r/france",
+    	"website": "",
+    	"subreddit": "/r/france, /r/megaman",
     	"center": [
     		396.5,
     		889.5
@@ -57130,7 +57130,7 @@ var atlas = [
     	"name": "K-On!",
     	"description": "An anime series about 5 girls trying to start a light music club.",
     	"website": "https://myanimelist.net/anime/5680/K-On",
-    	"subreddit": "https://www.reddit.com/r/k_on/",
+    	"subreddit": "/r/k_on",
     	"center": [
     		161.5,
     		219.5
@@ -57945,7 +57945,7 @@ var atlas = [
     	"name": "Green Bay Packers",
     	"description": "The NFL Team from Green Bay, Wisconsin, USA",
     	"website": "http://www.packers.com/",
-    	"subreddit": "https://www.reddit.com/r/GreenBayPackers/",
+    	"subreddit": "/r/GreenBayPackers",
     	"center": [
     		688.5,
     		632.5
@@ -58141,7 +58141,7 @@ var atlas = [
     	"name": "Samus Aran",
     	"description": "Protagonist and playable character of videogame franchise \"Metroid\" (first released 1986).\n\nHere depicted in her \"Zero Suit\" Form.",
     	"website": "",
-    	"subreddit": "https://www.reddit.com/r/Metroid/",
+    	"subreddit": "/r/Metroid",
     	"center": [
     		597.5,
     		819.5
@@ -61255,7 +61255,7 @@ var atlas = [
     	"name": "Shiny Lucario",
     	"description": "A shiny version of the Pokemon Lucario from the 4th generation of games. It was originally drawn with the default color palette (blue with a yellow center) but was converted over time.",
     	"website": "http://www.pokemon.com/uk/pokedex/lucario",
-    	"subreddit": "https://www.reddit.com/r/pokemon/",
+    	"subreddit": "/r/pokemon",
     	"center": [
     		225.5,
     		507.5
@@ -62758,7 +62758,7 @@ var atlas = [
     	"name": "Flag of New Mexico",
     	"description": "The flag of New Mexico, US. It consists of the Zia Symbol and a yellow background.",
     	"website": "https://en.wikipedia.org/wiki/Flag_of_New_Mexico",
-    	"subreddit": "https://www.reddit.com/r/NewMexico/",
+    	"subreddit": "/r/NewMexico",
     	"center": [
     		820.5,
     		908.5
@@ -66739,7 +66739,7 @@ var atlas = [
     	"id": 1085,
 		"submitted_by": "goldenretrieverz",
     	"name": "(Covered) Saxophone",
-    	"description": "Remnants of a saxophone made as an homage to the iconic saxophone riff from Carly Rae Jepsen's Run Away With Me. (Buy Emotion on iTunes!) See what it looked like here: https://i.imgur.com/iSIN0nA.png ",
+    	"description": "Remnants of a saxophone made as an homage to the iconic saxophone riff from Carly Rae Jepsen's Run Away With Me.<br> <a class=\"inline\" href=\"https://i.imgur.com/iSIN0nA.png\">See what it looked like here</a>.",
     	"website": "https://www.youtube.com/watch?v=TeccAtqd5K8",
     	"subreddit": "/r/popheads",
     	"center": [
@@ -67042,7 +67042,7 @@ var atlas = [
 		"submitted_by": "shahbaz_man",
     	"name": "Frank Ocean: Nascar Logo",
     	"description": "Recolorised version of the traditional NASCAR logo, popularised by his 2016 album, Blonde.",
-    	"website": "http://reddit.com/r/FrankOcean",
+    	"website": "",
     	"subreddit": "/r/FrankOcean",
     	"center": [
     		125.5,
@@ -70223,7 +70223,7 @@ var atlas = [
 		"submitted_by": "trenmost",
     	"name": "Project Cars community",
     	"description": "Made by the Project Cars community",
-    	"website": "https://www.reddit.com/r/pcars/",
+    	"website": "",
     	"subreddit": "/r/pcars/",
     	"center": [
     		989.5,
@@ -71061,7 +71061,7 @@ var atlas = [
     	"name": "monkaS and Van Darkholm",
     	"description": "Here used to be additional emotes related to Forsens channel. First was monkaS, a variation of well known emote Pepe the frog, and after it he was vandalized by people thinking Pepe is a Nazi symbol (it's not), we built van Darkholm instead, but he was removed by sweden.",
     	"website": "twitch.tv/forsenlol",
-    	"subreddit": "https://www.reddit.com/r/forsen/comments/62tlnj/nani_is_making_monkas_in_rplace/                                        https://www.reddit.com/r/forsen/comments/62zxq5/when_they_tell_you_that_you_cant_be_performance/",
+    	"subreddit": "/r/forsen",
     	"center": [
     		960.5,
     		88.5
@@ -73050,7 +73050,7 @@ var atlas = [
 		"submitted_by": "ChalkCultPen",
     	"name": "Guybrush Threepwood",
     	"description": "Guybrush Threepwood, from the Monkey Island videogames.",
-    	"website": "https://www.reddit.com/r/MonkeyIsland/",
+    	"website": "",
     	"subreddit": "/r/MonkeyIsland/",
     	"center": [
     		640.5,
@@ -73283,7 +73283,7 @@ var atlas = [
     	"name": "St. Louis Cardinals",
     	"description": "The St. Louis Cardinals are an American professional baseball team based in St. Louis, Missouri",
     	"website": "https://www.mlb.com/cardinals",
-    	"subreddit": "https://www.reddit.com/r/Cardinals/",
+    	"subreddit": "/r/Cardinals",
     	"center": [
     		585.5,
     		824.5
@@ -73312,7 +73312,7 @@ var atlas = [
     	"name": "Borderlands Logo",
     	"description": "Logo to the Borderlands series made by Gearbox Software. ",
     	"website": "",
-    	"subreddit": ".reddit.com/r/Borderlands/",
+    	"subreddit": "/r/Borderlands/",
     	"center": [
     		707.5,
     		199.5
@@ -74756,7 +74756,7 @@ var atlas = [
     	"name": "Wisconsin Badgers Logo",
     	"description": "The Wisconsin Badgers are the athletic teams representing the University of Wisconsin–Madison (University of Wisconsin). They compete as a member of the National Collegiate Athletic Association (NCAA) Division I level (Football Bowl Subdivision (FBS) sub-level), primarily competing in the Big Ten Conference for all sports since the 1896–97 season.",
     	"website": "",
-    	"subreddit": "https://www.reddit.com/r/WisconsinBadgers/",
+    	"subreddit": "/r/WisconsinBadgers",
     	"center": [
     		90.5,
     		874.5
@@ -75587,7 +75587,7 @@ var atlas = [
     	"name": "Flag of Brittany",
     	"description": "Brittany is a region in the north-west of France, known for its historic fondness for independence and preservation of local culture, language and symbols.",
     	"website": "http://www.brittanytourism.com/",
-    	"subreddit": "https://www.reddit.com/r/Bretagne/",
+    	"subreddit": "/r/Bretagne",
     	"center": [
     		419.5,
     		737.5
@@ -75791,7 +75791,7 @@ var atlas = [
 		"submitted_by": "finder787",
     	"name": "Planetside's Attempted Invasion",
     	"description": "Planetside tried to recreate part of their logo here. Planetside managed to turn the corner grey. However, after much fighting Greenlattice overwhelmed and stomped out the invasion. ",
-    	"website": "https://dk.reddit.com/r/Planetside/comments/6319f2/lets_contribute_something_to_rplace_and_show_that/",
+    	"website": "https://reddit.com/r/Planetside/comments/6319f2/lets_contribute_something_to_rplace_and_show_that/",
     	"subreddit": "/r/planetside",
     	"center": [
     		965.5,
@@ -77998,7 +77998,7 @@ var atlas = [
     	"id": 1308,
 		"submitted_by": "FelixLive44",
     	"name": "(Covered) Skeletor's blunt",
-    	"description": "Once upon a time, Skeletor had a joint drawn by the /r/trees sub-reddit. Said blunt was slowly ereased to simulate Skeletor smoking the joint. You can see a sped up gif of it on this reddit post on /r/Place:\nhttps://www.reddit.com/r/place/comments/635aqv/skeletor_smokes_a_blunt_through_timelapse/",
+    	"description": "Once upon a time, Skeletor had a joint drawn by the /r/trees sub-reddit. Said blunt was slowly ereased to simulate Skeletor smoking the joint. You can see a sped up gif of it on this reddit post on /r/Place: <a class=\"inline\" href=\"https://www.reddit.com/r/place/comments/635aqv/skeletor_smokes_a_blunt_through_timelapse/\">Link</a>",
     	"website": "",
     	"subreddit": "/r/trees",
     	"center": [
@@ -78879,7 +78879,7 @@ var atlas = [
     	"name": "Free Tyler1",
     	"description": "Fans of loltyler1, a popular League of Legends streamer stole this space from r/eesti to write the phrase: \"free tyler 1\" and \"hehe xd\" common memes on his livestream and r/loltyler1. It took over the Estonian flag for a short time and a small portrait of Tyler1 was created. It didn't survive constant attacks from r/eesti and r/leagueoflegends, and thus is no longer visible.",
     	"website": "",
-    	"subreddit": "www.reddit.com/r/loltyler1",
+    	"subreddit": "/r/loltyler1",
     	"center": [
     		338.5,
     		634.5
@@ -80117,7 +80117,7 @@ var atlas = [
     	"name": "The Ohio State University",
     	"description": "The Block \"O\" is the logo for OSU (not to be confused with the rhythm game \"osu!\"). This logo appeared and was covered over several times during the duration  of r/place. The first location was at the current location of Northwestern University. Here, OSU and the U of Michigan had colliding corners, prompting a second \"War of Toledo\" as they fought over a small 10 pixel space. After this, the logo was ultimately vandalized and covered over. After other attempts of making the logo, the final incarnation of the \"O\" stood strong by the end of r/Place. A second block \"O\" is situated next to the flag of Ohio elsewhere on r/place. \n ",
     	"website": "https://www.osu.edu/",
-    	"subreddit": "https://www.reddit.com/r/OSU/",
+    	"subreddit": "/r/OSU",
     	"center": [
     		78.5,
     		836.5
@@ -80208,7 +80208,7 @@ var atlas = [
     	"name": "Nebraska Huskers",
     	"description": "The Huskers is the name of the sports team for the University of Nebraska-Lincoln, part of the Big Ten. Originally meant to say \"HUSKERS\" with a small picture of corn, this area was contested with the University of Houston, and is now referred to as \"Iloykibs\", \"lloYh'i8s\", or other such variations. \n\n",
     	"website": "https://www.unl.edu/",
-    	"subreddit": "https://www.reddit.com/r/UNLincoln/",
+    	"subreddit": "/r/UNLincoln",
     	"center": [
     		16.5,
     		881.5
@@ -81576,7 +81576,7 @@ var atlas = [
 		"submitted_by": "Minecraft_Redstoning",
     	"name": "IB Logo",
     	"description": "An effort made by many IB students to make the IB logo.",
-    	"website": "reddit.com/r/IBO",
+    	"website": "",
     	"subreddit": "/r/IBO",
     	"center": [
     		781.5,
@@ -81684,7 +81684,7 @@ var atlas = [
     	"name": "Jakkid166",
     	"description": "The remains of the name of Jakkid166, the greatest author on fanfiction.net",
     	"website": "https://www.fanfiction.net/u/7051166/jakkid166",
-    	"subreddit": "https://www.reddit.com/r/jakkid166/",
+    	"subreddit": "/r/jakkid166",
     	"center": [
     		274.5,
     		18.5

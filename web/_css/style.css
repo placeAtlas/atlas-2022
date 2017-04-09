@@ -48,11 +48,6 @@ html, body{
 }
 
 body{
-	/*height: 100%;*/
-	/*height: 100vh;*/
-	/*width: 100%;*/
-	/*width: 100vw;*/
-
 	overflow: hidden;
 	overflow-x: hidden;
 	overflow-y: hidden;
@@ -405,6 +400,13 @@ optgroup{
 .object a.inline{
 	background-color: transparent;
 	display: inline;
+	padding: 0px;
+	margin: 0px;
+}
+
+.object a.inline:hover{
+	background-color: transparent;
+	text-decoration: underline;
 }
 
 .object a:hover{
