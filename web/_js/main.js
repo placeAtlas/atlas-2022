@@ -55,6 +55,7 @@ function applyView(){
 	
 	innerContainer.style.left = ~~(container.clientWidth/2 - innerContainer.clientWidth/2 + zoomOrigin[0] + container.offsetLeft)+"px";
 	innerContainer.style.top = ~~(container.clientHeight/2 - innerContainer.clientHeight/2 + zoomOrigin[1] + container.offsetTop)+"px";
+	
 }
 
 init();
@@ -174,6 +175,7 @@ function init(){
 	document.getElementById("zoomResetButton").addEventListener("click", function(e){
 		zoom = 1;
 		zoomOrigin = [0, 0];
+		updateLines();
 		applyView();
 	});
 
@@ -302,6 +304,7 @@ function init(){
 	}
 
 	window.addEventListener("mousemove", function(e){
+		updateLines();
 		mousemove(e.clientX, e.clientY);
 		e.preventDefault();
 	});
@@ -319,11 +322,14 @@ function init(){
 			scaleZoomOrigin[0] += deltaX/zoom;
 			scaleZoomOrigin[1] += deltaY/zoom;
 
+			updateLines();
 			applyView();
 		}
 	}
 
 	function touchmove(e){
+
+		updateLines();
 		
 		if(e.touches.length == 1){
 			

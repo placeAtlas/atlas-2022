@@ -37,17 +37,21 @@ function updateLines(){
 	for(var i = 0; i < hovered.length; i++){
 		var element = hovered[i].element;
 
-		linesContext.beginPath();
-		//linesContext.moveTo(element.offsetLeft + element.clientWidth - 10, element.offsetTop + 20);
-		linesContext.moveTo(
-			 element.getBoundingClientRect().left + document.documentElement.scrollLeft + element.clientWidth/2
-			,element.getBoundingClientRect().top + document.documentElement.scrollTop + 20
-		);
-		linesContext.lineTo(
-			 ~~(hovered[i].center[0]*zoom) + innerContainer.offsetLeft
-			,~~(hovered[i].center[1]*zoom) + innerContainer.offsetTop
-		);
-		linesContext.stroke();
+		if(element.getBoundingClientRect().left != 0){
+
+			linesContext.beginPath();
+			//linesContext.moveTo(element.offsetLeft + element.clientWidth - 10, element.offsetTop + 20);
+			linesContext.moveTo(
+				 element.getBoundingClientRect().left + document.documentElement.scrollLeft + element.clientWidth/2
+				,element.getBoundingClientRect().top + document.documentElement.scrollTop + 20
+			);
+			linesContext.lineTo(
+				 ~~(hovered[i].center[0]*zoom) + innerContainer.offsetLeft
+				,~~(hovered[i].center[1]*zoom) + innerContainer.offsetTop
+			);
+			linesContext.stroke();
+
+		}
 	}
 
 	linesContext.lineWidth = Math.max(Math.min(zoom, 16), 4);
@@ -56,16 +60,19 @@ function updateLines(){
 	for(var i = 0; i < hovered.length; i++){
 		var element = hovered[i].element;
 
-		linesContext.beginPath();
-		linesContext.moveTo(
-			 element.getBoundingClientRect().left + document.documentElement.scrollLeft + element.clientWidth/2
-			,element.getBoundingClientRect().top + document.documentElement.scrollTop + 20
-		);
-		linesContext.lineTo(
-			 ~~(hovered[i].center[0]*zoom) + innerContainer.offsetLeft
-			,~~(hovered[i].center[1]*zoom) + innerContainer.offsetTop
-		);
-		linesContext.stroke();
+		if(element.getBoundingClientRect().left != 0){
+				
+			linesContext.beginPath();
+			linesContext.moveTo(
+				 element.getBoundingClientRect().left + document.documentElement.scrollLeft + element.clientWidth/2
+				,element.getBoundingClientRect().top + document.documentElement.scrollTop + 20
+			);
+			linesContext.lineTo(
+				 ~~(hovered[i].center[0]*zoom) + innerContainer.offsetLeft
+				,~~(hovered[i].center[1]*zoom) + innerContainer.offsetTop
+			);
+			linesContext.stroke();
+		}
 	}
 }
 
@@ -74,6 +81,7 @@ function initView(){
 	var wrapper = document.getElementById("wrapper");
 	
 	var objectsContainer = document.getElementById("objectsList");
+	var closeObjectsListButton = document.getElementById("closeObjectsListButton");
 
 	var backgroundCanvas = document.createElement("canvas");
 	backgroundCanvas.width = 1000;
@@ -173,6 +181,15 @@ function initView(){
 		return false;
 	});
 
+	closeObjectsListButton.addEventListener("click", function(e){
+		hovered = [];
+		objectsContainer.innerHTML = "";
+		updateLines();
+		closeObjectsListButton.className = "hidden";
+		fixed = false;
+		render();
+	});
+
 	function createInfoBlock(entry){
 		var element = document.createElement("div");
 		element.className = "object";
@@ -241,6 +258,7 @@ function initView(){
 			hovered = [entry];
 			render();
 			hovered[0].element = infoElement;
+			closeObjectsListButton.className = "";
 			updateLines();
 			fixed = true;
 		}
@@ -285,6 +303,12 @@ function initView(){
 						objectsContainer.appendChild(element);
 
 						hovered[i].element = element;
+					}
+
+					if(hovered.length > 0){
+						closeObjectsListButton.className = "";
+					} else {
+						closeObjectsListButton.className = "hidden";
 					}
 
 

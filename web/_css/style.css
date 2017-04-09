@@ -167,7 +167,7 @@ header.aboutHeader{
 header > a{
 	display: flex;
 	color: #FFFFFF;
-	align-items: center;
+	/*align-items: center;*/
 }
 
 header > a:hover{
@@ -181,10 +181,14 @@ header > a:hover{
 }
 
 h1{
-	font-weight: 200;
+	font-weight: lighter;
 	padding: 0px 10px;
 	display: inline-block;
-	margin-top: -5px;
+	margin-top: 0px;
+	line-height: 45px;
+	position: absolute;
+	top: 0px;
+	left: 50px;
 	text-shadow: 1px 1px 0px #000000;
 }
 
@@ -277,13 +281,46 @@ optgroup{
 }
 
 #objectsList{
-	width: 300px;
+	max-width: 300px;
+	width: calc(100% - 10px);
 	position: absolute;
 	right: 0px;
 	top: 0px;
 	padding: 0px;
 	max-height: calc(100% - 40px);
 	overflow-y: auto;
+	z-index: 0;
+}
+
+#closeObjectsListButton{
+	height: 40px;
+	width: 40px;
+	position: absolute;
+	top: 10px;
+	right: 310px;
+	background-image: url("data:image/svg+xml;utf8,%3Csvg%0A%20%20%20xmlns%3Adc%3D%22http%3A//purl.org/dc/elements/1.1/%22%0A%20%20%20xmlns%3Acc%3D%22http%3A//creativecommons.org/ns%23%22%0A%20%20%20xmlns%3Ardf%3D%22http%3A//www.w3.org/1999/02/22-rdf-syntax-ns%23%22%0A%20%20%20xmlns%3Asvg%3D%22http%3A//www.w3.org/2000/svg%22%0A%20%20%20xmlns%3D%22http%3A//www.w3.org/2000/svg%22%0A%20%20%20version%3D%221.1%22%0A%20%20%20width%3D%22192.84375%22%0A%20%20%20height%3D%22192.875%22%0A%20%20%20id%3D%22svg2%22%3E%0A%20%20%3Cdefs%0A%20%20%20%20%20id%3D%22defs4%22%20/%3E%0A%20%20%3Cmetadata%0A%20%20%20%20%20id%3D%22metadata7%22%3E%0A%20%20%20%20%3Crdf%3ARDF%3E%0A%20%20%20%20%20%20%3Ccc%3AWork%0A%20%20%20%20%20%20%20%20%20rdf%3Aabout%3D%22%22%3E%0A%20%20%20%20%20%20%20%20%3Cdc%3Aformat%3Eimage/svg+xml%3C/dc%3Aformat%3E%0A%20%20%20%20%20%20%20%20%3Cdc%3Atype%0A%20%20%20%20%20%20%20%20%20%20%20rdf%3Aresource%3D%22http%3A//purl.org/dc/dcmitype/StillImage%22%20/%3E%0A%20%20%20%20%20%20%20%20%3Cdc%3Atitle%3E%3C/dc%3Atitle%3E%0A%20%20%20%20%20%20%3C/cc%3AWork%3E%0A%20%20%20%20%3C/rdf%3ARDF%3E%0A%20%20%3C/metadata%3E%0A%20%20%3Cg%0A%20%20%20%20%20transform%3D%22matrix%281.2121574%2C0%2C0%2C1.2121574%2C-20.456139%2C-20.460051%29%22%0A%20%20%20%20%20id%3D%22g3804%22%0A%20%20%20%20%20style%3D%22stroke%3A%23ffffff%3Bstroke-opacity%3A1%22%3E%0A%20%20%20%20%3Cg%0A%20%20%20%20%20%20%20transform%3D%22translate%28-156.4375%2C-398.78125%29%22%0A%20%20%20%20%20%20%20id%3D%22layer1%22%0A%20%20%20%20%20%20%20style%3D%22stroke%3A%23ffffff%3Bstroke-opacity%3A1%22%3E%0A%20%20%20%20%20%20%3Cpath%0A%20%20%20%20%20%20%20%20%20d%3D%22M%20195.27845%2C552.79802%20310.43583%2C437.64064%22%0A%20%20%20%20%20%20%20%20%20id%3D%22path2985%22%0A%20%20%20%20%20%20%20%20%20style%3D%22fill%3Anone%3Bstroke%3A%23ffffff%3Bstroke-width%3A24.74926186%3Bstroke-linecap%3Asquare%3Bstroke-linejoin%3Amiter%3Bstroke-miterlimit%3A4%3Bstroke-opacity%3A1%3Bstroke-dasharray%3Anone%22%20/%3E%0A%20%20%20%20%20%20%3Cpath%0A%20%20%20%20%20%20%20%20%20d%3D%22M%20310.43583%2C552.79802%20195.27845%2C437.64064%22%0A%20%20%20%20%20%20%20%20%20id%3D%22path3802%22%0A%20%20%20%20%20%20%20%20%20style%3D%22fill%3Anone%3Bstroke%3A%23ffffff%3Bstroke-width%3A24.74926186%3Bstroke-linecap%3Asquare%3Bstroke-linejoin%3Amiter%3Bstroke-miterlimit%3A4%3Bstroke-opacity%3A1%3Bstroke-dasharray%3Anone%22%20/%3E%0A%20%20%20%20%3C/g%3E%0A%20%20%3C/g%3E%0A%3C/svg%3E")
+		,linear-gradient(to bottom, #666666, #444444);
+	background-size: 15px, cover;
+	background-position: center, 0 0;
+	background-repeat: no-repeat, no-repeat;
+}
+
+#closeObjectsListButton.hidden{
+	display: none;
+}
+
+#closeObjectsListButton:hover{
+	background-image: url("data:image/svg+xml;utf8,%3Csvg%0A%20%20%20xmlns%3Adc%3D%22http%3A//purl.org/dc/elements/1.1/%22%0A%20%20%20xmlns%3Acc%3D%22http%3A//creativecommons.org/ns%23%22%0A%20%20%20xmlns%3Ardf%3D%22http%3A//www.w3.org/1999/02/22-rdf-syntax-ns%23%22%0A%20%20%20xmlns%3Asvg%3D%22http%3A//www.w3.org/2000/svg%22%0A%20%20%20xmlns%3D%22http%3A//www.w3.org/2000/svg%22%0A%20%20%20version%3D%221.1%22%0A%20%20%20width%3D%22192.84375%22%0A%20%20%20height%3D%22192.875%22%0A%20%20%20id%3D%22svg2%22%3E%0A%20%20%3Cdefs%0A%20%20%20%20%20id%3D%22defs4%22%20/%3E%0A%20%20%3Cmetadata%0A%20%20%20%20%20id%3D%22metadata7%22%3E%0A%20%20%20%20%3Crdf%3ARDF%3E%0A%20%20%20%20%20%20%3Ccc%3AWork%0A%20%20%20%20%20%20%20%20%20rdf%3Aabout%3D%22%22%3E%0A%20%20%20%20%20%20%20%20%3Cdc%3Aformat%3Eimage/svg+xml%3C/dc%3Aformat%3E%0A%20%20%20%20%20%20%20%20%3Cdc%3Atype%0A%20%20%20%20%20%20%20%20%20%20%20rdf%3Aresource%3D%22http%3A//purl.org/dc/dcmitype/StillImage%22%20/%3E%0A%20%20%20%20%20%20%20%20%3Cdc%3Atitle%3E%3C/dc%3Atitle%3E%0A%20%20%20%20%20%20%3C/cc%3AWork%3E%0A%20%20%20%20%3C/rdf%3ARDF%3E%0A%20%20%3C/metadata%3E%0A%20%20%3Cg%0A%20%20%20%20%20transform%3D%22matrix%281.2121574%2C0%2C0%2C1.2121574%2C-20.456139%2C-20.460051%29%22%0A%20%20%20%20%20id%3D%22g3804%22%0A%20%20%20%20%20style%3D%22stroke%3A%23ffffff%3Bstroke-opacity%3A1%22%3E%0A%20%20%20%20%3Cg%0A%20%20%20%20%20%20%20transform%3D%22translate%28-156.4375%2C-398.78125%29%22%0A%20%20%20%20%20%20%20id%3D%22layer1%22%0A%20%20%20%20%20%20%20style%3D%22stroke%3A%23ffffff%3Bstroke-opacity%3A1%22%3E%0A%20%20%20%20%20%20%3Cpath%0A%20%20%20%20%20%20%20%20%20d%3D%22M%20195.27845%2C552.79802%20310.43583%2C437.64064%22%0A%20%20%20%20%20%20%20%20%20id%3D%22path2985%22%0A%20%20%20%20%20%20%20%20%20style%3D%22fill%3Anone%3Bstroke%3A%23ffffff%3Bstroke-width%3A24.74926186%3Bstroke-linecap%3Asquare%3Bstroke-linejoin%3Amiter%3Bstroke-miterlimit%3A4%3Bstroke-opacity%3A1%3Bstroke-dasharray%3Anone%22%20/%3E%0A%20%20%20%20%20%20%3Cpath%0A%20%20%20%20%20%20%20%20%20d%3D%22M%20310.43583%2C552.79802%20195.27845%2C437.64064%22%0A%20%20%20%20%20%20%20%20%20id%3D%22path3802%22%0A%20%20%20%20%20%20%20%20%20style%3D%22fill%3Anone%3Bstroke%3A%23ffffff%3Bstroke-width%3A24.74926186%3Bstroke-linecap%3Asquare%3Bstroke-linejoin%3Amiter%3Bstroke-miterlimit%3A4%3Bstroke-opacity%3A1%3Bstroke-dasharray%3Anone%22%20/%3E%0A%20%20%20%20%3C/g%3E%0A%20%20%3C/g%3E%0A%3C/svg%3E")
+		,linear-gradient(to bottom, #777777, #555555);
+}
+
+@media (max-width: 750px) {
+	div:not(.listHidden) > #objectsList{
+		display: none;
+	}
+	div:not(.listHidden) > #closeObjectsListButton{
+		display: none;
+	}
 }
 
 @media (max-width: 700px) {
@@ -293,10 +330,23 @@ optgroup{
 	}
 }
 
-@media (max-width: 500px) {
+@media (max-width: 750px) {
+	#closeObjectsListButton{
+		top: 60px;
+	}
+}
+
+@media (max-width: 530px) {
 	#objectsList{
 		top: 80px;
 		max-height: calc(100% - 130px);
+	}
+	
+	#closeObjectsListButton{
+		top: 55px;
+		right: 10px;
+		height: 30px;
+		width: 30px;
 	}
 }
 
@@ -321,7 +371,7 @@ optgroup{
 	background-color: #777777;
 }
 
-.object *{
+.object > *{
 	display: block;
 }
 

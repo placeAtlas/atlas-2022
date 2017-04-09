@@ -1069,87 +1069,51 @@ var atlas = [
 		"website": "",
 		"subreddit": "/r/brasil",
 		"center": [
-			63.5,
-			727.5
-		],
-		"path": [
-			[
-				31.5,
-				756.5
-			],
-			[
-				31.5,
-				696.5
-			],
-			[
-				86.5,
-				696.5
-			],
-			[
-				89.5,
-				699.5
-			],
-			[
-				89.5,
-				705.5
-			],
-			[
-				90.5,
-				721.5
-			],
-			[
-				107.5,
-				721.5
-			],
-			[
-				111.5,
-				721.5
-			],
-			[
-				109.5,
-				727.5
-			],
-			[
-				102.5,
-				729.5
-			],
-			[
-				96.5,
-				729.5
-			],
-			[
-				93.5,
-				733.5
-			],
-			[
-				93.5,
-				748.5
-			],
-			[
-				96.5,
-				748.5
-			],
-			[
-				96.5,
-				755.5
-			],
-			[
-				96.5,
-				756.5
-			],
-			[
-				62.5,
-				756.5
-			],
-			[
-				53.5,
-				764.5
-			],
-			[
-				45.5,
-				756.5
-			]
-		]
+    		56.5,
+    		731.5
+    	],
+    	"path": [
+    		[
+    			31.5,
+    			756.5
+    		],
+    		[
+    			45.5,
+    			756.5
+    		],
+    		[
+    			52.5,
+    			763.5
+    		],
+    		[
+    			54.5,
+    			763.5
+    		],
+    		[
+    			61.5,
+    			756.5
+    		],
+    		[
+    			84.5,
+    			756.5
+    		],
+    		[
+    			84.5,
+    			713.5
+    		],
+    		[
+    			67.5,
+    			713.5
+    		],
+    		[
+    			67.5,
+    			702.5
+    		],
+    		[
+    			31.5,
+    			702.5
+    		]
+    	]
 	},
     {
     	"id": 26,
@@ -1941,7 +1905,7 @@ var atlas = [
     		]
     	]
     },
-    {
+   /* {
     	"id": 42,
     	"name": "Flag of the USA",
     	"description": "",
@@ -1969,7 +1933,7 @@ var atlas = [
     			545.5
     		]
     	]
-    },
+    },*/
     {
     	"id": 43,
     	"name": "Flag of Japan",
@@ -3177,7 +3141,7 @@ var atlas = [
     		]
     	]
     },
-    {
+    /*{
     	"id": 66,
     	"name": "Flag of Ireland",
     	"description": "",
@@ -3245,8 +3209,8 @@ var atlas = [
     			547.5
     		]
     	]
-    },
-    {
+    },*/
+    /*{
     	"id": 67,
     	"name": "The Blue Corner",
     	"description": "The Blue Corner was one of the earliest projects on /r/place.\\n\nIt quickly grew to cover a significant part of the map, but later was pushed back to its current size.",
@@ -3274,7 +3238,7 @@ var atlas = [
     			908.5
     		]
     	]
-    },
+    },*/
     {
 		"id": 68,
 		"name": "Madotsuki",
@@ -4932,7 +4896,7 @@ var atlas = [
 			]
 		]
 	},
-	{
+	/*{
 		"id": 98,
 		"name": "Shinobu Oshino",
 		"description": "Character from the Monogatari anime series.",
@@ -5044,7 +5008,7 @@ var atlas = [
 				59.5
 			]
 		]
-	},
+	},*/
 	{
 		"id": 99,
 		"name": "The Numbers from Lost",
@@ -5487,7 +5451,7 @@ var atlas = [
 			]
 		]
 	},
-	{
+	/*{
 		"id": 109,
 		"name": "MMA",
 		"description": "A space dedicated to representing the Mixed Martial Arts community.",
@@ -5515,7 +5479,7 @@ var atlas = [
 				622.5
 			]
 		]
-	},
+	},*/
 	{ "id": 110, "name": "Crusader Kings", "description": "Originally spawned from r/CrusaderKings, these three shields, four crosses, and one crown represent a collection of communities. It now stands to represent all games released by the Swedish videogame developer Paradox Game. Deus Vult!\n\norganized by r/CKcrusaders", "website": "", "subreddit": "r/crusaderkings", "center": [ 437.5, 111.5 ], "path": [ [ 415.5, 132.5 ], [ 415.5, 134.5 ], [ 410.5, 134.5 ], [ 410.5, 138.5 ], [ 415.5, 138.5 ], [ 415.5, 142.5 ], [ 419.5, 142.5 ], [ 419.5, 138.5 ], [ 424.5, 138.5 ], [ 424.5, 134.5 ], [ 419.5, 134.5 ], [ 419.5, 133.5 ], [ 419.5, 132.5 ], [ 455.5, 132.5 ], [ 455.5, 134.5 ], [ 450.5, 134.5 ], [ 450.5, 138.5 ], [ 455.5, 138.5 ], [ 455.5, 142.5 ], [ 455.5, 143.5 ], [ 459.5, 143.5 ], [ 459.5, 138.5 ], [ 464.5, 138.5 ], [ 464.5, 134.5 ], [ 459.5, 134.5 ], [ 459.5, 132.5 ], [ 490.5, 132.5 ], [ 490.5, 122.5 ], [ 470.5, 122.5 ], [ 470.5, 91.5 ], [ 459.5, 91.5 ], [ 459.5, 89.5 ], [ 464.5, 89.5 ], [ 464.5, 85.5 ], [ 459.5, 85.5 ], [ 459.5, 80.5 ], [ 455.5, 80.5 ], [ 455.5, 85.5 ], [ 450.5, 85.5 ], [ 450.5, 89.5 ], [ 455.5, 89.5 ], [ 455.5, 90.5 ], [ 448.5, 90.5 ], [ 448.5, 82.5 ], [ 449.5, 82.5 ], [ 449.5, 81.5 ], [ 448.5, 80.5 ], [ 447.5, 79.5 ], [ 427.5, 79.5 ], [ 426.5, 80.5 ], [ 425.5, 81.5 ], [ 425.5, 90.5 ], [ 419.5, 90.5 ], [ 419.5, 89.5 ], [ 424.5, 89.5 ], [ 424.5, 85.5 ], [ 419.5, 85.5 ], [ 419.5, 80.5 ], [ 415.5, 80.5 ], [ 415.5, 85.5 ], [ 410.5, 85.5 ], [ 410.5, 89.5 ], [ 415.5, 89.5 ], [ 415.5, 90.5 ], [ 414.5, 90.5 ], [ 415.5, 90.5 ], [ 404.5, 91.5 ], [ 404.5, 121.5 ], [ 384.5, 121.5 ], [ 384.5, 132.5 ], [ 396.5, 132.5 ] ] },
 	{
 		"id": 111,
@@ -5698,7 +5662,7 @@ var atlas = [
 			]
 		]
 	},
-	{
+	/*{
 		"id": 116,
 		"name": "Halo Franchise",
 		"description": "Halo is a sci-fi 1st person shooter franchise created by Bungie, managed by 343 Industries and owned by Microsoft Studios.",
@@ -5778,7 +5742,7 @@ var atlas = [
 				378.5
 			]
 		]
-	},
+	},*/
 	{
 		"id": 117,
 		"name": "Stardew Valley",
@@ -6714,7 +6678,7 @@ var atlas = [
 		"name": "Love Live",
 		"description": "An anime about a group of girls who form an idol club in their high school.",
 		"website": "",
-		"subreddit": "/r/lovelive",
+		"subreddit": "/r/lovelive, /r/SchoolIdolFestival",
 		"center": [
 			322.5,
 			743.5
@@ -6835,43 +6799,27 @@ var atlas = [
 		"website": "https://www.masseffect.com/",
 		"subreddit": "/r/masseffect",
 		"center": [
-			851.5,
-			982.5
-		],
-		"path": [
-			[
-				812.5,
-				999.5
-			],
-			[
-				873.5,
-				999.5
-			],
-			[
-				873.5,
-				989.5
-			],
-			[
-				876.5,
-				989.5
-			],
-			[
-				876.5,
-				957.5
-			],
-			[
-				845.5,
-				957.5
-			],
-			[
-				845.5,
-				984.5
-			],
-			[
-				812.5,
-				984.5
-			]
-		]
+    		834.5,
+    		992.5
+    	],
+    	"path": [
+    		[
+    			812.5,
+    			999.5
+    		],
+    		[
+    			855.5,
+    			999.5
+    		],
+    		[
+    			855.5,
+    			984.5
+    		],
+    		[
+    			812.5,
+    			984.5
+    		]
+    	]
 	},
 	{
 		"id": 135,
@@ -10132,39 +10080,31 @@ var atlas = [
 		{
 		"id": 190,
 		"name": "Anarchist Flags",
-		"description": "Various anarchist tendencies (Top left, clockwise: anarcho-communism, mutualism, eco-anarchism, and anarcho-pacifism) over the text \"BLM\" (for Black Lives Matter)",
+		"description": "Various anarchist tendencies (Top left, clockwise: anarcho-communism, mutualism, eco-anarchism, and anarcho-pacifism)",
 		"website": "",
 		"subreddit": "/r/Anarchism",
 		"center": [
-			12.5,
-			457.5
-		],
-		"path": [
-			[
-				0.5,
-				442.5
-			],
-			[
-				23.5,
-				442.5
-			],
-			[
-				23.5,
-				472.5
-			],
-			[
-				0.5,
-				472.5
-			],
-			[
-				0.5,
-				442.5
-			],
-			[
-				-1.5,
-				452.5
-			]
-		]
+    		12.5,
+    		453.5
+    	],
+    	"path": [
+    		[
+    			0.5,
+    			442.5
+    		],
+    		[
+    			0.5,
+    			463.5
+    		],
+    		[
+    			23.5,
+    			463.5
+    		],
+    		[
+    			23.5,
+    			442.5
+    		]
+    	]
 	},
 	{
 		"id": 191,
@@ -15100,7 +15040,7 @@ var atlas = [
     			292.5
     		]
     	]
-    },    {
+    }, /*   {
     	"id": 266,
     	"name": "Honeydew's avatar",
     	"description": "The avatar of the character Honeydew from the Yogscast youtube channel. ",
@@ -15272,7 +15212,7 @@ var atlas = [
     			55.5
     		]
     	]
-    },  {
+    }, */ {
     	"id": 267,
     	"name": "The Double T",
     	"description": "A deformed version of the Double T logo representing Texas Tech University in Lubbock, TX.",
@@ -16124,7 +16064,7 @@ var atlas = [
     			968.5
     		]
     	]
-    },{
+    },/*{
     	"id": 434,
     	"name": "Tamadra",
     	"description": "A monster from the complex mobile game, Puzzle and Dragons",
@@ -16152,7 +16092,7 @@ var atlas = [
     			0.5
     		]
     	]
-    },{
+    },*/{
     	"id": 435,
     	"name": "Sips",
     	"description": "A reference to the popular youtuber \"Sips\"",
@@ -16188,7 +16128,7 @@ var atlas = [
     			133.5
     		]
     	]
-    },{
+    },/*{
     	"id": 436,
     	"name": "Runescape",
     	"description": "Many references and memes in the Runescape community.",
@@ -16284,7 +16224,7 @@ var atlas = [
     			184.5
     		]
     	]
-    },{
+    },*/{
     	"id": 437,
     	"name": "Professor Layton",
     	"description": "Professor Layton and his assistant Luke, from the series of games made for the Nintendo DS and 3DS",
@@ -17774,7 +17714,7 @@ var atlas = [
     			449.5
     		]
     	]
-    },    {
+    },  /*  {
     	"id": 287,
     	"name": "Nintendo Switch Logo",
     	"description": "Reference to /r/NintendoSwitch. The Nintendo Switch is a games console/handheld that can play full console games on the go.",
@@ -17802,7 +17742,7 @@ var atlas = [
     			13.5
     		]
     	]
-    },    {
+    },  */  {
     	"id": 288,
     	"name": "New Zealand",
     	"description": "Lazar Kiwi, Red Peak (two of the entries for the New Zealand flag referendum), Tino Rangatiratanga flag (national flag for Māori groups), and Marmite",
@@ -17966,7 +17906,7 @@ var atlas = [
     			845.5
     		]
     	]
-    },    {
+    },  /*  {
     	"id": 291,
     	"name": "Slovakia",
     	"description": "Annexed by Norway",
@@ -18014,7 +17954,7 @@ var atlas = [
     			55.5
     		]
     	]
-    },    {
+    },  */  {
     	"id": 292,
     	"name": "World War Commemoration",
     	"description": "The dates of the two world wars and a poppy are drawn here to remember the two world wars.",
@@ -18136,9 +18076,9 @@ var atlas = [
     	]
     },    {
     	"id": 295,
-    	"name": "Yogscast",
-    	"description": "The Yogscast is a media production company based in Bristol who produce gaming related video content focused around their main YouTube channel, \"YOGSCAST Lewis & Simon\".\n\n- /u/Kiptus [TrendE]",
-    	"website": "https://www.reddit.com/r/Yogscast/",
+    	"name": "Yogscast's Honeydew",
+    	"description": "The Yogscast is a media production company based in Bristol who produce gaming related video content focused around their main YouTube channel, \"YOGSCAST Lewis & Simon\".",
+    	"website": "",
     	"subreddit": "/r/Yogscast",
     	"center": [
     		395.5,
@@ -18318,7 +18258,7 @@ var atlas = [
     			60.5
     		]
     	]
-    },    {
+    },  /*  {
     	"id": 296,
     	"name": "The Desecrated flag of Kekistan",
     	"description": "Started by 4chan users, this flag was supposed to represent all the 4chan community in /r/place, but was always under heavy fire from haters who thought it was a nazi symbol (plot twist, it really wasn't).",
@@ -18362,7 +18302,7 @@ var atlas = [
     			951.5
     		]
     	]
-    },    {
+    },  */  {
     	"id": 297,
     	"name": "Robin flag",
     	"description": "The flag designed by participants of Robin, reddit's April Fools experiment of 2016. It was a chatroom that starts of with 2 people, and you can vote to grow (merge it with another chatroom of the same \"Tier\", stay (turn the chatroom into a subreddit), or abandon (delete the chatroom). The final room, Tier 17, had thousands of people and caused the servers to crash, ending the experiment. The symbols on the flag are the symbols for the three voting options. The letters are the first few letters of the extremely long name of the room, consisting of 2 letters from the usernames of all it's participants. The heart is to signafy an alliance with Mexico after it was attacked by the void. The subreddit is private.",
@@ -18390,7 +18330,7 @@ var atlas = [
     			417.5
     		]
     	]
-    },    {
+    }, /*   {
     	"id": 298,
     	"name": "TF2",
     	"description": "The Team Fortress 2 Community artwork",
@@ -18422,11 +18362,11 @@ var atlas = [
     			298.5
     		]
     	]
-    },
+    },*/
   {
     	"id": 299,
     	"name": "League Of Legends",
-    	"description": "The most popular game in the world with millions of active players",
+    	"description": "League of Legends (abbreviated LoL) is a multiplayer online battle arena video game developed and published by Riot Games for Microsoft Windows and macOS. The game follows a freemium model and is supported by microtransactions, and was inspired by the Warcraft III: The Frozen Throne mod, Defense of the Ancients. League of Legends was generally well received at release, and has grown in popularity, with an active and expansive fanbase. By July 2012, League of Legends was the most played PC game in North America and Europe in terms of the number of hours played. As of January 2014, over 67 million people played League of Legends per month, 27 million per day, and over 7.5 million concurrently during peak hours.",
     	"website": "http://www.riotgames.com/",
     	"subreddit": "/r/leagueoflegends",
     	"center": [
@@ -18451,7 +18391,7 @@ var atlas = [
     			715.5
     		]
     	]
-    },{
+    },/*{
     	"id": 299,
     	"name": "Team Fortress 2",
     	"description": "A Free 2 Play Video game developed By Valve",
@@ -18487,7 +18427,7 @@ var atlas = [
     			341.5
     		]
     	]
-    },    {
+    },  */  {
     	"id": 300,
     	"name": "John is Dead",
     	"description": "Although the area never got finished to to frequent raids, this was planned to be an advertisement for an ARG called John is Dead by one of its playerbases, the Internet Detectives",
@@ -19059,7 +18999,7 @@ var atlas = [
     			384.5
     		]
     	]
-    },    {
+    },  /*  {
     	"id": 309,
     	"name": "Emil's face",
     	"description": "Emil's face from the game series of NieR.",
@@ -19087,7 +19027,7 @@ var atlas = [
     			672.5
     		]
     	]
-    },    {
+    },  */  {
     	"id": 310,
     	"name": "Flag of Montenegro",
     	"description": "",
@@ -19187,7 +19127,7 @@ var atlas = [
     			399.5
     		]
     	]
-    },     {
+    },  /*   {
     	"id": 313,
     	"name": "Realm of the Mad God",
     	"description": "Realm of the mad god: 2011 web game; 8bit mmo bullet hell. L-R / T - B: Oryx the mad god (Main boss of the game); White Bag (contains rare loot); Craig, intern of the Mad God (NPC)",
@@ -19227,7 +19167,7 @@ var atlas = [
     			597.5
     		]
     	]
-    },{
+    },*/{
     	"id": 313,
     	"name": "Realm of the Mad God",
     	"description": "Realm of the mad god: 2011 web game; 8bit mmo bullet hell. - the sprite is from the Leprechaun hunt event held on st. Patricks day since 2017",
@@ -19523,7 +19463,7 @@ var atlas = [
     			696.5
     		]
     	]
-    },    {
+    },   /* {
     	"id": 319,
     	"name": "Jerma985",
     	"description": "The logo of the Youtuber Jerma985, along with the phrase \"LOOTGET\" from one of his more popular videos \"Dork Cube.\"",
@@ -19811,7 +19751,7 @@ var atlas = [
     			757.5
     		]
     	]
-    },    {
+    },  */  {
     	"id": 320,
     	"name": "The Kekistan/Rainbow Flag",
     	"description": "4chan tried to join the /r/place party by drawing the \"Kekistan Flag\" using various scripts. The flag was quickly destroyed, when a Rainbow flag was drawn over it. The end result is a mix between both flags.",
@@ -20863,7 +20803,7 @@ var atlas = [
     			807.5
     		]
     	]
-    },    {
+    },  /*  {
     	"id": 331,
     	"name": "kekistan/gay pride flag",
     	"description": "the battle ground where 4chan tried to raise their flag and reddit tried to stop them neither of them  successful",
@@ -20903,7 +20843,7 @@ var atlas = [
     			908.5
     		]
     	]
-    },    {
+    },  */  {
     	"id": 332,
     	"name": "Flag of Ontario",
     	"description": "The flag of Ontario was enacted by the Flag Act on May 21, 1965 in the Legislature of the Province of Ontario.",
@@ -21039,7 +20979,7 @@ var atlas = [
     			174.5
     		]
     	]
-    },    {
+    },  /*  {
     	"id": 336,
     	"name": "Euler's Equation",
     	"description": "The most beautiful equation ever, this was first written down by Euler, but probably not on /place. ",
@@ -21067,7 +21007,7 @@ var atlas = [
     			90.5
     		]
     	]
-    },    {
+    },  */  {
     	"id": 337,
     	"name": "Junimo, a Slime and a Void Egg",
     	"description": "The Purple blob is a Slime, one of the first enemies encountered in the game Stardew Valley. The yellow figure is a junimo, known for their help on the farm once you've finished the Community Center. The void egg can be left by a witch when it flies over a less-than-full Coop in the same game.",
@@ -22187,7 +22127,7 @@ var atlas = [
     			276.5
     		]
     	]
-    },    {
+    },  /*  {
     	"id": 348,
     	"name": "Eve Online",
     	"description": "An immersive space based sandbox MMO",
@@ -22235,7 +22175,7 @@ var atlas = [
     			298.5
     		]
     	]
-    },    {
+    }, */   {
     	"id": 349,
     	"name": "Furry Snoo",
     	"description": "The Unique Snoo of the subreddit r/furry.\nIt was constantly vandalized but stayed visible until the end.",
@@ -24323,7 +24263,7 @@ var atlas = [
     			882.5
     		]
     	]
-    },    {
+    },  /*  {
     	"id": 362,
     	"name": "TF2 Logo",
     	"description": "The logo of the popular stylized class based FPS, Team Fortress 2.",
@@ -24359,7 +24299,7 @@ var atlas = [
     			301.5
     		]
     	]
-    }, /*   {
+    }, *//*   {
     	"id": 363,
     	"name": "Undertale",
     	"description": "Undertale is a role-playing video game created by American indie developer and composer Toby Fox. It was released on September 15, 2015 In the picture the two famed skeleton bros Sans (Left) and papyrus (Right) are visible",
@@ -24527,7 +24467,7 @@ var atlas = [
     			647.5
     		]
     	]
-    },    {
+    },  /*  {
     	"id": 365,
     	"name": "Euler's Identities",
     	"description": "Important mathematical identities, the incredible work of Leonhard Euler",
@@ -24555,7 +24495,7 @@ var atlas = [
     			90.5
     		]
     	]
-    }, {
+    },*//* {
     	"id": 366,
     	"name": "League of Legends logo",
     	"description": "the new league of legends logo with some small poros on the background",
@@ -24583,7 +24523,7 @@ var atlas = [
     			706.5
     		]
     	]
-    },    {
+    },  */  {
     	"id": 367,
     	"name": "Monero",
     	"description": "A cryptocurrency",
@@ -24614,7 +24554,7 @@ var atlas = [
     },    {
     	"id": 368,
     	"name": "Jerma985",
-    	"description": "Jeremy Harrington, otherwise known as jerma985 is a popular funny youtuber and streamer. Includes his logo (the Jerma J) and an injoke (LOOT GET)",
+    	"description": "Jeremy Harrington, otherwise known as Jerma985, is a popular comedic youtuber and streamer. Includes his logo (the Jerma J) along with the phrase \"LOOTGET\" from one of his more popular videos \"Dork Cube.\"",
     	"website": "",
     	"subreddit": "/r/jerma985/",
     	"center": [
@@ -25947,7 +25887,7 @@ var atlas = [
     			822.5
     		]
     	]
-    },    {
+    },  /*  {
     	"id": 385,
     	"name": "The Expanse",
     	"description": "Two hundred years in the future, police detective Miller, born in the asteroid belt, is assigned to find the missing Julie Mao. Meanwhile, ice hauler Canterbury is involved in a tragic accident. On Earth, the United Nations executive Chrisjen Avasarala, works tirelessly to maintain peace between Earth, Mars, and the Belt; by any means necessary.",
@@ -26059,7 +25999,7 @@ var atlas = [
     			166.5
     		]
     	]
-    },    {
+    },  */  {
     	"id": 386,
     	"name": "Carrot",
     	"description": "The only remaining carrot of once large carrot farm from an earlier time in r/place's history.",
@@ -27890,8 +27830,8 @@ var atlas = [
     },    {
     	"id": 412,
     	"name": "NieR",
-    	"description": "Subreddit for NieR, NieR: Automata and the Drakengard trilogy",
-    	"website": "https://www.reddit.com/r/nier/",
+    	"description": "Emil's face from the video game NieR: Automata and the Drakengard trilogy",
+    	"website": "",
     	"subreddit": "/r/NieR",
     	"center": [
     		293.5,
@@ -28007,7 +27947,7 @@ var atlas = [
         			733.5
         		]
         	]
-    }    ,    {
+    }    , /*   {
     	"id": 414,
     	"name": "Flag of Maryland",
     	"description": "",
@@ -28203,7 +28143,7 @@ var atlas = [
     			112.5
     		]
     	]
-    },    {
+    }, */   {
     	"id": 415,
     	"name": "SFU",
     	"description": "A University in Canada",
@@ -28254,7 +28194,7 @@ var atlas = [
     },    {
     	"id": 416,
     	"name": "Team Fortress 2",
-    	"description": "A popular first person shooter created by Valve originally created on the 9th of October in 2007. Team Fortress 2 (or TF2 for short) is now a Free To Play titled on the 23rd of June, 2011.",
+    	"description": "A popular first person shooter created by Valve first released on the 9th of October in 2007. Team Fortress 2 (or TF2 for short) is now a Free To Play title since the 23rd of June, 2011.",
     	"website": "http://www.teamfortress.com/",
     	"subreddit": "/r/tf2",
     	"center": [
@@ -28319,7 +28259,7 @@ var atlas = [
     			149.5
     		]
     	]
-    },    {
+    }, /*   {
     	"id": 418,
     	"name": "Destiny",
     	"description": "Destiny is an fps for Xbox and Playstation developed by Bungie.",
@@ -28555,7 +28495,7 @@ var atlas = [
     			753.5
     		]
     	]
-    },    {
+    },  */  {
     	"id": 419,
     	"name": "Yiff Me Daddy!",
     	"description": "",
@@ -28631,7 +28571,7 @@ var atlas = [
     			280.5
     		]
     	]
-    },    {
+    },  /*  {
     	"id": 421,
     	"name": "P&D Tamadra",
     	"description": "A collectible card from the mobile game Puzzles & Dragons.",
@@ -28659,7 +28599,7 @@ var atlas = [
     			32.5
     		]
     	]
-    },    {
+    }, */   {
     	"id": 422,
     	"name": "Lord Tachanka's Icon",
     	"description": "In the popular first person shooter \"Tom Clancy's Rainbow Six Siege\", an operator named Tachanka has been titled the Lord by the Rainbow6 subreddit. There are also popular trends on the right of the icon such as \"BuffBlitz\", a trend started by users of Rainbow Six Siege in order to buff a very under powered character.",
@@ -29638,7 +29578,7 @@ var atlas = [
     	]
     }*/,    {
     	"id": 449,
-    	"name": "Slovakia",
+    	"name": "Flag of Slovakia",
     	"description": "",
     	"website": "",
     	"subreddit": "/r/Slovakia",
@@ -30371,7 +30311,7 @@ var atlas = [
     },    {
     	"id": 461,
     	"name": "Tamadra",
-    	"description": "A tamadra is a special monster from Puzzle and Dragons mobile game.",
+    	"description": "A Tamadra is a special monster and collectible card from the mobile game Puzzle and Dragons.",
     	"website": "http://puzzledragonx.com",
     	"subreddit": "r/PuzzleAndDragons/",
     	"center": [
@@ -30579,7 +30519,7 @@ var atlas = [
     }, */   {
     	"id": 464,
     	"name": "Euler's Identity",
-    	"description": "e^i*tau = 1 and e^i*pi = -1, the latter usually considered to be one of the most beautiful statements in mathematics, also commonly written as e^i*pi + 1 = 0. Both come from the more general fact that e^i*x = cos x + i * sin x.",
+    	"description": "<span style=\"white-space: nowrap\">e<sup>i&tau;</sup> = 1</span> and <span style=\"white-space: nowrap\">e<sup>i&pi;</sup> = -1</span>, the latter usually considered to be one of the most beautiful statements in mathematics, also commonly written as <span style=\"white-space: nowrap\">e<sup>i&pi;</sup>+1 = 0</span>. Both come from the more general fact that <span style=\"white-space: nowrap\">e<sup>i*x</sup> = cos x + i * sin x</span>.",
     	"website": "",
     	"subreddit": "r/math",
     	"center": [
@@ -30680,7 +30620,7 @@ var atlas = [
     			499.5
     		]
     	]
-    },    {
+    },  /*  {
     	"id": 466,
     	"name": "Pusheen the Cat",
     	"description": "Pusheen the Cat is an animated webcomic about a Grey Tabby and the mischief she gets up to.",
@@ -30880,7 +30820,7 @@ var atlas = [
     			955.5
     		]
     	]
-    },    {
+    },  */  {
     	"id": 467,
     	"name": "ANZAC Monument",
     	"description": "A New Zealand flag beside an Australian flag, along with the sign \"ANZAC PRIDE\" - referring to the legendary bond formed between the two countries' soldiers during World War I, as well as a poppy commemorating the wartime poem \"In Flanders Field\"",
@@ -31004,7 +30944,7 @@ var atlas = [
     			992.5
     		]
     	]
-    },    */{
+    },    *//*{
     	"id": 471,
     	"name": "ATL 28-NE 3",
     	"description": "A depiction of the scoreboard of Super Bowl 51. The scoreboard shows that the Atlanta Falcons were up by 25 against the New England Patriots. The Falcons would go on to lose the game, creating the meme that the \"Falcons blew a 25-point lead\".",
@@ -31032,7 +30972,7 @@ var atlas = [
     			88.5
     		]
     	]
-    },    {
+    }, */   {
     	"id": 472,
     	"name": "Flag of Bulgaria",
     	"description": "",
@@ -32487,7 +32427,7 @@ var atlas = [
     	]
     },    {
     	"id": 485,
-    	"name": "Team Fortress 2 NOPE Engineer",
+    	"name": "Team Fortress 2: nope.avi",
     	"description": "A pixel art version of a Team Fortress 2 meme. It originated from a user-created youtube clip that used the TF2 player model and voice command.",
     	"website": "https://www.youtube.com/watch?v=gvdf5n-zI14",
     	"subreddit": "/r/tf2",
@@ -32525,7 +32465,7 @@ var atlas = [
     			405.5
     		]
     	]
-    },    {
+    },  /*  {
     	"id": 486,
     	"name": "Major League Soccer",
     	"description": "The logo of the United States professional soccer league, Major League Soccer.",
@@ -32581,7 +32521,7 @@ var atlas = [
     			708.5
     		]
     	]
-    },
+    },*/
     {
     	"id": 487,
     	"name": "5 Pokemon",
@@ -33714,7 +33654,7 @@ var atlas = [
     			400.5
     		]
     	]
-    },    {
+    },  /*  {
     	"id": 489,
     	"name": "Earthbound",
     	"description": "Showcases Ninten, Ness, Lucas, Kumatora and Mr. Saturn from the Mother video game series. ",
@@ -33762,7 +33702,7 @@ var atlas = [
     			629.5
     		]
     	]
-    },    {
+    }, */   {
     	"id": 490,
     	"name": "N64 Logo",
     	"description": "The logo of the Nintendo 64 gaming console. It was one of the first images in this area. One of their major allies during /r/place was /r/dwarffortress, the dwarfs frequently came to the aid of n64 and helped keep it intact.  At one time the Dreamcast logo was to their left, this logo was consumed by /r/catalunya.",
@@ -34093,9 +34033,9 @@ var atlas = [
     },    {
     	"id": 496,
     	"name": "The Rise of MMA",
-    	"description": "This area was contested for some time. Initially occupied by a shitty Canadian Flag. /r/Dwarffortress initially tried to take out the flag as they expanded. However as /r/indonesia began their assault on dwarf territory, /r/dwarffortress ceded the territory to /r/mma in return for an alliance against the Indonesians. MMA had to fight with Vaporwave and the AR logo above before finally taking control of this area.",
+    	"description": "This area was contested for some time. Initially occupied by a Canadian Flag. /r/Dwarffortress initially tried to take out the flag as they expanded. However as /r/indonesia began their assault on dwarf territory, /r/dwarffortress ceded the territory to /r/mma in return for an alliance against the Indonesians. MMA had to fight with Vaporwave and the AR logo above before finally taking control of this area.",
     	"website": "",
-    	"subreddit": "/r/mma",
+    	"subreddit": "/r/MMA",
     	"center": [
     		85.5,
     		630.5
@@ -34178,7 +34118,7 @@ var atlas = [
     			872.5
     		]
     	]
-    },    {
+    },  /*  {
     	"id": 498,
     	"name": "Tre Kronor",
     	"description": "The National Emblem of Sweden and is present in the Swedish coat of arms",
@@ -34222,7 +34162,7 @@ var atlas = [
     			54.5
     		]
     	]
-    }, {
+    },*/ {
     	"id": 499,
     	"name": "Asriel Dreemurr",
     	"description": "A goat-like character from the game Undertale. ",
@@ -35161,7 +35101,7 @@ var atlas = [
     },    {
     	"id": 506,
     	"name": "Earthbound",
-    	"description": "Mother is a cult jRPG series by Shigesato Itoi, also known as Earthbound in the West.",
+    	"description": "EarthBound, known as Mother 2 in Japan, is a 1994 Japanese role-playing video game published by Nintendo for the SNES video game console. The image shows the characters Ninten, Ness, Lucas, Kumatora and Mr. Saturn from the Mother video game series.",
     	"website": "",
     	"subreddit": "/r/Earthbound",
     	"center": [
@@ -36230,7 +36170,7 @@ var atlas = [
     	]
     },    {
     	"id": 526,
-    	"name": "New Mail",
+    	"name": "Reddit Inbox",
     	"description": "The icon shown on Reddit when the user has new unread messages.",
     	"website": "",
     	"subreddit": "",
@@ -36440,7 +36380,7 @@ var atlas = [
     			974.5
     		]
     	]
-    },    {
+    },  /*  {
     	"id": 532,
     	"name": "Nope.avi",
     	"description": "Nope.avi is a short animation made in Steam Filmmaker featuring the engineer from Team Fortress 2.",
@@ -36480,7 +36420,7 @@ var atlas = [
     			406.5
     		]
     	]
-    },    {
+    }, */   {
     	"id": 533,
     	"name": "Red Hot Chili Peppers",
     	"description": "An American funk rock band formed in Los Angeles in 1983.  The group's musical style primarily consists of rock with an emphasis on funk, as well as elements from other genres such as punk rock and psychedelic rock.",
@@ -36818,7 +36758,7 @@ var atlas = [
     	]
     },    {
     	"id": 540,
-    	"name": "MLS Logo",
+    	"name": "Major League Soccer",
     	"description": "The logo for Major League Soccer, the highest tier league for soccer in the United States and Canada. Vandalised to say \"MLG\", referring to Major League Gaming.",
     	"website": "",
     	"subreddit": "/r/MLS/",
@@ -37627,7 +37567,7 @@ var atlas = [
     			595.5
     		]
     	]
-    },    {
+    },  /*  {
     	"id": 564,
 		"submitted_by": "DJMooray",
     	"name": "Club Penguin",
@@ -37676,7 +37616,7 @@ var atlas = [
     			977.5
     		]
     	]
-    },    {
+    },  */  {
     	"id": 565,
 		"submitted_by": "terriblestperson",
     	"name": "BOPP Dwarf",
@@ -38054,7 +37994,7 @@ var atlas = [
     			453.5
     		]
     	]
-    },    {
+    },  /*  {
     	"id": 571,
 		"submitted_by": "StudentRadical",
     	"name": "Mr. Saturn from Earthbound",
@@ -38091,7 +38031,7 @@ var atlas = [
     			536.5
     		]
     	]
-    },    {
+    },  */  {
     	"id": 572,
 		"submitted_by": "Qiqz",
     	"name": "Bisexual pride flag",
@@ -38128,9 +38068,9 @@ var atlas = [
     	"id": 573,
 		"submitted_by": "AustinAuranymph",
     	"name": "Asexual Pride Flag",
-    	"description": "The flag for the Asexual community. Asexuality is the lack of sexual attraction towards any gender. It is recognized as part of the LGBT community.",
+    	"description": "The flag for the Asexual community. Asexuality is the lack of sexual attraction towards any gender.",
     	"website": "https://www.asexuality.org/",
-    	"subreddit": "/r/asexuality",
+    	"subreddit": "/r/asexuality, /r/AcePlace",
     	"center": [
     		95.5,
     		596.5
@@ -38995,9 +38935,9 @@ var atlas = [
     	"id": 584,
 		"submitted_by": "Hologuardian",
     	"name": "Brave Newbies",
-    	"description": "A EvE online Alliance dedicated to accepting newbros.",
+    	"description": "Brave Newbies are an alliance in the space-based, persistent world massively multiplayer online role-playing game EVE Online who focus exclusively on providing players who are new to EVE Online with an active community and friendly environment where they can have fun as they learn more about EVE Online.",
     	"website": "https://wiki.braveineve.com/",
-    	"subreddit": "https://www.reddit.com/r/Bravenewbies/",
+    	"subreddit": "/r/Bravenewbies/",
     	"center": [
     		362.5,
     		285.5
@@ -40637,7 +40577,7 @@ var atlas = [
     			892.5
     		]
     	]
-    },    {
+    },  /*  {
     	"id": 604,
 		"submitted_by": "DoomAngelBlade",
     	"name": "Be Brave 7o Corporation",
@@ -40666,7 +40606,7 @@ var atlas = [
     			270.5
     		]
     	]
-    },    {
+    }, */   {
     	"id": 605,
 		"submitted_by": "Tekar",
     	"name": "Minecraft",
@@ -41176,7 +41116,7 @@ var atlas = [
     			598.5
     		]
     	]
-    },    {
+    },   /* {
     	"id": 617,
 		"submitted_by": "DiplomaticMeatball",
     	"name": "Asexual Flag",
@@ -41326,7 +41266,7 @@ var atlas = [
     		]
     	]
     },
-
+*/
     {
     	"id": 618,
 		"submitted_by": "Galaruss",
@@ -41358,7 +41298,7 @@ var atlas = [
     	]
     },
 
-    {
+    /*{
     	"id": 619,
 		"submitted_by": "Galaruss",
     	"name": "nope.avi",
@@ -41387,9 +41327,9 @@ var atlas = [
     			405.5
     		]
     	]
-    },
+    },*/
 
-    {
+   /* {
     	"id": 620,
 		"submitted_by": "Galaruss",
     	"name": "Reddit inbox icon",
@@ -41418,7 +41358,7 @@ var atlas = [
     			372.5
     		]
     	]
-    },
+    },*/
 
     {
     	"id": 621,
@@ -41482,7 +41422,7 @@ var atlas = [
     	]
     },
 
-    {
+   /* {
     	"id": 623,
 		"submitted_by": "Galaruss",
     	"name": "NPR",
@@ -41519,7 +41459,7 @@ var atlas = [
     			553.5
     		]
     	]
-    },
+    },*/
 
     {
     	"id": 624,
@@ -42144,9 +42084,9 @@ var atlas = [
     	"id": 631,
 		"submitted_by": "bilwis",
     	"name": "Superbowl LI Scoreboard",
-    	"description": "The scoreboard of Superbowl LI, 3rd Quarter, 2:08 to play. New England 3, Atlanta 28. It is at this very second that James White catches a 5-yd touchdown from Tom Brady to start an unprecedented comeback for the New England Patriots, who go on to win the game 34-28 in overtime.",
+    	"description": "The scoreboard of the 51st Superbowl, 3rd Quarter, 2:08 to play. New England 3, Atlanta 28. It is at this very second that James White catches a 5-yd touchdown from Tom Brady to start an unprecedented comeback for the New England Patriots, who go on to win the game 34-28 in overtime.",
     	"website": "",
-    	"subreddit": "/r/falcons",
+    	"subreddit": "/r/falcons, /r/patriots",
     	"center": [
     		133.5,
     		72.5
@@ -46236,7 +46176,7 @@ var atlas = [
     			528.5
     		]
     	]
-    },    {
+    }, /*   {
     	"id": 703,
 		"submitted_by": "Frederic94500",
     	"name": "Enter Warp Pipe",
@@ -46285,7 +46225,7 @@ var atlas = [
     			89.5
     		]
     	]
-    },    {
+    },   */ {
     	"id": 704,
 		"submitted_by": "FelixLive44",
     	"name": "(Covered) Battle of Quebec",
@@ -46372,7 +46312,7 @@ var atlas = [
     			382.5
     		]
     	]
-    },    {
+    },  /*  {
     	"id": 707,
 		"submitted_by": "PM_ME_YER_TENTACLES",
     	"name": "Squid",
@@ -46413,7 +46353,7 @@ var atlas = [
     			963.5
     		]
     	]
-    },    {
+    },  */  {
     	"id": 708,
 		"submitted_by": "raseksa",
     	"name": "Blanka",
@@ -46562,7 +46502,7 @@ var atlas = [
     			734.5
     		]
     	]
-    },    {
+    }, /*   {
     	"id": 709,
 		"submitted_by": "p00bix",
     	"name": "Denver Broncos Logo",
@@ -46611,7 +46551,7 @@ var atlas = [
     			890.5
     		]
     	]
-    },    {
+    }, */   {
     	"id": 710,
 		"submitted_by": "gaumut",
     	"name": "SPQR",
@@ -46648,9 +46588,9 @@ var atlas = [
     	"id": 711,
 		"submitted_by": "DokomoS",
     	"name": "Chicago Cubs",
-    	"description": "The logo of the 2016 World Series Champs, the Chicago Cubs. Also included are a representation of the W Win Flag and the World Series Trophy. Sadly, at the last second the team has been renamed to the Cues.",
+    	"description": "One of the two baseball teams in Chicago. The Cubs play at Wrigley Field in the north side. Also included are a representation of the W Win Flag and the World Series Trophy. Sadly, at the last second the team has been renamed to the Cues.",
     	"website": "",
-    	"subreddit": "https://www.reddit.com/r/CHICubs/",
+    	"subreddit": "/r/CHICubs",
     	"center": [
     		899.5,
     		953.5
@@ -46673,7 +46613,7 @@ var atlas = [
     			962.5
     		]
     	]
-    },    {
+    },  /*  {
     	"id": 712,
 		"submitted_by": "Leostereo",
     	"name": "Flag of Åland Islands",
@@ -46706,7 +46646,7 @@ var atlas = [
     			801.5
     		]
     	]
-    },    {
+    },  */  {
     	"id": 713,
 		"submitted_by": "neomyotragus",
     	"name": "Flag of Catalonia",
@@ -46743,7 +46683,7 @@ var atlas = [
     			603.5
     		]
     	]
-    },    {
+    }, /*   {
     	"id": 714,
 		"submitted_by": "Frederic94500",
     	"name": "Exit Warp Pipe",
@@ -46776,7 +46716,7 @@ var atlas = [
     			546.5
     		]
     	]
-    },    {
+    },  */  {
     	"id": 715,
 		"submitted_by": "cubi1oh",
     	"name": "FreeMaru",
@@ -47405,7 +47345,7 @@ var atlas = [
     			493.5
     		]
     	]
-    },    {
+    },   /* {
     	"id": 724,
 		"submitted_by": "PM_ME_YER_TENTACLES",
     	"name": "Tiny Floating Whale",
@@ -47446,7 +47386,7 @@ var atlas = [
     			160.5
     		]
     	]
-    },  /*  {
+    },  *//*  {
     	"id": 725,
 		"submitted_by": "jfb1337",
     	"name": "Snorlax",
@@ -48272,7 +48212,7 @@ var atlas = [
     			85.5
     		]
     	]
-    },    {
+    },  /*  {
     	"id": 735,
 		"submitted_by": "ThumbWarVeteran",
     	"name": "University of Central Florida",
@@ -48301,7 +48241,7 @@ var atlas = [
     			938.5
     		]
     	]
-    },    {
+    },  *//*  {
     	"id": 736,
 		"submitted_by": "Plink333",
     	"name": "The Far Left Side",
@@ -48418,7 +48358,7 @@ var atlas = [
     			471.5
     		]
     	]
-    },  /*  {
+    },  *//*  {
     	"id": 737,
 		"submitted_by": "zenon_0",
     	"name": "World of Tanks logo",
@@ -49199,7 +49139,7 @@ var atlas = [
     			413.5
     		]
     	]
-    },  */  {
+    },  *//* {
     	"id": 746,
 		"submitted_by": "dienamight",
     	"name": "Logo for the Kansas City Royals",
@@ -49236,7 +49176,7 @@ var atlas = [
     			540.5
     		]
     	]
-    },    {
+    }, *//*   {
     	"id": 747,
 		"submitted_by": "samuelnico",
     	"name": "Animal Crossing Leaf",
@@ -49309,7 +49249,7 @@ var atlas = [
     			486.5
     		]
     	]
-    },    {
+    },  */  {
     	"id": 748,
 		"submitted_by": "M4RV1N_",
     	"name": "Totoro",
@@ -49347,8 +49287,8 @@ var atlas = [
 		"submitted_by": "ccarlyon",
     	"name": "Liverpool FC",
     	"description": "Liverpool Football Club is a professional association football club based in Liverpool, Merseyside, England. They compete in the Premier League, the top tier of English football.\n\nYNWA stands for \"You'll Never Walk Alone\", the club's motto. The number \"96\" and the \"Eternal Flame\" either side pays tribute to the 96 Liverpool fans who died in the Hillsborough disaster.",
-    	"website": "",
-    	"subreddit": "",
+    	"website": "http://www.liverpoolfc.com/",
+    	"subreddit": "/r/LiverpoolFC",
     	"center": [
     		653.5,
     		699.5
@@ -49371,7 +49311,7 @@ var atlas = [
     			684.5
     		]
     	]
-    },    {
+    },  /*  {
     	"id": 750,
 		"submitted_by": "ThumbWarVeteran",
     	"name": "University of Florida",
@@ -49404,7 +49344,7 @@ var atlas = [
     			977.5
     		]
     	]
-    },    {
+    },  */  {
     	"id": 751,
 		"submitted_by": "ThugPepe",
     	"name": "Elucidator & Dark Repulser",
@@ -49429,7 +49369,7 @@ var atlas = [
     			928.5
     		]
     	]
-    },    {
+    },  /*  {
     	"id": 752,
 		"submitted_by": "fantasyMLShelper",
     	"name": "Flag of Ohio",
@@ -49458,7 +49398,7 @@ var atlas = [
     			226.5
     		]
     	]
-    },    {
+    },  */  {
     	"id": 753,
 		"submitted_by": "EdgelordAllanPoe",
     	"name": "pr0gramm Logo",
@@ -49549,7 +49489,7 @@ var atlas = [
     			235.5
     		]
     	]
-    },    {
+    }, /*   {
     	"id": 756,
 		"submitted_by": "ElectricCrash",
     	"name": "The Lost Gun",
@@ -49734,7 +49674,7 @@ var atlas = [
     			907.5
     		]
     	]
-    },    {
+    },  */  {
     	"id": 757,
 		"submitted_by": "William27528",
     	"name": "Kirby",
@@ -49852,7 +49792,7 @@ var atlas = [
     			624.5
     		]
     	]
-    },  */  {
+    },  *//*  {
     	"id": 759,
 		"submitted_by": "DokomoS",
     	"name": "KC Royals",
@@ -49881,7 +49821,7 @@ var atlas = [
     			565.5
     		]
     	]
-    },    {
+    },   */ {
     	"id": 760,
 		"submitted_by": "Jakobs_Biscuit",
     	"name": "A pint",
@@ -50044,7 +49984,7 @@ var atlas = [
     			897.5
     		]
     	]
-    }, */   {
+    }, */  /* {
     	"id": 763,
 		"submitted_by": "raseksa",
     	"name": "Liverpool FC",
@@ -50073,7 +50013,7 @@ var atlas = [
     			713.5
     		]
     	]
-    },  /*  {
+    },  *//*  {
     	"id": 764,
 		"submitted_by": "BoredPudding",
     	"name": "Muse (band)",
@@ -50233,7 +50173,7 @@ var atlas = [
     			72.5
     		]
     	]
-    },    {
+    },  /*  {
     	"id": 768,
 		"submitted_by": "jonnys62",
     	"name": "Ohio Box",
@@ -50262,7 +50202,7 @@ var atlas = [
     			251.5
     		]
     	]
-    },    {
+    },  */  {
     	"id": 769,
 		"submitted_by": "insert_funny_here",
     	"name": "Anarcha-Feminist flag",
@@ -50294,8 +50234,8 @@ var atlas = [
     },    {
     	"id": 770,
 		"submitted_by": "BiBoetzke",
-    	"name": "Pornhub.com",
-    	"description": "r/placestart hid the Pornhub url in one of their tabs",
+    	"name": "Pornhub",
+    	"description": "r/placestart hid the url of the porn site 'Pornhub' in one of their tabs",
     	"website": "",
     	"subreddit": "/r/placestart",
     	"center": [
@@ -50644,7 +50584,7 @@ var atlas = [
     			1004.5
     		]
     	]
-    }*/    {
+    }*/   /* {
     	"id": 778,
 		"submitted_by": "MenacingBanjo",
     	"name": "Weezer",
@@ -50689,7 +50629,7 @@ var atlas = [
     			946.5
     		]
     	]
-    },    {
+    },  *//*  {
     	"id": 779,
 		"submitted_by": "cerealley",
     	"name": "Flag of the Åland Islands",
@@ -50722,7 +50662,7 @@ var atlas = [
     			802.5
     		]
     	]
-    },    {
+    },  */  {
     	"id": 780,
 		"submitted_by": "MadMikeStar",
     	"name": "Kingdom Hearts",
@@ -50780,7 +50720,7 @@ var atlas = [
     			436.5
     		]
     	]
-    },    {
+    },  /*  {
     	"id": 782,
 		"submitted_by": "pvtdbjackson",
     	"name": "Pitt",
@@ -50809,13 +50749,13 @@ var atlas = [
     			895.5
     		]
     	]
-    },    {
+    }, */   {
     	"id": 783,
 		"submitted_by": "Edgeofnothing",
     	"name": "Flaggy Flag",
     	"description": "The official flag of Hello Internet. Don't worry about what other people will tell you, this *is* the official flag, not the stupid nail and gear. #FlaggyFlag",
     	"website": "",
-    	"subreddit": "/r/HelloInternet",
+    	"subreddit": "/r/HelloInternet, /r/FlaggyFlag",
     	"center": [
     		913.5,
     		731.5
@@ -50841,7 +50781,7 @@ var atlas = [
     },    {
     	"id": 784,
 		"submitted_by": "Kidney05",
-    	"name": "Temple University Logo",
+    	"name": "Temple University",
     	"description": "Logo of Temple University located in Philadelphia.",
     	"website": "https://www.temple.edu/",
     	"subreddit": "/r/Temple",
@@ -51092,9 +51032,9 @@ var atlas = [
     	"id": 790,
 		"submitted_by": "AkkiV",
     	"name": "Flag of Åland Islands",
-    	"description": "The Åland Islands or Åland are an archipelago at the entrance to the Gulf of Bothnia in the Baltic Sea belonging to Finland.",
+    	"description": "The Åland Islands, or Åland, are an archipelago at the entrance to the Gulf of Bothnia in the Baltic Sea. They are an autonomous territory of Finland.",
     	"website": "",
-    	"subreddit": "",
+    	"subreddit": "/r/AlandIslands",
     	"center": [
     		62.5,
     		806.5
@@ -51232,7 +51172,7 @@ var atlas = [
     			206.5
     		]
     	]
-    },    {
+    },  /*  {
     	"id": 794,
 		"submitted_by": "yowambo",
     	"name": "Splatoon Squid",
@@ -51365,7 +51305,7 @@ var atlas = [
     			958.5
     		]
     	]
-    },    {
+    },  */  {
     	"id": 795,
 		"submitted_by": "reddeadluigi",
     	"name": "HUEBR",
@@ -51426,7 +51366,7 @@ var atlas = [
     },  */  {
     	"id": 797,
 		"submitted_by": "Sigma1977",
-    	"name": "Katawa Shoujo logo",
+    	"name": "Katawa Shoujo",
     	"description": "Katawa Shoujo is a bishoujo-style visual novel set in the fictional Yamaku High School for disabled children, located somewhere in modern Japan. Hisao Nakai, a normal boy living a normal life, has his life turned upside down when a congenital heart defect forces him to move to a new school after a long hospitalization. Despite his difficulties, Hisao is able to find friends—and perhaps love, if he plays his cards right. ",
     	"website": "https://www.katawa-shoujo.com/",
     	"subreddit": "/r/katawashoujo",
@@ -51789,7 +51729,7 @@ var atlas = [
     			892.5
     		]
     	]
-    },  */  {
+    },  */ /* {
     	"id": 803,
 		"submitted_by": "PenguinPaladin",
     	"name": "Time Gear",
@@ -51878,7 +51818,7 @@ var atlas = [
     			182.5
     		]
     	]
-    },    {
+    }, */   {
     	"id": 804,
 		"submitted_by": "pvtdbjackson",
     	"name": "Parrot",
@@ -51907,7 +51847,7 @@ var atlas = [
     			174.5
     		]
     	]
-    },{
+    },/*{
     	"id": 805,
 		"submitted_by": "mybham",
     	"name": "Lucario (Shiny Pokemon",
@@ -52000,7 +51940,7 @@ var atlas = [
     			493.5
     		]
     	]
-    },{
+    },*/{
     	"id": 806,
 		"submitted_by": "mybham",
     	"name": "Buizel (Pokemon)",
@@ -52813,7 +52753,7 @@ var atlas = [
     			179.5
     		]
     	]
-    }, {
+    },/* {
     	"id": 811,
 		"submitted_by": "mybham",
     	"name": "Squirtle as a Portuguese pirate",
@@ -52870,7 +52810,7 @@ var atlas = [
     			411.5
     		]
     	]
-    }, {
+    },*/ {
     	"id": 812,
 		"submitted_by": "mybham",
     	"name": "Goomy (Pokémon)",
@@ -53152,7 +53092,7 @@ var atlas = [
     			827.5
     		]
     	]
-    },{
+    },/*{
     	"id": 814,
 		"submitted_by": "mybham",
     	"name": "Time Gear ( Pokémon Mystery Dungeon)",
@@ -53226,7 +53166,7 @@ var atlas = [
     		]
     	]
     }
-,    {
+, */   {
     	"id": 815,
 		"submitted_by": "Qiqz",
     	"name": "Space Invaders on the Rainbow Road",
@@ -53415,8 +53355,8 @@ var atlas = [
 		"submitted_by": "Niautanor",
     	"name": "Major Tom",
     	"description": "Major Tom is a fictional astronaut that is referenced in various David Bowie songs.",
-    	"website": "",
-    	"subreddit": "r/place/comments/62rxon/major_tom_wants_to_float_around_in_the_blue/",
+    	"website": "https://reddit.com/r/place/comments/62rxon/major_tom_wants_to_float_around_in_the_blue/",
+    	"subreddit": "",
     	"center": [
     		897.5,
     		895.5
@@ -53908,7 +53848,7 @@ var atlas = [
     			34.5
     		]
     	]
-    },    {
+    },  /*  {
     	"id": 829,
 		"submitted_by": "clank201",
     	"name": "Flag of Catalonia",
@@ -53953,7 +53893,7 @@ var atlas = [
     			636.5
     		]
     	]
-    },    {
+    },  */  {
     	"id": 830,
 		"submitted_by": "Creativation",
     	"name": "Mega Man's briefs",
@@ -54027,7 +53967,7 @@ var atlas = [
         			711.5
         		]
         	]
-        },  {
+        }, /* {
     	"id": 832,
 		"submitted_by": "placemeup2",
     	"name": "Broncos",
@@ -54196,7 +54136,7 @@ var atlas = [
     			888.5
     		]
     	]
-    },    {
+    },  */  {
     	"id": 833,
 		"submitted_by": "PandaPundus",
     	"name": "Apocalypse Rising",
@@ -54366,7 +54306,7 @@ var atlas = [
     },  */  {
     	"id": 836,
 		"submitted_by": "raistlin212",
-    	"name": "KC Royals Logo",
+    	"name": "Kansas City Royals",
     	"description": "The Kansas City Royals are a professional baseball team and winners of the 2015 World Series.\n\nTheir fans are well known on reddit for being very supportive of the team's recent successes after several decades of poor results.  Their victory meme is was a common sight on the teams subbreddit, as well as the main /r/baseball.  The fans are also well know for their ability to organize and swarm online polls - resulting in virtually every member of the team nearly making the All-Star game one year.\n\nThis logo appeared at the very end of the /r/place lifetime, being drawn over the rival Seattle Mariners logo which can barely be seen above it.",
     	"website": "",
     	"subreddit": "/r/KCRoyals/",
@@ -54400,7 +54340,7 @@ var atlas = [
     			541.5
     		]
     	]
-    },    {
+    },  /*  {
     	"id": 837,
 		"submitted_by": "Faertlocks",
     	"name": "Chicago Cubs",
@@ -54505,11 +54445,11 @@ var atlas = [
     			946.5
     		]
     	]
-    },    {
+    }, */   {
     	"id": 838,
 		"submitted_by": "ak416",
     	"name": "Giant Bomb",
-    	"description": "The logo for Giant Bomb dot com, a website about video games.",
+    	"description": "It's a website about video games. Giant Bomb is an American video game website and wiki that includes personality driven gaming videos, commentary, news and reviews, created by former GameSpot editors Jeff Gerstmann and Ryan Davis. The website was voted by Time magazine as one of the Top 50 websites of 2011.",
     	"website": "www.videogames.com",
     	"subreddit": "/r/giantbomb",
     	"center": [
@@ -54636,7 +54576,7 @@ var atlas = [
     			236.5
     		]
     	]
-    }, {
+    }, /*{
     	"id": 841,
 		"submitted_by": "advicefrog",
     	"name": "Temple University",
@@ -54665,7 +54605,7 @@ var atlas = [
     			844.5
     		]
     	]
-    },  /*  {
+    },  *//*  {
     	"id": 842,
 		"submitted_by": "placemeup2",
     	"name": "49ers",
@@ -55039,7 +54979,7 @@ var atlas = [
     			226.5
     		]
     	]
-    },    {
+    }, /*   {
     	"id": 852,
 		"submitted_by": "Hazzat",
     	"name": "Splatoon squid",
@@ -55092,7 +55032,7 @@ var atlas = [
     			957.5
     		]
     	]
-    },   /* {
+    },  */ /* {
     	"id": 853,
 		"submitted_by": "quaxay",
     	"name": "Moondye 7",
@@ -55350,7 +55290,7 @@ var atlas = [
     			439.5
     		]
     	]
-    },  */  {
+    },  *//*  {
     	"id": 859,
 		"submitted_by": "CommunistMountain",
     	"name": "Pepe the Frog",
@@ -55375,7 +55315,7 @@ var atlas = [
     			964.5
     		]
     	]
-    },    {
+    },  */  {
     	"id": 860,
 		"submitted_by": "quajter",
     	"name": "SNSD",
@@ -55519,7 +55459,7 @@ var atlas = [
     			815.5
     		]
     	]
-    },    {
+    },  /*  {
     	"id": 864,
 		"submitted_by": "silkmoth_",
     	"name": "Time Gear",
@@ -55548,7 +55488,7 @@ var atlas = [
     			178.5
     		]
     	]
-    },    {
+    }, */   {
     	"id": 865,
 		"submitted_by": "Birdenchops",
     	"name": "Bird",
@@ -55979,7 +55919,7 @@ var atlas = [
     			361.5
     		]
     	]
-    },  */  {
+    },  *//*  {
     	"id": 876,
 		"submitted_by": "reddeadluigi",
     	"name": "Smoking Snake and Flying Spaggeti Monster",
@@ -56008,7 +55948,7 @@ var atlas = [
     			708.5
     		]
     	]
-    },    {
+    },  */ /* {
     	"id": 877,
 		"submitted_by": "epicbualls",
     	"name": "Flag of Armenia",
@@ -56045,7 +55985,7 @@ var atlas = [
     			616.5
     		]
     	]
-    },    {
+    },   *//* {
     	"id": 878,
 		"submitted_by": "MetternichMarck",
     	"name": "Ohio",
@@ -56086,7 +56026,7 @@ var atlas = [
     			225.5
     		]
     	]
-    }, {
+    }, */{
     	"id": 879,
 		"submitted_by": "theonlytruemathnerd",
     	"name": "WPI",
@@ -56119,7 +56059,7 @@ var atlas = [
     			929.5
     		]
     	]
-    },     {
+    },  /*   {
     	"id": 880,
 		"submitted_by": "Firebrass11",
     	"name": "Flag of Armenia",
@@ -56152,7 +56092,7 @@ var atlas = [
     			597.5
     		]
     	]
-    },    {
+    },  *//*  {
     	"id": 881,
 		"submitted_by": "Koftek",
     	"name": "Giant Bomb",
@@ -56181,7 +56121,7 @@ var atlas = [
     			111.5
     		]
     	]
-    },   /* {
+    },   *//* {
     	"id": 882,
 		"submitted_by": "cmrx64",
     	"name": "Redox OS",
@@ -56210,7 +56150,7 @@ var atlas = [
     			635.5
     		]
     	]
-    },  */  {
+    },  *//*  {
     	"id": 883,
 		"submitted_by": "dries007",
     	"name": "Atomium",
@@ -56243,7 +56183,7 @@ var atlas = [
     			701.5
     		]
     	]
-    },    {
+    }, */   {
     	"id": 884,
 		"submitted_by": "suihcta",
     	"name": "San Francisco 49ers",
@@ -56543,7 +56483,7 @@ var atlas = [
     			729.5
     		]
     	]
-    },  */  {
+    },  */ /* {
     	"id": 888,
 		"submitted_by": "Matlox",
     	"name": "Flag of Armenia",
@@ -56576,7 +56516,7 @@ var atlas = [
     			598.5
     		]
     	]
-    },{
+    },*/{
     	"id": 889,
 		"submitted_by": "Hacodaro",
     	"name": "Happy Birthday, NorseFenrir!",
@@ -56692,7 +56632,7 @@ var atlas = [
     			46.5
     		]
     	]
-    },    {
+    }, /*   {
     	"id": 893,
 		"submitted_by": "synbiostael",
     	"name": "Flag of Catalonia",
@@ -56733,7 +56673,7 @@ var atlas = [
     			603.5
     		]
     	]
-    },    {
+    },  */  {
     	"id": 894,
 		"submitted_by": "WeeDemBoys",
     	"name": "K-On!",
@@ -56839,7 +56779,7 @@ var atlas = [
     	"id": 896,
 		"submitted_by": "cmrx64",
     	"name": "Ferris the Crab",
-    	"description": "The unofficial mascot of the Rust programming language",
+    	"description": "Also called the Rustacean. The unofficial mascot of the Rust programming language",
     	"website": "http://www.rustacean.net/",
     	"subreddit": "/r/rust",
     	"center": [
@@ -56909,7 +56849,7 @@ var atlas = [
     			262.5
     		]
     	]
-    },  */  {
+    },  *//*  {
     	"id": 898,
 		"submitted_by": "animalzhu",
     	"name": "Chicago Cubs",
@@ -56938,7 +56878,7 @@ var atlas = [
     			962.5
     		]
     	]
-    },    {
+    },  */  {
     	"id": 899,
 		"submitted_by": "seanos1998",
     	"name": "Cool and New Webcomic",
@@ -57048,7 +56988,7 @@ var atlas = [
     	"name": "The UM Football Team",
     	"description": "This is the team logo for the University of Miami Football Team.",
     	"website": "http://welcome.miami.edu/",
-    	"subreddit": "r/UMiami",
+    	"subreddit": "r/UMiami, /r/MiamiHurricanes",
     	"center": [
     		721.5,
     		868.5
@@ -57211,7 +57151,7 @@ var atlas = [
     			896.5
     		]
     	]
-    },    {
+    },  /*  {
     	"id": 907,
 		"submitted_by": "fingertipslip",
     	"name": "r/LiverpoolFC",
@@ -57244,7 +57184,7 @@ var atlas = [
     			684.5
     		]
     	]
-    },  /*  {
+    },  *//*  {
     	"id": 908,
 		"submitted_by": "popa_nowel",
     	"name": "San Francisco 49ers logo",
@@ -57338,7 +57278,7 @@ var atlas = [
     			262.5
     		]
     	]
-    },  */  {
+    },  *//*  {
     	"id": 910,
 		"submitted_by": "justpeep",
     	"name": "Totodile",
@@ -57391,7 +57331,7 @@ var atlas = [
     			833.5
     		]
     	]
-    }, /*   {
+    }, *//*   {
     	"id": 911,
 		"submitted_by": "pepsisong2",
     	"name": "",
@@ -57453,7 +57393,7 @@ var atlas = [
     			672.5
     		]
     	]
-    },    {
+    },   /* {
     	"id": 913,
 		"submitted_by": "BroderFelix",
     	"name": "Flag of Åland",
@@ -57490,7 +57430,7 @@ var atlas = [
     			805.5
     		]
     	]
-    },    {
+    },  *//*  {
     	"id": 914,
 		"submitted_by": "Stanislav_P",
     	"name": "The flag of armenia",
@@ -57519,7 +57459,7 @@ var atlas = [
     			616.5
     		]
     	]
-    },    {
+    },  *//*  {
     	"id": 915,
 		"submitted_by": "Murk1e",
     	"name": "Flaggy Flag",
@@ -57548,7 +57488,7 @@ var atlas = [
     			727.5
     		]
     	]
-    },    {
+    },  */  {
     	"id": 916,
 		"submitted_by": "up_too_early",
     	"name": "Green Bay Packers",
@@ -57662,7 +57602,7 @@ var atlas = [
     			414.5
     		]
     	]
-    },    {
+    }, /*   {
     	"id": 918,
 		"submitted_by": "the_real_azags",
     	"name": "pr0gramm",
@@ -57691,7 +57631,7 @@ var atlas = [
     			248.5
     		]
     	]
-    },    {
+    },  *//*  {
     	"id": 919,
 		"submitted_by": "Tobibobi",
     	"name": "wlfPepe",
@@ -57744,7 +57684,7 @@ var atlas = [
     			968.5
     		]
     	]
-    },    {
+    },  */  {
     	"id": 920,
 		"submitted_by": "ThisIsntTheWay",
     	"name": "Samus Aran",
@@ -57967,7 +57907,7 @@ var atlas = [
     			383.5
     		]
     	]
-    }, {
+    }, /*{
     	"id": 923,
 		"submitted_by": "Steel_Neuron",
     	"name": "Rustacean",
@@ -58028,7 +57968,7 @@ var atlas = [
     			637.5
     		]
     	]
-    },    {
+    }, */   {
     	"id": 924,
 		"submitted_by": "tixieej",
     	"name": "A-Eskwadraat",
@@ -58381,7 +58321,7 @@ var atlas = [
     			362.5
     		]
     	]
-    }, */   {
+    }, *//*   {
     	"id": 929,
 		"submitted_by": "NPH_wouldnt_do_that",
     	"name": "Ohio Flag",
@@ -58410,7 +58350,7 @@ var atlas = [
     			251.5
     		]
     	]
-    },    {
+    },   */ {
     	"id": 930,
 		"submitted_by": "Toriel420",
     	"name": "Payday 2 Icon",
@@ -58811,7 +58751,7 @@ var atlas = [
     	"id": 935,
 		"submitted_by": "Qiqz",
     	"name": "Flag of Armenia",
-    	"description": "Third attempt to build the Armenian flag.India turned out to be a good neighbor. Earlier attempts to build the Armenian flag were thwarted by Greece, Turkey and the Netherlands.",
+    	"description": "Third attempt to build the Armenian flag. India turned out to be a good neighbor. Earlier attempts to build the Armenian flag were thwarted by Greece, Turkey and the Netherlands.",
     	"website": "",
     	"subreddit": "/r/armenia",
     	"center": [
@@ -59192,7 +59132,7 @@ var atlas = [
     			596.5
     		]
     	]
-    },    {
+    },  /*  {
     	"id": 944,
 		"submitted_by": "GrygrFlzr",
     	"name": "Love Live! School Idol Festival",
@@ -59233,7 +59173,7 @@ var atlas = [
     			723.5
     		]
     	]
-    },    {
+    },  */  {
     	"id": 945,
 		"submitted_by": "Persona_Alio",
     	"name": "NY Jets",
@@ -59391,7 +59331,7 @@ var atlas = [
     			163.5
     		]
     	]
-    },    {
+    },   /* {
     	"id": 947,
 		"submitted_by": "Matti-Koopa",
     	"name": "Animal Crossing Leaf",
@@ -59424,7 +59364,7 @@ var atlas = [
     			474.5
     		]
     	]
-    }, /*   {
+    }, *//*   {
     	"id": 948,
 		"submitted_by": "Noammac",
     	"name": "Spiny",
@@ -59611,7 +59551,7 @@ var atlas = [
     			735.5
     		]
     	]
-    },    {
+    },   /* {
     	"id": 951,
 		"submitted_by": "seanos1998",
     	"name": "The S",
@@ -59648,7 +59588,7 @@ var atlas = [
     			896.5
     		]
     	]
-    },    {
+    }, *//*   {
     	"id": 952,
 		"submitted_by": "MalinwaFan94",
     	"name": "Kauai Album Cover",
@@ -59677,7 +59617,7 @@ var atlas = [
     			489.5
     		]
     	]
-    },{
+    },*/{
     	"id": 953,
 		"submitted_by": "Noostale",
     	"name": "Redox OS",
@@ -60026,7 +59966,7 @@ var atlas = [
     			726.5
     		]
     	]
-    },    {
+    },  /*  {
     	"id": 961,
 		"submitted_by": "J7ang",
     	"name": "Katawa Shoujo ",
@@ -60059,13 +59999,13 @@ var atlas = [
     			196.5
     		]
     	]
-    },    {
+    }, */   {
     	"id": 962,
 		"submitted_by": "MrDrWombat",
     	"name": "Oshino Shinobu",
     	"description": "The iron-blooded, hot-blooded, cold-blooded vampire that appears in the Japanese Animated series, the Monogatari Series. \n\nShinobu was carefully crafted by the r/anime_irl community in its attempt to showcase the best Monogatari character. For anyone interested in the show I suggest visiting their subreddit r/araragi.",
     	"website": "discord.gg/anime",
-    	"subreddit": "/r/anime_irl",
+    	"subreddit": "/r/araragi",
     	"center": [
     		93.5,
     		70.5
@@ -60484,7 +60424,7 @@ var atlas = [
     	"id": 967,
 		"submitted_by": "Hizaia",
     	"name": "Splatoon squid",
-    	"description": "Splatoon is a third person multiplayer shooter where players control squid human hybrids. this is the only squid that survived /r/place\n",
+    	"description": "A squid from the Wii U/Nintendo Switch third-person shooter series Splatoon. This is the only squid that survived /r/place, with the other having been buried under the Windows 95 taskbar.",
     	"website": "",
     	"subreddit": "/r/splatoon",
     	"center": [
@@ -60961,7 +60901,7 @@ var atlas = [
     			74.5
     		]
     	]
-    },*/{
+    },*//*{
         	"id": 979,
 			"submitted_by": "OgreGaben",
         	"name": "Flareon",
@@ -61022,7 +60962,7 @@ var atlas = [
         			180.5
         		]
         	]
-        }    ,{
+        } , */  {
     	"id": 980,
 		"submitted_by": "OgreGaben",
     	"name": "Flipnote Frog",
@@ -61160,7 +61100,7 @@ var atlas = [
     			827.5
     		]
     	]
-    }, {
+    },/* {
     	"id": 982,
 		"submitted_by": "OgreGaben",
     	"name": "Animal Crossing logo",
@@ -61237,7 +61177,7 @@ var atlas = [
     			486.5
     		]
     	]
-    }, {
+    },*/ {
     	"id": 983,
 		"submitted_by": "OgreGaben",
     	"name": "Luigi",
@@ -61617,7 +61557,7 @@ var atlas = [
     },    {
     	"id": 988,
 		"submitted_by": "uziyo",
-    	"name": "Blond logo",
+    	"name": "Frank Ocean - Blond",
     	"description": "Frank Ocean's 2016 album \"Blond\". Unfortunately taken over by r/denmark right before r/place wrapped up.",
     	"website": "",
     	"subreddit": "/r/frankocean",
@@ -61651,7 +61591,7 @@ var atlas = [
     			297.5
     		]
     	]
-    },    {
+    },  /*  {
     	"id": 989,
 		"submitted_by": "mylittleplaceholder",
     	"name": "Flag of Armenia",
@@ -61682,9 +61622,9 @@ var atlas = [
     	]
     }
 
-,
+,*/
 
-    {
+   /* {
     	"id": 990,
 		"submitted_by": "mylittleplaceholder",
     	"name": "Flag of the Nagorno-Karabakh Republic",
@@ -61714,7 +61654,7 @@ var atlas = [
     		]
     	]
     }
-,   /* {
+,  */ /* {
     	"id": 991,
 		"submitted_by": "datividon",
     	"name": "Green Bay Packers",
@@ -61779,7 +61719,7 @@ var atlas = [
     			635.5
     		]
     	]
-    },  */  {
+    },  *//*  {
     	"id": 992,
 		"submitted_by": "Pobblebonke",
     	"name": "Aland Islands Flag",
@@ -61816,7 +61756,7 @@ var atlas = [
     			802.5
     		]
     	]
-    },    {
+    },  */  {
     	"id": 993,
 		"submitted_by": "GryptpypeThynne",
     	"name": "University of Victoria",
@@ -61995,7 +61935,7 @@ var atlas = [
     			974.5
     		]
     	]
-    },    {
+    },  /*  {
     	"id": 997,
 		"submitted_by": "darkmushu",
     	"name": "Chicago Cubs logo",
@@ -62044,7 +61984,7 @@ var atlas = [
     			947.5
     		]
     	]
-    },    {
+    },  */  {
     	"id": 998,
 		"submitted_by": "the_marxman",
     	"name": "The untold history",
@@ -62174,7 +62114,7 @@ var atlas = [
     			281.5
     		]
     	]
-    },    {
+    }, /*   {
     	"id": 1000,
 		"submitted_by": "OgreGaben",
     	"name": "Totodile",
@@ -62255,7 +62195,7 @@ var atlas = [
     			821.5
     		]
     	]
-    },  /*  {
+    },  *//*  {
     	"id": 1001,
 		"submitted_by": "callosciurini",
     	"name": "BVB09 Logo",
@@ -62615,7 +62555,7 @@ var atlas = [
     			231.5
     		]
     	]
-    },    {
+    },   /* {
     	"id": 1005,
 		"submitted_by": "eutral",
     	"name": "Animal Crossing: New Leaf",
@@ -62732,7 +62672,7 @@ var atlas = [
     			474.5
     		]
     	]
-    },  /*  {
+    }, */ /*  {
     	"id": 1006,
 		"submitted_by": "OgreGaben",
     	"name": "Link sprite, health bar and Triforce",
@@ -62801,7 +62741,7 @@ var atlas = [
     			612.5
     		]
     	]
-    },  */  {
+    },  *//*  {
     	"id": 1007,
 		"submitted_by": "Silan28",
     	"name": "Flag of Catalonia",
@@ -62846,8 +62786,8 @@ var atlas = [
     			637.5
     		]
     	]
-    },
-    {
+    },*/
+    /*{
     	"id": 1008,
 		"submitted_by": "eutral",
     	"name": "anarcha-feminism",
@@ -62880,7 +62820,7 @@ var atlas = [
     			442.5
     		]
     	]
-    },  /*  {
+    }, */ /*  {
     	"id": 1009,
 		"submitted_by": "pvt13krebs",
     	"name": "Minnesota Vikings",
@@ -63112,7 +63052,7 @@ var atlas = [
     			845.5
     		]
     	]
-    },    {
+    },  /*  {
     	"id": 1013,
 		"submitted_by": "GammaGames",
     	"name": "Splatoon squid",
@@ -63161,7 +63101,7 @@ var atlas = [
     			951.5
     		]
     	]
-    },    {
+    },  */  {
     	"id": 1014,
 		"submitted_by": "_thebronze",
     	"name": "Canada's 150th Birthday",
@@ -63527,7 +63467,7 @@ var atlas = [
     			699.5
     		]
     	]
-    }, */   {
+    }, *//*   {
     	"id": 1020,
 		"submitted_by": "mithhunter55",
     	"name": "Giant Bomb",
@@ -63580,7 +63520,7 @@ var atlas = [
     			92.5
     		]
     	]
-    },  /*  {
+    }, */ /*  {
     	"id": 1021,
 		"submitted_by": "MrRumdum",
     	"name": "Colorado's Flag",
@@ -63752,7 +63692,7 @@ var atlas = [
     			162.5
     		]
     	]
-    },    {
+    },  /*  {
     	"id": 1025,
 		"submitted_by": "SkyRider123",
     	"name": "The Blond logo",
@@ -63797,7 +63737,7 @@ var atlas = [
     			280.5
     		]
     	]
-    },    {
+    },  *//*  {
     	"id": 1026,
 		"submitted_by": "Valandir",
     	"name": "Liverpool Football Club",
@@ -63830,7 +63770,7 @@ var atlas = [
     			684.5
     		]
     	]
-    },/*    {
+    },*//*    {
     	"id": 1027,
 		"submitted_by": "amoliski",
     	"name": "Moondye7",
@@ -63859,7 +63799,7 @@ var atlas = [
     			998.5
     		]
     	]
-    },  */  {
+    },  *//*  {
     	"id": 1028,
 		"submitted_by": "SPOOKYSCARYGHOSTS",
     	"name": "The Lost Gun",
@@ -63932,7 +63872,7 @@ var atlas = [
     			895.5
     		]
     	]
-    },    {
+    },  */  {
     	"id": 1029,
 		"submitted_by": "kimilil",
     	"name": "Totoro",
@@ -64145,7 +64085,7 @@ var atlas = [
     			502.5
     		]
     	]
-    }, {
+    }, /*{
     	"id": 1034,
 		"submitted_by": "amoliski",
     	"name": "Weezer Logo",
@@ -64174,7 +64114,7 @@ var atlas = [
     			946.5
     		]
     	]
-    }, {
+    }, */{
     	"id": 1035,
 		"submitted_by": "amoliski",
     	"name": "Hidden League Gaming",
@@ -64695,7 +64635,7 @@ var atlas = [
     			595.5
     		]
     	]
-    },    {
+    },   /* {
     	"id": 1048,
 		"submitted_by": "ChartreuseLotus",
     	"name": "Denver Broncos Logo",
@@ -64776,7 +64716,7 @@ var atlas = [
     			892.5
     		]
     	]
-    },        {
+    },    */    {
         	"id": 1049,
 		"submitted_by": "mwr247",
         	"name": "University of Central Florida",
@@ -65151,7 +65091,7 @@ var atlas = [
     			232.5
     		]
     	]
-    },    {
+    }, /*   {
     	"id": 1056,
 		"submitted_by": "MyCommentingAcccount",
     	"name": "Pornhub",
@@ -65196,7 +65136,7 @@ var atlas = [
     			978.5
     		]
     	]
-    },  /*  {
+    },  *//*  {
     	"id": 1057,
 		"submitted_by": "ChartreuseLotus",
     	"name": "Colorado Flag",
@@ -65439,7 +65379,7 @@ var atlas = [
     			733.5
     		]
     	]
-    },    {
+    },  /*  {
     	"id": 1064,
 		"submitted_by": "CarVac",
     	"name": "Little Witch Academia",
@@ -65472,7 +65412,7 @@ var atlas = [
     			976.5
     		]
     	]
-    },    {
+    },  *//*  {
     	"id": 1065,
 		"submitted_by": "amoliski",
     	"name": "Temple University Logo",
@@ -65501,13 +65441,13 @@ var atlas = [
     			828.5
     		]
     	]
-    },    {
+    },  */  {
     	"id": 1066,
 		"submitted_by": "Qweiop_123",
     	"name": "The Blue Empire",
-    	"description": "A simple project started to make the bottom right corner completely blue, quickly grew to be the largest piece of art in r/place history. Within 48 hours it had covered more than half of the bottom edge, completely in blue, with thousand of dedicated supporters. But it's massive size sparked rebellion, and the once all powerful empire of the blue was destroyed. The current blue corner is a mere reminder of what the empire was in it's former glory.",
-    	"website": "https://www.reddit.com/r/orderofthebluecorner/",
-    	"subreddit": "r/orderofthebluecorner",
+    	"description": "A simple project started to make the bottom right corner completely blue, quickly grew to be the largest piece of art in r/place history. Within 48 hours it had covered more than half of the bottom edge, completely in blue, with thousand of dedicated supporters. The blue corner was pushed back gradually as more organised projects superseded the early pattern-based structures. The current blue corner is a mere reminder of what the empire was in it's former glory.",
+    	"website": "",
+    	"subreddit": "r/orderofthebluecorner, /r/thebluecorner",
     	"center": [
     		961.5,
     		954.5
@@ -65620,7 +65560,7 @@ var atlas = [
     			728.5
     		]
     	]
-    },    {
+    },  /*  {
     	"id": 1069,
 		"submitted_by": "Chrnan6710",
     	"name": "Ohio Symbols",
@@ -65649,7 +65589,7 @@ var atlas = [
     			226.5
     		]
     	]
-    },    {
+    },  *//*  {
     	"id": 1070,
 		"submitted_by": "Greybol3",
     	"name": "Flag of Armenia and Artsakh",
@@ -65698,7 +65638,7 @@ var atlas = [
     			597.5
     		]
     	]
-    },    {
+    },  */  {
     	"id": 1071,
 		"submitted_by": "MehKnight",
     	"name": "Smoking Snake and Spaghetti monster",
@@ -65855,7 +65795,7 @@ var atlas = [
     			362.5
     		]
     	]
-    },  */  {
+    },  *//*  {
     	"id": 1076,
 		"submitted_by": "ae28",
     	"name": "Temple ']['",
@@ -65884,7 +65824,7 @@ var atlas = [
     			827.5
     		]
     	]
-    },    {
+    },  */  {
     	"id": 1077,
 		"submitted_by": "Fennexin",
     	"name": "FurAffinity logo",
@@ -65925,7 +65865,7 @@ var atlas = [
     			763.5
     		]
     	]
-    },    {
+    },  /*  {
     	"id": 1078,
 		"submitted_by": "acdenh",
     	"name": "Pepe the Frog",
@@ -65962,11 +65902,11 @@ var atlas = [
     			975.5
     		]
     	]
-    },    {
+    },  */  {
     	"id": 1079,
 		"submitted_by": "Bigfoot_727",
     	"name": "Denver Broncos Logo",
-    	"description": "The Broncos are an american football team from Denver, Colorado.",
+    	"description": "The Broncos are an american football team from Denver, Colorado. They are noted for winning Superbowl 50 in 2016.",
     	"website": "",
     	"subreddit": "/r/denverbroncos",
     	"center": [
@@ -66112,7 +66052,7 @@ var atlas = [
     			664.5
     		]
     	]
-    },  */  {
+    },  *//*  {
     	"id": 1081,
 		"submitted_by": "ElliottB1",
     	"name": "KC Royals",
@@ -66209,7 +66149,7 @@ var atlas = [
     			541.5
     		]
     	]
-    },    {
+    },  */  {
     	"id": 1082,
 		"submitted_by": "StudentRadical",
     	"name": "Mr. Saturn from Earthbound",
@@ -66426,7 +66366,7 @@ var atlas = [
     			568.5
     		]
     	]
-    },    {
+    },  /*  {
     	"id": 1087,
 		"submitted_by": "WampaCow",
     	"name": "University of Notre Dame",
@@ -66455,7 +66395,7 @@ var atlas = [
     			908.5
     		]
     	]
-    },    {
+    },  */  {
     	"id": 1088,
 		"submitted_by": "mattr555",
     	"name": "MIT",
@@ -66638,7 +66578,7 @@ var atlas = [
     	"id": 1091,
 		"submitted_by": "shahbaz_man",
     	"name": "Frank Ocean: Nascar Logo",
-    	"description": "The Nascar logo, which was used in Frank Ocean's latest magazine, Boys Don't Cry.",
+    	"description": "Recolorised version of the traditional NASCAR logo, popularised by his 2016 album, Blonde.",
     	"website": "http://reddit.com/r/FrankOcean",
     	"subreddit": "/r/FrankOcean",
     	"center": [
@@ -68052,7 +67992,7 @@ var atlas = [
     			126.5
     		]
     	]
-    },    {
+    },  /*  {
     	"id": 1113,
 		"submitted_by": "GoldMoat",
     	"name": "Slime Ball",
@@ -68173,7 +68113,7 @@ var atlas = [
     			251.5
     		]
     	]
-    },    {
+    },   */ {
     	"id": 1114,
 		"submitted_by": "donwilson",
     	"name": "Parabola",
@@ -68304,10 +68244,10 @@ var atlas = [
     },    {
     	"id": 1118,
 		"submitted_by": "Legendosh",
-    	"name": "Malta",
+    	"name": "Flag of Malta",
     	"description": "Flag of Malta. A small country in the Mediterranean sea just south of Italy.",
     	"website": "",
-    	"subreddit": "",
+    	"subreddit": "/r/malta, /r/theitalyplace",
     	"center": [
     		100.5,
     		373.5
@@ -68926,7 +68866,7 @@ var atlas = [
     	"id": 1128,
 		"submitted_by": "MrEaters",
     	"name": "University of Notre Dame",
-    	"description": "Notre Dame is a small (less than 15,000 undergraduates), private research university. They are located in Notre Dame, Indiana.",
+    	"description": "Notre Dame is a small (less than 15,000 undergraduates), private research university. They are located in Notre Dame, Indiana. The Notre Dame Fighting Irish are the university's varsity sports teams.",
     	"website": "https://www.nd.edu/",
     	"subreddit": "/r/notredame",
     	"center": [
@@ -69315,7 +69255,7 @@ var atlas = [
     			454.5
     		]
     	]
-    },    {
+    }, /*   {
     	"id": 1137,
 		"submitted_by": "_Metro",
     	"name": "Frank Ocean's Altered NASCAR Logo",
@@ -69372,7 +69312,7 @@ var atlas = [
     			530.5
     		]
     	]
-    },    {
+    }, */   {
     	"id": 1138,
 		"submitted_by": "RichManSCTV",
     	"name": "Flag of Iran",
@@ -69749,7 +69689,7 @@ var atlas = [
     			429.5
     		]
     	]
-    },    {
+    },  /*  {
     	"id": 1141,
 		"submitted_by": "SPOOKYSCARYGHOSTS",
     	"name": "Reboot Pin",
@@ -69782,7 +69722,7 @@ var atlas = [
     			943.5
     		]
     	]
-    },    {
+    },  */  {
     	"id": 1142,
 		"submitted_by": "SertyDK",
     	"name": "Gomez (Fez Game)",
@@ -69851,8 +69791,8 @@ var atlas = [
     },    {
     	"id": 1144,
 		"submitted_by": "Kiloku",
-    	"name": "The Portuguese Colonies",
-    	"description": "Flags representing the old colonies of Portugal.",
+    	"name": "Portuguese Speaking Countries",
+    	"description": "Flag of the countries members of the Community of Portuguese Speaking Countries.",
     	"website": "",
     	"subreddit": "/r/Portugal",
     	"center": [
@@ -69914,7 +69854,7 @@ var atlas = [
     			608.5
     		]
     	]
-    },    {
+    },  /*  {
     	"id": 1146,
 		"submitted_by": "tritratrulala",
     	"name": "Eric Cartman",
@@ -69987,7 +69927,7 @@ var atlas = [
     			904.5
     		]
     	]
-    },
+    },*/
 
     {
     	"id": 1147,
@@ -70693,7 +70633,7 @@ var atlas = [
     			72.5
     		]
     	]
-    },    {
+    }, /*   {
     	"id": 1160,
 		"submitted_by": "Jumpyboy",
     	"name": "Maltese Flag",
@@ -70722,7 +70662,7 @@ var atlas = [
     			377.5
     		]
     	]
-    },    {
+    },  */  {
     	"id": 1161,
 		"submitted_by": "anige",
     	"name": "Eder",
@@ -70892,7 +70832,7 @@ var atlas = [
     			423.5
     		]
     	]
-    },    {
+    }, /*   {
     	"id": 1163,
 		"submitted_by": "3juicypeaches",
     	"name": "Notre Dame Fighting Irish",
@@ -70921,7 +70861,7 @@ var atlas = [
     			886.5
     		]
     	]
-    },    {
+    },  */  {
     	"id": 1164,
 		"submitted_by": "7Jayme",
     	"name": "E pluribus unum",
@@ -71070,7 +71010,7 @@ var atlas = [
     			939.5
     		]
     	]
-    },    {
+    }, /*   {
     	"id": 1169,
 		"submitted_by": "7Jayme",
     	"name": "Flag of the United States of America",
@@ -71099,7 +71039,7 @@ var atlas = [
     			467.5
     		]
     	]
-    },    {
+    },  */ /* {
     	"id": 1170,
 		"submitted_by": "G_sten",
     	"name": "Bread",
@@ -71160,7 +71100,7 @@ var atlas = [
     			357.5
     		]
     	]
-    },  {
+    }, */ {
     	"id": 1171,
 		"submitted_by": "LoboChefe",
     	"name": "Azores",
@@ -71469,7 +71409,7 @@ var atlas = [
     			928.5
     		]
     	]
-    },    {
+    },  /*  {
     	"id": 1176,
 		"submitted_by": "LoboChefe",
     	"name": "CPLP",
@@ -71502,7 +71442,7 @@ var atlas = [
     			438.5
     		]
     	]
-    },    {
+    },  */  {
     	"id": 1177,
 		"submitted_by": "dalmins",
     	"name": "Place Farts",
@@ -72026,7 +71966,7 @@ var atlas = [
     			370.5
     		]
     	]
-    },    {
+    },  /*  {
     	"id": 1189,
 		"submitted_by": "G_sten",
     	"name": "Slimeball",
@@ -72155,7 +72095,7 @@ var atlas = [
     			255.5
     		]
     	]
-    },    {
+    }, */   {
     	"id": 1190,
 		"submitted_by": "Pepperyena",
     	"name": "r/BDSM",
@@ -72383,7 +72323,7 @@ var atlas = [
     			723.5
     		]
     	]
-    },    {
+    },  /*  {
     	"id": 1194,
 		"submitted_by": "dalmins",
     	"name": "Slime",
@@ -72448,7 +72388,7 @@ var atlas = [
     			246.5
     		]
     	]
-    },    {
+    },  */  {
     	"id": 1195,
 		"submitted_by": "Wuzh",
     	"name": "Anime",
@@ -72948,7 +72888,7 @@ var atlas = [
     			195.5
     		]
     	]
-    },    {
+    },  /*  {
     	"id": 1207,
 		"submitted_by": "br61",
     	"name": "Ohio flag and symbols",
@@ -72977,7 +72917,7 @@ var atlas = [
     			250.5
     		]
     	]
-    },    {
+    },  */ /* {
     	"id": 1208,
 		"submitted_by": "joshram_",
     	"name": "Kansas City Royals",
@@ -73006,7 +72946,7 @@ var atlas = [
     			537.5
     		]
     	]
-    },    {
+    },  */  {
     	"id": 1209,
 		"submitted_by": "ffmad",
     	"name": "CryptoFR (CFR)",
@@ -73096,7 +73036,7 @@ var atlas = [
     			816.5
     		]
     	]
-    },        {
+    },    /*    {
         	"id": 1211,
 		"submitted_by": "chaz905",
         	"name": "University of Florida",
@@ -73129,7 +73069,7 @@ var atlas = [
         			976.5
         		]
         	]
-        },    {
+        }, */   {
     	"id": 1212,
 		"submitted_by": "The_New_Caretaker",
     	"name": "Flag of Alberta",
@@ -73162,7 +73102,7 @@ var atlas = [
     			236.5
     		]
     	]
-    },    {
+    },  /*  {
     	"id": 1213,
 		"submitted_by": "Yunuss58",
     	"name": "Ace Attorney",
@@ -73191,7 +73131,7 @@ var atlas = [
     			671.5
     		]
     	]
-    },    {
+    }, */ /*  {
     	"id": 1214,
 		"submitted_by": "Joe4422",
     	"name": "STN MTN/Kauai",
@@ -73220,7 +73160,7 @@ var atlas = [
     			510.5
     		]
     	]
-    },    {
+    },  *//*  {
     	"id": 1215,
 		"submitted_by": "GeneralHar",
     	"name": "Kauai - Childish Gambino",
@@ -73249,7 +73189,7 @@ var atlas = [
     			490.5
     		]
     	]
-    },    {
+    }, *//*   {
     	"id": 1216,
 		"submitted_by": "Scuzzfest",
     	"name": "Frank Ocean 'blonde' album logo",
@@ -73290,7 +73230,7 @@ var atlas = [
     			278.5
     		]
     	]
-    },    {
+    },  *//*  {
     	"id": 1217,
 		"submitted_by": "nasheedsaleensawarim",
     	"name": "Muse",
@@ -73319,7 +73259,7 @@ var atlas = [
     			479.5
     		]
     	]
-    },    {
+    },  *//*  {
     	"id": 1218,
 		"submitted_by": "Mechanoman1",
     	"name": "A tale of three countries",
@@ -73356,7 +73296,7 @@ var atlas = [
     			671.5
     		]
     	]
-    },    {
+    }, *//*   {
     	"id": 1219,
 		"submitted_by": "stevego188",
     	"name": "The University of Florida",
@@ -73385,13 +73325,13 @@ var atlas = [
     			951.5
     		]
     	]
-    },    {
+    },  */  {
     	"id": 1220,
 		"submitted_by": "MrPlem",
     	"name": "University of Florida",
     	"description": "University located in Gainesville, Florida USA. Their school colors are orange and blue.",
     	"website": "http://www.ufl.edu/",
-    	"subreddit": "/r/ufl",
+    	"subreddit": "/r/ufl, /r/floridagators",
     	"center": [
     		18.5,
     		963.5
@@ -73418,7 +73358,7 @@ var atlas = [
     			951.5
     		]
     	]
-    },    {
+    },  /*  {
     	"id": 1221,
 		"submitted_by": "fcnm",
     	"name": "The Tree",
@@ -73471,7 +73411,7 @@ var atlas = [
     			532.5
     		]
     	]
-    }, /*   {
+    }, *//*   {
     	"id": 1222,
 		"submitted_by": "tusminal",
     	"name": "\"Weon\", Chile Map, Marraqueta, Wine",
@@ -73565,7 +73505,7 @@ var atlas = [
     			725.5
     		]
     	]
-    },    {
+    },  /*  {
     	"id": 1224,
 		"submitted_by": "josersrc",
     	"name": "University of Miami",
@@ -73614,7 +73554,7 @@ var atlas = [
     			859.5
     		]
     	]
-    },    {
+    },  */  {
     	"id": 1225,
 		"submitted_by": "raseksa",
     	"name": "Faroe Islands",
@@ -73647,7 +73587,7 @@ var atlas = [
     			608.5
     		]
     	]
-    },    {
+    },   /* {
     	"id": 1226,
 		"submitted_by": "MauGx3",
     	"name": "Liverpool FC",
@@ -73676,7 +73616,7 @@ var atlas = [
     			684.5
     		]
     	]
-    },
+    },*/
     {
     	"id": 1227,
     	"name": "Marraqueta & Wine",
@@ -73912,7 +73852,7 @@ var atlas = [
     			752.5
     		]
     	]
-    },    {
+    },  /*  {
     	"id": 1234,
 		"submitted_by": "Carrotzy",
     	"name": "carrot farm leftover",
@@ -73953,7 +73893,7 @@ var atlas = [
     			925.5
     		]
     	]
-    },    {
+    },  */  {
     	"id": 1235,
 		"submitted_by": "dienamight",
     	"name": "/r/kpop banner",
@@ -74741,7 +74681,7 @@ var atlas = [
     			616.5
     		]
     	]
-    }, {
+    },/* {
     	"id": 1251,
 		"submitted_by": "Cdup07",
     	"name": "DUP Astronaut",
@@ -74802,7 +74742,7 @@ var atlas = [
     			907.5
     		]
     	]
-    }                                     ,{
+    }          ,              */         {
     	"id": 1252,
 		"submitted_by": "Roshe_Nek",
     	"name": "Borderlands symbol",
@@ -74941,7 +74881,7 @@ var atlas = [
     	"id": 1255,
 		"submitted_by": "juririm",
     	"name": "Brazilian Ass",
-    	"description": "The most famous brazilian dish!",
+    	"description": "",
     	"website": "",
     	"subreddit": "/r/brasil",
     	"center": [
@@ -74994,7 +74934,7 @@ var atlas = [
     			696.5
     		]
     	]
-    },    {
+    }, /*   {
     	"id": 1256,
 		"submitted_by": "famousnovel",
     	"name": "Loch Ness Monster",
@@ -75039,7 +74979,7 @@ var atlas = [
     			797.5
     		]
     	]
-    },    {
+    },  */  {
     	"id": 1257,
 		"submitted_by": "Horsefur",
     	"name": "Fursona of Riley Winters",
@@ -75104,7 +75044,7 @@ var atlas = [
     			807.5
     		]
     	]
-    },    {
+    },  /*  {
     	"id": 1258,
 		"submitted_by": "Krysara",
     	"name": "Protoman",
@@ -75133,7 +75073,7 @@ var atlas = [
     			654.5
     		]
     	]
-    },     {
+    },  */   {
     	"id": 1259,
 		"submitted_by": "LacsiraxAriscal",
     	"name": "Album covers",
@@ -75357,7 +75297,7 @@ var atlas = [
     },    {
     	"id": 1264,
 		"submitted_by": "Vikinggiraffe",
-    	"name": "ew York Rangers",
+    	"name": "New York Rangers",
     	"description": "This spot used to be occupied by the New York Rangers before being taken over by Pakistan in a joint effort with India",
     	"website": "nhl.com/rangers",
     	"subreddit": "/r/rangers",
@@ -75482,7 +75422,7 @@ var atlas = [
     			884.5
     		]
     	]
-    },    {
+    },  /*  {
     	"id": 1268,
 		"submitted_by": "Pepperyena",
     	"name": "Hbox Jigglypuff",
@@ -75595,7 +75535,7 @@ var atlas = [
     			974.5
     		]
     	]
-    },    {
+    },  */ /* {
     	"id": 1269,
 		"submitted_by": "doggoboi",
     	"name": "Watchmen Logo",
@@ -75664,7 +75604,7 @@ var atlas = [
     			259.5
     		]
     	]
-    },     {
+    },  *//*   {
      	"id": 1270,
 		"submitted_by": "Rograden",
      	"name": "SKIN",
@@ -75701,7 +75641,7 @@ var atlas = [
      			965.5
      		]
      	]
-     }, {
+     },*/ {
 
 		"id": 1271,
 		"submitted_by": "zurbayuluk52",
@@ -76312,7 +76252,7 @@ var atlas = [
     			754.5
     		]
     	]
-    },    {
+    },  /*  {
     	"id": 1281,
 		"submitted_by": "Bloo-jay",
     	"name": "The sad Remnants of the Nerdcubed logo",
@@ -76429,7 +76369,7 @@ var atlas = [
     			928.5
     		]
     	]
-    },    {
+    }, */   {
     	"id": 1282,
 		"submitted_by": "Cutiepia",
     	"name": "Chess piece",
@@ -76957,7 +76897,7 @@ var atlas = [
     			148.5
     		]
     	]
-    },    {
+    }, /*   {
     	"id": 1294,
 		"submitted_by": "daboswinney123",
     	"name": "Original Nyan Cat",
@@ -76986,7 +76926,7 @@ var atlas = [
     			61.5
     		]
     	]
-    },{
+    },*/{
      "id": 1295,
 		"submitted_by": "pablohoney102",
      "name": "FTP",
@@ -77465,7 +77405,7 @@ var atlas = [
     			201.5
     		]
     	]
-    },    {
+    }, /*   {
     	"id": 1306,
 		"submitted_by": "khbre",
     	"name": "Armenia NKR",
@@ -77562,7 +77502,7 @@ var atlas = [
     			752.5
     		]
     	]
-    },    {
+    },  */  {
     	"id": 1307,
 		"submitted_by": "Chipbonk",
     	"name": "20XX",
@@ -79497,7 +79437,7 @@ var atlas = [
     			521.5
     		]
     	]
-    },    {
+    },  /*  {
     	"id": 1350,
 		"submitted_by": "c10701",
     	"name": "R/ockytop attack of the University of Florida",
@@ -79542,7 +79482,7 @@ var atlas = [
     			950.5
     		]
     	]
-    },    {
+    },  */  {
     	"id": 1351,
 		"submitted_by": "aerasalum",
     	"name": "Colorado Heart",
@@ -80008,7 +79948,7 @@ var atlas = [
     			637.5
     		]
     	]
-    },    {
+    }, /*   {
     	"id": 1361,
 		"submitted_by": "VIDCAs17",
     	"name": "Flag of Yukon",
@@ -80037,7 +79977,7 @@ var atlas = [
     			214.5
     		]
     	]
-    },    {
+    }, */   {
     	"id": 1362,
 		"submitted_by": "J-Nastee",
     	"name": "University of Michigan",
@@ -80074,7 +80014,7 @@ var atlas = [
     			811.5
     		]
     	]
-    },    {
+    },  /*  {
     	"id": 1363,
 		"submitted_by": "VIDCAs17",
     	"name": "Flag of Prince Edward Island",
@@ -80103,7 +80043,7 @@ var atlas = [
     			236.5
     		]
     	]
-    },    {
+    },  */  {
     	"id": 1364,
 		"submitted_by": "VIDCAs17",
     	"name": "University of Iowa",
@@ -80391,7 +80331,7 @@ var atlas = [
     			801.5
     		]
     	]
-    },    {
+    },  /*  {
     	"id": 1372,
 		"submitted_by": "averhan",
     	"name": "Israel",
@@ -80420,7 +80360,7 @@ var atlas = [
     			823.5
     		]
     	]
-    },    {
+    },  */  {
     	"id": 1373,
 		"submitted_by": "HitMonChon",
     	"name": "Femdon",
@@ -80922,7 +80862,7 @@ var atlas = [
     			925.5
     		]
     	]
-    },    {
+    },   /* {
     	"id": 1387,
 		"submitted_by": "Meteowritten",
     	"name": "Flag of Yukon",
@@ -80951,7 +80891,7 @@ var atlas = [
     			214.5
     		]
     	]
-    },    {
+    }, */  /* {
     	"id": 1388,
 		"submitted_by": "Meteowritten",
     	"name": "Flag of Prince Edward Island",
@@ -80980,7 +80920,7 @@ var atlas = [
     			225.5
     		]
     	]
-    },    {
+    }, */   {
     	"id": 1389,
 		"submitted_by": "Kunfuxu",
     	"name": "Euro 2016 trophy",
@@ -81861,7 +81801,7 @@ var atlas = [
     			473.5
     		]
     	]
-    },    {
+    },  /*  {
     	"id": 1405,
 		"submitted_by": "mardulak",
     	"name": "Hungary Heart",
@@ -81918,7 +81858,7 @@ var atlas = [
     			738.5
     		]
     	]
-    },    {
+    }, */   {
     	"id": 1406,
 		"submitted_by": "Qiqz",
     	"name": "Green Lattice Heart",
@@ -84544,8 +84484,176 @@ var atlas = [
     			97.5
     		]
     	]
-    }
-    
+    },   {
+    	"id": 1454,
+    	"name": "Zequez' Bot",
+    	"submitted_by": "draemmli",
+    	"description": "This was drawn by a bot developed by /u/Zequez . The end result was also supposed to include the text \"Placebot\" and a little smiley face, but time ran out before it could be completed.",
+    	"website": "https://github.com/Zequez/reddit-placebot",
+    	"subreddit": "/u/Zequez",
+    	"center": [
+    		990.5,
+    		793.5
+    	],
+    	"path": [
+    		[
+    			981.5,
+    			784.5
+    		],
+    		[
+    			999.5,
+    			784.5
+    		],
+    		[
+    			999.5,
+    			802.5
+    		],
+    		[
+    			981.5,
+    			802.5
+    		]
+    	]
+    },  {
+		"id": 1455,
+		"submitted_by": "Bigmatti",
+		"name": "Edmonton Oilers (covered)",
+		"description": "Before the final moments when the void took over, a logo of the Edmonton Oilers hockey team was here.",
+		"website": "",
+		"subreddit": "/r/EdmontonOilers",
+		"center": [
+			196.5,
+			398.5
+		],
+		"path": [
+			[
+				195.5,
+				390.5
+			],
+			[
+				192.5,
+				391.5
+			],
+			[
+				182.5,
+				392.5
+			],
+			[
+				183.5,
+				407.5
+			],
+			[
+				195.5,
+				412.5
+			],
+			[
+				205.5,
+				411.5
+			],
+			[
+				212.5,
+				405.5
+			],
+			[
+				211.5,
+				394.5
+			],
+			[
+				205.5,
+				388.5
+			],
+			[
+				201.5,
+				384.5
+			],
+			[
+				192.5,
+				384.5
+			],
+			[
+				182.5,
+				390.5
+			],
+			[
+				182.5,
+				394.5
+			]
+		]
+	},
+
+	{
+		"id": 1456,
+		"submitted_by": "Qiqz",
+		"name": "Bahrain flag",
+		"description": "Heart-shaped flag of Bahrain (in vertical position).",
+		"website": "",
+		"subreddit": "/r/bahrain",
+		"center": [
+    		563.5,
+    		720.5
+    	],
+    	"path": [
+    		[
+    			563.5,
+    			725.5
+    		],
+    		[
+    			568.5,
+    			720.5
+    		],
+    		[
+    			568.5,
+    			718.5
+    		],
+    		[
+    			566.5,
+    			716.5
+    		],
+    		[
+    			560.5,
+    			716.5
+    		],
+    		[
+    			558.5,
+    			718.5
+    		],
+    		[
+    			558.5,
+    			720.5
+    		]
+    	]
+	},
+
+	{
+		"id": 1456,
+		"submitted_by": "kyclef",
+		"name": "/r/survivor (covered)",
+		"description": "A box of text with \"r/survivor\" in white lettering on a green field was created by the subreddit for the long-running reality TV show. A torch, an iconic element of the show, was being drawn when Denmark and Hungary's expansion overtook the logo and wiped it out.",
+		"website": "",
+		"subreddit": "/r/survivor",
+		"center": [
+			676.5,
+			292.5
+		],
+		"path": [
+			[
+				662.5,
+				288.5
+			],
+			[
+				690.5,
+				288.5
+			],
+			[
+				690.5,
+				296.5
+			],
+			[
+				661.5,
+				295.5
+			]
+		]
+	}
+		
 ];
 
 //console.log("There are "+atlas.length+" entries in the Atlas.");
@@ -84614,15 +84722,66 @@ for(var i = 0; i < 10000; i++){
 
 	========================================================================
 */
+var linesCanvas = document.getElementById("linesCanvas");
+var linesContext = linesCanvas.getContext("2d");
+var hovered = [];
+
+function updateLines(){
+
+	linesCanvas.width = linesCanvas.clientWidth;
+	linesCanvas.height = linesCanvas.clientHeight;
+	linesContext.lineCap = "round";
+	linesContext.lineWidth = Math.max(Math.min(zoom*1.5, 16*1.5), 6);
+	linesContext.strokeStyle = "#000000";
+
+	for(var i = 0; i < hovered.length; i++){
+		var element = hovered[i].element;
+
+		if(element.getBoundingClientRect().left != 0){
+
+			linesContext.beginPath();
+			//linesContext.moveTo(element.offsetLeft + element.clientWidth - 10, element.offsetTop + 20);
+			linesContext.moveTo(
+				 element.getBoundingClientRect().left + document.documentElement.scrollLeft + element.clientWidth/2
+				,element.getBoundingClientRect().top + document.documentElement.scrollTop + 20
+			);
+			linesContext.lineTo(
+				 ~~(hovered[i].center[0]*zoom) + innerContainer.offsetLeft
+				,~~(hovered[i].center[1]*zoom) + innerContainer.offsetTop
+			);
+			linesContext.stroke();
+
+		}
+	}
+
+	linesContext.lineWidth = Math.max(Math.min(zoom, 16), 4);
+	linesContext.strokeStyle = "#FFFFFF";
+
+	for(var i = 0; i < hovered.length; i++){
+		var element = hovered[i].element;
+
+		if(element.getBoundingClientRect().left != 0){
+				
+			linesContext.beginPath();
+			linesContext.moveTo(
+				 element.getBoundingClientRect().left + document.documentElement.scrollLeft + element.clientWidth/2
+				,element.getBoundingClientRect().top + document.documentElement.scrollTop + 20
+			);
+			linesContext.lineTo(
+				 ~~(hovered[i].center[0]*zoom) + innerContainer.offsetLeft
+				,~~(hovered[i].center[1]*zoom) + innerContainer.offsetTop
+			);
+			linesContext.stroke();
+		}
+	}
+}
 
 function initView(){
 
 	var wrapper = document.getElementById("wrapper");
 	
 	var objectsContainer = document.getElementById("objectsList");
-
-	var linesCanvas = document.getElementById("linesCanvas");
-	var linesContext = linesCanvas.getContext("2d");
+	var closeObjectsListButton = document.getElementById("closeObjectsListButton");
 
 	var backgroundCanvas = document.createElement("canvas");
 	backgroundCanvas.width = 1000;
@@ -84646,9 +84805,8 @@ function initView(){
 
 	var viewportWidth = document.documentElement.clientWidth;
 
-	var hovered = [];
-
 	var lastPos = [0, 0];
+	var previousZoomOrigin = [0, 0];
 
 	var fixed = false; // Fix hovered items in place, so that clicking on links is possible
 
@@ -84723,6 +84881,15 @@ function initView(){
 		return false;
 	});
 
+	closeObjectsListButton.addEventListener("click", function(e){
+		hovered = [];
+		objectsContainer.innerHTML = "";
+		updateLines();
+		closeObjectsListButton.className = "hidden";
+		fixed = false;
+		render();
+	});
+
 	function createInfoBlock(entry){
 		var element = document.createElement("div");
 		element.className = "object";
@@ -84791,6 +84958,7 @@ function initView(){
 			hovered = [entry];
 			render();
 			hovered[0].element = infoElement;
+			closeObjectsListButton.className = "";
 			updateLines();
 			fixed = true;
 		}
@@ -84835,6 +85003,12 @@ function initView(){
 						objectsContainer.appendChild(element);
 
 						hovered[i].element = element;
+					}
+
+					if(hovered.length > 0){
+						closeObjectsListButton.className = "";
+					} else {
+						closeObjectsListButton.className = "hidden";
 					}
 
 
@@ -84949,6 +85123,7 @@ function initView(){
 			element.addEventListener("mouseenter", function(e){
 				if(!fixed && !dragging){
 					objectsContainer.innerHTML = "";
+					previousZoomOrigin = zoomOrigin;
 					zoomOrigin = [
 						 innerContainer.clientWidth/2  - this.entry.center[0]* zoom// + container.offsetLeft
 						,innerContainer.clientHeight/2 - this.entry.center[1]* zoom// + container.offsetTop
@@ -84968,6 +85143,8 @@ function initView(){
 
 			element.addEventListener("mouseleave", function(e){
 				if(!fixed && !dragging){
+					zoomOrigin = previousZoomOrigin;
+					applyView();
 					hovered = [];
 					updateLines();
 					render();
@@ -85056,49 +85233,6 @@ function initView(){
 		if(!fixed){
 			updateHovering(e);
 			render();
-		}
-	}
-
-	function updateLines(){
-
-		linesCanvas.width = linesCanvas.clientWidth;
-		linesCanvas.height = linesCanvas.clientHeight;
-		linesContext.lineCap = "round";
-		linesContext.lineWidth = Math.max(Math.min(zoom*1.5, 16*1.5), 6);
-		linesContext.strokeStyle = "#000000";
-
-		for(var i = 0; i < hovered.length; i++){
-			var element = hovered[i].element;
-
-			linesContext.beginPath();
-			//linesContext.moveTo(element.offsetLeft + element.clientWidth - 10, element.offsetTop + 20);
-			linesContext.moveTo(
-				 element.getBoundingClientRect().left + document.documentElement.scrollLeft + element.clientWidth/2
-				,element.getBoundingClientRect().top + document.documentElement.scrollTop + 20
-			);
-			linesContext.lineTo(
-				 ~~(hovered[i].center[0]*zoom) + innerContainer.offsetLeft
-				,~~(hovered[i].center[1]*zoom) + innerContainer.offsetTop
-			);
-			linesContext.stroke();
-		}
-
-		linesContext.lineWidth = Math.max(Math.min(zoom, 16), 4);
-		linesContext.strokeStyle = "#FFFFFF";
-
-		for(var i = 0; i < hovered.length; i++){
-			var element = hovered[i].element;
-
-			linesContext.beginPath();
-			linesContext.moveTo(
-				 element.getBoundingClientRect().left + document.documentElement.scrollLeft + element.clientWidth/2
-				,element.getBoundingClientRect().top + document.documentElement.scrollTop + 20
-			);
-			linesContext.lineTo(
-				 ~~(hovered[i].center[0]*zoom) + innerContainer.offsetLeft
-				,~~(hovered[i].center[1]*zoom) + innerContainer.offsetTop
-			);
-			linesContext.stroke();
 		}
 	}
 
@@ -85558,7 +85692,6 @@ function initDraw(){
 	========================================================================
 */
 
-var mobile = false;
 
 var innerContainer = document.getElementById("innerContainer");
 var container = document.getElementById("container");
@@ -85566,7 +85699,16 @@ var canvas = document.getElementById("highlightCanvas");
 var context = canvas.getContext("2d");
 
 var zoom = 1;
+
+if(window.devicePixelRatio){
+	zoom = 1/window.devicePixelRatio;
+}
+
+var maxZoom = 128;
+var minZoom = 0.1;
+
 var zoomOrigin = [0, 0];
+var scaleZoomOrigin = [0, 0];
 
 var dragging = false;
 var lastPosition = [0, 0];
@@ -85577,11 +85719,12 @@ function applyView(){
 
 	//console.log(zoom);
 
-	innerContainer.style.height = (zoom*1000)+"px";
-	innerContainer.style.width = (zoom*1000)+"px";
+	innerContainer.style.height = (~~(zoom*1000))+"px";
+	innerContainer.style.width = (~~(zoom*1000))+"px";
 	
-	innerContainer.style.left = (container.clientWidth/2 - innerContainer.clientWidth/2 + zoomOrigin[0] + container.offsetLeft)+"px";
-	innerContainer.style.top = (container.clientHeight/2 - innerContainer.clientHeight/2 + zoomOrigin[1] + container.offsetTop)+"px";
+	innerContainer.style.left = ~~(container.clientWidth/2 - innerContainer.clientWidth/2 + zoomOrigin[0] + container.offsetLeft)+"px";
+	innerContainer.style.top = ~~(container.clientHeight/2 - innerContainer.clientHeight/2 + zoomOrigin[1] + container.offsetTop)+"px";
+	
 }
 
 init();
@@ -85592,6 +85735,13 @@ function init(){
 
 	zoomOrigin = [0, 0];
 	applyView();
+
+	var initialPinchDistance = 0;
+	var initialPinchZoom = 0;
+	var initialPinchZoomOrigin = [0, 0];
+
+	var desiredZoom;
+	var zoomAnimationFrame;
 
 	var mode = "view";
 
@@ -85644,101 +85794,276 @@ function init(){
 		window.location = "./about.html";
 	}
 
-	function zoomOut(x, y){
-
-		zoomOrigin[0] += x - container.clientWidth/2;//((x/container.clientWidth)*2-1);
-		zoomOrigin[1] += y - container.clientHeight/2;//((y/container.clientHeight)*2-1);
-
-		zoomOrigin[0] = zoomOrigin[0]/2;
-		zoomOrigin[1] = zoomOrigin[1]/2;
-	
-		zoom = zoom / 2;
-
-		applyView();
-	}
-
-	function zoomIn(x, y){
-		
-		zoomOrigin[0] = zoomOrigin[0]*2;
-		zoomOrigin[1] = zoomOrigin[1]*2;
-
-		zoomOrigin[0] -= x - container.clientWidth/2;//((x/container.clientWidth)*2-1);
-		zoomOrigin[1] -= y - container.clientHeight/2;//((y/container.clientHeight)*2-1);
-		
-		zoom = zoom * 2;
-
-		applyView();
-	}
-
 	document.getElementById("zoomInButton").addEventListener("click", function(e){
-		zoomIn(container.clientWidth/2, container.clientHeight/2);
+
+		if(zoomAnimationFrame){
+			window.cancelAnimationFrame(zoomAnimationFrame);
+		}
+		
+		var x = container.clientWidth/2;
+		var y = container.clientHeight/2;
+
+		initialPinchZoomOrigin = [
+			scaleZoomOrigin[0],
+			scaleZoomOrigin[1]
+		];
+
+		initialPinchZoom = zoom;
+		
+		lastPosition = [x, y];
+		var desiredZoom = zoom * 2;
+		desiredZoom = Math.max(minZoom, Math.min(maxZoom, desiredZoom));
+		
+		setDesiredZoom(x, y, desiredZoom);
+		
 	});
 
 	document.getElementById("zoomOutButton").addEventListener("click", function(e){
-		zoomOut(container.clientWidth/2, container.clientHeight/2);
+
+		if(zoomAnimationFrame){
+			window.cancelAnimationFrame(zoomAnimationFrame);
+		}
+		
+		var x = container.clientWidth/2;
+		var y = container.clientHeight/2;
+
+		initialPinchZoomOrigin = [
+			scaleZoomOrigin[0],
+			scaleZoomOrigin[1]
+		];
+
+		initialPinchZoom = zoom;
+		
+		lastPosition = [x, y];
+		var desiredZoom = zoom / 2;
+		desiredZoom = Math.max(minZoom, Math.min(maxZoom, desiredZoom));
+		
+		setDesiredZoom(x, y, desiredZoom);
 	});
 
 	document.getElementById("zoomResetButton").addEventListener("click", function(e){
 		zoom = 1;
 		zoomOrigin = [0, 0];
+		updateLines();
 		applyView();
 	});
 
 	container.addEventListener("dblclick", function(e){
+		if(zoomAnimationFrame){
+			window.cancelAnimationFrame(zoomAnimationFrame);
+		}
+
+		var x = e.layerX;
+		var y = e.layerY;
+
+		initialPinchZoomOrigin = [
+			scaleZoomOrigin[0],
+			scaleZoomOrigin[1]
+		];
+
+		initialPinchZoom = zoom;
+		
+		lastPosition = [x, y];
+
+		var desiredZoom = 0;
+
 		if(e.ctrlKey){
 
-			zoomOut(e.layerX, e.layerY);
+			desiredZoom = zoom / 2;
 			
 		} else {
 			
-			zoomIn(e.layerX, e.layerY);
+			desiredZoom = zoom * 2;
 		}
-		
+
+		desiredZoom = Math.max(minZoom, Math.min(maxZoom, desiredZoom));
+		setDesiredZoom(x, y, desiredZoom);
+
 		e.preventDefault();
 	});
 
 
 	container.addEventListener("wheel", function(e){
+
+		if(zoomAnimationFrame){
+			window.cancelAnimationFrame(zoomAnimationFrame);
+		}
+
+		var x = e.layerX;
+		var y = e.layerY;
+
+		initialPinchZoomOrigin = [
+			scaleZoomOrigin[0],
+			scaleZoomOrigin[1]
+		];
+
+		initialPinchZoom = zoom;
+		
+		lastPosition = [x, y];
+
+		var desiredZoom = 0;
 		
 		if(e.deltaY > 0){
 
-			zoomOut(e.layerX, e.layerY);
+			desiredZoom = zoom / 2;
 			
 		} else if(e.deltaY < 0){
 			
-			zoomIn(e.layerX, e.layerY);
+			desiredZoom = zoom * 2;
 		}
 
+		desiredZoom = Math.max(minZoom, Math.min(maxZoom, desiredZoom));
+		setDesiredZoom(x, y, desiredZoom);
+
 		e.preventDefault();
 	});
+
+	function setDesiredZoom(x, y, target){
+		zoom = (zoom*2 + target)/3;
+		console.log(zoom);
+		if(Math.abs(1 - zoom/target) <= 0.01){
+			zoom = target;
+		}
+		applyZoom(x, y, zoom);
+		if(zoom != target){
+			zoomAnimationFrame = window.requestAnimationFrame(function(){
+				setDesiredZoom(x, y, target);
+			});
+		}
+	}
 
 	container.addEventListener("mousedown", function(e){
-		lastPosition = [e.clientX, e.clientY];
-		dragging = true;
+		mousedown(e.clientX, e.clientY);
 		e.preventDefault();
 	});
+	
+	container.addEventListener("touchstart", touchstart);
+
+	function mousedown(x, y){
+		lastPosition = [x, y];
+		dragging = true;
+	}
+
+	function touchstart(e){
+		
+		if(e.touches.length == 1){
+			
+			mousedown(e.touches[0].clientX, e.touches[0].clientY);
+			
+		} else if(e.touches.length == 2){
+			
+			initialPinchDistance = Math.sqrt(
+				  Math.pow(e.touches[0].clientX - e.touches[1].clientX, 2)
+				+ Math.pow(e.touches[0].clientY - e.touches[1].clientY, 2)
+			);
+
+			initialPinchZoom = zoom;
+			initialPinchZoomOrigin = [
+				scaleZoomOrigin[0],
+				scaleZoomOrigin[1]
+			];
+			
+			mousedown(
+				(e.touches[0].clientX + e.touches[1].clientX)/2,
+				(e.touches[0].clientY + e.touches[1].clientY)/2
+			);
+			
+		}
+		
+	}
 
 	window.addEventListener("mousemove", function(e){
+		updateLines();
+		mousemove(e.clientX, e.clientY);
+		e.preventDefault();
+	});
+	window.addEventListener("touchmove", touchmove);
+
+	function mousemove(x, y){
 		if(dragging){
-			var deltaX = e.clientX - lastPosition[0];
-			var deltaY = e.clientY - lastPosition[1];
-			lastPosition = [e.clientX, e.clientY];
+			var deltaX = x - lastPosition[0];
+			var deltaY = y - lastPosition[1];
+			lastPosition = [x, y];
 
 			zoomOrigin[0] += deltaX;
 			zoomOrigin[1] += deltaY;
 
-			applyView();
+			scaleZoomOrigin[0] += deltaX/zoom;
+			scaleZoomOrigin[1] += deltaY/zoom;
 
-			e.preventDefault();
+			updateLines();
+			applyView();
 		}
-	});
+	}
+
+	function touchmove(e){
+
+		updateLines();
+		
+		if(e.touches.length == 1){
+			
+			mousemove(e.touches[0].clientX, e.touches[0].clientY);
+			
+		} else if(e.touches.length == 2){
+			
+			var newPinchDistance = Math.sqrt(
+				  Math.pow(e.touches[0].clientX - e.touches[1].clientX, 2)
+				+ Math.pow(e.touches[0].clientY - e.touches[1].clientY, 2)
+			);
+
+			zoom = initialPinchZoom * newPinchDistance / initialPinchDistance;
+
+			var x = (e.touches[0].clientX + e.touches[1].clientX)/2 - container.offsetLeft;
+			var y = (e.touches[0].clientY + e.touches[1].clientY)/2 - container.offsetTop;
+
+			applyZoom(x, y, zoom);
+			
+		}
+		
+	}
+
+	function applyZoom(x, y, zoom){
+
+		var deltaX = x - lastPosition[0];
+		var deltaY = y - lastPosition[1];
+
+		var pinchTranslateX = (x - container.clientWidth/2 - deltaX);
+		var pinchTranslateY = (y - container.clientHeight/2 - deltaY);
+
+		scaleZoomOrigin[0] = initialPinchZoomOrigin[0] + deltaX/zoom + pinchTranslateX/zoom - pinchTranslateX/initialPinchZoom;
+		scaleZoomOrigin[1] = initialPinchZoomOrigin[1] + deltaY/zoom + pinchTranslateY/zoom - pinchTranslateY/initialPinchZoom;
+
+		zoomOrigin[0] = scaleZoomOrigin[0]*zoom;
+		zoomOrigin[1] = scaleZoomOrigin[1]*zoom;
+		
+		applyView();
+		updateLines();
+	}
 
 	window.addEventListener("mouseup", function(e){
+		mouseup(e.clientX, e.clientY);
+		e.preventDefault();
+	});
+	window.addEventListener("touchend", touchend);
+
+	function mouseup(x, y){
 		if(dragging){
 			dragging = false;
-			e.preventDefault();
 		}
-	});
+	}
+
+	function touchend(e){
+		
+		if(e.touches.length == 0){
+			
+			mouseup();
+			
+		} else if(e.touches.length == 1){
+			initialPinchZoom = zoom;
+			lastPosition = [e.touches[0].clientX, e.touches[0].clientY];
+		}
+		
+	}
 
 	window.addEventListener("resize", function(){
 		//console.log(document.documentElement.clientWidth, document.documentElement.clientHeight);
