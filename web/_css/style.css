@@ -192,15 +192,6 @@ h1{
 	text-shadow: 1px 1px 0px #000000;
 }
 
-select{	
-	background: none;
-	background-image: linear-gradient(to bottom, #888888, #666666);
-	border: 1px #222222 outset;
-	color: #FFFFFF;
-	cursor: pointer;
-	padding: 3px;
-}
-
 select{
 	-moz-appearance: none;
 	-webkit-appearance: none;
@@ -210,7 +201,15 @@ select{
 	background-repeat: no-repeat, repeat;
 	background-position: calc(100% - 10px) center, 0 0;
 	background-size: 10px, cover;
+	border: 1px #222222 outset;
+	color: #FFFFFF;
+	cursor: pointer;
+	padding: 3px;
 	padding-left: 7px;
+}
+
+select option[disabled] {
+    display: none;
 }
 
 select:hover{

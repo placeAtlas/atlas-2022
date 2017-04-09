@@ -422,7 +422,7 @@ var atlas = [
     	"name": "Lego",
     	"description": "Lego is a line of plastic construction toys made in Denmark.",
     	"website": "https://www.lego.com/",
-    	"subreddit": "/r/lego",
+    	"subreddit": "/r/lego, /r/denmark",
     	"center": [
     		725.5,
     		287.5
@@ -22642,7 +22642,7 @@ var atlas = [
     			815.5
     		]
     	]
-    },    {
+    },  /*  {
     	"id": 351,
     	"name": "Erase The Place",
     	"description": "The cult of nihilists who wished to return the place to a primordial state of nothingness. Because destruction and conservatism are apparently the same thing.",
@@ -22690,7 +22690,7 @@ var atlas = [
     			403.5
     		]
     	]
-    },    {
+    }, */   {
     	"id": 352,
     	"name": "Jollibee",
     	"description": "Jollibee is a popular fast food chain in the Philippines that serves Burger, Spaghetti, and Fried Chicken. Its mascot is a smiling red bee wearing a red suit and a chef's hat.",
@@ -77458,8 +77458,8 @@ var atlas = [
     },  {
     	"id": 1297,
 		"submitted_by": "Empty_Engie",
-    	"name": "The Purity Triangle",
-    	"description": "Made by r/EraseThePlace, this triangle represents what was once the grand white circle, and formed when EraseThePlace started making alliances and wasn't focused on cleaning the entire canvas.",
+    	"name": "Erase The Place",
+    	"description": "The Purity Triangle represents what was once the grand white circle, and formed when EraseThePlace started making alliances and wasn't focused on cleaning the entire canvas.",
     	"website": "",
     	"subreddit": "r/EraseThePlace",
     	"center": [

@@ -77,7 +77,7 @@ function updateLines(){
 }
 
 function initView(){
-
+	
 	var wrapper = document.getElementById("wrapper");
 	
 	var objectsContainer = document.getElementById("objectsList");
@@ -100,8 +100,11 @@ function initView(){
 	moreEntriesButton.innerHTML = "Show "+entriesLimit+" more";
 	moreEntriesButton.id = "moreEntriesButton";
 	moreEntriesButton.onclick = function(){
-		buildObjectsList();
+		buildObjectsList(null, null);
 	};
+
+	var defaultSort = "alphaDesc";
+	document.getElementById("sort").value = defaultSort;
 
 	var viewportWidth = document.documentElement.clientWidth;
 
@@ -113,7 +116,7 @@ function initView(){
 	renderBackground();
 	render();
 
-	buildObjectsList();
+	buildObjectsList(null, null);
 
 	// parse linked atlas entry id from link hash
 	/*if (window.location.hash.substring(3)){
@@ -155,7 +158,13 @@ function initView(){
 		entriesList.innerHTML = "";
 		entriesList.appendChild(moreEntriesButton);
 
-		buildObjectsList(this.value.toLowerCase());
+		if(this.value === ""){
+			document.getElementById("relevantOption").disabled = true;
+			buildObjectsList(null, null);
+		} else {
+			document.getElementById("relevantOption").disabled = false;
+			buildObjectsList(this.value.toLowerCase(), "relevant");
+		}
 
 	});
 
@@ -164,7 +173,11 @@ function initView(){
 		entriesList.innerHTML = "";
 		entriesList.appendChild(moreEntriesButton);
 
-		buildObjectsList(filterInput.value.toLowerCase());
+		if(this.value != "relevant"){
+			defaultSort = this.value;
+		}
+
+		buildObjectsList(filterInput.value.toLowerCase(), this.value);
 
 	});
 	
@@ -346,7 +359,7 @@ function initView(){
 		}
 	}
 
-	function buildObjectsList(filter){
+	function buildObjectsList(filter, sort){
 
 		if(entriesList.contains(moreEntriesButton)){
 			entriesList.removeChild(moreEntriesButton);
@@ -356,7 +369,10 @@ function initView(){
 
 		if(filter){
 			sortedAtlas = atlas.filter(function(value){
-				return (value.name.toLowerCase().indexOf(filter) !== -1);
+				return (
+					   value.name.toLowerCase().indexOf(filter) !== -1
+					|| value.description.toLowerCase().indexOf(filter) !== -1
+				);
 			});
 			document.getElementById("atlasSize").innerHTML = "Found "+sortedAtlas.length+" entries.";
 		} else {
@@ -364,7 +380,13 @@ function initView(){
 			document.getElementById("atlasSize").innerHTML = "The Atlas contains "+sortedAtlas.length+" entries.";
 		}
 
-		var sort = document.getElementById("sort").value;
+		if(sort === null){
+			sort = defaultSort;
+		}
+
+		document.getElementById("sort").value = sort;
+
+		console.log(sort);
 
 		var sortFunction;
 
@@ -403,6 +425,33 @@ function initView(){
 					}
 						// a must be equal to b
 					return 0;
+				}
+			break;
+			case "relevant":
+				sortFunction = function(a, b){
+					if(a.name.toLowerCase().indexOf(filter) !== -1 && b.name.toLowerCase().indexOf(filter) !== -1){
+						if (a.name.toLowerCase().indexOf(filter) < b.name.toLowerCase().indexOf(filter)) {
+							return -1;
+						}
+						else if (a.name.toLowerCase().indexOf(filter) > b.name.toLowerCase().indexOf(filter)) {
+							return 1;
+						} else {
+							return 0;
+						}
+					} else if(a.name.toLowerCase().indexOf(filter) !== -1){
+						return -1;
+					} else if(b.name.toLowerCase().indexOf(filter) !== -1){
+						return 1;
+					} else {
+						if (a.description.toLowerCase().indexOf(filter) < b.description.toLowerCase().indexOf(filter)) {
+							return -1;
+						}
+						else if (a.description.toLowerCase().indexOf(filter) > b.description.toLowerCase().indexOf(filter)) {
+							return 1;
+						} else {
+							return 0;
+						}
+					}
 				}
 			break;
 		}
