@@ -184,9 +184,9 @@ var atlas = [
     {
     	"id": 4,
     	"name": "The Void Prism",
-    	"description": "The void was an ever-expanding area of darkness, untill it was filled with the Prism from the album art of Pink FLoyd's Dark Side of the Moon.",
+    	"description": "The void was an ever-expanding area of darkness, until it was filled with the Prism from the album art of Pink FLoyd's Dark Side of the Moon.",
     	"website": "",
-    	"subreddit": "",
+    	"subreddit": "/r/FloydVsVoid, /r/LeagueOfLegends, /r/SwissNeutralityZone",
     	"center": [
     		404.5,
     		563.5
@@ -517,12 +517,12 @@ var atlas = [
     {
     	"id": 13,
     	"name": "Flag of Italy",
-    	"description": "",
+    	"description": "After some early squabbling with r/TFLS and r/EmpireDidNothingWrong, Italy estabilished peaceful relations with its Communist and Imperial neighbours and went on to forge a mutual assistance pact with the Brits mantaining the UK flag cluster to the right. The Italian flag also hosted for a long time a picture of a Koi fish (nicknamed \"the carp\") curated by /r/OrderoftheKoi, which was eventually overwritten a few hours before the end.\nA royal crest from the pre-WW2 flag also briefly appeared at the very bottom and resisted for a few hours.",
     	"website": "",
     	"subreddit": "/r/italy",
     	"center": [
     		124.5,
-    		389.5
+    		401.5
     	],
     	"path": [
     		[
@@ -547,13 +547,109 @@ var atlas = [
     		],
     		[
     			149.5,
-    			337.5
+    			335.5
+    		],
+    		[
+    			149.5,
+    			340.5
     		],
     		[
     			139.5,
+    			349.5
+    		],
+    		[
+    			139.5,
+    			358.5
+    		],
+    		[
+    			135.5,
+    			358.5
+    		],
+    		[
+    			132.5,
+    			352.5
+    		],
+    		[
+    			119.5,
+    			349.5
+    		],
+    		[
+    			114.5,
     			350.5
     		],
     		[
+    			111.5,
+    			361.5
+    		],
+    		[
+    			114.5,
+    			364.5
+    		],
+    		[
+    			132.5,
+    			364.5
+    		],
+    		[
+    			136.5,
+    			359.5
+    		],
+    		[
+    			139.5,
+    			359.5
+    		],
+    		[
+    			139.5,
+    			376.5
+    		],
+    		[
+    			129.5,
+    			376.5
+    		],
+    		[
+    			129.5,
+    			367.5
+    		],
+    		[
+    			120.5,
+    			367.5
+    		],
+    		[
+    			114.5,
+    			380.5
+    		],
+    		[
+    			112.5,
+    			386.5
+    		],
+    		[
+    			114.5,
+    			390.5
+    		],
+    		[
+    			114.5,
+    			398.5
+    		],
+    		[
+    			125.5,
+    			398.5
+    		],
+    		[
+    			125.5,
+    			382.5
+    		],
+    		[
+    			128.5,
+    			382.5
+    		],
+    		[
+    			128.5,
+    			377.5
+    		],
+    		[
+    			139.5,
+    			377.5
+    		],
+    		[
     			139.5,
     			440.5
     		],
@@ -563,11 +659,51 @@ var atlas = [
     		],
     		[
     			135.5,
-    			480.5
+    			481.5
     		],
     		[
-    			131.5,
-    			486.5
+    			132.5,
+    			483.5
+    		],
+    		[
+    			132.5,
+    			506.5
+    		],
+    		[
+    			139.5,
+    			510.5
+    		],
+    		[
+    			139.5,
+    			520.5
+    		],
+    		[
+    			106.5,
+    			520.5
+    		],
+    		[
+    			106.5,
+    			518.5
+    		],
+    		[
+    			118.5,
+    			515.5
+    		],
+    		[
+    			127.5,
+    			507.5
+    		],
+    		[
+    			130.5,
+    			502.5
+    		],
+    		[
+    			130.5,
+    			488.5
+    		],
+    		[
+    			127.5,
+    			480.5
     		],
     		[
     			122.5,
@@ -578,12 +714,28 @@ var atlas = [
     			471.5
     		],
     		[
-    			113.5,
-    			466.5
+    			114.5,
+    			465.5
     		],
     		[
-    			109.5,
-    			433.5
+    			108.5,
+    			465.5
+    		],
+    		[
+    			108.5,
+    			449.5
+    		],
+    		[
+    			111.5,
+    			449.5
+    		],
+    		[
+    			111.5,
+    			441.5
+    		],
+    		[
+    			108.5,
+    			441.5
     		]
     	]
     },
@@ -1355,7 +1507,7 @@ var atlas = [
     {
     	"id": 31,
     	"name": "Bitcoin",
-    	"description": "Bitcoin is a cryptocurrency and an electronic payment system.",
+    	"description": "Bitcoin is a cryptocurrency and an electronic payment system. On /r/place, the logo was originally black and orange, but got infected by the void. The logo was then redrawn in the last hours, to the white and orange logo you see today.",
     	"website": "",
     	"subreddit": "/r/bitcoin",
     	"center": [
@@ -1575,7 +1727,7 @@ var atlas = [
     	"id": 34,
     	"name": "Haskell",
     	"description": "Haskell is a standardized, general-purpose purely functional programming language, with non-strict semantics and strong static typing.",
-    	"website": "",
+    	"website": "https://haskell.org",
     	"subreddit": "/r/haskell",
     	"center": [
     		276.5,
@@ -3683,7 +3835,7 @@ var atlas = [
 	{
 		"id": 77,
 		"name": "Flag of Peru",
-		"description": "",
+		"description": "This flag was built with the help of over 30 different users, grouped together through a Discord server. When started, there was conflict with the Paladins logo (later moved to its current position) since they would overlap if built where they were originally started. The three stripes were built first, followed by the coat of arms (which was eventually redesigned) and later the link to the Peru subreddit.",
 		"website": "",
 		"subreddit": "/r/Peru",
 		"center": [
@@ -4755,48 +4907,104 @@ var atlas = [
 	},
 	{
 		"id": 95,
-		"name": "OSU! logo",
-		"description": "the logo for the game OSU. This was one of the most contested regions on /r/place, as many users regarded the logo as too big.",
-		"website": "",
-		"subreddit": "r/osuGame",
+		"name": "osu! Logo",
+		"description": "The logo for the rhythm game osu. This was one of the more ambitious projects of /r/place and was intended to be more detailed. Unfortunately, a LoL player by the name of loltyler1, told his fans to attack the logo by filling it with the void, resulting in its current vandalized state.",
+		"website": "https://osu.ppy.sh",
+		"subreddit": "/r/osuGame/",
 		"center": [
-			498.5,
-			939.5
-		],
-		"path": [
-			[
-				462.5,
-				974.5
-			],
-			[
-				530.5,
-				975.5
-			],
-			[
-				543.5,
-				954.5
-			],
-			[
-				543.5,
-				926.5
-			],
-			[
-				523.5,
-				903.5
-			],
-			[
-				476.5,
-				900.5
-			],
-			[
-				456.5,
-				924.5
-			],
-			[
-				453.5,
-				952.5
-			]
-		]
+    		500.5,
+    		937.5
+    	],
+    	"path": [
+    		[
+    			534.5,
+    			974.5
+    		],
+    		[
+    			540.5,
+    			965.5
+    		],
+    		[
+    			546.5,
+    			953.5
+    		],
+    		[
+    			547.5,
+    			941.5
+    		],
+    		[
+    			545.5,
+    			937.5
+    		],
+    		[
+    			545.5,
+    			933.5
+    		],
+    		[
+    			547.5,
+    			930.5
+    		],
+    		[
+    			542.5,
+    			920.5
+    		],
+    		[
+    			531.5,
+    			907.5
+    		],
+    		[
+    			517.5,
+    			897.5
+    		],
+    		[
+    			498.5,
+    			894.5
+    		],
+    		[
+    			485.5,
+    			894.5
+    		],
+    		[
+    			485.5,
+    			899.5
+    		],
+    		[
+    			478.5,
+    			899.5
+    		],
+    		[
+    			472.5,
+    			903.5
+    		],
+    		[
+    			461.5,
+    			913.5
+    		],
+    		[
+    			454.5,
+    			923.5
+    		],
+    		[
+    			451.5,
+    			936.5
+    		],
+    		[
+    			451.5,
+    			955.5
+    		],
+    		[
+    			457.5,
+    			952.5
+    		],
+    		[
+    			465.5,
+    			956.5
+    		],
+    		[
+    			467.5,
+    			974.5
+    		]
+    	]
 	},
 	{
 		"id": 96,
@@ -5480,7 +5688,14 @@ var atlas = [
 			]
 		]
 	},*/
-	{ "id": 110, "name": "Crusader Kings", "description": "Originally spawned from r/CrusaderKings, these three shields, four crosses, and one crown represent a collection of communities. It now stands to represent all games released by the Swedish videogame developer Paradox Game. Deus Vult!\n\norganized by r/CKcrusaders", "website": "", "subreddit": "r/crusaderkings", "center": [ 437.5, 111.5 ], "path": [ [ 415.5, 132.5 ], [ 415.5, 134.5 ], [ 410.5, 134.5 ], [ 410.5, 138.5 ], [ 415.5, 138.5 ], [ 415.5, 142.5 ], [ 419.5, 142.5 ], [ 419.5, 138.5 ], [ 424.5, 138.5 ], [ 424.5, 134.5 ], [ 419.5, 134.5 ], [ 419.5, 133.5 ], [ 419.5, 132.5 ], [ 455.5, 132.5 ], [ 455.5, 134.5 ], [ 450.5, 134.5 ], [ 450.5, 138.5 ], [ 455.5, 138.5 ], [ 455.5, 142.5 ], [ 455.5, 143.5 ], [ 459.5, 143.5 ], [ 459.5, 138.5 ], [ 464.5, 138.5 ], [ 464.5, 134.5 ], [ 459.5, 134.5 ], [ 459.5, 132.5 ], [ 490.5, 132.5 ], [ 490.5, 122.5 ], [ 470.5, 122.5 ], [ 470.5, 91.5 ], [ 459.5, 91.5 ], [ 459.5, 89.5 ], [ 464.5, 89.5 ], [ 464.5, 85.5 ], [ 459.5, 85.5 ], [ 459.5, 80.5 ], [ 455.5, 80.5 ], [ 455.5, 85.5 ], [ 450.5, 85.5 ], [ 450.5, 89.5 ], [ 455.5, 89.5 ], [ 455.5, 90.5 ], [ 448.5, 90.5 ], [ 448.5, 82.5 ], [ 449.5, 82.5 ], [ 449.5, 81.5 ], [ 448.5, 80.5 ], [ 447.5, 79.5 ], [ 427.5, 79.5 ], [ 426.5, 80.5 ], [ 425.5, 81.5 ], [ 425.5, 90.5 ], [ 419.5, 90.5 ], [ 419.5, 89.5 ], [ 424.5, 89.5 ], [ 424.5, 85.5 ], [ 419.5, 85.5 ], [ 419.5, 80.5 ], [ 415.5, 80.5 ], [ 415.5, 85.5 ], [ 410.5, 85.5 ], [ 410.5, 89.5 ], [ 415.5, 89.5 ], [ 415.5, 90.5 ], [ 414.5, 90.5 ], [ 415.5, 90.5 ], [ 404.5, 91.5 ], [ 404.5, 121.5 ], [ 384.5, 121.5 ], [ 384.5, 132.5 ], [ 396.5, 132.5 ] ] },
+	{
+		"id": 110,
+		"name": "Crusader Kings",
+		"description": "Originally spawned from r/CrusaderKings, these three shields, four crosses, and one crown represent a collection of communities. It now stands to represent all games released by the Swedish videogame developer Paradox Game. The three shields depicted represents the Knights Templar, the Knights Hospitaller and the Teutonic Knights. Deus Vult!\n\norganized by r/CKcrusaders",
+		"website": "",
+		"subreddit": "r/crusaderkings",
+		"center": [ 437.5, 111.5 ],
+		"path": [ [ 415.5, 132.5 ], [ 415.5, 134.5 ], [ 410.5, 134.5 ], [ 410.5, 138.5 ], [ 415.5, 138.5 ], [ 415.5, 142.5 ], [ 419.5, 142.5 ], [ 419.5, 138.5 ], [ 424.5, 138.5 ], [ 424.5, 134.5 ], [ 419.5, 134.5 ], [ 419.5, 133.5 ], [ 419.5, 132.5 ], [ 455.5, 132.5 ], [ 455.5, 134.5 ], [ 450.5, 134.5 ], [ 450.5, 138.5 ], [ 455.5, 138.5 ], [ 455.5, 142.5 ], [ 455.5, 143.5 ], [ 459.5, 143.5 ], [ 459.5, 138.5 ], [ 464.5, 138.5 ], [ 464.5, 134.5 ], [ 459.5, 134.5 ], [ 459.5, 132.5 ], [ 490.5, 132.5 ], [ 490.5, 122.5 ], [ 470.5, 122.5 ], [ 470.5, 91.5 ], [ 459.5, 91.5 ], [ 459.5, 89.5 ], [ 464.5, 89.5 ], [ 464.5, 85.5 ], [ 459.5, 85.5 ], [ 459.5, 80.5 ], [ 455.5, 80.5 ], [ 455.5, 85.5 ], [ 450.5, 85.5 ], [ 450.5, 89.5 ], [ 455.5, 89.5 ], [ 455.5, 90.5 ], [ 448.5, 90.5 ], [ 448.5, 82.5 ], [ 449.5, 82.5 ], [ 449.5, 81.5 ], [ 448.5, 80.5 ], [ 447.5, 79.5 ], [ 427.5, 79.5 ], [ 426.5, 80.5 ], [ 425.5, 81.5 ], [ 425.5, 90.5 ], [ 419.5, 90.5 ], [ 419.5, 89.5 ], [ 424.5, 89.5 ], [ 424.5, 85.5 ], [ 419.5, 85.5 ], [ 419.5, 80.5 ], [ 415.5, 80.5 ], [ 415.5, 85.5 ], [ 410.5, 85.5 ], [ 410.5, 89.5 ], [ 415.5, 89.5 ], [ 415.5, 90.5 ], [ 414.5, 90.5 ], [ 415.5, 90.5 ], [ 404.5, 91.5 ], [ 404.5, 121.5 ], [ 384.5, 121.5 ], [ 384.5, 132.5 ], [ 396.5, 132.5 ] ] },
 	{
 		"id": 111,
 		"name": "Noel smiley",
@@ -6308,9 +6523,9 @@ var atlas = [
 	{
 		"id": 123,
 		"name": "Transgender flag",
-		"description": "A cross-shape in the colors of the transgender flag, representing people who do not identify with the gender they were assigned.\nOrganised by /r/TransFlagPlace.",
+		"description": "A cross-shape in the colors of the transgender flag, representing people who do not identify with the gender they were assigned. Due to the fact that it's spanning the entire canvas, this piece was also called the Transcontinental Railroad.",
 		"website": "",
-		"subreddit": "/r/transgender",
+		"subreddit": "/r/transgenderplace, /r/transgender, /r/traaaaaaannnnnnnnnns, /r/asktransgender",
 		"center": [
 			450.5,
 			598.5
@@ -8866,39 +9081,27 @@ var atlas = [
 		"website": "",
 		"subreddit": "/r/globaloffensive",
 		"center": [
-			256.5,
-			314.5
-		],
-		"path": [
-			[
-				234.5,
-				283.5
-			],
-			[
-				234.5,
-				341.5
-			],
-			[
-				280.5,
-				341.5
-			],
-			[
-				280.5,
-				292.5
-			],
-			[
-				260.5,
-				292.5
-			],
-			[
-				260.5,
-				283.5
-			],
-			[
-				234.5,
-				283.5
-			]
-		]
+    		247.5,
+    		288.5
+    	],
+    	"path": [
+    		[
+    			234.5,
+    			284.5
+    		],
+    		[
+    			234.5,
+    			292.5
+    		],
+    		[
+    			259.5,
+    			292.5
+    		],
+    		[
+    			259.5,
+    			284.5
+    		]
+    	]
 	},
 	{
 		"id": 166,
@@ -9057,119 +9260,47 @@ var atlas = [
 		"website": "http://www.cavestory.org/",
 		"subreddit": "/r/cavestory/",
 		"center": [
-			311.5,
-			878.5
-		],
-		"path": [
-			[
-				283.5,
-				867.5
-			],
-			[
-				333.5,
-				867.5
-			],
-			[
-				333.5,
-				885.5
-			],
-			[
-				329.5,
-				885.5
-			],
-			[
-				329.5,
-				887.5
-			],
-			[
-				328.5,
-				887.5
-			],
-			[
-				328.5,
-				888.5
-			],
-			[
-				328.5,
-				894.5
-			],
-			[
-				329.5,
-				894.5
-			],
-			[
-				329.5,
-				897.5
-			],
-			[
-				324.5,
-				897.5
-			],
-			[
-				324.5,
-				898.5
-			],
-			[
-				325.5,
-				899.5
-			],
-			[
-				326.5,
-				900.5
-			],
-			[
-				325.5,
-				899.5
-			],
-			[
-				324.5,
-				898.5
-			],
-			[
-				322.5,
-				897.5
-			],
-			[
-				322.5,
-				901.5
-			],
-			[
-				317.5,
-				901.5
-			],
-			[
-				317.5,
-				894.5
-			],
-			[
-				317.5,
-				890.5
-			],
-			[
-				318.5,
-				890.5
-			],
-			[
-				318.5,
-				888.5
-			],
-			[
-				318.5,
-				884.5
-			],
-			[
-				316.5,
-				884.5
-			],
-			[
-				316.5,
-				883.5
-			],
-			[
-				283.5,
-				883.5
-			]
-		]
+        312.5,
+        880.5
+    ],
+    "path": [
+        [
+            283.5,
+            867.5
+        ],
+        [
+            333.5,
+            867.5
+        ],
+        [
+            333.5,
+            898.5
+        ],
+        [
+            326.5,
+            898.5
+        ],
+        [
+            326.5,
+            900.5
+        ],
+        [
+            317.5,
+            901.5
+        ],
+        [
+            315.5,
+            898.5
+        ],
+        [
+            315.5,
+            884.5
+        ],
+        [
+            283.5,
+            884.5
+        ]
+    ]
 	},
 	{
 		"id": 170,
@@ -10866,7 +10997,7 @@ var atlas = [
     {
 		"id": 205,
 		"name": "Flag of the Philippines",
-		"description": "",
+		"description": "The Philippine flag was first laid horizontally, until the giant osu! devoured everything in its path. However, osu! and r/philippines formed an alliance in helping reconstructing the flag vertically. Putting the red on the left side usually only happens when the country is at war, which is what it felt like maintaining the flag in r/place.",
 		"website": "",
 		"subreddit": "/r/philippines",
 		"center": [
@@ -12742,7 +12873,7 @@ var atlas = [
 	{
 		"id": 228,
 		"name": "Hatsune Miku",
-		"description": "Hatsune Miku: Project DIVA is a series of rhythm games created by Sega and Crypton Future Media.",
+		"description": "Hatsune Miku is a singing synthesizer program created by Crypton Future Media using Yamaha's VOCALOID engine. The software is personified as a girl with long turquoise pigtails. A series of rhythm games known as \"Hatsune Miku: Project DIVA\" was published by SEGA.",
 		"website": "",
 		"subreddit": "/r/hatsune",
 		"center": [
@@ -13114,124 +13245,280 @@ var atlas = [
 
 	{
     	"id": 235,
-    	"name": "Green Lattice",
-    	"description": "GreenLattice dedicated to maintaining the lattice as well as the pixel art protected within; standing with the organic creation of art against aggression and botting.",
-    	"website": "",
-    	"subreddit": "/r/GreenLattice",
-    	"center": [
-    		941.5,
-    		264.5
-    	],
-    	"path": [
-    		[
-    			999.5,
-    			230.5
-    		],
-    		[
-    			974.5,
-    			230.5
-    		],
-    		[
-    			974.5,
-    			215.5
-    		],
-    		[
-    			939.5,
-    			215.5
-    		],
-    		[
-    			939.5,
-    			222.5
-    		],
-    		[
-    			922.5,
-    			222.5
-    		],
-    		[
-    			921.5,
-    			215.5
-    		],
-    		[
-    			884.5,
-    			216.5
-    		],
-    		[
-    			897.5,
-    			235.5
-    		],
-    		[
-    			897.5,
-    			245.5
-    		],
-    		[
-    			879.5,
-    			280.5
-    		],
-    		[
-    			873.5,
-    			281.5
-    		],
-    		[
-    			867.5,
-    			273.5
-    		],
-    		[
-    			863.5,
-    			285.5
-    		],
-    		[
-    			868.5,
-    			290.5
-    		],
-    		[
-    			880.5,
-    			285.5
-    		],
-    		[
-    			887.5,
-    			283.5
-    		],
-    		[
-    			891.5,
-    			287.5
-    		],
-    		[
-    			893.5,
-    			310.5
-    		],
-    		[
-    			934.5,
-    			310.5
-    		],
-    		[
-    			941.5,
-    			297.5
-    		],
-    		[
-    			948.5,
-    			309.5
-    		],
-    		[
-    			959.5,
-    			309.5
-    		],
-    		[
-    			965.5,
-    			297.5
-    		],
-    		[
-    			970.5,
-    			307.5
-    		],
-    		[
-    			977.5,
-    			307.5
-    		],
-    		[
-    			999.5,
-    			307.5
-    		]
-    	]
+    	"name": "The Green Lattice",
+    "description": "A collective who aimed to preserve art in all its forms, avoid aggression, and build a cool green lattice.",
+    "website": "",
+    "subreddit": "/r/greenlattice",
+    "center": [
+        930.5,
+        312.5
+    ],
+    "path": [
+        [
+            844.5,
+            214.5
+        ],
+        [
+            844.5,
+            180.5
+        ],
+        [
+            816.5,
+            180.5
+        ],
+        [
+            816.5,
+            219.5
+        ],
+        [
+            811.5,
+            219.5
+        ],
+        [
+            810.5,
+            210.5
+        ],
+        [
+            790.5,
+            210.5
+        ],
+        [
+            795.5,
+            202.5
+        ],
+        [
+            798.5,
+            202.5
+        ],
+        [
+            798.5,
+            208.5
+        ],
+        [
+            815.5,
+            209.5
+        ],
+        [
+            815.5,
+            192.5
+        ],
+        [
+            816.5,
+            170.5
+        ],
+        [
+            824.5,
+            170.5
+        ],
+        [
+            830.5,
+            178.5
+        ],
+        [
+            845.5,
+            178.5
+        ],
+        [
+            845.5,
+            196.5
+        ],
+        [
+            858.5,
+            197.5
+        ],
+        [
+            859.5,
+            214.5
+        ],
+        [
+            866.5,
+            216.5
+        ],
+        [
+            854.5,
+            237.5
+        ],
+        [
+            854.5,
+            244.5
+        ],
+        [
+            871.5,
+            279.5
+        ],
+        [
+            879.5,
+            279.5
+        ],
+        [
+            897.5,
+            242.5
+        ],
+        [
+            884.5,
+            216.5
+        ],
+        [
+            922.5,
+            215.5
+        ],
+        [
+            922.5,
+            221.5
+        ],
+        [
+            938.5,
+            222.5
+        ],
+        [
+            939.5,
+            215.5
+        ],
+        [
+            974.5,
+            215.5
+        ],
+        [
+            974.5,
+            230.5
+        ],
+        [
+            1000.5,
+            230.5
+        ],
+        [
+            999.5,
+            418.5
+        ],
+        [
+            987.5,
+            419.5
+        ],
+        [
+            987.5,
+            431.5
+        ],
+        [
+            979.5,
+            431.5
+        ],
+        [
+            975.5,
+            424.5
+        ],
+        [
+            971.5,
+            424.5
+        ],
+        [
+            972.5,
+            412.5
+        ],
+        [
+            962.5,
+            411.5
+        ],
+        [
+            970.5,
+            394.5
+        ],
+        [
+            961.5,
+            377.5
+        ],
+        [
+            941.5,
+            376.5
+        ],
+        [
+            928.5,
+            392.5
+        ],
+        [
+            928.5,
+            397.5
+        ],
+        [
+            931.5,
+            400.5
+        ],
+        [
+            927.5,
+            405.5
+        ],
+        [
+            926.5,
+            420.5
+        ],
+        [
+            937.5,
+            431.5
+        ],
+        [
+            937.5,
+            446.5
+        ],
+        [
+            888.5,
+            447.5
+        ],
+        [
+            888.5,
+            438.5
+        ],
+        [
+            914.5,
+            439.5
+        ],
+        [
+            915.5,
+            412.5
+        ],
+        [
+            898.5,
+            412.5
+        ],
+        [
+            898.5,
+            378.5
+        ],
+        [
+            898.5,
+            360.5
+        ],
+        [
+            894.5,
+            360.5
+        ],
+        [
+            860.5,
+            360.5
+        ],
+        [
+            859.5,
+            366.5
+        ],
+        [
+            851.5,
+            366.5
+        ],
+        [
+            850.5,
+            357.5
+        ],
+        [
+            851.5,
+            242.5
+        ],
+        [
+            849.5,
+            242.5
+        ],
+        [
+            848.5,
+            215.5
+        ]
+    ]
     },
 
     {
@@ -13388,7 +13675,7 @@ var atlas = [
 	{
 		"id": 239,
 		"name": "Homestuck",
-		"description": "The aspects, associated numbers, and logo of the popular webcomic Homestuck",
+		"description": "The aspects, associated numbers, and logo of the popular webcomic Homestuck.<br>Drawing of this artwork was coordinated in <a class=\"inline\" href=\"https://www.reddit.com/r/homestuck/comments/6368ae/rplace_general_thread_discussion_plans_alliances/\">this reddit thread</a>",
 		"website": "www.mspaintadventures.com",
 		"subreddit": "/r/Homestuck",
 		"center": [
@@ -14763,9 +15050,9 @@ var atlas = [
     },    {
     	"id": 264,
     	"name": "Achievement Hunter",
-    	"description": "Rooster Teeth's Child company and a group of Let's Players based in Austin Texas.",
-    	"website": "http://achievementhunter.roosterteeth.com/",
-    	"subreddit": "/r/roosterteeth",
+		"description": "A child company of RoosterTeeth, Achievement Hunter is a group of Let's Players based in Austin, Texas.",
+		"website": "http://achievementhunter.roosterteeth.com/",
+		"subreddit": "/r/achievement_hunter",
     	"center": [
     		705.5,
     		337.5
@@ -15807,55 +16094,47 @@ var atlas = [
     	"website": "",
     	"subreddit": "/r/feedthebeast",
     	"center": [
-    		502.5,
-    		707.5
-    	],
-    	"path": [
-    		[
-    			492.5,
-    			697.5
-    		],
-    		[
-    			492.5,
-    			718.5
-    		],
-    		[
-    			497.5,
-    			718.5
-    		],
-    		[
-    			500.5,
-    			716.5
-    		],
-    		[
-    			501.5,
-    			716.5
-    		],
-    		[
-    			503.5,
-    			718.5
-    		],
-    		[
-    			505.5,
-    			716.5
-    		],
-    		[
-    			506.5,
-    			716.5
-    		],
-    		[
-    			508.5,
-    			718.5
-    		],
-    		[
-    			513.5,
-    			718.5
-    		],
-    		[
-    			513.5,
-    			697.5
-    		]
-    	]
+			503.5,
+			709.5
+		],
+		"path": [
+			[
+				513.5,
+				697.5
+			],
+			[
+				513.5,
+				718.5
+			],
+			[
+				508.5,
+				718.5
+			],
+			[
+				507.5,
+				721.5
+			],
+			[
+				503.5,
+				725.5
+			],
+			[
+				498.5,
+				720.5
+			],
+			[
+				498.5,
+				718.5
+			],
+			[
+				492.5,
+				718.5
+			],
+			[
+				492.5,
+				697.5
+			]
+		]
     },{
     	"id": 429,
     	"name": "Bob Ross",
@@ -21262,12 +21541,16 @@ var atlas = [
     	"website": "http://www.hellointernet.fm/",
     	"subreddit": "/r/HelloInternet",
     	"center": [
-    		941.5,
-    		736.5
+    		933.5,
+    		734.5
     	],
     	"path": [
     		[
-    			897.5,
+    			896.5,
+    			736.5
+    		],
+    		[
+    			896.5,
     			726.5
     		],
     		[
@@ -21276,95 +21559,59 @@ var atlas = [
     		],
     		[
     			932.5,
-    			726.5
+    			711.5
     		],
     		[
-    			897.5,
-    			735.5
+    			937.5,
+    			711.5
     		],
     		[
-    			911.5,
-    			735.5
+    			938.5,
+    			715.5
     		],
     		[
-    			911.5,
-    			748.5
+    			950.5,
+    			715.5
     		],
     		[
-    			942.5,
-    			748.5
-    		],
-    		[
-    			942.5,
-    			743.5
-    		],
-    		[
-    			977.5,
-    			743.5
-    		],
-    		[
-    			977.5,
-    			736.5
-    		],
-    		[
-    			948.5,
-    			736.5
+    			950.5,
+    			725.5
     		],
     		[
     			948.5,
     			725.5
     		],
     		[
-    			949.5,
-    			725.5
+    			948.5,
+    			736.5
     		],
     		[
-    			949.5,
-    			724.5
+    			977.5,
+    			736.5
     		],
     		[
-    			950.5,
-    			724.5
+    			977.5,
+    			743.5
     		],
     		[
-    			950.5,
-    			723.5
+    			942.5,
+    			743.5
     		],
     		[
-    			950.5,
-    			717.5
+    			942.5,
+    			748.5
     		],
     		[
-    			932.5,
-    			717.5
+    			907.5,
+    			748.5
     		],
     		[
-    			932.5,
-    			726.5
+    			912.5,
+    			734.5
     		],
     		[
-    			930.5,
-    			726.5
-    		],
-    		[
-    			931.5,
-    			726.5
-    		],
-    		[
-    			932.5,
-    			726.5
-    		],
-    		[
-    			897.5,
-    			735.5
-    		],
-    		[
-    			897.5,
-    			730.5
-    		],
-    		[
-    			897.5,
-    			726.5
+    			907.5,
+    			736.5
     		]
     	]
     },    {
@@ -22854,129 +23101,169 @@ var atlas = [
     },    {
     	"id": 359,
     	"name": "The Beast",
-    	"description": "A strange pink monster with a worm for a tail.",
+    	"description": "One of the first creations on r/place, the Beast started its life as an outline of Jabba the Hut. The creature quickly took on a character of its own, becoming a strange projectile-vomiting pink monster with a worm for a tail.",
     	"website": "",
     	"subreddit": "/r/PinkVomitMonster",
     	"center": [
-    		822.5,
-    		581.5
+    		821.5,
+    		575.5
     	],
     	"path": [
     		[
-    			811.5,
-    			552.5
+    			794.5,
+    			572.5
     		],
     		[
     			808.5,
-    			557.5
+    			559.5
     		],
     		[
-    			803.5,
-    			565.5
+    			808.5,
+    			556.5
     		],
     		[
-    			811.5,
-    			572.5
-    		],
-    		[
-    			801.5,
-    			575.5
-    		],
-    		[
-    			806.5,
-    			582.5
-    		],
-    		[
-    			804.5,
-    			588.5
-    		],
-    		[
-    			806.5,
-    			602.5
-    		],
-    		[
-    			812.5,
-    			605.5
+    			808.5,
+    			551.5
     		],
     		[
     			815.5,
-    			598.5
-    		],
-    		[
-    			813.5,
-    			593.5
-    		],
-    		[
-    			815.5,
-    			589.5
-    		],
-    		[
-    			827.5,
-    			589.5
-    		],
-    		[
-    			832.5,
-    			595.5
+    			551.5
     		],
     		[
     			823.5,
-    			599.5
+    			555.5
     		],
     		[
-    			831.5,
-    			600.5
+    			832.5,
+    			555.5
+    		],
+    		[
+    			840.5,
+    			559.5
+    		],
+    		[
+    			847.5,
+    			557.5
+    		],
+    		[
+    			852.5,
+    			561.5
+    		],
+    		[
+    			851.5,
+    			569.5
+    		],
+    		[
+    			847.5,
+    			569.5
+    		],
+    		[
+    			849.5,
+    			565.5
+    		],
+    		[
+    			846.5,
+    			561.5
+    		],
+    		[
+    			838.5,
+    			562.5
     		],
     		[
     			835.5,
-    			596.5
+    			560.5
     		],
     		[
-    			843.5,
-    			598.5
+    			829.5,
+    			560.5
     		],
     		[
-    			843.5,
-    			590.5
-    		],
-    		[
-    			848.5,
-    			583.5
-    		],
-    		[
-    			844.5,
-    			577.5
-    		],
-    		[
-    			844.5,
-    			572.5
-    		],
-    		[
-    			835.5,
-    			577.5
-    		],
-    		[
-    			827.5,
-    			577.5
+    			823.5,
+    			567.5
     		],
     		[
     			823.5,
     			574.5
     		],
     		[
-    			823.5,
-    			568.5
-    		],
-    		[
     			829.5,
-    			558.5
+    			578.5
     		],
     		[
-    			820.5,
-    			561.5
+    			835.5,
+    			578.5
     		],
     		[
-    			812.5,
-    			557.5
+    			844.5,
+    			572.5
+    		],
+    		[
+    			844.5,
+    			579.5
+    		],
+    		[
+    			847.5,
+    			583.5
+    		],
+    		[
+    			844.5,
+    			587.5
+    		],
+    		[
+    			843.5,
+    			597.5
+    		],
+    		[
+    			835.5,
+    			596.5
+    		],
+    		[
+    			826.5,
+    			601.5
+    		],
+    		[
+    			833.5,
+    			594.5
+    		],
+    		[
+    			827.5,
+    			589.5
+    		],
+    		[
+    			817.5,
+    			589.5
+    		],
+    		[
+    			809.5,
+    			594.5
+    		],
+    		[
+    			813.5,
+    			596.5
+    		],
+    		[
+    			809.5,
+    			604.5
+    		],
+    		[
+    			806.5,
+    			602.5
+    		],
+    		[
+    			806.5,
+    			591.5
+    		],
+    		[
+    			803.5,
+    			588.5
+    		],
+    		[
+    			804.5,
+    			579.5
+    		],
+    		[
+    			794.5,
+    			578.5
     		]
     	]
     },    {
@@ -24526,7 +24813,7 @@ var atlas = [
     },  */  {
     	"id": 367,
     	"name": "Monero",
-    	"description": "A cryptocurrency",
+    	"description": "Monero (XMR) is an open-source cryptocurrency created in April 2014 that focuses on privacy, decentralisation and scalability.",
     	"website": "https://getmonero.org/",
     	"subreddit": "/r/monero",
     	"center": [
@@ -25854,7 +26141,7 @@ var atlas = [
     }, */   {
     	"id": 384,
     	"name": "The Royal Banner of Scotland",
-    	"description": "Though partially destroyed by Space Invaders, the Lion Rampant of Scotland is still very recognizable.",
+    	"description": "Lion Rampant of Scotland was built over a group of Space Invaders from the video game of the same name, but was not finished before Place ended.",
     	"website": "",
     	"subreddit": "/r/scotland",
     	"center": [
@@ -27659,7 +27946,7 @@ var atlas = [
     	"id": 408,
     	"name": "Flag of Esperanto",
     	"description": "Esperanto, created  26 July 1887, is an international auxiliary language and the most widely-spoken constructed language in the world.",
-    	"website": "http://www.akademio-de-esperanto.org/",
+    	"website": "https://en.wikipedia.org/wiki/Esperanto",
     	"subreddit": "/r/esperanto",
     	"center": [
     		871.5,
@@ -36357,7 +36644,7 @@ var atlas = [
     	"name": "Mordhau Logo",
     	"description": "Mordhau is a Medieval First-Person Fighting Game in development by Triternion.",
     	"website": "https://mordhau.com/",
-    	"subreddit": "https://www.reddit.com/r/Mordhau/",
+    	"subreddit": "/r/Mordhau",
     	"center": [
     		267.5,
     		967.5
@@ -40536,24 +40823,24 @@ var atlas = [
     	"id": 603,
 		"submitted_by": "ElliottB1",
     	"name": "Play-Yan",
-    	"description": "A character from the Rhythm Heaven series of games.",
+    	"description": "Play-Yan is a character from the Rhythm Heaven series of games.",
     	"website": "",
     	"subreddit": "/r/rhythmheaven",
     	"center": [
     		875.5,
-    		886.5
+    		887.5
     	],
     	"path": [
     		[
     			875.5,
-    			897.5
+    			898.5
     		],
     		[
     			875.5,
     			895.5
     		],
     		[
-    			877.5,
+    			878.5,
     			893.5
     		],
     		[
@@ -40562,19 +40849,51 @@ var atlas = [
     		],
     		[
     			881.5,
+    			889.5
+    		],
+    		[
+    			879.5,
+    			887.5
+    		],
+    		[
+    			881.5,
+    			884.5
+    		],
+    		[
+    			881.5,
+    			880.5
+    		],
+    		[
+    			878.5,
+    			881.5
+    		],
+    		[
+    			876.5,
     			879.5
     		],
     		[
-    			868.5,
+    			872.5,
     			879.5
-    		],
-    		[
-    			868.5,
-    			886.5
     		],
     		[
     			869.5,
+    			882.5
+    		],
+    		[
+    			869.5,
+    			885.5
+    		],
+    		[
+    			871.5,
+    			888.5
+    		],
+    		[
+    			870.5,
     			892.5
+    		],
+    		[
+    			873.5,
+    			893.5
     		]
     	]
     },  /*  {
@@ -42117,7 +42436,7 @@ var atlas = [
     	"id": 632,
 		"submitted_by": "ModJon",
     	"name": "Clannad Dango & Tuturu!",
-    	"description": "A Discord and Reddit community for people who shares a common passion/love towards the anime/visual novel Clannad.\nThe Tuturu is an added bonus because who doesn't love Mayushii from Steins;Gate :3\nTuturu!",
+    	"description": "A Discord and Reddit community for people that share a common passion/love towards the anime/visual novel Clannad. The Tuturu is an added bonus because who doesn't love Mayushii from Steins;Gate :3 Tuturu!",
     	"website": "https://www.discord.me/clannad",
     	"subreddit": "/r/Clannad",
     	"center": [
@@ -43070,41 +43389,29 @@ var atlas = [
     	"id": 648,
 		"submitted_by": "soccamaniac147",
     	"name": "Portland Timbers",
-    	"description": "Crest of the Portland Timbers, an American soccer team in Major League Soccer (MLS). The only American soccer team to have their crest represented on /r/place.",
-    	"website": "timbers.com",
+    	"description": "Crest of the Portland Timbers, an American soccer team in Major League Soccer (MLS). The only American soccer team to have their crest represented on /r/place. PTFC is for Portland Timbers FC. The star in the middle represents the Timbers 2015 MLS Cup victory. RCTID is for Rose City Til I Die (Rose City being a nickname for the City of Portland).",
+    	"website": "https://timbers.com",
     	"subreddit": "/r/timbers",
     	"center": [
     		774.5,
-    		540.5
+    		541.5
     	],
     	"path": [
     		[
-    			784.5,
-    			544.5
-    		],
-    		[
-    			764.5,
-    			522.5
-    		],
-    		[
-    			763.5,
-    			557.5
-    		],
-    		[
-    			763.5,
-    			557.5
+    			785.5,
+    			558.5
     		],
     		[
     			785.5,
-    			557.5
-    		],
-    		[
-    			784.5,
     			523.5
     		],
     		[
-    			764.5,
+    			763.5,
     			523.5
+    		],
+    		[
+    			763.5,
+    			558.5
     		]
     	]
     },    {
@@ -43894,7 +44201,7 @@ var atlas = [
     	"id": 665,
 		"submitted_by": "Bermanator",
     	"name": "Menorah and Flag of Israel",
-    	"description": "A menorah with 'Israel' written in Hebrew underneath it. The flag of Israel is below it.",
+    	"description": "The emblem of Israel, featuring a menorah, olive branches and the word 'Israel' written in Hebrew. Below it is the flag of Israel containing the Star/Shield of David. Although the candles in the actual emblem are not lit, repeated lighting and extinguishing led to their official incorporation.",
     	"website": "",
     	"subreddit": "/r/israel",
     	"center": [
@@ -63175,7 +63482,7 @@ var atlas = [
     			624.5
     		]
     	]
-    },    {
+    },  /*  {
     	"id": 1016,
 		"submitted_by": "mount2010",
     	"name": "Rainbow Grid",
@@ -63216,7 +63523,7 @@ var atlas = [
     			439.5
     		]
     	]
-    }, /*   {
+    }, *//*   {
     	"id": 1017,
 		"submitted_by": "nopathfollowed",
     	"name": "Surprised Patrick",
@@ -64215,7 +64522,7 @@ var atlas = [
     	"name": "Rainbow Grid",
     	"description": "Started and initially maintained by a single individual, this eventually became \"hiveminded\" - maintained entirely by an unorganized group of random individuals. It was abandoned by its creator and given to r/EraseThePlace, being long time allies. ETP gladly began their work, though resistance was met with the arrival of The Gray Thing...",
     	"website": "",
-    	"subreddit": "",
+    	"subreddit": "/r/rainbowgrid",
     	"center": [
     		499.5,
     		436.5
@@ -71839,7 +72146,7 @@ var atlas = [
     	"id": 1186,
 		"submitted_by": "JoeWIthTheGlasses",
     	"name": "Optic's Green Wall",
-    	"description": "Green Wall is how Optic Gaming and their fans refer to themselves. #GreenWall is a common hashtag used on twitter. ",
+    	"description": "The logo of OpTic Gaming, an eSports organization that fields teams in many eSports, including Call Of Duty, Counter Strike: Global Offensive, Halo and Gears Of War. The text 'T2P' means 'Time 2 Pound' and commonly used when they compete. The Green Wall is how Optic Gaming and their fans refer to themselves.",
     	"website": "",
     	"subreddit": "",
     	"center": [
@@ -84652,7 +84959,38 @@ var atlas = [
 				295.5
 			]
 		]
-	}
+	},
+
+	{
+    	"id": 1457,
+    	"submitted_by": "alsoandanswer",
+    	"name": "Super Monday Night Combat",
+    	"description": "Super Monday Night Combat (abbreviated as Super MNC and SMNC) is a free-to-play third-person shooter multiplayer online battle arena (MOBA) video game developed and published by Uber Entertainment",
+    	"website": "http://www.uberent.com/smnc/",
+    	"subreddit": "/r/smnc",
+    	"center": [
+    		257.5,
+    		317.5
+    	],
+    	"path": [
+    		[
+    			234.5,
+    			341.5
+    		],
+    		[
+    			280.5,
+    			341.5
+    		],
+    		[
+    			280.5,
+    			292.5
+    		],
+    		[
+    			234.5,
+    			292.5
+    		]
+    	]
+    }
 		
 ];
 
