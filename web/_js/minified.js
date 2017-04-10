@@ -106,4 +106,3 @@ function updateLines(){linesCanvas.width=linesCanvas.clientWidth,linesCanvas.hei
 
 
 
-
