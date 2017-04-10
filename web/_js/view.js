@@ -507,8 +507,12 @@ function initView(){
 			element.addEventListener("mouseenter", function(e){
 				if(!fixed && !dragging){
 					objectsContainer.innerHTML = "";
-					previousZoomOrigin = zoomOrigin;
-					previousScaleZoomOrigin = scaleZoomOrigin;
+					
+					previousZoomOrigin = [zoomOrigin[0], zoomOrigin[1]];
+					previousScaleZoomOrigin = [scaleZoomOrigin[0], scaleZoomOrigin[1]];
+
+					applyView();
+					
 					zoomOrigin = [
 						 innerContainer.clientWidth/2  - this.entry.center[0]* zoom// + container.offsetLeft
 						,innerContainer.clientHeight/2 - this.entry.center[1]* zoom// + container.offsetTop
@@ -516,7 +520,7 @@ function initView(){
 
 					scaleZoomOrigin = [
 						 1000/2  - this.entry.center[0]
-						,1000/2  - this.entry.center[0]
+						,1000/2  - this.entry.center[1]
 					]
 
 					//console.log(zoomOrigin);
@@ -533,6 +537,11 @@ function initView(){
 
 			element.addEventListener("click", function(e){
 				toggleFixed(e);
+				if(fixed){
+					previousZoomOrigin = [zoomOrigin[0], zoomOrigin[1]];
+					previousScaleZoomOrigin = [scaleZoomOrigin[0], scaleZoomOrigin[1]];
+					applyView();
+				}
 				if(document.documentElement.clientWidth < 500){
 					
 					objectsContainer.innerHTML = "";
@@ -550,7 +559,7 @@ function initView(){
 
 					scaleZoomOrigin = [
 						 1000/2  - this.entry.center[0]
-						,1000/2  - this.entry.center[0]
+						,1000/2  - this.entry.center[1]
 					]
 
 					previousZoomOrigin = [zoomOrigin[0], zoomOrigin[1]];
@@ -571,8 +580,8 @@ function initView(){
 
 			element.addEventListener("mouseleave", function(e){
 				if(!fixed && !dragging){
-					zoomOrigin = previousZoomOrigin;
-					scaleZoomOrigin = previousScaleZoomOrigin;
+					zoomOrigin = [previousZoomOrigin[0], previousZoomOrigin[1]];
+					scaleZoomOrigin = [previousScaleZoomOrigin[0], previousScaleZoomOrigin[1]];
 					applyView();
 					hovered = [];
 					updateLines();
@@ -697,9 +706,9 @@ function initView(){
 		//console.log(e.changedTouches[0].clientX);
 		if(e.changedTouches.length == 1){
 			e = e.changedTouches[0];
-			console.log(lastPos[0] - e.clientX);
+			//console.log(lastPos[0] - e.clientX);
 			if(Math.abs(lastPos[0] - e.clientX) + Math.abs(lastPos[1] - e.clientY) <= 4){
-				console.log("Foo!!");
+				//console.log("Foo!!");
 				toggleFixed(e, true);
 			}
 		}

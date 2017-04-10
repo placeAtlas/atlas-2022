@@ -1943,7 +1943,7 @@ var atlas = [
     	]
     },
     {
-    	"id": 37,
+    	"id": 1479,
     	"name": "Terraria Bunny",
     	"description": "A bunny from the video game Terraria.",
     	"website": "",
@@ -1984,7 +1984,7 @@ var atlas = [
     	]
     },
     {
-    	"id": 38,
+    	"id": 1480,
     	"name": "Cherry MX Blue Switch",
     	"description": "Cherry MX is the most popular line of keyswitches used in mechanical computer keyboards.",
     	"website": "",
@@ -4018,7 +4018,14 @@ var atlas = [
 			]
 		]
 	},
-	{ "id": 71, "name": "r/trees", "description": "Reddit community for Marijuanae users. Not to be confused with r/marijuanaenthusiasts", "subreddit": "/r/trees", "center": [ 426.5, 431.5 ], "path": [ [ 425.5, 406.5 ], [ 426.5, 406.5 ], [ 422.5, 414.5 ], [ 417.5, 412.5 ], [ 416.5, 417.5 ], [ 413.5, 417.5 ], [ 417.5, 424.5 ], [ 415.5, 427.5 ], [ 422.5, 429.5 ], [ 418.5, 432.5 ], [ 410.5, 433.5 ], [ 410.5, 441.5 ], [ 417.5, 443.5 ], [ 417.5, 443.5 ], [ 418.5, 447.5 ], [ 423.5, 452.5 ], [ 430.5, 452.5 ], [ 434.5, 448.5 ], [ 434.5, 442.5 ], [ 440.5, 442.5 ], [ 441.5, 442.5 ], [ 441.5, 441.5 ], [ 440.5, 433.5 ], [ 441.5, 433.5 ], [ 432.5, 432.5 ], [ 427.5, 429.5 ], [ 431.5, 431.5 ], [ 431.5, 431.5 ], [ 433.5, 431.5 ], [ 433.5, 430.5 ], [ 434.5, 428.5 ], [ 435.5, 426.5 ], [ 434.5, 425.5 ], [ 439.5, 420.5 ], [ 436.5, 418.5 ], [ 437.5, 413.5 ], [ 431.5, 414.5 ], [ 426.5, 406.5 ], [ 427.5, 405.5 ] ] },
+	{
+		"id": 71,
+		"name": "r/trees",
+		"description": "Reddit community for Marijuanae users. Not to be confused with r/marijuanaenthusiasts",
+		"website": "",
+		"subreddit": "/r/trees",
+		"center": [ 426.5, 431.5 ],
+		"path": [ [ 425.5, 406.5 ], [ 426.5, 406.5 ], [ 422.5, 414.5 ], [ 417.5, 412.5 ], [ 416.5, 417.5 ], [ 413.5, 417.5 ], [ 417.5, 424.5 ], [ 415.5, 427.5 ], [ 422.5, 429.5 ], [ 418.5, 432.5 ], [ 410.5, 433.5 ], [ 410.5, 441.5 ], [ 417.5, 443.5 ], [ 417.5, 443.5 ], [ 418.5, 447.5 ], [ 423.5, 452.5 ], [ 430.5, 452.5 ], [ 434.5, 448.5 ], [ 434.5, 442.5 ], [ 440.5, 442.5 ], [ 441.5, 442.5 ], [ 441.5, 441.5 ], [ 440.5, 433.5 ], [ 441.5, 433.5 ], [ 432.5, 432.5 ], [ 427.5, 429.5 ], [ 431.5, 431.5 ], [ 431.5, 431.5 ], [ 433.5, 431.5 ], [ 433.5, 430.5 ], [ 434.5, 428.5 ], [ 435.5, 426.5 ], [ 434.5, 425.5 ], [ 439.5, 420.5 ], [ 436.5, 418.5 ], [ 437.5, 413.5 ], [ 431.5, 414.5 ], [ 426.5, 406.5 ], [ 427.5, 405.5 ] ] },
 	{
 		"id": 72,
 		"name": "Remains of Cactus McCoy's hat",
@@ -6032,7 +6039,7 @@ var atlas = [
 		"id": 106,
 		"name": "Utah Jazz Logo",
 		"description": "Logo of the National Basketball Association (NBA) team Utah Jazz",
-		"website": "www.nba.com/jazz/",
+		"website": "https://www.nba.com/jazz/",
 		"subreddit": "/r/UtahJazz",
 		"center": [
 			833.5,
@@ -10121,7 +10128,7 @@ var atlas = [
 			]
 		]
 	},
-	{ "id": 177, "name": "Los Angeles Lakers", "description": "The Los Angeles Lakers are an American professional basketball team based in Los Angeles. The Lakers compete in the National Basketball Association, as a member club of the league's Western Conference Pacific Division.", "website": "lakers.com", "subreddit": "/r/lakers", "center": [ 696.5, 768.5 ], "path": [ [ 676.5, 786.5 ], [ 675.5, 786.5 ], [ 711.5, 786.5 ], [ 711.5, 779.5 ], [ 708.5, 779.5 ], [ 713.5, 769.5 ], [ 713.5, 764.5 ], [ 707.5, 765.5 ], [ 708.5, 759.5 ], [ 704.5, 752.5 ], [ 711.5, 753.5 ], [ 712.5, 747.5 ], [ 688.5, 746.5 ], [ 686.5, 750.5 ], [ 687.5, 751.5 ], [ 688.5, 752.5 ], [ 688.5, 754.5 ], [ 687.5, 755.5 ], [ 684.5, 762.5 ], [ 683.5, 766.5 ], [ 686.5, 767.5 ], [ 686.5, 771.5 ], [ 680.5, 771.5 ], [ 676.5, 775.5 ] ] },
+	{ "id": 177, "name": "Los Angeles Lakers", "description": "The Los Angeles Lakers are an American professional basketball team based in Los Angeles. The Lakers compete in the National Basketball Association, as a member club of the league's Western Conference Pacific Division.", "website": "https://lakers.com", "subreddit": "/r/lakers", "center": [ 696.5, 768.5 ], "path": [ [ 676.5, 786.5 ], [ 675.5, 786.5 ], [ 711.5, 786.5 ], [ 711.5, 779.5 ], [ 708.5, 779.5 ], [ 713.5, 769.5 ], [ 713.5, 764.5 ], [ 707.5, 765.5 ], [ 708.5, 759.5 ], [ 704.5, 752.5 ], [ 711.5, 753.5 ], [ 712.5, 747.5 ], [ 688.5, 746.5 ], [ 686.5, 750.5 ], [ 687.5, 751.5 ], [ 688.5, 752.5 ], [ 688.5, 754.5 ], [ 687.5, 755.5 ], [ 684.5, 762.5 ], [ 683.5, 766.5 ], [ 686.5, 767.5 ], [ 686.5, 771.5 ], [ 680.5, 771.5 ], [ 676.5, 775.5 ] ] },
 	{
 		"id": 178,
 		"name": "Cx",
@@ -10983,6 +10990,7 @@ var atlas = [
 		"id": 193,
 		"name": "The Button",
 		"description": "The Button was a meta-game and social experiment hosted by Reddit that featured an online button and 60 second countdown timer that would reset each time the button was pressed. Every reddit user could only press the button once. The experiment was hosted on Reddit beginning 1 April 2015 (April Fools' Day) and was active until 5 June 2015.",
+		"website": "",
 		"subreddit": "/r/thebutton/",
 		"center": [
 			854.5,
@@ -13640,7 +13648,7 @@ var atlas = [
 	},
 
 	{
-		"id": 323,
+		"id": 1481,
 		"name": "Winnipeg Jets",
 		"description": "National Hockey League (NHL) team. LAING was suppose to be LAINE for Patrick Laine, a star player. Trolls transformed it to LAME, and after hours of fighting it ended up being LAING.",
 		"website": "",
@@ -14144,7 +14152,7 @@ var atlas = [
 		"id": 239,
 		"name": "Homestuck",
 		"description": "The aspects, associated numbers, and logo of the popular webcomic Homestuck.<br>Drawing of this artwork was coordinated in <a class=\"inline\" href=\"https://www.reddit.com/r/homestuck/comments/6368ae/rplace_general_thread_discussion_plans_alliances/\">this reddit thread</a>",
-		"website": "www.mspaintadventures.com",
+		"website": "https://www.mspaintadventures.com",
 		"subreddit": "/r/Homestuck",
 		"center": [
 			254.5,
@@ -16003,7 +16011,7 @@ var atlas = [
     	"id": 268,
     	"name": "2007scape Memefest",
     	"description": "Everything is this scare from Buying GF to the max cash pile are icons/memes from the game Oldschool Runescape",
-    	"website": "oldschool.runescape.com",
+    	"website": "https://oldschool.runescape.com",
     	"subreddit": "r/2007scape",
     	"center": [
     		951.5,
@@ -16083,7 +16091,7 @@ var atlas = [
     	"id": 270,
     	"name": "OnePlus logo",
     	"description": "The logo of the Chinese smartphone maker OnePlus, popular among Android enthusiasts.",
-    	"website": "oneplus.net",
+    	"website": "https://oneplus.net",
     	"subreddit": "/r/oneplus",
     	"center": [
     		913.5,
@@ -17869,7 +17877,7 @@ var atlas = [
     	"id": 285,
     	"name": "AMD Radeo, Ryzen, and ATI",
     	"description": "AMD is a computer hardware company that manufactures graphics cards and CPUs for PCs. RYZEN is its latest CPU architecture, and Radeon is the name of its GPU lineup.",
-    	"website": "amd.com",
+    	"website": "https://amd.com",
     	"subreddit": "/r/AMD",
     	"center": [
     		93.5,
@@ -19258,7 +19266,7 @@ var atlas = [
     	"id": 302,
     	"name": "RocketbeansTV",
     	"description": "Subreddit of german Online TV ",
-    	"website": "www.rocketbeans.tv",
+    	"website": "https://www.rocketbeans.tv",
     	"subreddit": "/r/rocketbeans",
     	"center": [
     		435.5,
@@ -19806,7 +19814,7 @@ var atlas = [
     	"id": 311,
     	"name": "McGill Martlet",
     	"description": "The mascot for McGill University - an institution of higher learning located in Montreal, Quebec, Canada.",
-    	"website": "www.mcgill.ca",
+    	"website": "https://www.mcgill.ca",
     	"subreddit": "/r/mcgill",
     	"center": [
     		159.5,
@@ -23042,7 +23050,7 @@ var atlas = [
     	"id": 352,
     	"name": "Jollibee",
     	"description": "Jollibee is a popular fast food chain in the Philippines that serves Burger, Spaghetti, and Fried Chicken. Its mascot is a smiling red bee wearing a red suit and a chef's hat.",
-    	"website": "jollibee.com.ph",
+    	"website": "https://jollibee.com.ph",
     	"subreddit": "/r/philippines",
     	"center": [
     		427.5,
@@ -25958,7 +25966,7 @@ var atlas = [
     	"id": 379,
     	"name": "Crypt of the Necrodancer",
     	"description": "Pixel art from the rhythm-based rogue-like dungeon crawler \"Crypt of the Necrodancer.\" All three sprites were complete for a large portion of /r/place, but it was agreed to move them down and left slightly and enclose them, /r/darksouls, and a few other neighboring images inside a window frame to protect them from the /r/placestart taskbar, a move that was not quite completed before /r/place ended. The original skull and skeleton are still visible several pixel up and to right.",
-    	"website": "www.necrodancer.com",
+    	"website": "https://www.necrodancer.com",
     	"subreddit": "/r/necrodancer",
     	"center": [
     		722.5,
@@ -28100,7 +28108,7 @@ var atlas = [
     	"id": 403,
     	"name": "Gorillaz",
     	"description": "The 4 Gorillaz members dabaff,r/gorillaz and a windmill",
-    	"website": "www.gorillaz.com",
+    	"website": "https://www.gorillaz.com",
     	"subreddit": "/r/Gorillaz",
     	"center": [
     		701.5,
@@ -34637,7 +34645,7 @@ var atlas = [
     	"id": 495,
     	"name": "Sonic the Hedgehog",
     	"description": "Popular character from the long-running game series of the same name. An anthropomorphic hedgehog that fights against evil Dr. Eggman and his army of robots. He can run at the speed of sound and attack the enemies by curling into a ball.",
-    	"website": "sonicthehedgehog.com",
+    	"website": "https://sonicthehedgehog.com",
     	"subreddit": "/r/sonicthehedgehog",
     	"center": [
     		959.5,
@@ -37179,7 +37187,7 @@ var atlas = [
     	"id": 533,
     	"name": "Red Hot Chili Peppers",
     	"description": "An American funk rock band formed in Los Angeles in 1983.  The group's musical style primarily consists of rock with an emphasis on funk, as well as elements from other genres such as punk rock and psychedelic rock.",
-    	"website": "redhotchilipeppers.com",
+    	"website": "https://redhotchilipeppers.com",
     	"subreddit": "/r/RedHotChiliPeppers",
     	"center": [
     		950.5,
@@ -45393,7 +45401,7 @@ var atlas = [
 		"submitted_by": "vgf89",
     	"name": "4chan logo",
     	"description": "The logo of the imageboard 4chan.org",
-    	"website": "4chan.org",
+    	"website": "https://4chan.org",
     	"subreddit": "",
     	"center": [
     		363.5,
@@ -48714,7 +48722,7 @@ var atlas = [
     	"name": "The Swiss Heart",
     	"description": "The heart of Switzerland, defended by /r/SwissNeutralityZone",
     	"website": "",
-    	"subreddit": "/r/switzerland",
+    	"subreddit": "/r/switzerland, /r/SwissNeutralityZone",
     	"center": [
     		653.5,
     		744.5
@@ -55249,7 +55257,7 @@ var atlas = [
 		"submitted_by": "ak416",
     	"name": "Giant Bomb",
     	"description": "It's a website about video games. Giant Bomb is an American video game website and wiki that includes personality driven gaming videos, commentary, news and reviews, created by former GameSpot editors Jeff Gerstmann and Ryan Davis. The website was voted by Time magazine as one of the Top 50 websites of 2011.",
-    	"website": "www.videogames.com",
+    	"website": "https://www.videogames.com",
     	"subreddit": "/r/giantbomb",
     	"center": [
     		820.5,
@@ -56830,7 +56838,7 @@ var atlas = [
 		"submitted_by": "theonlytruemathnerd",
     	"name": "WPI",
     	"description": "Worcester Polytechnic Institute is a research institute in Massachusetts",
-    	"website": "wpi.edu",
+    	"website": "https://wpi.edu",
     	"subreddit": "/r/WPI",
     	"center": [
     		186.5,
@@ -58772,7 +58780,7 @@ var atlas = [
 		"submitted_by": "tixieej",
     	"name": "A-Eskwadraat",
     	"description": "This is a failed attempt from Study association A-Eskwadraat (Utrecht, the Netherlands) to put their mark on /r/place.",
-    	"website": "www.a-es2.nl",
+    	"website": "https://www.a-es2.nl",
     	"subreddit": "/r/aeskwadraat",
     	"center": [
     		235.5,
@@ -60803,7 +60811,7 @@ var atlas = [
 		"submitted_by": "MrDrWombat",
     	"name": "Oshino Shinobu",
     	"description": "The iron-blooded, hot-blooded, cold-blooded vampire that appears in the Japanese Animated series, the Monogatari Series. \n\nShinobu was carefully crafted by the r/anime_irl community in its attempt to showcase the best Monogatari character. For anyone interested in the show I suggest visiting their subreddit r/araragi.",
-    	"website": "discord.gg/anime",
+    	"website": "https://discord.gg/anime",
     	"subreddit": "/r/araragi",
     	"center": [
     		93.5,
@@ -62584,52 +62592,7 @@ var atlas = [
     			99.5
     		]
     	]
-    },    {
-    	"id": 994,
-		"submitted_by": "mylittleplaceholder",
-    	"name": "Super Mario Pipe",
-    	"description": "A warp pipe from the Super Mario video games.",
-    	"website": "",
-    	"subreddit": "",
-    	"center": [
-    		992.5,
-    		101.5
-    	],
-    	"path": [
-    		[
-    			999.5,
-    			113.5
-    		],
-    		[
-    			986.5,
-    			100.5
-    		],
-    		[
-    			984.5,
-    			100.5
-    		],
-    		[
-    			982.5,
-    			98.5
-    		],
-    		[
-    			989.5,
-    			90.5
-    		],
-    		[
-    			991.5,
-    			92.5
-    		],
-    		[
-    			991.5,
-    			94.5
-    		],
-    		[
-    			999.5,
-    			102.5
-    		]
-    	]
-    }, {
+    },  {
     	"id": 994,
 		"submitted_by": "mylittleplaceholder",
     	"name": "Super Mario Pipe",
@@ -63827,7 +63790,7 @@ var atlas = [
 		"submitted_by": "Tegoto",
     	"name": "Rutgers University",
     	"description": "The \"RU\" stands for Rutgers University, a public school located in New Jersey with a student population of over 60,000. This piece was engaged in an intense battle as Boston University made repeated efforts to convert the \"RU\" into \"BU\".",
-    	"website": "www.rutgers.edu",
+    	"website": "https://www.rutgers.edu",
     	"subreddit": "/r/rutgers",
     	"center": [
     		14.5,
@@ -64455,7 +64418,7 @@ var atlas = [
 		"submitted_by": "Slash_DK",
     	"name": "AMD",
     	"description": "The logo for Advanced Micro Devices went from being Red to Green and back and forth for the duration of r/place. Made by /r/AyyMD, /r/AMD and other associated subreddits.",
-    	"website": "amd.com",
+    	"website": "https://amd.com",
     	"subreddit": "/r/AMD",
     	"center": [
     		93.5,
@@ -65165,7 +65128,7 @@ var atlas = [
 		"submitted_by": "Scinauta",
     	"name": "Purdue and The Motion P",
     	"description": "Purdue University and its 'Motion P' logo.",
-    	"website": "purdue.edu",
+    	"website": "https://purdue.edu",
     	"subreddit": "/r/purdue",
     	"center": [
     		32.5,
@@ -66640,7 +66603,7 @@ var atlas = [
 		"submitted_by": "Fennexin",
     	"name": "FurAffinity logo",
     	"description": "The logo for a furry art website.",
-    	"website": "furaffinity.net",
+    	"website": "https://furaffinity.net",
     	"subreddit": "",
     	"center": [
     		938.5,
@@ -71400,7 +71363,7 @@ var atlas = [
 		"submitted_by": "TheChosenJohn",
     	"name": "monkaS and Van Darkholm",
     	"description": "Here used to be additional emotes related to Forsens channel. First was monkaS, a variation of well known emote Pepe the frog, and after it he was vandalized by people thinking Pepe is a Nazi symbol (it's not), we built van Darkholm instead, but he was removed by sweden.",
-    	"website": "twitch.tv/forsenlol",
+    	"website": "https://twitch.tv/forsenlol",
     	"subreddit": "/r/forsen",
     	"center": [
     		960.5,
@@ -74462,7 +74425,7 @@ var atlas = [
 		"submitted_by": "MarcysVonEylau",
     	"name": "SpaceX ASDS",
     	"description": "It's an iconic depiction of SpaceX's Autonomous Spaceport Drone Ship (ASDS) on which the Falcon 9 rockets lands.",
-    	"website": "spacex.com",
+    	"website": "https://spacex.com",
     	"subreddit": "/r/SpaceX",
     	"center": [
     		723.5,
@@ -76102,7 +76065,7 @@ var atlas = [
 		"submitted_by": "Vikinggiraffe",
     	"name": "New York Rangers",
     	"description": "This spot used to be occupied by the New York Rangers before being taken over by Pakistan in a joint effort with India",
-    	"website": "nhl.com/rangers",
+    	"website": "https://nhl.com/rangers",
     	"subreddit": "/r/rangers",
     	"center": [
     		220.5,
@@ -76775,7 +76738,7 @@ var atlas = [
 		"submitted_by": "TeeMee123",
     	"name": "Imgur logo",
     	"description": "It is very small",
-    	"website": "imgur.com",
+    	"website": "https://imgur.com",
     	"subreddit": "",
     	"center": [
     		157.5,
@@ -77615,7 +77578,7 @@ var atlas = [
 		"submitted_by": "Zirr",
     	"name": "Science icons from Factorio",
     	"description": "These are icons used in the game Factorio for progressing your research and unlocking new items.",
-    	"website": "factorio.com",
+    	"website": "https://factorio.com",
     	"subreddit": "/r/Factorio",
     	"center": [
     		518.5,
@@ -78063,7 +78026,7 @@ var atlas = [
 		"submitted_by": "Kdog0073",
     	"name": "UIUC",
     	"description": "University of Illinois Urbana-Champaign, Largest university sub with over 15k Reddit subscribers",
-    	"website": "illinois.edu",
+    	"website": "https://illinois.edu",
     	"subreddit": "/r/UIUC",
     	"center": [
     		66.5,
@@ -85411,7 +85374,7 @@ var atlas = [
 	},
 
 	{
-		"id": 1456,
+		"id": 1482,
 		"submitted_by": "kyclef",
 		"name": "/r/survivor (covered)",
 		"description": "A box of text with \"r/survivor\" in white lettering on a green field was created by the subreddit for the long-running reality TV show. A torch, an iconic element of the show, was being drawn when Denmark and Hungary's expansion overtook the logo and wiped it out.",
@@ -86422,12 +86385,385 @@ var atlas = [
     			720.5
     		]
     	]
-    }
+    },
+
+    {
+    "id": 1483,
+    "name": "Red Boxes",
+    "description": "The last remains of a smaller, pattern-based project that placed red boxes on the canvas.",
+    "website": "",
+    "subreddit": "/r/edboxes",
+    "center": [
+        447.5,
+        289.5
+    ],
+    "path": [
+        [
+            450.5,
+            299.5
+        ],
+        [
+            443.5,
+            293.5
+        ],
+        [
+            443.5,
+            290.5
+        ],
+        [
+            444.5,
+            286.5
+        ],
+        [
+            445.5,
+            286.5
+        ],
+        [
+            447.5,
+            282.5
+        ],
+        [
+            447.5,
+            280.5
+        ],
+        [
+            450.5,
+            280.5
+        ]
+    ]
+},
+{
+    "id": 1484,
+    "name": "Mega Man",
+    "description": "Mega Man is a video game franchise created by Capcom, starring the robot character Mega Man. Here depicted shooting a rainbow beam.",
+    "website": "",
+    "subreddit": "/r/megaman",
+    "center": [
+        643.5,
+        631.5
+    ],
+    "path": [
+        [
+            634.5,
+            619.5
+        ],
+        [
+            628.5,
+            619.5
+        ],
+        [
+            628.5,
+            621.5
+        ],
+        [
+            627.5,
+            621.5
+        ],
+        [
+            627.5,
+            623.5
+        ],
+        [
+            626.5,
+            623.5
+        ],
+        [
+            626.5,
+            624.5
+        ],
+        [
+            624.5,
+            624.5
+        ],
+        [
+            624.5,
+            625.5
+        ],
+        [
+            622.5,
+            625.5
+        ],
+        [
+            622.5,
+            626.5
+        ],
+        [
+            621.5,
+            626.5
+        ],
+        [
+            621.5,
+            632.5
+        ],
+        [
+            622.5,
+            632.5
+        ],
+        [
+            622.5,
+            633.5
+        ],
+        [
+            623.5,
+            633.5
+        ],
+        [
+            623.5,
+            634.5
+        ],
+        [
+            624.5,
+            634.5
+        ],
+        [
+            624.5,
+            636.5
+        ],
+        [
+            623.5,
+            636.5
+        ],
+        [
+            623.5,
+            637.5
+        ],
+        [
+            622.5,
+            637.5
+        ],
+        [
+            622.5,
+            638.5
+        ],
+        [
+            621.5,
+            638.5
+        ],
+        [
+            620.5,
+            638.5
+        ],
+        [
+            620.5,
+            639.5
+        ],
+        [
+            618.5,
+            639.5
+        ],
+        [
+            618.5,
+            640.5
+        ],
+        [
+            617.5,
+            640.5
+        ],
+        [
+            617.5,
+            643.5
+        ],
+        [
+            639.5,
+            643.5
+        ],
+        [
+            639.5,
+            640.5
+        ],
+        [
+            638.5,
+            640.5
+        ],
+        [
+            638.5,
+            639.5
+        ],
+        [
+            637.5,
+            639.5
+        ],
+        [
+            637.5,
+            637.5
+        ],
+        [
+            636.5,
+            637.5
+        ],
+        [
+            636.5,
+            636.5
+        ],
+        [
+            635.5,
+            636.5
+        ],
+        [
+            635.5,
+            634.5
+        ],
+        [
+            636.5,
+            634.5
+        ],
+        [
+            636.5,
+            633.5
+        ],
+        [
+            651.5,
+            633.5
+        ],
+        [
+            651.5,
+            635.5
+        ],
+        [
+            673.5,
+            635.5
+        ],
+        [
+            673.5,
+            624.5
+        ],
+        [
+            652.5,
+            624.5
+        ],
+        [
+            652.5,
+            625.5
+        ],
+        [
+            651.5,
+            625.5
+        ],
+        [
+            651.5,
+            626.5
+        ],
+        [
+            639.5,
+            626.5
+        ],
+        [
+            639.5,
+            622.5
+        ],
+        [
+            638.5,
+            622.5
+        ],
+        [
+            638.5,
+            621.5
+        ],
+        [
+            637.5,
+            621.5
+        ],
+        [
+            637.5,
+            620.5
+        ],
+        [
+            635.5,
+            620.5
+        ],
+        [
+            635.5,
+            619.5
+        ],
+        [
+            628.5,
+            619.5
+        ]
+    ]
+},
+
+{
+    "id": 1485,
+    "name": "French heart",
+    "description": "Heart-shaped French flag (with two stray pixels).",
+    "website": "",
+    "subreddit": "/r/france",
+    "center": [
+		383.5,
+		754.5
+	],
+	"path": [
+		[
+			383.5,
+			760.5
+		],
+		[
+			389.5,
+			754.5
+		],
+		[
+			389.5,
+			752.5
+		],
+		[
+			386.5,
+			749.5
+		],
+		[
+			380.5,
+			749.5
+		],
+		[
+			377.5,
+			752.5
+		],
+		[
+			377.5,
+			754.5
+		]
+	]
+}
 		
 ];
 
 //console.log("There are "+atlas.length+" entries in the Atlas.");
 
+/*
+atlas.sort(function(a, b){
+	if (a.id < b.id) {
+		return -1;
+	}
+	if (a.id > b.id) {
+		return 1;
+	}
+		// a must be equal to b
+	return 0;
+});
+
+for(var i = 0; i < atlas.length; i++){
+	if(atlas[i-1]){
+		if(atlas[i-1].id == atlas[i].id){
+			console.log(atlas[i-1].id + ": "+ atlas[i-1].name);
+			console.log(atlas[i  ].id + ": "+ atlas[i  ].name);
+		}
+	}
+}
+
+console.log("biggest id: "+atlas[atlas.length-1].id + ", " + atlas[atlas.length-1].name);
+*/
+
+
+/*
+for(var i = 0; i < atlas.length; i++){
+	if(typeof atlas[i].website == "undefined"){
+		console.log(atlas[i].name);
+	} else if(atlas[i].website.trim() != ""){
+		if(atlas[i].website.trim().substring(0, 4) != "http"){
+			console.log(atlas[i].name + ": " + atlas[i].website);
+		}
+	}
+}
+*/
 
 // sort by center.y, so that lines will overlap less
 atlas.sort(function(a, b){
@@ -86977,8 +87313,12 @@ function initView(){
 			element.addEventListener("mouseenter", function(e){
 				if(!fixed && !dragging){
 					objectsContainer.innerHTML = "";
-					previousZoomOrigin = zoomOrigin;
-					previousScaleZoomOrigin = scaleZoomOrigin;
+					
+					previousZoomOrigin = [zoomOrigin[0], zoomOrigin[1]];
+					previousScaleZoomOrigin = [scaleZoomOrigin[0], scaleZoomOrigin[1]];
+
+					applyView();
+					
 					zoomOrigin = [
 						 innerContainer.clientWidth/2  - this.entry.center[0]* zoom// + container.offsetLeft
 						,innerContainer.clientHeight/2 - this.entry.center[1]* zoom// + container.offsetTop
@@ -86986,7 +87326,7 @@ function initView(){
 
 					scaleZoomOrigin = [
 						 1000/2  - this.entry.center[0]
-						,1000/2  - this.entry.center[0]
+						,1000/2  - this.entry.center[1]
 					]
 
 					//console.log(zoomOrigin);
@@ -87003,6 +87343,11 @@ function initView(){
 
 			element.addEventListener("click", function(e){
 				toggleFixed(e);
+				if(fixed){
+					previousZoomOrigin = [zoomOrigin[0], zoomOrigin[1]];
+					previousScaleZoomOrigin = [scaleZoomOrigin[0], scaleZoomOrigin[1]];
+					applyView();
+				}
 				if(document.documentElement.clientWidth < 500){
 					
 					objectsContainer.innerHTML = "";
@@ -87020,7 +87365,7 @@ function initView(){
 
 					scaleZoomOrigin = [
 						 1000/2  - this.entry.center[0]
-						,1000/2  - this.entry.center[0]
+						,1000/2  - this.entry.center[1]
 					]
 
 					previousZoomOrigin = [zoomOrigin[0], zoomOrigin[1]];
@@ -87041,8 +87386,8 @@ function initView(){
 
 			element.addEventListener("mouseleave", function(e){
 				if(!fixed && !dragging){
-					zoomOrigin = previousZoomOrigin;
-					scaleZoomOrigin = previousScaleZoomOrigin;
+					zoomOrigin = [previousZoomOrigin[0], previousZoomOrigin[1]];
+					scaleZoomOrigin = [previousScaleZoomOrigin[0], previousScaleZoomOrigin[1]];
 					applyView();
 					hovered = [];
 					updateLines();
@@ -87167,9 +87512,9 @@ function initView(){
 		//console.log(e.changedTouches[0].clientX);
 		if(e.changedTouches.length == 1){
 			e = e.changedTouches[0];
-			console.log(lastPos[0] - e.clientX);
+			//console.log(lastPos[0] - e.clientX);
 			if(Math.abs(lastPos[0] - e.clientX) + Math.abs(lastPos[1] - e.clientY) <= 4){
-				console.log("Foo!!");
+				//console.log("Foo!!");
 				toggleFixed(e, true);
 			}
 		}
@@ -87640,7 +87985,7 @@ var viewportSize = [0, 0];
 
 function applyView(){
 	
-	console.log(zoomOrigin, scaleZoomOrigin);
+	//console.log(zoomOrigin, scaleZoomOrigin);
 
 	innerContainer.style.height = (~~(zoom*1000))+"px";
 	innerContainer.style.width = (~~(zoom*1000))+"px";
@@ -87697,26 +88042,6 @@ function init(){
 		}
 	}
 
-	if(mode=="view"){
-		
-
-		
-		
-	} else if(mode=="draw"){
-		/*document.getElementById("viewLink").className = "";
-		document.getElementById("drawLink").className = "current";
-		document.getElementById("aboutLink").className = "";*/
-		
-		document.getElementById("drawControlsContainer").style.display = "block";
-		document.getElementById("entriesListContainer").style.display = "none";
-		document.getElementById("entriesListBackground").style.display = "none";
-		document.getElementById("hideListButton").style.display = "none";
-
-		
-	} else if(mode=="about"){
-		window.location = "./about.html";
-	}
-
 	document.getElementById("zoomInButton").addEventListener("click", function(e){
 
 		/*if(zoomAnimationFrame){
@@ -87767,6 +88092,7 @@ function init(){
 	document.getElementById("zoomResetButton").addEventListener("click", function(e){
 		zoom = 1;
 		zoomOrigin = [0, 0];
+		scaleZoomOrigin = [0, 0];
 		updateLines();
 		applyView();
 	});

@@ -48,7 +48,7 @@ var viewportSize = [0, 0];
 
 function applyView(){
 	
-	console.log(zoomOrigin, scaleZoomOrigin);
+	//console.log(zoomOrigin, scaleZoomOrigin);
 
 	innerContainer.style.height = (~~(zoom*1000))+"px";
 	innerContainer.style.width = (~~(zoom*1000))+"px";
@@ -105,26 +105,6 @@ function init(){
 		}
 	}
 
-	if(mode=="view"){
-		
-
-		
-		
-	} else if(mode=="draw"){
-		/*document.getElementById("viewLink").className = "";
-		document.getElementById("drawLink").className = "current";
-		document.getElementById("aboutLink").className = "";*/
-		
-		document.getElementById("drawControlsContainer").style.display = "block";
-		document.getElementById("entriesListContainer").style.display = "none";
-		document.getElementById("entriesListBackground").style.display = "none";
-		document.getElementById("hideListButton").style.display = "none";
-
-		
-	} else if(mode=="about"){
-		window.location = "./about.html";
-	}
-
 	document.getElementById("zoomInButton").addEventListener("click", function(e){
 
 		/*if(zoomAnimationFrame){
@@ -175,6 +155,7 @@ function init(){
 	document.getElementById("zoomResetButton").addEventListener("click", function(e){
 		zoom = 1;
 		zoomOrigin = [0, 0];
+		scaleZoomOrigin = [0, 0];
 		updateLines();
 		applyView();
 	});
