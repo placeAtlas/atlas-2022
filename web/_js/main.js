@@ -111,6 +111,8 @@ function init(){
 		}
 	}
 
+	document.getElementById("loading").style.display = "none";
+
 	document.getElementById("zoomInButton").addEventListener("click", function(e){
 
 		/*if(zoomAnimationFrame){

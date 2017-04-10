@@ -1,0 +1,92 @@
+
+<!--
+	========================================================================
+	The /r/place Atlas
+	
+	An Atlas of Reddit's /r/place, with information to each
+	artwork	of the canvas provided by the community.
+	
+	Copyright (C) 2017 Roland Rytz <roland@draemm.li>
+	Licensed under the GNU Affero General Public License Version 3
+	This program is free software: you can redistribute it and/or modify
+	it under the terms of the GNU Affero General Public License as
+	published by the Free Software Foundation, either version 3 of the
+	License, or (at your option) any later version.
+	This program is distributed in the hope that it will be useful,
+	but WITHOUT ANY WARRANTY; without even the implied warranty of
+	MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.
+	For more information, see:
+	https://draemm.li/various/place-atlas/license.txt
+	
+	========================================================================
+-->
+
+
+<!--
+
+	This shrinks the atlas by making it arrays instead of objects, but
+	the difference in size is only about 100k, so it's probably not
+	worth the effort
+
+-->
+
+
+<!doctype html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>
+			Smallifier
+		</title>
+		<style>
+			html, body{
+				height: 100%;
+				width: 100%;
+			}
+			#output{
+				height: 90%;
+				width: 90%;
+				display: block;
+			}
+		</style>
+	</head>
+	<body>
+
+		<textarea id="output"></textarea>
+
+		<script type="text/javascript" src="./web/_js/atlas.js?version=1.0.50"></script>
+
+		<script type="text/javascript">
+
+			var smallifiedAtlas = [];
+
+			for(var i = 0; i < atlas.length; i++){
+
+				smallifiedAtlas.push([
+					 atlas[i].id
+					,atlas[i].name
+					,atlas[i].description
+					,atlas[i].website
+					,atlas[i].subreddit
+					,atlas[i].center
+					,atlas[i].path
+				]);
+				
+			}
+
+			console.log(atlas.length, smallifiedAtlas.length);
+
+			var jsonString = JSON.stringify(smallifiedAtlas, null, 0);
+			var textarea = document.getElementById("output");
+			textarea.innerHTML = "var atlas = "+jsonString+";";
+
+			
+		</script>
+
+		
+	</body>
+</html>
+
+
+
+

@@ -242,6 +242,66 @@ optgroup{
 	overflow-y: hidden;
 }
 
+#loading{
+	position: absolute;
+	background-color: rgba(10, 10, 10, 0.9);
+	top: 0px;
+	left: 0px;
+	right: 0px;
+	bottom: 0px;
+	z-index: 100;
+}
+
+#loading > div{
+	margin: 80px auto;
+	color: #FFFFFF;
+	text-align: center;
+	font-size: 40px;
+}
+
+#loading > div > div{
+	width: 200px;
+	height: 200px;
+	border-radius: 200px;
+	border: 7px #CCCCCC solid;
+	display: inline-block;
+	border-top-color: #FFAA00;
+	
+	animation-duration: 3s;
+	animation-name: spinner;
+	animation-iteration-count: infinite;
+}
+
+@keyframes spinner {
+	from {
+		transform: rotateZ(0deg);
+	}
+
+	to {
+		transform: rotateZ(360deg);
+	}
+}
+
+.error{
+	color: #FFFFFF;
+	font-size: 23px;
+	margin: 15px 0px;
+}
+
+.errorBody{
+	color: #CC8888;
+	font-family: monospace;
+	font-size: 20px;
+	cursor: text;
+}
+
+noscript{
+	color: #FFFFFF;
+	font-size: 23px;
+	display: block;
+	margin-top: 10px;
+}
+
 .listHidden #container{
 	width: 100%;
 	margin-left: 0px;

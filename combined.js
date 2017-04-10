@@ -24,6 +24,19 @@
 */
 
 
+
+
+window.addEventListener("error", function(e){
+	console.log(e);
+	var errorMessage = "<p class=\"error\">An error has occurred:</p>";
+	errorMessage += "<p class=\"errorBody\">"+e.message+"</p>";
+	errorMessage += "<p class=\"errorBody\">on line "+e.lineno+"</p>";
+	errorMessage += "<p class=\"error\">If this keeps happening, feel free to send me a <a href=\"mailto:roland.rytz@gmail.com\">mail</a>.</p>";
+	document.getElementById("loadingContent").innerHTML = errorMessage;
+});
+
+
+
 var atlas = [
     {
     	"id": 0,
@@ -83164,7 +83177,7 @@ var atlas = [
     			756.5
     		]
     	]
-    }, {
+    }, /*{
     	"id": 1414,
 		"submitted_by": "MedicInDisquise",
     	"name": "SS13 RevHead and Nuke Disk",
@@ -83176,7 +83189,7 @@ var atlas = [
     		0.5
     	],
     	"path": []
-    }, /*{
+    },*/ /*{
     	"id": 1415,
 		"submitted_by": "MedicInDisquise",
     	"name": "SS13 SecHud",
@@ -85197,10 +85210,35 @@ var atlas = [
     	"website": "http://diamondclub.tv/",
     	"subreddit": "/r/DiamondClub/",
     	"center": [
-    		0.5,
-    		0.5
+    		433.5,
+    		318.5
     	],
-    	"path": []
+    	"path": [
+    		[
+    			443.5,
+    			313.5
+    		],
+    		[
+    			431.5,
+    			313.5
+    		],
+    		[
+    			424.5,
+    			320.5
+    		],
+    		[
+    			424.5,
+    			324.5
+    		],
+    		[
+    			435.5,
+    			324.5
+    		],
+    		[
+    			443.5,
+    			317.5
+    		]
+    	]
     },    {
     	"id": 1453,
 		"submitted_by": "Reddit-Mengzy",
@@ -88057,6 +88095,8 @@ function init(){
 			initOverlap();
 		}
 	}
+
+	document.getElementById("loading").style.display = "none";
 
 	document.getElementById("zoomInButton").addEventListener("click", function(e){
 
