@@ -253,7 +253,15 @@ function init(){
 		e.preventDefault();
 	});
 	
-	container.addEventListener("touchstart", touchstart);
+	container.addEventListener("touchstart", function(e){
+
+		if(e.touches.length == 2){
+			e.preventDefault();
+		}
+
+		touchstart(e);
+
+	});
 
 	function mousedown(x, y){
 		lastPosition = [x, y];
@@ -295,7 +303,17 @@ function init(){
 			e.preventDefault();
 		}
 	});
-	window.addEventListener("touchmove", touchmove);
+	window.addEventListener("touchmove", function(e){
+
+		if(e.touches.length == 2 || e.scale > 1){
+			e.preventDefault();
+		}
+
+		touchmove(e);
+
+	},
+	{passive: false}
+	);
 
 	function mousemove(x, y){
 		if(dragging){

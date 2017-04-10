@@ -152,7 +152,11 @@ function initView(){
 	}
 
 	container.addEventListener("mousemove", function(e){
-		if(!e.sourceCapabilities.firesTouchEvents){
+		if(e.sourceCapabilities){
+			if(!e.sourceCapabilities.firesTouchEvents){
+				updateHovering(e);
+			}
+		} else {
 			updateHovering(e);
 		}
 	});

@@ -66,6 +66,7 @@ body{
 	overflow: hidden;
 	overflow-x: hidden;
 	overflow-y: hidden;
+	-webkit-overflow-scrolling: touch;
 }
 
 a{
@@ -236,6 +237,8 @@ optgroup{
 	width: calc(100% - 320px);
 	height: 100%;
 	margin-left: 320px;
+
+	touch-action: manipulation;
 
 	overflow: hidden;
 	overflow-x: hidden;
