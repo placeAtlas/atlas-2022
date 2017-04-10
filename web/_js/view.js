@@ -26,6 +26,9 @@ var linesCanvas = document.getElementById("linesCanvas");
 var linesContext = linesCanvas.getContext("2d");
 var hovered = [];
 
+var previousZoomOrigin = [0, 0];
+var previousScaleZoomOrigin = [0, 0];
+
 function updateLines(){
 
 	linesCanvas.width = linesCanvas.clientWidth;
@@ -109,8 +112,6 @@ function initView(){
 	document.getElementById("sort").value = defaultSort;
 
 	var lastPos = [0, 0];
-	var previousZoomOrigin = [0, 0];
-	var previousScaleZoomOrigin = [0, 0];
 
 	var fixed = false; // Fix hovered items in place, so that clicking on links is possible
 

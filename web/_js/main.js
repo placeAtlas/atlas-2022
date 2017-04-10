@@ -49,6 +49,12 @@ var viewportSize = [0, 0];
 function applyView(){
 	
 	//console.log(zoomOrigin, scaleZoomOrigin);
+	//console.log(scaleZoomOrigin[0]);
+
+	scaleZoomOrigin[0] = Math.max(-500, Math.min(500, scaleZoomOrigin[0]));
+	scaleZoomOrigin[1] = Math.max(-500, Math.min(500, scaleZoomOrigin[1]));
+
+	zoomOrigin = [scaleZoomOrigin[0]*zoom, scaleZoomOrigin[1]*zoom];
 
 	innerContainer.style.height = (~~(zoom*1000))+"px";
 	innerContainer.style.width = (~~(zoom*1000))+"px";
@@ -300,6 +306,9 @@ function init(){
 
 			scaleZoomOrigin[0] += deltaX/zoom;
 			scaleZoomOrigin[1] += deltaY/zoom;
+
+			previousZoomOrigin = [zoomOrigin[0], zoomOrigin[1]];
+			previousScaleZoomOrigin = [scaleZoomOrigin[0], scaleZoomOrigin[1]];
 
 			updateLines();
 			applyView();
