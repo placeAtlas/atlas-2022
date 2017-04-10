@@ -94,6 +94,8 @@ function initView(){
 	var hideListButton = document.getElementById("hideListButton");
 	var entriesListShown = true;
 
+	var sortedAtlas;
+
 	var entriesLimit = 50;
 	var entriesOffset = 0;
 	var moreEntriesButton = document.createElement("button");
@@ -103,13 +105,12 @@ function initView(){
 		buildObjectsList(null, null);
 	};
 
-	var defaultSort = "alphaAsc";
+	var defaultSort = "shuffle";
 	document.getElementById("sort").value = defaultSort;
-
-	var viewportWidth = document.documentElement.clientWidth;
 
 	var lastPos = [0, 0];
 	var previousZoomOrigin = [0, 0];
+	var previousScaleZoomOrigin = [0, 0];
 
 	var fixed = false; // Fix hovered items in place, so that clicking on links is possible
 
@@ -160,6 +161,7 @@ function initView(){
 
 		if(this.value === ""){
 			document.getElementById("relevantOption").disabled = true;
+			sortedAtlas = atlas.concat();
 			buildObjectsList(null, null);
 		} else {
 			document.getElementById("relevantOption").disabled = false;
@@ -203,6 +205,16 @@ function initView(){
 		render();
 	});
 
+	function shuffle(){
+		//console.log("shuffled atlas");
+		for (var i = sortedAtlas.length - 1; i > 0; i--) {
+			var j = Math.floor(Math.random() * (i + 1));
+			var temp = sortedAtlas[i];
+			sortedAtlas[i] = sortedAtlas[j];
+			sortedAtlas[j] = temp;
+		}
+	}
+
 	function createInfoBlock(entry){
 		var element = document.createElement("div");
 		element.className = "object";
@@ -216,12 +228,17 @@ function initView(){
 			html += '<a target="_blank" href='+entry.website+'>Website</a>';
 		}
 		if(entry.subreddit){
-			if(entry.subreddit.substring(0, 2) == "r/"){
-				entry.subreddit = "/" + entry.subreddit;
-			} else if(entry.subreddit.substring(0, 1) != "/"){
-				entry.subreddit = "/r/" + entry.subreddit;
+			var subreddits = entry.subreddit.split(",");
+			
+			for(var i in subreddits){
+				var subreddit = subreddits[i].trim();
+				if(subreddit.substring(0, 2) == "r/"){
+					subreddit = "/" + subreddit;
+				} else if(subreddit.substring(0, 1) != "/"){
+					subreddit = "/r/" + subreddit;
+				}
+				html += '<a target="_blank" href=https://reddit.com'+subreddit+'>'+subreddit+'</a>';
 			}
-			html += '<a target="_blank" href=https://reddit.com'+entry.subreddit+'>'+entry.subreddit+'</a>';
 		}
 		element.innerHTML += html;
 		
@@ -265,6 +282,11 @@ function initView(){
 				,innerContainer.clientHeight/2 - entry.center[1]* zoom// + container.offsetTop
 			];
 
+			scaleZoomOrigin = [
+				 1000/2 - entry.center[0]// + container.offsetLeft
+				,1000/2 - entry.center[1]// + container.offsetTop
+			];
+
 			//console.log(zoomOrigin);
 			
 			applyView();
@@ -277,8 +299,8 @@ function initView(){
 		}
 	}
 
-	function updateHovering(e){
-		if(!dragging && !fixed){
+	function updateHovering(e, tapped){
+		if(!dragging && (!fixed || tapped)){
 			var pos = [
 				 (e.clientX - (container.clientWidth/2 - innerContainer.clientWidth/2 + zoomOrigin[0] + container.offsetLeft))/zoom
 				,(e.clientY - (container.clientHeight/2 - innerContainer.clientHeight/2 + zoomOrigin[1] + container.offsetTop))/zoom
@@ -365,7 +387,10 @@ function initView(){
 			entriesList.removeChild(moreEntriesButton);
 		}
 
-		var sortedAtlas;
+		if(!sortedAtlas){
+			sortedAtlas = atlas.concat();
+			document.getElementById("atlasSize").innerHTML = "The Atlas contains "+sortedAtlas.length+" entries.";
+		}
 
 		if(filter){
 			sortedAtlas = atlas.filter(function(value){
@@ -375,9 +400,7 @@ function initView(){
 				);
 			});
 			document.getElementById("atlasSize").innerHTML = "Found "+sortedAtlas.length+" entries.";
-			
 		} else {
-			sortedAtlas = atlas.concat();
 			document.getElementById("atlasSize").innerHTML = "The Atlas contains "+sortedAtlas.length+" entries.";
 		}
 
@@ -397,6 +420,12 @@ function initView(){
 		//console.log(sort);
 
 		switch(sort){
+			case "shuffle":
+				sortFunction = null;
+				if(entriesOffset == 0){
+					shuffle();
+				}
+			break;
 			case "alphaAsc":
 				sortFunction = function(a, b){
 					return a.name.toLowerCase().localeCompare(b.name.toLowerCase());
@@ -460,7 +489,9 @@ function initView(){
 			break;
 		}
 
-		sortedAtlas.sort(sortFunction);
+		if(sortFunction){
+			sortedAtlas.sort(sortFunction);
+		}
 
 		for(var i = entriesOffset; i < entriesOffset+entriesLimit; i++){
 
@@ -477,9 +508,15 @@ function initView(){
 				if(!fixed && !dragging){
 					objectsContainer.innerHTML = "";
 					previousZoomOrigin = zoomOrigin;
+					previousScaleZoomOrigin = scaleZoomOrigin;
 					zoomOrigin = [
 						 innerContainer.clientWidth/2  - this.entry.center[0]* zoom// + container.offsetLeft
 						,innerContainer.clientHeight/2 - this.entry.center[1]* zoom// + container.offsetTop
+					]
+
+					scaleZoomOrigin = [
+						 1000/2  - this.entry.center[0]
+						,1000/2  - this.entry.center[0]
 					]
 
 					//console.log(zoomOrigin);
@@ -494,9 +531,48 @@ function initView(){
 
 			});
 
+			element.addEventListener("click", function(e){
+				toggleFixed(e);
+				if(document.documentElement.clientWidth < 500){
+					
+					objectsContainer.innerHTML = "";
+
+					entriesListShown = false;
+					wrapper.className += " listHidden";
+
+					zoom = 4;
+					applyView();
+					
+					zoomOrigin = [
+						 innerContainer.clientWidth/2  - this.entry.center[0]* zoom// + container.offsetLeft
+						,innerContainer.clientHeight/2 - this.entry.center[1]* zoom// + container.offsetTop
+					]
+
+					scaleZoomOrigin = [
+						 1000/2  - this.entry.center[0]
+						,1000/2  - this.entry.center[0]
+					]
+
+					previousZoomOrigin = [zoomOrigin[0], zoomOrigin[1]];
+					previousScaleZoomOrigin = [scaleZoomOrigin[0], scaleZoomOrigin[1]];
+
+					fixed = true;
+
+					hovered = [this.entry];
+					hovered[0].element = this;
+					
+					applyView();
+					render();
+					updateLines();
+					
+				}
+				
+			});
+
 			element.addEventListener("mouseleave", function(e){
 				if(!fixed && !dragging){
 					zoomOrigin = previousZoomOrigin;
+					scaleZoomOrigin = previousScaleZoomOrigin;
 					applyView();
 					hovered = [];
 					updateLines();
@@ -578,13 +654,13 @@ function initView(){
 
 	}
 
-	function toggleFixed(e){
+	function toggleFixed(e, tapped){
 		if(!fixed && hovered.length == 0){
 			return 0;
 		}
 		fixed = !fixed;
 		if(!fixed){
-			updateHovering(e);
+			updateHovering(e, tapped);
 			render();
 		}
 	}
@@ -601,9 +677,31 @@ function initView(){
 		];
 	});
 
+	container.addEventListener("touchstart", function(e){
+		if(e.touches.length == 1){
+			lastPos = [
+				 e.touches[0].clientX
+				,e.touches[0].clientY
+			];
+		}
+	});
+
 	container.addEventListener("mouseup", function(e){
 		if(Math.abs(lastPos[0] - e.clientX) + Math.abs(lastPos[1] - e.clientY) <= 4){
 			toggleFixed(e);
+		}
+	});
+
+	container.addEventListener("touchend", function(e){
+		//console.log(e);
+		//console.log(e.changedTouches[0].clientX);
+		if(e.changedTouches.length == 1){
+			e = e.changedTouches[0];
+			console.log(lastPos[0] - e.clientX);
+			if(Math.abs(lastPos[0] - e.clientX) + Math.abs(lastPos[1] - e.clientY) <= 4){
+				console.log("Foo!!");
+				toggleFixed(e, true);
+			}
 		}
 	});
 
@@ -613,6 +711,8 @@ function initView(){
 
 	window.addEventListener("resize", function(){
 		//console.log(document.documentElement.clientWidth, document.documentElement.clientHeight);
+
+		var viewportWidth = document.documentElement.clientWidth;
 
 		if(document.documentElement.clientWidth > 1000 && viewportWidth <= 1000){
 			entriesListShown = true;

@@ -47,8 +47,8 @@ var lastPosition = [0, 0];
 var viewportSize = [0, 0];
 
 function applyView(){
-
-	//console.log(zoom);
+	
+	console.log(zoomOrigin, scaleZoomOrigin);
 
 	innerContainer.style.height = (~~(zoom*1000))+"px";
 	innerContainer.style.width = (~~(zoom*1000))+"px";
@@ -127,9 +127,9 @@ function init(){
 
 	document.getElementById("zoomInButton").addEventListener("click", function(e){
 
-		if(zoomAnimationFrame){
+		/*if(zoomAnimationFrame){
 			window.cancelAnimationFrame(zoomAnimationFrame);
-		}
+		}*/
 		
 		var x = container.clientWidth/2;
 		var y = container.clientHeight/2;
@@ -142,18 +142,18 @@ function init(){
 		initialPinchZoom = zoom;
 		
 		lastPosition = [x, y];
-		var desiredZoom = zoom * 2;
-		desiredZoom = Math.max(minZoom, Math.min(maxZoom, desiredZoom));
+		zoom = zoom * 2;
+		zoom = Math.max(minZoom, Math.min(maxZoom, zoom));
 		
-		setDesiredZoom(x, y, desiredZoom);
+		applyZoom(x, y, zoom);
 		
 	});
 
 	document.getElementById("zoomOutButton").addEventListener("click", function(e){
 
-		if(zoomAnimationFrame){
+		/*if(zoomAnimationFrame){
 			window.cancelAnimationFrame(zoomAnimationFrame);
-		}
+		}*/
 		
 		var x = container.clientWidth/2;
 		var y = container.clientHeight/2;
@@ -166,10 +166,10 @@ function init(){
 		initialPinchZoom = zoom;
 		
 		lastPosition = [x, y];
-		var desiredZoom = zoom / 2;
-		desiredZoom = Math.max(minZoom, Math.min(maxZoom, desiredZoom));
+		zoom = zoom / 2;
+		zoom = Math.max(minZoom, Math.min(maxZoom, zoom));
 		
-		setDesiredZoom(x, y, desiredZoom);
+		applyZoom(x, y, zoom);
 	});
 
 	document.getElementById("zoomResetButton").addEventListener("click", function(e){
@@ -180,12 +180,12 @@ function init(){
 	});
 
 	container.addEventListener("dblclick", function(e){
-		if(zoomAnimationFrame){
+		/*if(zoomAnimationFrame){
 			window.cancelAnimationFrame(zoomAnimationFrame);
-		}
+		}*/
 
-		var x = e.layerX;
-		var y = e.layerY;
+		var x = e.clientX - container.offsetLeft;
+		var y = e.clientY - container.offsetTop;
 
 		initialPinchZoomOrigin = [
 			scaleZoomOrigin[0],
@@ -196,19 +196,17 @@ function init(){
 		
 		lastPosition = [x, y];
 
-		var desiredZoom = 0;
-
 		if(e.ctrlKey){
 
-			desiredZoom = zoom / 2;
+			zoom = zoom / 2;
 			
 		} else {
 			
-			desiredZoom = zoom * 2;
+			zoom = zoom * 2;
 		}
 
-		desiredZoom = Math.max(minZoom, Math.min(maxZoom, desiredZoom));
-		setDesiredZoom(x, y, desiredZoom);
+		zoom = Math.max(minZoom, Math.min(maxZoom, zoom));
+		applyZoom(x, y, zoom);
 
 		e.preventDefault();
 	});
@@ -216,12 +214,12 @@ function init(){
 
 	container.addEventListener("wheel", function(e){
 
-		if(zoomAnimationFrame){
+		/*if(zoomAnimationFrame){
 			window.cancelAnimationFrame(zoomAnimationFrame);
-		}
+		}*/
 
-		var x = e.layerX;
-		var y = e.layerY;
+		var x = e.clientX - container.offsetLeft;
+		var y = e.clientY - container.offsetTop;
 
 		initialPinchZoomOrigin = [
 			scaleZoomOrigin[0],
@@ -231,27 +229,25 @@ function init(){
 		initialPinchZoom = zoom;
 		
 		lastPosition = [x, y];
-
-		var desiredZoom = 0;
 		
 		if(e.deltaY > 0){
 
-			desiredZoom = zoom / 2;
+			zoom = zoom / 2;
 			
 		} else if(e.deltaY < 0){
 			
-			desiredZoom = zoom * 2;
+			zoom = zoom * 2;
 		}
 
-		desiredZoom = Math.max(minZoom, Math.min(maxZoom, desiredZoom));
-		setDesiredZoom(x, y, desiredZoom);
+		zoom = Math.max(minZoom, Math.min(maxZoom, zoom));
+		applyZoom(x, y, zoom);
 
 		e.preventDefault();
 	});
 
-	function setDesiredZoom(x, y, target){
+	/*function setDesiredZoom(x, y, target){
 		zoom = (zoom*2 + target)/3;
-		console.log(zoom);
+		//console.log(zoom);
 		if(Math.abs(1 - zoom/target) <= 0.01){
 			zoom = target;
 		}
@@ -261,7 +257,7 @@ function init(){
 				setDesiredZoom(x, y, target);
 			});
 		}
-	}
+	}*/
 
 	container.addEventListener("mousedown", function(e){
 		mousedown(e.clientX, e.clientY);

@@ -59,7 +59,7 @@ var atlas = [
     	"name": "Flag of Switzerland",
     	"description": "",
     	"website": "",
-    	"subreddit": "switzerland",
+    	"subreddit": "/r/switzerland, /r/SwissNeutralityZone",
     	"center": [
     		403.5,
     		503.5
@@ -527,9 +527,9 @@ var atlas = [
     {
     	"id": 11,
     	"name": "Swiss Cheese and Mountains",
-    	"description": "",
+    	"description": "CH stands for Confoederatio Helvetica, which is latin for Swiss Confederation. It is used as the country code and for the Swiss Top Level Domain (TLD), which is .ch",
     	"website": "",
-    	"subreddit": "/r/switzerland",
+    	"subreddit": "/r/switzerland, /r/SwissNeutralityZone",
     	"center": [
     		361.5,
     		541.5
@@ -1170,7 +1170,7 @@ var atlas = [
     	"name": "Flag of Germany",
     	"description": "",
     	"website": "",
-    	"subreddit": "/r/de",
+    	"subreddit": "/r/de, /r/placeDE",
     	"center": [
     		496.5,
     		836.5
@@ -1199,7 +1199,7 @@ var atlas = [
     	"name": "Flag of Germany",
     	"description": "",
     	"website": "",
-    	"subreddit": "/r/de",
+    	"subreddit": "/r/de, /r/placeDE",
     	"center": [
     		280.5,
     		836.5
@@ -2320,60 +2320,408 @@ var atlas = [
     	"website": "",
     	"subreddit": "/r/sweden",
     	"center": [
-    		698.5,
-    		83.5
+    		597.5,
+    		84.5
     	],
     	"path": [
     		[
     			539.5,
-    			50.5
-    		],
-    		[
-    			872.5,
-    			50.5
-    		],
-    		[
-    			872.5,
-    			97.5
-    		],
-    		[
-    			829.5,
-    			97.5
-    		],
-    		[
-    			829.5,
-    			112.5
-    		],
-    		[
-    			795.5,
-    			112.5
-    		],
-    		[
-    			779.5,
-    			106.5
-    		],
-    		[
-    			773.5,
-    			108.5
-    		],
-    		[
-    			764.5,
-    			115.5
-    		],
-    		[
-    			761.5,
-    			120.5
-    		],
-    		[
-    			654.5,
-    			120.5
-    		],
-    		[
-    			654.5,
     			117.5
     		],
     		[
     			539.5,
+    			85.5
+    		],
+    		[
+    			531.5,
+    			78.5
+    		],
+    		[
+    			529.5,
+    			73.5
+    		],
+    		[
+    			531.5,
+    			67.5
+    		],
+    		[
+    			535.5,
+    			67.5
+    		],
+    		[
+    			539.5,
+    			71.5
+    		],
+    		[
+    			539.5,
+    			57.5
+    		],
+    		[
+    			553.5,
+    			77.5
+    		],
+    		[
+    			563.5,
+    			77.5
+    		],
+    		[
+    			582.5,
+    			54.5
+    		],
+    		[
+    			772.5,
+    			54.5
+    		],
+    		[
+    			772.5,
+    			85.5
+    		],
+    		[
+    			805.5,
+    			85.5
+    		],
+    		[
+    			805.5,
+    			53.5
+    		],
+    		[
+    			871.5,
+    			53.5
+    		],
+    		[
+    			871.5,
+    			68.5
+    		],
+    		[
+    			922.5,
+    			68.5
+    		],
+    		[
+    			930.5,
+    			65.5
+    		],
+    		[
+    			930.5,
+    			61.5
+    		],
+    		[
+    			937.5,
+    			61.5
+    		],
+    		[
+    			937.5,
+    			53.5
+    		],
+    		[
+    			948.5,
+    			63.5
+    		],
+    		[
+    			955.5,
+    			56.5
+    		],
+    		[
+    			969.5,
+    			54.5
+    		],
+    		[
+    			976.5,
+    			78.5
+    		],
+    		[
+    			999.5,
+    			78.5
+    		],
+    		[
+    			999.5,
+    			100.5
+    		],
+    		[
+    			955.5,
+    			56.5
+    		],
+    		[
+    			948.5,
+    			63.5
+    		],
+    		[
+    			999.5,
+    			115.5
+    		],
+    		[
+    			999.5,
+    			122.5
+    		],
+    		[
+    			982.5,
+    			106.5
+    		],
+    		[
+    			974.5,
+    			104.5
+    		],
+    		[
+    			940.5,
+    			104.5
+    		],
+    		[
+    			940.5,
+    			133.5
+    		],
+    		[
+    			920.5,
+    			133.5
+    		],
+    		[
+    			920.5,
+    			91.5
+    		],
+    		[
+    			900.5,
+    			91.5
+    		],
+    		[
+    			900.5,
+    			86.5
+    		],
+    		[
+    			916.5,
+    			86.5
+    		],
+    		[
+    			916.5,
+    			70.5
+    		],
+    		[
+    			880.5,
+    			70.5
+    		],
+    		[
+    			880.5,
+    			86.5
+    		],
+    		[
+    			900.5,
+    			86.5
+    		],
+    		[
+    			900.5,
+    			91.5
+    		],
+    		[
+    			878.5,
+    			91.5
+    		],
+    		[
+    			878.5,
+    			96.5
+    		],
+    		[
+    			810.5,
+    			96.5
+    		],
+    		[
+    			810.5,
+    			122.5
+    		],
+    		[
+    			804.5,
+    			122.5
+    		],
+    		[
+    			801.5,
+    			113.5
+    		],
+    		[
+    			779.5,
+    			105.5
+    		],
+    		[
+    			766.5,
+    			114.5
+    		],
+    		[
+    			768.5,
+    			121.5
+    		],
+    		[
+    			761.5,
+    			125.5
+    		],
+    		[
+    			761.5,
+    			80.5
+    		],
+    		[
+    			766.5,
+    			80.5
+    		],
+    		[
+    			766.5,
+    			75.5
+    		],
+    		[
+    			761.5,
+    			75.5
+    		],
+    		[
+    			761.5,
+    			68.5
+    		],
+    		[
+    			750.5,
+    			68.5
+    		],
+    		[
+    			750.5,
+    			75.5
+    		],
+    		[
+    			746.5,
+    			75.5
+    		],
+    		[
+    			746.5,
+    			80.5
+    		],
+    		[
+    			750.5,
+    			80.5
+    		],
+    		[
+    			750.5,
+    			119.5
+    		],
+    		[
+    			724.5,
+    			119.5
+    		],
+    		[
+    			724.5,
+    			113.5
+    		],
+    		[
+    			745.5,
+    			113.5
+    		],
+    		[
+    			745.5,
+    			103.5
+    		],
+    		[
+    			738.5,
+    			103.5
+    		],
+    		[
+    			738.5,
+    			82.5
+    		],
+    		[
+    			707.5,
+    			82.5
+    		],
+    		[
+    			707.5,
+    			103.5
+    		],
+    		[
+    			701.5,
+    			103.5
+    		],
+    		[
+    			701.5,
+    			113.5
+    		],
+    		[
+    			724.5,
+    			113.5
+    		],
+    		[
+    			724.5,
+    			119.5
+    		],
+    		[
+    			700.5,
+    			119.5
+    		],
+    		[
+    			686.5,
+    			108.5
+    		],
+    		[
+    			686.5,
+    			101.5
+    		],
+    		[
+    			692.5,
+    			93.5
+    		],
+    		[
+    			693.5,
+    			79.5
+    		],
+    		[
+    			691.5,
+    			75.5
+    		],
+    		[
+    			682.5,
+    			69.5
+    		],
+    		[
+    			672.5,
+    			69.5
+    		],
+    		[
+    			664.5,
+    			74.5
+    		],
+    		[
+    			660.5,
+    			82.5
+    		],
+    		[
+    			662.5,
+    			89.5
+    		],
+    		[
+    			666.5,
+    			100.5
+    		],
+    		[
+    			666.5,
+    			106.5
+    		],
+    		[
+    			655.5,
+    			116.5
+    		],
+    		[
+    			570.5,
+    			116.5
+    		],
+    		[
+    			578.5,
+    			96.5
+    		],
+    		[
+    			568.5,
+    			86.5
+    		],
+    		[
+    			557.5,
+    			98.5
+    		],
+    		[
+    			547.5,
+    			100.5
+    		],
+    		[
+    			545.5,
+    			105.5
+    		],
+    		[
+    			545.5,
     			117.5
     		]
     	]
@@ -9185,7 +9533,7 @@ var atlas = [
     {
 		"id": 165,
 		"name": "CounterStrike: Global Offensive",
-		"description": "CS:GO is a competetive FPS game released by Valve in 2012",
+		"description": "CS:GO is a competitive first person shooter game released by Valve in 2012",
 		"website": "",
 		"subreddit": "/r/globaloffensive",
 		"center": [
@@ -18414,7 +18762,7 @@ var atlas = [
     	"name": "Monado",
     	"description": "The Monado, a sword from the Wii game Xenoblade Chronicles",
     	"website": "",
-    	"subreddit": "",
+    	"subreddit": "/r/Xenoblade_Chronicles",
     	"center": [
     		922.5,
     		506.5
@@ -20952,10 +21300,10 @@ var atlas = [
     	]
     },    {
     	"id": 325,
-    	"name": "Un rico mate",
-    	"description": "",
+    	"name": "Yerba Mate",
+    	"description": "Mate, also known as yerba mate, chimarrão or cimarrón, is a traditional South American caffeine-rich infused drink, particularly in Argentina (where it is defined by law as the \"national infusion\"), Uruguay, Paraguay, the Bolivian Chaco, Southern Chile and Southern Brazil. It is also consumed in Syria, the largest importer in the world, and in Lebanon.",
     	"website": "https://en.wikipedia.org/wiki/Mate_%28beverage%29",
-    	"subreddit": "",
+    	"subreddit": "/r/argentina, /r/yerbamate",
     	"center": [
     		38.5,
     		802.5
@@ -21108,8 +21456,8 @@ var atlas = [
     	]
     }, */   {
     	"id": 328,
-    	"name": "Commander Hugo Chavez Frias",
-    	"description": "",
+    	"name": "Hugo Chavez",
+    	"description": "Hugo Rafael Chávez Frías  was a Venezuelan politician who served as the 64th President of Venezuela from 1999 to 2013. He was also leader of the Fifth Republic Movement from its foundation in 1997 until 2007, when it merged with several other parties to form the United Socialist Party of Venezuela (PSUV), which he led until 2012.",
     	"website": "https://en.wikipedia.org/wiki/Hugo_Ch%C3%A1vez",
     	"subreddit": "",
     	"center": [
@@ -31774,7 +32122,7 @@ var atlas = [
     },    {
     	"id": 474,
     	"name": "Urho Kekkonen",
-    	"description": "President of Finland, 1956–1982.",
+    	"description": "Urho Kaleva Kekkonen served as Prime Minister of Finland (1950–1953, 1954–1956) and later as the eighth and longest-serving President of Finland (1956–1982). Kekkonen continued the “active neutrality” policy of his predecessor President Juho Kusti Paasikivi, a doctrine that came to be known as the “Paasikivi–Kekkonen line”, under which Finland retained its independence while maintaining extensive trade with members of NATO as well as those of the Warsaw Pact.",
     	"website": "",
     	"subreddit": "/r/suomi",
     	"center": [
@@ -36443,7 +36791,7 @@ var atlas = [
     			240.5
     		]
     	]
-    }, {
+    },/* {
     	"id": 522,
     	"name": "Herring Salad",
     	"description": "The Swedish/Norwegian union flag",
@@ -36479,7 +36827,7 @@ var atlas = [
     			66.5
     		]
     	]
-    },    {
+    },  */  {
     	"id": 523,
     	"name": "Neopets JubJub",
     	"description": "A JubJub is a pet available on Neopets, a virtual pet website. As a general rule JubJubs are quite shy and prefer to keep to themselves. When curled up into a ball they can flee from danger at a quite remarkable speed.\n\n",
@@ -37261,7 +37609,7 @@ var atlas = [
     			527.5
     		]
     	]
-    }, {
+    },/* {
     	"id": 547,
 		"submitted_by": "KittensAnStuff",
     	"name": "Kanye Heart",
@@ -37306,7 +37654,7 @@ var atlas = [
     			562.5
     		]
     	]
-    },{
+    },*/{
     	"id": 548,
 		"submitted_by": "KittensAnStuff",
     	"name": "Pansexual Heart",
@@ -38076,7 +38424,7 @@ var atlas = [
     	"id": 566,
 		"submitted_by": "Miitomud",
     	"name": "RAMA",
-    	"description": "An artisan producer of metal keycaps and other accessories.",
+    	"description": "An artisan producer of metal keycaps and other accessories for mechanical keyboards.",
     	"website": "https://rama.works/",
     	"subreddit": "/r/mechanicalkeyboards",
     	"center": [
@@ -39520,10 +39868,10 @@ var atlas = [
     },    {
     	"id": 587,
 		"submitted_by": "DiplomaticMeatball",
-    	"name": "Kayne Heart",
-    	"description": "A heart that was specially created by /r/TransFlagPlace in appreciation of the alliance with /r/Kayne, whose members helped to protect the far west of the transgender ribbon.",
+    	"name": "Kanye Heart",
+    	"description": "A heart that was specially created by /r/TransFlagPlace in appreciation of the alliance with /r/Kanye, whose members helped to protect the far west of the transgender ribbon.",
     	"website": "",
-    	"subreddit": "/r/TransFlagPlace",
+    	"subreddit": "/r/TransFlagPlace, /r/Kanye",
     	"center": [
     		193.5,
     		566.5
@@ -46808,9 +47156,9 @@ var atlas = [
     	"id": 708,
 		"submitted_by": "raseksa",
     	"name": "Blanka",
-    	"description": "Blanka is a fictional character in Capcom's Street Fighter fighting game series. First introduced in 1991. This was a collaboration of /r/brasil and /r/streetfighter.",
+    	"description": "Blanka is a character in Capcom's Street Fighter fighting game series. Blanka is very popular in Brazil, and this rendition on Place was mainly created by /r/brazil.",
     	"website": "https://en.wikipedia.org/wiki/Blanka",
-    	"subreddit": "/r/StreetFighter/",
+    	"subreddit": "/r/StreetFighter, /r/brasil",
     	"center": [
     		105.5,
     		740.5
@@ -51880,7 +52228,7 @@ var atlas = [
 
 ,
 
-    {
+   /* {
     	"id": 799,
 		"submitted_by": "letransient",
     	"name": "Flag of Alberta",
@@ -51911,7 +52259,7 @@ var atlas = [
     	]
     }
 
-,
+,*/
 
     {
     	"id": 800,
@@ -54055,7 +54403,7 @@ var atlas = [
     }, */  {
     	"id": 826,
 		"submitted_by": "reddeadluigi",
-    	"name": "Jesus Christ Blast",
+    	"name": "The Redeemer's Light of Creation",
     	"description": "Power blast used as a weapon against the void in this region",
     	"website": "",
     	"subreddit": "/r/brasil",
@@ -62435,7 +62783,7 @@ var atlas = [
     			947.5
     		]
     	]
-    },  */  {
+    },  *//*  {
     	"id": 998,
 		"submitted_by": "the_marxman",
     	"name": "The untold history",
@@ -62464,7 +62812,7 @@ var atlas = [
     			145.5
     		]
     	]
-    },    {
+    },  */  {
     	"id": 999,
 		"submitted_by": "xRead",
     	"name": "Karlstads International TIME Program",
@@ -67558,7 +67906,7 @@ var atlas = [
     	"name": "Bundesadler",
     	"description": "The coat of arms of Germany displays a black eagle with red feet, beak and tongue on a golden field, blazoned: Or, an eagle displayed sable beaked langued and membered gules. This is the Bundesadler or \"Federal Eagle\", formerly the Reichsadler or \"Imperial Eagle\".",
     	"website": "https://en.wikipedia.org/wiki/Coat_of_arms_of_Germany",
-    	"subreddit": "/r/de",
+    	"subreddit": "/r/de, /r/placeDE",
     	"center": [
     		318.5,
     		833.5
@@ -68166,45 +68514,41 @@ var atlas = [
     	"id": 1108,
 		"submitted_by": "PrinceSloth",
     	"name": "Europaturm",
-    	"description": "he Europaturm (\"Tower of Europe\") is a 337.5 metre (1,107.3 ft) high telecommunications tower in Frankfurt, Germany.",
+    	"description": "The Europaturm (\"Tower of Europe\") is a 337.5 metre (1,107.3 ft) high telecommunications tower in Frankfurt, Germany.",
     	"website": "https://en.wikipedia.org/wiki/Europaturm",
     	"subreddit": "/r/frankfurt",
     	"center": [
     		492.5,
-    		835.5
+    		830.5
     	],
     	"path": [
     		[
-    			492.5,
-    			817.5
+    			490.5,
+    			845.5
     		],
     		[
-    			491.5,
-    			817.5
+    			490.5,
+    			831.5
     		],
     		[
-    			491.5,
+    			487.5,
+    			828.5
+    		],
+    		[
+    			490.5,
     			826.5
     		],
     		[
-    			491.5,
-    			829.5
-    		],
-    		[
-    			488.5,
-    			829.5
-    		],
-    		[
-    			491.5,
-    			845.5
+    			490.5,
+    			816.5
     		],
     		[
     			493.5,
-    			845.5
+    			816.5
     		],
     		[
     			493.5,
-    			830.5
+    			826.5
     		],
     		[
     			496.5,
@@ -68212,15 +68556,11 @@ var atlas = [
     		],
     		[
     			493.5,
-    			827.5
+    			831.5
     		],
     		[
     			493.5,
-    			826.5
-    		],
-    		[
-    			489.5,
-    			828.5
+    			845.5
     		]
     	]
     },    {
@@ -75344,7 +75684,7 @@ var atlas = [
     	"id": 1255,
 		"submitted_by": "juririm",
     	"name": "Brazilian Ass",
-    	"description": "",
+    	"description": "Bunda!",
     	"website": "",
     	"subreddit": "/r/brasil",
     	"center": [
@@ -77953,7 +78293,7 @@ var atlas = [
     	"id": 1307,
 		"submitted_by": "Chipbonk",
     	"name": "20XX",
-    	"description": "The year is 20XX. Everybody plays Fox at TAS levels of perfection. All matches end in a tie, and the winner is determined by a rock-paper-scissors match for port priority. The RPS metagame has evolved to ridiculous levels.",
+    	"description": "20XX is a hypothetical prediction for the future of the Super Smash Bros Melee community, in which all players have mastered the character Fox and winners are chosen entirely by port priority. The term “20XX” originates from games in the Mega Man franchise which are set in the ambiguous year “20XX.” In Super Smash Bros. Melee, the character Fox is considered by many to be the most powerful character due to his unique moveset, which includes the versatile special ability \"shine.\"",
     	"website": "",
     	"subreddit": "",
     	"center": [
@@ -79167,7 +79507,7 @@ var atlas = [
     	"id": 1335,
 		"submitted_by": "hum4n4",
     	"name": "Quebec",
-    	"description": "Quebec is the second-most populous province of Canada and the only one to have a predominantly French-speaking population, with French as the sole provincial official language.\n\nQuebec is Canada's largest province by area and its second-largest administrative division; only the territory of Nunavut is larger. It is bordered to the west by the province of Ontario, James Bay, and Hudson Bay; to the north by Hudson Strait and Ungava Bay; to the east by the Gulf of Saint Lawrence and the province of Newfoundland and Labrador; and to the south by the province of New Brunswick and the US states of Maine, New Hampshire, Vermont, and New York. It also shares maritime borders with Nunavut, Prince Edward Island, and Nova Scotia.\n\nQuebec is Canada's second-most populous province, after Ontario. Most inhabitants live in urban areas near the Saint Lawrence River between Montreal and Quebec City, the capital. Approximately half of Quebec residents live in the Greater Montreal Area, including the Island of Montreal. English-speaking communities and English-language institutions are concentrated in the west of the island of Montreal but are also significantly present in the Outaouais, Eastern Townships, and Gaspé regions. The Nord-du-Québec region, occupying the northern half of the province, is sparsely populated and inhabited primarily by Aboriginal peoples. The climate around the major cities is four-season continental with cold and snowy winters combined with warm to hot humid summers, but further north long winter seasons dominate and as a result the northern areas of the province are marked by tundra conditions. Even in central Quebec at comparatively southerly latitudes winters are severe in inland areas.\n\nQuebec independence debates have played a large role in the politics of the province. Parti Québécois governments held referendums on sovereignty in 1980 and 1995; both were voted down by voters, the latter defeated by a very narrow margin.[14] In 2006, the House of Commons of Canada passed a symbolic motion recognizing the \"Québécois as a nation within a united Canada.\"\n\nWhile the province's substantial natural resources have long been the mainstay of its economy, sectors of the knowledge economy such as aerospace, information and communication technologies, biotechnology, and the pharmaceutical industry also play leading roles. These many industries have all contributed to helping Quebec become an economically influential province within Canada, second only to Ontario in economic output.\n-Wikipedia",
+    	"description": "Quebec (French: Québec) is the second-most populous province of Canada and the only one to have a predominantly French-speaking population, with French as the sole provincial official language.",
     	"website": "",
     	"subreddit": "/r/Quebec",
     	"center": [
@@ -80323,7 +80663,7 @@ var atlas = [
     	"name": "Omani Heart",
     	"description": "",
     	"website": "",
-    	"subreddit": "",
+    	"subreddit": "/r/oman",
     	"center": [
     		515.5,
     		754.5
@@ -81807,7 +82147,7 @@ var atlas = [
     	"id": 1400,
 		"submitted_by": "Qiqz",
     	"name": "Hungary Heart",
-    	"description": "This heart-shaped Hungarian flag is connected with the heart-shaped Australian flag as these two countries were once united.",
+    	"description": "This heart-shaped Hungarian flag is connected with the heart-shaped Austrian flag as these two countries were once united in Austria-Hungary.",
     	"website": "",
     	"subreddit": "/r/hungary",
     	"center": [
@@ -85569,7 +85909,520 @@ var atlas = [
     			754.5
     		]
     	]
-}
+},
+
+/*{
+    "id": 1467,
+    "submitted_by": "j_sunrise",
+    "name": "Bosnia and Herzegovina Heart",
+    "description": "A small heart with the flag of Bosnia and Herzegovina.",
+    "website": "",
+    "subreddit": "",
+    "center": [
+        569.5,
+        710.5
+    ],
+    "path": [
+        [
+            569.5,
+            704.5
+        ],
+        [
+            563.5,
+            710.5
+        ],
+        [
+            563.5,
+            712.5
+        ],
+        [
+            566.5,
+            715.5
+        ],
+        [
+            567.5,
+            715.5
+        ],
+        [
+            569.5,
+            713.5
+        ],
+        [
+            571.5,
+            715.5
+        ],
+        [
+            572.5,
+            715.5
+        ],
+        [
+            575.5,
+            712.5
+        ],
+        [
+            575.5,
+            710.5
+        ],
+        [
+            569.5,
+            704.5
+        ]
+    ]
+},*/
+
+/*{
+    "id": 1468,
+    "name": "vier-clan.de",
+    "description": "The logo of the blue squad from a famous german Team Fortress 2 clan.\n",
+    "website": "http://vier-clan.de/",
+    "subreddit": "/r/tf2",
+    "center": [
+        550.5,
+        965.5
+    ],
+    "path": [
+        [
+            545.5,
+            974.5
+        ],
+        [
+            540.5,
+            958.5
+        ],
+        [
+            560.5,
+            957.5
+        ],
+        [
+            555.5,
+            974.5
+        ],
+        [
+            544.5,
+            974.5
+        ]
+    ]
+},*/
+
+{
+    "id": 1469,
+    "name": "Heart of Bangladesh",
+    "description": "",
+    "website": "",
+    "subreddit": "r/bangladesh/",
+    "center": [
+        533.5,
+        761.5
+    ],
+    "path": [
+        [
+            533.5,
+            761.5
+        ],
+        [
+            533.5,
+            761.5
+        ],
+        [
+            531.5,
+            765.5
+        ],
+        [
+            528.5,
+            762.5
+        ],
+        [
+            533.5,
+            756.5
+        ],
+        [
+            537.5,
+            761.5
+        ],
+        [
+            538.5,
+            761.5
+        ],
+        [
+            538.5,
+            763.5
+        ],
+        [
+            535.5,
+            765.5
+        ],
+        [
+            533.5,
+            763.5
+        ]
+    ]
+},
+
+    {
+    	"id": 1470,
+    	"name": "Hamburger Sport-verein",
+    	"description": "Heart of the HSV, a German sport club based in Hamburg, most famed for its football department.",
+    	"website": "https://www.hsv.de/",
+    	"subreddit": "/r/hsv",
+    	"center": [
+    		545.5,
+    		761.5
+    	],
+    	"path": [
+    		[
+    			542.5,
+    			766.5
+    		],
+    		[
+    			548.5,
+    			766.5
+    		],
+    		[
+    			551.5,
+    			763.5
+    		],
+    		[
+    			551.5,
+    			761.5
+    		],
+    		[
+    			545.5,
+    			755.5
+    		],
+    		[
+    			539.5,
+    			761.5
+    		],
+    		[
+    			539.5,
+    			763.5
+    		]
+    	]
+    },
+
+        {
+    	"id": 1471,
+    	"name": "Scottish Heart",
+    	"description": "Heart with the flag of Scotland",
+    	"website": "",
+    	"subreddit": "/r/scotland",
+    	"center": [
+    		635.5,
+    		754.5
+    	],
+    	"path": [
+    		[
+    			635.5,
+    			760.5
+    		],
+    		[
+    			641.5,
+    			754.5
+    		],
+    		[
+    			641.5,
+    			752.5
+    		],
+    		[
+    			638.5,
+    			749.5
+    		],
+    		[
+    			632.5,
+    			749.5
+    		],
+    		[
+    			629.5,
+    			752.5
+    		],
+    		[
+    			629.5,
+    			754.5
+    		]
+    	]
+    },
+
+    {
+    	"id": 1472,
+    	"name": "Romanian Heart 1",
+    	"description": "One of three hearts with the Romanian flag.",
+    	"website": "",
+    	"subreddit": "/r/romania",
+    	"center": [
+    		575.5,
+    		754.5
+    	],
+    	"path": [
+    		[
+    			575.5,
+    			760.5
+    		],
+    		[
+    			569.5,
+    			754.5
+    		],
+    		[
+    			569.5,
+    			752.5
+    		],
+    		[
+    			572.5,
+    			749.5
+    		],
+    		[
+    			578.5,
+    			749.5
+    		],
+    		[
+    			581.5,
+    			752.5
+    		],
+    		[
+    			581.5,
+    			754.5
+    		]
+    	]
+    },
+
+        {
+    	"id": 1473,
+    	"name": "Romanian Heart 2",
+    	"description": "One of three hearts with the Romanian flag.",
+    	"website": "",
+    	"subreddit": "/r/romania",
+    	"center": [
+    		629.5,
+    		745.5
+    	],
+    	"path": [
+    		[
+    			629.5,
+    			738.5
+    		],
+    		[
+    			623.5,
+    			744.5
+    		],
+    		[
+    			623.5,
+    			747.5
+    		],
+    		[
+    			626.5,
+    			749.5
+    		],
+    		[
+    			632.5,
+    			749.5
+    		],
+    		[
+    			635.5,
+    			746.5
+    		],
+    		[
+    			635.5,
+    			744.5
+    		]
+    	]
+    },
+
+        {
+    	"id": 1474,
+    	"name": "Romanian Heart 2",
+    	"description": "One of three hearts with the Romanian flag.",
+    	"website": "",
+    	"subreddit": "/r/romania",
+    	"center": [
+    		665.5,
+    		744.5
+    	],
+    	"path": [
+    		[
+    			662.5,
+    			749.5
+    		],
+    		[
+    			668.5,
+    			749.5
+    		],
+    		[
+    			671.5,
+    			746.5
+    		],
+    		[
+    			671.5,
+    			744.5
+    		],
+    		[
+    			665.5,
+    			738.5
+    		],
+    		[
+    			659.5,
+    			744.5
+    		],
+    		[
+    			659.5,
+    			746.5
+    		]
+    	]
+    },
+
+        {
+    	"id": 1475,
+    	"name": "Estonian Heart",
+    	"description": "",
+    	"website": "",
+    	"subreddit": "/r/eesti",
+    	"center": [
+    		479.5,
+    		754.5
+    	],
+    	"path": [
+    		[
+    			479.5,
+    			760.5
+    		],
+    		[
+    			485.5,
+    			754.5
+    		],
+    		[
+    			485.5,
+    			752.5
+    		],
+    		[
+    			482.5,
+    			749.5
+    		],
+    		[
+    			476.5,
+    			749.5
+    		],
+    		[
+    			473.5,
+    			752.5
+    		],
+    		[
+    			473.5,
+    			754.5
+    		]
+    	]
+    },
+
+    {
+		"id": 1476,
+		"name": "Memorial to SUP",
+		"description": "A memorial to SUP, an amazing friend who loved Madoka Magica.",
+		"website": "",
+		"subreddit": "",
+		"center": [
+    		376.5,
+    		233.5
+    	],
+    	"path": [
+    		[
+    			369.5,
+    			225.5
+    		],
+    		[
+    			382.5,
+    			225.5
+    		],
+    		[
+    			382.5,
+    			241.5
+    		],
+    		[
+    			369.5,
+    			241.5
+    		]
+    	]
+	},
+
+	    {
+    	"id": 1477,
+    	"name": "Bosnia and Herzegovina",
+    	"description": "A heart with the flag of Bosnia and Herzegovina.",
+    	"website": "",
+    	"subreddit": "/r/bih",
+    	"center": [
+    		569.5,
+    		710.5
+    	],
+    	"path": [
+    		[
+    			569.5,
+    			704.5
+    		],
+    		[
+    			563.5,
+    			710.5
+    		],
+    		[
+    			563.5,
+    			712.5
+    		],
+    		[
+    			566.5,
+    			715.5
+    		],
+    		[
+    			572.5,
+    			715.5
+    		],
+    		[
+    			575.5,
+    			712.5
+    		],
+    		[
+    			575.5,
+    			710.5
+    		]
+    	]
+    },
+
+        {
+    	"id": 1478,
+    	"name": "Jamaican Heart",
+    	"description": "A heart with the flag of Jamaica.",
+    	"website": "",
+    	"subreddit": "/r/Jamaica",
+    	"center": [
+    		623.5,
+    		720.5
+    	],
+    	"path": [
+    		[
+    			623.5,
+    			726.5
+    		],
+    		[
+    			629.5,
+    			720.5
+    		],
+    		[
+    			629.5,
+    			718.5
+    		],
+    		[
+    			626.5,
+    			715.5
+    		],
+    		[
+    			620.5,
+    			715.5
+    		],
+    		[
+    			617.5,
+    			718.5
+    		],
+    		[
+    			617.5,
+    			720.5
+    		]
+    	]
+    }
 		
 ];
 
@@ -85711,6 +86564,8 @@ function initView(){
 	var hideListButton = document.getElementById("hideListButton");
 	var entriesListShown = true;
 
+	var sortedAtlas;
+
 	var entriesLimit = 50;
 	var entriesOffset = 0;
 	var moreEntriesButton = document.createElement("button");
@@ -85720,13 +86575,12 @@ function initView(){
 		buildObjectsList(null, null);
 	};
 
-	var defaultSort = "alphaAsc";
+	var defaultSort = "shuffle";
 	document.getElementById("sort").value = defaultSort;
-
-	var viewportWidth = document.documentElement.clientWidth;
 
 	var lastPos = [0, 0];
 	var previousZoomOrigin = [0, 0];
+	var previousScaleZoomOrigin = [0, 0];
 
 	var fixed = false; // Fix hovered items in place, so that clicking on links is possible
 
@@ -85777,6 +86631,7 @@ function initView(){
 
 		if(this.value === ""){
 			document.getElementById("relevantOption").disabled = true;
+			sortedAtlas = atlas.concat();
 			buildObjectsList(null, null);
 		} else {
 			document.getElementById("relevantOption").disabled = false;
@@ -85820,6 +86675,16 @@ function initView(){
 		render();
 	});
 
+	function shuffle(){
+		//console.log("shuffled atlas");
+		for (var i = sortedAtlas.length - 1; i > 0; i--) {
+			var j = Math.floor(Math.random() * (i + 1));
+			var temp = sortedAtlas[i];
+			sortedAtlas[i] = sortedAtlas[j];
+			sortedAtlas[j] = temp;
+		}
+	}
+
 	function createInfoBlock(entry){
 		var element = document.createElement("div");
 		element.className = "object";
@@ -85833,12 +86698,17 @@ function initView(){
 			html += '<a target="_blank" href='+entry.website+'>Website</a>';
 		}
 		if(entry.subreddit){
-			if(entry.subreddit.substring(0, 2) == "r/"){
-				entry.subreddit = "/" + entry.subreddit;
-			} else if(entry.subreddit.substring(0, 1) != "/"){
-				entry.subreddit = "/r/" + entry.subreddit;
+			var subreddits = entry.subreddit.split(",");
+			
+			for(var i in subreddits){
+				var subreddit = subreddits[i].trim();
+				if(subreddit.substring(0, 2) == "r/"){
+					subreddit = "/" + subreddit;
+				} else if(subreddit.substring(0, 1) != "/"){
+					subreddit = "/r/" + subreddit;
+				}
+				html += '<a target="_blank" href=https://reddit.com'+subreddit+'>'+subreddit+'</a>';
 			}
-			html += '<a target="_blank" href=https://reddit.com'+entry.subreddit+'>'+entry.subreddit+'</a>';
 		}
 		element.innerHTML += html;
 		
@@ -85882,6 +86752,11 @@ function initView(){
 				,innerContainer.clientHeight/2 - entry.center[1]* zoom// + container.offsetTop
 			];
 
+			scaleZoomOrigin = [
+				 1000/2 - entry.center[0]// + container.offsetLeft
+				,1000/2 - entry.center[1]// + container.offsetTop
+			];
+
 			//console.log(zoomOrigin);
 			
 			applyView();
@@ -85894,8 +86769,8 @@ function initView(){
 		}
 	}
 
-	function updateHovering(e){
-		if(!dragging && !fixed){
+	function updateHovering(e, tapped){
+		if(!dragging && (!fixed || tapped)){
 			var pos = [
 				 (e.clientX - (container.clientWidth/2 - innerContainer.clientWidth/2 + zoomOrigin[0] + container.offsetLeft))/zoom
 				,(e.clientY - (container.clientHeight/2 - innerContainer.clientHeight/2 + zoomOrigin[1] + container.offsetTop))/zoom
@@ -85982,7 +86857,10 @@ function initView(){
 			entriesList.removeChild(moreEntriesButton);
 		}
 
-		var sortedAtlas;
+		if(!sortedAtlas){
+			sortedAtlas = atlas.concat();
+			document.getElementById("atlasSize").innerHTML = "The Atlas contains "+sortedAtlas.length+" entries.";
+		}
 
 		if(filter){
 			sortedAtlas = atlas.filter(function(value){
@@ -85992,9 +86870,7 @@ function initView(){
 				);
 			});
 			document.getElementById("atlasSize").innerHTML = "Found "+sortedAtlas.length+" entries.";
-			
 		} else {
-			sortedAtlas = atlas.concat();
 			document.getElementById("atlasSize").innerHTML = "The Atlas contains "+sortedAtlas.length+" entries.";
 		}
 
@@ -86014,6 +86890,12 @@ function initView(){
 		//console.log(sort);
 
 		switch(sort){
+			case "shuffle":
+				sortFunction = null;
+				if(entriesOffset == 0){
+					shuffle();
+				}
+			break;
 			case "alphaAsc":
 				sortFunction = function(a, b){
 					return a.name.toLowerCase().localeCompare(b.name.toLowerCase());
@@ -86077,7 +86959,9 @@ function initView(){
 			break;
 		}
 
-		sortedAtlas.sort(sortFunction);
+		if(sortFunction){
+			sortedAtlas.sort(sortFunction);
+		}
 
 		for(var i = entriesOffset; i < entriesOffset+entriesLimit; i++){
 
@@ -86094,9 +86978,15 @@ function initView(){
 				if(!fixed && !dragging){
 					objectsContainer.innerHTML = "";
 					previousZoomOrigin = zoomOrigin;
+					previousScaleZoomOrigin = scaleZoomOrigin;
 					zoomOrigin = [
 						 innerContainer.clientWidth/2  - this.entry.center[0]* zoom// + container.offsetLeft
 						,innerContainer.clientHeight/2 - this.entry.center[1]* zoom// + container.offsetTop
+					]
+
+					scaleZoomOrigin = [
+						 1000/2  - this.entry.center[0]
+						,1000/2  - this.entry.center[0]
 					]
 
 					//console.log(zoomOrigin);
@@ -86111,9 +87001,48 @@ function initView(){
 
 			});
 
+			element.addEventListener("click", function(e){
+				toggleFixed(e);
+				if(document.documentElement.clientWidth < 500){
+					
+					objectsContainer.innerHTML = "";
+
+					entriesListShown = false;
+					wrapper.className += " listHidden";
+
+					zoom = 4;
+					applyView();
+					
+					zoomOrigin = [
+						 innerContainer.clientWidth/2  - this.entry.center[0]* zoom// + container.offsetLeft
+						,innerContainer.clientHeight/2 - this.entry.center[1]* zoom// + container.offsetTop
+					]
+
+					scaleZoomOrigin = [
+						 1000/2  - this.entry.center[0]
+						,1000/2  - this.entry.center[0]
+					]
+
+					previousZoomOrigin = [zoomOrigin[0], zoomOrigin[1]];
+					previousScaleZoomOrigin = [scaleZoomOrigin[0], scaleZoomOrigin[1]];
+
+					fixed = true;
+
+					hovered = [this.entry];
+					hovered[0].element = this;
+					
+					applyView();
+					render();
+					updateLines();
+					
+				}
+				
+			});
+
 			element.addEventListener("mouseleave", function(e){
 				if(!fixed && !dragging){
 					zoomOrigin = previousZoomOrigin;
+					scaleZoomOrigin = previousScaleZoomOrigin;
 					applyView();
 					hovered = [];
 					updateLines();
@@ -86195,13 +87124,13 @@ function initView(){
 
 	}
 
-	function toggleFixed(e){
+	function toggleFixed(e, tapped){
 		if(!fixed && hovered.length == 0){
 			return 0;
 		}
 		fixed = !fixed;
 		if(!fixed){
-			updateHovering(e);
+			updateHovering(e, tapped);
 			render();
 		}
 	}
@@ -86218,9 +87147,31 @@ function initView(){
 		];
 	});
 
+	container.addEventListener("touchstart", function(e){
+		if(e.touches.length == 1){
+			lastPos = [
+				 e.touches[0].clientX
+				,e.touches[0].clientY
+			];
+		}
+	});
+
 	container.addEventListener("mouseup", function(e){
 		if(Math.abs(lastPos[0] - e.clientX) + Math.abs(lastPos[1] - e.clientY) <= 4){
 			toggleFixed(e);
+		}
+	});
+
+	container.addEventListener("touchend", function(e){
+		//console.log(e);
+		//console.log(e.changedTouches[0].clientX);
+		if(e.changedTouches.length == 1){
+			e = e.changedTouches[0];
+			console.log(lastPos[0] - e.clientX);
+			if(Math.abs(lastPos[0] - e.clientX) + Math.abs(lastPos[1] - e.clientY) <= 4){
+				console.log("Foo!!");
+				toggleFixed(e, true);
+			}
 		}
 	});
 
@@ -86230,6 +87181,8 @@ function initView(){
 
 	window.addEventListener("resize", function(){
 		//console.log(document.documentElement.clientWidth, document.documentElement.clientHeight);
+
+		var viewportWidth = document.documentElement.clientWidth;
 
 		if(document.documentElement.clientWidth > 1000 && viewportWidth <= 1000){
 			entriesListShown = true;
@@ -86686,8 +87639,8 @@ var lastPosition = [0, 0];
 var viewportSize = [0, 0];
 
 function applyView(){
-
-	//console.log(zoom);
+	
+	console.log(zoomOrigin, scaleZoomOrigin);
 
 	innerContainer.style.height = (~~(zoom*1000))+"px";
 	innerContainer.style.width = (~~(zoom*1000))+"px";
@@ -86766,9 +87719,9 @@ function init(){
 
 	document.getElementById("zoomInButton").addEventListener("click", function(e){
 
-		if(zoomAnimationFrame){
+		/*if(zoomAnimationFrame){
 			window.cancelAnimationFrame(zoomAnimationFrame);
-		}
+		}*/
 		
 		var x = container.clientWidth/2;
 		var y = container.clientHeight/2;
@@ -86781,18 +87734,18 @@ function init(){
 		initialPinchZoom = zoom;
 		
 		lastPosition = [x, y];
-		var desiredZoom = zoom * 2;
-		desiredZoom = Math.max(minZoom, Math.min(maxZoom, desiredZoom));
+		zoom = zoom * 2;
+		zoom = Math.max(minZoom, Math.min(maxZoom, zoom));
 		
-		setDesiredZoom(x, y, desiredZoom);
+		applyZoom(x, y, zoom);
 		
 	});
 
 	document.getElementById("zoomOutButton").addEventListener("click", function(e){
 
-		if(zoomAnimationFrame){
+		/*if(zoomAnimationFrame){
 			window.cancelAnimationFrame(zoomAnimationFrame);
-		}
+		}*/
 		
 		var x = container.clientWidth/2;
 		var y = container.clientHeight/2;
@@ -86805,10 +87758,10 @@ function init(){
 		initialPinchZoom = zoom;
 		
 		lastPosition = [x, y];
-		var desiredZoom = zoom / 2;
-		desiredZoom = Math.max(minZoom, Math.min(maxZoom, desiredZoom));
+		zoom = zoom / 2;
+		zoom = Math.max(minZoom, Math.min(maxZoom, zoom));
 		
-		setDesiredZoom(x, y, desiredZoom);
+		applyZoom(x, y, zoom);
 	});
 
 	document.getElementById("zoomResetButton").addEventListener("click", function(e){
@@ -86819,12 +87772,12 @@ function init(){
 	});
 
 	container.addEventListener("dblclick", function(e){
-		if(zoomAnimationFrame){
+		/*if(zoomAnimationFrame){
 			window.cancelAnimationFrame(zoomAnimationFrame);
-		}
+		}*/
 
-		var x = e.layerX;
-		var y = e.layerY;
+		var x = e.clientX - container.offsetLeft;
+		var y = e.clientY - container.offsetTop;
 
 		initialPinchZoomOrigin = [
 			scaleZoomOrigin[0],
@@ -86835,19 +87788,17 @@ function init(){
 		
 		lastPosition = [x, y];
 
-		var desiredZoom = 0;
-
 		if(e.ctrlKey){
 
-			desiredZoom = zoom / 2;
+			zoom = zoom / 2;
 			
 		} else {
 			
-			desiredZoom = zoom * 2;
+			zoom = zoom * 2;
 		}
 
-		desiredZoom = Math.max(minZoom, Math.min(maxZoom, desiredZoom));
-		setDesiredZoom(x, y, desiredZoom);
+		zoom = Math.max(minZoom, Math.min(maxZoom, zoom));
+		applyZoom(x, y, zoom);
 
 		e.preventDefault();
 	});
@@ -86855,12 +87806,12 @@ function init(){
 
 	container.addEventListener("wheel", function(e){
 
-		if(zoomAnimationFrame){
+		/*if(zoomAnimationFrame){
 			window.cancelAnimationFrame(zoomAnimationFrame);
-		}
+		}*/
 
-		var x = e.layerX;
-		var y = e.layerY;
+		var x = e.clientX - container.offsetLeft;
+		var y = e.clientY - container.offsetTop;
 
 		initialPinchZoomOrigin = [
 			scaleZoomOrigin[0],
@@ -86870,27 +87821,25 @@ function init(){
 		initialPinchZoom = zoom;
 		
 		lastPosition = [x, y];
-
-		var desiredZoom = 0;
 		
 		if(e.deltaY > 0){
 
-			desiredZoom = zoom / 2;
+			zoom = zoom / 2;
 			
 		} else if(e.deltaY < 0){
 			
-			desiredZoom = zoom * 2;
+			zoom = zoom * 2;
 		}
 
-		desiredZoom = Math.max(minZoom, Math.min(maxZoom, desiredZoom));
-		setDesiredZoom(x, y, desiredZoom);
+		zoom = Math.max(minZoom, Math.min(maxZoom, zoom));
+		applyZoom(x, y, zoom);
 
 		e.preventDefault();
 	});
 
-	function setDesiredZoom(x, y, target){
+	/*function setDesiredZoom(x, y, target){
 		zoom = (zoom*2 + target)/3;
-		console.log(zoom);
+		//console.log(zoom);
 		if(Math.abs(1 - zoom/target) <= 0.01){
 			zoom = target;
 		}
@@ -86900,7 +87849,7 @@ function init(){
 				setDesiredZoom(x, y, target);
 			});
 		}
-	}
+	}*/
 
 	container.addEventListener("mousedown", function(e){
 		mousedown(e.clientX, e.clientY);

@@ -577,8 +577,8 @@ input[type="checkbox"]{
 	position: absolute;
 	bottom: 10px;
 	left: 370px;
-	display: flex;
 	width: 90px;
+	display: flex;
 }
 
 .listHidden #zoomControls{
@@ -586,10 +586,10 @@ input[type="checkbox"]{
 }
 
 #zoomControls button{
-	display: block;
+	display: inline-block;
 	height: 30px;
+	width: 30px;
 	margin-left: -1px;
-	width: 10px;
 	flex-grow: 1;
 	font-size: 20px;
 	line-height: 0px;
