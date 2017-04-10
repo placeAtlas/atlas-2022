@@ -151,7 +151,9 @@ function initView(){
 	}
 
 	container.addEventListener("mousemove", function(e){
-		updateHovering(e);
+		if(!e.sourceCapabilities.firesTouchEvents){
+			updateHovering(e);
+		}
 	});
 
 	filterInput.addEventListener("input", function(e){
@@ -300,6 +302,7 @@ function initView(){
 	}
 
 	function updateHovering(e, tapped){
+		
 		if(!dragging && (!fixed || tapped)){
 			var pos = [
 				 (e.clientX - (container.clientWidth/2 - innerContainer.clientWidth/2 + zoomOrigin[0] + container.offsetLeft))/zoom
@@ -580,7 +583,7 @@ function initView(){
 
 			element.addEventListener("mouseleave", function(e){
 				if(!fixed && !dragging){
-					zoomOrigin = [previousZoomOrigin[0], previousZoomOrigin[1]];
+					zoomOrigin = [previousScaleZoomOrigin[0]*zoom, previousScaleZoomOrigin[1]*zoom];
 					scaleZoomOrigin = [previousScaleZoomOrigin[0], previousScaleZoomOrigin[1]];
 					applyView();
 					hovered = [];
@@ -709,7 +712,13 @@ function initView(){
 			//console.log(lastPos[0] - e.clientX);
 			if(Math.abs(lastPos[0] - e.clientX) + Math.abs(lastPos[1] - e.clientY) <= 4){
 				//console.log("Foo!!");
-				toggleFixed(e, true);
+				dragging = false;
+				fixed = false;
+				setTimeout(
+					function(){
+						updateHovering(e, true);
+					}
+				, 10);
 			}
 		}
 	});

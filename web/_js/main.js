@@ -283,7 +283,9 @@ function init(){
 	window.addEventListener("mousemove", function(e){
 		updateLines();
 		mousemove(e.clientX, e.clientY);
-		e.preventDefault();
+		if(dragging){
+			e.preventDefault();
+		}
 	});
 	window.addEventListener("touchmove", touchmove);
 
@@ -349,8 +351,10 @@ function init(){
 	}
 
 	window.addEventListener("mouseup", function(e){
+		if(dragging){
+			e.preventDefault();
+		}
 		mouseup(e.clientX, e.clientY);
-		e.preventDefault();
 	});
 	window.addEventListener("touchend", touchend);
 
