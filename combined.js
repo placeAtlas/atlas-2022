@@ -638,7 +638,7 @@ var atlas = [
     {
     	"id": 13,
     	"name": "Flag of Italy",
-    	"description": "After some early squabbling with r/TFLS and r/EmpireDidNothingWrong, Italy estabilished peaceful relations with its Communist and Imperial neighbours and went on to forge a mutual assistance pact with the Brits mantaining the UK flag cluster to the right. The Italian flag also hosted for a long time a picture of a Koi fish (nicknamed \"the carp\") curated by /r/OrderoftheKoi, which was eventually overwritten a few hours before the end.\nA royal crest from the pre-WW2 flag also briefly appeared at the very bottom and resisted for a few hours.",
+    	"description": "After some early squabbling with r/TFLS and r/EmpireDidNothingWrong, Italy estabilished peaceful relations with its Communist and Imperial neighbours and went on to forge a mutual assistance pact with the Brits mantaining the UK flag cluster to the right. The Italian flag also hosted for a long time a picture of a Koi fish (nicknamed \"the carp\") curated by /r/OrderoftheKoi, which was eventually overwritten a few hours before the end.<br>A royal crest from the pre-WW2 flag also briefly appeared at the very bottom and resisted for a few hours.",
     	"website": "",
     	"subreddit": "/r/italy",
     	"center": [
@@ -1657,7 +1657,7 @@ var atlas = [
     {
     	"id": 32,
     	"name": "Vim",
-    	"description": "Vim (a contraction of Vi IMproved) is a clone of Bill Joy's vi text editor program for Unix.\nMore than 40 years after the original release of vi, it's still a popular text editor.\n",
+    	"description": "Vim (a contraction of Vi IMproved) is a clone of Bill Joy's vi text editor program for Unix.<br>More than 40 years after the original release of vi, it's still a popular text editor.<br>",
     	"website": "",
     	"subreddit": "/r/vim",
     	"center": [
@@ -3834,7 +3834,7 @@ var atlas = [
     /*{
     	"id": 67,
     	"name": "The Blue Corner",
-    	"description": "The Blue Corner was one of the earliest projects on /r/place.\\n\nIt quickly grew to cover a significant part of the map, but later was pushed back to its current size.",
+    	"description": "The Blue Corner was one of the earliest projects on /r/place.\<br>It quickly grew to cover a significant part of the map, but later was pushed back to its current size.",
     	"website": "",
     	"subreddit": "/r/thebluecorner",
     	"center": [
@@ -6167,7 +6167,7 @@ var atlas = [
 	{
 		"id": 110,
 		"name": "Crusader Kings",
-		"description": "Originally spawned from r/CrusaderKings, these three shields, four crosses, and one crown represent a collection of communities. It now stands to represent all games released by the Swedish videogame developer Paradox Game. The three shields depicted represents the Knights Templar, the Knights Hospitaller and the Teutonic Knights. Deus Vult!\n\norganized by r/CKcrusaders",
+		"description": "Originally spawned from r/CrusaderKings, these three shields, four crosses, and one crown represent a collection of communities. It now stands to represent all games released by the Swedish videogame developer Paradox Game. The three shields depicted represents the Knights Templar, the Knights Hospitaller and the Teutonic Knights. Deus Vult!<br>organized by r/CKcrusaders",
 		"website": "",
 		"subreddit": "r/crusaderkings",
 		"center": [ 437.5, 111.5 ],
@@ -8030,7 +8030,7 @@ var atlas = [
 	{
 		"id": 142,
 		"name": "Reisen Udongein Inaba",
-		"description": "A character of the Touhou Project universe, a series of Japanese bullet hell shooter video games. \nA moon rabbit that ended up in the OSU! warzone.",
+		"description": "A character of the Touhou Project universe, a series of Japanese bullet hell shooter video games. <br>A moon rabbit that ended up in the OSU! warzone.",
 		"website": "",
 		"subreddit": "/r/touhou",
 		"center": [
@@ -8096,7 +8096,7 @@ var atlas = [
 	{
 		"id": 144,
 		"name": "Albert Einstein",
-		"description": "German-born theoretical physicist. The one who is credited for creating the theory of relativity. This specific depiction is based on the popular photo of Einstein by Arthur Sasse.\nE=mc2 is the formula for <a class=\"inline\" href=\"https://en.wikipedia.org/wiki/Mass-energy_equivalence\">mass-energy equivalence</a>, one of the consequences of theory of relativity.",
+		"description": "German-born theoretical physicist. The one who is credited for creating the theory of relativity. This specific depiction is based on the popular photo of Einstein by Arthur Sasse.<br>E=mc2 is the formula for <a class=\"inline\" href=\"https://en.wikipedia.org/wiki/Mass-energy_equivalence\">mass-energy equivalence</a>, one of the consequences of theory of relativity.",
 		"website": "https://en.wikipedia.org/wiki/Albert_Einstein",
 		"subreddit": "",
 		"center": [
@@ -8475,7 +8475,7 @@ var atlas = [
 	{
 		"id": 147,
 		"name": "Big Ten Corner",
-		"description": "11 of the 14 teams in the Big Ten have their logo represented in this part of r/place.\nThe Big Ten Conference (B1G), is the oldest Division I collegiate athletic conference in the United States. The conference, consisting of 14 members as of 2016, competes in the NCAA Division I; its football teams compete in the Football Bowl Subdivision (FBS), the highest level of NCAA competition in that sport.",
+		"description": "11 of the 14 teams in the Big Ten have their logo represented in this part of r/place.<br>The Big Ten Conference (B1G), is the oldest Division I collegiate athletic conference in the United States. The conference, consisting of 14 members as of 2016, competes in the NCAA Division I; its football teams compete in the Football Bowl Subdivision (FBS), the highest level of NCAA competition in that sport.",
 		"website": "",
 		"subreddit": "r/TheB1G/",
 		"center": [
@@ -8989,7 +8989,7 @@ var atlas = [
 	{
 		"id": 153,
 		"name": "One-Punch Man",
-		"description": "One-Punch Man is originally a Japanese superhero parody webcomic which began publication in early 2009.\nIt was mostly unknow to the western public until it got anime adaptation in spring 2015.\nDepicted is the protagonist (One Punch Man)",
+		"description": "One-Punch Man is originally a Japanese superhero parody webcomic which began publication in early 2009.<br>It was mostly unknow to the western public until it got anime adaptation in spring 2015.<br>Depicted is the protagonist (One Punch Man)",
 		"website": "",
 		"subreddit": "r/OnePunchMan/",
 		"center": [
@@ -9647,7 +9647,7 @@ var atlas = [
 	{
 		"id": 167,
 		"name": "Lúcio",
-		"description": "Lúcio is a character from Overwatch (r/overwatch multiplayer first person shooter by blizzard), and, later, Heroes Of the Storm (r/heroesofthestorm, MOBA game, again, by Blizzard).\n\nHe's a DJ from Rio, Brazil, who uses futuristic sound-based technology to fight enemies.",
+		"description": "Lúcio is a character from Overwatch (r/overwatch multiplayer first person shooter by blizzard), and, later, Heroes Of the Storm (r/heroesofthestorm, MOBA game, again, by Blizzard).<br>He's a DJ from Rio, Brazil, who uses futuristic sound-based technology to fight enemies.",
 		"website": "https://playoverwatch.com/en-us/heroes/lucio/",
 		"subreddit": "r/luciomains",
 		"center": [
@@ -11963,7 +11963,7 @@ var atlas = [
 	{
 		"id": 210,
 		"name": "r/FireEmblem",
-		"description": "Fire Emblem is a tactical role-playing video game franchise developed by Intelligent Systems and published by Nintendo. The lords of Lycia, Lyndis, Eliwood, and Hector! Flowery background in memory of previous art we accidentally destroyed.\n",
+		"description": "Fire Emblem is a tactical role-playing video game franchise developed by Intelligent Systems and published by Nintendo. The lords of Lycia, Lyndis, Eliwood, and Hector! Flowery background in memory of previous art we accidentally destroyed.<br>",
 		"website": "",
 		"subreddit": "r/FireEmblem",
 		"center": [
@@ -14264,7 +14264,7 @@ var atlas = [
     {
 		"id": 241,
 		"name": "Rickroll QR code",
-		"description": "Intended to be QR code leading to <a class=\"inline\" target=\"_blank\"   href=\"https://goo.gl/vcgo0O\">goo.gl/vcgo0O</a>, which, in turn, leads to <a class=\"inline\" target=\"_blank\"   href=\"https://www.youtube.com/watch?v=dQw4w9WgXcQ\">YouTube</a><br>Was vandalized during the last moments, and no longer works.\nVideo of the QR code in action during the times of its glory: <a class=\"inline\" target=\"_blank\"   href=\"https://www.youtube.com/watch?v=S-GFbM0vN3g\">YouTube</a>",
+		"description": "Intended to be QR code leading to <a class=\"inline\" target=\"_blank\"   href=\"https://goo.gl/vcgo0O\">goo.gl/vcgo0O</a>, which, in turn, leads to <a class=\"inline\" target=\"_blank\"   href=\"https://www.youtube.com/watch?v=dQw4w9WgXcQ\">YouTube</a><br>Was vandalized during the last moments, and no longer works.<br>Video of the QR code in action during the times of its glory: <a class=\"inline\" target=\"_blank\"   href=\"https://www.youtube.com/watch?v=S-GFbM0vN3g\">YouTube</a>",
 		"website": "https://reddit.com/r/place/comments/62zs4y/rick_roll_qr_code_idea/",
 		"subreddit": "",
 		"center": [
@@ -14685,7 +14685,7 @@ var atlas = [
 	{
 		"id": 249,
 		"name": "Warframe",
-		"description": "They were called Tenno, warriors of blade and gun.\n\nWarframe is a free-to-play third person shooter developed by Digital Extremes.",
+		"description": "They were called Tenno, warriors of blade and gun.<br>Warframe is a free-to-play third person shooter developed by Digital Extremes.",
 		"website": "https://warframe.com",
 		"subreddit": "/r/warframe",
 		"center": [
@@ -15442,7 +15442,7 @@ var atlas = [
 	{
 		"id": 261,
 		"name": "Forsenboys",
-		"description": "Forsen is one of the veterans of Hearthstone streaming on Twitch.tv\nHis emote ForsenE has been vandalised a couple of times and the last attempt at restoring the emote is visible",
+		"description": "Forsen is one of the veterans of Hearthstone streaming on Twitch.tv<br>His emote ForsenE has been vandalised a couple of times and the last attempt at restoring the emote is visible",
 		"website": "",
 		"subreddit": "/r/forsen",
 		"center": [
@@ -19858,7 +19858,7 @@ var atlas = [
     },    {
     	"id": 312,
     	"name": "Stargate",
-    	"description": "Stargate from the movie and TV-series Stargate SG-1, Stargate Atlantis, and Stargate Universe.\n",
+    	"description": "Stargate from the movie and TV-series Stargate SG-1, Stargate Atlantis, and Stargate Universe.<br>",
     	"website": "",
     	"subreddit": "/r/stargate",
     	"center": [
@@ -20718,7 +20718,7 @@ var atlas = [
     },    {
     	"id": 324,
     	"name": "Coat of arms of the Netherlands",
-    	"description": "The Greater Coat of Arms of the Realm, (or \"Grote Rijkswapen\"), is the Coat of Arms of the royal family of Netherlands.\nThis version of the coat of arms is in use since 1907.",
+    	"description": "The Greater Coat of Arms of the Realm, (or \"Grote Rijkswapen\"), is the Coat of Arms of the royal family of Netherlands.<br>This version of the coat of arms is in use since 1907.",
     	"website": "https://en.wikipedia.org/wiki/Coat_of_arms_of_the_Netherlands",
     	"subreddit": "",
     	"center": [
@@ -21422,7 +21422,7 @@ var atlas = [
     },  /*  {
     	"id": 327,
     	"name": "Temmie",
-    	"description": "Temmie is  a silly, cat-like character from Undertale.  She was adopted by r/Ireland as a mascot.\n",
+    	"description": "Temmie is  a silly, cat-like character from Undertale.  She was adopted by r/Ireland as a mascot.<br>",
     	"website": "http://www.undertale.com",
     	"subreddit": "r/Undertale",
     	"center": [
@@ -22710,7 +22710,7 @@ var atlas = [
     },    {
     	"id": 346,
     	"name": "Baguette & Wine",
-    	"description": "Recognizable symbols of France and its world renown cuisine. \nThe wine label was heavily disputed throughout the event with the Italians who managed to pull of a sneaky flag. ",
+    	"description": "Recognizable symbols of France and its world renown cuisine. <br>The wine label was heavily disputed throughout the event with the Italians who managed to pull of a sneaky flag. ",
     	"website": "",
     	"subreddit": "r/france & r/wine",
     	"center": [
@@ -22914,7 +22914,7 @@ var atlas = [
     }, */   {
     	"id": 349,
     	"name": "Furry Snoo",
-    	"description": "The Unique Snoo of the subreddit r/furry.\nIt was constantly vandalized but stayed visible until the end.",
+    	"description": "The Unique Snoo of the subreddit r/furry.<br>It was constantly vandalized but stayed visible until the end.",
     	"website": "",
     	"subreddit": "/r/furry",
     	"center": [
@@ -23310,7 +23310,7 @@ var atlas = [
     },    {
     	"id": 356,
     	"name": "The Void",
-    	"description": "The final core of the Void, with half of the Void's forces defending the core that destroyed Mexico, The Mona Lisa's face, The Oilers, and multiple other pixelart structures, and the other half of the Void's forces defending the Kekistan flag to the South.\n\n- /u/Kiptus [TrendE]",
+    	"description": "The final core of the Void, with half of the Void's forces defending the core that destroyed Mexico, The Mona Lisa's face, The Oilers, and multiple other pixelart structures, and the other half of the Void's forces defending the Kekistan flag to the South.<br>- /u/Kiptus [TrendE]",
     	"website": "https://www.reddit.com/r/theblackvoid/",
     	"subreddit": "/r/theblackvoid",
     	"center": [
@@ -23558,7 +23558,7 @@ var atlas = [
     },    {
     	"id": 358,
     	"name": "Pat & Mat",
-    	"description": "Pat & Mat is a Czechoslovak stop-motion animated series featuring the two handymen, Pat and Mat.\nSince the series was very popular in the Netherlands this art was built to show solidarity among r/thenetherlands and r/czechoslovakia/",
+    	"description": "Pat & Mat is a Czechoslovak stop-motion animated series featuring the two handymen, Pat and Mat.<br>Since the series was very popular in the Netherlands this art was built to show solidarity among r/thenetherlands and r/czechoslovakia/",
     	"website": "http://en.patmat.cz/",
     	"subreddit": "",
     	"center": [
@@ -31631,7 +31631,7 @@ var atlas = [
     },    {
     	"id": 468,
     	"name": "Duck Game Duck",
-    	"description": "This pixelart duck is the playable character in the PC hit 'Duck Game'. Initially created by r/duckgame in an area claimed by r/mexico, it quickly became a point of contention between the two, with the Duck beginning to be overwritten by the more numerous party. Hurried negotiations resulted in the duck being allowed to remain provided it was given a sombrero.\nIn the last hour of Place, the head was destroyed by the Void's invasion of the area. Following the Void's relocation to the Southwest, attempts to rebuild the head were unsuccessful due to the rapid expansion of the Flag of Mexico into the area.",
+    	"description": "This pixelart duck is the playable character in the PC hit 'Duck Game'. Initially created by r/duckgame in an area claimed by r/mexico, it quickly became a point of contention between the two, with the Duck beginning to be overwritten by the more numerous party. Hurried negotiations resulted in the duck being allowed to remain provided it was given a sombrero.<br>In the last hour of Place, the head was destroyed by the Void's invasion of the area. Following the Void's relocation to the Southwest, attempts to rebuild the head were unsuccessful due to the rapid expansion of the Flag of Mexico into the area.",
     	"website": "",
     	"subreddit": "/r/duckgame",
     	"center": [
@@ -31695,7 +31695,7 @@ var atlas = [
     },/*    {
     	"id": 470,
     	"name": "Beserk",
-    	"description": "a Japanese dark fantasy manga series written and illustrated by Kentaro Miura.\nAlso served as inspiration for Dark Souls hence why it was placed near Solaire.",
+    	"description": "a Japanese dark fantasy manga series written and illustrated by Kentaro Miura.<br>Also served as inspiration for Dark Souls hence why it was placed near Solaire.",
     	"website": "",
     	"subreddit": "/r/Berserk/",
     	"center": [
@@ -32171,7 +32171,7 @@ var atlas = [
     },    {
     	"id": 475,
     	"name": "Flag of Spain",
-    	"description": "Spain is a country located in south Europe, just under France. The official language is Spanish. When you hear the words \"paella\", \"toros\", \"sol\", \"ole\" or \"churros\" you will instantly recognize it. \n In /r/place, it was drew in collaboration of Colombian, Ecuatorian and Venezuelan friends.",
+    	"description": "Spain is a country located in south Europe, just under France. The official language is Spanish. When you hear the words \"paella\", \"toros\", \"sol\", \"ole\" or \"churros\" you will instantly recognize it. <br> In /r/place, it was drew in collaboration of Colombian, Ecuatorian and Venezuelan friends.",
     	"website": "https://en.wikipedia.org/wiki/Spain",
     	"subreddit": "/r/Spain",
     	"center": [
@@ -34837,7 +34837,7 @@ var atlas = [
     },    {
     	"id": 497,
     	"name": "Vineshroom",
-    	"description": "The logo of the streamer group \"Vinesauce\", resembling a green 1-up mushroom with a smile and a huge V on the tip, also dubbed a Vineshroom. \n\nOriginally placed on the french flag, but was relocated after having been erased amongst other pixel arts.",
+    	"description": "The logo of the streamer group \"Vinesauce\", resembling a green 1-up mushroom with a smile and a huge V on the tip, also dubbed a Vineshroom. <br>Originally placed on the french flag, but was relocated after having been erased amongst other pixel arts.",
     	"website": "http://www.vinesauce.com",
     	"subreddit": "/r/vinesauce",
     	"center": [
@@ -36851,7 +36851,7 @@ var atlas = [
     },  */  {
     	"id": 523,
     	"name": "Neopets JubJub",
-    	"description": "A JubJub is a pet available on Neopets, a virtual pet website. As a general rule JubJubs are quite shy and prefer to keep to themselves. When curled up into a ball they can flee from danger at a quite remarkable speed.\n\n",
+    	"description": "A JubJub is a pet available on Neopets, a virtual pet website. As a general rule JubJubs are quite shy and prefer to keep to themselves. When curled up into a ball they can flee from danger at a quite remarkable speed.<br>",
     	"website": "http://www.neopets.com/index.phtml",
     	"subreddit": "/r/Neopets",
     	"center": [
@@ -37323,7 +37323,7 @@ var atlas = [
     },    {
     	"id": 536,
     	"name": "Tre kronor",
-    	"description": "\nThree Crowns is Sweden's heraldic national symbol found among others in the coat of arms consists of three open crowns of gold, set two over one, on a blue background. There is historically younger as a state symbol in Sweden than Bjälbo dynasty lion. Prior occurred other Royal Crest.",
+    	"description": "<br>Three Crowns is Sweden's heraldic national symbol found among others in the coat of arms consists of three open crowns of gold, set two over one, on a blue background. There is historically younger as a state symbol in Sweden than Bjälbo dynasty lion. Prior occurred other Royal Crest.",
     	"website": "https://sv.wikipedia.org/wiki/Tre_kronor",
     	"subreddit": "/r/sweden",
     	"center": [
@@ -38396,7 +38396,7 @@ var atlas = [
     	"id": 565,
 		"submitted_by": "terriblestperson",
     	"name": "BOPP Dwarf",
-    	"description": "The creation of a military dwarf (in Dwarf Fortress, military dwarves are represented by a filled in dwarf icon) using the BOPP may have been planned as early as the 1st of April, not as part of a treaty requirement but simply as a gesture of friendship and solidarity towards BOPP. \nUnfortunately, a lack of clear communication early on in the /r/place efforts of the Dwarf Fortress community meant that the BOPP dwarf was not successfully built until the last day of /r/place. On the last day, enough of the Dwarf Fortress placing community was present in the Dwarf Fortress discord channel that effective coordination was possible, and those working against the pattern could be notified through reddit PMs. Ironically, some of the people initially working against the patterned dwarf were members of /r/placeportalpattern under the impression that some on their side were overstepping their bounds, as happened with the continuation of The Diamond beyond the standard border of the BOPP. ",
+    	"description": "The creation of a military dwarf (in Dwarf Fortress, military dwarves are represented by a filled in dwarf icon) using the BOPP may have been planned as early as the 1st of April, not as part of a treaty requirement but simply as a gesture of friendship and solidarity towards BOPP. <br>Unfortunately, a lack of clear communication early on in the /r/place efforts of the Dwarf Fortress community meant that the BOPP dwarf was not successfully built until the last day of /r/place. On the last day, enough of the Dwarf Fortress placing community was present in the Dwarf Fortress discord channel that effective coordination was possible, and those working against the pattern could be notified through reddit PMs. Ironically, some of the people initially working against the patterned dwarf were members of /r/placeportalpattern under the impression that some on their side were overstepping their bounds, as happened with the continuation of The Diamond beyond the standard border of the BOPP. ",
     	"website": "",
     	"subreddit": "",
     	"center": [
@@ -38478,7 +38478,7 @@ var atlas = [
     	"id": 567,
 		"submitted_by": "terriblestperson",
     	"name": "Blue Orange Portal Pattern",
-    	"description": "The creation of the Blue Orange Portal Pattern (also known as bopp and found at /r/bopp) was organized in the /r/placeportalpattern subreddit. It's one of the oldest patterns to have survived until the freezing of the canvas, and was generally willing to welcome other art into the pattern, as seen in the Buizel art and the FLUFFHEAD text. At one point, an offer was made to permit /r/MMA to create a small sign in the corner of their pattern, though that was rendered unnecessary by the Dwarf Fortress-/r/MMA alliance. Perhaps the most notable of the patterns included in BOPP is the Diamond, originally built by /u/Uncentury and absorbed intact as the pattern grew. BOPP allied with Dwarf Fortress early on, and after several attempts came to an agreement permitting Dwarf Fortress to create a second row of dwarves.\n",
+    	"description": "The creation of the Blue Orange Portal Pattern (also known as bopp and found at /r/bopp) was organized in the /r/placeportalpattern subreddit. It's one of the oldest patterns to have survived until the freezing of the canvas, and was generally willing to welcome other art into the pattern, as seen in the Buizel art and the FLUFFHEAD text. At one point, an offer was made to permit /r/MMA to create a small sign in the corner of their pattern, though that was rendered unnecessary by the Dwarf Fortress-/r/MMA alliance. Perhaps the most notable of the patterns included in BOPP is the Diamond, originally built by /u/Uncentury and absorbed intact as the pattern grew. BOPP allied with Dwarf Fortress early on, and after several attempts came to an agreement permitting Dwarf Fortress to create a second row of dwarves.<br>",
     	"website": "",
     	"subreddit": "/r/placeportalpattern",
     	"center": [
@@ -39020,7 +39020,7 @@ var atlas = [
     	"id": 577,
 		"submitted_by": "echo-flower",
     	"name": "Dangan Ronpa",
-    	"description": "A murder-mystery visual novel series about high school students who get forced into a mutual killing game.\nThe second game's mascots, Monokuma (on the right) and Monomi (on the left, obscured by a banner) are shown here.",
+    	"description": "A murder-mystery visual novel series about high school students who get forced into a mutual killing game.<br>The second game's mascots, Monokuma (on the right) and Monomi (on the left, obscured by a banner) are shown here.",
     	"website": "http://danganronpa.us/",
     	"subreddit": "/r/danganronpa",
     	"center": [
@@ -39476,7 +39476,7 @@ var atlas = [
     	"id": 581,
 		"submitted_by": "DiplomaticMeatball",
     	"name": "The First Void",
-    	"description": "The place where the Void started. The place it consumed first.\nProbably the most controversial faction had its birth here with the destiny to merely consume.\nOut of intense disapproval, the complete canvas joined forces to eradicate the Void and protect the most beautiful art on the internet.\nMany pixels have been wasted, many fights have been fought.\nThe folks at /r/TransFlagPlace tried all they could to drive away the darkness, with limited success.\nIdeas were thrown around to create the first (and horrible) version of what is now known as The Void Prism that shined only dynasties later.\nOnly after several organised attacks and the persistence of those who bear the blue/pink/white-ribbon and companions, the darkness was defeated, and the canvas was at peace.\n“The true mind can weather all lies and illusions without being lost.\nThe true heart can touch the poison of hatred without being harmed.\nSince beginning-less time, darkness thrives in the void, but always yields to purifying light.”\n- Lion Turtle",
+    	"description": "The place where the Void started. The place it consumed first.<br>Probably the most controversial faction had its birth here with the destiny to merely consume.<br>Out of intense disapproval, the complete canvas joined forces to eradicate the Void and protect the most beautiful art on the internet.<br>Many pixels have been wasted, many fights have been fought.<br>The folks at /r/TransFlagPlace tried all they could to drive away the darkness, with limited success.<br>Ideas were thrown around to create the first (and horrible) version of what is now known as The Void Prism that shined only dynasties later.<br>Only after several organised attacks and the persistence of those who bear the blue/pink/white-ribbon and companions, the darkness was defeated, and the canvas was at peace.<br>“The true mind can weather all lies and illusions without being lost.<br>The true heart can touch the poison of hatred without being harmed.<br>Since beginning-less time, darkness thrives in the void, but always yields to purifying light.”<br>- Lion Turtle",
     	"website": "",
     	"subreddit": "/r/Thegreatblackhole",
     	"center": [
@@ -41389,7 +41389,7 @@ var atlas = [
     	"id": 604,
 		"submitted_by": "DoomAngelBlade",
     	"name": "Be Brave 7o Corporation",
-    	"description": "One of the EVE ONLINE Corporations/Alliances.\n ",
+    	"description": "One of the EVE ONLINE Corporations/Alliances.<br> ",
     	"website": "",
     	"subreddit": "",
     	"center": [
@@ -41418,7 +41418,7 @@ var atlas = [
     	"id": 605,
 		"submitted_by": "Tekar",
     	"name": "Minecraft",
-    	"description": "This Shovel, Pick and semi-constructed set of armour are from the game Minecraft a popular sandbox video game with survival aspects. These Icons were constructed by a small group of users that often used scripts for their construction. This group was problematic in this region. They had conflicts with AR, Dwarf Fortress, and Indonesia. At one time Indonesia destroyed their pick, and almost destroyed their shovel. Eventually they formed an alliance with Dwarf Fortress to create a collaborative image over Indonesia's flag. At the end of /r/place they were once again fighting with Dwarf Fortress over the remains of Indonesia \n",
+    	"description": "This Shovel, Pick and semi-constructed set of armour are from the game Minecraft a popular sandbox video game with survival aspects. These Icons were constructed by a small group of users that often used scripts for their construction. This group was problematic in this region. They had conflicts with AR, Dwarf Fortress, and Indonesia. At one time Indonesia destroyed their pick, and almost destroyed their shovel. Eventually they formed an alliance with Dwarf Fortress to create a collaborative image over Indonesia's flag. At the end of /r/place they were once again fighting with Dwarf Fortress over the remains of Indonesia <br>",
     	"website": "https://minecraft.net/en-us/",
     	"subreddit": "/r/Minecraft/",
     	"center": [
@@ -42429,7 +42429,7 @@ var atlas = [
     	"id": 628,
 		"submitted_by": "CaptainMeme",
     	"name": "Northern Mexican Territory",
-    	"description": "The territory controlled by r/mexico began with a flag in the top right of this area and grew to create a sign reading 'Viva Mexico Cabrones!' to the left. Further expansion of this area was done by extending the flag downwards and claiming the territory to the left to match, parts of which were already held by other factions. Some, such as a Spanish Flag, were overwritten, and some were incorporated into the design, such as a Duck from r/duckgame and a pixelart Yoshi.\nTension between r/ukplace and r/mexico grew when a cactus was built which began extending up into the dress of r/ukplace's depiction of Queen Elizabeth II, but negotiations brought about a peaceful resolution and a non-aggression pact between the two powers.\nIn the final hours of Place, a Void Core was created in the left hand side of this territory and quickly expanded to cover the flag and destroy the pixelart, but was beaten back by a combined effort of r/mexico and several surrounding factions.\nThe flag was quickly rebuilt, but the empty space to the left became contested territory as r/ukplace began construction of Big Ben in the area, to which r/Mexico responded by attempting to expand their flag over it - a project which was only partially completed as Place came to an end.",
+    	"description": "The territory controlled by r/mexico began with a flag in the top right of this area and grew to create a sign reading 'Viva Mexico Cabrones!' to the left. Further expansion of this area was done by extending the flag downwards and claiming the territory to the left to match, parts of which were already held by other factions. Some, such as a Spanish Flag, were overwritten, and some were incorporated into the design, such as a Duck from r/duckgame and a pixelart Yoshi.<br>Tension between r/ukplace and r/mexico grew when a cactus was built which began extending up into the dress of r/ukplace's depiction of Queen Elizabeth II, but negotiations brought about a peaceful resolution and a non-aggression pact between the two powers.<br>In the final hours of Place, a Void Core was created in the left hand side of this territory and quickly expanded to cover the flag and destroy the pixelart, but was beaten back by a combined effort of r/mexico and several surrounding factions.<br>The flag was quickly rebuilt, but the empty space to the left became contested territory as r/ukplace began construction of Big Ben in the area, to which r/Mexico responded by attempting to expand their flag over it - a project which was only partially completed as Place came to an end.",
     	"website": "",
     	"subreddit": "/r/mexico",
     	"center": [
@@ -44357,7 +44357,7 @@ var atlas = [
     	"id": 660,
 		"submitted_by": "dolphinesque",
     	"name": "Fluffhead (Phish)",
-    	"description": "/r/Phish created this tribute to their favorite band, and a well-loved song, \"Fluffhead\". \n",
+    	"description": "/r/Phish created this tribute to their favorite band, and a well-loved song, \"Fluffhead\". <br>",
     	"website": "https://www.youtube.com/watch?v=8M9PtqpNUQY",
     	"subreddit": "/r/Phish",
     	"center": [
@@ -45084,7 +45084,7 @@ var atlas = [
     	"id": 671,
 		"submitted_by": "DamonFibers",
     	"name": "Lastation & Planeptune Logos",
-    	"description": "The logos for Lastation and Planeptune, nations in the Hyperdimension Neptunia series.\n\nAfter accidentally settling in the core of r/ainbowroad and r/TheBlackVoid, the Planeptune Logo (Referred to by others as \"The Purple N Thing\") was moved into the core of r/greenlattice, and had to fight its way to stay, against the r/49ers. Eventually the Lastation logo was created as well, and both were officially sanctioned as \"Protected\" artwork.",
+    	"description": "The logos for Lastation and Planeptune, nations in the Hyperdimension Neptunia series.<br>After accidentally settling in the core of r/ainbowroad and r/TheBlackVoid, the Planeptune Logo (Referred to by others as \"The Purple N Thing\") was moved into the core of r/greenlattice, and had to fight its way to stay, against the r/49ers. Eventually the Lastation logo was created as well, and both were officially sanctioned as \"Protected\" artwork.",
     	"website": "",
     	"subreddit": "/r/Gamindustri",
     	"center": [
@@ -46409,7 +46409,7 @@ var atlas = [
     	"id": 688,
 		"submitted_by": "ImNotHimBut",
     	"name": "Bird That Carries You Over A Disproportionately Small Gap (Undertale)",
-    	"description": "Bird That Carries You Over A Disproportionately Small Gap (yes, it is the full name) is a minor NPC from video game Undertale.\nThe small bird to the right is not from the game, but probably inspired by this one.",
+    	"description": "Bird That Carries You Over A Disproportionately Small Gap (yes, it is the full name) is a minor NPC from video game Undertale.<br>The small bird to the right is not from the game, but probably inspired by this one.",
     	"website": "https://undertale.com",
     	"subreddit": "r/Undertale/comments/62n209/with_reddits_new_rplace_we_should_work_together/",
     	"center": [
@@ -46770,7 +46770,7 @@ var atlas = [
     	"id": 697,
 		"submitted_by": "cubi1oh",
     	"name": "ACAB/Antifa",
-    	"description": "Originally meant to display the letters ACAB and AFA, respectively standing for the leftist slogan\n'All Cops are Bastards' and for sometimes-violent anti-fascist resistance. Somewhat degraded by vandalism.",
+    	"description": "Originally meant to display the letters ACAB and AFA, respectively standing for the leftist slogan<br>'All Cops are Bastards' and for sometimes-violent anti-fascist resistance. Somewhat degraded by vandalism.",
     	"website": "",
     	"subreddit": "/r/TFLS",
     	"center": [
@@ -48490,7 +48490,7 @@ var atlas = [
     	"id": 729,
 		"submitted_by": "Bonecuss",
     	"name": "Little Busters! Cat and Baseball",
-    	"description": "The 2007 visual novel Little Busters! cat icon and baseball. Created and valiantly defended by few people, mostly from the Kazamatsuri community.\nLittle Busters! is coming to Steam soon!\nThe Little Busters are eternal.",
+    	"description": "The 2007 visual novel Little Busters! cat icon and baseball. Created and valiantly defended by few people, mostly from the Kazamatsuri community.<br>Little Busters! is coming to Steam soon!<br>The Little Busters are eternal.",
     	"website": "https://forum.kazamatsuri.org/",
     	"subreddit": "/r/littlebusters",
     	"center": [
@@ -49065,7 +49065,7 @@ var atlas = [
     	"id": 736,
 		"submitted_by": "Plink333",
     	"name": "The Far Left Side",
-    	"description": "The section of the canvas mostly filled with Leftist symbols, but also including pixel art and flags. \nThis area was under near-constant siege, especially the Hammer and Sickle.",
+    	"description": "The section of the canvas mostly filled with Leftist symbols, but also including pixel art and flags. <br>This area was under near-constant siege, especially the Hammer and Sickle.",
     	"website": "",
     	"subreddit": "/r/TheFarLeftSide",
     	"center": [
@@ -50106,7 +50106,7 @@ var atlas = [
     	"id": 749,
 		"submitted_by": "ccarlyon",
     	"name": "Liverpool FC",
-    	"description": "Liverpool Football Club is a professional association football club based in Liverpool, Merseyside, England. They compete in the Premier League, the top tier of English football.\n\nYNWA stands for \"You'll Never Walk Alone\", the club's motto. The number \"96\" and the \"Eternal Flame\" either side pays tribute to the 96 Liverpool fans who died in the Hillsborough disaster.",
+    	"description": "Liverpool Football Club is a professional association football club based in Liverpool, Merseyside, England. They compete in the Premier League, the top tier of English football.<br>YNWA stands for \"You'll Never Walk Alone\", the club's motto. The number \"96\" and the \"Eternal Flame\" either side pays tribute to the 96 Liverpool fans who died in the Hillsborough disaster.",
     	"website": "http://www.liverpoolfc.com/",
     	"subreddit": "/r/LiverpoolFC",
     	"center": [
@@ -50808,7 +50808,7 @@ var atlas = [
     	"id": 763,
 		"submitted_by": "raseksa",
     	"name": "Liverpool FC",
-    	"description": "Banner of Liverpool Football Club. YNWA (You'll Never Walk Alone) is the club's anthem, sung before and after every game by its supporters. 96 and the flames represents the 96 people who died in the Hillsborough disaster. \n",
+    	"description": "Banner of Liverpool Football Club. YNWA (You'll Never Walk Alone) is the club's anthem, sung before and after every game by its supporters. 96 and the flames represents the 96 people who died in the Hillsborough disaster. <br>",
     	"website": "https://en.wikipedia.org/wiki/Liverpool_F.C.",
     	"subreddit": "/r/liverpoolfc",
     	"center": [
@@ -50866,7 +50866,7 @@ var atlas = [
     	"id": 765,
 		"submitted_by": "Kidney05",
     	"name": "Villanova University Logo",
-    	"description": "Logo of Villanova University, located near Philadelphia.  Villanova won the 2016 NCAA basketball tournament.",
+    	"description": "Logo of Villanova University, located near Philadelphia.  Villanova won the 2016 NCAA basketball tournament.<br><br>The blue V is also the logo of the blue squad from a german Team Fortress 2 clan <a class=\"inline\" href=\"http://vier-clan.de\">vier-clan.de</a>, so the two communities joined forces.",
     	"website": "http://www1.villanova.edu/main.html",
     	"subreddit": "/r/Villanova",
     	"center": [
@@ -52344,7 +52344,7 @@ var atlas = [
     	"id": 802,
 		"submitted_by": "Banggern",
     	"name": "Major Tom with a hot dog",
-    	"description": "Major Tom is a fictional astronaut popularized in David Bowie's songs \"Space Oddity\", \"Ashes to Ashes\" and \"Hello Spaceboy\". Bowie's interpretation of Major Tom is him being a junkie who loses \"ground control\", and not an astronaut.\n Major Tom had an Eartworm Jim spacegun in his earlier hours on the canvas, but it  turned into a hot dog.",
+    	"description": "Major Tom is a fictional astronaut popularized in David Bowie's songs \"Space Oddity\", \"Ashes to Ashes\" and \"Hello Spaceboy\". Bowie's interpretation of Major Tom is him being a junkie who loses \"ground control\", and not an astronaut.<br> Major Tom had an Eartworm Jim spacegun in his earlier hours on the canvas, but it  turned into a hot dog.",
     	"website": "",
     	"subreddit": "/r/space",
     	"center": [
@@ -54145,7 +54145,7 @@ var atlas = [
     	"id": 818,
 		"submitted_by": "Pantyer2",
     	"name": "Gilbert Baker Memorial",
-    	"description": "A memorial to Gilbert Baker who died aged 65, March 31st 2017\nHe was most known as a gay rights activist and the creator of the rainbow \"gay pride\" flag.",
+    	"description": "A memorial to Gilbert Baker who died aged 65, March 31st 2017<br>He was most known as a gay rights activist and the creator of the rainbow \"gay pride\" flag.",
     	"website": "",
     	"subreddit": "",
     	"center": [
@@ -54396,7 +54396,7 @@ var atlas = [
     	"id": 825,
 		"submitted_by": "The_Big_ID",
     	"name": "Borussia Dortmund Logo",
-    	"description": "Ballspielverein Borussia 09 e.V. Dortmund, Borussia Dortmund, BVB, or simply Dortmund,  is a German sports club based in Dortmund, North Rhine-Westphalia. \n\nDortmund is the second biggest sports club in Germany and the 11th biggest football team in the world.",
+    	"description": "Ballspielverein Borussia 09 e.V. Dortmund, Borussia Dortmund, BVB, or simply Dortmund,  is a German sports club based in Dortmund, North Rhine-Westphalia. <br>Dortmund is the second biggest sports club in Germany and the 11th biggest football team in the world.",
     	"website": "http://www.bvb.de/",
     	"subreddit": "r/borussiadortmund",
     	"center": [
@@ -55127,7 +55127,7 @@ var atlas = [
     	"id": 836,
 		"submitted_by": "raistlin212",
     	"name": "Kansas City Royals",
-    	"description": "The Kansas City Royals are a professional baseball team and winners of the 2015 World Series.\n\nTheir fans are well known on reddit for being very supportive of the team's recent successes after several decades of poor results.  Their victory meme is was a common sight on the teams subbreddit, as well as the main /r/baseball.  The fans are also well know for their ability to organize and swarm online polls - resulting in virtually every member of the team nearly making the All-Star game one year.\n\nThis logo appeared at the very end of the /r/place lifetime, being drawn over the rival Seattle Mariners logo which can barely be seen above it.",
+    	"description": "The Kansas City Royals are a professional baseball team and winners of the 2015 World Series.<br>Their fans are well known on reddit for being very supportive of the team's recent successes after several decades of poor results.  Their victory meme is was a common sight on the teams subbreddit, as well as the main /r/baseball.  The fans are also well know for their ability to organize and swarm online polls - resulting in virtually every member of the team nearly making the All-Star game one year.<br>This logo appeared at the very end of the /r/place lifetime, being drawn over the rival Seattle Mariners logo which can barely be seen above it.",
     	"website": "",
     	"subreddit": "/r/KCRoyals/",
     	"center": [
@@ -55306,7 +55306,7 @@ var atlas = [
     	"id": 839,
 		"submitted_by": "The_Big_ID",
     	"name": "Risk of Rain - Commando",
-    	"description": "The first playable character in the Indie game Risk of Rain.\n\nSprite was left unmaintained with the relocation of the Necrodancer Sprite art",
+    	"description": "The first playable character in the Indie game Risk of Rain.<br>Sprite was left unmaintained with the relocation of the Necrodancer Sprite art",
     	"website": "http://riskofraingame.com/",
     	"subreddit": "r/riskofrain",
     	"center": [
@@ -56312,7 +56312,7 @@ var atlas = [
     	"id": 865,
 		"submitted_by": "Birdenchops",
     	"name": "Bird",
-    	"description": "A bird that was in construction right from the start of Place.\nOf uncertain origin. \nPartially destroyed towards the end of Place's runtime",
+    	"description": "A bird that was in construction right from the start of Place.<br>Of uncertain origin. <br>Partially destroyed towards the end of Place's runtime",
     	"website": "",
     	"subreddit": "",
     	"center": [
@@ -58508,7 +58508,7 @@ var atlas = [
     	"id": 920,
 		"submitted_by": "ThisIsntTheWay",
     	"name": "Samus Aran",
-    	"description": "Protagonist and playable character of videogame franchise \"Metroid\" (first released 1986).\n\nHere depicted in her \"Zero Suit\" Form.",
+    	"description": "Protagonist and playable character of videogame franchise \"Metroid\" (first released 1986).<br>Here depicted in her \"Zero Suit\" Form.",
     	"website": "",
     	"subreddit": "/r/Metroid",
     	"center": [
@@ -58637,7 +58637,7 @@ var atlas = [
     	"id": 921,
 		"submitted_by": "Qiqz",
     	"name": "Space Invaders",
-    	"description": "This territory of Space Invaders suffered heavily from neighboring invasions. Especially the Scottish neighbors kept encroaching. Another territory occupied by Space Invaders can be found on (502,325).\n\nSpace Invaders is an arcade video game created by Tomohiro Nishikado and released in 1978. It's one of the earliest shooting games and the aim is to defeat waves of aliens with a laser cannon to earn as many points as possible. \n",
+    	"description": "This territory of Space Invaders suffered heavily from neighboring invasions. Especially the Scottish neighbors kept encroaching. Another territory occupied by Space Invaders can be found on (502,325).<br>Space Invaders is an arcade video game created by Tomohiro Nishikado and released in 1978. It's one of the earliest shooting games and the aim is to defeat waves of aliens with a laser cannon to earn as many points as possible. <br>",
     	"website": "",
     	"subreddit": "/r/nVade",
     	"center": [
@@ -59019,7 +59019,7 @@ var atlas = [
     	"id": 927,
 		"submitted_by": "Dr_Spangle",
     	"name": "Animal Crossing Leaf",
-    	"description": "This leaf appears in the video game Animal Crossing. It often serves as the game's logo, and is used to represent furniture in the game's inventory system.\n\nThis is the last surviving Animal Crossing pixel art, which survived under the joint protection of /r/animalcrossing and /r/thefarleft.\nThe leaf was always allowed within the red of /r/thefarleft territory, however a scripting accident caused its accidental destruction. The comrades of /r/thefarleft made up for this by assisting with the migration of the leaf to its current location, where it remained until the end under the two subreddits' joint protection.",
+    	"description": "This leaf appears in the video game Animal Crossing. It often serves as the game's logo, and is used to represent furniture in the game's inventory system.<br>This is the last surviving Animal Crossing pixel art, which survived under the joint protection of /r/animalcrossing and /r/thefarleft.<br>The leaf was always allowed within the red of /r/thefarleft territory, however a scripting accident caused its accidental destruction. The comrades of /r/thefarleft made up for this by assisting with the migration of the leaf to its current location, where it remained until the end under the two subreddits' joint protection.",
     	"website": "https://www.reddit.com/r/AnimalCrossing/comments/632fdd/comrades_your_leaf_on_rplace_has_been_falsely/",
     	"subreddit": "/r/animalcrossing",
     	"center": [
@@ -59637,7 +59637,7 @@ var atlas = [
     	"id": 937,
 		"submitted_by": "engelk",
     	"name": "1837",
-    	"description": "Year of the Lower Canada Rebellion AKA the Patriot's war. \nThe man on the patriot flag to the left is often callled 'Le vieux de '37' or 'The old man of 837\"",
+    	"description": "Year of the Lower Canada Rebellion AKA the Patriot's war. <br>The man on the patriot flag to the left is often callled 'Le vieux de '37' or 'The old man of 837\"",
     	"website": "https://en.wikipedia.org/wiki/Lower_Canada_Rebellion",
     	"subreddit": "",
     	"center": [
@@ -60568,7 +60568,7 @@ var atlas = [
     	"id": 956,
 		"submitted_by": "Corrufiles",
     	"name": "Surprised Patrick",
-    	"description": "A meme of Patrick, a character from the popular kid-series Spongebob.\n",
+    	"description": "A meme of Patrick, a character from the popular kid-series Spongebob.<br>",
     	"website": "",
     	"subreddit": "/r/spongebob/",
     	"center": [
@@ -60823,7 +60823,7 @@ var atlas = [
     	"id": 962,
 		"submitted_by": "MrDrWombat",
     	"name": "Oshino Shinobu",
-    	"description": "The iron-blooded, hot-blooded, cold-blooded vampire that appears in the Japanese Animated series, the Monogatari Series. \n\nShinobu was carefully crafted by the r/anime_irl community in its attempt to showcase the best Monogatari character. For anyone interested in the show I suggest visiting their subreddit r/araragi.",
+    	"description": "The iron-blooded, hot-blooded, cold-blooded vampire that appears in the Japanese Animated series, the Monogatari Series. <br>Shinobu was carefully crafted by the r/anime_irl community in its attempt to showcase the best Monogatari character. For anyone interested in the show I suggest visiting their subreddit r/araragi.",
     	"website": "https://discord.gg/anime",
     	"subreddit": "/r/araragi",
     	"center": [
@@ -64246,7 +64246,7 @@ var atlas = [
     	"id": 1020,
 		"submitted_by": "mithhunter55",
     	"name": "Giant Bomb",
-    	"description": "It's a website about video games.\n\nGiant Bomb is an American video game website and wiki that includes personality driven gaming videos, commentary, news and reviews, created by former GameSpot editors Jeff Gerstmann and Ryan Davis. The website was voted by Time magazine as one of the Top 50 websites of 2011.",
+    	"description": "It's a website about video games.<br>Giant Bomb is an American video game website and wiki that includes personality driven gaming videos, commentary, news and reviews, created by former GameSpot editors Jeff Gerstmann and Ryan Davis. The website was voted by Time magazine as one of the Top 50 websites of 2011.",
     	"website": " www.giantbomb.com",
     	"subreddit": "/r/giantbomb",
     	"center": [
@@ -64959,7 +64959,7 @@ var atlas = [
     	"id": 1037,
 		"submitted_by": "amoliski",
     	"name": "Weon",
-    	"description": "Slang word said in Chile. Can be used as: \na)dude \nb)screwing around \nc)thing or object\n",
+    	"description": "Slang word said in Chile. Can be used as: <br>a)dude <br>b)screwing around <br>c)thing or object<br>",
     	"website": "http://www.urbandictionary.com/define.php?term=weon",
     	"subreddit": "",
     	"center": [
@@ -65528,7 +65528,7 @@ var atlas = [
     	"id": 1050,
 		"submitted_by": "amoliski",
     	"name": "American Flag Banner",
-    	"description": "A spot of high contention between /r/the_donald and /r/afip (A flag in place).\nEventually settled on \"/r/afip | #1 in Moon Landings\" for a while.",
+    	"description": "A spot of high contention between /r/the_donald and /r/afip (A flag in place).<br>Eventually settled on \"/r/afip | #1 in Moon Landings\" for a while.",
     	"website": "",
     	"subreddit": "/r/afip",
     	"center": [
@@ -65630,7 +65630,7 @@ var atlas = [
     	"id": 1052,
 		"submitted_by": "amoliski",
     	"name": "DBZ Dragon Radar",
-    	"description": "\nFrom the Dragon Ball Z anime: a Dragon Radar, a tracking device that makes finding the Dragon Balls more efficient, compared to conventional methods.",
+    	"description": "<br>From the Dragon Ball Z anime: a Dragon Radar, a tracking device that makes finding the Dragon Balls more efficient, compared to conventional methods.",
     	"website": "",
     	"subreddit": "/r/dbz",
     	"center": [
@@ -65732,7 +65732,7 @@ var atlas = [
     	"id": 1054,
 		"submitted_by": "amoliski",
     	"name": "Minnesota Vikings",
-    	"description": "The Minnesota Vikings American Football Team. \n\"Skol Vikings\" is their fight song.",
+    	"description": "The Minnesota Vikings American Football Team. <br>\"Skol Vikings\" is their fight song.",
     	"website": "https://www.youtube.com/watch?v=sv0XGMCeU-I",
     	"subreddit": "/r/minnesotavikings/",
     	"center": [
@@ -68925,7 +68925,7 @@ var atlas = [
     	"id": 1115,
 		"submitted_by": "Chipbonk",
     	"name": "Macintosh Pinwheel",
-    	"description": "Also known as the pinwheel of death, this is spinning icon used on MacOS\nwhen processing.",
+    	"description": "Also known as the pinwheel of death, this is spinning icon used on MacOS<br>when processing.",
     	"website": "",
     	"subreddit": "",
     	"center": [
@@ -69944,7 +69944,7 @@ var atlas = [
     	"id": 1135,
 		"submitted_by": "dalmins",
     	"name": "KAKAO FRIENDS Heart",
-    	"description": "A heart depicting the bear from KAKAO FRIENDS.\nKAKAO FRIENDS is a korean online shop.",
+    	"description": "A heart depicting the bear from KAKAO FRIENDS.<br>KAKAO FRIENDS is a korean online shop.",
     	"website": "https://www.kakaofriends.com/en/index",
     	"subreddit": "",
     	"center": [
@@ -70712,7 +70712,7 @@ var atlas = [
     	"id": 1147,
 		"submitted_by": "11tron",
     	"name": "r/Parabola",
-    	"description": "Parabola GNU/Linux-libre is one of the Linux operating systems computers.\n",
+    	"description": "Parabola GNU/Linux-libre is one of the Linux operating systems computers.<br>",
     	"website": "https://www.parabola.nu/",
     	"subreddit": "/r/Parabola",
     	"center": [
@@ -71175,7 +71175,7 @@ var atlas = [
     	"id": 1155,
 		"submitted_by": "Spanospy",
     	"name": "Former location of the Bullet Kin",
-    	"description": "The location of where a Bullet Kin, a common enemy from the game Enter The Gungeon, once existed. Enter the Gungeon is a bullet hell roguelike video game developed by Dodge Roll and published by Devolver Digital.\n \n The Bullet Kin was considered as a mascot, or \"protector\", of /r/TheBlueCorner despite its relatively late appearance. It was unintentionally engulfed during the final expanding of the blue corner.",
+    	"description": "The location of where a Bullet Kin, a common enemy from the game Enter The Gungeon, once existed. Enter the Gungeon is a bullet hell roguelike video game developed by Dodge Roll and published by Devolver Digital.<br> <br> The Bullet Kin was considered as a mascot, or \"protector\", of /r/TheBlueCorner despite its relatively late appearance. It was unintentionally engulfed during the final expanding of the blue corner.",
     	"website": "http://dodgeroll.com/",
     	"subreddit": "/r/EnterTheGungeon",
     	"center": [
@@ -71416,7 +71416,7 @@ var atlas = [
     	"id": 1160,
 		"submitted_by": "Jumpyboy",
     	"name": "Maltese Flag",
-    	"description": "Maltese flag made with the aid of r/theitalyplace\n",
+    	"description": "Maltese flag made with the aid of r/theitalyplace<br>",
     	"website": "",
     	"subreddit": "r/malta",
     	"center": [
@@ -72225,7 +72225,7 @@ var atlas = [
     	"id": 1177,
 		"submitted_by": "dalmins",
     	"name": "Place Farts",
-    	"description": "The sign of r/placehearts was constantly under attack from a group of individuals who changed the E to an F. This made the sign read r/placehfarts.\nIt has become an inside joke to the r/placehearts community, and when r/place ended, the sign ended in a \"fart\".\nThe sign also read r/place4farts and r/spacefarts at some point.",
+    	"description": "The sign of r/placehearts was constantly under attack from a group of individuals who changed the E to an F. This made the sign read r/placehfarts.<br>It has become an inside joke to the r/placehearts community, and when r/place ended, the sign ended in a \"fart\".<br>The sign also read r/place4farts and r/spacefarts at some point.",
     	"website": "",
     	"subreddit": "/r/placehfarts",
     	"center": [
@@ -72516,7 +72516,7 @@ var atlas = [
     	"id": 1184,
 		"submitted_by": "PM_Your_Writing",
     	"name": "Britaly",
-    	"description": "Fearful of the impending doom of the void following the interception of intelligence, /r/italy approached /r/ukplace in search of a true, defensive alliance. Though the two flags had previously shown their non-aggression via a heart between them, both worked on their own projects separately.\n\nWith void troops amassing in the south, neither wanted to abandon the other. Information suggested the void would not target the UK directly due to its strength, instead destroying the area below and moving west into Italy.\n\nAn agreement between the two countries was reached. The UK would expand its considerable botnet to cover the entirety of the Italian flag. In return, Italy would help to build Big Ben in the space the void left after destroying Mexico.\n\nThe void attacked once more. Many smaller projects were destroyed to the south, outside of the UK's area of protection. However, UK and Italy stood strong, barely able to harm either country. After the attack, the bond between the two nations stood. As a further act of their friendship, the two planned to cover the hole of the void with a depiction of Dante and Shakespeare to the south.",
+    	"description": "Fearful of the impending doom of the void following the interception of intelligence, /r/italy approached /r/ukplace in search of a true, defensive alliance. Though the two flags had previously shown their non-aggression via a heart between them, both worked on their own projects separately.<br>With void troops amassing in the south, neither wanted to abandon the other. Information suggested the void would not target the UK directly due to its strength, instead destroying the area below and moving west into Italy.<br>An agreement between the two countries was reached. The UK would expand its considerable botnet to cover the entirety of the Italian flag. In return, Italy would help to build Big Ben in the space the void left after destroying Mexico.<br>The void attacked once more. Many smaller projects were destroyed to the south, outside of the UK's area of protection. However, UK and Italy stood strong, barely able to harm either country. After the attack, the bond between the two nations stood. As a further act of their friendship, the two planned to cover the hole of the void with a depiction of Dante and Shakespeare to the south.",
     	"website": "",
     	"subreddit": "/r/britaly",
     	"center": [
@@ -72720,7 +72720,7 @@ var atlas = [
     	"id": 1188,
 		"submitted_by": "Kulpas",
     	"name": "66/X (Advorange's Discord Server)",
-    	"description": "Originally supposed to say \"GG/XD\".\n\nA destroyed Discord invite link to a server owned by a twitch streamer known as Advorange. \n\nAdvorange himself lost interest in keeping the link up and left the space to be taken by other communities.",
+    	"description": "Originally supposed to say \"GG/XD\".<br>A destroyed Discord invite link to a server owned by a twitch streamer known as Advorange. <br>Advorange himself lost interest in keeping the link up and left the space to be taken by other communities.",
     	"website": "https://discord.gg/xd",
     	"subreddit": "",
     	"center": [
@@ -73729,7 +73729,7 @@ var atlas = [
     	"id": 1209,
 		"submitted_by": "ffmad",
     	"name": "CryptoFR (CFR)",
-    	"description": "Last piece saved from the CryptoFR logo (eaten by Bitcoin flag in the last hours).\nCryptoFR is the biggest french speaking community on cryptocurrencies and blockchains.",
+    	"description": "Last piece saved from the CryptoFR logo (eaten by Bitcoin flag in the last hours).<br>CryptoFR is the biggest french speaking community on cryptocurrencies and blockchains.",
     	"website": "https://slack.cryptofr.com",
     	"subreddit": "/r/CryptoFR",
     	"center": [
@@ -74042,7 +74042,7 @@ var atlas = [
     	"id": 1218,
 		"submitted_by": "Mechanoman1",
     	"name": "A tale of three countries",
-    	"description": "In final day in the history of this unfortunate space, it was occupied by the flag of pakistan, built with the help of their natural ally, India.\nHowever, true to the nature of their international relations, it was duly saffronized to the flag of Shiv Sena by politically correct Hindu heroes (bakchodi). On cue, the Europeans, taking note of this chaos, generously offered to colonize the area to bring \"stability\" to the region. The mess that was finally immortalized here is a testament to the depth of understanding and cooperation possible on the internet.",
+    	"description": "In final day in the history of this unfortunate space, it was occupied by the flag of pakistan, built with the help of their natural ally, India.<br>However, true to the nature of their international relations, it was duly saffronized to the flag of Shiv Sena by politically correct Hindu heroes (bakchodi). On cue, the Europeans, taking note of this chaos, generously offered to colonize the area to bring \"stability\" to the region. The mess that was finally immortalized here is a testament to the depth of understanding and cooperation possible on the internet.",
     	"website": "",
     	"subreddit": "r/India, r/pakistan, r/bakchodi/, r/belgium",
     	"center": [
@@ -74141,7 +74141,7 @@ var atlas = [
     	"id": 1221,
 		"submitted_by": "fcnm",
     	"name": "The Tree",
-    	"description": "The final incarnation of multiple attempts to grow a tree. One of the friendliest communities in /r/place, but was beset with major losses throughout its life. Factions which took over the tree have included /r/australia, /r/ainbowroad, and even The Void and 4chan (replacing it with a pepe).\n\nDuring its heydey, it was a large tree with many branches with multiple red apples.",
+    	"description": "The final incarnation of multiple attempts to grow a tree. One of the friendliest communities in /r/place, but was beset with major losses throughout its life. Factions which took over the tree have included /r/australia, /r/ainbowroad, and even The Void and 4chan (replacing it with a pepe).<br>During its heydey, it was a large tree with many branches with multiple red apples.",
     	"website": "",
     	"subreddit": "/r/growthetree",
     	"center": [
@@ -74470,7 +74470,7 @@ var atlas = [
     	"id": 1229,
 		"submitted_by": "Metalbird2014",
     	"name": "SES-10",
-    	"description": "SES-10 is a communications satellite made by SES to provide television to Latin America and parts of Brazil.\nThe SpaceX mission under the same name took place on March 30, 2017 and marked the first relaunch of an orbital class rocket, bringing SES-10 to geostationary orbit.",
+    	"description": "SES-10 is a communications satellite made by SES to provide television to Latin America and parts of Brazil.<br>The SpaceX mission under the same name took place on March 30, 2017 and marked the first relaunch of an orbital class rocket, bringing SES-10 to geostationary orbit.",
     	"website": "http://www.spacex.com/press/2017/03/30/ses-10-mission",
     	"subreddit": "/r/spacex",
     	"center": [
@@ -74860,7 +74860,7 @@ var atlas = [
     	"id": 1239,
 		"submitted_by": "madokamadokamadoka",
     	"name": "Jen❤️",
-    	"description": "This is a rare mostly-intact message from a random civilian unaffiliated with any subreddit. Jenny's fiancé was originally trying to place this under the pink and purple heart in the Madoka artwork, and the Madoka team reacted by erasing it - but reached out to the user in question and negotiated a transplant. The text at this location originally read \"Jenny ❤️\". The Madoka team kept it tidy as part of a neighborhood-watch effort to deter vandalism and invasion, and negotiated with Turkey to shorten it when they wanted some of the space above for Hayir. The final form is unfortunately mildly vandalised.\nPreviously at this location was the message LDSConf for the Church of Jesus Christ of Latter-Day Saints annual conference.",
+    	"description": "This is a rare mostly-intact message from a random civilian unaffiliated with any subreddit. Jenny's fiancé was originally trying to place this under the pink and purple heart in the Madoka artwork, and the Madoka team reacted by erasing it - but reached out to the user in question and negotiated a transplant. The text at this location originally read \"Jenny ❤️\". The Madoka team kept it tidy as part of a neighborhood-watch effort to deter vandalism and invasion, and negotiated with Turkey to shorten it when they wanted some of the space above for Hayir. The final form is unfortunately mildly vandalised.<br>Previously at this location was the message LDSConf for the Church of Jesus Christ of Latter-Day Saints annual conference.",
     	"website": "",
     	"subreddit": "",
     	"center": [
@@ -76688,7 +76688,7 @@ var atlas = [
     	"id": 1274,
 		"submitted_by": "Camuu",
     	"name": "camu.",
-    	"description": "For 3 days three friends kept this small purple text \"camu\" alive in between the Scott Pilgrim and the Spelunky characters. Every now and then some random griefers would come by, but we managed to fight them off every time. We got a little too close to Scott Pilgrim so with team Scott's help we moved our text slightly to the left. Then came Spelunky, they wanted to build a border around their pixel art and asked us to move one pixel up, so we did, again with their cooperation. Then came Lehigh university from the left. This guy just wanted the text \"Lehigh\" there to represent his university, again we came to a compromise together. \nBut then, after 3 days of cooperation with strangers and battling griefers, about 20 minutes before /r/place was going to end, came the Lehigh university marching band, \"Lehigh 97\". They did not want the text to simply represent their university, it had to represent their marching band. So they trampled their \"97\" over our \"ca\". We were outnumbered. Even the original creator of \"Lehigh\" tried to help stopping them destroying our very small project. We were proud of being able to keep our pixels alive in the giant internet WW3 for 3 days long. After actually meeting some decent people on the internet we were reminded of the usual internet trolls, the jerks of Lehigh University's marching band. All there is left now is half a purple M and the U.",
+    	"description": "For 3 days three friends kept this small purple text \"camu\" alive in between the Scott Pilgrim and the Spelunky characters. Every now and then some random griefers would come by, but we managed to fight them off every time. We got a little too close to Scott Pilgrim so with team Scott's help we moved our text slightly to the left. Then came Spelunky, they wanted to build a border around their pixel art and asked us to move one pixel up, so we did, again with their cooperation. Then came Lehigh university from the left. This guy just wanted the text \"Lehigh\" there to represent his university, again we came to a compromise together. <br>But then, after 3 days of cooperation with strangers and battling griefers, about 20 minutes before /r/place was going to end, came the Lehigh university marching band, \"Lehigh 97\". They did not want the text to simply represent their university, it had to represent their marching band. So they trampled their \"97\" over our \"ca\". We were outnumbered. Even the original creator of \"Lehigh\" tried to help stopping them destroying our very small project. We were proud of being able to keep our pixels alive in the giant internet WW3 for 3 days long. After actually meeting some decent people on the internet we were reminded of the usual internet trolls, the jerks of Lehigh University's marching band. All there is left now is half a purple M and the U.",
     	"website": "",
     	"subreddit": "/r/place",
     	"center": [
@@ -76717,7 +76717,7 @@ var atlas = [
     	"id": 1275,
 		"submitted_by": "drpepper7557",
     	"name": "Florida",
-    	"description": "An orange and aqua rectangle that used to read \"FLORIDA,\" with a palm tree and sunset in the background. \nIt was largely destroyed by the expansion of various flags towards the end of /r/place.",
+    	"description": "An orange and aqua rectangle that used to read \"FLORIDA,\" with a palm tree and sunset in the background. <br>It was largely destroyed by the expansion of various flags towards the end of /r/place.",
     	"website": "",
     	"subreddit": "",
     	"center": [
@@ -77549,7 +77549,7 @@ var atlas = [
     	"id": 1291,
 		"submitted_by": "_negachin_",
     	"name": "Rocket League Boost Meter",
-    	"description": "Part of the Rocket League artwork. It is a boost meter, as featured in the game. Before the boost meter, this spot on the canvas was reserved for a Grand Champion icon, the highest achievable rank in the competitive playlists in the game.\nFun fact: the boost meter was originally at 69, but was later changed to 99 and ultimately to 88, because it was not the right color for a boost that was only 69% filled",
+    	"description": "Part of the Rocket League artwork. It is a boost meter, as featured in the game. Before the boost meter, this spot on the canvas was reserved for a Grand Champion icon, the highest achievable rank in the competitive playlists in the game.<br>Fun fact: the boost meter was originally at 69, but was later changed to 99 and ultimately to 88, because it was not the right color for a boost that was only 69% filled",
     	"website": "",
     	"subreddit": "/r/RocketLeague",
     	"center": [
@@ -77709,7 +77709,7 @@ var atlas = [
      "id": 1295,
 		"submitted_by": "pablohoney102",
      "name": "FTP",
-     "description": "Shorthand for \n\"Fuck The Packers\" A popular phrase on /r/detroitlions",
+     "description": "Shorthand for <br>\"Fuck The Packers\" A popular phrase on /r/detroitlions",
      "website": "",
      "subreddit": "/r/detroitlions",
      "center": [
@@ -78099,7 +78099,7 @@ var atlas = [
     	"id": 1305,
 		"submitted_by": "madokamadokamadoka",
     	"name": "Kyoko",
-    	"description": "Sakura Kyoko is a magical girl from the Madoka Magica franchise, known for a superficially violent me-first attitude that is ultimately belied by her ultimate self-sacrifice to save the blue-haired Sayaka.\nKyoko's magical girl activities drove her father to commit a murder-suicide that killed all her family.",
+    	"description": "Sakura Kyoko is a magical girl from the Madoka Magica franchise, known for a superficially violent me-first attitude that is ultimately belied by her ultimate self-sacrifice to save the blue-haired Sayaka.<br>Kyoko's magical girl activities drove her father to commit a murder-suicide that killed all her family.",
     	"website": "",
     	"subreddit": "/r/SakuraKyouko",
     	"center": [
@@ -78708,7 +78708,7 @@ var atlas = [
     	"id": 1316,
 		"submitted_by": "Kelsew",
     	"name": "73 and 35",
-    	"description": "73 and 35 refers to an Oldschool Runescape PKer B0aty.\n73 refers to an old vide of his where his friend bets him he won't die to a weapon when he is at 73 health, and immediately after gets hit a 73.\n35 refers to him getting hit with an obscure weapon called a Dragon Warhammer during his stream of Deadman mode, a special PvP mode of Oldschool Runescape.",
+    	"description": "73 and 35 refers to an Oldschool Runescape PKer B0aty.<br>73 refers to an old vide of his where his friend bets him he won't die to a weapon when he is at 73 health, and immediately after gets hit a 73.<br>35 refers to him getting hit with an obscure weapon called a Dragon Warhammer during his stream of Deadman mode, a special PvP mode of Oldschool Runescape.",
     	"website": "",
     	"subreddit": "/r/2007scape",
     	"center": [
@@ -78778,7 +78778,7 @@ var atlas = [
     	"id": 1318,
 		"submitted_by": "Susto",
     	"name": "Halo",
-    	"description": "r/halo's tribute to their beloved video game series.  \n\nThis community project began with the commissioning of Spartan Master Chief John-117's iconic visage. Early plans to complete a blue Spartan helmet were dashed when r/funhaus annexed the territory at the top right of the Master Chief. Work then began in the left on what would become the Red/Blue Spartan to commemorate those fighting the never-ending Red vs. Blue wars.\n\nFixMCC is a jab at the developers about the technical shortcomings of the Master Chief Collection (2014). Its inclusion was divisive amongst fans as some saw it in poor taste.\n\nThe last additions made were adding fan favorite AIs, the floating monitor 343 Guilty Spark and the Chief's blue companion, Cortana.",
+    	"description": "r/halo's tribute to their beloved video game series.  <br>This community project began with the commissioning of Spartan Master Chief John-117's iconic visage. Early plans to complete a blue Spartan helmet were dashed when r/funhaus annexed the territory at the top right of the Master Chief. Work then began in the left on what would become the Red/Blue Spartan to commemorate those fighting the never-ending Red vs. Blue wars.<br>FixMCC is a jab at the developers about the technical shortcomings of the Master Chief Collection (2014). Its inclusion was divisive amongst fans as some saw it in poor taste.<br>The last additions made were adding fan favorite AIs, the floating monitor 343 Guilty Spark and the Chief's blue companion, Cortana.",
     	"website": "",
     	"subreddit": "/r/halo, /r/RedVsBlue",
     	"center": [
@@ -79053,7 +79053,7 @@ var atlas = [
     	"id": 1325,
 		"submitted_by": "cubi1oh",
     	"name": "University of Virginia",
-    	"description": "The 'Crossed Sabers' logo of the University of Virginia (UVA) Cavaliers. There is also a smaller UVA patch at the other side of the canvas. \n",
+    	"description": "The 'Crossed Sabers' logo of the University of Virginia (UVA) Cavaliers. There is also a smaller UVA patch at the other side of the canvas. <br>",
     	"website": "",
     	"subreddit": "/r/UVA",
     	"center": [
@@ -79111,7 +79111,7 @@ var atlas = [
     	"id": 1327,
 		"submitted_by": "cubi1oh",
     	"name": "Ned Kelly Helmet",
-    	"description": "Helmet worn at the siege of Glenrowan as part of a suit of armour by Australian outlaw Ned Kelly. Made of stolen plough mouldboards, it proved rather useless; he was captured after being maimed in his unprotected legs.\nPart of the Australian tableau.",
+    	"description": "Helmet worn at the siege of Glenrowan as part of a suit of armour by Australian outlaw Ned Kelly. Made of stolen plough mouldboards, it proved rather useless; he was captured after being maimed in his unprotected legs.<br>Part of the Australian tableau.",
     	"website": "",
     	"subreddit": "r/Straya",
     	"center": [
@@ -80431,7 +80431,7 @@ var atlas = [
     	"id": 1353,
 		"submitted_by": "VIDCAs17",
     	"name": "The Ohio State University",
-    	"description": "The Block \"O\" is the logo for OSU (not to be confused with the rhythm game \"osu!\"). This logo appeared and was covered over several times during the duration  of r/place. The first location was at the current location of Northwestern University. Here, OSU and the U of Michigan had colliding corners, prompting a second \"War of Toledo\" as they fought over a small 10 pixel space. After this, the logo was ultimately vandalized and covered over. After other attempts of making the logo, the final incarnation of the \"O\" stood strong by the end of r/Place. A second block \"O\" is situated next to the flag of Ohio elsewhere on r/place. \n ",
+    	"description": "The Block \"O\" is the logo for OSU (not to be confused with the rhythm game \"osu!\"). This logo appeared and was covered over several times during the duration  of r/place. The first location was at the current location of Northwestern University. Here, OSU and the U of Michigan had colliding corners, prompting a second \"War of Toledo\" as they fought over a small 10 pixel space. After this, the logo was ultimately vandalized and covered over. After other attempts of making the logo, the final incarnation of the \"O\" stood strong by the end of r/Place. A second block \"O\" is situated next to the flag of Ohio elsewhere on r/place. <br> ",
     	"website": "https://www.osu.edu/",
     	"subreddit": "/r/OSU",
     	"center": [
@@ -80522,7 +80522,7 @@ var atlas = [
     	"id": 1356,
 		"submitted_by": "VIDCAs17",
     	"name": "Nebraska Huskers",
-    	"description": "The Huskers is the name of the sports team for the University of Nebraska-Lincoln, part of the Big Ten. Originally meant to say \"HUSKERS\" with a small picture of corn, this area was contested with the University of Houston, and is now referred to as \"Iloykibs\", \"lloYh'i8s\", or other such variations. \n\n",
+    	"description": "The Huskers is the name of the sports team for the University of Nebraska-Lincoln, part of the Big Ten. Originally meant to say \"HUSKERS\" with a small picture of corn, this area was contested with the University of Houston, and is now referred to as \"Iloykibs\", \"lloYh'i8s\", or other such variations. <br>",
     	"website": "https://www.unl.edu/",
     	"subreddit": "/r/UNLincoln",
     	"center": [
@@ -81168,7 +81168,7 @@ var atlas = [
     	"id": 1374,
 		"submitted_by": "cubi1oh",
     	"name": "YPG/YPJ",
-    	"description": "The YPG (People's Protection Units) are the primary military forces of Rojava engaged in the Syrian conflict; their flag is nearby.\nThe YPJ is the all-female sister army of the YPG.",
+    	"description": "The YPG (People's Protection Units) are the primary military forces of Rojava engaged in the Syrian conflict; their flag is nearby.<br>The YPJ is the all-female sister army of the YPG.",
     	"website": "",
     	"subreddit": "/r/rojava",
     	"center": [
@@ -81435,7 +81435,7 @@ var atlas = [
     	"id": 1381,
 		"submitted_by": "cubi1oh",
     	"name": "Kansas State University",
-    	"description": "The abbreviation of Kansas State University (K-State), a public university located in Manhattan, KS.\nWas vandalized just prior to the closure of r/place. ",
+    	"description": "The abbreviation of Kansas State University (K-State), a public university located in Manhattan, KS.<br>Was vandalized just prior to the closure of r/place. ",
     	"website": "",
     	"subreddit": "/r/KState",
     	"center": [
@@ -81818,7 +81818,7 @@ var atlas = [
     	"id": 1392,
 		"submitted_by": "Kunfuxu",
     	"name": "Squirtle Vaz de Camões",
-    	"description": "Squirtle is a very well known water type Pokemon. While other redditors were making Squirlte pixel art next to the Portuguese flag, /r/Portugal decided to adopt the Squirle.\n\nHere it's not depicted as a pirate, but as the great Portuguese poet Luís Vaz de Camões, author of the epic poem \"Os Lusíadas\"",
+    	"description": "Squirtle is a very well known water type Pokemon. While other redditors were making Squirlte pixel art next to the Portuguese flag, /r/Portugal decided to adopt the Squirle.<br>Here it's not depicted as a pirate, but as the great Portuguese poet Luís Vaz de Camões, author of the epic poem \"Os Lusíadas\"",
     	"website": "",
     	"subreddit": "/r/pokemon",
     	"center": [
@@ -82292,7 +82292,7 @@ var atlas = [
     	"id": 1401,
 		"submitted_by": "Zonisic",
     	"name": "Green Carrot",
-    	"description": "One of the few surviving carrots from /r/farmcarrots. Its colors have been swapped making it a green carrot with orange leaves. You can find what it originally looked like here:\nhttp://imgur.com/xUWgFoJ",
+    	"description": "One of the few surviving carrots from /r/farmcarrots. Its colors have been swapped making it a green carrot with orange leaves. You can find what it originally looked like here:<br>http://imgur.com/xUWgFoJ",
     	"website": "http://imgur.com/xUWgFoJ",
     	"subreddit": "/r/farmcarrots",
     	"center": [
@@ -83025,7 +83025,7 @@ var atlas = [
     	"id": 1410,
 		"submitted_by": "Kelsew",
     	"name": "2147m Cash Stack",
-    	"description": "This represents the maximum amount of cash you are able to hold at one time in Runescape or Oldschool Runescape.\nThe exact number is 2,174,483,674, but gets shortened by the M, meaning million.\nThis is due to the maximum 32bit integer in java being this number.",
+    	"description": "This represents the maximum amount of cash you are able to hold at one time in Runescape or Oldschool Runescape.<br>The exact number is 2,174,483,674, but gets shortened by the M, meaning million.<br>This is due to the maximum 32bit integer in java being this number.",
     	"website": "",
     	"subreddit": "/r/2007scape",
     	"center": [
@@ -83382,7 +83382,7 @@ var atlas = [
     	"id": 1420,
 		"submitted_by": "VIDCAs17",
     	"name": "The Big Ten \"B1G\" Logo",
-    	"description": "\"B1G\" is a condensed  version of \"The Big Ten\" by combining \"BIG\" and \"10\", and is the logo used for marketing the conference. On r/place, several universities came together to form this logo and defend it from numerous attackers, and is an anchor to \"The Big Ten Corner\". \n",
+    	"description": "\"B1G\" is a condensed  version of \"The Big Ten\" by combining \"BIG\" and \"10\", and is the logo used for marketing the conference. On r/place, several universities came together to form this logo and defend it from numerous attackers, and is an anchor to \"The Big Ten Corner\". <br>",
     	"website": "http://www.bigten.org/",
     	"subreddit": "r/TheB1G",
     	"center": [
@@ -85668,7 +85668,7 @@ var atlas = [
     {
     "id": 1462,
     "name": "The TARDIS",
-    "description": "The TARDIS is from the british television show Doctor Who.\n'TARDIS' stands for 'Time And Relative Dimension in Space'.\nIt can travel to (almost) any place in time and space, and is an iconic symbol of the show.\nThis was the first part of the Doctor Who artwork, and began in the Blue Corner, to fit with the blue theme.",
+    "description": "The TARDIS is from the british television show Doctor Who.<br>'TARDIS' stands for 'Time And Relative Dimension in Space'.<br>It can travel to (almost) any place in time and space, and is an iconic symbol of the show.<br>This was the first part of the Doctor Who artwork, and began in the Blue Corner, to fit with the blue theme.",
     "website": "",
     "subreddit": "/r/placetardis",
     "center": [
@@ -85974,7 +85974,7 @@ var atlas = [
 /*{
     "id": 1468,
     "name": "vier-clan.de",
-    "description": "The logo of the blue squad from a famous german Team Fortress 2 clan.\n",
+    "description": "The logo of the blue squad from a famous german Team Fortress 2 clan.<br>",
     "website": "http://vier-clan.de/",
     "subreddit": "/r/tf2",
     "center": [
