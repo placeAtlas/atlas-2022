@@ -76867,11 +76867,11 @@ var atlas = [
     	]
     },    {
     	"id": 1279,
-		"submitted_by": "sunnyotakuu",
-    	"name": "Originally a gun for a Bulletkin.",
-    	"description": "Before being overrun by pixels, there was a Bulletkin from the game 'Enter the Gungeon' residing in this area, and this was his gun.",
-    	"website": "http://dodgeroll.com/gungeon/",
-    	"subreddit": "/r/EnterTheGungeon/",
+		"submitted_by": "",
+    	"name": "The Lost Gun",
+    	"description": "The lost gun is an inside joke on Haven, a small Discord server.",
+    	"website": "",
+    	"subreddit": "",
     	"center": [
     		977.5,
     		900.5

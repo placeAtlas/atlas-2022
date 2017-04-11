@@ -29,6 +29,11 @@ var hovered = [];
 var previousZoomOrigin = [0, 0];
 var previousScaleZoomOrigin = [0, 0];
 
+var backgroundCanvas = document.createElement("canvas");
+backgroundCanvas.width = 1000;
+backgroundCanvas.height = 1000;
+var backgroundContext = backgroundCanvas.getContext("2d");
+
 function updateLines(){
 
 	linesCanvas.width = linesCanvas.clientWidth;
@@ -79,17 +84,47 @@ function updateLines(){
 	}
 }
 
+function renderBackground(atlas){
+
+	backgroundContext.clearRect(0, 0, canvas.width, canvas.height);
+
+	//backgroundCanvas.width = 1000 * zoom;
+	//backgroundCanvas.height = 1000 * zoom;
+
+	//backgroundContext.lineWidth = zoom;
+	
+	backgroundContext.fillStyle = "rgba(0, 0, 0, 0.6)";
+	backgroundContext.fillRect(0, 0, backgroundCanvas.width, backgroundCanvas.height);
+
+	for(var i = 0; i < atlas.length; i++){
+
+		var path = atlas[i].path;
+
+		backgroundContext.beginPath();
+
+		if(path[0]){
+			//backgroundContext.moveTo(path[0][0]*zoom, path[0][1]*zoom);
+			backgroundContext.moveTo(path[0][0], path[0][1]);
+		}
+
+		for(var p = 1; p < path.length; p++){
+			//backgroundContext.lineTo(path[p][0]*zoom, path[p][1]*zoom);
+			backgroundContext.lineTo(path[p][0], path[p][1]);
+		}
+
+		backgroundContext.closePath();
+
+		backgroundContext.strokeStyle = "rgba(255, 255, 255, 0.8)";
+		backgroundContext.stroke();
+	}
+}
+
 function initView(){
 	
 	var wrapper = document.getElementById("wrapper");
 	
 	var objectsContainer = document.getElementById("objectsList");
 	var closeObjectsListButton = document.getElementById("closeObjectsListButton");
-
-	var backgroundCanvas = document.createElement("canvas");
-	backgroundCanvas.width = 1000;
-	backgroundCanvas.height = 1000;
-	var backgroundContext = backgroundCanvas.getContext("2d");
 
 	var filterInput = document.getElementById("searchList");
 
@@ -282,6 +317,7 @@ function initView(){
 			//console.log(entry.center[1]);
 
 			zoom = 4;
+			renderBackground(atlas);
 			applyView();
 			
 			zoomOrigin = [
@@ -358,34 +394,6 @@ function initView(){
 					render();
 				}
 			}
-		}
-	}
-
-	function renderBackground(atlas){
-
-		backgroundContext.clearRect(0, 0, canvas.width, canvas.height);
-
-		backgroundContext.fillStyle = "rgba(0, 0, 0, 0.6)";
-		backgroundContext.fillRect(0, 0, canvas.width, canvas.height);
-
-		for(var i = 0; i < atlas.length; i++){
-
-			var path = atlas[i].path;
-
-			backgroundContext.beginPath();
-
-			if(path[0]){
-				backgroundContext.moveTo(path[0][0], path[0][1]);
-			}
-
-			for(var p = 1; p < path.length; p++){
-				backgroundContext.lineTo(path[p][0], path[p][1]);
-			}
-
-			backgroundContext.closePath();
-
-			backgroundContext.strokeStyle = "rgba(255, 255, 255, 0.8)";
-			backgroundContext.stroke();
 		}
 	}
 
@@ -558,6 +566,7 @@ function initView(){
 					wrapper.className += " listHidden";
 
 					zoom = 4;
+					renderBackground(atlas);
 					applyView();
 					
 					zoomOrigin = [
@@ -610,6 +619,12 @@ function initView(){
 	}
 
 	function render(){
+
+		context.clearRect(0, 0, canvas.width, canvas.height);
+
+		//canvas.width = 1000*zoom;
+		//canvas.height = 1000*zoom;
+		
 		context.globalCompositeOperation = "source-over";
 		context.clearRect(0, 0, canvas.width, canvas.height);
 
@@ -628,10 +643,12 @@ function initView(){
 			context.beginPath();
 
 			if(path[0]){
+				//context.moveTo(path[0][0]*zoom, path[0][1]*zoom);
 				context.moveTo(path[0][0], path[0][1]);
 			}
 
 			for(var p = 1; p < path.length; p++){
+				//context.lineTo(path[p][0]*zoom, path[p][1]*zoom);
 				context.lineTo(path[p][0], path[p][1]);
 			}
 
@@ -653,10 +670,12 @@ function initView(){
 			context.beginPath();
 
 			if(path[0]){
+				//context.moveTo(path[0][0]*zoom, path[0][1]*zoom);
 				context.moveTo(path[0][0], path[0][1]);
 			}
 
 			for(var p = 1; p < path.length; p++){
+				//context.lineTo(path[p][0]*zoom, path[p][1]*zoom);
 				context.lineTo(path[p][0], path[p][1]);
 			}
 
@@ -665,6 +684,7 @@ function initView(){
 			context.globalCompositeOperation = "source-over";
 
 			context.strokeStyle = "rgba(0, 0, 0, 1)";
+			//context.lineWidth = zoom;
 			context.stroke();
 		}
 

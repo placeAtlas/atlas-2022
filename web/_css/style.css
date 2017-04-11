@@ -959,8 +959,66 @@ button#zoomResetButton{
     line-height: 26px;
 }
 
+#bitcoinButton{
+	cursor: pointer;
+}
 
+#bitcoinWindow{
+	display: none;
+	position: absolute;
+	z-index: 2000;
+	max-width: 400px;
+	left: calc(50% - 200px);
+	background-color: #444444;
+	border: 1px #000000 solid;
+	width: 100%;
+	text-align: center;
+	top: 70px;
+	bottom: 10px;
+	max-height: 500px;
+	overflow: auto;
+}
 
+#bitcoinWindow > *{
+	display: inline-block;
+	margin: 5px 0px;
+}
+
+#bitcoinWindow > h2{
+	font-weight: 200;
+	background-color: #555555;
+	width: 100%;
+	line-height: 1.5em;
+	margin: 10px 0px;
+	text-shadow: 1px 1px 0px #000000;
+}
+
+#bitcoinWindow input{
+	width: 100%;
+	max-width: 350px;
+	font-size: 14px;
+	background-color: #666666;
+	padding: 15px 3px;
+	text-align: center;
+	cursor: text;
+}
+
+#bitcoinWindow button{
+	padding: 10px 20px;
+	margin-bottom: 20px;
+	margin-top: 10px;
+}
+
+h2#abouth2{
+	font-size: 40px;
+	margin-bottom: 20px;
+	text-shadow: 2px 2px 0px #000000;
+}
+
+#bitcoinNotice{
+	color: #AAAAAA;
+	margin-top: 7px;
+}
 
 
 

@@ -70604,7 +70604,7 @@ var atlas = [
     			437.5
     		]
     	]
-    },    {
+    }, /*   {
     	"id": 1145,
 		"submitted_by": "3juicypeaches",
     	"name": "Flag of Faroe Islands",
@@ -70633,7 +70633,7 @@ var atlas = [
     			608.5
     		]
     	]
-    },  /*  {
+    }, */ /*  {
     	"id": 1146,
 		"submitted_by": "tritratrulala",
     	"name": "Eric Cartman",
@@ -74337,7 +74337,7 @@ var atlas = [
     	"id": 1225,
 		"submitted_by": "raseksa",
     	"name": "Faroe Islands",
-    	"description": "The Faroe Islands  is an archipelago between the Norwegian Sea and the North Atlantic, about halfway between Norway and Iceland, 320 kilometres (200 miles) north-northwest of Scotland.",
+    	"description": "The Faroe Island are an archipelago between the Norwegian Sea and the North Atlantic, about halfway between Norway and Iceland, 320 kilometres (200 miles) north-northwest of Scotland.",
     	"website": "https://en.wikipedia.org/wiki/Faroe_Islands",
     	"subreddit": "/r/FaroeIslands/",
     	"center": [

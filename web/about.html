@@ -57,19 +57,32 @@
 				Code by <a href="/" target="_blank" rel="author">Roland Rytz</a>. Source on <a target="_blank" href="https://github.com/RolandR/place-atlas">GitHub</a>.
 			</div>
 
+			<div id="bitcoinWindow">
+				<h2>My Bitcoin Address</h2>
+				<img src="./_img/bitcoinQR.png" height="300" width="300">
+				<input type="text" onclick="this.select();" readonly value="1DnBGYpH6HZYHvpCq3QqqtH1HxwwVe2QxN">
+				<br>
+				<button id="closeBitcoinButton">Close</button>
+			</div>
+
 			<div id="aboutContainer">
 				<a id="aboutBackButton" href="./">&lt; Back to the Atlas</a>
 				<div id="about">
-					<h2>The /r/place Atlas</h2>
+					<h2 id="abouth2">The /r/place Atlas</h2>
 					<p>This is an Atlas aiming to chart all the artworks created during the <a href="https://www.reddit.com/r/place/">/r/place</a> April's fools event on <a href="https://www.reddit.com/" target="_blank">Reddit</a> in 2017.</p>
-					<p>The code was developed by <a href="/" target="_blank" rel="author">Roland Rytz</a> and is available under the free <a href="https://www.gnu.org/licenses/agpl-3.0.en.html">AGPL license</a> on <a target="_blank" href="https://github.com/RolandR/place-atlas">GitHub</a>.
+					<p>The code was developed by <a href="/" target="_blank" rel="author">Roland Rytz</a> (<a href="mailto:roland.rytz@gmail.com">mail</a>, <a href="https://reddit.com/user/draemmli/">reddit</a>) and is available under the free <a href="https://www.gnu.org/licenses/agpl-3.0.en.html">AGPL license</a> on <a target="_blank" href="https://github.com/RolandR/place-atlas">GitHub</a>.</p>
+					<br>
+					<p>I have worked on the Atlas full-time (and more!) for almost two weeks.</p>
+					<p>If you'd like to support me, you can do so by <a target="_blank" href="https://paypal.me/draemmli">PayPal</a> or <a title="Click to see my address." id="bitcoinButton" role="button">Bitcoin</a>.</p>
+					<p>If you donate more than 10(€/$/CHF/mBTC), I'll send you a nice sticker of the Place canvas!</p>
+					<p id="bitcoinNotice">If you donate by Bitcoin and want a sticker, please send me a<br>message with your Bitcoin address <i>before</i> you make the transaction!</a>
 					<h2>How to contribute</h2>
 					<p>Everybody is encouraged to collaborate in mapping all of /r/place on the Atlas.</p>
 					<p>Please read <a href="https://reddit.com/r/placeAtlas/comments/63afic/how_to_contribute/" target="_blank">this post on reddit</a> to learn how to submit a new entry.</p>
 					<p>The <a href="https://reddit.com/r/placeAtlas/" target="_blank">/r/placeAtlas</a> subreddit is also the place to submit all bug reports, feature requests or questions.</p>
 					<h2>Contributors</h2>
 					<p>The Atlas would not have been possible without the help of the following 716 reddit users.</p>
-					<p>Thank you to everyone who contributed.</p>
+					<p>Thank you to everyone who submitted new entries, amended existing ones, reported bugs and just supported the project in general.</p>
 					<div id="contributors">
 					<a href="https://reddit.com/user/-Chowder-" target="_blank">-Chowder-</a>
 					<a href="https://reddit.com/user/-DuckMuffins-" target="_blank">-DuckMuffins-</a>
@@ -792,6 +805,21 @@
 				</div>
 			</div>
 		</div>
+
+
+		<script type="text/javascript">
+
+			document.getElementById("closeBitcoinButton").addEventListener("click", function(e){
+				document.getElementById("bitcoinWindow").style.display = "none";
+			});
+
+			document.getElementById("bitcoinButton").addEventListener("click", function(e){
+				document.getElementById("bitcoinWindow").style.display = "block";
+			});
+
+		</script>
+
+		
 	</body>
 </html>
 
