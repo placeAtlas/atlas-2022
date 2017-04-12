@@ -9557,8 +9557,8 @@ var atlas = [
 		"website": "",
 		"subreddit": "/r/globaloffensive",
 		"center": [
-    		247.5,
-    		288.5
+    		256.5,
+    		314.5
     	],
     	"path": [
     		[
@@ -9567,14 +9567,22 @@ var atlas = [
     		],
     		[
     			234.5,
+    			341.5
+    		],
+    		[
+    			280.5,
+    			341.5
+    		],
+    		[
+    			280.5,
     			292.5
     		],
     		[
-    			259.5,
+    			260.5,
     			292.5
     		],
     		[
-    			259.5,
+    			260.5,
     			284.5
     		]
     	]
@@ -41148,7 +41156,7 @@ var atlas = [
     			942.5
     		]
     	]
-    },    {
+    },   {
     	"id": 599,
 		"submitted_by": "escapeepacse",
     	"name": "Bisexual Flag",
@@ -41181,7 +41189,7 @@ var atlas = [
     			589.5
     		]
     	]
-    },    {
+    },   {
     	"id": 600,
 		"submitted_by": "Atomfried",
     	"name": "German Carrot",
@@ -41549,7 +41557,7 @@ var atlas = [
     			67.5
     		]
     	]
-    },    {
+    },   /* {
     	"id": 608,
 		"submitted_by": "escapeepacse",
     	"name": "Bisexual Flag",
@@ -41582,7 +41590,7 @@ var atlas = [
     			555.5
     		]
     	]
-    },    {
+    },  */  {
     	"id": 609,
 		"submitted_by": "DiplomaticMeatball",
     	"name": "Genderqueer flag",
@@ -46503,7 +46511,7 @@ var atlas = [
     			54.5
     		]
     	]
-    },    {
+    }, /*   {
     	"id": 690,
 		"submitted_by": "Noobkiller1821",
     	"name": "Drum Core International",
@@ -46532,7 +46540,7 @@ var atlas = [
     			664.5
     		]
     	]
-    },    {
+    }, */   {
     	"id": 692,
 		"submitted_by": "Seminal_Sound",
     	"name": "Star Citizen Ship",
@@ -70604,7 +70612,7 @@ var atlas = [
     			437.5
     		]
     	]
-    },    {
+    }, /*   {
     	"id": 1145,
 		"submitted_by": "3juicypeaches",
     	"name": "Flag of Faroe Islands",
@@ -70633,7 +70641,7 @@ var atlas = [
     			608.5
     		]
     	]
-    },  /*  {
+    }, */ /*  {
     	"id": 1146,
 		"submitted_by": "tritratrulala",
     	"name": "Eric Cartman",
@@ -74337,7 +74345,7 @@ var atlas = [
     	"id": 1225,
 		"submitted_by": "raseksa",
     	"name": "Faroe Islands",
-    	"description": "The Faroe Islands  is an archipelago between the Norwegian Sea and the North Atlantic, about halfway between Norway and Iceland, 320 kilometres (200 miles) north-northwest of Scotland.",
+    	"description": "The Faroe Island are an archipelago between the Norwegian Sea and the North Atlantic, about halfway between Norway and Iceland, 320 kilometres (200 miles) north-northwest of Scotland.",
     	"website": "https://en.wikipedia.org/wiki/Faroe_Islands",
     	"subreddit": "/r/FaroeIslands/",
     	"center": [
@@ -76869,7 +76877,7 @@ var atlas = [
     	"id": 1279,
 		"submitted_by": "",
     	"name": "The Lost Gun",
-    	"description": "The lost gun is an inside joke on Haven, a small Discord server.",
+    	"description": "This is a lost gun created by the private discord known as Haven.<br>This is a tribute to someone who lost their gun.",
     	"website": "",
     	"subreddit": "",
     	"center": [
@@ -85442,7 +85450,7 @@ var atlas = [
 		]
 	},
 
-	{
+	/*{
     	"id": 1457,
     	"submitted_by": "alsoandanswer",
     	"name": "Super Monday Night Combat",
@@ -85471,7 +85479,7 @@ var atlas = [
     			292.5
     		]
     	]
-    },
+    },*/
 
     {
     	"id": 1458,
@@ -86760,7 +86768,199 @@ var atlas = [
 			754.5
 		]
 	]
-}
+},
+
+{
+    "id": 1486,
+    "name": "Flag of the Bahamas",
+    "description": "This heart was supposed to depict the flag of the Bahamas. (See comment on  http://imgur.com/jZkU6PN)",
+    "website": "",
+    "subreddit": "/r/bahamas",
+    "center": [
+        717.5,
+        776.5
+    ],
+    "path": [
+        [
+            713.5,
+            772.5
+        ],
+        [
+            720.5,
+            772.5
+        ],
+        [
+            723.5,
+            772.5
+        ],
+        [
+            723.5,
+            777.5
+        ],
+        [
+            718.5,
+            782.5
+        ],
+        [
+            718.5,
+            783.5
+        ],
+        [
+            717.5,
+            783.5
+        ],
+        [
+            712.5,
+            778.5
+        ],
+        [
+            712.5,
+            772.5
+        ]
+    ]
+},
+
+{
+    "id": 1487,
+    "name": "Black Void heart",
+    "description": "This heart was supposed to be all black in order to represent the Black Void. (See discussion on https://www.reddit.com/r/placehearts/comments/637rdh/lets_get_rid_of_this_hateheart/)",
+    "website": "",
+    "subreddit": "/r/theblackvoid",
+    "center": [
+        497.5,
+        744.5
+    ],
+    "path": [
+        [
+            497.5,
+            738.5
+        ],
+        [
+            498.5,
+            738.5
+        ],
+        [
+            503.5,
+            743.5
+        ],
+        [
+            503.5,
+            746.5
+        ],
+        [
+            501.5,
+            749.5
+        ],
+        [
+            494.5,
+            749.5
+        ],
+        [
+            491.5,
+            746.5
+        ],
+        [
+            491.5,
+            743.5
+        ],
+        [
+            496.5,
+            738.5
+        ]
+    ]
+},
+
+{
+    "id": 1488,
+    "name": "French hearts",
+    "description": "According to the map produced by The Final Clean all hearts surrounding the Belgian heart are supposed to represent French flags. Two of them got nearly erased.",
+    "website": "",
+    "subreddit": "/r/france",
+    "center": [
+        390.5,
+        743.5
+    ],
+    "path": [
+        [
+            396.5,
+            759.5
+        ],
+        [
+            407.5,
+            746.5
+        ],
+        [
+            397.5,
+            732.5
+        ],
+        [
+            378.5,
+            733.5
+        ],
+        [
+            370.5,
+            745.5
+        ],
+        [
+            381.5,
+            749.5
+        ],
+        [
+            389.5,
+            737.5
+        ],
+        [
+            395.5,
+            743.5
+        ],
+        [
+            393.5,
+            749.5
+        ],
+        [
+            389.5,
+            751.5
+        ],
+        [
+            389.5,
+            755.5
+        ],
+        [
+            389.5,
+            754.5
+        ]
+    ]
+},
+
+{
+    	"id": 1489,
+    	"name": "Flag of Madeira",
+    	"description": "Madeira is a Portuguese archipelago situated in the north Atlantic Ocean, southwest of Portugal.",
+    	"website": "",
+    	"subreddit": "/r/madeira",
+    	"center": [
+    		682.5,
+    		446.5
+    	],
+    	"path": [
+    		[
+    			678.5,
+    			443.5
+    		],
+    		[
+    			678.5,
+    			449.5
+    		],
+    		[
+    			686.5,
+    			449.5
+    		],
+    		[
+    			686.5,
+    			443.5
+    		]
+    	]
+    }
 		
 ];
 
@@ -86873,6 +87073,11 @@ var hovered = [];
 var previousZoomOrigin = [0, 0];
 var previousScaleZoomOrigin = [0, 0];
 
+var backgroundCanvas = document.createElement("canvas");
+backgroundCanvas.width = 1000;
+backgroundCanvas.height = 1000;
+var backgroundContext = backgroundCanvas.getContext("2d");
+
 function updateLines(){
 
 	linesCanvas.width = linesCanvas.clientWidth;
@@ -86923,17 +87128,47 @@ function updateLines(){
 	}
 }
 
+function renderBackground(atlas){
+
+	backgroundContext.clearRect(0, 0, canvas.width, canvas.height);
+
+	//backgroundCanvas.width = 1000 * zoom;
+	//backgroundCanvas.height = 1000 * zoom;
+
+	//backgroundContext.lineWidth = zoom;
+	
+	backgroundContext.fillStyle = "rgba(0, 0, 0, 0.6)";
+	backgroundContext.fillRect(0, 0, backgroundCanvas.width, backgroundCanvas.height);
+
+	for(var i = 0; i < atlas.length; i++){
+
+		var path = atlas[i].path;
+
+		backgroundContext.beginPath();
+
+		if(path[0]){
+			//backgroundContext.moveTo(path[0][0]*zoom, path[0][1]*zoom);
+			backgroundContext.moveTo(path[0][0], path[0][1]);
+		}
+
+		for(var p = 1; p < path.length; p++){
+			//backgroundContext.lineTo(path[p][0]*zoom, path[p][1]*zoom);
+			backgroundContext.lineTo(path[p][0], path[p][1]);
+		}
+
+		backgroundContext.closePath();
+
+		backgroundContext.strokeStyle = "rgba(255, 255, 255, 0.8)";
+		backgroundContext.stroke();
+	}
+}
+
 function initView(){
 	
 	var wrapper = document.getElementById("wrapper");
 	
 	var objectsContainer = document.getElementById("objectsList");
 	var closeObjectsListButton = document.getElementById("closeObjectsListButton");
-
-	var backgroundCanvas = document.createElement("canvas");
-	backgroundCanvas.width = 1000;
-	backgroundCanvas.height = 1000;
-	var backgroundContext = backgroundCanvas.getContext("2d");
 
 	var filterInput = document.getElementById("searchList");
 
@@ -87126,6 +87361,7 @@ function initView(){
 			//console.log(entry.center[1]);
 
 			zoom = 4;
+			renderBackground(atlas);
 			applyView();
 			
 			zoomOrigin = [
@@ -87202,34 +87438,6 @@ function initView(){
 					render();
 				}
 			}
-		}
-	}
-
-	function renderBackground(atlas){
-
-		backgroundContext.clearRect(0, 0, canvas.width, canvas.height);
-
-		backgroundContext.fillStyle = "rgba(0, 0, 0, 0.6)";
-		backgroundContext.fillRect(0, 0, canvas.width, canvas.height);
-
-		for(var i = 0; i < atlas.length; i++){
-
-			var path = atlas[i].path;
-
-			backgroundContext.beginPath();
-
-			if(path[0]){
-				backgroundContext.moveTo(path[0][0], path[0][1]);
-			}
-
-			for(var p = 1; p < path.length; p++){
-				backgroundContext.lineTo(path[p][0], path[p][1]);
-			}
-
-			backgroundContext.closePath();
-
-			backgroundContext.strokeStyle = "rgba(255, 255, 255, 0.8)";
-			backgroundContext.stroke();
 		}
 	}
 
@@ -87402,6 +87610,7 @@ function initView(){
 					wrapper.className += " listHidden";
 
 					zoom = 4;
+					renderBackground(atlas);
 					applyView();
 					
 					zoomOrigin = [
@@ -87454,6 +87663,12 @@ function initView(){
 	}
 
 	function render(){
+
+		context.clearRect(0, 0, canvas.width, canvas.height);
+
+		//canvas.width = 1000*zoom;
+		//canvas.height = 1000*zoom;
+		
 		context.globalCompositeOperation = "source-over";
 		context.clearRect(0, 0, canvas.width, canvas.height);
 
@@ -87472,10 +87687,12 @@ function initView(){
 			context.beginPath();
 
 			if(path[0]){
+				//context.moveTo(path[0][0]*zoom, path[0][1]*zoom);
 				context.moveTo(path[0][0], path[0][1]);
 			}
 
 			for(var p = 1; p < path.length; p++){
+				//context.lineTo(path[p][0]*zoom, path[p][1]*zoom);
 				context.lineTo(path[p][0], path[p][1]);
 			}
 
@@ -87497,10 +87714,12 @@ function initView(){
 			context.beginPath();
 
 			if(path[0]){
+				//context.moveTo(path[0][0]*zoom, path[0][1]*zoom);
 				context.moveTo(path[0][0], path[0][1]);
 			}
 
 			for(var p = 1; p < path.length; p++){
+				//context.lineTo(path[p][0]*zoom, path[p][1]*zoom);
 				context.lineTo(path[p][0], path[p][1]);
 			}
 
@@ -87509,6 +87728,7 @@ function initView(){
 			context.globalCompositeOperation = "source-over";
 
 			context.strokeStyle = "rgba(0, 0, 0, 1)";
+			//context.lineWidth = zoom;
 			context.stroke();
 		}
 
