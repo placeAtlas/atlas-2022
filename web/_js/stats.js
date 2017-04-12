@@ -30,6 +30,8 @@ for(var q = 0; q < atlas.length; q++){
 
 	areasSum += area;
 	areas.push(area);
+
+	atlas[q].area = area;
 	
 }
 
@@ -38,6 +40,17 @@ areas.sort(function(a, b){
 		return -1;
 	}
 	if (a > b) {
+		return 1;
+	}
+		// a must be equal to b
+	return 0;
+});
+
+atlas.sort(function(a, b){
+	if (a.area < b.area) {
+		return -1;
+	}
+	if (a.area > b.area) {
 		return 1;
 	}
 		// a must be equal to b
@@ -84,9 +97,9 @@ for(var i in areas){
 	}
 	counts[bracket]++;
 }
-console.log(counts);
-console.log(brackets);
-console.log(mostCounts);
+//console.log(counts);
+//console.log(brackets);
+//console.log(mostCounts);
 
 ctx.fillStyle = "#FFFFFF";
 ctx.fillRect(0, 0, el.width, el.height);
@@ -192,16 +205,48 @@ for(var i = 0; i < counts.length; i++){
 
 document.getElementById("wrapper").appendChild(el);
 
-console.log(areas);
+//console.log(areas);
 
 console.log("Median area: "+areas[~~(areas.length/2)]);
 
 console.log("Average area: "+(areasSum/atlas.length));
 
+var topCount = 10;
+console.log("The "+topCount+" largest entries:");
 
+var outstring = "";
 
+for(var i = 0; i < topCount; i++){
+	outstring += ((i+1)+"|["+atlas[atlas.length-i-1].name +"](https://draemm.li/various/place-atlas/?id="+atlas[atlas.length-i-1].id+")|"+ ~~atlas[atlas.length-i-1].area+"|"+Math.round(atlas[atlas.length-i-1].area/100)/100+"%\n");
+}
 
+console.log(outstring);
 
+atlas.sort(function(a, b){
+	if (a.center[0] < b.center[0]) {
+		return -1;
+	}
+	if (a.center[0] > b.center[0]) {
+		return 1;
+	}
+		// a must be equal to b
+	return 0;
+});
+
+console.log("Median x: "+atlas[~~(atlas.length/2)].center[0]);
+
+atlas.sort(function(a, b){
+	if (a.center[1] < b.center[1]) {
+		return -1;
+	}
+	if (a.center[1] > b.center[1]) {
+		return 1;
+	}
+		// a must be equal to b
+	return 0;
+});
+
+console.log("Median y: "+atlas[~~(atlas.length/2)].center[1]);
 
 
 
