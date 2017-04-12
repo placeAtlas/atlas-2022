@@ -278,6 +278,17 @@ function initOverlap(){
 			backgroundContext.fillStyle = "rgba(0, 0, 255, 0.2)";
 			backgroundContext.fill();
 		}
+
+		var pixels = backgroundContext.getImageData(0, 0, backgroundCanvas.width, backgroundCanvas.height).data;
+		var blank = 0;
+
+		for(var i = 0; i < pixels.length; i+=4){
+			if(pixels[i] == 255){
+				blank++;
+			}
+		}
+
+		console.log(blank+" blank pixels, which are "+Math.round(blank/100)/100+"% of the canvas ("+(100-Math.round(blank/100)/100)+"% mapped)");
 	}
 
 	function buildObjectsList(filter){

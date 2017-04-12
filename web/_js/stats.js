@@ -64,7 +64,7 @@ el.style.zIndex = "10000";
 var ctx = el.getContext("2d");
 el.width = 1600;
 el.height = 500;
-var steps = 200;
+var steps = 150;
 var max = 1500;
 
 var largerThanMax = 0;
@@ -103,16 +103,32 @@ for(var i in areas){
 
 ctx.fillStyle = "#FFFFFF";
 ctx.fillRect(0, 0, el.width, el.height);
-ctx.strokeStyle = "#333333";
+ctx.strokeStyle = "#F5F5F5";
 
 ctx.fillStyle = "#333333";
 ctx.font = "15px sans";
 ctx.textAlign = "right";
 ctx.textBaseline = "middle";
 
-var linesDistance = 5;
+var linesDistance = 1;
 
-for(var i = 0; i < Math.ceil(mostCounts/linesDistance); i++){
+for(var i = 0; i <= Math.ceil(mostCounts/linesDistance); i++){
+	ctx.beginPath();
+	ctx.moveTo(
+		 50
+		,~~(el.height - 50 - i*(linesDistance/mostCounts)*(el.height-100))+0.5
+	);
+	ctx.lineTo(
+		 el.width-25
+		,~~(el.height - 50 - i*(linesDistance/mostCounts)*(el.height-100))+0.5
+	);
+	ctx.stroke();
+}
+
+ctx.strokeStyle = "#333333";
+linesDistance = 5;
+
+for(var i = 0; i <= Math.ceil(mostCounts/linesDistance); i++){
 	ctx.beginPath();
 	ctx.moveTo(
 		 50
@@ -131,14 +147,14 @@ for(var i = 0; i < Math.ceil(mostCounts/linesDistance); i++){
 	);
 }
 
-var skip = 3;
+var skip = 2;
 
 ctx.textAlign = "center";
 ctx.textBaseline = "hanging";
 ctx.font = "10px sans";
 
 var a = 0;
-for(var i=0; i < counts.length; i++){
+for(var i=0; i <= counts.length; i++){
 	if(i%skip == 0){
 		var y = 0;
 		if(a % 2 == 0){
@@ -149,18 +165,18 @@ for(var i=0; i < counts.length; i++){
 		a++;
 		ctx.beginPath();
 		ctx.moveTo(
-			 ~~(((i+1)/steps)*(el.width-125)+75)+0.5
+			 ~~(((i)/steps)*(el.width-125)+75)+0.5
 			,~~(el.height - 50)+0.5
 		);
 		ctx.lineTo(
-			 ~~(((i+1)/steps)*(el.width-125)+75)+0.5
+			 ~~(((i)/steps)*(el.width-125)+75)+0.5
 			,y
 		);
 		ctx.stroke();
 
 		ctx.fillText(
-			 (i+1)*(max/steps)
-			,~~(((i+1)/steps)*(el.width-125)+75)+0.5
+			 (i)*(max/steps)
+			,~~(((i)/steps)*(el.width-125)+75)-0.5
 			,y+5
 		);
 	}
