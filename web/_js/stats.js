@@ -112,7 +112,7 @@ ctx.textBaseline = "middle";
 
 var linesDistance = 1;
 
-for(var i = 0; i <= Math.ceil(mostCounts/linesDistance); i++){
+for(var i = 0; i <= Math.ceil((mostCounts/linesDistance)/5)*5; i++){
 	ctx.beginPath();
 	ctx.moveTo(
 		 50
@@ -227,7 +227,7 @@ console.log("Median area: "+areas[~~(areas.length/2)]);
 
 console.log("Average area: "+(areasSum/atlas.length));
 
-var topCount = 10;
+var topCount = 50;
 console.log("The "+topCount+" largest entries:");
 
 var outstring = "";
