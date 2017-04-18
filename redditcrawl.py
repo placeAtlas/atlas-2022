@@ -1,6 +1,4 @@
 
-#6y7LtOjoNEfe72g62kZfwtFHMWkQ8XsZvcQ8xZDe
-
 import praw
 
 outfile = open('temp.js', 'w')
@@ -9,11 +7,11 @@ credentials = open('credentials', 'r')
 client_id = credentials.readline().strip(' \t\n\r')
 client_secret = credentials.readline().strip(' \t\n\r')
 
-startId = 1411
+startId = 1492
 
 reddit = praw.Reddit(client_id=client_id, client_secret=client_secret, user_agent='atlas_bot')
 
-for submission in reddit.subreddit('placeAtlas').new(limit=58):
+for submission in reddit.subreddit('placeAtlas').new(limit=15):
 	#print(dir(submission))
 	if(submission.link_flair_text == "New Entry"):
 		text = submission.selftext

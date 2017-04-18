@@ -19,7 +19,10 @@ users.add("Shovel_Ship");
 users.add("Zequez");
 
 for submission in reddit.subreddit('placeAtlas').new(limit=10000):
-	users.add(submission.author.name)
+	try:
+		users.add(submission.author.name)
+	except AttributeError:
+		print(submission.title)
 
 users = list(users)
 users = sorted(users, key=str.lower)

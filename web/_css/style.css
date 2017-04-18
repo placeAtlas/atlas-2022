@@ -275,6 +275,11 @@ optgroup{
 	animation-iteration-count: infinite;
 }
 
+#loading > div > span{
+	font-family: "DejaVu Sans", Helvetica, sans-serif;
+	font-weight: 200;
+}
+
 @keyframes spinner {
 	from {
 		transform: rotateZ(0deg);

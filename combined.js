@@ -11266,7 +11266,7 @@ var atlas = [
 		"name": "Helix Fossil",
 		"description": "\"Lord Helix\", or \"God\" is the Helix Fossil that became an object of worshipping during Red's Adventure in Twitch Plays Pokémon Red Version, where users of the live streaming video platform Twitch collectively played the 1996 Japanese role-playing video game Pokémon Red.",
 		"website": "http://knowyourmeme.com/memes/events/twitch-plays-pokemon",
-		"subreddit": "/r/churchofhelix/",
+		"subreddit": "/r/drawhelix, /r/churchofhelix, /r/twitchplayspokemon",
 		"center": [
 			613.5,
 			399.5
@@ -11729,9 +11729,9 @@ var atlas = [
 	{
 		"id": 208,
 		"name": "Boston Bruins",
-		"description": "Logo of the National Hockey League (NHL) team Boston Bruins",
-		"website": "",
-		"subreddit": "/r/bruins",
+		"description": "Logo of the National Hockey League (NHL) team Boston Bruins.<br>Six time winners of the Stanley Cup, and home to the cult of Pooh Bear.",
+		"website": "https://www.nhl.com/bruins",
+		"subreddit": "/r/BostonBruins",
 		"center": [
 			810.5,
 			935.5
@@ -19269,7 +19269,7 @@ var atlas = [
     },    {
     	"id": 289,
     	"name": "Chatot (Pokémon)",
-    	"description": "Chatot is a popular Pokemon in twitch plays pokemon, starting with the copypasta \"Twitch chat is like a parrot\" changed to \"Twitch chat is like a Chatot\", derived to \"I like Chatot\", ultimately leading to the \"Chatty Yellow\" hack with Pikachu replaced by Chatot",
+    	"description": "Chatot is a popular Pokemon in Twitch Plays Pokémon, starting with the copypasta \"Twitch chat is like a parrot\" changed to \"Twitch chat is like a Chatot\", derived to \"I like Chatot\", ultimately leading to the \"Chatty Yellow\" hack with Pikachu replaced by Chatot",
     	"website": "",
     	"subreddit": "/r/twitchplayspokemon",
     	"center": [
@@ -37473,7 +37473,7 @@ var atlas = [
     	"name": "Bard",
     	"description": "This is Bard, one of the champions in League of Legends, who was released in 2015, soon became popular among support players.",
     	"website": "http://gameinfo.na.leagueoflegends.com/en/game-info/champions/bard/",
-    	"subreddit": "",
+    	"subreddit": "/r/bardmains",
     	"center": [
     		708.5,
     		253.5
@@ -69880,8 +69880,8 @@ var atlas = [
     },    {
     	"id": 1123,
 		"submitted_by": "HacksawUnit",
-    	"name": "Doll that says 'Skin.\"",
-    	"description": "Depiction of a broken doll that sounds as if it is saying \"skin.\" Community of origin unknown, more research needed.",
+    	"name": "Doll that says \"Skin\"",
+    	"description": "Depiction of a broken doll that sounds as if it is saying \"skin.\"<br><br>This small project was headed by reddit admins, some of whom worked on the implementation of /r/place",
     	"website": "https://twitter.com/4eyes_/status/805851294292381696/video/1",
     	"subreddit": "",
     	"center": [
@@ -71220,11 +71220,10 @@ var atlas = [
     	]
     },    {
     	"id": 1143,
-		"submitted_by": "trenmost",
-    	"name": "Project Cars community",
-    	"description": "Made by the Project Cars community",
+    	"name": "PGang",
+    	"description": "A club called pyramid gang from the game \"League of Legends.\" The unfinished sign was meant to say PGANG",
     	"website": "",
-    	"subreddit": "/r/pcars/",
+    	"subreddit": "/r/pgang",
     	"center": [
     		989.5,
     		445.5
@@ -71633,8 +71632,8 @@ var atlas = [
     }, {
     	"id": 1149,
 		"submitted_by": "11tron",
-    	"name": "Philipinas",
-    	"description": "Pilipinas is the name of the country Phillippines in the Filipino language.",
+    	"name": "Pilipinas",
+    	"description": "Pilipinas is the Tagalog word for \"Philippines\". It was once written in English. However, after the Osu! logo absorbed half of the banner, it was renamed and shortened to its Tagalog form.",
     	"website": "",
     	"subreddit": "/r/Philippines",
     	"center": [
@@ -73620,7 +73619,7 @@ var atlas = [
     	"id": 1192,
 		"submitted_by": "MrRandom999",
     	"name": "Miss Fortune",
-    	"description": "Pixel art of a Champion from the game League of Legends called Miss Fortune, the Bounty Hunter.",
+    	"description": "Pixel art of a Champion from the game League of Legends called Miss Fortune, the Bounty Hunter.<br>Created by a small group of about 7 redditors.",
     	"website": "",
     	"subreddit": "/r/LeagueofLegends",
     	"center": [
@@ -80163,7 +80162,7 @@ var atlas = [
     			72.5
     		]
     	]
-    },    {
+    },  /*  {
     	"id": 1335,
 		"submitted_by": "hum4n4",
     	"name": "Quebec",
@@ -80196,7 +80195,7 @@ var atlas = [
     			232.5
     		]
     	]
-    },
+    },*/
 
     {
     	"id": 1336,
@@ -81144,7 +81143,7 @@ var atlas = [
     			836.5
     		]
     	]
-    },    {
+    },  /*  {
     	"id": 1354,
 		"submitted_by": "somethinbetter",
     	"name": "r/quebec",
@@ -81173,7 +81172,7 @@ var atlas = [
     			241.5
     		]
     	]
-    },    {
+    },  */  {
     	"id": 1355,
 		"submitted_by": "VIDCAs17",
     	"name": "Michigan State University",
@@ -81908,8 +81907,8 @@ var atlas = [
     },    {
     	"id": 1375,
 		"submitted_by": "cubi1oh",
-    	"name": "(Covered) QC libre",
-    	"description": "Now occupied by the subreddit name, this formerly read \"QC LIBRE\", a reference to Charles De Gaulle's controversial 1967 speech advocating for the independence of Québec.",
+    	"name": "Québec",
+    	"description": "Now occupied by the subreddit name, this formerly read \"QC LIBRE\", a reference to Charles De Gaulle's controversial 1967 speech advocating for the independence of Québec.<br><br>Even earlier, this used to say CS:GO'ED, in reference to CounterStrike: Global Offensive.",
     	"website": "https://en.wikipedia.org/wiki/Vive_le_Qu%C3%A9bec_libre",
     	"subreddit": "/r/Quebec",
     	"center": [
@@ -81919,19 +81918,23 @@ var atlas = [
     	"path": [
     		[
     			383.5,
-    			240.5
+    			232.5
     		],
     		[
-    			383.5,
-    			234.5
+    			416.5,
+    			232.5
     		],
     		[
-    			415.5,
-    			234.5
+    			416.5,
+    			241.5
     		],
     		[
-    			415.5,
-    			240.5
+    			382.5,
+    			241.5
+    		],
+    		[
+    			382.5,
+    			232.5
     		]
     	]
     },    {
@@ -87720,7 +87723,1967 @@ var atlas = [
     			756.5
     		]
     	]
-    }
+    },
+
+    /*============================================*/
+
+        {
+    	"id": 1492,
+		"submitted_by": "Qiqz",
+    	"name": "Belgian heart",
+    	"description": "Heart-shaped flag of Belgium.",
+    	"website": "",
+    	"subreddit": "/r/belgium",
+    	"center": [
+    		389.5,
+    		744.5
+    	],
+    	"path": [
+    		[
+    			384.5,
+    			743.5
+    		],
+    		[
+    			390.5,
+    			738.5
+    		],
+    		[
+    			395.5,
+    			743.5
+    		],
+    		[
+    			394.5,
+    			749.5
+    		],
+    		[
+    			384.5,
+    			748.5
+    		],
+    		[
+    			383.5,
+    			744.5
+    		]
+    	]
+    },    {
+    	"id": 1493,
+		"submitted_by": "Xisuthrus",
+    	"name": "The purple corner",
+    	"description": "Originally a \"colony\" of the blue corner, a loss of interest among blue corner pixel-placers lead to the upper-left corner of the canvas being taken over by the faction that would eventually become /r/purplepixels. However, like all of the colour factions that dominated the early Place, the purple corner was eventually crowded out by pixel art.",
+    	"website": "",
+    	"subreddit": "/r/purplepixels",
+    	"center": [
+    		1.5,
+    		1.5
+    	],
+    	"path": [
+    		[
+    			0.5,
+    			0.5
+    		],
+    		[
+    			0.5,
+    			2.5
+    		],
+    		[
+    			2.5,
+    			2.5
+    		],
+    		[
+    			2.5,
+    			0.5
+    		]
+    	]
+    },    {
+    	"id": 1494,
+		"submitted_by": "yellowcat5",
+    	"name": "Seattle Mariners logo",
+    	"description": "What remains of the Seattle Mariners logo after it was destroyed and replaced by the Kansas City Royals logo",
+    	"website": "",
+    	"subreddit": "",
+    	"center": [
+    		245.5,
+    		536.5
+    	],
+    	"path": [
+    		[
+    			235.5,
+    			545.5
+    		],
+    		[
+    			236.5,
+    			530.5
+    		],
+    		[
+    			255.5,
+    			527.5
+    		],
+    		[
+    			254.5,
+    			540.5
+    		]
+    	]
+    },    {
+    	"id": 1495,
+		"submitted_by": "luis_yt",
+    	"name": "Romania Banner",
+    	"description": "",
+    	"website": "",
+    	"subreddit": "/r/Romania",
+    	"center": [
+    		734.5,
+    		386.5
+    	],
+    	"path": [
+    		[
+    			720.5,
+    			382.5
+    		],
+    		[
+    			748.5,
+    			382.5
+    		],
+    		[
+    			748.5,
+    			390.5
+    		],
+    		[
+    			720.5,
+    			390.5
+    		]
+    	]
+    },    {
+    	"id": 1496,
+		"submitted_by": "ARGMonkey",
+    	"name": "Izzy",
+    	"description": "The name of the \"princess-gown-wearing, tech genius\" who, for her fifteen minutes, graced the front page of the internet.",
+    	"website": "http://imgur.com/zcRCz",
+    	"subreddit": "",
+    	"center": [
+    		93.5,
+    		314.5
+    	],
+    	"path": [
+    		[
+    			87.5,
+    			311.5
+    		],
+    		[
+    			99.5,
+    			311.5
+    		],
+    		[
+    			99.5,
+    			316.5
+    		],
+    		[
+    			87.5,
+    			316.5
+    		]
+    	]
+    },    {
+    	"id": 1497,
+		"submitted_by": "VankaBG",
+    	"name": "Bulgarian Heart",
+    	"description": "One of the many country hearts.",
+    	"website": "",
+    	"subreddit": "/r/bulgaria",
+    	"center": [
+    		647.5,
+    		771.5
+    	],
+    	"path": [
+    		[
+    			644.5,
+    			767.5
+    		],
+    		[
+    			647.5,
+    			769.5
+    		],
+    		[
+    			650.5,
+    			767.5
+    		],
+    		[
+    			652.5,
+    			769.5
+    		],
+    		[
+    			652.5,
+    			771.5
+    		],
+    		[
+    			647.5,
+    			776.5
+    		],
+    		[
+    			642.5,
+    			771.5
+    		],
+    		[
+    			642.5,
+    			769.5
+    		],
+    		[
+    			642.5,
+    			770.5
+    		],
+    		[
+    			642.5,
+    			769.5
+    		]
+    	]
+    },    {
+    	"id": 1498,
+		"submitted_by": "Norci",
+    	"name": "Heart of Sweden",
+    	"description": "Heart with Swedish flag",
+    	"website": "",
+    	"subreddit": "/r/sweden",
+    	"center": [
+    		623.5,
+    		754.5
+    	],
+    	"path": [
+    		[
+    			618.5,
+    			754.5
+    		],
+    		[
+    			623.5,
+    			759.5
+    		],
+    		[
+    			628.5,
+    			754.5
+    		],
+    		[
+    			628.5,
+    			752.5
+    		],
+    		[
+    			626.5,
+    			750.5
+    		],
+    		[
+    			625.5,
+    			750.5
+    		],
+    		[
+    			623.5,
+    			752.5
+    		],
+    		[
+    			621.5,
+    			750.5
+    		],
+    		[
+    			620.5,
+    			750.5
+    		],
+    		[
+    			618.5,
+    			752.5
+    		],
+    		[
+    			618.5,
+    			754.5
+    		]
+    	]
+    },    {
+    	"id": 1499,
+		"submitted_by": "hoeskioeh",
+    	"name": "Hungary-Romania Friendship Heart",
+    	"description": "",
+    	"website": "",
+    	"subreddit": "",
+    	"center": [
+    		721.5,
+    		320.5
+    	],
+    	"path": [
+    		[
+    			721.5,
+    			328.5
+    		],
+    		[
+    			728.5,
+    			322.5
+    		],
+    		[
+    			728.5,
+    			316.5
+    		],
+    		[
+    			727.5,
+    			316.5
+    		],
+    		[
+    			726.5,
+    			315.5
+    		],
+    		[
+    			723.5,
+    			315.5
+    		],
+    		[
+    			721.5,
+    			317.5
+    		],
+    		[
+    			719.5,
+    			315.5
+    		],
+    		[
+    			716.5,
+    			315.5
+    		],
+    		[
+    			714.5,
+    			317.5
+    		],
+    		[
+    			714.5,
+    			321.5
+    		],
+    		[
+    			721.5,
+    			328.5
+    		]
+    	]
+    },    {
+    	"id": 1500,
+		"submitted_by": "hoeskioeh",
+    	"name": "Romania",
+    	"description": "Making sure everyone knows which flag was depicted.",
+    	"website": "",
+    	"subreddit": "/r/Romania",
+    	"center": [
+    		734.5,
+    		386.5
+    	],
+    	"path": [
+    		[
+    			719.5,
+    			381.5
+    		],
+    		[
+    			719.5,
+    			391.5
+    		],
+    		[
+    			749.5,
+    			391.5
+    		],
+    		[
+    			749.5,
+    			381.5
+    		],
+    		[
+    			719.5,
+    			381.5
+    		]
+    	]
+    },    {
+    	"id": 1501,
+		"submitted_by": "hoeskioeh",
+    	"name": "Romanian Heart 4",
+    	"description": "One of the three hearts with the Romanian flag.",
+    	"website": "",
+    	"subreddit": "/r/Romania",
+    	"center": [
+    		641.5,
+    		761.5
+    	],
+    	"path": [
+    		[
+    			641.5,
+    			756.5
+    		],
+    		[
+    			640.5,
+    			757.5
+    		],
+    		[
+    			639.5,
+    			758.5
+    		],
+    		[
+    			638.5,
+    			759.5
+    		],
+    		[
+    			637.5,
+    			760.5
+    		],
+    		[
+    			636.5,
+    			761.5
+    		],
+    		[
+    			636.5,
+    			763.5
+    		],
+    		[
+    			637.5,
+    			764.5
+    		],
+    		[
+    			638.5,
+    			765.5
+    		],
+    		[
+    			639.5,
+    			765.5
+    		],
+    		[
+    			640.5,
+    			764.5
+    		],
+    		[
+    			641.5,
+    			763.5
+    		],
+    		[
+    			642.5,
+    			764.5
+    		],
+    		[
+    			643.5,
+    			765.5
+    		],
+    		[
+    			644.5,
+    			765.5
+    		],
+    		[
+    			645.5,
+    			764.5
+    		],
+    		[
+    			646.5,
+    			763.5
+    		],
+    		[
+    			646.5,
+    			762.5
+    		],
+    		[
+    			646.5,
+    			761.5
+    		],
+    		[
+    			641.5,
+    			756.5
+    		]
+    	]
+    },    {
+    	"id": 1502,
+		"submitted_by": "Qiqz",
+    	"name": "Former Mexican territory",
+    	"description": "The r/place timelapse  shows that this used to be Mexican territory, although heavily contested by its neighbors. After the Black Void blew over attempts were made to remexicanize this patch, but there were quite a few other competitors to deal with. The pink square, for example, was clearly out of Mexican hands. It used to be some kind of taco topped by a green jalapeno and a red one.",
+    	"website": "",
+    	"subreddit": "/r/mexico",
+    	"center": [
+    		328.5,
+    		355.5
+    	],
+    	"path": [
+    		[
+    			297.5,
+    			342.5
+    		],
+    		[
+    			325.5,
+    			342.5
+    		],
+    		[
+    			325.5,
+    			354.5
+    		],
+    		[
+    			380.5,
+    			356.5
+    		],
+    		[
+    			381.5,
+    			362.5
+    		],
+    		[
+    			297.5,
+    			362.5
+    		]
+    	]
+    },    {
+    	"id": 1503,
+		"submitted_by": "Cyander",
+    	"name": "Australia flag",
+    	"description": "",
+    	"website": "",
+    	"subreddit": "/r/straya, /r/australia",
+    	"center": [
+    		443.5,
+    		720.5
+    	],
+    	"path": [
+    		[
+    			440.5,
+    			716.5
+    		],
+    		[
+    			441.5,
+    			716.5
+    		],
+    		[
+    			442.5,
+    			717.5
+    		],
+    		[
+    			443.5,
+    			718.5
+    		],
+    		[
+    			444.5,
+    			717.5
+    		],
+    		[
+    			444.5,
+    			716.5
+    		],
+    		[
+    			445.5,
+    			716.5
+    		],
+    		[
+    			446.5,
+    			716.5
+    		],
+    		[
+    			447.5,
+    			717.5
+    		],
+    		[
+    			448.5,
+    			718.5
+    		],
+    		[
+    			448.5,
+    			719.5
+    		],
+    		[
+    			448.5,
+    			720.5
+    		],
+    		[
+    			447.5,
+    			721.5
+    		],
+    		[
+    			446.5,
+    			722.5
+    		],
+    		[
+    			445.5,
+    			723.5
+    		],
+    		[
+    			444.5,
+    			724.5
+    		],
+    		[
+    			443.5,
+    			725.5
+    		],
+    		[
+    			442.5,
+    			724.5
+    		],
+    		[
+    			441.5,
+    			723.5
+    		],
+    		[
+    			440.5,
+    			722.5
+    		],
+    		[
+    			439.5,
+    			721.5
+    		],
+    		[
+    			438.5,
+    			720.5
+    		],
+    		[
+    			438.5,
+    			719.5
+    		],
+    		[
+    			438.5,
+    			718.5
+    		],
+    		[
+    			439.5,
+    			717.5
+    		]
+    	]
+    },    {
+    	"id": 1504,
+		"submitted_by": "Qiqz",
+    	"name": "Bisexual heart",
+    	"description": "According to discussions on r/placehearts this was supposed to be a heart-shaped bisexual pride flag. The right order of colors should have been pink-lavender-blue, though.",
+    	"website": "",
+    	"subreddit": "/r/bisexual",
+    	"center": [
+    		551.5,
+    		737.5
+    	],
+    	"path": [
+    		[
+    			548.5,
+    			732.5
+    		],
+    		[
+    			556.5,
+    			732.5
+    		],
+    		[
+    			557.5,
+    			734.5
+    		],
+    		[
+    			557.5,
+    			738.5
+    		],
+    		[
+    			552.5,
+    			743.5
+    		],
+    		[
+    			550.5,
+    			743.5
+    		],
+    		[
+    			544.5,
+    			735.5
+    		],
+    		[
+    			548.5,
+    			732.5
+    		]
+    	]
+    },    {
+    	"id": 1505,
+		"submitted_by": "Eiggs",
+    	"name": "Bisexual Heart",
+    	"description": "A heart bearing the bisexual flag",
+    	"website": "",
+    	"subreddit": "/r/bisexual",
+    	"center": [
+    		581.5,
+    		761.5
+    	],
+    	"path": [
+    		[
+    			581.5,
+    			755.5
+    		],
+    		[
+    			575.5,
+    			761.5
+    		],
+    		[
+    			575.5,
+    			763.5
+    		],
+    		[
+    			578.5,
+    			766.5
+    		],
+    		[
+    			579.5,
+    			766.5
+    		],
+    		[
+    			581.5,
+    			764.5
+    		],
+    		[
+    			583.5,
+    			766.5
+    		],
+    		[
+    			584.5,
+    			766.5
+    		],
+    		[
+    			586.5,
+    			764.5
+    		],
+    		[
+    			587.5,
+    			763.5
+    		],
+    		[
+    			587.5,
+    			761.5
+    		],
+    		[
+    			581.5,
+    			755.5
+    		]
+    	]
+    },    {
+    	"id": 1506,
+		"submitted_by": "Drilnoth",
+    	"name": "Bender graffiti",
+    	"description": "These tile versions of Bender's face reference the Futurama episode \"Proposition Infinity\", in which Bender becomes a graffiti artist putting up tiled patterns of his face all over New New York City.",
+    	"website": "",
+    	"subreddit": "/r/futurama",
+    	"center": [
+    		667.5,
+    		906.5
+    	],
+    	"path": [
+    		[
+    			661.5,
+    			895.5
+    		],
+    		[
+    			660.5,
+    			922.5
+    		],
+    		[
+    			664.5,
+    			921.5
+    		],
+    		[
+    			665.5,
+    			915.5
+    		],
+    		[
+    			674.5,
+    			913.5
+    		],
+    		[
+    			674.5,
+    			896.5
+    		],
+    		[
+    			673.5,
+    			895.5
+    		],
+    		[
+    			662.5,
+    			895.5
+    		]
+    	]
+    },    {
+    	"id": 1507,
+		"submitted_by": "thepuncess",
+    	"name": "Ladybug Emblem from Miraculous Ladybug",
+    	"description": "Miraculous Ladybug: Tales of Ladybug and Chat Noir is a popular French cartoon about a superhero duo. ",
+    	"website": "",
+    	"subreddit": "/r/miraculousladybug",
+    	"center": [
+    		734.5,
+    		472.5
+    	],
+    	"path": [
+    		[
+    			732.5,
+    			468.5
+    		],
+    		[
+    			730.5,
+    			471.5
+    		],
+    		[
+    			732.5,
+    			477.5
+    		],
+    		[
+    			738.5,
+    			476.5
+    		],
+    		[
+    			738.5,
+    			468.5
+    		],
+    		[
+    			734.5,
+    			466.5
+    		],
+    		[
+    			730.5,
+    			467.5
+    		]
+    	]
+    },    {
+    	"id": 1508,
+		"submitted_by": "Nick12506",
+    	"name": "4/20",
+    	"description": "This area was claimed by /u/Nick12506 for a while and a 4/20 logo was finished until this area was destroyed by multiple groups.",
+    	"website": "",
+    	"subreddit": "",
+    	"center": [
+    		34.5,
+    		349.5
+    	],
+    	"path": [
+    		[
+    			24.5,
+    			352.5
+    		],
+    		[
+    			44.5,
+    			352.5
+    		],
+    		[
+    			44.5,
+    			346.5
+    		],
+    		[
+    			24.5,
+    			346.5
+    		]
+    	]
+    },    {
+    	"id": 1509,
+		"submitted_by": "EQU5VX",
+    	"name": "Former location of the Green Corner",
+    	"description": "Similar to the blue corner, the green corner was a movement dedicated to filling the bottom left corner of the canvas with a solid dark green colour. It appeared during the first few hours of /r/place. Due to a loss of people supporting the movement, it was invaded by the blue corner and overwritten by art within the first day. At its peak, the green corner was comparable in size to the mona lisa art piece, and held the original Tom Searle memorial.",
+    	"website": "",
+    	"subreddit": "/r/TheGreatGreenBox, /r/GreenCorner, /r/GreenEmpire",
+    	"center": [
+    		56.5,
+    		971.5
+    	],
+    	"path": [
+    		[
+    			-3.5,
+    			936.5
+    		],
+    		[
+    			1.5,
+    			932.5
+    		],
+    		[
+    			82.5,
+    			932.5
+    		],
+    		[
+    			145.5,
+    			1004.5
+    		],
+    		[
+    			-5.5,
+    			1004.5
+    		]
+    	]
+    },    {
+    	"id": 1510,
+		"submitted_by": "EpicManiac",
+    	"name": "Super Mario Pipe",
+    	"description": "A pipe from the game Super Mario World.",
+    	"website": "",
+    	"subreddit": "",
+    	"center": [
+    		992.5,
+    		100.5
+    	],
+    	"path": [
+    		[
+    			999.5,
+    			101.5
+    		],
+    		[
+    			991.5,
+    			93.5
+    		],
+    		[
+    			992.5,
+    			92.5
+    		],
+    		[
+    			989.5,
+    			89.5
+    		],
+    		[
+    			981.5,
+    			97.5
+    		],
+    		[
+    			984.5,
+    			100.5
+    		],
+    		[
+    			985.5,
+    			99.5
+    		],
+    		[
+    			999.5,
+    			113.5
+    		]
+    	]
+    },    {
+    	"id": 1511,
+		"submitted_by": "The_Great_Mage",
+    	"name": "White Bear Symbol",
+    	"description": "The symbol from the Black Mirror episode \"White Bear\". Originally part of a large array of White Bear symbols of which only one survived until the end.",
+    	"website": "",
+    	"subreddit": "/r/blackmirror",
+    	"center": [
+    		158.5,
+    		48.5
+    	],
+    	"path": [
+    		[
+    			160.5,
+    			50.5
+    		],
+    		[
+    			160.5,
+    			46.5
+    		],
+    		[
+    			156.5,
+    			46.5
+    		],
+    		[
+    			156.5,
+    			50.5
+    		],
+    		[
+    			160.5,
+    			50.5
+    		]
+    	]
+    },    {
+    	"id": 1512,
+		"submitted_by": "12TripleAce12",
+    	"name": "(covered) 7-1",
+    	"description": "The corner of the Brazil Flag that was vandalized over in over again in an attempt to shame Brazil for their 7-1 defeat against Germany in the 2014 world cup. Now all that remains is a single pixel of where the 7 starts",
+    	"website": "",
+    	"subreddit": "/r/brasil",
+    	"center": [
+    		37.5,
+    		716.5
+    	],
+    	"path": [
+    		[
+    			31.5,
+    			713.5
+    		],
+    		[
+    			43.5,
+    			713.5
+    		],
+    		[
+    			43.5,
+    			719.5
+    		],
+    		[
+    			31.5,
+    			719.5
+    		],
+    		[
+    			31.5,
+    			717.5
+    		]
+    	]
+    },    {
+    	"id": 1513,
+		"submitted_by": "The_floating_bacon",
+    	"name": "Smiling Ancap Meme",
+    	"description": "Ancap (Anarcho-Capitalism) memes are a meme depicting a smiling face wearing sunglasses and giving a thumbs up while poking fun at anacho-capitalism.",
+    	"website": "",
+    	"subreddit": "/r/Anarcho_Capitalism",
+    	"center": [
+    		178.5,
+    		209.5
+    	],
+    	"path": [
+    		[
+    			174.5,
+    			214.5
+    		],
+    		[
+    			184.5,
+    			214.5
+    		],
+    		[
+    			186.5,
+    			212.5
+    		],
+    		[
+    			186.5,
+    			210.5
+    		],
+    		[
+    			182.5,
+    			204.5
+    		],
+    		[
+    			174.5,
+    			204.5
+    		],
+    		[
+    			171.5,
+    			207.5
+    		],
+    		[
+    			171.5,
+    			210.5
+    		]
+    	]
+    },    {
+    	"id": 1514,
+		"submitted_by": "Flexo013",
+    	"name": "Bundled Cable from FTB",
+    	"description": "Next to their logo /r/FTB made this piece of wiring that you use in the popular Minecraft mod.",
+    	"website": "https://ftbwiki.org/Bundled_Cable",
+    	"subreddit": "/r/FeedTheBeast",
+    	"center": [
+    		515.5,
+    		710.5
+    	],
+    	"path": [
+    		[
+    			514.5,
+    			703.5
+    		],
+    		[
+    			514.5,
+    			716.5
+    		],
+    		[
+    			516.5,
+    			716.5
+    		],
+    		[
+    			516.5,
+    			703.5
+    		]
+    	]
+    },    {
+    	"id": 1515,
+		"submitted_by": "Flexo013",
+    	"name": "Numberphile Logo",
+    	"description": "YouTube channel by Brady Haran focused on numbers and mathematics.",
+    	"website": "https://www.youtube.com/user/numberphile",
+    	"subreddit": "/r/numberphile/",
+    	"center": [
+    		902.5,
+    		731.5
+    	],
+    	"path": [
+    		[
+    			897.5,
+    			727.5
+    		],
+    		[
+    			897.5,
+    			735.5
+    		],
+    		[
+    			906.5,
+    			735.5
+    		],
+    		[
+    			906.5,
+    			727.5
+    		]
+    	]
+    },    {
+    	"id": 1516,
+		"submitted_by": "FishFruit14",
+    	"name": "(0,0)",
+    	"description": "The top left corner of /r/place. Warred over by the purple corner, the runescape people, and various others",
+    	"website": "",
+    	"subreddit": "/r/place00",
+    	"center": [
+    		0.5,
+    		0.5
+    	],
+    	"path": [
+    		[
+    			0.5,
+    			0.5
+    		],
+    		[
+    			0.5,
+    			0.5
+    		],
+    		[
+    			0.5,
+    			0.5
+    		],
+    		[
+    			0.5,
+    			0.5
+    		],
+    		[
+    			0.5,
+    			0.5
+    		],
+    		[
+    			0.5,
+    			0.5
+    		],
+    		[
+    			0.5,
+    			0.5
+    		],
+    		[
+    			0.5,
+    			0.5
+    		]
+    	]
+    }, /*   {
+    	"id": 1517,
+		"submitted_by": "Norci",
+    	"name": "MIni Three Crowns",
+    	"description": "Small version of three Crowns is Sweden's heraldic national symbol found among others in the coat of arms consists of three open crowns of gold, set two over one, on a blue background. There is historically younger as a state symbol in Sweden than Bjälbo dynasty lion. Prior occurred other Royal Crest",
+    	"website": "https://sv.wikipedia.org/wiki/Tre_kronor",
+    	"subreddit": "/r/sweden",
+    	"center": [
+    		467.5,
+    		720.5
+    	],
+    	"path": [
+    		[
+    			464.5,
+    			716.5
+    		],
+    		[
+    			462.5,
+    			719.5
+    		],
+    		[
+    			467.5,
+    			725.5
+    		],
+    		[
+    			472.5,
+    			719.5
+    		],
+    		[
+    			471.5,
+    			717.5
+    		],
+    		[
+    			469.5,
+    			716.5
+    		],
+    		[
+    			467.5,
+    			718.5
+    		],
+    		[
+    			466.5,
+    			717.5
+    		]
+    	]
+    }, */   {
+    	"id": 1518,
+		"submitted_by": "Artemis501",
+    	"name": "Mexican Heart",
+    	"description": "A small heart dedicated to Mexico",
+    	"website": "",
+    	"subreddit": "",
+    	"center": [
+    		443.5,
+    		754.5
+    	],
+    	"path": [
+    		[
+    			443.5,
+    			752.5
+    		],
+    		[
+    			441.5,
+    			750.5
+    		],
+    		[
+    			440.5,
+    			750.5
+    		],
+    		[
+    			438.5,
+    			752.5
+    		],
+    		[
+    			438.5,
+    			754.5
+    		],
+    		[
+    			443.5,
+    			759.5
+    		],
+    		[
+    			448.5,
+    			754.5
+    		],
+    		[
+    			448.5,
+    			752.5
+    		],
+    		[
+    			446.5,
+    			750.5
+    		],
+    		[
+    			445.5,
+    			750.5
+    		],
+    		[
+    			443.5,
+    			752.5
+    		]
+    	]
+    },    {
+    	"id": 1519,
+		"submitted_by": "MooperKills",
+    	"name": "PGang Pyramid",
+    	"description": "The symbol of the Pyramid Gang discord server.",
+    	"website": "",
+    	"subreddit": "/r/PGang",
+    	"center": [
+    		995.5,
+    		453.5
+    	],
+    	"path": [
+    		[
+    			990.5,
+    			449.5
+    		],
+    		[
+    			999.5,
+    			449.5
+    		],
+    		[
+    			999.5,
+    			456.5
+    		],
+    		[
+    			990.5,
+    			456.5
+    		],
+    		[
+    			990.5,
+    			449.5
+    		],
+    		[
+    			999.5,
+    			449.5
+    		],
+    		[
+    			999.5,
+    			449.5
+    		],
+    		[
+    			999.5,
+    			449.5
+    		]
+    	]
+    },    {
+    	"id": 1520,
+		"submitted_by": "toys5342",
+    	"name": "The R",
+    	"description": "The R of the sub r/The_R",
+    	"website": "",
+    	"subreddit": "r/THE_R",
+    	"center": [
+    		832.5,
+    		472.5
+    	],
+    	"path": [
+    		[
+    			830.5,
+    			469.5
+    		],
+    		[
+    			834.5,
+    			469.5
+    		],
+    		[
+    			834.5,
+    			475.5
+    		],
+    		[
+    			830.5,
+    			475.5
+    		]
+    	]
+    },    {
+    	"id": 1521,
+		"submitted_by": "RandomStuffOnline",
+    	"name": "Minecraft Chicken",
+    	"description": "A minecraft chicken",
+    	"website": "",
+    	"subreddit": "/r/Minecraft",
+    	"center": [
+    		752.5,
+    		687.5
+    	],
+    	"path": [
+    		[
+    			748.5,
+    			683.5
+    		],
+    		[
+    			748.5,
+    			690.5
+    		],
+    		[
+    			755.5,
+    			690.5
+    		],
+    		[
+    			755.5,
+    			683.5
+    		],
+    		[
+    			751.5,
+    			683.5
+    		]
+    	]
+    },    {
+    	"id": 1522,
+		"submitted_by": "RandomStuffOnline",
+    	"name": "The Earth",
+    	"description": "A small pixel art of the earth",
+    	"website": "",
+    	"subreddit": "",
+    	"center": [
+    		570.5,
+    		903.5
+    	],
+    	"path": [
+    		[
+    			564.5,
+    			907.5
+    		],
+    		[
+    			563.5,
+    			905.5
+    		],
+    		[
+    			563.5,
+    			901.5
+    		],
+    		[
+    			565.5,
+    			897.5
+    		],
+    		[
+    			568.5,
+    			896.5
+    		],
+    		[
+    			572.5,
+    			896.5
+    		],
+    		[
+    			576.5,
+    			899.5
+    		],
+    		[
+    			578.5,
+    			903.5
+    		],
+    		[
+    			577.5,
+    			907.5
+    		],
+    		[
+    			573.5,
+    			910.5
+    		],
+    		[
+    			569.5,
+    			910.5
+    		],
+    		[
+    			565.5,
+    			908.5
+    		],
+    		[
+    			564.5,
+    			907.5
+    		]
+    	]
+    },    {
+    	"id": 1523,
+		"submitted_by": "renzo0903",
+    	"name": "Love hearts between Czechia and Norway",
+    	"description": "Country hearts between Czechia and Norway,mostly made by Dutch Czachs",
+    	"website": "",
+    	"subreddit": "/r/czech",
+    	"center": [
+    		416.5,
+    		51.5
+    	],
+    	"path": [
+    		[
+    			443.5,
+    			54.5
+    		],
+    		[
+    			443.5,
+    			47.5
+    		],
+    		[
+    			388.5,
+    			47.5
+    		],
+    		[
+    			388.5,
+    			54.5
+    		],
+    		[
+    			416.5,
+    			54.5
+    		],
+    		[
+    			427.5,
+    			54.5
+    		],
+    		[
+    			430.5,
+    			54.5
+    		]
+    	]
+    },
+
+    /*=======================================*/
+
+        {
+    	"id": 1492,
+		"submitted_by": "dirtydoughnut",
+    	"name": "Destroyed Twenty One Pilots Logo",
+    	"description": "Before the void took over this was the spot where the logo (|-/) for tweny one pilots, the popular band was.",
+    	"website": "http://twentyonepilots.com",
+    	"subreddit": "/r/twentyonepilots/",
+    	"center": [
+    		192.5,
+    		416.5
+    	],
+    	"path": [
+    		[
+    			190.5,
+    			409.5
+    		],
+    		[
+    			184.5,
+    			412.5
+    		],
+    		[
+    			183.5,
+    			418.5
+    		],
+    		[
+    			190.5,
+    			424.5
+    		],
+    		[
+    			197.5,
+    			421.5
+    		],
+    		[
+    			202.5,
+    			415.5
+    		],
+    		[
+    			198.5,
+    			410.5
+    		],
+    		[
+    			194.5,
+    			408.5
+    		],
+    		[
+    			188.5,
+    			409.5
+    		]
+    	]
+    },    {
+    	"id": 1493,
+		"submitted_by": "Qiqz",
+    	"name": "Flag of Malaysia (attempted)",
+    	"description": "This used to be one of the many flags of Romania. See http://i.imgur.com/Cl09MCX.png. Apparently, attempts were made to turn it into the flag of Malaysia, but the crescent and star didn't come out right. Which is not surprising, as lack of space made it nearly impossible to cram in these finer details. ",
+    	"website": "",
+    	"subreddit": "/r/malaysia",
+    	"center": [
+    		653.5,
+    		762.5
+    	],
+    	"path": [
+    		[
+    			652.5,
+    			755.5
+    		],
+    		[
+    			647.5,
+    			761.5
+    		],
+    		[
+    			647.5,
+    			766.5
+    		],
+    		[
+    			659.5,
+    			766.5
+    		],
+    		[
+    			659.5,
+    			761.5
+    		],
+    		[
+    			653.5,
+    			755.5
+    		]
+    	]
+    },    {
+    	"id": 1494,
+		"submitted_by": "Qiqz",
+    	"name": "Flag of Greenland",
+    	"description": "Heart-shaped flag of Greenland with some stray pixels on the right.",
+    	"website": "",
+    	"subreddit": "/r/greenland",
+    	"center": [
+    		629.5,
+    		761.5
+    	],
+    	"path": [
+    		[
+    			635.5,
+    			761.5
+    		],
+    		[
+    			633.5,
+    			765.5
+    		],
+    		[
+    			633.5,
+    			766.5
+    		],
+    		[
+    			624.5,
+    			766.5
+    		],
+    		[
+    			623.5,
+    			760.5
+    		],
+    		[
+    			629.5,
+    			755.5
+    		],
+    		[
+    			635.5,
+    			761.5
+    		]
+    	]
+    },  /*  {
+    	"id": 1495,
+		"submitted_by": "LinesGuy2",
+    	"name": "Tetris pieces",
+    	"description": "All 7 pieces (or tetriminos, if you will)  from the game tetris",
+    	"website": "",
+    	"subreddit": "/r/tetris",
+    	"center": [
+    		0.5,
+    		0.5
+    	],
+    	"path": []
+    },  */  {
+    	"id": 1496,
+		"submitted_by": "Qiqz",
+    	"name": "Minecraft sword over a red heart",
+    	"description": "This used to be an extremely long Minecraft sword on top of a red heart: http://i.imgur.com/vuBMdkl.png. It was unlikely to survive in its original form. This is all what's left now.",
+    	"website": "",
+    	"subreddit": "/r/minecraft",
+    	"center": [
+    		569.5,
+    		727.5
+    	],
+    	"path": [
+    		[
+    			564.5,
+    			725.5
+    		],
+    		[
+    			569.5,
+    			720.5
+    		],
+    		[
+    			575.5,
+    			728.5
+    		],
+    		[
+    			575.5,
+    			732.5
+    		],
+    		[
+    			563.5,
+    			732.5
+    		]
+    	]
+    },    {
+    	"id": 1497,
+		"submitted_by": "Qiqz",
+    	"name": "Bowser",
+    	"description": "This used to be Bowser shooting fire. Bowser is mentioned here: https://www.reddit.com/r/announcements/comments/62mesr/place/dfqpf7i/. Full picture: http://i.imgur.com/yB3Tfiz.png.",
+    	"website": "",
+    	"subreddit": "/r/mariokart",
+    	"center": [
+    		682.5,
+    		618.5
+    	],
+    	"path": [
+    		[
+    			671.5,
+    			612.5
+    		],
+    		[
+    			686.5,
+    			612.5
+    		],
+    		[
+    			697.5,
+    			623.5
+    		],
+    		[
+    			673.5,
+    			624.5
+    		],
+    		[
+    			671.5,
+    			612.5
+    		]
+    	]
+    },    {
+    	"id": 1498,
+		"submitted_by": "Qiqz",
+    	"name": "Black cats",
+    	"description": "The black cats were protected by the Blue Corner, but still had a hard time surviving. User u/slepton was one of the creators of the cat on the right. The one on the left was added later and was fiercely defended by u/allykathey. See discussion on https://www.reddit.com/r/TheBlueCorner/comments/62z116/rules_for_artists/",
+    	"website": "",
+    	"subreddit": "/r/thebluecorner",
+    	"center": [
+    		900.5,
+    		939.5
+    	],
+    	"path": [
+    		[
+    			887.5,
+    			933.5
+    		],
+    		[
+    			913.5,
+    			933.5
+    		],
+    		[
+    			914.5,
+    			944.5
+    		],
+    		[
+    			887.5,
+    			944.5
+    		]
+    	]
+    },    {
+    	"id": 1499,
+		"submitted_by": "Qiqz",
+    	"name": "Provincial flags of Ireland",
+    	"description": "These hearts depict the flags of the four traditional provinces of Ireland. The first heart represents the flag of Ulster, the second is the flag of Munster, the third is the flag of Leinster and the fourth is the flag of Connacht.",
+    	"website": "",
+    	"subreddit": "/r/ireland",
+    	"center": [
+    		472.5,
+    		719.5
+    	],
+    	"path": [
+    		[
+    			451.5,
+    			715.5
+    		],
+    		[
+    			491.5,
+    			715.5
+    		],
+    		[
+    			491.5,
+    			717.5
+    		],
+    		[
+    			497.5,
+    			717.5
+    		],
+    		[
+    			497.5,
+    			720.5
+    		],
+    		[
+    			491.5,
+    			726.5
+    		],
+    		[
+    			486.5,
+    			721.5
+    		],
+    		[
+    			479.5,
+    			726.5
+    		],
+    		[
+    			473.5,
+    			721.5
+    		],
+    		[
+    			467.5,
+    			726.5
+    		],
+    		[
+    			461.5,
+    			720.5
+    		],
+    		[
+    			455.5,
+    			726.5
+    		],
+    		[
+    			449.5,
+    			721.5
+    		],
+    		[
+    			449.5,
+    			715.5
+    		]
+    	]
+    },   {
+    	"id": 1500,
+		"submitted_by": "UltraRunningKid",
+    	"name": "ELON ",
+    	"description": "Referring to Elon Musk, CEO and chief engineer of SpaceX, CEO of Tesla, former owner of Paypal",
+    	"website": "",
+    	"subreddit": "/r/ElonMusk",
+    	"center": [
+    		717.5,
+    		221.5
+    	],
+    	"path": [
+    		[
+    			714.5,
+    			209.5
+    		],
+    		[
+    			715.5,
+    			234.5
+    		],
+    		[
+    			721.5,
+    			233.5
+    		],
+    		[
+    			720.5,
+    			209.5
+    		],
+    		[
+    			718.5,
+    			208.5
+    		]
+    	]
+    },    {
+    	"id": 1501,
+		"submitted_by": "loomynartylenny",
+    	"name": "A grey line by loomynartylenny",
+    	"description": "Reddit user loomynartylenny was attempting to write 'Braveryjerk' on the SpaceX rocket (due to r/Braveryjerk having an Elon Musk theme at the time, which has been backed up on r/elonjerk). They got bored, so they didn't even finish the B. However, this line was still here. Bravery intensifies.",
+    	"website": "",
+    	"subreddit": "/r/Braveryjerk",
+    	"center": [
+    		756.5,
+    		76.5
+    	],
+    	"path": [
+    		[
+    			753.5,
+    			75.5
+    		],
+    		[
+    			753.5,
+    			77.5
+    		],
+    		[
+    			758.5,
+    			77.5
+    		],
+    		[
+    			758.5,
+    			75.5
+    		]
+    	]
+    },    {
+    	"id": 1502,
+		"submitted_by": "Qiqz",
+    	"name": "German hearts",
+    	"description": "Heart-shaped german flags",
+    	"website": "",
+    	"subreddit": "/r/de",
+    	"center": [
+    		479.5,
+    		744.5
+    	],
+    	"path": [
+    		[
+    			468.5,
+    			743.5
+    		],
+    		[
+    			473.5,
+    			738.5
+    		],
+    		[
+    			476.5,
+    			738.5
+    		],
+    		[
+    			478.5,
+    			743.5
+    		],
+    		[
+    			484.5,
+    			738.5
+    		],
+    		[
+    			486.5,
+    			738.5
+    		],
+    		[
+    			491.5,
+    			743.5
+    		],
+    		[
+    			491.5,
+    			748.5
+    		],
+    		[
+    			472.5,
+    			749.5
+    		],
+    		[
+    			469.5,
+    			749.5
+    		],
+    		[
+    			467.5,
+    			744.5
+    		]
+    	]
+    },    {
+    	"id": 1503,
+		"submitted_by": "ladydemoiselle",
+    	"name": "Indonesian/Singaporean/Dutch Heart",
+    	"description": "Originaly an Indonesian Heart, but sometimes it becomes Singaporean and sometimes Dutch. It's been a continous war between those three. At the end it's an Indonesian flag with unfinished Singaporean moon/stars (top left) and unfinished Dutch blue stripe. ",
+    	"website": "",
+    	"subreddit": "/r/Indonesia, /r/Singapore, /r/thenetherlands",
+    	"center": [
+    		575.5,
+    		737.5
+    	],
+    	"path": [
+    		[
+    			575.5,
+    			742.5
+    		],
+    		[
+    			580.5,
+    			737.5
+    		],
+    		[
+    			580.5,
+    			735.5
+    		],
+    		[
+    			578.5,
+    			733.5
+    		],
+    		[
+    			577.5,
+    			733.5
+    		],
+    		[
+    			575.5,
+    			735.5
+    		],
+    		[
+    			573.5,
+    			733.5
+    		],
+    		[
+    			572.5,
+    			733.5
+    		],
+    		[
+    			570.5,
+    			735.5
+    		],
+    		[
+    			570.5,
+    			737.5
+    		]
+    	]
+    },    {
+    	"id": 1504,
+		"submitted_by": "Geosage",
+    	"name": "Blocker Lemming",
+    	"description": "From the 1991 classic DOS game Lemmings, a 'blocker' lemming stands guard after having been chased away from a beginning on the left side of the U.S. flag, to the upper right corner or the Dark Side of the Moon cover, to finally end up here in a forgotten tiny corner of the much  contested surrounding area.",
+    	"website": "",
+    	"subreddit": "",
+    	"center": [
+    		364.5,
+    		594.5
+    	],
+    	"path": [
+    		[
+    			366.5,
+    			589.5
+    		],
+    		[
+    			369.5,
+    			593.5
+    		],
+    		[
+    			367.5,
+    			600.5
+    		],
+    		[
+    			360.5,
+    			599.5
+    		],
+    		[
+    			358.5,
+    			593.5
+    		],
+    		[
+    			362.5,
+    			589.5
+    		],
+    		[
+    			362.5,
+    			589.5
+    		],
+    		[
+    			366.5,
+    			589.5
+    		],
+    		[
+    			366.5,
+    			589.5
+    		]
+    	]
+    },
 		
 ];
 

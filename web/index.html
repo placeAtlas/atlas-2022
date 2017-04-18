@@ -30,44 +30,33 @@
 			The /r/place Atlas
 		</title>
 
-		<meta name="description" content="An Atlas of Reddit's /r/place, with information to each artwork of the canvas.">
+		<meta name="description" content="An interactive map of Reddit's /r/place, with information to each artwork of the canvas.">
 		<meta name="author" content="Roland Rytz">
 		<meta name="keywords" content="reddit, /r/place, april">
-		<meta name="application-name" content="/r/place Atlas">
+		<meta name="application-name" content="The /r/place Atlas">
 		<meta name="robots" content="index, follow">
 		
 		<meta name="google-site-verification" content="gZGHpBSMzffAbIn0qB8b00We6EwSGkDTfDoQVv-NWss" />
 
 		<meta name="viewport" content="width=device-width, height=device-height, initial-scale=1, minimum-scale=1, maximum-scale=1, user-scalable=no, shrink-to-fit=no">
+		<meta name="mobile-web-app-capable" content="yes">
 
-		<link href="./_css/style.css?version=1.0.30" rel="stylesheet" type="text/css" media="all">
+		<link href="./_css/style.css?version=1.0.31" rel="stylesheet" type="text/css" media="all">
 
 	</head>
 	<body>
 		<div id="wrapper">
 			<header>
 				<a href="./">
-					<img id="logo" src="./_img/logo-100x100.png" height="50" width="50" alt="">
+					<img id="logo" src="./_img/logo.png" height="50" width="50" alt="Logo">
+					<!-- If you wonder why I shrink the image in html,
+					     it's because this is the image that will be used
+					     by reddit and the like as the thumbnail for the site.
+					     The original is only 5.9kB, which wouldn't get much
+					     smaller by reducing the actualy size.  -->
 					<h1 id="title">The /r/place Atlas</h1>
 				</a>
-				<!--nav>
-					<a id="viewLink" href="./" class="current">View</a>
-					<a id="drawLink" href="./?mode=draw">Draw</a>
-					<a id="aboutLink" href="./about.html">About</a>
-				</nav-->
 			</header>
-
-			<!--header class="mobile">
-				<a href="./">
-					<img id="logo" src="./_img/logo-100x100.png" height="50" width="50" alt="">
-					<h1>The /r/place Atlas</h1>
-				</a>
-				<nav>
-					<a id="viewLink" href="./" class="current">View</a>
-					<a id="drawLink" href="./?mode=draw">Draw</a>
-					<a id="aboutLink" href="./about.html">About</a>
-				</nav>
-			</header-->
 			
 			<div id="container">
 				<div id="loading">
@@ -155,12 +144,6 @@
 
 			<button class="hidden" id="closeObjectsListButton"></button>
 			<div id="objectsList">
-				<!--div class="object">
-					<h2>Tux</h2>
-					<p>Tux is the official mascot of the Linux operating system.</p>
-					<a href="Website">Website</a>
-					<a href="">/r/linux</a>
-				</div-->
 			</div>
 
 			<div id="exportOverlay" class="overlay">
@@ -181,18 +164,20 @@
 		
 
 
+<!--
 		<script type="text/javascript" src="./_js/pointInPolygon.js?version=1.0"></script>
 		<script type="text/javascript" src="./_js/atlas.js?version=1.0.50"></script>
 		<script type="text/javascript" src="./_js/view.js?version=1.0.4"></script>
 		<script type="text/javascript" src="./_js/overlap.js?version=1.0.4"></script>
 		<script type="text/javascript" src="./_js/draw.js?version=1.0.3"></script>
 		<script type="text/javascript" src="./_js/main.js?version=1.0.3"></script>
-		
-		<script type="text/javascript" src="./_js/stats.js?version=1.0.0"></script>
-
-<!--
-		<script type="text/javascript" src="./_js/minified.js?version=1.0.93"></script>
 -->
+		
+<!--
+		<script type="text/javascript" src="./_js/stats.js?version=1.0.0"></script>
+-->
+
+		<script type="text/javascript" src="./_js/minified.js?version=1.0.98"></script>
 
 		
 	</body>
