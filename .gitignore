@@ -4,5 +4,6 @@ praw
 temp.js
 users.html
 oldusers.html
-minified.js
+web/_js/minified.js
 allCharacters.txt
+combined.js

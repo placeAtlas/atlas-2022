@@ -9587,7 +9587,7 @@ var atlas = [
     		]
     	]
 	},
-	{
+	/*{
 		"id": 166,
 		"name": "Coldplay",
 		"description": "The cover art of three Coldplay albums, from left to right: X&Y (2005), Parachutes (2000) and A Rush of Blood to the Head (2002)",
@@ -9651,7 +9651,7 @@ var atlas = [
 				573.5
 			]
 		]
-	},
+	},*/
 	{
 		"id": 167,
 		"name": "Lúcio",
@@ -12663,7 +12663,7 @@ var atlas = [
 			]
 		]
 	},
-	{
+	/*{
 		"id": 217,
 		"name": "Los Angeles Lakers",
 		"description": "National Basketball Association (NBA) team",
@@ -12767,7 +12767,7 @@ var atlas = [
 				753.5
 			]
 		]
-	},
+	},*/
 	{
 		"id": 218,
 		"name": "Boston Celtics",
@@ -31552,7 +31552,7 @@ var atlas = [
     			696.5
     		]
     	]
-    },    {
+    },   /* {
     	"id": 457,
     	"name": "Three bikes in the colors of the Dutch flag.",
     	"description": "Holland is a country of cyclists. It's the country with the highest number of bicycles per capita.",
@@ -31580,7 +31580,7 @@ var atlas = [
     			0.5
     		]
     	]
-    },    {
+    },  */  {
     	"id": 458,
     	"name": "Realm of the Mad God",
     	"description": "Realm of the Mad God is a permadeath MMO shooter which you can play in-browser or on Steam, currently run by DECA Games. Here we see Oryx, the main boss of the game, a white bag (in which rare, good loot drops) and a sprite, one of the other enemies in the game (here holding and Irish flag since we built on Ireland's territory).",
@@ -49099,8 +49099,8 @@ var atlas = [
     },    {
     	"id": 727,
 		"submitted_by": "raseksa",
-    	"name": "Parachutes",
-    	"description": "Debut studio album of Coldplay",
+    	"name": "Coldplay: Parachutes",
+    	"description": "Debut studio album of the British rock band Coldplay, released in 2000.",
     	"website": "https://en.wikipedia.org/wiki/Parachutes_(album)",
     	"subreddit": "/r/coldplay",
     	"center": [
@@ -55146,7 +55146,7 @@ var atlas = [
     			720.5
     		]
     	]
-    },    {
+    },  /*  {
     	"id": 827,
 		"submitted_by": "BrennanofOrange",
     	"name": "UVIC",
@@ -55179,7 +55179,7 @@ var atlas = [
     			98.5
     		]
     	]
-    },    {
+    },  */  {
     	"id": 828,
 		"submitted_by": "Sarculus",
     	"name": "The Dutch border",
@@ -59857,93 +59857,29 @@ var atlas = [
     },   */ {
     	"id": 930,
 		"submitted_by": "Toriel420",
-    	"name": "Payday 2 Icon",
+    	"name": "Payday 2",
     	"description": "Small icon that represents the videogame, PAYDAY 2. In the final hours of r/place, it seems to have been vandalised a bit and is slightly disfigured from the end result.",
     	"website": "",
     	"subreddit": "/r/paydaytheheist",
     	"center": [
-    		684.5,
-    		964.5
+    		683.5,
+    		965.5
     	],
     	"path": [
     		[
-    			684.5,
+    			675.5,
+    			955.5
+    		],
+    		[
+    			691.5,
+    			955.5
+    		],
+    		[
+    			691.5,
     			974.5
-    		],
-    		[
-    			684.5,
-    			971.5
-    		],
-    		[
-    			691.5,
-    			971.5
-    		],
-    		[
-    			691.5,
-    			965.5
-    		],
-    		[
-    			688.5,
-    			965.5
-    		],
-    		[
-    			688.5,
-    			963.5
-    		],
-    		[
-    			688.5,
-    			963.5
-    		],
-    		[
-    			688.5,
-    			963.5
-    		],
-    		[
-    			691.5,
-    			961.5
-    		],
-    		[
-    			691.5,
-    			955.5
-    		],
-    		[
-    			676.5,
-    			955.5
-    		],
-    		[
-    			676.5,
-    			959.5
-    		],
-    		[
-    			682.5,
-    			959.5
-    		],
-    		[
-    			682.5,
-    			960.5
     		],
     		[
     			675.5,
-    			967.5
-    		],
-    		[
-    			676.5,
-    			971.5
-    		],
-    		[
-    			677.5,
-    			971.5
-    		],
-    		[
-    			681.5,
-    			971.5
-    		],
-    		[
-    			681.5,
-    			974.5
-    		],
-    		[
-    			684.5,
     			974.5
     		]
     	]
@@ -62859,7 +62795,7 @@ var atlas = [
     			623.5
     		]
     	]
-    },{
+    },/*{
     	"id": 985,
 		"submitted_by": "OgreGaben",
     	"name": "Ashley",
@@ -62924,7 +62860,7 @@ var atlas = [
     			657.5
     		]
     	]
-    },{
+    },*/{
     	"id": 986,
 		"submitted_by": "OgreGaben",
     	"name": "Surprised Patrick",
@@ -63365,7 +63301,7 @@ var atlas = [
     			569.5
     		]
     	]
-    },    {
+    },  /*  {
     	"id": 996,
 		"submitted_by": "Hubzee",
     	"name": "Payday 2 Logo",
@@ -63394,7 +63330,7 @@ var atlas = [
     			974.5
     		]
     	]
-    },  /*  {
+    }, */ /*  {
     	"id": 997,
 		"submitted_by": "darkmushu",
     	"name": "Chicago Cubs logo",
@@ -65450,7 +65386,7 @@ var atlas = [
     			448.5
     		]
     	]
-    },{
+    },/*{
     	"id": 1032,
 		"submitted_by": "amoliski",
     	"name": "CYMRU",
@@ -65479,7 +65415,7 @@ var atlas = [
     			589.5
     		]
     	]
-    }, {
+    }, */{
     	"id": 1033,
 		"submitted_by": "amoliski",
     	"name": "Tree",
@@ -66809,7 +66745,7 @@ var atlas = [
     			455.5
     		]
     	]
-    },  */  {
+    },  *//*  {
     	"id": 1063,
 		"submitted_by": "MehKnight",
     	"name": "HUEBR",
@@ -66838,7 +66774,7 @@ var atlas = [
     			733.5
     		]
     	]
-    },  /*  {
+    },  *//*  {
     	"id": 1064,
 		"submitted_by": "CarVac",
     	"name": "Little Witch Academia",
@@ -70248,7 +70184,7 @@ var atlas = [
         ]
     ]
 }
-,    {
+,  /*  {
     	"id": 1127,
 		"submitted_by": "PootnScoot",
     	"name": "Enchanted Mango",
@@ -70325,7 +70261,7 @@ var atlas = [
     			306.5
     		]
     	]
-    },    {
+    },   */ {
     	"id": 1128,
 		"submitted_by": "MrEaters",
     	"name": "University of Notre Dame",
@@ -89160,7 +89096,7 @@ var atlas = [
     /*=======================================*/
 
         {
-    	"id": 1492,
+    	"id": 1524,
 		"submitted_by": "dirtydoughnut",
     	"name": "Destroyed Twenty One Pilots Logo",
     	"description": "Before the void took over this was the spot where the logo (|-/) for tweny one pilots, the popular band was.",
@@ -89209,7 +89145,7 @@ var atlas = [
     		]
     	]
     },    {
-    	"id": 1493,
+    	"id": 1525,
 		"submitted_by": "Qiqz",
     	"name": "Flag of Malaysia (attempted)",
     	"description": "This used to be one of the many flags of Romania. See http://i.imgur.com/Cl09MCX.png. Apparently, attempts were made to turn it into the flag of Malaysia, but the crescent and star didn't come out right. Which is not surprising, as lack of space made it nearly impossible to cram in these finer details. ",
@@ -89246,7 +89182,7 @@ var atlas = [
     		]
     	]
     },    {
-    	"id": 1494,
+    	"id": 1526,
 		"submitted_by": "Qiqz",
     	"name": "Flag of Greenland",
     	"description": "Heart-shaped flag of Greenland with some stray pixels on the right.",
@@ -89287,7 +89223,7 @@ var atlas = [
     		]
     	]
     },  /*  {
-    	"id": 1495,
+    	"id": 1527,
 		"submitted_by": "LinesGuy2",
     	"name": "Tetris pieces",
     	"description": "All 7 pieces (or tetriminos, if you will)  from the game tetris",
@@ -89299,7 +89235,7 @@ var atlas = [
     	],
     	"path": []
     },  */  {
-    	"id": 1496,
+    	"id": 1528,
 		"submitted_by": "Qiqz",
     	"name": "Minecraft sword over a red heart",
     	"description": "This used to be an extremely long Minecraft sword on top of a red heart: http://i.imgur.com/vuBMdkl.png. It was unlikely to survive in its original form. This is all what's left now.",
@@ -89332,7 +89268,7 @@ var atlas = [
     		]
     	]
     },    {
-    	"id": 1497,
+    	"id": 1529,
 		"submitted_by": "Qiqz",
     	"name": "Bowser",
     	"description": "This used to be Bowser shooting fire. Bowser is mentioned here: https://www.reddit.com/r/announcements/comments/62mesr/place/dfqpf7i/. Full picture: http://i.imgur.com/yB3Tfiz.png.",
@@ -89365,7 +89301,7 @@ var atlas = [
     		]
     	]
     },    {
-    	"id": 1498,
+    	"id": 1530,
 		"submitted_by": "Qiqz",
     	"name": "Black cats",
     	"description": "The black cats were protected by the Blue Corner, but still had a hard time surviving. User u/slepton was one of the creators of the cat on the right. The one on the left was added later and was fiercely defended by u/allykathey. See discussion on https://www.reddit.com/r/TheBlueCorner/comments/62z116/rules_for_artists/",
@@ -89394,7 +89330,7 @@ var atlas = [
     		]
     	]
     },    {
-    	"id": 1499,
+    	"id": 1531,
 		"submitted_by": "Qiqz",
     	"name": "Provincial flags of Ireland",
     	"description": "These hearts depict the flags of the four traditional provinces of Ireland. The first heart represents the flag of Ulster, the second is the flag of Munster, the third is the flag of Leinster and the fourth is the flag of Connacht.",
@@ -89463,7 +89399,7 @@ var atlas = [
     		]
     	]
     },   {
-    	"id": 1500,
+    	"id": 1532,
 		"submitted_by": "UltraRunningKid",
     	"name": "ELON ",
     	"description": "Referring to Elon Musk, CEO and chief engineer of SpaceX, CEO of Tesla, former owner of Paypal",
@@ -89496,7 +89432,7 @@ var atlas = [
     		]
     	]
     },    {
-    	"id": 1501,
+    	"id": 1533,
 		"submitted_by": "loomynartylenny",
     	"name": "A grey line by loomynartylenny",
     	"description": "Reddit user loomynartylenny was attempting to write 'Braveryjerk' on the SpaceX rocket (due to r/Braveryjerk having an Elon Musk theme at the time, which has been backed up on r/elonjerk). They got bored, so they didn't even finish the B. However, this line was still here. Bravery intensifies.",
@@ -89525,7 +89461,7 @@ var atlas = [
     		]
     	]
     },    {
-    	"id": 1502,
+    	"id": 1534,
 		"submitted_by": "Qiqz",
     	"name": "German hearts",
     	"description": "Heart-shaped german flags",
@@ -89582,7 +89518,7 @@ var atlas = [
     		]
     	]
     },    {
-    	"id": 1503,
+    	"id": 1535,
 		"submitted_by": "ladydemoiselle",
     	"name": "Indonesian/Singaporean/Dutch Heart",
     	"description": "Originaly an Indonesian Heart, but sometimes it becomes Singaporean and sometimes Dutch. It's been a continous war between those three. At the end it's an Indonesian flag with unfinished Singaporean moon/stars (top left) and unfinished Dutch blue stripe. ",
@@ -89635,7 +89571,7 @@ var atlas = [
     		]
     	]
     },    {
-    	"id": 1504,
+    	"id": 1536,
 		"submitted_by": "Geosage",
     	"name": "Blocker Lemming",
     	"description": "From the 1991 classic DOS game Lemmings, a 'blocker' lemming stands guard after having been chased away from a beginning on the left side of the U.S. flag, to the upper right corner or the Dark Side of the Moon cover, to finally end up here in a forgotten tiny corner of the much  contested surrounding area.",
@@ -89684,6 +89620,73 @@ var atlas = [
     		]
     	]
     },
+
+    {
+    	"id": 1537,
+    	"name": "Coldplay: X&Y",
+    	"description": "2005 album of the British rock band Coldplay",
+    	"website": "",
+    	"subreddit": "/r/coldplay",
+    	"center": [
+    		771.5,
+    		566.5
+    	],
+    	"path": [
+    		[
+    			763.5,
+    			558.5
+    		],
+    		[
+    			763.5,
+    			573.5
+    		],
+    		[
+    			778.5,
+    			573.5
+    		],
+    		[
+    			778.5,
+    			558.5
+    		]
+    	]
+    },
+    {
+    	"id": 1538,
+    	"name": "Coldplay: A Rush of Blood to the Head",
+    	"description": "2002 album of the British rock band Coldplay",
+    	"website": "",
+    	"subreddit": "/r/coldplay",
+    	"center": [
+    		793.5,
+    		556.5
+    	],
+    	"path": [
+    		[
+    			785.5,
+    			550.5
+    		],
+    		[
+    			800.5,
+    			550.5
+    		],
+    		[
+    			800.5,
+    			564.5
+    		],
+    		[
+    			794.5,
+    			564.5
+    		],
+    		[
+    			794.5,
+    			561.5
+    		],
+    		[
+    			785.5,
+    			561.5
+    		]
+    	]
+    }
 		
 ];
 
