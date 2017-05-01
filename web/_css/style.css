@@ -599,6 +599,8 @@ input[type="checkbox"]{
 	right: 0px;
 	bottom: 0px;
 	background-color: rgba(0, 0, 0, 0.8);
+	display: none;
+	justify-content: center;
 }
 
 #exportWindow{
@@ -756,30 +758,61 @@ button#zoomResetButton{
 }
 
 #entriesListContainer > nav{
-	text-align: center;
 	margin: 10px 0px;
+	display: flex;
+	flex-shrink: 0;
+	justify-content: center;
 }
 
-#entriesListContainer > nav > a{
+#entriesListContainer > nav > a,
+#entriesListContainer > nav > button{
 	background-image: linear-gradient(to bottom, #888888, #666666);
 	border: 1px #000000 solid;
 	color: #FFFFFF;
 	text-align: center;
-	display: inline-block;
-	padding: 5px;
+	display: block;
+	padding: 4px;
 	cursor: pointer;
-	width: 130px;
+	width: 120px;
+	height: 30px;
 	margin-right: 10px;
 	text-shadow: 1px 1px 0px #444444;
 }
 
-#entriesListContainer > nav > a:last-child{
+#entriesListContainer > nav > button{
+	width: 30px;
+	padding: 2px;
+	flex-shrink: 0;
+}
+
+#entriesListContainer > nav > button > img{
+	height: 22px;
+	width: 22px;
+}
+
+#entriesListContainer > nav > button:last-child{
 	margin-right: 0px;
 }
 
 #entriesListContainer > nav > a:hover{
 	text-decoration: none;
 	background-image: linear-gradient(to bottom, #999999, #777777);
+}
+
+#entriesListContainer > nav > button:hover{
+	background-image: none;
+	background: transparent;
+	border-color: transparent;
+}
+
+#entriesListContainer > nav > button:hover > img{
+	text-decoration: none;
+	background-image: linear-gradient(to bottom, #FFAA00, #FFAA00);
+	border-radius: 15px;
+	padding: 3px;
+	margin: -3px;
+	height: 28px;
+	width: 28px;
 }
 
 #entriesListBackground{
@@ -968,28 +1001,47 @@ button#zoomResetButton{
 	cursor: pointer;
 }
 
-#bitcoinWindow{
-	display: none;
-	position: absolute;
+#bitcoinWindow,
+#donateWindow{
+	display: inline-block;
 	z-index: 2000;
 	max-width: 400px;
-	left: calc(50% - 200px);
 	background-color: #444444;
 	border: 1px #000000 solid;
 	width: 100%;
 	text-align: center;
-	top: 70px;
-	bottom: 10px;
+	min-height: 50px;
 	max-height: 500px;
 	overflow: auto;
+	height: auto;
+	align-self: center;
 }
 
-#bitcoinWindow > *{
+#donateWindow{
+	top: 20px;
+	max-height: 100%;
+	max-width: 800px;
+}
+
+#donateWindow > #bitcoinQR{
+	
+}
+
+#donateWindow > p{
+	margin: 2px 0px;
+	padding: 0px 20px;
+	text-align: left;
+	width: 100%;
+}
+
+#bitcoinWindow > *,
+#donateWindow > *{
 	display: inline-block;
 	margin: 5px 0px;
 }
 
-#bitcoinWindow > h2{
+#bitcoinWindow > h2,
+#donateWindow > h2{
 	font-weight: 200;
 	background-color: #555555;
 	width: 100%;
@@ -998,17 +1050,19 @@ button#zoomResetButton{
 	text-shadow: 1px 1px 0px #000000;
 }
 
-#bitcoinWindow input{
+#bitcoinWindow input,
+#donateWindow input{
 	width: 100%;
 	max-width: 350px;
 	font-size: 14px;
 	background-color: #666666;
-	padding: 15px 3px;
 	text-align: center;
 	cursor: text;
+	color: #FFFFFF;
 }
 
-#bitcoinWindow button{
+#bitcoinWindow button,
+#donateWindow button{
 	padding: 10px 20px;
 	margin-bottom: 20px;
 	margin-top: 10px;

@@ -224,7 +224,7 @@ function initDraw(){
 		jsonString = "    "+jsonString;
 		textarea.value = jsonString;
 
-		exportOverlay.style.display = "block";
+		exportOverlay.style.display = "flex";
 		
 		textarea.focus();
 		textarea.select();

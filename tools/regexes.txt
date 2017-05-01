@@ -1,0 +1,9 @@
+
+
+Find all stuff between json objects:
+
+  \}[^\{\}]*?[^\s,][^\{\}]*?\{
+
+Find all entries not separated by commas:
+
+  \}[^\{\},]*?[^,][^\{\},]*?\{

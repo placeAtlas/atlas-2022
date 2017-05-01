@@ -1,6 +1,4 @@
 
-#6y7LtOjoNEfe72g62kZfwtFHMWkQ8XsZvcQ8xZDe
-
 import praw
 
 outfile = open('users.html', 'w')
