@@ -309,6 +309,9 @@ function initView(){
 
 		if (entry.length === 1){
 			entry = entry[0];
+
+			document.title = entry.name + " on the /r/place Atlas";
+			
 			var infoElement = createInfoBlock(entry);
 			objectsContainer.innerHTML = "";
 			objectsContainer.appendChild(infoElement);

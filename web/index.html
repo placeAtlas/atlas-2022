@@ -32,7 +32,7 @@
 
 		<meta name="description" content="An interactive map of Reddit's /r/place, with information to each artwork of the canvas.">
 		<meta name="author" content="Roland Rytz">
-		<meta name="keywords" content="reddit, /r/place, april">
+		<meta name="keywords" content="reddit, /r/place">
 		<meta name="application-name" content="The /r/place Atlas">
 		<meta name="robots" content="index, follow">
 		
@@ -42,6 +42,36 @@
 		<meta name="mobile-web-app-capable" content="yes">
 
 		<link href="./_css/style.css?version=1.0.32" rel="stylesheet" type="text/css" media="all">
+
+		<script type="application/ld+json">
+			{
+				"@context": "http://schema.org",
+				"@type": "WebSite",
+				"name": "The /r/place Atlas",
+				"url": "https://draemm.li/various/place-atlas",
+				"author": {
+					"@type": "Person",
+					"@id": "#RolandRytz",
+					"name": "Roland Rytz",
+					"email": "roland.rytz@gmail.com",
+					"familyName": "Rytz",
+					"givenName": "Roland",
+					"additionalName": "Pekka",
+					"alternateName": "draemmli",
+					"gender": "Male",
+					"nationality": "Switzerland"
+				},
+				"copyrightHolder": { "@id": "#RolandRytz" },
+				"copyrightYear": 2017,
+				"license": "https://draemm.li/various/place-atlas/license.txt",
+				"inLanguage": "English",
+				"isAccessibleForFree": true,
+				"keywords": "reddit, /r/place",
+				"thumbnailUrl": "https://draemm.li/various/place-atlas/_img/logo.png",
+				"logo": "https://draemm.li/various/place-atlas/_img/logo.png",
+				"description": "An interactive map of Reddit's /r/place, with information to each artwork of the canvas."
+			}
+		</script>
 
 	</head>
 	<body>
@@ -200,7 +230,7 @@
 		<script type="text/javascript" src="./_js/stats.js?version=1.0.0"></script>
 -->
 
-		<script type="text/javascript" src="./_js/minified.js?version=1.0.101"></script>
+		<script type="text/javascript" src="./_js/minified.js?version=1.0.102"></script>
 
 		
 	</body>
