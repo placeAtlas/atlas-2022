@@ -262,7 +262,7 @@ optgroup{
 	font-size: 40px;
 }
 
-#loading > div > div{
+#loading > div > div:first-child{
 	width: 200px;
 	height: 200px;
 	border-radius: 200px;
