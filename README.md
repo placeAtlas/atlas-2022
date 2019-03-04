@@ -1,6 +1,6 @@
 # The Place Atlas
 The /r/place Atlas is a project aiming to catalog all the artworks created during Reddit's /r/place event.
-This project was created by Ronald Rytz and is licensed under the GNU Affero General Public License v3.0.
+This project was created by Roland Rytz and is licensed under the GNU Affero General Public License v3.0.
 
 ---
 
