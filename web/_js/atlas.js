@@ -60,6 +60,7 @@ var atlas = [
 	{"id":2,"name":"Narrator Nexus","description":"The icon of Narrator Nexus, the group of users who coordinated the storyline in Reddit's 2019 April Fools Event, Sequence.","website":"","subreddit":"/r/NarraNexus/","center":[763.5,673.5],"path":[[755.5,667.5],[755.5,680.5],[771.5,680.5],[771.5,674.5],[772.5,673.5],[772.5,670.5],[767.5,664.5],[762.5,664.5],[759.5,669.5],[755.5,667.5]]},
 	{"id":3,"name":"April Knights","description":"The Logo of the April Knights, a subreddit formed for Reddit's 2015 April Fools event 'The Button'.","website":"","subreddit":"/r/AprilKnights/","center":[788.5,677.5],"path":[[789.5,664.5],[789.5,679.5],[789.5,680.5],[755.5,680.5],[755.5,684.5],[803.5,684.5],[801.5,679.5],[803.5,676.5],[803.5,664.5],[789.5,664.5]]},
 	{"id":4,"name":"Triforce","description":"The iconic symbol of the Legend of Zelda franchise.","website":"","subreddit":"/r/Zelda","center":[788.5,640.5],"path":[[788.5,598.5],[756.5,661.5],[819.5,661.5],[819.5,660.5],[788.5,598.5]]}
+	{"id":5,"name": "Avicii Tribute","description": "The logo of the Swedish DJ and EDM artist Avicii, who was born on 8 September 1989 and died on 20 April 2018. The creation was part of a collaboration with r/Avicii and r/Place_Nordicunion.","website": "https://discord.gg/9zTbdMSUea","subreddit": "r/Avicii","center": [757.5,81.5],"path": [[740.5,91.5],[773.5,91.5],[773.5,71.5],[740.5,71.5],[740.5,91.5]]}
 ];
 
 //console.log("There are "+atlas.length+" entries in the Atlas.");
