@@ -18,7 +18,7 @@
 	but WITHOUT ANY WARRANTY; without even the implied warranty of
 	MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.
 	For more information, see:
-	https://draemm.li/various/place-atlas/license.txt
+	http://place-atlas.stefanocoding.me/license.txt
 	
 	========================================================================
 */
@@ -60,13 +60,13 @@ function applyView(){
 	//console.log(zoomOrigin, scaleZoomOrigin);
 	//console.log(scaleZoomOrigin[0]);
 
-	scaleZoomOrigin[0] = Math.max(-500, Math.min(500, scaleZoomOrigin[0]));
+	scaleZoomOrigin[0] = Math.max(-1000, Math.min(1000, scaleZoomOrigin[0]));
 	scaleZoomOrigin[1] = Math.max(-500, Math.min(500, scaleZoomOrigin[1]));
 
 	zoomOrigin = [scaleZoomOrigin[0]*zoom, scaleZoomOrigin[1]*zoom];
 
 	innerContainer.style.height = (~~(zoom*1000))+"px";
-	innerContainer.style.width = (~~(zoom*1000))+"px";
+	innerContainer.style.width = (~~(zoom*2000))+"px";
 	
 	innerContainer.style.left = ~~(container.clientWidth/2 - innerContainer.clientWidth/2 + zoomOrigin[0] + container.offsetLeft)+"px";
 	innerContainer.style.top = ~~(container.clientHeight/2 - innerContainer.clientHeight/2 + zoomOrigin[1] + container.offsetTop)+"px";

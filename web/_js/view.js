@@ -18,7 +18,7 @@
 	but WITHOUT ANY WARRANTY; without even the implied warranty of
 	MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.
 	For more information, see:
-	https://draemm.li/various/place-atlas/license.txt
+	http://place-atlas.stefanocoding.me/license.txt
 
 	========================================================================
 */
@@ -30,7 +30,7 @@ var previousZoomOrigin = [0, 0];
 var previousScaleZoomOrigin = [0, 0];
 
 var backgroundCanvas = document.createElement("canvas");
-backgroundCanvas.width = 1000;
+backgroundCanvas.width = 2000;
 backgroundCanvas.height = 1000;
 var backgroundContext = backgroundCanvas.getContext("2d");
 
@@ -330,7 +330,7 @@ function initView(){
 
 			scaleZoomOrigin = [
 				 1000/2 - entry.center[0]// + container.offsetLeft
-				,1000/2 - entry.center[1]// + container.offsetTop
+				,2000/2 - entry.center[1]// + container.offsetTop
 			];
 
 			//console.log(zoomOrigin);
@@ -539,7 +539,7 @@ function initView(){
 
 					scaleZoomOrigin = [
 						 1000/2  - this.entry.center[0]
-						,1000/2  - this.entry.center[1]
+						,2000/2  - this.entry.center[1]
 					]
 
 					//console.log(zoomOrigin);
@@ -579,7 +579,7 @@ function initView(){
 
 					scaleZoomOrigin = [
 						 1000/2  - this.entry.center[0]
-						,1000/2  - this.entry.center[1]
+						,2000/2  - this.entry.center[1]
 					]
 
 					previousZoomOrigin = [zoomOrigin[0], zoomOrigin[1]];

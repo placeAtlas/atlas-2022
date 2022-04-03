@@ -18,7 +18,7 @@
 	but WITHOUT ANY WARRANTY; without even the implied warranty of
 	MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.
 	For more information, see:
-	https://draemm.li/various/place-atlas/license.txt
+	http://place-atlas.stefanocoding.me/license.txt
 	
 	========================================================================
 */
@@ -26,47 +26,36 @@
 
 
 
-window.addEventListener("error", function(e){
+window.addEventListener("error", function (e) {
 	console.log(e);
 	var errorMessage = "<p class=\"error\">An error has occurred:</p>";
-	errorMessage += "<p class=\"errorBody\">"+e.message+"</p>";
-	errorMessage += "<p class=\"errorBody\">on line "+e.lineno+"</p>";
+	errorMessage += "<p class=\"errorBody\">" + e.message + "</p>";
+	errorMessage += "<p class=\"errorBody\">on line " + e.lineno + "</p>";
 	errorMessage += "<p class=\"error\">If this keeps happening, feel free to send me a <a href=\"mailto:roland.rytz@gmail.com\">mail</a>.</p>";
 	document.getElementById("loadingContent").innerHTML = errorMessage;
 });
 
-
+function pointIsInPolygon (point, polygon) {
+    // ray-casting algorithm based on
+    // http://www.ecse.rpi.edu/Homepages/wrf/Research/Short_Notes/pnpoly.html
+    
+    var x = point[0], y = point[1];
+    
+    var inside = false;
+    for (var i = 0, j = polygon.length - 1; i < polygon.length; j = i++) {
+        var xi = polygon[i][0], yi = polygon[i][1];
+        var xj = polygon[j][0], yj = polygon[j][1];
+        
+        var intersect = ((yi > y) != (yj > y))
+            && (x < (xj - xi) * (y - yi) / (yj - yi) + xi);
+        if (intersect) inside = !inside;
+    }
+    
+    return inside;
+};
 
 var atlas = [
-    {
-    	"id": 0,
-    	"name": "r/place still has to be indexed",
-    	"description": "To make sure this project doesn't get flooded with a million requests or changes, I wait until april 4th so I can submit all the ",
-    	"website": "https://place-atlas.stefanocoding.me/",
-    	"subreddit": "r/placeAtlas2",
-    	"center": [
-    		502.5,
-    		513.5
-    	],
-    	"path": [
-    		[
-    			2.5,
-    			343.5
-    		],
-    		[
-    			994.5,
-    			339.5
-    		],
-    		[
-    			996.5,
-    			690.5
-    		],
-    		[
-    			2.5,
-    			678.5
-    		]
-    	]
-    }
+	{"id":0,"name":"Pinewood Logo/Rubix cube (Destroyed)","description":"Originally the logo for the Roblox group Pinewood Builders, the logo transformed into a game of tic tac toe, and then a Rubix cube. It was destroyed after being invaded by Iran","website":"https://pinewoodbuilders.reddit.com/","subreddit":"r/PinewoodBuilders","center":[39.5,279.5],"path":[[22.5,295.5],[23.5,274.5],[35.5,262.5],[55.5,262.5],[55.5,283.5],[43.5,295.5]]},
 ];
 
 //console.log("There are "+atlas.length+" entries in the Atlas.");
@@ -109,14 +98,14 @@ for(var i = 0; i < atlas.length; i++){
 */
 
 // sort by center.y, so that lines will overlap less
-atlas.sort(function(a, b){
+atlas.sort(function (a, b) {
 	if (a.center[1] < b.center[1]) {
 		return -1;
 	}
 	if (a.center[1] > b.center[1]) {
 		return 1;
 	}
-		// a must be equal to b
+	// a must be equal to b
 	return 0;
 });
 
@@ -134,16 +123,16 @@ for(var i = 0; i < 10000; i++){
 	var h = ~~(Math.random()*100);
 	atlas.push({
 		"id": 5,
-    	"name": "test"+(i+3),
-    	"website": "",
-    	"subreddit": "",
-    	"center": [0, 0],
-    	"path":[
+		"name": "test"+(i+3),
+		"website": "",
+		"subreddit": "",
+		"center": [0, 0],
+		"path":[
 			[x, y],
 			[x+w, y],
 			[x+w, y+h],
 			[x, y+h]
-    	]
+		]
 	});
 }
 

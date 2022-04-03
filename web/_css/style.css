@@ -18,7 +18,7 @@
 	but WITHOUT ANY WARRANTY; without even the implied warranty of
 	MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.
 	For more information, see:
-	https://draemm.li/various/place-atlas/license.txt
+	http://place-atlas.stefanocoding.me/license.txt
 	
 	========================================================================
 */
@@ -317,9 +317,9 @@ noscript{
 
 #innerContainer{
 	height: 1000px;
-	width: 1000px;
+	width: 2000px;
 	position: absolute;
-	z-index: -1000;
+	z-index: -2000;
 }
 
 #image{

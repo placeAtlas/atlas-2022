@@ -18,7 +18,7 @@
 	but WITHOUT ANY WARRANTY; without even the implied warranty of
 	MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.
 	For more information, see:
-	https://draemm.li/various/place-atlas/license.txt
+	http://place-atlas.stefanocoding.me/license.txt
 
 	========================================================================
 */
@@ -33,7 +33,7 @@ function initOverlap(){
 	var linesContext = linesCanvas.getContext("2d");
 
 	var backgroundCanvas = document.createElement("canvas");
-	backgroundCanvas.width = 1000;
+	backgroundCanvas.width = 2000;
 	backgroundCanvas.height = 1000;
 	var backgroundContext = backgroundCanvas.getContext("2d");
 

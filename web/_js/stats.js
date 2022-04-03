@@ -233,7 +233,7 @@ console.log("The "+topCount+" largest entries:");
 var outstring = "";
 
 for(var i = 0; i < topCount; i++){
-	outstring += ((i+1)+"|["+atlas[atlas.length-i-1].name +"](https://draemm.li/various/place-atlas/?id="+atlas[atlas.length-i-1].id+")|"+ ~~atlas[atlas.length-i-1].area+"|"+Math.round(atlas[atlas.length-i-1].area/100)/100+"%\n");
+	outstring += ((i+1)+"|["+atlas[atlas.length-i-1].name +"](http://place-atlas.stefanocoding.me/?id="+atlas[atlas.length-i-1].id+")|"+ ~~atlas[atlas.length-i-1].area+"|"+Math.round(atlas[atlas.length-i-1].area/100)/100+"%\n");
 }
 
 console.log(outstring);
