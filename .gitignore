@@ -1,6 +1,7 @@
 **/**/credentials
 credentials
 praw
+temp.json
 temp.js
 users.html
 oldusers.html
