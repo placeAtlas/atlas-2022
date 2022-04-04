@@ -1,6 +1,3 @@
-
-
-
 /*
 	========================================================================
 	The /r/place Atlas
@@ -23,9 +20,6 @@
 	========================================================================
 */
 
-
-
-
 window.addEventListener("error", function (e) {
 	console.log(e);
 	var errorMessage = "<p class=\"error\">An error has occurred:</p>";
@@ -36,22 +30,21 @@ window.addEventListener("error", function (e) {
 });
 
 function pointIsInPolygon (point, polygon) {
-    // ray-casting algorithm based on
-    // http://www.ecse.rpi.edu/Homepages/wrf/Research/Short_Notes/pnpoly.html
-    
-    var x = point[0], y = point[1];
-    
-    var inside = false;
-    for (var i = 0, j = polygon.length - 1; i < polygon.length; j = i++) {
-        var xi = polygon[i][0], yi = polygon[i][1];
-        var xj = polygon[j][0], yj = polygon[j][1];
-        
-        var intersect = ((yi > y) != (yj > y))
-            && (x < (xj - xi) * (y - yi) / (yj - yi) + xi);
-        if (intersect) inside = !inside;
-    }
-    
-    return inside;
+	// ray-casting algorithm based on
+	// http://www.ecse.rpi.edu/Homepages/wrf/Research/Short_Notes/pnpoly.html
+	
+	var x = point[0], y = point[1];
+	
+	var inside = false;
+	for (var i = 0, j = polygon.length - 1; i < polygon.length; j = i++) {
+		var xi = polygon[i][0], yi = polygon[i][1];
+		var xj = polygon[j][0], yj = polygon[j][1];
+		
+		var intersect = ((yi > y) != (yj > y))
+			&& (x < (xj - xi) * (y - yi) / (yj - yi) + xi);
+		if (intersect) inside = !inside;
+	}
+	return inside;
 };
 
 var atlas = [
@@ -209,13 +202,32 @@ var atlas = [
 {"id": 151, "submitted_by": "F-L-A-R-E", "name": "Karlsruhe Institute of Technology (KIT)", "description": "University of Karlsruhe (Germany)", "website": "kit.edu", "subreddit": "/r/KaIT", "center": [796.5, 534.5], "path": [[760.5, 521.5], [760.5, 547.5], [832.5, 547.5], [832.5, 521.5]]},
 {"id": 152, "submitted_by": "Powaza", "name": "Chick (Powi)", "description": "The Chick from the MEA (Middle Eastern Alliance). Idea from 'Powi Club's Discord server and other helpers.", "website": "https://discord.gg/EyNsdbU", "subreddit": "/r/PowiTeam", "center": [ 1777.5, 949.5 ], "path": [ [ 1784.5, 940.5 ], [ 1773.5, 940.5 ], [ 1773.5, 946.5 ], [ 1768.5, 947.5 ], [ 1768.5, 957.5 ], [ 1784.5, 957.5 ], [ 1784.5, 952.5 ] ] },
 {"id": 153, "submitted_by": "horsewhips", "name": "The Ohio State University", "description": "The Ohio State University (OSU) is located in Columbus, Ohio, USA.  OSU's school colors are scarlet and gray which can be seen around their famous Block O - located towards the bottom left of the artwork.  The Block 'O' together with the Buckeye nut is the logo for The Ohio State University. OSU (not to be confused with the rhythm game 'osu!') is famous for it's rivalry with the University of Michigan with the 15-2 representing the current streak of 15 wins against UofM's 2. The Ohio flag is on the top right, representing the state of Ohio, USA. The bottom right has the famous 'Script Ohio' - a long-time Ohio State tradition from the school's Marching Band where members of the band will form the word 'Ohio' in script during football games. A second block 'O' is situated next to Purdue University & Rutgers University elsewhere on r/place.", "website": "[https://www.osu.edu](https://www.osu.edu)", "subreddit": "r/osu", "center": [ 1347.5, 813.5 ], "path": [ [ 1331.5, 795.5 ], [ 1331.5, 830.5 ], [ 1363.5, 831.5 ], [ 1363.5, 795.5 ], [ 1363.5, 795.5 ], [ 1363.5, 795.5 ] ] },
+{"id":154,"name":"EVE Online","description":"The logo for Eve Online, an economy-based space MMORPG.","website":"eveonline.com","subreddit":"r/Eve","center":[38.5,44.5],"path":[[13.5,34.5],[62.5,34.5],[62.5,53.5],[13.5,53.5]]},
+{"id":155,"name":"o7","description":"An emoticon depicting a person saluting.","website":"","subreddit":"","center":[7.5,46.5],"path":[[12.5,35.5],[12.5,53.5],[0.5,53.5],[0.5,46.5],[12.5,35.5]]},
+{"id":156,"name":"SS13 clown","description":"The clown, a playable character in the game Space Station 13.","website":"spacestation13.com","subreddit":"r/SS13","center":[70.5,103.5],"path":[[61.5,91.5],[79.5,91.5],[79.5,116.5],[68.5,116.5],[68.5,111.5],[61.5,111.5]]},
+{"id":157,"name":"Dota 2","description":"The logo for Dota 2, a MOBA developed by Valve.","website":"dota2.com","subreddit":"r/DotA2","center":[14.5,160.5],"path":[[0.5,143.5],[27.5,143.5],[27.5,177.5],[0.5,177.5]]},
+{"id":159,"name":"Flag of Egypt","description":"","website":"","subreddit":"r/Egypt","center":[66.5,156.5],"path":[[28.5,144.5],[28.5,169.5],[108.5,169.5],[108.5,148.5],[74.5,148.5],[74.5,138.5],[52.5,138.5],[47.5,144.5],[28.5,144.5]]},
+{"id":160,"name":"Pyramids of Giza","description":"","website":"","subreddit":"","center":[66.5,157.5],"path":[[52.5,160.5],[80.5,160.5],[74.5,154.5],[72.5,155.5],[68.5,152.5],[66.5,154.5],[62.5,150.5]]},
+{"id":161,"name":"Homestuck","description":"A webcomic by Andrew Hussie that ran from 2009 to 2016.","website":"homestuck.com","subreddit":"r/homestuck","center":[248.5,145.5],"path":[[221.5,126.5],[266.5,126.5],[275.5,135.5],[275.5,164.5],[221.5,164.5]]},
+{"id":162,"name":"Hiveswap","description":"An adventure game set in the same multiverse as Homestuck.","website":"hiveswap.com","subreddit":"r/hiveswap","center":[262.5,168.5],"path":[[247.5,165.5],[247.5,171.5],[276.5,171.5],[276.5,165.5]]},
+{"id":163,"name":"Flag of Taiwan","description":"","website":"","subreddit":"","center":[286.5,165.5],"path":[[276.5,158.5],[295.5,158.5],[295.5,172.5],[276.5,172.5]]},
+{"id":164,"name":"Flag of South Korea","description":"","website":"","subreddit":"","center":[306.5,165.5],"path":[[295.5,158.5],[316.5,158.5],[316.5,172.5],[295.5,172.5]]},
+{"id":165,"name":"Flag of Japan","description":"","website":"","subreddit":"","center":[327.5,165.5],"path":[[316.5,158.5],[337.5,158.5],[337.5,172.5],[316.5,172.5]]},
+{"id":166,"name":"John Egbert","description":"A major character from Homestuck.","website":"","subreddit":"","center":[251.5,112.5],"path":[[243.5,102.5],[258.5,102.5],[258.5,121.5],[243.5,121.5]]},
+{"id":167,"name":"Nepeta Leijon","description":"A character from Homestuck.","website":"","subreddit":"","center":[180.5,153.5],"path":[[171.5,141.5],[188.5,141.5],[188.5,165.5],[171.5,165.5]]},
+{"id":168,"name":"Faroe Islands","description":"","website":"","subreddit":"","center":[437.5,120.5],"path":[[412.5,103.5],[461.5,103.5],[461.5,136.5],[412.5,136.5]]},
+{"id":169,"name":"Flag of Norway","description":"","website":"","subreddit":"","center":[352.5,72.5],"path":[[493.5,36.5],[215.5,36.5],[215.5,95.5],[231.5,95.5],[231.5,100.5],[259.5,100.5],[259.5,124.5],[268.5,125.5],[334.5,124.5],[334.5,78.5],[400.5,78.5],[400.5,124.5],[412.5,124.5],[412.5,103.5],[461.5,103.5],[461.5,119.5],[475.5,119.5],[475.5,103.5],[495.5,102.5],[494.5,79.5]]},
+{"id":170,"name":"The Scream","description":"A painting by Norwegian artist Edvard Munch.","website":"","subreddit":"","center":[274.5,66.5],"path":[[247.5,40.5],[300.5,40.5],[300.5,91.5],[247.5,91.5]]},
+{"id":171,"name":"Flag of Ukraine","description":"","website":"","subreddit":"","center":[205.5,213.5],"path":[[0.5,170.5],[337.5,171.5],[337.5,193.5],[433.5,193.5],[433.5,252.5],[237.5,251.5],[237.5,249.5],[-1.5,251.5]]},
+{"id":172,"name":"Gnome Child","description":"An NPC from the MMORPG Runescape.","website":"","subreddit":"","center":[152.5,63.5],"path":[[146.5,34.5],[137.5,57.5],[146.5,71.5],[135.5,83.5],[138.5,86.5],[144.5,82.5],[168.5,84.5],[168.5,77.5],[161.5,71.5],[164.5,65.5],[164.5,54.5],[155.5,43.5],[151.5,43.5],[150.5,34.5]]},
+{"id":173,"name":"Big Floppa","description":"The one and only.","website":"","subreddit":"r/bigfloppa","center":[1937.5,465.5],"path":[[1954.5,491.5],[1918.5,490.5],[1925.5,465.5],[1924.5,448.5],[1923.5,436.5],[1928.5,440.5],[1934.5,436.5],[1939.5,435.5],[1947.5,440.5],[1954.5,434.5],[1954.5,442.5],[1950.5,450.5],[1951.5,465.5]]}
 
 ];
 
 //console.log("There are "+atlas.length+" entries in the Atlas.");
 
 /*
-atlas.sort(function(a, b){
+atlas.sort(function(a, b) {
 	if (a.id < b.id) {
 		return -1;
 	}
@@ -226,9 +238,9 @@ atlas.sort(function(a, b){
 	return 0;
 });
 
-for(var i = 0; i < atlas.length; i++){
+for(var i = 0; i < atlas.length; i++) {
 	if(atlas[i-1]){
-		if(atlas[i-1].id == atlas[i].id){
+		if(atlas[i-1].id == atlas[i].id) {
 			console.log(atlas[i-1].id + ": "+ atlas[i-1].name);
 			console.log(atlas[i  ].id + ": "+ atlas[i  ].name);
 		}
@@ -238,13 +250,12 @@ for(var i = 0; i < atlas.length; i++){
 console.log("biggest id: "+atlas[atlas.length-1].id + ", " + atlas[atlas.length-1].name);
 */
 
-
 /*
-for(var i = 0; i < atlas.length; i++){
-	if(typeof atlas[i].website == "undefined"){
+for(var i = 0; i < atlas.length; i++) {
+	if(typeof atlas[i].website == "undefined") {
 		console.log(atlas[i].name);
-	} else if(atlas[i].website.trim() != ""){
-		if(atlas[i].website.trim().substring(0, 4) != "http"){
+	} else if(atlas[i].website.trim() != "") {
+		if(atlas[i].website.trim().substring(0, 4) != "http") {
 			console.log(atlas[i].name + ": " + atlas[i].website);
 		}
 	}
@@ -263,19 +274,16 @@ atlas.sort(function (a, b) {
 	return 0;
 });
 
-
-
-
 /*
 
 // Populate with test data
 
-for(var i = 0; i < 10000; i++){
+for(var i = 0; i < 10000; i++) {
 	var x = ~~(Math.random() * 1000)+0.5;
 	var y = ~~(Math.random() * 1000)+0.5;
 	var w = ~~(Math.random()*100);
 	var h = ~~(Math.random()*100);
-	atlas.push({
+	atlas.push( {
 		"id": 5,
 		"name": "test"+(i+3),
 		"website": "",
@@ -291,4 +299,3 @@ for(var i = 0; i < 10000; i++){
 }
 
 */
-
