@@ -1,6 +1,8 @@
 **/**/credentials
 credentials
 praw
+temp_atlas.json
+manual_atlas.json
 temp.json
 temp.js
 users.html
