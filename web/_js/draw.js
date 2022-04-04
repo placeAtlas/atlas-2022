@@ -202,6 +202,10 @@ function initDraw(){
 		exportOverlay.style.display = "none";
 	});
 
+	exportCloseButton.addEventListener("click", function(e){
+		exportDirectPost();
+	})
+
 	document.getElementById("highlightUncharted").addEventListener("click", function(e){
 		highlightUncharted = this.checked;
 		render(path);
@@ -223,12 +227,16 @@ function initDraw(){
 		jsonString = jsonString.join("\n    ");
 		jsonString = "    "+jsonString;
 		textarea.value = jsonString;
+		console.log("a");
+		var directPostUrl = "https://www.reddit.com/r/placeAtlas2/submit?selftext=true&title=New%20Submission&text="+encodeURIComponent(document.getElementById("exportString").value);
+		document.getElementById("exportDirectPost").href=directPostUrl;
 
 		exportOverlay.style.display = "flex";
 		
 		textarea.focus();
 		textarea.select();
 	}
+
 
 	function calculateCenter(path){
 
