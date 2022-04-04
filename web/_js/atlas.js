@@ -1,6 +1,3 @@
-
-
-
 /*
 	========================================================================
 	The /r/place Atlas
@@ -23,9 +20,6 @@
 	========================================================================
 */
 
-
-
-
 window.addEventListener("error", function (e) {
 	console.log(e);
 	var errorMessage = "<p class=\"error\">An error has occurred:</p>";
@@ -36,22 +30,21 @@ window.addEventListener("error", function (e) {
 });
 
 function pointIsInPolygon (point, polygon) {
-    // ray-casting algorithm based on
-    // http://www.ecse.rpi.edu/Homepages/wrf/Research/Short_Notes/pnpoly.html
-    
-    var x = point[0], y = point[1];
-    
-    var inside = false;
-    for (var i = 0, j = polygon.length - 1; i < polygon.length; j = i++) {
-        var xi = polygon[i][0], yi = polygon[i][1];
-        var xj = polygon[j][0], yj = polygon[j][1];
-        
-        var intersect = ((yi > y) != (yj > y))
-            && (x < (xj - xi) * (y - yi) / (yj - yi) + xi);
-        if (intersect) inside = !inside;
-    }
-    
-    return inside;
+	// ray-casting algorithm based on
+	// http://www.ecse.rpi.edu/Homepages/wrf/Research/Short_Notes/pnpoly.html
+	
+	var x = point[0], y = point[1];
+	
+	var inside = false;
+	for (var i = 0, j = polygon.length - 1; i < polygon.length; j = i++) {
+		var xi = polygon[i][0], yi = polygon[i][1];
+		var xj = polygon[j][0], yj = polygon[j][1];
+		
+		var intersect = ((yi > y) != (yj > y))
+			&& (x < (xj - xi) * (y - yi) / (yj - yi) + xi);
+		if (intersect) inside = !inside;
+	}
+	return inside;
 };
 
 var atlas = [
@@ -209,13 +202,12 @@ var atlas = [
 {"id": 151, "submitted_by": "F-L-A-R-E", "name": "Karlsruhe Institute of Technology (KIT)", "description": "University of Karlsruhe (Germany)", "website": "kit.edu", "subreddit": "/r/KaIT", "center": [796.5, 534.5], "path": [[760.5, 521.5], [760.5, 547.5], [832.5, 547.5], [832.5, 521.5]]},
 {"id": 152, "submitted_by": "Powaza", "name": "Chick (Powi)", "description": "The Chick from the MEA (Middle Eastern Alliance). Idea from 'Powi Club's Discord server and other helpers.", "website": "https://discord.gg/EyNsdbU", "subreddit": "/r/PowiTeam", "center": [ 1777.5, 949.5 ], "path": [ [ 1784.5, 940.5 ], [ 1773.5, 940.5 ], [ 1773.5, 946.5 ], [ 1768.5, 947.5 ], [ 1768.5, 957.5 ], [ 1784.5, 957.5 ], [ 1784.5, 952.5 ] ] },
 {"id": 153, "submitted_by": "horsewhips", "name": "The Ohio State University", "description": "The Ohio State University (OSU) is located in Columbus, Ohio, USA.  OSU's school colors are scarlet and gray which can be seen around their famous Block O - located towards the bottom left of the artwork.  The Block 'O' together with the Buckeye nut is the logo for The Ohio State University. OSU (not to be confused with the rhythm game 'osu!') is famous for it's rivalry with the University of Michigan with the 15-2 representing the current streak of 15 wins against UofM's 2. The Ohio flag is on the top right, representing the state of Ohio, USA. The bottom right has the famous 'Script Ohio' - a long-time Ohio State tradition from the school's Marching Band where members of the band will form the word 'Ohio' in script during football games. A second block 'O' is situated next to Purdue University & Rutgers University elsewhere on r/place.", "website": "[https://www.osu.edu](https://www.osu.edu)", "subreddit": "r/osu", "center": [ 1347.5, 813.5 ], "path": [ [ 1331.5, 795.5 ], [ 1331.5, 830.5 ], [ 1363.5, 831.5 ], [ 1363.5, 795.5 ], [ 1363.5, 795.5 ], [ 1363.5, 795.5 ] ] },
-
 ];
 
 //console.log("There are "+atlas.length+" entries in the Atlas.");
 
 /*
-atlas.sort(function(a, b){
+atlas.sort(function(a, b) {
 	if (a.id < b.id) {
 		return -1;
 	}
@@ -226,9 +218,9 @@ atlas.sort(function(a, b){
 	return 0;
 });
 
-for(var i = 0; i < atlas.length; i++){
+for(var i = 0; i < atlas.length; i++) {
 	if(atlas[i-1]){
-		if(atlas[i-1].id == atlas[i].id){
+		if(atlas[i-1].id == atlas[i].id) {
 			console.log(atlas[i-1].id + ": "+ atlas[i-1].name);
 			console.log(atlas[i  ].id + ": "+ atlas[i  ].name);
 		}
@@ -238,13 +230,12 @@ for(var i = 0; i < atlas.length; i++){
 console.log("biggest id: "+atlas[atlas.length-1].id + ", " + atlas[atlas.length-1].name);
 */
 
-
 /*
-for(var i = 0; i < atlas.length; i++){
-	if(typeof atlas[i].website == "undefined"){
+for(var i = 0; i < atlas.length; i++) {
+	if(typeof atlas[i].website == "undefined") {
 		console.log(atlas[i].name);
-	} else if(atlas[i].website.trim() != ""){
-		if(atlas[i].website.trim().substring(0, 4) != "http"){
+	} else if(atlas[i].website.trim() != "") {
+		if(atlas[i].website.trim().substring(0, 4) != "http") {
 			console.log(atlas[i].name + ": " + atlas[i].website);
 		}
 	}
@@ -263,19 +254,16 @@ atlas.sort(function (a, b) {
 	return 0;
 });
 
-
-
-
 /*
 
 // Populate with test data
 
-for(var i = 0; i < 10000; i++){
+for(var i = 0; i < 10000; i++) {
 	var x = ~~(Math.random() * 1000)+0.5;
 	var y = ~~(Math.random() * 1000)+0.5;
 	var w = ~~(Math.random()*100);
 	var h = ~~(Math.random()*100);
-	atlas.push({
+	atlas.push( {
 		"id": 5,
 		"name": "test"+(i+3),
 		"website": "",
@@ -291,4 +279,3 @@ for(var i = 0; i < 10000; i++){
 }
 
 */
-

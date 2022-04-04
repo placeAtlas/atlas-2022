@@ -1,4 +1,3 @@
-
 <!--
 	========================================================================
 	The /r/place Atlas
@@ -21,28 +20,25 @@
 	========================================================================
 -->
 
-
-<!doctype html>
+<!DOCTYPE html>
 <html>
 	<head>
-		<meta charset="utf-8">
-		<title>
-			The /r/place Atlas
-		</title>
-
+		<meta charset="UTF-8">
+		<title>The /r/place Atlas</title>
+		
 		<meta name="description" content="An interactive map of Reddit's /r/place, with information to each artwork of the canvas.">
 		<meta name="author" content="Roland Rytz (2022 by Stefano#7366)">
 		<meta name="keywords" content="reddit, /r/place 2022">
 		<meta name="application-name" content="The /r/place Atlas 2022">
 		<meta name="robots" content="index, follow">
 		
-		<meta name="google-site-verification" content="gZGHpBSMzffAbIn0qB8b00We6EwSGkDTfDoQVv-NWss" />
-
+		<!-- <meta name="google-site-verification" content="gZGHpBSMzffAbIn0qB8b00We6EwSGkDTfDoQVv-NWss"/> -->
+		
 		<meta name="viewport" content="width=device-width, height=device-height, initial-scale=1, minimum-scale=1, maximum-scale=1, user-scalable=no, shrink-to-fit=no">
 		<meta name="mobile-web-app-capable" content="yes">
-
+		
 		<link href="./_css/style.css?version=1.0.32" rel="stylesheet" type="text/css" media="all">
-
+		
 		<script type="application/ld+json">
 			{
 				"@context": "http://schema.org",
@@ -73,7 +69,6 @@
 				"description": "An interactive map of Reddit's /r/place, with information to each artwork of the canvas. Originally created by Roland Rytz (2022 by Stefano#7366)..",
 			}
 		</script>
-
 	</head>
 	<body>
 		<div id="wrapper">
@@ -176,33 +171,31 @@
 					<p>Click anywhere on the image to start drawing a shape.
 					When you're happy with the result, click the "Finish" button above or press the Enter key.</p>
 					<p>You can then add more information about your object.</p>
-					<div style="background-color: #666666; padding:20px">
+					<div style="background-color:#666; padding:20px">
 						<p><b>Handy with GitHub?</b></p>
 						<p>You can contribute directly with a Pull Request <a href="https://github.com/Codixer/place-atlas/blob/master/web/_js/atlas.js">here!</a></p>
 					</div>
 				</div>
 			</div>
-
+			
 			<button class="hidden" id="closeObjectsListButton"></button>
 			<div id="objectsList">
 			</div>
-
+			
 			<div id="exportOverlay" class="overlay">
 				<div id="exportWindow">
 					<p>Please copy the text below and submit it as a<br>
 					new text post to <a target="_blank" href="https://www.reddit.com/r/placeAtlas2/">/r/placeAtlas2</a> on Reddit.</p>
 					<p>I will then check it and add it to the atlas.</p>
-					<div style="background-color: #666666; padding:5px">
+					<div style="background-color:#666; padding:5px">
 						<p><b>Handy with GitHub?</b></p>
 						<p>You can contribute directly with a Pull Request <a href="https://github.com/Codixer/place-atlas/blob/master/web/_js/atlas.js">here!</a></p>
 					</div>
 					<textarea cols="50" rows="5" id="exportString"></textarea>
-					<div style="display:flex;flex-direction:column;align-items: center;">
+					<div style="display:flex; flex-direction:column;align-items:center">
 						<a href="_blank" id="exportDirectPost">Post Direct to Reddit</a>
 						<button id="exportCloseButton">Done</button>
 					</div>
-					
-					
 				</div>
 			</div>
 
@@ -223,27 +216,18 @@
 					<br>
 					<button id="closeBitcoinButton">Close</button>
 					<br>
-					
 				</div>
 			</div>
-
 			<div id="author">
-				Code by <a href="/" target="_blank" rel="author">Roland Rytz</a>. Source on <a target="_blank" href="https://github.com/RolandR/place-atlas">GitHub</a> (<a target="_blank" href="https://github.com/Codixer/place-atlas">2022 Version Github</a>). Image's provided by <a target="_blank" href="https://place.thatguyalex.com/">Alex Tsernoh</a>.
+				Code by <a href="https://draemm.li/various/place-atlas/" target="_blank" rel="author">Roland Rytz</a>. Source on <a target="_blank" href="https://github.com/RolandR/place-atlas">GitHub</a> (<a target="_blank" href="https://github.com/Codixer/place-atlas">2022 Version Github</a>). Image's provided by <a target="_blank" href="https://place.thatguyalex.com/">Alex Tsernoh</a>.
 			</div>
-
 		</div>
-		
-
-
-
 		<script type="text/javascript" src="./_js/pointInPolygon.js?version=1.0"></script>
 		<script type="text/javascript" src="./_js/atlas.js?version=1.0.50"></script>
 		<script type="text/javascript" src="./_js/view.js?version=1.0.4"></script>
 		<script type="text/javascript" src="./_js/overlap.js?version=1.0.4"></script>
 		<script type="text/javascript" src="./_js/draw.js?version=1.0.3"></script>
 		<script type="text/javascript" src="./_js/main.js?version=1.0.3"></script>
-
-		
 <!--
 		<script type="text/javascript" src="./_js/stats.js?version=1.0.0"></script>
 
@@ -252,7 +236,3 @@
 -->
 	</body>
 </html>
-
-
-
-

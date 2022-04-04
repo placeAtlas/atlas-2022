@@ -1,4 +1,3 @@
-
 <!--
 	========================================================================
 	The /r/place Atlas
@@ -21,23 +20,20 @@
 	========================================================================
 -->
 
-
-<!doctype html>
+<!DOCTYPE html>
 <html>
 	<head>
-		<meta charset="utf-8">
-		<title>
-			The /r/place Atlas
-		</title>
-
+		<meta charset="UTF-8">
+		<title>The /r/place Atlas</title>
+		
 		<meta name="description" content="An Atlas of Reddit's /r/place, with information to each artwork of the canvas.">
 		<meta name="author" content="Roland Rytz">
 		<meta name="keywords" content="reddit, /r/place, april">
 		<meta name="application-name" content="/r/place Atlas">
 		<meta name="robots" content="index, follow">
-
+		
 		<meta name="viewport" content="width=device-width, height=device-height, initial-scale=1">
-
+		
 		<link href="./_css/style.css?version=1.0.32" rel="stylesheet" type="text/css" media="all">
 	</head>
 	<body>
@@ -53,11 +49,11 @@
 					<a id="aboutLink" href="./about.html">About</a>
 				</nav-->
 			</header>
-
-			<div id="author" style="right: 25px;">
+			
+			<div id="author" style="right:25px">
 				Code by <a href="/" target="_blank" rel="author">Roland Rytz</a>. Source on <a target="_blank" href="https://github.com/RolandR/place-atlas">GitHub</a>.
 			</div>
-
+			
 			<div class="overlay" id="bitcoinOverlay">
 				<div id="bitcoinWindow">
 					<h2>My Bitcoin Address</h2>
@@ -67,7 +63,7 @@
 					<button id="closeBitcoinButton">Close</button>
 				</div>
 			</div>
-
+			
 			<div id="aboutContainer">
 				<a id="aboutBackButton" href="./">&lt; Back to the Atlas</a>
 				<div id="about">
@@ -88,7 +84,7 @@
 					<p>Thank you to everyone who submitted new entries, amended existing ones, reported bugs and just supported the project in general.</p>
 					<div id="contributors">
 					<a href="https://reddit.com/user/TCOOfficiall" target="_blank">TCOOfficiall (Current Maintainer)</a>
-					<a href="https://reddit.com/user/TCOOfficiall" target="_blank">prosto_sanja (Provided Images)</a> - <a href="https://place.thatguyalex.com/" target="_blank">Website</a>
+					<a href="https://reddit.com/user/prosto_sanja" target="_blank">prosto_sanja (Provided Images)</a> - <a href="https://place.thatguyalex.com/" target="_blank">Website</a>
 					
 					<h2>r/placeAtlas Contributors</h2>
 					<p>The (original) Atlas would not have been possible without the help of the following 775 reddit users.</p>
@@ -873,21 +869,14 @@
 				</div>
 			</div>
 		</div>
-
-
 		<script type="text/javascript">
-
-			document.getElementById("closeBitcoinButton").addEventListener("click", function(e){
+			document.getElementById("closeBitcoinButton").addEventListener("click", function(e) {
 				document.getElementById("bitcoinOverlay").style.display = "none";
 			});
 
-			document.getElementById("bitcoinButton").addEventListener("click", function(e){
+			document.getElementById("bitcoinButton").addEventListener("click", function(e) {
 				document.getElementById("bitcoinOverlay").style.display = "flex";
 			});
-
 		</script>
-
-		
 	</body>
 </html>
-
