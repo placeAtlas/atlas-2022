@@ -226,6 +226,7 @@ var atlas = [
 {"id":176,"name": "Interlingue", "description": "Flag of Interlingue, an IAL to communicate between Western European languages.", "website": "https://occidental-lang.com", "subreddit": "/r/interlingue", "center": [ 768.5, 328.5 ], "path": [ [ 765.5, 326.5 ], [ 770.5, 326.5 ], [ 770.5, 329.5 ], [ 765.5, 329.5 ] ] },
 {"id":177, "name": "Viossa", "description": "Flag of the conpidgin Viossa.", "website": "", "subreddit": "/r/viossa", "center": [ 775.5, 296.5 ], "path": [ [ 769.5, 290.5 ], [ 780.5, 290.5 ], [ 780.5, 301.5 ], [ 769.5, 301.5 ] ] },
 {"id":178, "name": "Lojban", "description": "Flag of Lojban", "website": "https://lojban.org", "subreddit": "/r/lojban", "center": [ 760.5, 328.5 ], "path": [ [ 763.5, 326.5 ], [ 757.5, 326.5 ], [ 757.5, 330.5 ], [ 763.5, 330.5 ] ] },
+{"id":179,"name":"Divergence Meter","description":"A recreation of the Divergence Meter from the popular anime & visual novel Steins;Gate. The meter reads the \"Steins Gate\" Wordline of 1.048596.","website":"","subreddit":"/r/steinsgate/","center":[1204.5,29.5],"path":[[1182.5,34.5],[1226.5,34.5],[1226.5,23.5],[1182.5,23.5],[1182.5,34.5]]},
 
 ];
 
