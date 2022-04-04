@@ -31,7 +31,7 @@ var previousScaleZoomOrigin = [0, 0];
 
 var backgroundCanvas = document.createElement("canvas");
 backgroundCanvas.width = 2000;
-backgroundCanvas.height = 1000;
+backgroundCanvas.height = 2000;
 var backgroundContext = backgroundCanvas.getContext("2d");
 
 function updateLines(){
@@ -162,12 +162,12 @@ function initView(){
 		highlightEntryFromUrl();
 	}*/
 
-	if(document.documentElement.clientWidth > 1000){
+	if(document.documentElement.clientWidth > 2000){
 		entriesListShown = true;
 		wrapper.className = wrapper.className.replace(/ listHidden/g, "");
 	}
 
-	if(document.documentElement.clientWidth < 1000){
+	if(document.documentElement.clientWidth < 2000){
 		entriesListShown = false;
 		wrapper.className += " listHidden";
 	}
@@ -330,7 +330,7 @@ function initView(){
 			];
 
 			scaleZoomOrigin = [
-				 1000/2 - entry.center[0]// + container.offsetLeft
+				2000/2 - entry.center[0]// + container.offsetLeft
 				,2000/2 - entry.center[1]// + container.offsetTop
 			];
 
@@ -539,7 +539,7 @@ function initView(){
 					]
 
 					scaleZoomOrigin = [
-						 1000/2  - this.entry.center[0]
+						2000/2  - this.entry.center[0]
 						,2000/2  - this.entry.center[1]
 					]
 
@@ -579,7 +579,7 @@ function initView(){
 					]
 
 					scaleZoomOrigin = [
-						 1000/2  - this.entry.center[0]
+						2000/2  - this.entry.center[0]
 						,2000/2  - this.entry.center[1]
 					]
 
@@ -761,12 +761,12 @@ function initView(){
 
 		var viewportWidth = document.documentElement.clientWidth;
 
-		if(document.documentElement.clientWidth > 1000 && viewportWidth <= 1000){
+		if(document.documentElement.clientWidth > 2000 && viewportWidth <= 2000){
 			entriesListShown = true;
 			wrapper.className = wrapper.className.replace(/ listHidden/g, "");
 		}
 
-		if(document.documentElement.clientWidth < 1000 && viewportWidth >= 1000){
+		if(document.documentElement.clientWidth < 2000 && viewportWidth >= 2000){
 			entriesListShown = false;
 			wrapper.className += " listHidden";
 		}
