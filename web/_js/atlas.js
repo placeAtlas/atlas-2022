@@ -108,6 +108,7 @@ var atlas = [
 {"id":50,"name":"Mass Effect","description":"Mass Effect is a series of third-person science fiction role-playing games developed by BioWare.","website":"","subreddit":"r/masseffect","center":[822.5,992.5],"path":[[842.5,999.5],[801.5,999.5],[801.5,984.5],[842.5,984.5]]},
 {"id":51,"name":"Mass relay","description":"A mass relay, a form of FTL travel, from Mass Effect.","website":"","subreddit":"r/masseffect","center":[835.5,981.5],"path":[[841.5,978.5],[830.5,978.5],[827.5,981.5],[830.5,984.5],[842.5,984.5],[842.5,978.5]]},
 {"id":52,"name":"Tali'Zorah","description":"A popular NPC from the Mass Effect series.","website":"","subreddit":"r/masseffect","center":[823.5,973.5],"path":[[819.5,964.5],[828.5,964.5],[828.5,978.5],[826.5,983.5],[818.5,983.5],[818.5,964.5]]}
+{"id":53,"name":"Rec Room","description":"Rec Room is a virtual reality, online video game with an integrated game creation system developed and published by Rec Room Inc.","website":"https://recroom.com","subreddit":"/r/recroom","center":[398.5,991.5],"path":[[393.5,1000.5],[403.5,999.5],[403.5,982.5],[394.5,982.5],[394.5,987.5],[393.5,987.5],[393.5,989.5]]}
 ];
 
 //console.log("There are "+atlas.length+" entries in the Atlas.");
