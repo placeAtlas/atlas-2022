@@ -221,7 +221,9 @@ var atlas = [
 {"id":171,"name":"Flag of Ukraine","description":"","website":"","subreddit":"","center":[205.5,213.5],"path":[[0.5,170.5],[337.5,171.5],[337.5,193.5],[433.5,193.5],[433.5,252.5],[237.5,251.5],[237.5,249.5],[-1.5,251.5]]},
 {"id":172,"name":"Gnome Child","description":"An NPC from the MMORPG Runescape.","website":"","subreddit":"","center":[152.5,63.5],"path":[[146.5,34.5],[137.5,57.5],[146.5,71.5],[135.5,83.5],[138.5,86.5],[144.5,82.5],[168.5,84.5],[168.5,77.5],[161.5,71.5],[164.5,65.5],[164.5,54.5],[155.5,43.5],[151.5,43.5],[150.5,34.5]]},
 {"id":173,"name":"Big Floppa","description":"The one and only.","website":"","subreddit":"r/bigfloppa","center":[1937.5,465.5],"path":[[1954.5,491.5],[1918.5,490.5],[1925.5,465.5],[1924.5,448.5],[1923.5,436.5],[1928.5,440.5],[1934.5,436.5],[1939.5,435.5],[1947.5,440.5],[1954.5,434.5],[1954.5,442.5],[1950.5,450.5],[1951.5,465.5]]}
-
+{"id": 174,"name": "Interlingue", "description": "Flag of Interlingue, an IAL to communicate between Western European languages.", "website": "https://occidental-lang.com", "subreddit": "/r/interlingue", "center": [ 768.5, 328.5 ], "path": [ [ 765.5, 326.5 ], [ 770.5, 326.5 ], [ 770.5, 329.5 ], [ 765.5, 329.5 ] ] }
+{"id": 175, "name": "Viossa", "description": "Flag of the conpidgin Viossa.", "website": "", "subreddit": "/r/viossa", "center": [ 775.5, 296.5 ], "path": [ [ 769.5, 290.5 ], [ 780.5, 290.5 ], [ 780.5, 301.5 ], [ 769.5, 301.5 ] ] }
+{ "id": 176, "name": "Lojban", "description": "Flag of Lojban", "website": "https://lojban.org", "subreddit": "/r/lojban", "center": [ 760.5, 328.5 ], "path": [ [ 763.5, 326.5 ], [ 757.5, 326.5 ], [ 757.5, 330.5 ], [ 763.5, 330.5 ] ] }
 ];
 
 //console.log("There are "+atlas.length+" entries in the Atlas.");
