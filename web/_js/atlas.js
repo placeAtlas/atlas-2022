@@ -221,7 +221,7 @@ var atlas = [
 {"id":171,"name":"Flag of Ukraine","description":"","website":"","subreddit":"","center":[205.5,213.5],"path":[[0.5,170.5],[337.5,171.5],[337.5,193.5],[433.5,193.5],[433.5,252.5],[237.5,251.5],[237.5,249.5],[-1.5,251.5]]},
 {"id":172,"name":"Gnome Child","description":"An NPC from the MMORPG Runescape.","website":"","subreddit":"","center":[152.5,63.5],"path":[[146.5,34.5],[137.5,57.5],[146.5,71.5],[135.5,83.5],[138.5,86.5],[144.5,82.5],[168.5,84.5],[168.5,77.5],[161.5,71.5],[164.5,65.5],[164.5,54.5],[155.5,43.5],[151.5,43.5],[150.5,34.5]]},
 {"id":173,"name":"Big Floppa","description":"The one and only.","website":"","subreddit":"r/bigfloppa","center":[1937.5,465.5],"path":[[1954.5,491.5],[1918.5,490.5],[1925.5,465.5],[1924.5,448.5],[1923.5,436.5],[1928.5,440.5],[1934.5,436.5],[1939.5,435.5],[1947.5,440.5],[1954.5,434.5],[1954.5,442.5],[1950.5,450.5],[1951.5,465.5]]}
-
+{"id": 174,"name": "Hytale","description": "Hytale is an upcoming sandbox game by Hypixel Studios. Production began in 2015 by developers from the Minecraft multiplayer server Hypixel with funding and assistance from Riot Games, who later acquired the studio in 2020. It is planned to be released for PC, consoles, and mobile devices by 2023.","website": "https://hytale.com/","subreddit": "/r/hytaleinfo","center": [342.5,630.5],"path": [[323.5,614.5],[361.5,614.5],[361.5,645.5],[323.5,645.5][323.5,614.5]]}
 ];
 
 //console.log("There are "+atlas.length+" entries in the Atlas.");
