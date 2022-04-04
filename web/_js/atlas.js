@@ -1,6 +1,3 @@
-
-
-
 /*
 	========================================================================
 	The /r/place Atlas
@@ -23,9 +20,6 @@
 	========================================================================
 */
 
-
-
-
 window.addEventListener("error", function (e) {
 	console.log(e);
 	var errorMessage = "<p class=\"error\">An error has occurred:</p>";
@@ -36,22 +30,21 @@ window.addEventListener("error", function (e) {
 });
 
 function pointIsInPolygon (point, polygon) {
-    // ray-casting algorithm based on
-    // http://www.ecse.rpi.edu/Homepages/wrf/Research/Short_Notes/pnpoly.html
-    
-    var x = point[0], y = point[1];
-    
-    var inside = false;
-    for (var i = 0, j = polygon.length - 1; i < polygon.length; j = i++) {
-        var xi = polygon[i][0], yi = polygon[i][1];
-        var xj = polygon[j][0], yj = polygon[j][1];
-        
-        var intersect = ((yi > y) != (yj > y))
-            && (x < (xj - xi) * (y - yi) / (yj - yi) + xi);
-        if (intersect) inside = !inside;
-    }
-    
-    return inside;
+	// ray-casting algorithm based on
+	// http://www.ecse.rpi.edu/Homepages/wrf/Research/Short_Notes/pnpoly.html
+	
+	var x = point[0], y = point[1];
+	
+	var inside = false;
+	for (var i = 0, j = polygon.length - 1; i < polygon.length; j = i++) {
+		var xi = polygon[i][0], yi = polygon[i][1];
+		var xj = polygon[j][0], yj = polygon[j][1];
+		
+		var intersect = ((yi > y) != (yj > y))
+			&& (x < (xj - xi) * (y - yi) / (yj - yi) + xi);
+		if (intersect) inside = !inside;
+	}
+	return inside;
 };
 
 var atlas = [
@@ -165,13 +158,12 @@ var atlas = [
 {"id":107,"name":"Critical Role","description":"Emblem of the actual-play Dungeons and Dragons series","website":"https://critrole.com/","subreddit":"r/CriticalRole","center":[526.5,977.5],"path":[[513.5,963.5],[538.5,963.5],[538.5,991.5],[513.5,991.5]]},
 {"id":108,"name":"Palico","description":"An iconic character from the popular game series, Monster Hunter","website":"","subreddit":"r/MonsterHunter","center":[761.5,621.5],"path":[[748.5,608.5],[748.5,635.5],[769.5,635.5],[776.5,620.5],[776.5,608.5]]},
 {"id":109,"name":"Portugal","description":"The flag of Portugal and depictions of portuguese poet Luís de Camões, Pena National Palace, celebrity Fernando Mendes, statue of Afonso Henriques (1st King of Portugal), Bridge 25th of April, and finally, a Caravel. ","website":"","subreddit":"/r/portugal","center":[984.5,336.5],"path":[[865.5,308.5],[865.5,360.5],[856.5,360.5],[856.5,371.5],[922.5,370.5],[923.5,367.5],[960.5,367.5],[960.5,360.5],[1099.5,360.5],[1109.5,352.5],[1121.5,347.5],[1121.5,325.5],[1113.5,325.5],[1113.5,313.5],[1113.5,308.5],[865.5,308.5]]},
-
 ];
 
 //console.log("There are "+atlas.length+" entries in the Atlas.");
 
 /*
-atlas.sort(function(a, b){
+atlas.sort(function(a, b) {
 	if (a.id < b.id) {
 		return -1;
 	}
@@ -182,9 +174,9 @@ atlas.sort(function(a, b){
 	return 0;
 });
 
-for(var i = 0; i < atlas.length; i++){
+for(var i = 0; i < atlas.length; i++) {
 	if(atlas[i-1]){
-		if(atlas[i-1].id == atlas[i].id){
+		if(atlas[i-1].id == atlas[i].id) {
 			console.log(atlas[i-1].id + ": "+ atlas[i-1].name);
 			console.log(atlas[i  ].id + ": "+ atlas[i  ].name);
 		}
@@ -194,13 +186,12 @@ for(var i = 0; i < atlas.length; i++){
 console.log("biggest id: "+atlas[atlas.length-1].id + ", " + atlas[atlas.length-1].name);
 */
 
-
 /*
-for(var i = 0; i < atlas.length; i++){
-	if(typeof atlas[i].website == "undefined"){
+for(var i = 0; i < atlas.length; i++) {
+	if(typeof atlas[i].website == "undefined") {
 		console.log(atlas[i].name);
-	} else if(atlas[i].website.trim() != ""){
-		if(atlas[i].website.trim().substring(0, 4) != "http"){
+	} else if(atlas[i].website.trim() != "") {
+		if(atlas[i].website.trim().substring(0, 4) != "http") {
 			console.log(atlas[i].name + ": " + atlas[i].website);
 		}
 	}
@@ -219,19 +210,16 @@ atlas.sort(function (a, b) {
 	return 0;
 });
 
-
-
-
 /*
 
 // Populate with test data
 
-for(var i = 0; i < 10000; i++){
+for(var i = 0; i < 10000; i++) {
 	var x = ~~(Math.random() * 1000)+0.5;
 	var y = ~~(Math.random() * 1000)+0.5;
 	var w = ~~(Math.random()*100);
 	var h = ~~(Math.random()*100);
-	atlas.push({
+	atlas.push( {
 		"id": 5,
 		"name": "test"+(i+3),
 		"website": "",
@@ -247,4 +235,3 @@ for(var i = 0; i < 10000; i++){
 }
 
 */
-
