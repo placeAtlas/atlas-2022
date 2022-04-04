@@ -226,6 +226,7 @@ var atlas = [
 {"id":176,"name": "Interlingue", "description": "Flag of Interlingue, an IAL to communicate between Western European languages.", "website": "https://occidental-lang.com", "subreddit": "/r/interlingue", "center": [ 768.5, 328.5 ], "path": [ [ 765.5, 326.5 ], [ 770.5, 326.5 ], [ 770.5, 329.5 ], [ 765.5, 329.5 ] ] },
 {"id":177, "name": "Viossa", "description": "Flag of the conpidgin Viossa.", "website": "", "subreddit": "/r/viossa", "center": [ 775.5, 296.5 ], "path": [ [ 769.5, 290.5 ], [ 780.5, 290.5 ], [ 780.5, 301.5 ], [ 769.5, 301.5 ] ] },
 {"id":178, "name": "Lojban", "description": "Flag of Lojban", "website": "https://lojban.org", "subreddit": "/r/lojban", "center": [ 760.5, 328.5 ], "path": [ [ 763.5, 326.5 ], [ 757.5, 326.5 ], [ 757.5, 330.5 ], [ 763.5, 330.5 ] ] },
+{"id":179, "name": "Indomie Logo", "description": "Logo of an instant noodle brand from Indonesia.", "website": "https://www.indomie.com/", "subreddit": "r/indonesia", "center": [900.5, 1714.5 ], "path": [[873.5, 1703.5 ], [929.5, 1703.5 ], [929.5, 1724.5 ], [888.5, 1724.5 ], [888.5, 1728.5 ], [873.5, 1728.5 ], [873.5, 1703.5 ] ] }
 
 ];
 
