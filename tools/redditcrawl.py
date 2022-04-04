@@ -25,8 +25,12 @@ for submission in reddit.subreddit('placeAtlas2').new(limit=220):
 
 		lines = text.split("\n")
 
-
 		text = "\n".join(lines)
+
+		for i, line in enumerate(lines):
+			if("\"id\": 0" in line):
+				lines[i] = line.replace("\"id\": 0", "\"id\": "+str(latestID))
+				latestID = latestID + 1
 		
 		try:
 			outfile.write(json.dumps(json.loads(text))+",\n")
