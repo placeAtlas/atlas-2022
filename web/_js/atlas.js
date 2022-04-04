@@ -1,6 +1,3 @@
-
-
-
 /*
 	========================================================================
 	The /r/place Atlas
@@ -23,9 +20,6 @@
 	========================================================================
 */
 
-
-
-
 window.addEventListener("error", function (e) {
 	console.log(e);
 	var errorMessage = "<p class=\"error\">An error has occurred:</p>";
@@ -36,22 +30,21 @@ window.addEventListener("error", function (e) {
 });
 
 function pointIsInPolygon (point, polygon) {
-    // ray-casting algorithm based on
-    // http://www.ecse.rpi.edu/Homepages/wrf/Research/Short_Notes/pnpoly.html
-    
-    var x = point[0], y = point[1];
-    
-    var inside = false;
-    for (var i = 0, j = polygon.length - 1; i < polygon.length; j = i++) {
-        var xi = polygon[i][0], yi = polygon[i][1];
-        var xj = polygon[j][0], yj = polygon[j][1];
-        
-        var intersect = ((yi > y) != (yj > y))
-            && (x < (xj - xi) * (y - yi) / (yj - yi) + xi);
-        if (intersect) inside = !inside;
-    }
-    
-    return inside;
+	// ray-casting algorithm based on
+	// http://www.ecse.rpi.edu/Homepages/wrf/Research/Short_Notes/pnpoly.html
+	
+	var x = point[0], y = point[1];
+	
+	var inside = false;
+	for (var i = 0, j = polygon.length - 1; i < polygon.length; j = i++) {
+		var xi = polygon[i][0], yi = polygon[i][1];
+		var xj = polygon[j][0], yj = polygon[j][1];
+		
+		var intersect = ((yi > y) != (yj > y))
+			&& (x < (xj - xi) * (y - yi) / (yj - yi) + xi);
+		if (intersect) inside = !inside;
+	}
+	return inside;
 };
 
 var atlas = [
@@ -178,31 +171,63 @@ var atlas = [
 {"id":120, "name": "Greggs", "description": "The logo of Greggs, the British fast-food bakery chain.", "website": "", "subreddit": "", "center": [ 727.5, 479.5 ], "path": [ [ 702.5, 477.5 ], [ 752.5, 477.5 ], [ 752.5, 481.5 ], [ 702.5, 481.5 ], [ 702.5, 477.5 ] ] },
 {"id":121, "name": "PewDiePie", "description": "A Pixel art image of PewDiePie, the popular YouTuber", "website": "https://www.youtube.com/user/PewDiePie", "subreddit": "/r/pewdiepie", "center": [ 1726.5, 736.5 ], "path": [ [ 1726.5, 672.5 ], [ 1751.5, 693.5 ], [ 1751.5, 707.5 ], [ 1743.5, 718.5 ], [ 1755.5, 726.5 ], [ 1756.5, 731.5 ], [ 1760.5, 738.5 ], [ 1760.5, 747.5 ], [ 1763.5, 753.5 ], [ 1762.5, 766.5 ], [ 1762.5, 773.5 ], [ 1756.5, 779.5 ], [ 1748.5, 779.5 ], [ 1747.5, 780.5 ], [ 1702.5, 780.5 ], [ 1701.5, 781.5 ], [ 1700.5, 781.5 ], [ 1700.5, 776.5 ], [ 1699.5, 774.5 ], [ 1697.5, 773.5 ], [ 1693.5, 773.5 ], [ 1693.5, 771.5 ], [ 1692.5, 769.5 ], [ 1691.5, 766.5 ], [ 1690.5, 763.5 ], [ 1690.5, 756.5 ], [ 1689.5, 755.5 ], [ 1689.5, 745.5 ], [ 1690.5, 744.5 ], [ 1690.5, 739.5 ], [ 1691.5, 738.5 ], [ 1691.5, 734.5 ], [ 1692.5, 730.5 ], [ 1694.5, 729.5 ], [ 1694.5, 727.5 ], [ 1695.5, 725.5 ], [ 1699.5, 721.5 ], [ 1701.5, 721.5 ], [ 1703.5, 720.5 ], [ 1706.5, 719.5 ], [ 1707.5, 718.5 ], [ 1708.5, 717.5 ], [ 1708.5, 716.5 ], [ 1707.5, 715.5 ], [ 1707.5, 712.5 ], [ 1706.5, 711.5 ], [ 1706.5, 709.5 ], [ 1705.5, 708.5 ], [ 1704.5, 707.5 ], [ 1703.5, 707.5 ], [ 1703.5, 700.5 ], [ 1704.5, 698.5 ], [ 1704.5, 695.5 ], [ 1707.5, 695.5 ], [ 1708.5, 694.5 ], [ 1708.5, 691.5 ], [ 1710.5, 691.5 ], [ 1710.5, 689.5 ], [ 1710.5, 685.5 ], [ 1726.5, 672.5 ] ] },
 {"id":122, "name": "Girl with a Pearl Earring", "description": "Pixel art of the Girl with a Pearl Earring, by Johannes Vermeer", "website": "https://en.wikipedia.org/wiki/Girl_with_a_Pearl_Earring", "subreddit": "", "center": [ 907.5, 34.5 ], "path": [ [ 928.5, 0.5 ], [ 928.5, 68.5 ], [ 886.5, 68.5 ], [ 886.5, 0.5 ], [ 928.5, 0.5 ] ] },
-{"id":123,"name":"EVE Online","description":"The logo for Eve Online, an economy-based space MMORPG.","website":"eveonline.com","subreddit":"r/Eve","center":[38.5,44.5],"path":[[13.5,34.5],[62.5,34.5],[62.5,53.5],[13.5,53.5]]},
-{"id":124,"name":"o7","description":"An emoticon depicting a person saluting.","website":"","subreddit":"","center":[7.5,46.5],"path":[[12.5,35.5],[12.5,53.5],[0.5,53.5],[0.5,46.5],[12.5,35.5]]},
-{"id":125,"name":"SS13 clown","description":"The clown, a playable character in the game Space Station 13.","website":"spacestation13.com","subreddit":"r/SS13","center":[70.5,103.5],"path":[[61.5,91.5],[79.5,91.5],[79.5,116.5],[68.5,116.5],[68.5,111.5],[61.5,111.5]]},
-{"id":126,"name":"Dota 2","description":"The logo for Dota 2, a MOBA developed by Valve.","website":"dota2.com","subreddit":"r/DotA2","center":[14.5,160.5],"path":[[0.5,143.5],[27.5,143.5],[27.5,177.5],[0.5,177.5]]},
-{"id":127,"name":"Flag of Egypt","description":"","website":"","subreddit":"r/Egypt","center":[66.5,156.5],"path":[[28.5,144.5],[28.5,169.5],[108.5,169.5],[108.5,148.5],[74.5,148.5],[74.5,138.5],[52.5,138.5],[47.5,144.5],[28.5,144.5]]},
-{"id":128,"name":"Pyramids of Giza","description":"","website":"","subreddit":"","center":[66.5,157.5],"path":[[52.5,160.5],[80.5,160.5],[74.5,154.5],[72.5,155.5],[68.5,152.5],[66.5,154.5],[62.5,150.5]]},
-{"id":129,"name":"Homestuck","description":"A webcomic by Andrew Hussie that ran from 2009 to 2016.","website":"homestuck.com","subreddit":"r/homestuck","center":[248.5,145.5],"path":[[221.5,126.5],[266.5,126.5],[275.5,135.5],[275.5,164.5],[221.5,164.5]]},
-{"id":130,"name":"Hiveswap","description":"An adventure game set in the same multiverse as Homestuck.","website":"hiveswap.com","subreddit":"r/hiveswap","center":[262.5,168.5],"path":[[247.5,165.5],[247.5,171.5],[276.5,171.5],[276.5,165.5]]},
-{"id":131,"name":"Flag of Taiwan","description":"","website":"","subreddit":"","center":[286.5,165.5],"path":[[276.5,158.5],[295.5,158.5],[295.5,172.5],[276.5,172.5]]},
-{"id":132,"name":"Flag of South Korea","description":"","website":"","subreddit":"","center":[306.5,165.5],"path":[[295.5,158.5],[316.5,158.5],[316.5,172.5],[295.5,172.5]]},
-{"id":133,"name":"Flag of Japan","description":"","website":"","subreddit":"","center":[327.5,165.5],"path":[[316.5,158.5],[337.5,158.5],[337.5,172.5],[316.5,172.5]]},
-{"id":134,"name":"John Egbert","description":"A major character from Homestuck.","website":"","subreddit":"","center":[251.5,112.5],"path":[[243.5,102.5],[258.5,102.5],[258.5,121.5],[243.5,121.5]]},
-{"id":135,"name":"Nepeta Leijon","description":"A character from Homestuck.","website":"","subreddit":"","center":[180.5,153.5],"path":[[171.5,141.5],[188.5,141.5],[188.5,165.5],[171.5,165.5]]},
-{"id":136,"name":"Faroe Islands","description":"","website":"","subreddit":"","center":[437.5,120.5],"path":[[412.5,103.5],[461.5,103.5],[461.5,136.5],[412.5,136.5]]},
-{"id":137,"name":"Flag of Norway","description":"","website":"","subreddit":"","center":[352.5,72.5],"path":[[493.5,36.5],[215.5,36.5],[215.5,95.5],[231.5,95.5],[231.5,100.5],[259.5,100.5],[259.5,124.5],[268.5,125.5],[334.5,124.5],[334.5,78.5],[400.5,78.5],[400.5,124.5],[412.5,124.5],[412.5,103.5],[461.5,103.5],[461.5,119.5],[475.5,119.5],[475.5,103.5],[495.5,102.5],[494.5,79.5]]},
-{"id":138,"name":"The Scream","description":"A painting by Norwegian artist Edvard Munch.","website":"","subreddit":"","center":[274.5,66.5],"path":[[247.5,40.5],[300.5,40.5],[300.5,91.5],[247.5,91.5]]},
-{"id":139,"name":"Flag of Ukraine","description":"","website":"","subreddit":"","center":[205.5,213.5],"path":[[0.5,170.5],[337.5,171.5],[337.5,193.5],[433.5,193.5],[433.5,252.5],[237.5,251.5],[237.5,249.5],[-1.5,251.5]]},
-{"id":140,"name":"Gnome Child","description":"An NPC from the MMORPG Runescape.","website":"","subreddit":"","center":[152.5,63.5],"path":[[146.5,34.5],[137.5,57.5],[146.5,71.5],[135.5,83.5],[138.5,86.5],[144.5,82.5],[168.5,84.5],[168.5,77.5],[161.5,71.5],[164.5,65.5],[164.5,54.5],[155.5,43.5],[151.5,43.5],[150.5,34.5]]},
-{"id":141,"name":"Big Floppa","description":"The one and only.","website":"","subreddit":"r/bigfloppa","center":[1937.5,465.5],"path":[[1954.5,491.5],[1918.5,490.5],[1925.5,465.5],[1924.5,448.5],[1923.5,436.5],[1928.5,440.5],[1934.5,436.5],[1939.5,435.5],[1947.5,440.5],[1954.5,434.5],[1954.5,442.5],[1950.5,450.5],[1951.5,465.5]]}
+{"id": 123, "submitted_by": "Kenjidono_", "name": "Palestanian Flag", "description": "This is the current Flag of Palestine.", "website": "", "subreddit": "/r/Palestine", "center": [44.5, 660.5], "path": [[20.5, 643.5], [20.5, 678.5], [68.5, 678.5], [69.5, 643.5], [20.5, 643.5], [20.5, 678.5]]},
+{"id": 124, "submitted_by": "Inzaniity", "name": "German Fast-Train (ICE)", "description": "The German fast train ICE (Inter-City-Express) with bad network reception. It is known for having really bad network reception while travelling with Deutsche Bahn.", "website": "", "subreddit": "", "center": [349.5, 858.5], "path": [[373.5, 849.5], [373.5, 867.5], [325.5, 867.5], [325.5, 863.5], [326.5, 859.5], [331.5, 854.5], [324.5, 853.5], [324.5, 851.5], [323.5, 850.5], [323.5, 844.5], [327.5, 844.5], [327.5, 846.5], [328.5, 847.5], [329.5, 846.5], [331.5, 846.5], [331.5, 854.5], [333.5, 854.5], [335.5, 852.5], [337.5, 852.5], [344.5, 849.5], [373.5, 849.5]]},
+{"id": 125, "submitted_by": "MaulPaul", "name": "End of speedlimit", "description": "German road sign used on the Autobahn(German Highway) to indicate the end of all speed and passing limits", "website": "", "subreddit": "r/placeDE", "center": [572.5, 852.5], "path": [[570.5, 846.5], [574.5, 846.5], [578.5, 850.5], [578.5, 855.5], [574.5, 858.5], [570.5, 858.5], [566.5, 854.5], [566.5, 850.5], [570.5, 846.5], [572.5, 856.5], [572.5, 865.5], [572.5, 856.5], [571.5, 849.5]]},
+{"id": 126, "submitted_by": "Inzaniity", "name": "arte", "description": "Arte is a European public service channel that promotes cultural programming. It's a coorporation between French and German broadcasting companies.", "website": "https://www.arte.tv/en/", "subreddit": "", "center": [1163.5, 849.5], "path": [[1200.5, 830.5], [1200.5, 868.5], [1126.5, 868.5], [1126.5, 829.5], [1200.5, 830.5]]},
+{"id": 127, "submitted_by": "Woocami", "name": "Die Sendung mit der Maus", "description": "Die Sendung mit der Maus (The Show with the Mouse) is a German children's television series, popular nation-wide for its educational content.", "website": "[https://www.wdrmaus.de/](https://www.wdrmaus.de/)", "subreddit": "/r/placede", "center": [82.5, 853.5], "path": [[61.5, 865.5], [56.5, 865.5], [53.5, 862.5], [51.5, 862.5], [48.5, 859.5], [48.5, 858.5], [49.5, 858.5], [49.5, 857.5], [50.5, 857.5], [50.5, 858.5], [52.5, 858.5], [52.5, 857.5], [53.5, 857.5], [54.5, 858.5], [54.5, 860.5], [53.5, 861.5], [55.5, 863.5], [56.5, 864.5], [61.5, 864.5], [62.5, 864.5], [62.5, 863.5], [63.5, 863.5], [63.5, 861.5], [64.5, 861.5], [64.5, 859.5], [63.5, 860.5], [60.5, 856.5], [60.5, 853.5], [61.5, 852.5], [61.5, 851.5], [62.5, 850.5], [65.5, 850.5], [65.5, 849.5], [66.5, 848.5], [68.5, 848.5], [69.5, 847.5], [70.5, 847.5], [71.5, 848.5], [71.5, 849.5], [73.5, 849.5], [74.5, 850.5], [76.5, 848.5], [76.5, 847.5], [77.5, 846.5], [77.5, 843.5], [76.5, 843.5], [76.5, 839.5], [77.5, 839.5], [77.5, 838.5], [76.5, 838.5], [74.5, 836.5], [76.5, 834.5], [78.5, 834.5], [78.5, 832.5], [82.5, 832.5], [82.5, 835.5], [85.5, 835.5], [85.5, 836.5], [87.5, 836.5], [87.5, 837.5], [88.5, 838.5], [89.5, 838.5], [90.5, 839.5], [91.5, 839.5], [92.5, 840.5], [92.5, 841.5], [91.5, 842.5], [94.5, 842.5], [94.5, 840.5], [96.5, 840.5], [97.5, 841.5], [97.5, 839.5], [98.5, 839.5], [100.5, 841.5], [100.5, 842.5], [102.5, 844.5], [102.5, 848.5], [101.5, 849.5], [101.5, 850.5], [100.5, 851.5], [99.5, 851.5], [99.5, 854.5], [102.5, 854.5], [103.5, 853.5], [104.5, 853.5], [105.5, 852.5], [106.5, 853.5], [107.5, 854.5], [104.5, 857.5], [104.5, 858.5], [105.5, 859.5], [105.5, 862.5], [101.5, 862.5], [101.5, 864.5], [103.5, 866.5], [103.5, 867.5], [99.5, 867.5], [98.5, 866.5], [99.5, 865.5], [99.5, 862.5], [97.5, 862.5], [97.5, 865.5], [95.5, 867.5], [94.5, 867.5], [93.5, 866.5], [92.5, 866.5], [92.5, 865.5], [93.5, 864.5], [95.5, 864.5], [95.5, 863.5], [94.5, 862.5], [94.5, 861.5], [92.5, 859.5], [92.5, 856.5], [91.5, 856.5], [89.5, 858.5], [89.5, 861.5], [88.5, 862.5], [88.5, 863.5], [89.5, 864.5], [89.5, 866.5], [86.5, 866.5], [86.5, 859.5], [83.5, 859.5], [83.5, 866.5], [74.5, 866.5], [73.5, 867.5], [69.5, 867.5], [68.5, 866.5], [67.5, 866.5], [66.5, 867.5], [64.5, 867.5], [63.5, 866.5], [62.5, 865.5]]},
+{"id": 128, "submitted_by": "red__flag_", "name": "European Union Flag with a peace dove", "description": "The flag of the European Union with a peace dove. The same flag was also in r/place 2017.", "website": "[https://discord.gg/uxm3wbrHke](https://discord.gg/uxm3wbrHke)", "subreddit": "r/PlaceEU", "center": [403.5, 848.5], "path": [[373.5, 829.5], [433.5, 829.5], [433.5, 867.5], [373.5, 867.5], [373.5, 867.5]]},
+{"id": 129, "submitted_by": "Yuzumi_", "name": "Bernd das Brot with a beer", "description": "Bernd das Brot is a puppet character, star mascot and cult figure of the German children's television channel KI.KA.", "website": "https://en.wikipedia.org/wiki/Bernd_das_Brot", "subreddit": "", "center": [205.5, 855.5], "path": [[204.5, 846.5], [188.5, 860.5], [213.5, 874.5], [215.5, 833.5], [190.5, 831.5], [189.5, 832.5], [187.5, 832.5], [186.5, 851.5], [183.5, 851.5], [181.5, 849.5], [179.5, 849.5], [177.5, 851.5], [178.5, 852.5], [178.5, 853.5], [176.5, 855.5], [170.5, 857.5], [170.5, 860.5], [172.5, 861.5], [174.5, 860.5], [170.5, 864.5], [171.5, 867.5], [174.5, 867.5], [176.5, 867.5], [177.5, 869.5], [179.5, 869.5], [181.5, 866.5], [184.5, 863.5], [186.5, 863.5], [186.5, 873.5], [213.5, 874.5], [214.5, 862.5], [218.5, 862.5], [220.5, 864.5], [223.5, 866.5], [226.5, 867.5], [229.5, 869.5], [234.5, 869.5], [238.5, 865.5], [242.5, 868.5], [242.5, 863.5], [244.5, 858.5], [244.5, 853.5], [239.5, 847.5], [234.5, 845.5], [231.5, 846.5], [229.5, 848.5], [227.5, 849.5], [224.5, 850.5], [222.5, 849.5], [222.5, 851.5], [219.5, 852.5], [218.5, 853.5], [214.5, 851.5], [214.5, 850.5], [214.5, 850.5], [215.5, 851.5]]},
+{"id": 130, "submitted_by": "Jm8alt3", "name": "Pochita", "description": "Pochita is a character from the manga Chansaw Man.", "website": "", "subreddit": "r/ChainsawMan", "center": [212.5, 791.5], "path": [[198.5, 779.5], [204.5, 779.5], [207.5, 782.5], [207.5, 783.5], [215.5, 783.5], [215.5, 782.5], [216.5, 782.5], [216.5, 781.5], [219.5, 781.5], [223.5, 785.5], [224.5, 786.5], [224.5, 789.5], [222.5, 791.5], [223.5, 792.5], [223.5, 793.5], [225.5, 793.5], [225.5, 799.5], [224.5, 799.5], [224.5, 800.5], [222.5, 800.5], [222.5, 802.5], [219.5, 802.5], [219.5, 803.5], [215.5, 803.5], [215.5, 801.5], [212.5, 801.5], [212.5, 802.5], [206.5, 802.5], [206.5, 800.5], [208.5, 798.5], [205.5, 798.5], [202.5, 795.5], [202.5, 789.5], [201.5, 789.5], [199.5, 787.5], [198.5, 786.5], [198.5, 784.5], [197.5, 784.5], [197.5, 780.5], [198.5, 779.5]]},
+{"id": 131, "submitted_by": "linwji", "name": "Neopets", "description": "A virtual pet game that peaked in popularity the 1990s ", "website": "https://www.neopets.com/", "subreddit": "/r/neopets", "center": [331.5, 722.5], "path": [[310.5, 702.5], [311.5, 742.5], [351.5, 742.5], [351.5, 702.5]]},
+{"id": 132, "submitted_by": "linwji", "name": "Bangladesh (country)", "description": "Bangladesh, to the east of India on the Bay of Bengal, is a South Asian country marked by lush greenery and many waterways. Its Padma (Ganges), Meghna and Jamuna rivers create fertile plains, and travel by boat is common.", "website": "", "subreddit": "/r/bangladesh", "center": [305.5, 985.5], "path": [[287.5, 978.5], [323.5, 978.5], [323.5, 992.5], [283.5, 992.5], [288.5, 991.5]]},
+{"id": 133, "submitted_by": "linwji", "name": "Singapore", "description": "Small Island Country with a 5.5M population with high degree with development", "website": "https://www.visitsingapore.com/", "subreddit": "/r/singapore", "center": [306.5, 966.5], "path": [[286.5, 956.5], [326.5, 958.5], [326.5, 976.5], [288.5, 976.5]]},
+{"id": 134, "submitted_by": "linwji", "name": "Google Chrome Dino", "description": "This dino game appears when Chrome browser is offline", "website": "https://chromedino.com/", "subreddit": "", "center": [323.5, 793.5], "path": [[342.5, 779.5], [304.5, 779.5], [302.5, 807.5], [342.5, 808.5]]},
+{"id": 135, "submitted_by": "linwji", "name": "Malaysia (country)", "description": "Lovely country in South-East Asia with a 30M population", "website": "", "subreddit": "/r/malaysia", "center": [358.5, 974.5], "path": [[394.5, 962.5], [325.5, 960.5], [324.5, 988.5], [392.5, 988.5]]},
+{"id": 136, "submitted_by": "linwji", "name": "Gear in Factorio Video Game", "description": "One of the most important component pieces in Factorio game to craft machines to grow the factory", "website": "https://factorio.com/", "subreddit": "/r/factorio", "center": [1598.5, 563.5], "path": [[1574.5, 548.5], [1621.5, 548.5], [1622.5, 578.5], [1573.5, 578.5]]},
+{"id": 137, "submitted_by": "linwji", "name": "BTS Young Forever Album Cover", "description": "Korea's hottest boyband's album cover featured a colourful hot-air balloon", "website": "https://www.youtube.com/watch?v=7m-4u4GONsA&ab_channel=BangtanSubs", "subreddit": "/r/bangtan", "center": [1971.5, 217.5], "path": [[1999.5, 195.5], [1944.5, 196.5], [1942.5, 239.5], [1998.5, 238.5]]},
+{"id": 138, "submitted_by": "linwji", "name": "Aang, the last Avatar (cartoon)", "description": "The world is divided into four nations -- the Water Tribe, the Earth Kingdom, the Fire Nation and and the Air Nomads -- each represented by a natural element for which the nation is named. Benders have the ability to control and manipulate the element from their nation. Only the Avatar is the master of all four elements and Aang conquers them all!! ", "website": "http://www.nick.co.uk/shows/avatar/q03fvj", "subreddit": "", "center": [289.5, 947.5], "path": [[281.5, 938.5], [296.5, 938.5], [297.5, 957.5], [282.5, 956.5]]},
+{"id": 139, "submitted_by": "linwji", "name": "Sailor Moon", "description": "A popular Japanese Anime in the 1990s where a group of girls with superpowers triumph over evil", "website": "", "subreddit": "/r/sailormoon", "center": [379.5, 974.5], "path": [[364.5, 961.5], [366.5, 986.5], [395.5, 986.5], [391.5, 962.5]]},
+{"id": 140, "submitted_by": "bafimet", "name": "Ghost", "description": "'Grucifix' symbol for the Swedish metal band Ghost.", "website": "", "subreddit": "r/GhostBC", "center": [1308.5, 60.5], "path": [[1300.5, 49.5], [1318.5, 49.5], [1316.5, 72.5], [1299.5, 72.5], [1299.5, 71.5], [1299.5, 49.5]]},
+{"id": 141, "submitted_by": "linwji", "name": "Factorio (video game)", "description": "One of the most popular factory simulation games with a strong community of over 2.5million players", "website": "https://factorio.com", "subreddit": "/r/factorio", "center": [291.5, 557.5], "path": [[252.5, 548.5], [252.5, 567.5], [329.5, 567.5], [330.5, 548.5]]},
+{"id": 142, "submitted_by": "JCx64", "name": "Giralda Tower", "description": "A moorish & christian tower from Seville, one of the most iconic monuments from Spain.", "website": "https://en.wikipedia.org/wiki/Giralda", "subreddit": "/r/Spain", "center": [1335.5, 300.5], "path": [[1335.5, 287.5], [1335.5, 289.5], [1336.5, 289.5], [1336.5, 296.5], [1338.5, 296.5], [1338.5, 295.5], [1338.5, 304.5], [1339.5, 304.5], [1339.5, 307.5], [1332.5, 307.5], [1332.5, 295.5], [1332.5, 296.5], [1333.5, 296.5], [1334.5, 296.5], [1334.5, 289.5], [1335.5, 289.5], [1335.5, 287.5]]},
+{"id": 143, "submitted_by": "morganisboring", "name": "Taylor Swift tribute", "description": "A tribute to singer-songerwriter Taylor Swift. The 13 represents her lucky number, which is particularly referenced in the art she creates. Her initials are below, and the whole is surrounded by a border of colours representing her 9 studio albums (as of r/place 2). A special thank you to r/Lego, whom we have mutually defended.", "website": "", "subreddit": "/r/taylorswift", "center": [650.5, 307.5], "path": [[638.5, 294.5], [659.5, 294.5], [660.5, 295.5], [663.5, 295.5], [663.5, 320.5], [638.5, 320.5], [638.5, 294.5]]},
+{"id": 144, "submitted_by": "greese1", "name": "Fish Cult tank 2", "description": "a team of people dedicated to making fish on r/place", "website": "", "subreddit": "r/PlaceFishCult", "center": [1435.5, 920.5], "path": [[1431.5, 935.5], [1429.5, 935.5], [1429.5, 934.5], [1428.5, 934.5], [1427.5, 933.5], [1426.5, 932.5], [1426.5, 931.5], [1426.5, 931.5], [1425.5, 931.5], [1425.5, 930.5], [1423.5, 930.5], [1421.5, 930.5], [1421.5, 907.5], [1421.5, 906.5], [1450.5, 906.5], [1449.5, 930.5], [1446.5, 930.5], [1446.5, 931.5], [1445.5, 932.5], [1445.5, 931.5], [1444.5, 933.5], [1443.5, 934.5], [1442.5, 934.5], [1442.5, 935.5]]},
+{"id": 145, "submitted_by": "greese1", "name": "Fish Cult tank 1", "description": "a team of people dedicated to making fish on [r/place](https://www.reddit.com/r/place/)", "website": "", "subreddit": "r/PlaceFishCult", "center": [473.5, 898.5], "path": [[448.5, 890.5], [448.5, 914.5], [453.5, 914.5], [453.5, 906.5], [454.5, 906.5], [454.5, 905.5], [499.5, 905.5], [499.5, 904.5], [500.5, 904.5], [500.5, 890.5], [448.5, 890.5]]},
+{"id": 146, "submitted_by": "abcMarcus", "name": "Hong Kong Flag", "description": "A Hong Kong Flag and slogon and yellow umbrella symbol used in protest against the Chinese Communist Party.", "website": "", "subreddit": "/r/HongKong", "center": [634.5, 674.5], "path": [[600.5, 650.5], [600.5, 698.5], [668.5, 699.5], [668.5, 650.5]]},
+{"id": 147, "submitted_by": "morganisboring", "name": "Lover - Taylor Swift Album", "description": "The Lover logo inspired by Taylor Swift's 2019 studio album.", "website": "", "subreddit": "r/taylorswift", "center": [1824.5, 106.5], "path": [[1809.5, 98.5], [1837.5, 98.5], [1837.5, 129.5], [1832.5, 129.5], [1835.5, 126.5], [1835.5, 124.5], [1836.5, 123.5], [1836.5, 116.5], [1830.5, 110.5], [1829.5, 110.5], [1828.5, 109.5], [1820.5, 109.5], [1819.5, 110.5], [1817.5, 110.5], [1815.5, 112.5], [1814.5, 112.5], [1810.5, 116.5], [1810.5, 117.5], [1809.5, 117.5], [1809.5, 98.5]]},
+{"id": 148, "submitted_by": "jasonycw", "name": "Palico", "description": "An iconic character from the popular game series, Monster Hunter", "website": "", "subreddit": "r/MonsterHunter", "center": [761.5, 621.5], "path": [[748.5, 608.5], [748.5, 635.5], [769.5, 635.5], [776.5, 620.5], [776.5, 608.5]]},
+{"id": 149, "submitted_by": "pixelsimulation", "name": "Art Heaven", "description": "Art Heaven is an art community started on discord. This is an image of our mascot, Abby!", "website": "", "subreddit": "r/artheaven", "center": [652.5, 640.5], "path": [[661.5, 632.5], [661.5, 647.5], [642.5, 647.5], [642.5, 632.5]]},
+{"id": 150, "submitted_by": "ljcool2006", "name": "Hawaii: Part II", "description": "An album by Miracle Musical, a music project made by members of Tally Hall", "website": "https://www.hawaiipartii.com/", "subreddit": "/r/tallyhall", "center": [1507.5, 191.5], "path": [[1495.5, 180.5], [1518.5, 180.5], [1518.5, 201.5], [1495.5, 201.5]]},
+{"id": 151, "submitted_by": "F-L-A-R-E", "name": "Karlsruhe Institute of Technology (KIT)", "description": "University of Karlsruhe (Germany)", "website": "kit.edu", "subreddit": "/r/KaIT", "center": [796.5, 534.5], "path": [[760.5, 521.5], [760.5, 547.5], [832.5, 547.5], [832.5, 521.5]]},
+{"id": 152, "submitted_by": "Powaza", "name": "Chick (Powi)", "description": "The Chick from the MEA (Middle Eastern Alliance). Idea from 'Powi Club's Discord server and other helpers.", "website": "https://discord.gg/EyNsdbU", "subreddit": "/r/PowiTeam", "center": [ 1777.5, 949.5 ], "path": [ [ 1784.5, 940.5 ], [ 1773.5, 940.5 ], [ 1773.5, 946.5 ], [ 1768.5, 947.5 ], [ 1768.5, 957.5 ], [ 1784.5, 957.5 ], [ 1784.5, 952.5 ] ] },
+{"id": 153, "submitted_by": "horsewhips", "name": "The Ohio State University", "description": "The Ohio State University (OSU) is located in Columbus, Ohio, USA.  OSU's school colors are scarlet and gray which can be seen around their famous Block O - located towards the bottom left of the artwork.  The Block 'O' together with the Buckeye nut is the logo for The Ohio State University. OSU (not to be confused with the rhythm game 'osu!') is famous for it's rivalry with the University of Michigan with the 15-2 representing the current streak of 15 wins against UofM's 2. The Ohio flag is on the top right, representing the state of Ohio, USA. The bottom right has the famous 'Script Ohio' - a long-time Ohio State tradition from the school's Marching Band where members of the band will form the word 'Ohio' in script during football games. A second block 'O' is situated next to Purdue University & Rutgers University elsewhere on r/place.", "website": "[https://www.osu.edu](https://www.osu.edu)", "subreddit": "r/osu", "center": [ 1347.5, 813.5 ], "path": [ [ 1331.5, 795.5 ], [ 1331.5, 830.5 ], [ 1363.5, 831.5 ], [ 1363.5, 795.5 ], [ 1363.5, 795.5 ], [ 1363.5, 795.5 ] ] },
+{"id":154,"name":"EVE Online","description":"The logo for Eve Online, an economy-based space MMORPG.","website":"eveonline.com","subreddit":"r/Eve","center":[38.5,44.5],"path":[[13.5,34.5],[62.5,34.5],[62.5,53.5],[13.5,53.5]]},
+{"id":155,"name":"o7","description":"An emoticon depicting a person saluting.","website":"","subreddit":"","center":[7.5,46.5],"path":[[12.5,35.5],[12.5,53.5],[0.5,53.5],[0.5,46.5],[12.5,35.5]]},
+{"id":156,"name":"SS13 clown","description":"The clown, a playable character in the game Space Station 13.","website":"spacestation13.com","subreddit":"r/SS13","center":[70.5,103.5],"path":[[61.5,91.5],[79.5,91.5],[79.5,116.5],[68.5,116.5],[68.5,111.5],[61.5,111.5]]},
+{"id":157,"name":"Dota 2","description":"The logo for Dota 2, a MOBA developed by Valve.","website":"dota2.com","subreddit":"r/DotA2","center":[14.5,160.5],"path":[[0.5,143.5],[27.5,143.5],[27.5,177.5],[0.5,177.5]]},
+{"id":159,"name":"Flag of Egypt","description":"","website":"","subreddit":"r/Egypt","center":[66.5,156.5],"path":[[28.5,144.5],[28.5,169.5],[108.5,169.5],[108.5,148.5],[74.5,148.5],[74.5,138.5],[52.5,138.5],[47.5,144.5],[28.5,144.5]]},
+{"id":160,"name":"Pyramids of Giza","description":"","website":"","subreddit":"","center":[66.5,157.5],"path":[[52.5,160.5],[80.5,160.5],[74.5,154.5],[72.5,155.5],[68.5,152.5],[66.5,154.5],[62.5,150.5]]},
+{"id":161,"name":"Homestuck","description":"A webcomic by Andrew Hussie that ran from 2009 to 2016.","website":"homestuck.com","subreddit":"r/homestuck","center":[248.5,145.5],"path":[[221.5,126.5],[266.5,126.5],[275.5,135.5],[275.5,164.5],[221.5,164.5]]},
+{"id":162,"name":"Hiveswap","description":"An adventure game set in the same multiverse as Homestuck.","website":"hiveswap.com","subreddit":"r/hiveswap","center":[262.5,168.5],"path":[[247.5,165.5],[247.5,171.5],[276.5,171.5],[276.5,165.5]]},
+{"id":163,"name":"Flag of Taiwan","description":"","website":"","subreddit":"","center":[286.5,165.5],"path":[[276.5,158.5],[295.5,158.5],[295.5,172.5],[276.5,172.5]]},
+{"id":164,"name":"Flag of South Korea","description":"","website":"","subreddit":"","center":[306.5,165.5],"path":[[295.5,158.5],[316.5,158.5],[316.5,172.5],[295.5,172.5]]},
+{"id":165,"name":"Flag of Japan","description":"","website":"","subreddit":"","center":[327.5,165.5],"path":[[316.5,158.5],[337.5,158.5],[337.5,172.5],[316.5,172.5]]},
+{"id":166,"name":"John Egbert","description":"A major character from Homestuck.","website":"","subreddit":"","center":[251.5,112.5],"path":[[243.5,102.5],[258.5,102.5],[258.5,121.5],[243.5,121.5]]},
+{"id":167,"name":"Nepeta Leijon","description":"A character from Homestuck.","website":"","subreddit":"","center":[180.5,153.5],"path":[[171.5,141.5],[188.5,141.5],[188.5,165.5],[171.5,165.5]]},
+{"id":168,"name":"Faroe Islands","description":"","website":"","subreddit":"","center":[437.5,120.5],"path":[[412.5,103.5],[461.5,103.5],[461.5,136.5],[412.5,136.5]]},
+{"id":169,"name":"Flag of Norway","description":"","website":"","subreddit":"","center":[352.5,72.5],"path":[[493.5,36.5],[215.5,36.5],[215.5,95.5],[231.5,95.5],[231.5,100.5],[259.5,100.5],[259.5,124.5],[268.5,125.5],[334.5,124.5],[334.5,78.5],[400.5,78.5],[400.5,124.5],[412.5,124.5],[412.5,103.5],[461.5,103.5],[461.5,119.5],[475.5,119.5],[475.5,103.5],[495.5,102.5],[494.5,79.5]]},
+{"id":170,"name":"The Scream","description":"A painting by Norwegian artist Edvard Munch.","website":"","subreddit":"","center":[274.5,66.5],"path":[[247.5,40.5],[300.5,40.5],[300.5,91.5],[247.5,91.5]]},
+{"id":171,"name":"Flag of Ukraine","description":"","website":"","subreddit":"","center":[205.5,213.5],"path":[[0.5,170.5],[337.5,171.5],[337.5,193.5],[433.5,193.5],[433.5,252.5],[237.5,251.5],[237.5,249.5],[-1.5,251.5]]},
+{"id":172,"name":"Gnome Child","description":"An NPC from the MMORPG Runescape.","website":"","subreddit":"","center":[152.5,63.5],"path":[[146.5,34.5],[137.5,57.5],[146.5,71.5],[135.5,83.5],[138.5,86.5],[144.5,82.5],[168.5,84.5],[168.5,77.5],[161.5,71.5],[164.5,65.5],[164.5,54.5],[155.5,43.5],[151.5,43.5],[150.5,34.5]]},
+{"id":173,"name":"Big Floppa","description":"The one and only.","website":"","subreddit":"r/bigfloppa","center":[1937.5,465.5],"path":[[1954.5,491.5],[1918.5,490.5],[1925.5,465.5],[1924.5,448.5],[1923.5,436.5],[1928.5,440.5],[1934.5,436.5],[1939.5,435.5],[1947.5,440.5],[1954.5,434.5],[1954.5,442.5],[1950.5,450.5],[1951.5,465.5]]}
+
 ];
 
 //console.log("There are "+atlas.length+" entries in the Atlas.");
 
 /*
-atlas.sort(function(a, b){
+atlas.sort(function(a, b) {
 	if (a.id < b.id) {
 		return -1;
 	}
@@ -213,9 +238,9 @@ atlas.sort(function(a, b){
 	return 0;
 });
 
-for(var i = 0; i < atlas.length; i++){
+for(var i = 0; i < atlas.length; i++) {
 	if(atlas[i-1]){
-		if(atlas[i-1].id == atlas[i].id){
+		if(atlas[i-1].id == atlas[i].id) {
 			console.log(atlas[i-1].id + ": "+ atlas[i-1].name);
 			console.log(atlas[i  ].id + ": "+ atlas[i  ].name);
 		}
@@ -225,13 +250,12 @@ for(var i = 0; i < atlas.length; i++){
 console.log("biggest id: "+atlas[atlas.length-1].id + ", " + atlas[atlas.length-1].name);
 */
 
-
 /*
-for(var i = 0; i < atlas.length; i++){
-	if(typeof atlas[i].website == "undefined"){
+for(var i = 0; i < atlas.length; i++) {
+	if(typeof atlas[i].website == "undefined") {
 		console.log(atlas[i].name);
-	} else if(atlas[i].website.trim() != ""){
-		if(atlas[i].website.trim().substring(0, 4) != "http"){
+	} else if(atlas[i].website.trim() != "") {
+		if(atlas[i].website.trim().substring(0, 4) != "http") {
 			console.log(atlas[i].name + ": " + atlas[i].website);
 		}
 	}
@@ -250,19 +274,16 @@ atlas.sort(function (a, b) {
 	return 0;
 });
 
-
-
-
 /*
 
 // Populate with test data
 
-for(var i = 0; i < 10000; i++){
+for(var i = 0; i < 10000; i++) {
 	var x = ~~(Math.random() * 1000)+0.5;
 	var y = ~~(Math.random() * 1000)+0.5;
 	var w = ~~(Math.random()*100);
 	var h = ~~(Math.random()*100);
-	atlas.push({
+	atlas.push( {
 		"id": 5,
 		"name": "test"+(i+3),
 		"website": "",
@@ -278,4 +299,3 @@ for(var i = 0; i < 10000; i++){
 }
 
 */
-
