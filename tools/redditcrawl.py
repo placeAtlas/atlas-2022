@@ -9,12 +9,12 @@ credentials = open('credentials', 'r')
 client_id = credentials.readline().strip(' \t\n\r')
 client_secret = credentials.readline().strip(' \t\n\r')
 
-startId = 1778
-
 reddit = praw.Reddit(client_id=client_id, client_secret=client_secret, user_agent='atlas_bot')
 
 failcount = 0
 successcount = 0
+
+latestID = int(input("Latest ID: "))
 
 for submission in reddit.subreddit('placeAtlas2').new(limit=220):
 	#print(dir(submission))
