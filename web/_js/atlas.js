@@ -226,7 +226,7 @@ var atlas = [
 {"id":176,"name": "Interlingue", "description": "Flag of Interlingue, an IAL to communicate between Western European languages.", "website": "https://occidental-lang.com", "subreddit": "/r/interlingue", "center": [ 768.5, 328.5 ], "path": [ [ 765.5, 326.5 ], [ 770.5, 326.5 ], [ 770.5, 329.5 ], [ 765.5, 329.5 ] ] },
 {"id":177, "name": "Viossa", "description": "Flag of the conpidgin Viossa.", "website": "", "subreddit": "/r/viossa", "center": [ 775.5, 296.5 ], "path": [ [ 769.5, 290.5 ], [ 780.5, 290.5 ], [ 780.5, 301.5 ], [ 769.5, 301.5 ] ] },
 {"id":178, "name": "Lojban", "description": "Flag of Lojban", "website": "https://lojban.org", "subreddit": "/r/lojban", "center": [ 760.5, 328.5 ], "path": [ [ 763.5, 326.5 ], [ 757.5, 326.5 ], [ 757.5, 330.5 ], [ 763.5, 330.5 ] ] },
-
+{"id":179, "name": "IZ*ONE", "description": "IZ*ONE is a South Korean-Japanese girl group composed of 12 members and formed through <PRODUCE48>, the 3rd season of Mnet's PRODUCE idol project competition series. Co-managed by Off The Record Entertainment and Vernalossom, the group made their debut on October 29th of 2018 with the title track 'La Vie en Rose.' The meaning behind their name signifies 12 stars coming together as 1.", "website": "https://twitter.com/official_izone", "subreddit": "r/iZone", "center": [1465.5,1054.5], "path": [ [1451.5,1045.5],[1451.5,1063.5],[1479.5,1063.5],[1479.5,1044.5],[1451.5,1044.5] ] },
 ];
 
 //console.log("There are "+atlas.length+" entries in the Atlas.");
