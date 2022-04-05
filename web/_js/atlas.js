@@ -234,8 +234,9 @@ var atlas = [
 {"id": 184,"name": "Honoka Kousaka","description": "The leader of μ's, Honoka Kousaka, from Love Live! School Idol Project!","website": "https://www.lovelive-anime.jp/otonokizaka/worldwide/","subreddit": "r/LoveLive","center": [868.5,690.5],"path": [[865.5,687.5],[865.5,693.5],[870.5,693.5],[870.5,687.5],[865.5,687.5]]},
 {"id": 185,"name": "Shioriko Mifune (icon)","description": "The icon of Shioriko Mifune from Love Live! Nijigasaki School Idol Club.","website": "https://www.lovelive-anime.jp/nijigasaki/worldwide/","subreddit": "r/LoveLive","center": [868.5,680.5],"path": [[865.5,672.5],[865.5,687.5],[871.5,687.5],[871.5,672.5],[865.5,672.5]]},
 {"id": 186,"name": "Yuu Takasaki (neso)","description": "A neso representation of the manager of the Nijigasaki School Idol Club, Yuu Takasaki. ","website": "https://www.lovelive-anime.jp/nijigasaki/worldwide/","subreddit": "r/LoveLive","center": [456.5,1658.5],"path": [[454.5,1654.5],[460.5,1655.5],[460.5,1661.5],[456.5,1661.5],[452.5,1661.5],[452.5,1655.5],[454.5,1654.5]]},
-{"id": 187,"name": "98","description": "A reference to Love Live! Sunshine anime, when Aqours didn't reach the require number of applicants for their school, falling short at 98.\n\nBecomes a meme by the Love Live! Community. Most commonly used by the Love Live! Meme Subreddit, r/Otonokizaka.","website": "","subreddit": "r/Otonokizaka","center": [883.5,730.5
+{"id": 187,"name": "98","description": "A promise r/LoveLive held with r/Otonokizaka to make a 98 number in r/place.\nA reference to Love Live! Sunshine anime, when Aqours didn't reach the require number of applicants for their school, falling short at 98.\nBecomes a meme by the Love Live! Community. Most commonly used by the Love Live! Meme Subreddit, r/Otonokizaka.","website": "","subreddit": "r/Otonokizaka","center": [883.5,730.5
 ],"path": [[878.5,726.5],[888.5,726.5],[888.5,734.5],[878.5,734.5],[878.5,726.5]]}
+
 ];
 
 //console.log("There are "+atlas.length+" entries in the Atlas.");
