@@ -257,37 +257,6 @@ function initView(){
 		}
 	}
 
-	function createInfoBlock(entry){
-		var element = document.createElement("div");
-		element.className = "object";
-
-		var html = "<h2><a href=\"?id="+entry.id+"\">"+entry.name+"</a></h2>";
-		
-		if(entry.description){
-			html += "<p>"+entry.description+"</p>";
-		}
-		if(entry.website){
-			html += "<a target=\"_blank\" href="+entry.website+">Website</a>";
-		}
-		if(entry.subreddit){
-			var subreddits = entry.subreddit.split(",");
-			
-			for(var i in subreddits){
-				var subreddit = subreddits[i].trim();
-				if(subreddit.substring(0, 2) == "r/"){
-					subreddit = "/" + subreddit;
-				} else if(subreddit.substring(0, 1) != "/"){
-					subreddit = "/r/" + subreddit;
-				}
-				html += "<a target=\"_blank\" href=https://reddit.com"+subreddit+">"+subreddit+"</a>";
-			}
-		}
-		html+="<p style='font-family: Dejavu Sans Mono, sans, Sans-Serif;'>id: "+entry.id+"</p>";
-		element.innerHTML += html;
-		
-		return element;
-	}
-
 	function highlightEntryFromUrl(){
 
 		var objectsContainer = document.getElementById("objectsList");
