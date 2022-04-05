@@ -226,7 +226,7 @@ var atlas = [
 {"id":176,"name": "Interlingue", "description": "Flag of Interlingue, an IAL to communicate between Western European languages.", "website": "https://occidental-lang.com", "subreddit": "/r/interlingue", "center": [ 768.5, 328.5 ], "path": [ [ 765.5, 326.5 ], [ 770.5, 326.5 ], [ 770.5, 329.5 ], [ 765.5, 329.5 ] ] },
 {"id":177, "name": "Viossa", "description": "Flag of the conpidgin Viossa.", "website": "", "subreddit": "/r/viossa", "center": [ 775.5, 296.5 ], "path": [ [ 769.5, 290.5 ], [ 780.5, 290.5 ], [ 780.5, 301.5 ], [ 769.5, 301.5 ] ] },
 {"id":178, "name": "Lojban", "description": "Flag of Lojban", "website": "https://lojban.org", "subreddit": "/r/lojban", "center": [ 760.5, 328.5 ], "path": [ [ 763.5, 326.5 ], [ 757.5, 326.5 ], [ 757.5, 330.5 ], [ 763.5, 330.5 ] ] },
-
+{"id":179,"name":"Trash Taste Podcast","description":"Artwork for the trash taste podcast hosted by youtubers Gigguk, CDawgVA and The Anime Man featuring notable affiliated creators Abroad in Japan and Ironmouse","website":"","subreddit":"/r/trashtaste","center":[35.5,560.5],"path":[[0.5,528.5],[0.5,588.5],[78.5,589.5],[78.5,569.5],[30.5,570.5],[30.5,568.5],[30.5,566.5],[33.5,566.5],[48.5,554.5],[48.5,548.5],[48.5,547.5],[53.5,547.5],[56.5,550.5],[56.5,555.5],[53.5,556.5],[53.5,562.5],[58.5,568.5],[78.5,568.5],[78.5,564.5],[59.5,565.5],[57.5,562.5],[57.5,534.5],[59.5,532.5],[71.5,532.5],[73.5,535.5],[73.5,563.5],[78.5,563.5],[78.5,529.5]]}
 ];
 
 //console.log("There are "+atlas.length+" entries in the Atlas.");
