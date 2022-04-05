@@ -237,6 +237,7 @@ var atlas = [
 {"id":187,"submitted_by": "L33Tech", "name":"SMP Online","description":"The SMP Online Minecraft server community!","website":"https://callmecarson.live","subreddit":"/r/CallMeCarson","center":[516.5,1686.5],"path":[[499.5,1673.5],[499.5,1673.5],[537.5,1673.5],[536.5,1685.5],[530.5,1685.5],[530.5,1699.5],[500.5,1700.5],[500.5,1688.5],[499.5,1688.5],[499.5,1680.5]]},
 {"id":188,"submitted_by": "L33Tech", "name":"Place Start","description":"A start menu for r/place, syled after Windows XP","website":"","subreddit":"/r/PlaceStart","center":[589.5,1985.5],"path":[[0.5,1970.5],[1200.5,1972.5],[1200.5,1999.5],[0.5,2000.5],[0.5,1970.5]]},
 {"id":189,"submitted_by": "L33Tech", "name":"r/TheBlueCorner","description":"Exactly what it sounds like, but filled with amogus.","website":"","subreddit":"/r/TheBlueCorner","center":[1959.5,1939.5],"path":[[1915.5,1868.5],[2002.5,1867.5],[2004.5,2007.5],[1916.5,2013.5],[1916.5,1991.5],[1916.5,1922.5],[1916.5,1868.5]]},
+{"id":190,"submitted_by":"yourfriend","name":"r/sadboys","description":"A extremely dedicated communities work, protected from several attacks at once.","website":"https://gtb.sg/","subreddit":"r/sadboys","center":[1558.5,389.5],"path":[[1623.5,420.5],[1623.5,412.5],[1593.5,412.5],[1593.5,393.5],[1573.5,392.5],[1573.5,352.5],[1526.5,353.5],[1524.5,413.5],[1568.5,414.5],[1568.5,420.5],[1568.5,421.5],[1623.5,420.5]]}
 ];
 
 //console.log("There are "+atlas.length+" entries in the Atlas.");
