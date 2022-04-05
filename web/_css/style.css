@@ -168,6 +168,10 @@ header > a:hover {
 	color: #FFAA00;
 }
 
+header h1 {
+	font-size: 24px;
+}
+
 #logo {
 	padding: 5px;
 	/*background-color: #FFF;*/
@@ -808,6 +812,15 @@ button#zoomResetButton {
 	text-decoration: none;
 	background-image: linear-gradient(to bottom, #FFAA00, #FFAA00);
 	border-radius: 15px;
+	padding: 3px;
+	margin: -3px;
+	height: 28px;
+	width: 28px;
+}
+#entriesListContainer > nav > button:hover > img.Discord {
+	text-decoration: none;
+	background-image: linear-gradient(to bottom, #7289DA, #7289DA);
+	border-radius: 12px;
 	padding: 3px;
 	margin: -3px;
 	height: 28px;
