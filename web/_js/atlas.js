@@ -226,6 +226,7 @@ var atlas = [
 {"id":176,"name": "Interlingue", "description": "Flag of Interlingue, an IAL to communicate between Western European languages.", "website": "https://occidental-lang.com", "subreddit": "/r/interlingue", "center": [ 768.5, 328.5 ], "path": [ [ 765.5, 326.5 ], [ 770.5, 326.5 ], [ 770.5, 329.5 ], [ 765.5, 329.5 ] ] },
 {"id":177, "name": "Viossa", "description": "Flag of the conpidgin Viossa.", "website": "", "subreddit": "/r/viossa", "center": [ 775.5, 296.5 ], "path": [ [ 769.5, 290.5 ], [ 780.5, 290.5 ], [ 780.5, 301.5 ], [ 769.5, 301.5 ] ] },
 {"id":178, "name": "Lojban", "description": "Flag of Lojban", "website": "https://lojban.org", "subreddit": "/r/lojban", "center": [ 760.5, 328.5 ], "path": [ [ 763.5, 326.5 ], [ 757.5, 326.5 ], [ 757.5, 330.5 ], [ 763.5, 330.5 ] ] },
+{"id":179, "name": "Green Greens", "description": "A collaboration between /r/PlaceTrees and the Super Smash Bros. Melee community. Based on the Smash 64 stage Dream Land, with Pikachu, Fox, Falco, and Kirby fighting.", "website": "https://supersmashbros.fandom.com/wiki/Dream_Land_(Super_Smash_Bros.)", "subreddit": "", "center": [ 762.5, 918.5 ], "path": [[753.5,931.5],[771.5,931.5],[774.5,928.5],[774.5,908.5],[772.5,906.5],[753.5,906.5],[750.5,910.5],[750.5,928.5]]},
 
 ];
 
