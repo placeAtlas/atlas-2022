@@ -1,4 +1,4 @@
-# The Place Atlas
+# The 2022 Place Atlas
 The /r/place Atlas is a project aiming to catalog all the artworks created during Reddit's 2022 /r/place event.
 This project was created by Roland Rytz and is licensed under the GNU Affero General Public License v3.0.
 
