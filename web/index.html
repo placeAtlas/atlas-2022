@@ -137,7 +137,19 @@
 			
 			<button id="hideListButton"></button>
 			
-			<div id="zoomControls"><button title="Zoom In" id="zoomInButton"></button><button title="Reset View" id="zoomResetButton"></button><button title="Zoom Out" id="zoomOutButton"></button></div>
+			<div id="bottomBar">
+				<div id="zoomControls">
+					<button title="Zoom In" id="zoomInButton"></button>
+					<button title="Reset View" id="zoomResetButton"></button>
+					<button title="Zoom Out" id="zoomOutButton"></button>
+				</div>
+				<div id="timeControls">
+					<input type="range" min="1" max="10" value="10" class="slider" id="timeControlsSlider">
+				</div>
+				<div id="author">
+					Code by <a href="https://draemm.li/various/place-atlas/" target="_blank" rel="author">Roland Rytz</a>. Source on <a target="_blank" href="https://github.com/RolandR/place-atlas">GitHub</a> (<a target="_blank" href="https://github.com/Codixer/place-atlas">2022 Version Github</a>). Images provided by <a target="_blank" href="https://place.thatguyalex.com/">Alex Tsernoh</a>.
+				</div>
+			</div>
 			
 			<div id="drawControlsContainer">
 				<a id="drawBackButton" href="./">&lt; Back to the Atlas</a>
