@@ -89,7 +89,7 @@ function init(){
 	var desiredZoom;
 	var zoomAnimationFrame;
 
-	var mode = "overlap";
+	var mode = "view";
 
 	var args = window.location.search;
 	if(args){
