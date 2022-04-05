@@ -50,8 +50,8 @@ If you spot a duplicate, please PR against `/cleanup`. To help find duplicates, 
 ```bash
 git checkout -b gh-pages
 git mv web docs
-// Update tools/validate_json.py to point to `docs` folder
-git add tools/validate_json.py
+// Update ``.github/workflows/github-actions.yml`` to point to `docs` folder
+git add .github/workflows/github-actions.yml
 git commit -m "Move web to docs"
 git push --set-upstream origin gh-pages
 ```
