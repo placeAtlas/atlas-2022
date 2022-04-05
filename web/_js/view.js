@@ -267,7 +267,7 @@ function initView(){
 		if(args){
 			id = args.split("id=")[1];
 			if(id){
-				id = parseInt(id.split("&")[0]);
+				id = id.split("&")[0];
 			}
 		}
 
@@ -703,6 +703,8 @@ function initView(){
 	});
 
 	container.addEventListener("touchend", function(e){
+		e.preventDefault()
+
 		//console.log(e);
 		//console.log(e.changedTouches[0].clientX);
 		if(e.changedTouches.length == 1){
