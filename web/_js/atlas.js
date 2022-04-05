@@ -226,7 +226,9 @@ var atlas = [
 {"id":176,"name": "Interlingue", "description": "Flag of Interlingue, an IAL to communicate between Western European languages.", "website": "https://occidental-lang.com", "subreddit": "/r/interlingue", "center": [ 768.5, 328.5 ], "path": [ [ 765.5, 326.5 ], [ 770.5, 326.5 ], [ 770.5, 329.5 ], [ 765.5, 329.5 ] ] },
 {"id":177, "name": "Viossa", "description": "Flag of the conpidgin Viossa.", "website": "", "subreddit": "/r/viossa", "center": [ 775.5, 296.5 ], "path": [ [ 769.5, 290.5 ], [ 780.5, 290.5 ], [ 780.5, 301.5 ], [ 769.5, 301.5 ] ] },
 {"id":178, "name": "Lojban", "description": "Flag of Lojban", "website": "https://lojban.org", "subreddit": "/r/lojban", "center": [ 760.5, 328.5 ], "path": [ [ 763.5, 326.5 ], [ 757.5, 326.5 ], [ 757.5, 330.5 ], [ 763.5, 330.5 ] ] },
-
+{ "id": 0, "name": "Arknights (in pixels)", "description": "The humble beginnings of the Arknights group. Allied with Tetris, Small Poland, and VRChat to keep a small plot of land.", "website": "https://www.arknights.global", "subreddit": "https://www.reddit.com/r/arknights/", "center": [ 981.5, 117.5 ], "path": [ [ 963.5, 114.5 ], [ 999.5, 114.5 ], [ 999.5, 119.5 ], [ 963.5, 119.5 ] ] },
+{ "id": 1, "name": "Arknights (Smugmiya)", "description": "Our second project. A smug Amiya with sunglasses because normal eyes looked weird.", "website": "https://www.arknights.global", "subreddit": "https://www.reddit.com/r/arknights/", "center": [ 1149.5, 103.5 ], "path": [ [ 1135.5, 87.5 ], [ 1163.5, 87.5 ], [ 1163.5, 119.5 ], [ 1135.5, 119.5 ] ] },
+{ "id": 2, "name": "Arknights (Full Icon)", "description": "A pixelated version of the Arknights icon. Part of the Gacha Alliance collab project", "website": "https://www.arknights.global", "subreddit": "https://www.reddit.com/r/arknights/", "center": [ 1647.5, 1735.5 ], "path": [ [ 1625.5, 1712.5 ], [ 1674.5, 1712.5 ], [ 1674.5, 1738.5 ], [ 1662.5, 1738.5 ], [ 1662.5, 1761.5 ], [ 1625.5, 1761.5 ] ] },
 ];
 
 //console.log("There are "+atlas.length+" entries in the Atlas.");
