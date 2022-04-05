@@ -210,7 +210,7 @@ var atlas = [
 {"id":159,"name":"Pyramids of Giza","description":"","website":"","subreddit":"","center":[66.5,157.5],"path":[[52.5,160.5],[80.5,160.5],[74.5,154.5],[72.5,155.5],[68.5,152.5],[66.5,154.5],[62.5,150.5]]},
 {"id":160,"name":"Homestuck","description":"A webcomic by Andrew Hussie that ran from 2009 to 2016.","website":"homestuck.com","subreddit":"r/homestuck","center":[248.5,145.5],"path":[[221.5,126.5],[266.5,126.5],[275.5,135.5],[275.5,164.5],[221.5,164.5]]},
 {"id":161,"name":"Hiveswap","description":"An adventure game set in the same multiverse as Homestuck.","website":"hiveswap.com","subreddit":"r/hiveswap","center":[262.5,168.5],"path":[[247.5,165.5],[247.5,171.5],[276.5,171.5],[276.5,165.5]]},
-{"id":162,"name":"Flag of Taiwan","description":"","website":"","subreddit":"","center":[286.5,165.5],"path":[[276.5,158.5],[295.5,158.5],[295.5,172.5],[276.5,172.5]]},
+{"id":162,"name":"Flag of Mongolia","description":"","website":"","subreddit":"","center":[286.5,165.5],"path":[[276.5,158.5],[295.5,158.5],[295.5,172.5],[276.5,172.5]]},
 {"id":163,"name":"Flag of South Korea","description":"","website":"","subreddit":"","center":[306.5,165.5],"path":[[295.5,158.5],[316.5,158.5],[316.5,172.5],[295.5,172.5]]},
 {"id":164,"name":"Flag of Japan","description":"","website":"","subreddit":"","center":[327.5,165.5],"path":[[316.5,158.5],[337.5,158.5],[337.5,172.5],[316.5,172.5]]},
 {"id":165,"name":"John Egbert","description":"A major character from Homestuck.","website":"","subreddit":"","center":[251.5,112.5],"path":[[243.5,102.5],[258.5,102.5],[258.5,121.5],[243.5,121.5]]},
