@@ -226,7 +226,7 @@ var atlas = [
 {"id":176,"name": "Interlingue", "description": "Flag of Interlingue, an IAL to communicate between Western European languages.", "website": "https://occidental-lang.com", "subreddit": "/r/interlingue", "center": [ 768.5, 328.5 ], "path": [ [ 765.5, 326.5 ], [ 770.5, 326.5 ], [ 770.5, 329.5 ], [ 765.5, 329.5 ] ] },
 {"id":177, "name": "Viossa", "description": "Flag of the conpidgin Viossa.", "website": "", "subreddit": "/r/viossa", "center": [ 775.5, 296.5 ], "path": [ [ 769.5, 290.5 ], [ 780.5, 290.5 ], [ 780.5, 301.5 ], [ 769.5, 301.5 ] ] },
 {"id":178, "name": "Lojban", "description": "Flag of Lojban", "website": "https://lojban.org", "subreddit": "/r/lojban", "center": [ 760.5, 328.5 ], "path": [ [ 763.5, 326.5 ], [ 757.5, 326.5 ], [ 757.5, 330.5 ], [ 763.5, 330.5 ] ] },
-
+{"id": 0,"name": "Llama and inka kola from Peru","description": "Original space stablished by r/Peru. After expanding over a banana and FL, it stablished an alliance with lithuania, hong kong, and other smaller communities surrounding it. It had the coat of arms, \"PERU\" below it and a small version of macchu picchu to the left. Got taken over by a bunch of Peruvian streamers that expanded it, breaking the alliances. It now has a llama, a native camelid from the country and a bottle of inka kola, the most popular drink.","website": "https://imgur.com/a/dkuakih","subreddit": "r/peru","center": [568.5,617.5],"path": [[535.5,587.5],[535.5,646.5],[600.5,646.5],[600.5,587.5]]}
 ];
 
 //console.log("There are "+atlas.length+" entries in the Atlas.");
