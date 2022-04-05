@@ -210,7 +210,7 @@ var atlas = [
 {"id":160,"name":"Pyramids of Giza","description":"","website":"","subreddit":"","center":[66.5,157.5],"path":[[52.5,160.5],[80.5,160.5],[74.5,154.5],[72.5,155.5],[68.5,152.5],[66.5,154.5],[62.5,150.5]]},
 {"id":161,"name":"Homestuck","description":"A webcomic by Andrew Hussie that ran from 2009 to 2016.","website":"homestuck.com","subreddit":"r/homestuck","center":[248.5,145.5],"path":[[221.5,126.5],[266.5,126.5],[275.5,135.5],[275.5,164.5],[221.5,164.5]]},
 {"id":162,"name":"Hiveswap","description":"An adventure game set in the same multiverse as Homestuck.","website":"hiveswap.com","subreddit":"r/hiveswap","center":[262.5,168.5],"path":[[247.5,165.5],[247.5,171.5],[276.5,171.5],[276.5,165.5]]},
-{"id":163,"name":"Flag of Taiwan","description":"","website":"","subreddit":"","center":[286.5,165.5],"path":[[276.5,158.5],[295.5,158.5],[295.5,172.5],[276.5,172.5]]},
+{"id":163,"name":"Flag of Taiwan","description":"","website":"","subreddit":"/r/Taiwan","center":[286.5,165.5],"path":[[276.5,158.5],[295.5,158.5],[295.5,172.5],[276.5,172.5]]},
 {"id":164,"name":"Flag of South Korea","description":"","website":"","subreddit":"","center":[306.5,165.5],"path":[[295.5,158.5],[316.5,158.5],[316.5,172.5],[295.5,172.5]]},
 {"id":165,"name":"Flag of Japan","description":"","website":"","subreddit":"","center":[327.5,165.5],"path":[[316.5,158.5],[337.5,158.5],[337.5,172.5],[316.5,172.5]]},
 {"id":166,"name":"John Egbert","description":"A major character from Homestuck.","website":"","subreddit":"","center":[251.5,112.5],"path":[[243.5,102.5],[258.5,102.5],[258.5,121.5],[243.5,121.5]]},
@@ -226,7 +226,8 @@ var atlas = [
 {"id":176,"name": "Interlingue", "description": "Flag of Interlingue, an IAL to communicate between Western European languages.", "website": "https://occidental-lang.com", "subreddit": "/r/interlingue", "center": [ 768.5, 328.5 ], "path": [ [ 765.5, 326.5 ], [ 770.5, 326.5 ], [ 770.5, 329.5 ], [ 765.5, 329.5 ] ] },
 {"id":177, "name": "Viossa", "description": "Flag of the conpidgin Viossa.", "website": "", "subreddit": "/r/viossa", "center": [ 775.5, 296.5 ], "path": [ [ 769.5, 290.5 ], [ 780.5, 290.5 ], [ 780.5, 301.5 ], [ 769.5, 301.5 ] ] },
 {"id":178, "name": "Lojban", "description": "Flag of Lojban", "website": "https://lojban.org", "subreddit": "/r/lojban", "center": [ 760.5, 328.5 ], "path": [ [ 763.5, 326.5 ], [ 757.5, 326.5 ], [ 757.5, 330.5 ], [ 763.5, 330.5 ] ] },
-
+{ "id": 179, "name": "Taiwan's First Claim", "description": "r/Taiwan's first claims on r/Place, starting from the big Taiwan flag and evolving into the mini-flags, Taipei 101, and Boba tea. ", "website": "", "subreddit": "/r/Taiwan", "center": [938.5, 546.5], "path": [ [978.5, 567.5], [910.5, 567.5], [910.5, 515.5], [958.5, 515.5], [959.5, 519.5], [934.5, 519.5], [934.5, 542.5], [978.5, 542.5], [978.5, 567.5] ]},
+{ "id": 180, "name": "Taiwan Independence Flag", "description": "The flag of the World Taiwanese Congress, the most common flag representing the Taiwanese Independence movement. ", "website": "", "subreddit": "/r/Taiwan", "center": [ 1227.5, 147.5 ], "path": [ [ 1206.5, 134.5 ], [ 1248.5, 134.5 ], [ 1248.5, 160.5 ], [ 1206.5, 160.5 ], [ 1206.5, 134.5 ] ]},
 ];
 
 //console.log("There are "+atlas.length+" entries in the Atlas.");
