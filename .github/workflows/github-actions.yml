@@ -1,0 +1,12 @@
+name: Validate JSON
+on: [push, pull_request]
+jobs:
+  Validate-JSON:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check out repository code
+        uses: actions/checkout@v3
+      - name: Validate JSON
+        run: |
+          chmod +x ${{ github.workspace }}/tools/validate_json.py
+          python3 ${{ github.workspace }}/tools/validate_json.py ${{ github.workspace }}/web/atlas.json
