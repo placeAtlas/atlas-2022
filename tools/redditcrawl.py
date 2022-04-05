@@ -24,7 +24,7 @@ for item in existing:
 	existing_ids.append(item['id'])
 
 
-for submission in reddit.subreddit('placeAtlas2').new(limit=500):
+for submission in reddit.subreddit('placeAtlas2').new(limit=1000):
 	"""
 	Auth setup
 	1. Head to https://www.reddit.com/prefs/apps
@@ -47,6 +47,7 @@ for submission in reddit.subreddit('placeAtlas2').new(limit=500):
 	"""
 	#print(dir(submission))
 	if (submission.id in existing_ids):
+		print("Found first duplicate!")
 		break
 	if(submission.link_flair_text == "New Entry"):
 		text = submission.selftext
