@@ -1,0 +1,6 @@
+title: place-atlas
+description: >- # this means to ignore newlines until "baseurl:"
+baseurl: "/place-atlas" # the subpath of your site, e.g. /blog
+url: "https://enshael.github.io" # the base hostname & protocol for your site, e.g. http://example.com
+github_username: enshael
+include: ['_css','_img','_js']
