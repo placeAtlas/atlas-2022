@@ -813,6 +813,15 @@ button#zoomResetButton {
 	height: 28px;
 	width: 28px;
 }
+#entriesListContainer > nav > button:hover > img.Discord {
+	text-decoration: none;
+	background-image: linear-gradient(to bottom, #7289DA, #7289DA);
+	border-radius: 12px;
+	padding: 3px;
+	margin: -3px;
+	height: 28px;
+	width: 28px;
+}
 
 #entriesListBackground {
 	position: absolute;
