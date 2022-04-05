@@ -1,5 +1,11 @@
 name: Validate JSON
-on: [push, pull_request]
+on:
+  push:
+    paths:
+      - web/atlas.json
+  pull_request:
+    paths:
+      - web/atlas.json
 jobs:
   Validate-JSON:
     runs-on: ubuntu-latest
