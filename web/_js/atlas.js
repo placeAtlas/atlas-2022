@@ -91,7 +91,35 @@ var atlas = [
 {"id":40,"name":"Outer wilds Patch","description":"the main logo for the game outer wilds, it's content is animated to emulate a supernovae","website":"","subreddit":"r/outerwilds","center":[367.5,948.5],"path":[[347.5,959.5],[388.5,959.5],[389.5,958.5],[389.5,955.5],[368.5,925.5],[367.5,925.5],[346.5,955.5],[346.5,958.5],[347.5,959.5],[371.5,954.5],[346.5,955.5]]},
 {"id":41,"name":"Amulet of Yendor","description":"A powerful artifact representing the Pixel Dungeon community.","website":"https://pixeldungeon.fandom.com/wiki/Amulet_of_Yendor","subreddit":"/r/PixelDungeon","center":[698.5,368.5],"path":[[689.5,361.5],[689.5,361.5],[689.5,361.5],[707.5,361.5],[707.5,375.5],[689.5,375.5],[689.5,368.5]]},
 {"id":42,"name":"Hatchling and scout","description":"main character of the game Outer Wilds","website":"","subreddit":"r/outerwilds","center":[389.5,934.5],"path":[[384.5,944.5],[391.5,944.5],[391.5,942.5],[390.5,942.5],[390.5,938.5],[392.5,938.5],[393.5,939.5],[395.5,940.5],[395.5,941.5],[396.5,942.5],[395.5,943.5],[395.5,944.5],[397.5,944.5],[397.5,943.5],[398.5,942.5],[399.5,942.5],[400.5,943.5],[400.5,944.5],[402.5,944.5],[402.5,943.5],[401.5,942.5],[402.5,941.5],[402.5,939.5],[400.5,937.5],[399.5,937.5],[399.5,935.5],[400.5,935.5],[399.5,934.5],[398.5,935.5],[399.5,936.5],[399.5,937.5],[397.5,937.5],[395.5,939.5],[394.5,938.5],[394.5,935.5],[391.5,930.5],[391.5,923.5],[388.5,921.5],[385.5,921.5],[384.5,923.5],[383.5,923.5],[382.5,922.5],[381.5,923.5],[382.5,925.5],[383.5,928.5],[383.5,930.5],[380.5,935.5],[380.5,938.5],[381.5,939.5],[384.5,938.5],[384.5,944.5]]},
-{"id":43,"name":"Corridor Crew Logo","description":"Logo from the Corridor youtube channel, a group of vfx artist.","website":"https://www.youtube.com/c/corridorcrew","subreddit":"r/Corridor","center":[121.5,94.5],"path":[[121.5,87.5],[114.5,93.5],[121.5,101.5],[128.5,94.5]]},
+    {
+    	"id": 43,
+    	"name": "Corridor Digital Logo",
+    	"description": "Logo for VFX studio Corridor Digital that creates VFX videos mostly for their Youtube channel Corridor. They also host the VFX Artists React series on the Corridor Crew channel.",
+    	"website": "https://www.corridordigital.com",
+    	"subreddit": "/r/Corridor",
+    	"center": [
+    		121.5,
+    		91.5
+    	],
+    	"path": [
+    		[
+    			121.5,
+    			78.5
+    		],
+    		[
+    			134.5,
+    			91.5
+    		],
+    		[
+    			121.5,
+    			104.5
+    		],
+    		[
+    			107.5,
+    			91.5
+    		]
+    	]
+    }
 {"id":44,"name":"OptiFine logo","description":"The logo of the Minecraft performance mod, OptiFine","website":"https://www.optifine.net/","subreddit":"r/Optifine","center":[810.5,671.5],"path":[[804.5,665.5],[815.5,665.5],[815.5,677.5],[804.5,677.5]]},
 {"id":45,"name":"Baltic states","description":"A map of the three Baltic states: Estonia, Latvia, and Lithuania.","website":"","subreddit":"","center":[1925.5,139.5],"path":[[1954.5,100.5],[1955.5,162.5],[1949.5,161.5],[1949.5,176.5],[1937.5,176.5],[1937.5,182.5],[1902.5,181.5],[1902.5,174.5],[1897.5,174.5],[1897.5,100.5]]},
 {"id":46,"name":"The Elder Scrolls V: Skyrim","description":"The logo for the fifth Elder Scrolls game, Skyrim.","website":"","subreddit":"r/skyrim","center":[1984.5,257.5],"path":[[1969.5,238.5],[1999.5,238.5],[1999.5,276.5],[1969.5,276.5]]},
