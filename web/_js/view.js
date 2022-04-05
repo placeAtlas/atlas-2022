@@ -267,7 +267,7 @@ function initView(){
 		if(args){
 			id = args.split("id=")[1];
 			if(id){
-				id = parseInt(id.split("&")[0]);
+				id = id.split("&")[0];
 			}
 		}
 
