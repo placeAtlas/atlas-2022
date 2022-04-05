@@ -226,7 +226,8 @@ var atlas = [
 {"id":176,"name": "Interlingue", "description": "Flag of Interlingue, an IAL to communicate between Western European languages.", "website": "https://occidental-lang.com", "subreddit": "/r/interlingue", "center": [ 768.5, 328.5 ], "path": [ [ 765.5, 326.5 ], [ 770.5, 326.5 ], [ 770.5, 329.5 ], [ 765.5, 329.5 ] ] },
 {"id":177, "name": "Viossa", "description": "Flag of the conpidgin Viossa.", "website": "", "subreddit": "/r/viossa", "center": [ 775.5, 296.5 ], "path": [ [ 769.5, 290.5 ], [ 780.5, 290.5 ], [ 780.5, 301.5 ], [ 769.5, 301.5 ] ] },
 {"id":178, "name": "Lojban", "description": "Flag of Lojban", "website": "https://lojban.org", "subreddit": "/r/lojban", "center": [ 760.5, 328.5 ], "path": [ [ 763.5, 326.5 ], [ 757.5, 326.5 ], [ 757.5, 330.5 ], [ 763.5, 330.5 ] ] },
-
+{"id":179, "name": "Hololive Logo", "description": "Hololive is a VTuber agency from Japan. The agency has a Japanese, English, and Indonesian branch.", "website": "https://www.hololive.tv/", "subreddit": "r/hololive", "center": [ 239.5, 745.5 ], "path": [ [ 201.5, 722.5 ], [ 201.5, 771.5 ], [ 239.5, 752.5 ], [ 301.5, 752.5 ], [ 301.5, 737.5 ], [ 240.5, 738.5 ], [ 204.5, 720.5 ] ] }
+{"id":180, "name": "Nijisanji Logo", "description": "Nijisanji is a VTuber agency from Japan with over 200 streamers in the agency.", "website": "https://www.nijisanji.jp/", "subreddit": "r/Nijisanji", "center": [ 183.5, 736.5 ], "path": [ [ 184.5, 720.5 ], [ 192.5, 723.5 ], [ 197.5, 729.5 ], [ 198.5, 735.5 ], [ 195.5, 736.5 ], [ 194.5, 744.5 ], [ 189.5, 749.5 ], [ 184.5, 751.5 ], [ 177.5, 750.5 ], [ 174.5, 748.5 ], [ 171.5, 749.5 ], [ 170.5, 751.5 ], [ 168.5, 751.5 ], [ 168.5, 749.5 ], [ 169.5, 747.5 ], [ 170.5, 746.5 ], [ 170.5, 744.5 ], [ 169.5, 742.5 ], [ 168.5, 739.5 ], [ 168.5, 736.5 ], [ 169.5, 733.5 ], [ 171.5, 730.5 ], [ 173.5, 727.5 ], [ 180.5, 724.5 ], [ 182.5, 724.5 ], [ 183.5, 720.5 ] ] }
 ];
 
 //console.log("There are "+atlas.length+" entries in the Atlas.");
