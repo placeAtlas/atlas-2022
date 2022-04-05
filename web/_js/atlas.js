@@ -226,7 +226,7 @@ var atlas = [
 {"id":176,"name": "Interlingue", "description": "Flag of Interlingue, an IAL to communicate between Western European languages.", "website": "https://occidental-lang.com", "subreddit": "/r/interlingue", "center": [ 768.5, 328.5 ], "path": [ [ 765.5, 326.5 ], [ 770.5, 326.5 ], [ 770.5, 329.5 ], [ 765.5, 329.5 ] ] },
 {"id":177, "name": "Viossa", "description": "Flag of the conpidgin Viossa.", "website": "", "subreddit": "/r/viossa", "center": [ 775.5, 296.5 ], "path": [ [ 769.5, 290.5 ], [ 780.5, 290.5 ], [ 780.5, 301.5 ], [ 769.5, 301.5 ] ] },
 {"id":178, "name": "Lojban", "description": "Flag of Lojban", "website": "https://lojban.org", "subreddit": "/r/lojban", "center": [ 760.5, 328.5 ], "path": [ [ 763.5, 326.5 ], [ 757.5, 326.5 ], [ 757.5, 330.5 ], [ 763.5, 330.5 ] ] },
-{"id":179, "name": "SponsorBlock", "description": "Logo for the SponsorBlock browser extension", "website":"https://sponsor.ajay.app/", "subreddit": "/r/sponsorblock", "center": [1274.5,908.5],"path": [[1266.5,900.5],[1282.5,900.5],[1282.5,915.5],[1266.5,915.5],[1266.5,900.5]]}
+{"id":179, "name": "SponsorBlock", "description": "Logo representing the SponsorBlock browser extension and community. SponsorBlock is a tool to help label sponsor spots and other sections of YouTube videos so other users of the extension can skip past them automatically.", "website":"https://sponsor.ajay.app/", "subreddit": "/r/sponsorblock", "center": [1274.5,908.5],"path": [[1266.5,900.5],[1282.5,900.5],[1282.5,915.5],[1266.5,915.5],[1266.5,900.5]]}
 ];
 
 //console.log("There are "+atlas.length+" entries in the Atlas.");
