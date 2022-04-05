@@ -226,7 +226,8 @@ var atlas = [
 {"id":176,"name": "Interlingue", "description": "Flag of Interlingue, an IAL to communicate between Western European languages.", "website": "https://occidental-lang.com", "subreddit": "/r/interlingue", "center": [ 768.5, 328.5 ], "path": [ [ 765.5, 326.5 ], [ 770.5, 326.5 ], [ 770.5, 329.5 ], [ 765.5, 329.5 ] ] },
 {"id":177, "name": "Viossa", "description": "Flag of the conpidgin Viossa.", "website": "", "subreddit": "/r/viossa", "center": [ 775.5, 296.5 ], "path": [ [ 769.5, 290.5 ], [ 780.5, 290.5 ], [ 780.5, 301.5 ], [ 769.5, 301.5 ] ] },
 {"id":178, "name": "Lojban", "description": "Flag of Lojban", "website": "https://lojban.org", "subreddit": "/r/lojban", "center": [ 760.5, 328.5 ], "path": [ [ 763.5, 326.5 ], [ 757.5, 326.5 ], [ 757.5, 330.5 ], [ 763.5, 330.5 ] ] },
-
+{"id":180,"name": "FireDragon","description": "Best speed runner ever", "https://www.twitch.tv/firedragon": "https://www.twitch.tv/firedragon", "subreddit": "", "center": [655.5,1558.5],"path": [ [647.5,1552.5],[662.5,1552.5],[662.5,1565.5],[662.5,1565.5],[648.5,1565.5]]} ,
+{"id":181,"name": "GC","description": "Less Than Sign and then a 3 (It's a heart)","website": "https://www.twitch.tv/gc4ever","subreddit": "","center": [648.5,1558.5],"path": [[645.5,1555.5],[651.5,1555.5],[651.5,1561.5],[646.5,1561.5]]} ,
 ];
 
 //console.log("There are "+atlas.length+" entries in the Atlas.");
