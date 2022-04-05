@@ -226,7 +226,7 @@ var atlas = [
 {"id":176,"name": "Interlingue", "description": "Flag of Interlingue, an IAL to communicate between Western European languages.", "website": "https://occidental-lang.com", "subreddit": "/r/interlingue", "center": [ 768.5, 328.5 ], "path": [ [ 765.5, 326.5 ], [ 770.5, 326.5 ], [ 770.5, 329.5 ], [ 765.5, 329.5 ] ] },
 {"id":177, "name": "Viossa", "description": "Flag of the conpidgin Viossa.", "website": "", "subreddit": "/r/viossa", "center": [ 775.5, 296.5 ], "path": [ [ 769.5, 290.5 ], [ 780.5, 290.5 ], [ 780.5, 301.5 ], [ 769.5, 301.5 ] ] },
 {"id":178, "name": "Lojban", "description": "Flag of Lojban", "website": "https://lojban.org", "subreddit": "/r/lojban", "center": [ 760.5, 328.5 ], "path": [ [ 763.5, 326.5 ], [ 757.5, 326.5 ], [ 757.5, 330.5 ], [ 763.5, 330.5 ] ] },
-
+{"id":179,"name": "Kaf","description": "Kaf is a Japanese female Virtual Singer on YouTube. She is a performer signed to Kamitsubaki Studio.","website": "http://discord.gg/wfP6KYEP3C","subreddit": "/r/Kamitsubaki_Fans","center": [1434.5,1114.5],"path": [[1451.5,1104.5],[1422.5,1104.5],[1422.5,1096.5],[1422.5,1099.5],[1421.5,1099.5],[1421.5,1100.5],[1420.5,1100.5],[1422.5,1100.5],[1422.5,1103.5],[1417.5,1103.5],[1417.5,1106.5],[1418.5,1106.5],[1418.5,1107.5],[1419.5,1107.5],[1419.5,1114.5],[1420.5,1114.5],[1420.5,1120.5],[1419.5,1120.5],[1419.5,1121.5],[1413.5,1121.5],[1413.5,1122.5],[1414.5,1122.5],[1414.5,1124.5],[1415.5,1124.5],[1415.5,1125.5],[1450.5,1125.5],[1450.5,1120.5],[1451.5,1120.5]]},
 ];
 
 //console.log("There are "+atlas.length+" entries in the Atlas.");
