@@ -226,7 +226,7 @@ var atlas = [
 {"id":176,"name": "Interlingue", "description": "Flag of Interlingue, an IAL to communicate between Western European languages.", "website": "https://occidental-lang.com", "subreddit": "/r/interlingue", "center": [ 768.5, 328.5 ], "path": [ [ 765.5, 326.5 ], [ 770.5, 326.5 ], [ 770.5, 329.5 ], [ 765.5, 329.5 ] ] },
 {"id":177, "name": "Viossa", "description": "Flag of the conpidgin Viossa.", "website": "", "subreddit": "/r/viossa", "center": [ 775.5, 296.5 ], "path": [ [ 769.5, 290.5 ], [ 780.5, 290.5 ], [ 780.5, 301.5 ], [ 769.5, 301.5 ] ] },
 {"id":178, "name": "Lojban", "description": "Flag of Lojban", "website": "https://lojban.org", "subreddit": "/r/lojban", "center": [ 760.5, 328.5 ], "path": [ [ 763.5, 326.5 ], [ 757.5, 326.5 ], [ 757.5, 330.5 ], [ 763.5, 330.5 ] ] },
-
+{ "id": 0, "name": "Your Turn to Die", "description": "Your Turn to Die: Death Game by Majority is a free visual novel about a death game.\nThis artwork features the main character, Sara Chidouin, along with another character, Joe Tazuna, the flag of Bosnia, and a hamster hairclip.", "website": "https://vgperson.com/games/yourturntodie.htm", "subreddit": "r/yourturntodie/", "center": [ 1857.5, 138.5 ], "path": [ [ 1838.5, 119.5 ], [ 1876.5, 119.5 ], [ 1876.5, 156.5 ], [ 1838.5, 156.5 ] ] }
 ];
 
 //console.log("There are "+atlas.length+" entries in the Atlas.");
