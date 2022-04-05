@@ -30,4 +30,4 @@ You can either post this contribution to the subreddit, or make a Pull Request o
 
 ## Cleaning Contributions
 
-If you spot a duplicate, please PR against `cleaning`. To help find duplicates, run the code locally, changing line 92 of `main.js` to `overlap`.
+If you spot a duplicate, please PR against `/cleaning`. To help find duplicates, run the code locally, changing line 92 of `main.js` to `overlap`.
