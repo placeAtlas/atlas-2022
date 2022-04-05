@@ -227,6 +227,7 @@ var atlas = [
 {"id":177, "name": "Viossa", "description": "Flag of the conpidgin Viossa.", "website": "", "subreddit": "/r/viossa", "center": [ 775.5, 296.5 ], "path": [ [ 769.5, 290.5 ], [ 780.5, 290.5 ], [ 780.5, 301.5 ], [ 769.5, 301.5 ] ] },
 {"id":178, "name": "Lojban", "description": "Flag of Lojban", "website": "https://lojban.org", "subreddit": "/r/lojban", "center": [ 760.5, 328.5 ], "path": [ [ 763.5, 326.5 ], [ 757.5, 326.5 ], [ 757.5, 330.5 ], [ 763.5, 330.5 ] ] },
 {"id":179,"name": "Ted Lasso \"BELIEVE\"","description": "\"Ted Lasso\" is a comedy series that follows Ted Lasso, an American football coach hired to coach an English soccer team, who tries to win over the skeptical English market with his folksy, optimistic demeanor while dealing with his inexperience in the sport. The show's signature iconography is a \"BELIEVE\" sign hung up in the team's changing room as a daily reminder to its staff and players.","website": "","subreddit": "/r/TedLasso","center": [1014.5,449.5],"path": [[1003.5,446.5],[1003.5,446.5],[1003.5,452.5],[1025.5,452.5],[1025.5,446.5],[1003.5,446.5]]}
+
 ];
 
 //console.log("There are "+atlas.length+" entries in the Atlas.");
