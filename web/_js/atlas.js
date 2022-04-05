@@ -266,6 +266,7 @@ var atlas = [
 {"id":216,"submitted_by": "L33Tech", "name":"Place Start","description":"A start menu for r/place, syled after Windows XP","website":"","subreddit":"/r/PlaceStart","center":[589.5,1985.5],"path":[[0.5,1970.5],[1200.5,1972.5],[1200.5,1999.5],[0.5,2000.5],[0.5,1970.5]]},
 {"id":217,"submitted_by": "L33Tech", "name":"r/TheBlueCorner","description":"Exactly what it sounds like, but filled with amogus.","website":"","subreddit":"/r/TheBlueCorner","center":[1959.5,1939.5],"path":[[1915.5,1868.5],[2002.5,1867.5],[2004.5,2007.5],[1916.5,2013.5],[1916.5,1991.5],[1916.5,1922.5],[1916.5,1868.5]]},
 {"id":218,"name":"The Rust programming language","description":"This little square belongs to the community of the Rust programming language","website":"https://rust-lang.org","subreddit":"r/rust","center":[735.5,622.5],"path":[[722.5,608.5],[722.5,635.5],[748.5,635.5],[748.5,608.5]]},
+{"id":219,"name": "Black Bauhina Flag","description": "Hongkongers' epic lightsaber battle with the Chinese government, and Mug root beer","website": "https://cwylo.github.io/hkprotestart/thread1.html","subreddit": "/r/HongKong","center": [816.5,1693.5],"path": [[795.5,1683.5],[806.5,1685.5],[811.5,1672.5],[822.5,1669.5],[821.5,1681.5],[831.5,1681.5],[840.5,1691.5],[828.5,1695.5],[833.5,1702.5],[826.5,1715.5],[818.5,1706.5],[807.5,1714.5],[798.5,1710.5],[803.5,1700.5],[795.5,1691.5]]},
 ];
 
 //console.log("There are "+atlas.length+" entries in the Atlas.");
