@@ -54,7 +54,15 @@ function main() {
         //console.log(submission.id)
     }
 
-    fs.writeFileSync("./web/atlasFlaggedDuplicates.json", JSON.stringify(endAtlas));
+    let json = "[\n";
+    for (let i = 0; i<endAtlas.length; i++) {
+        json += JSON.stringify(endAtlas[i]);
+        if(i !== endAtlas.length-1) json += ",";
+        json += "\n";
+    }
+    json+="]";
+
+    fs.writeFileSync("./web/atlasFlaggedDuplicates.json", json);
 }
 main();
 
