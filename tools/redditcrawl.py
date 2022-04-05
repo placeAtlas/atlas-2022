@@ -24,7 +24,7 @@ for item in existing:
 	existing_ids.append(item['id'])
 
 
-for submission in reddit.subreddit('placeAtlas2').new(limit=1000):
+for submission in reddit.subreddit('placeAtlas2').new(limit=2000):
 	"""
 	Auth setup
 	1. Head to https://www.reddit.com/prefs/apps
