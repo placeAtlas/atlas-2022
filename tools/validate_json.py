@@ -3,7 +3,7 @@
 import sys
 import json 
 
-path = "./../web/atlas.json"
+path = "./../docs/atlas.json"
 
 # path override as 1st param: validate_json.py path_to_file.json
 if (len(sys.argv) > 1):
