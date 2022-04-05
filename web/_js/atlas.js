@@ -226,8 +226,7 @@ var atlas = [
 {"id":176,"name": "Interlingue", "description": "Flag of Interlingue, an IAL to communicate between Western European languages.", "website": "https://occidental-lang.com", "subreddit": "/r/interlingue", "center": [ 768.5, 328.5 ], "path": [ [ 765.5, 326.5 ], [ 770.5, 326.5 ], [ 770.5, 329.5 ], [ 765.5, 329.5 ] ] },
 {"id":177, "name": "Viossa", "description": "Flag of the conpidgin Viossa.", "website": "", "subreddit": "/r/viossa", "center": [ 775.5, 296.5 ], "path": [ [ 769.5, 290.5 ], [ 780.5, 290.5 ], [ 780.5, 301.5 ], [ 769.5, 301.5 ] ] },
 {"id":178, "name": "Lojban", "description": "Flag of Lojban", "website": "https://lojban.org", "subreddit": "/r/lojban", "center": [ 760.5, 328.5 ], "path": [ [ 763.5, 326.5 ], [ 757.5, 326.5 ], [ 757.5, 330.5 ], [ 763.5, 330.5 ] ] },
-
-];
+{"id":0,"name":"Uruha Rushia's Butterfly","description":"A butterfly accompanied by a green heart to represent V-Tuber Uruha Rushia, who was unfortunately terminated from Hololive on February 24, 2022.","website":"https://hololive.hololivepro.com/en/","subreddit":"r/hololive","center":[253.5,790.5],"path":[[258.5,788.5],[258.5,786.5],[257.5,786.5],[256.5,785.5],[249.5,785.5],[249.5,787.5],[248.5,787.5],[248.5,789.5],[247.5,789.5],[247.5,793.5],[248.5,793.5],[249.5,794.5],[250.5,794.5],[251.5,795.5],[252.5,796.5],[253.5,796.5],[254.5,795.5],[255.5,794.5],[256.5,793.5],[257.5,792.5],[258.5,791.5],[259.5,790.5],[259.5,789.5]]}
 
 //console.log("There are "+atlas.length+" entries in the Atlas.");
 
