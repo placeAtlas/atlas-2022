@@ -226,7 +226,8 @@ var atlas = [
 {"id":176,"name": "Interlingue", "description": "Flag of Interlingue, an IAL to communicate between Western European languages.", "website": "https://occidental-lang.com", "subreddit": "/r/interlingue", "center": [ 768.5, 328.5 ], "path": [ [ 765.5, 326.5 ], [ 770.5, 326.5 ], [ 770.5, 329.5 ], [ 765.5, 329.5 ] ] },
 {"id":177, "name": "Viossa", "description": "Flag of the conpidgin Viossa.", "website": "", "subreddit": "/r/viossa", "center": [ 775.5, 296.5 ], "path": [ [ 769.5, 290.5 ], [ 780.5, 290.5 ], [ 780.5, 301.5 ], [ 769.5, 301.5 ] ] },
 {"id":178, "name": "Lojban", "description": "Flag of Lojban", "website": "https://lojban.org", "subreddit": "/r/lojban", "center": [ 760.5, 328.5 ], "path": [ [ 763.5, 326.5 ], [ 757.5, 326.5 ], [ 757.5, 330.5 ], [ 763.5, 330.5 ] ] },
-
+{"id":179,"name":"The Shotbow Network ","description":"The Original Minecraft Server Network! Home to old classics like MineZ, Annihilation and Smash!","website":"https://shotbow.net/","subreddit":"/r/Shotbow","center":[1009.5,478.5],"path":[[999.5,495.5],[1008.5,495.5],[1008.5,492.5],[1010.5,492.5],[1010.5,488.5],[1012.5,487.5],[1014.5,486.5],[1020.5,486.5],[1020.5,465.5],[999.5,465.5]]}
+{"id":180,"name":"MineZ","description":"Shotbow's original Minecraft gamemode! Based on the popular DayZ mod.","website":"https://shotbow.net/","subreddit":"/r/MineZ","center":[1012.5,460.5],"path":[[1004.5,465.5],[1020.5,465.5],[1020.5,455.5],[1004.5,455.5]]}
 ];
 
 //console.log("There are "+atlas.length+" entries in the Atlas.");
