@@ -233,9 +233,6 @@ var atlas = [
 {"id":183, "submitted_by": "L33Tech", "name":"r/TheBlueCorner","description":"Exactly what it sounds like, but filled with amogus.","website":"","subreddit":"/r/TheBlueCorner","center":[1959.5,1939.5],"path":[[1915.5,1868.5],[2002.5,1867.5],[2004.5,2007.5],[1916.5,2013.5],[1916.5,1991.5],[1916.5,1922.5],[1916.5,1868.5]]}
 {"id":184,"name":"Double Burgy","description":"Burgy (a fusion of Kirby and a burger) is fan art made by James Turner, adapted by the Celeste Speedrunning Community and derived into many sub-fanarts. This was the second construction of Burgys on r/Place and later on had a trans heart between the two Burgys.\n\n","website":"","subreddit":"/r/Burgy","center":[1815.5,630.5],"path":[[1800.5,623.5],[1800.5,637.5],[1830.5,637.5],[1830.5,623.5],[1800.5,623.5]]}
 {"id":185,"name":"Burgy and MiniKirb","description":"Right: Burgy (a fusion of Kirby and a burger) is fan art made by James Turner, adapted by the Celeste Speedrunning Community and derived into many sub-fanarts.\nLeft: MiniKirb is a Kirby with a top-hat. It was adopted by Team Burgy in soon after the expansion. \nThe art was defended a lot by the r/Leafs subreddit.\n\n\n\n","website":"","subreddit":"/r/Burgy","center":[1929.5,339.5],"path":[[1919.5,335.5],[1918.5,334.5],[1918.5,344.5],[1934.5,344.5],[1940.5,341.5],[1940.5,334.5],[1918.5,334.5]]}
-];
-
-//console.log("There are "+atlas.length+" entries in the Atlas.");
 
 ];
 
