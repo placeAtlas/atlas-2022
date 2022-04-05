@@ -703,6 +703,8 @@ function initView(){
 	});
 
 	container.addEventListener("touchend", function(e){
+		e.preventDefault()
+
 		//console.log(e);
 		//console.log(e.changedTouches[0].clientX);
 		if(e.changedTouches.length == 1){
