@@ -646,16 +646,73 @@ input[type="checkbox"] {
 	display: none;
 }
 
-#zoomControls {
+#bottomBar {
 	position: absolute;
-	bottom: 10px;
-	left: 370px;
-	width: 90px;
-	display: flex;
+    bottom: 10px;
+    left: 10px;
+    right: 10px;
+    display: flex;
+	gap: 10px;
 }
 
-.listHidden #zoomControls {
-	left: 10px;
+div:not(.listHidden) > #bottomBar {
+	left: 370px !important;
+}
+
+@media (max-width: 1120px) {
+	div:not(.listHidden) > #bottomBar  {
+		flex-wrap: wrap;
+	}
+
+	.listHidden #author {
+		flex: 1;
+	}
+}
+
+@media (max-width: 750px) {
+	#bottomBar {
+		flex-wrap: wrap;
+	}
+
+	#timeControls {
+		min-width: calc(100vw - 390px) !important;
+	}
+
+	#author {
+		flex: 1;
+		min-width: 100% !important;
+	}
+}
+
+#timeControls {
+	flex: 1;
+	background-color: #555;
+	border: 1px #000 solid;
+	padding: 3px;
+	font-size: 12px;
+	text-align: center;
+	min-width: 300px;
+}
+
+#timeControls input {
+    height: 100%;
+    width: 100%;
+}
+
+#author {
+	background-color: #555;
+	border: 1px #000 solid;
+	padding: 3px;
+	font-size: 12px;
+	z-index: 1100;
+	min-width: 320px;
+	text-align: center;
+}
+
+#zoomControls {
+	width: 90px;
+	display: flex;
+	align-self: flex-end;
 }
 
 #zoomControls button {
@@ -713,8 +770,8 @@ button#zoomResetButton {
 		width: 100%;
 	}
 
-	div:not(.listHidden) > #zoomControls {
-		display: none;
+	div:not(.listHidden) > #bottomBar {
+		display: none !important;
 	}
 
 	div:not(.listHidden) > button#hideListButton {
@@ -731,18 +788,6 @@ button#zoomResetButton {
 
 	#entriesListContainer > nav {
 		width: calc(100% - 45px);
-	}
-}
-
-@media (max-width: 750px) {
-	div:not(.listHidden) > #author {
-		display: none;
-	}
-}
-
-@media (max-width: 400px) {
-	#author {
-		display: none;
 	}
 }
 
@@ -943,18 +988,6 @@ button#zoomResetButton {
 	direction: ltr;
 	margin: 0 0 10px 5px;
 	text-align: left;
-}
-
-#author {
-	position: absolute;
-	bottom: 10px;
-	right: 10px;
-	background-color: #555;
-	border: 1px #000 solid;
-	padding: 3px;
-	font-size: 12px;
-	z-index: 1100;
-	text-align: center;
 }
 
 #aboutContainer {
