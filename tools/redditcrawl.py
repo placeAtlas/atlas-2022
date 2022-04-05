@@ -15,7 +15,7 @@ reddit = praw.Reddit(client_id=client_id, client_secret=client_secret, user_agen
 failcount = 0
 successcount = 0
 
-jsonfile = open("../web/atlas.json", "r")
+jsonfile = open("../web/atlas.json", "r", encoding='utf-8')
 existing = json.load(jsonfile)
 
 existing_ids = []
