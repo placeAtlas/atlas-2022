@@ -15,4 +15,4 @@ jobs:
       - name: Validate JSON
         run: |
           chmod +x ${{ github.workspace }}/tools/validate_json.py
-          python3 ${{ github.workspace }}/tools/validate_json.py ${{ github.workspace }}/web/atlas.json
+          python3 ${{ github.workspace }}/tools/validate_json.py ${{ github.workspace }}/docs/atlas.json
