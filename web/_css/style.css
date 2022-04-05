@@ -41,6 +41,11 @@ html, body {
 	width: 100%;
 }
 
+p {
+	line-height: 1.5em;
+	margin-bottom: 1em;
+}
+
 body {
 	overflow: hidden;
 	overflow-x: hidden;
@@ -808,6 +813,15 @@ button#zoomResetButton {
 	height: 28px;
 	width: 28px;
 }
+#entriesListContainer > nav > button:hover > img.Discord {
+	text-decoration: none;
+	background-image: linear-gradient(to bottom, #7289DA, #7289DA);
+	border-radius: 12px;
+	padding: 3px;
+	margin: -3px;
+	height: 28px;
+	width: 28px;
+}
 
 #entriesListBackground {
 	position: absolute;
@@ -980,10 +994,15 @@ button#zoomResetButton {
 	margin-bottom: 10px;
 }
 
+#about h3 {
+	line-height: 1.4em;
+	text-align: center;
+}
+
 #contributors {
 	text-align: justify;
 	margin-top: 15px;
-	margin-bottom: 60px;
+	margin-bottom: 15px;
 }
 
 #contributors a {
