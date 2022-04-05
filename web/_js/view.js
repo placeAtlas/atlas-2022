@@ -280,7 +280,7 @@ function initView(){
 		if (entry.length === 1){
 			entry = entry[0];
 
-			document.title = entry.name + " on the /r/place Atlas";
+			document.title = entry.name + " on the 2022 /r/place Atlas";
 			
 			var infoElement = createInfoBlock(entry);
 			objectsContainer.innerHTML = "";
