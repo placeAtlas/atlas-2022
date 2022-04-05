@@ -87,8 +87,6 @@ for(var i = 0; i < atlas.length; i++) {
 
 // sort by center.y, so that lines will overlap less
 
-/*
-
 // Populate with test data
 
 for(var i = 0; i < 10000; i++) {
@@ -96,19 +94,73 @@ for(var i = 0; i < 10000; i++) {
 	var y = ~~(Math.random() * 1000)+0.5;
 	var w = ~~(Math.random()*100);
 	var h = ~~(Math.random()*100);
-	atlas.push( {
-		"id": 5,
-		"name": "test"+(i+3),
-		"website": "",
-		"subreddit": "",
-		"center": [0, 0],
-		"path":[
-			[x, y],
-			[x+w, y],
-			[x+w, y+h],
-			[x, y+h]
-		]
+	atlas.push({
+    		"id": 0,
+    		"name": "TWRP's \"Together Through Time\"",
+    		"description": "The 1st full length studio album and 6th by Canadian band TWRP, drawn by fan community.",
+    		"website": "https://discord.gg/NZGZJ2C",
+    		"subreddit": "/r/twrp",
+    		"center": [
+    			1047.5,
+    			1766.5
+    		],
+    		"path": [
+    			[
+    				1034.5,
+    				1759.5
+    			],
+    			[
+    				1038.5,
+    				1755.5
+    			],
+    			[
+    				1043.5,
+    				1753.5
+    			],
+    			[
+    				1052.5,
+    				1753.5
+    			],
+    			[
+    				1056.5,
+    				1756.5
+    			],
+    			[
+    				1059.5,
+    				1760.5
+    			],
+    			[
+    				1061.5,
+    				1764.5
+    			],
+    			[
+    				1061.5,
+    				1772.5
+    			],
+    			[
+    				1059.5,
+    				1775.5
+    			],
+    			[
+    				1057.5,
+    				1778.5
+    			],
+    			[
+    				1050.5,
+    				1778.5
+    			],
+    			[
+    				1037.5,
+    				1778.5
+    			],
+    			[
+    				1034.5,
+    				1774.5
+    			],
+    			[
+    				1032.5,
+    				1770.5
+    			]
+    		]
 	});
 }
-
-*/
