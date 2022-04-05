@@ -238,6 +238,7 @@ var atlas = [
 {"id":188,"submitted_by": "L33Tech", "name":"SMP Online","description":"The SMP Online Minecraft server community!","website":"https://callmecarson.live","subreddit":"/r/CallMeCarson","center":[516.5,1686.5],"path":[[499.5,1673.5],[499.5,1673.5],[537.5,1673.5],[536.5,1685.5],[530.5,1685.5],[530.5,1699.5],[500.5,1700.5],[500.5,1688.5],[499.5,1688.5],[499.5,1680.5]]},
 {"id":189,"submitted_by": "L33Tech", "name":"Place Start","description":"A start menu for r/place, syled after Windows XP","website":"","subreddit":"/r/PlaceStart","center":[589.5,1985.5],"path":[[0.5,1970.5],[1200.5,1972.5],[1200.5,1999.5],[0.5,2000.5],[0.5,1970.5]]},
 {"id":190,"submitted_by": "L33Tech", "name":"r/TheBlueCorner","description":"Exactly what it sounds like, but filled with amogus.","website":"","subreddit":"/r/TheBlueCorner","center":[1959.5,1939.5],"path":[[1915.5,1868.5],[2002.5,1867.5],[2004.5,2007.5],[1916.5,2013.5],[1916.5,1991.5],[1916.5,1922.5],[1916.5,1868.5]]},
+{"id":191,"name": "Men I Trust", "description": "Founded in 2014, Men I Trust is a Canadian band composed of Jessy, Dragos and Emma.", "website": "https://menitrust.tumblr.com", "subreddit": "/r/menitrust", "center": [505.5, 1558.5], "path": [[501.5, 1553.5], [509.5, 1553.5], [509.5, 1563.5], [501.5, 1563.5]]},
 ];
 
 //console.log("There are "+atlas.length+" entries in the Atlas.");
