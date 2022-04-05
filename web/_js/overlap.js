@@ -151,6 +151,7 @@ function initOverlap(){
 			}
 			html += '<a target="_blank" href=https://reddit.com'+entry.subreddit+'>'+entry.subreddit+'</a>';
 		}
+		html+="<p style='font-family: Dejavu Sans Mono, sans, Sans-Serif;'>id: "+entry.id+"</p>";
 		element.innerHTML += html;
 		
 		return element;
