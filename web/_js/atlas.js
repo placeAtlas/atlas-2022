@@ -226,7 +226,127 @@ var atlas = [
 {"id":176,"name": "Interlingue", "description": "Flag of Interlingue, an IAL to communicate between Western European languages.", "website": "https://occidental-lang.com", "subreddit": "/r/interlingue", "center": [ 768.5, 328.5 ], "path": [ [ 765.5, 326.5 ], [ 770.5, 326.5 ], [ 770.5, 329.5 ], [ 765.5, 329.5 ] ] },
 {"id":177, "name": "Viossa", "description": "Flag of the conpidgin Viossa.", "website": "", "subreddit": "/r/viossa", "center": [ 775.5, 296.5 ], "path": [ [ 769.5, 290.5 ], [ 780.5, 290.5 ], [ 780.5, 301.5 ], [ 769.5, 301.5 ] ] },
 {"id":178, "name": "Lojban", "description": "Flag of Lojban", "website": "https://lojban.org", "subreddit": "/r/lojban", "center": [ 760.5, 328.5 ], "path": [ [ 763.5, 326.5 ], [ 757.5, 326.5 ], [ 757.5, 330.5 ], [ 763.5, 330.5 ] ] },
-
+    {
+    	"id": 0,
+    	"name": "Reichstag building",
+    	"description": "The Reichstag (German: \"Reichstagsgebäude\") is a historic building in Berlin which houses the Bundestag, the lower house of Germany's parliament. ",
+    	"website": "https://www.bundestag.de/en",
+    	"subreddit": "",
+    	"center": [
+    		1737.5,
+    		852.5
+    	],
+    	"path": [
+    		[
+    			1696.5,
+    			867.5
+    		],
+    		[
+    			1696.5,
+    			849.5
+    		],
+    		[
+    			1698.5,
+    			849.5
+    		],
+    		[
+    			1698.5,
+    			843.5
+    		],
+    		[
+    			1703.5,
+    			842.5
+    		],
+    		[
+    			1704.5,
+    			833.5
+    		],
+    		[
+    			1722.5,
+    			833.5
+    		],
+    		[
+    			1722.5,
+    			840.5
+    		],
+    		[
+    			1724.5,
+    			842.5
+    		],
+    		[
+    			1726.5,
+    			842.5
+    		],
+    		[
+    			1731.5,
+    			839.5
+    		],
+    		[
+    			1735.5,
+    			837.5
+    		],
+    		[
+    			1737.5,
+    			839.5
+    		],
+    		[
+    			1741.5,
+    			841.5
+    		],
+    		[
+    			1743.5,
+    			843.5
+    		],
+    		[
+    			1746.5,
+    			842.5
+    		],
+    		[
+    			1760.5,
+    			842.5
+    		],
+    		[
+    			1764.5,
+    			842.5
+    		],
+    		[
+    			1763.5,
+    			833.5
+    		],
+    		[
+    			1784.5,
+    			832.5
+    		],
+    		[
+    			1784.5,
+    			842.5
+    		],
+    		[
+    			1771.5,
+    			842.5
+    		],
+    		[
+    			1771.5,
+    			849.5
+    		],
+    		[
+    			1774.5,
+    			851.5
+    		],
+    		[
+    			1773.5,
+    			868.5
+    		],
+    		[
+    			1772.5,
+    			869.5
+    		],
+    		[
+    			1696.5,
+    			868.5
+    		]
+    	]
+    }
 ];
 
 //console.log("There are "+atlas.length+" entries in the Atlas.");
