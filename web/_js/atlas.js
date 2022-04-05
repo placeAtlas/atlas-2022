@@ -575,7 +575,7 @@ var atlas = [
 	] },
 	{ "id": "twpccx", "submitted_by": "Teldramet", "name": "Cara pils", "description": "Cara pils is Belgium's cheapest beer. It's best drunk at room temperature in a public space, lke a playground or the parking of your local Delhaize.n", "website": "", "subreddit": "/r/BELGICA", "center": [256.5, 647.5], "path": [[248.5, 629.5], [248.5, 663.5], [261.5, 664.5], [261.5, 649.5], [273.5, 648.5], [273.5, 643.5], [264.5, 644.5], [264.5, 638.5], [259.5, 638.5], [258.5, 632.5], [255.5, 628.5], [255.5, 628.5]] },
 	{ "id": "twpcbx", "submitted_by": "One_Fortune_1446", "name": "Spirit Phone", "description": "The cover of the Album Spirit Phone by Neil Cicierega ", "website": "", "subreddit": "/r/lemondemon", "center": [316.5, 1948.5], "path": [[292.5, 1926.5], [292.5, 1970.5], [339.5, 1970.5], [339.5, 1926.5], [339.5, 1926.5], [339.5, 1926.5], [339.5, 1926.5], [339.5, 1926.5], [292.5, 1926.5]] },
-	{ "id": "twpc9q", "submitted_by": "TheWaslijn", "name": "NOS", "description": "NOS is a Dutch broadcasting foundation that began on May 29th, 1969.", "website": "[https://nos.nl/](https://nos.nl/)", "subreddit": "", "center": [586.5, 1961.5], "path": [[571.5, 1954.5], [601.5, 1955.5], [600.5, 1968.5], [571.5, 1968.5]] },
+	{ "id": "twpc9q", "submitted_by": "TheWaslijn", "name": "NOS", "description": "NOS is a Dutch broadcasting foundation that began on May 29th, 1969. NOS did an interview with a moderator of r/placeNL, to honour them their logo was constructed", "website": "[https://nos.nl/](https://nos.nl/)", "subreddit": "/r/placeNL", "center": [586.5, 1961.5], "path": [[571.5, 1954.5], [601.5, 1955.5], [600.5, 1968.5], [571.5, 1968.5]] },
 	{ "id": "twpc34", "submitted_by": "Master_LitFam", "name": "Rvials of Aether - Orcane Head", "description": "Rivals of Aether is an indie fighting game set in a world where civilizations wage war by summoning the power of Fire, Water, Air, and Earth.nnThis is the head of Orcane, a playful whale-dog trickster who can transform into water and confuse enemies with a spray of bubbles.", "website": "[https://rivalsofaether.com](https://rivalsofaether.com)", "subreddit": "r/RivalsOfAether", "center": [921.5, 1956.5], "path": [[920.5, 1947.5], [919.5, 1948.5], [918.5, 1949.5], [918.5, 1950.5], [917.5, 1951.5], [914.5, 1954.5], [914.5, 1955.5], [913.5, 1956.5], [913.5, 1958.5], [917.5, 1962.5], [918.5, 1962.5], [919.5, 1963.5], [923.5, 1963.5], [924.5, 1962.5], [925.5, 1962.5], [928.5, 1959.5], [929.5, 1958.5], [929.5, 1956.5], [928.5, 1955.5], [928.5, 1954.5], [927.5, 1953.5], [926.5, 1952.5], [924.5, 1950.5], [924.5, 1949.5], [923.5, 1948.5], [922.5, 1947.5], [921.5, 1947.5]] },
 	{ "id": "twpbuo", "submitted_by": "Own-Intern6889", "name": "Portgual 2", "description": "Reference to the glorious era of the Portuguese Discoveries with the  fictional creature ADAMASTORnnnn", "website": "", "subreddit": "r/Portugal", "center": [1126.5, 342.5], "path": [[1052.5, 367.5], [1179.5, 368.5], [1181.5, 313.5], [1102.5, 312.5], [1085.5, 329.5], [1047.5, 367.5]] },
 	{ "id": "twpboo", "submitted_by": "TeslaPenguin1", "name": "Razorback (The Expanse)", "description": "The Razorback, a spaceship from the book series and TV show The Expanse. Above it is one of the Ring Gates, a wormhole created by a highly advanced alien species.", "website": "", "subreddit": "/r/TheExpanse", "center": [416.5, 1575.5], "path": [[426.5, 1600.5], [426.5, 1555.5], [427.5, 1554.5], [427.5, 1552.5], [425.5, 1551.5], [422.5, 1550.5], [416.5, 1549.5], [410.5, 1549.5], [404.5, 1552.5], [405.5, 1555.5], [406.5, 1570.5], [406.5, 1580.5], [404.5, 1583.5], [404.5, 1591.5], [406.5, 1593.5], [405.5, 1600.5], [426.5, 1600.5]] },
@@ -1200,7 +1200,56 @@ var atlas = [
 	{ "id": "twljhd", "submitted_by": "f5xs_0000b", "name": "Crying YAGOO", "description": "Motoaki Tanigo, aka YAGOO, is the CEO of Cover Corp., the company behind the virtual youtuber agency hololive and holostars. He looks cute in Kizuna AI's headband though.", "website": "https://cover-corp.com/", "subreddit": "", "center": [1370.5, 941.5], "path": [[1342.5, 970.5], [1342.5, 948.5], [1343.5, 947.5], [1343.5, 945.5], [1344.5, 944.5], [1344.5, 942.5], [1345.5, 941.5], [1345.5, 939.5], [1346.5, 938.5], [1346.5, 936.5], [1345.5, 935.5], [1345.5, 933.5], [1347.5, 933.5], [1349.5, 931.5], [1351.5, 931.5], [1352.5, 930.5], [1353.5, 930.5], [1355.5, 928.5], [1356.5, 927.5], [1358.5, 927.5], [1359.5, 926.5], [1360.5, 926.5], [1361.5, 925.5], [1364.5, 925.5], [1367.5, 922.5], [1367.5, 916.5], [1368.5, 915.5], [1368.5, 913.5], [1369.5, 912.5], [1369.5, 910.5], [1370.5, 909.5], [1375.5, 909.5], [1376.5, 910.5], [1377.5, 910.5], [1379.5, 908.5], [1378.5, 907.5], [1378.5, 905.5], [1379.5, 904.5], [1380.5, 903.5], [1383.5, 903.5], [1384.5, 904.5], [1385.5, 904.5], [1387.5, 906.5], [1388.5, 905.5], [1388.5, 902.5], [1389.5, 901.5], [1389.5, 900.5], [1393.5, 900.5], [1394.5, 901.5], [1394.5, 903.5], [1393.5, 904.5], [1393.5, 909.5], [1391.5, 911.5], [1391.5, 913.5], [1392.5, 913.5], [1392.5, 914.5], [1393.5, 915.5], [1393.5, 923.5], [1392.5, 923.5], [1391.5, 924.5], [1391.5, 929.5], [1389.5, 931.5], [1389.5, 932.5], [1390.5, 933.5], [1390.5, 934.5], [1391.5, 935.5], [1391.5, 936.5], [1392.5, 937.5], [1392.5, 938.5], [1393.5, 939.5], [1393.5, 949.5], [1394.5, 950.5], [1394.5, 951.5], [1395.5, 952.5], [1395.5, 959.5], [1396.5, 960.5], [1396.5, 961.5], [1394.5, 963.5], [1390.5, 963.5], [1389.5, 962.5], [1388.5, 963.5], [1387.5, 964.5], [1387.5, 966.5], [1386.5, 967.5], [1385.5, 967.5], [1385.5, 966.5], [1384.5, 965.5], [1384.5, 963.5], [1383.5, 962.5], [1382.5, 961.5], [1379.5, 961.5], [1375.5, 965.5], [1375.5, 966.5], [1374.5, 967.5], [1369.5, 967.5], [1365.5, 971.5]] },
 	{ "id": "twljfj", "submitted_by": "gothenby", "name": "Gol D. Roger", "description": "One Piece manga panel - chapter 967", "website": "", "subreddit": "", "center": [1661.5, 1279.5], "path": [[1601.5, 1358.5], [1722.5, 1357.5], [1723.5, 1200.5], [1601.5, 1200.5], [1600.5, 1357.5], [1719.5, 1357.5], [1718.5, 1357.5], [1602.5, 1357.5]] },
 	{ "id": "twljfh", "submitted_by": "yaboimankeez", "name": "xQc Cow", "description": "This cute little cow was built by xQc and his viewers after they made his Winston logo, and it was the first xQc-led project that remained to the end. The cow itself was a design proposed by Felix, but this project is unique in that the rest of the features (grass, flowers, tree, sky, clouds, rainbow and gold pot) are all his viewer's doing and were not made with an overlay. xQcL!", "website": "", "subreddit": "", "center": [1236.5, 1752.5], "path": [[1165.5, 1786.5], [1181.5, 1790.5], [1186.5, 1793.5], [1193.5, 1800.5], [1199.5, 1806.5], [1202.5, 1806.5], [1207.5, 1803.5], [1213.5, 1807.5], [1215.5, 1815.5], [1224.5, 1816.5], [1236.5, 1816.5], [1257.5, 1814.5], [1258.5, 1810.5], [1255.5, 1810.5], [1254.5, 1794.5], [1257.5, 1790.5], [1264.5, 1789.5], [1271.5, 1791.5], [1272.5, 1795.5], [1271.5, 1807.5], [1280.5, 1803.5], [1280.5, 1798.5], [1285.5, 1793.5], [1291.5, 1786.5], [1296.5, 1785.5], [1296.5, 1779.5], [1296.5, 1766.5], [1298.5, 1763.5], [1299.5, 1753.5], [1299.5, 1698.5], [1191.5, 1697.5], [1191.5, 1708.5], [1190.5, 1709.5], [1185.5, 1712.5], [1179.5, 1712.5], [1177.5, 1714.5], [1178.5, 1718.5], [1181.5, 1721.5], [1182.5, 1721.5], [1182.5, 1725.5], [1180.5, 1726.5], [1179.5, 1732.5], [1182.5, 1735.5], [1183.5, 1737.5], [1183.5, 1741.5], [1180.5, 1740.5], [1167.5, 1741.5], [1166.5, 1758.5], [1175.5, 1759.5], [1175.5, 1766.5], [1177.5, 1770.5], [1177.5, 1773.5], [1175.5, 1777.5], [1172.5, 1779.5], [1167.5, 1778.5], [1165.5, 1778.5], [1165.5, 1778.5]] },
-	{ "id": "twlj8d", "submitted_by": "Ericbazinga", "name": "Kanto Starter Pokemon", "description": "From left to right- The water-type Squirtle, the fire-type Charmander, and the grass-type Bulbasaur. The three Pokemon are tied for most popular starter of their generation.", "website": "", "subreddit": "r/pokemon", "center": [1845.5, 9.5], "path": [[1878.5, 0.5], [1879.5, 17.5], [1879.5, 18.5], [1813.5, 19.5], [1813.5, 0.5]] },
+	{ "id": "twlj8d", "submitted_by": "Ericbazinga", "name": "Kanto Starter Pokemon", "description": "From left to right, top to bottom- The water-type Squirtle, the fire-type Charmander, and the grass-type Bulbasaur. The three Pokemon are tied for most popular starter of their generation.", "website": "", "subreddit": "r/pokemon", "center": [
+		1835.5,
+		16.5
+	],
+	"path": [
+		[
+			1813.5,
+			3.5
+		],
+		[
+			1813.5,
+			20.5
+		],
+		[
+			1824.5,
+			20.5
+		],
+		[
+			1824.5,
+			33.5
+		],
+		[
+			1848.5,
+			34.5
+		],
+		[
+			1848.5,
+			21.5
+		],
+		[
+			1856.5,
+			21.5
+		],
+		[
+			1856.5,
+			15.5
+		],
+		[
+			1858.5,
+			14.5
+		],
+		[
+			1857.5,
+			3.5
+		],
+		[
+			1813.5,
+			3.5
+		]
+	] },
 	{ "id": "twlj2p", "submitted_by": "noobykongo", "name": "Super Auto Pets Turtle", "description": "The artwork for the Turtle unit in the auto battler Super Auto Pets by Teamwood Games", "website": "", "subreddit": "/r/superautopets", "center": [258.5, 978.5], "path": [[258.5, 968.5], [266.5, 968.5], [269.5, 978.5], [265.5, 981.5], [267.5, 984.5], [267.5, 987.5], [263.5, 987.5], [263.5, 985.5], [260.5, 985.5], [260.5, 987.5], [255.5, 987.5], [255.5, 984.5], [253.5, 984.5], [253.5, 987.5], [248.5, 987.5], [248.5, 983.5], [245.5, 980.5], [246.5, 974.5], [248.5, 972.5], [252.5, 972.5], [254.5, 974.5], [255.5, 974.5], [258.5, 969.5], [266.5, 968.5], [267.5, 969.5]] },
 	{ "id": "twlj1s", "submitted_by": "sinfjr", "name": "Neoliberalism", "description": "A banner dedicated to the ideology of Neoliberalism, that advocates for liberalism, free trade, open borders, and internationalism. Inside the banner are the Pride Flag, a Globe wearing glasses as the symbol for Neoliberalism, the logo of NATO, F-35-chan from Flight Highschool, and Trans Pride Flag.", "website": "https://neoliberalproject.org/", "subreddit": "/r/neoliberal", "center": [846.5, 114.5], "path": [[799.5, 99.5], [893.5, 99.5], [893.5, 129.5], [799.5, 129.5], [799.5, 99.5]] },
 	{ "id": "twlij4", "submitted_by": "Aksyyy", "name": "The Flag of the Philippines with Leni-Kiko", "description": "The Flag of the Philippines with the Philippine Archipelago and a Filipino Snoo wearing barong and salakot. Leni-Kiko Banner for this upcoming election", "website": "[https://www.reddit.com/r/Philippines/](https://www.reddit.com/r/Philippines/)", "subreddit": "r/Philippines", "center": [332.5, 674.5], "path": [[301.5, 645.5], [363.5, 645.5], [363.5, 702.5], [301.5, 702.5], [301.5, 645.5]] },
@@ -1435,7 +1484,305 @@ var atlas = [
     		]
     	]
     },
-
+    {
+    	"id": NL2a4b7l,
+    	"name": "Erasmus bridge",
+    	"description": "Bridge for the GME stock line to pass over the Dutch flag.\nModelled after Erasmus Bridge in Rotterdam",
+    	"website": "https://en.wikipedia.org/wiki/Erasmusbrug",
+    	"subreddit": "",
+    	"center": [
+    		1573.5,
+    		16.5
+    	],
+    	"path": [
+    		[
+    			1563.5,
+    			38.5
+    		],
+    		[
+    			1566.5,
+    			38.5
+    		],
+    		[
+    			1599.5,
+    			3.5
+    		],
+    		[
+    			1596.5,
+    			0.5
+    		],
+    		[
+    			1563.5,
+    			1.5
+    		],
+    		[
+    			1559.5,
+    			20.5
+    		],
+    		[
+    			1556.5,
+    			30.5
+    		],
+    		[
+    			1557.5,
+    			35.5
+    		],
+    		[
+    			1560.5,
+    			38.5
+    		]
+    	]
+    },
+	{
+    	"id": WH4b3k7p,
+    	"name": "LittleBigWhale",
+    	"description": "Whale built by the community of French streamer LittleBigWhale.",
+    	"website": "https://www.twitch.tv/LittleBigWhale",
+    	"subreddit": "",
+    	"center": [
+    		1650.5,
+    		40.5
+    	],
+    	"path": [
+    		[
+    			1640.5,
+    			47.5
+    		],
+    		[
+    			1640.5,
+    			35.5
+    		],
+    		[
+    			1645.5,
+    			35.5
+    		],
+    		[
+    			1645.5,
+    			33.5
+    		],
+    		[
+    			1643.5,
+    			33.5
+    		],
+    		[
+    			1643.5,
+    			30.5
+    		],
+    		[
+    			1649.5,
+    			30.5
+    		],
+    		[
+    			1649.5,
+    			33.5
+    		],
+    		[
+    			1647.5,
+    			33.5
+    		],
+    		[
+    			1647.5,
+    			35.5
+    		],
+    		[
+    			1661.5,
+    			35.5
+    		],
+    		[
+    			1661.5,
+    			47.5
+    		]
+    	]
+    },
+	{
+    	"id": NL3h7q0c,
+    	"name": "Logos of Dutch universities",
+    	"description": "Logos from top left to bottom right:\nTU/e: Technische Universiteit Eindhoven\nUT.: Universiteit Twente\nUU: Universiteit Utrecht\nTUDelft: Technische Universiteit Delft",
+    	"website": "",
+    	"subreddit": "",
+    	"center": [
+    		1915.5,
+    		45.5
+    	],
+    	"path": [
+    		[
+    			1876.5,
+    			44.5
+    		],
+    		[
+    			1876.5,
+    			53.5
+    		],
+    		[
+    			1946.5,
+    			53.5
+    		],
+    		[
+    			1946.5,
+    			35.5
+    		],
+    		[
+    			1895.5,
+    			35.5
+    		],
+    		[
+    			1894.5,
+    			35.5
+    		],
+    		[
+    			1894.5,
+    			44.5
+    		]
+    	]
+    },
+    {
+    	"id": NL7s3t0g,
+    	"name": "Bicycle and Unicycle",
+    	"description": "A bicycle and unicycle hitting water.\nA reference to the many bicycles in the Netherlands",
+    	"website": "",
+    	"subreddit": "/r/placeNL",
+    	"center": [
+    		1597.5,
+    		26.5
+    	],
+    	"path": [
+    		[
+    			1578.5,
+    			27.5
+    		],
+    		[
+    			1585.5,
+    			34.5
+    		],
+    		[
+    			1615.5,
+    			34.5
+    		],
+    		[
+    			1614.5,
+    			27.5
+    		],
+    		[
+    			1605.5,
+    			20.5
+    		],
+    		[
+    			1594.5,
+    			15.5
+    		],
+    		[
+    			1584.5,
+    			21.5
+    		]
+    	]
+    },
+	{
+    	"id": NL5s1q0t,
+    	"name": "NU.NL",
+    	"description": "NU.NL is a dutch news website founded in 1999.\nNU.NL did an interview with a moderator of r/placeNL, to honour them their logo was constructed",
+    	"website": "nu.nl",
+    	"subreddit": "/r/placeNL",
+    	"center": [
+    		615.5,
+    		1959.5
+    	],
+    	"path": [
+    		[
+    			602.5,
+    			1950.5
+    		],
+    		[
+    			602.5,
+    			1969.5
+    		],
+    		[
+    			627.5,
+    			1969.5
+    		],
+    		[
+    			627.5,
+    			1949.5
+    		],
+    		[
+    			602.5,
+    			1949.5
+    		]
+    	]
+    },
+	{
+    	"id": CA5d9q5b,
+    	"name": "Canadian Flag",
+    	"description": "Canadian flag, moved by the dutch from it's original location underneath the Nightwatch",
+    	"website": "https://www.reddit.com/r/placecanada/",
+    	"subreddit": "/r/placeNL",
+    	"center": [
+    		520.5,
+    		1960.5
+    	],
+    	"path": [
+    		[
+    			501.5,
+    			1949.5
+    		],
+    		[
+    			501.5,
+    			1970.5
+    		],
+    		[
+    			539.5,
+    			1970.5
+    		],
+    		[
+    			538.5,
+    			1949.5
+    		]
+    	]
+    },
+	{
+    	"id": "NL3d7t0z",
+    	"name": "Groesbeek war memorial",
+    	"description": "Border monument between the Netherlands and Canada.\nModelled after the Groesbeek war memorial on the Canadian WW2 cemetery near Groesbeek.",
+    	"website": "https://en.wikipedia.org/wiki/Groesbeek_Canadian_War_Cemetery",
+    	"subreddit": "/r/placeNL",
+    	"center": [
+    		538.5,
+    		1961.5
+    	],
+    	"path": [
+    		[
+    			530.5,
+    			1970.5
+    		],
+    		[
+    			546.5,
+    			1970.5
+    		],
+    		[
+    			546.5,
+    			1956.5
+    		],
+    		[
+    			542.5,
+    			1956.5
+    		],
+    		[
+    			542.5,
+    			1949.5
+    		],
+    		[
+    			535.5,
+    			1949.5
+    		],
+    		[
+    			535.5,
+    			1955.5
+    		],
+    		[
+    			530.5,
+    			1955.5
+    		]
+    	]
+    }
 ];
 
 //console.log("There are "+atlas.length+" entries in the Atlas.");
