@@ -14,7 +14,7 @@ To submit new entries or request changes to existing ones, please visit [/r/plac
 
 ### WE ONLY ACCEPT NEW CONTRIBUTIONS ON REDDIT
 
-To contribute to the map, we require a certain format for artwork region and labels. This can be generated on the [contributing page](/index.html?mode=draw) on the website. 
+To contribute to the map, we require a certain format for artwork region and labels. This can be generated on the [contributing page](https://place-atlas.stefanocoding.me/index.html?mode=draw) on the website. 
 
 ### Reddit Submission
 
