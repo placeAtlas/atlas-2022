@@ -131,31 +131,6 @@ function initOverlap(){
 		updateLines();
 	});
 
-	function createInfoBlock(entry){
-		var element = document.createElement("div");
-		element.className = "object";
-
-		var html = '<h2><a href="?id='+entry.id+'">'+entry.name+'</a></h2>';
-		
-		if(entry.description){
-			html += '<p>'+entry.description+'</p>';
-		}
-		if(entry.website){
-			html += '<a target="_blank" href='+entry.website+'>Website</a>';
-		}
-		if(entry.subreddit){
-			if(entry.subreddit.substring(0, 2) == "r/"){
-				entry.subreddit = "/" + entry.subreddit;
-			} else if(entry.subreddit.substring(0, 1) != "/"){
-				entry.subreddit = "/r/" + entry.subreddit;
-			}
-			html += '<a target="_blank" href=https://reddit.com'+entry.subreddit+'>'+entry.subreddit+'</a>';
-		}
-		element.innerHTML += html;
-		
-		return element;
-	}
-
 	function highlightEntryFromUrl(){
 
 		var objectsContainer = document.getElementById("objectsList");
