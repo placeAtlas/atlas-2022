@@ -226,7 +226,87 @@ var atlas = [
 {"id":176,"name": "Interlingue", "description": "Flag of Interlingue, an IAL to communicate between Western European languages.", "website": "https://occidental-lang.com", "subreddit": "/r/interlingue", "center": [ 768.5, 328.5 ], "path": [ [ 765.5, 326.5 ], [ 770.5, 326.5 ], [ 770.5, 329.5 ], [ 765.5, 329.5 ] ] },
 {"id":177, "name": "Viossa", "description": "Flag of the conpidgin Viossa.", "website": "", "subreddit": "/r/viossa", "center": [ 775.5, 296.5 ], "path": [ [ 769.5, 290.5 ], [ 780.5, 290.5 ], [ 780.5, 301.5 ], [ 769.5, 301.5 ] ] },
 {"id":178, "name": "Lojban", "description": "Flag of Lojban", "website": "https://lojban.org", "subreddit": "/r/lojban", "center": [ 760.5, 328.5 ], "path": [ [ 763.5, 326.5 ], [ 757.5, 326.5 ], [ 757.5, 330.5 ], [ 763.5, 330.5 ] ] },
-
+    {
+    	"id": 0,
+    	"name": "Flag of Uruguay",
+    	"description": "Flag of the country Uruguay with some of the countries icons, such as the animal \"tero\" or the food \"chivito\"",
+    	"website": "",
+    	"subreddit": "/r/Uruguay",
+    	"center": [
+    		1082.5,
+    		674.5
+    	],
+    	"path": [
+    		[
+    			966.5,
+    			665.5
+    		],
+    		[
+    			966.5,
+    			684.5
+    		],
+    		[
+    			1172.5,
+    			684.5
+    		],
+    		[
+    			1172.5,
+    			680.5
+    		],
+    		[
+    			1173.5,
+    			680.5
+    		],
+    		[
+    			1174.5,
+    			679.5
+    		],
+    		[
+    			1175.5,
+    			678.5
+    		],
+    		[
+    			1177.5,
+    			678.5
+    		],
+    		[
+    			1178.5,
+    			679.5
+    		],
+    		[
+    			1179.5,
+    			680.5
+    		],
+    		[
+    			1179.5,
+    			681.5
+    		],
+    		[
+    			1178.5,
+    			682.5
+    		],
+    		[
+    			1177.5,
+    			683.5
+    		],
+    		[
+    			1177.5,
+    			684.5
+    		],
+    		[
+    			1200.5,
+    			684.5
+    		],
+    		[
+    			1200.5,
+    			665.5
+    		],
+    		[
+    			966.5,
+    			665.5
+    		]
+    	]
+    }
 ];
 
 //console.log("There are "+atlas.length+" entries in the Atlas.");
