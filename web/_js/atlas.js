@@ -296,6 +296,35 @@ var atlas = [
 {"id":245,"submitted_by":"StrikerX3","name":"Victini and the V-Wheel","description":"A depiction of Victini and his V-Wheel from Pokémon Mystery Dungeon: Gates to Infinity.","website":"","subreddit":"/r/MysteryDungeon","center":[1752.5,1485.5],"path":[[1734.5,1473.5],[1734.5,1496.5],[1770.5,1496.5],[1770.5,1473.5]]},
 {"id":246,"name": "Green Greens", "description": "A collaboration between /r/PlaceTrees and the Super Smash Bros. Melee community. Based on the Smash 64 stage Dream Land, with Pikachu, Fox, Falco, and Kirby fighting.", "website": "https://supersmashbros.fandom.com/wiki/Dream_Land_(Super_Smash_Bros.)", "subreddit": "", "center": [ 762.5, 918.5 ], "path": [[753.5,931.5],[771.5,931.5],[774.5,928.5],[774.5,908.5],[772.5,906.5],[753.5,906.5],[750.5,910.5],[750.5,928.5]]},
 {"id":247,"name": "Veloren", "description": "Veloren is an open source multiplayer voxel RPG written in Rust.", "website": "https://veloren.net/", "subreddit": "/r/veloren", "center": [ 741.5, 642.5 ], "path": [ [ 736.5, 637.5 ], [ 745.5, 637.5 ], [ 745.5, 646.5 ], [ 736.5, 646.5 ], [ 736.5, 646.5 ] ] },
+	    {
+    	"id": 248,
+    	"name": "JTOH",
+    	"description": "An elaborate depiction of various 'towers' found within the Roblox game Juke's Towers of Hell. Towers, in short, consist of usually ascending obstacle courses players must trek through in order to reach the top. Some towers are difficult enough that they blur the line of what is even humanly possible.\n\nThe three large towers all depict classic towers of the game, made years ago, consisting of:\n- Tower of Hecc (Left)\n- Tower of Screen Punching (Middle)\n- Tower of Impossible Expectations (Right)\n\nVarious smaller depictions of towers, including variants such as citadels (longer towers) and NEATs (much smaller towers, also known as Mini Towers). They include:\n\n- Not Even a Tower (Bottom Left)\n- Totally a Tower (Middle Bottom Left)\n- Citadel of Laptop Splitting (Middle Left)\n- Tower of Champion's Road (Top Left)\n- Tower of Cruel Punishment (Top Right)\n- Citadel of Heights and Depths (Middle Right)\n- Will Be A Tower (Bottom Middle Right)\n- Maybe A Tower (Bottom Right)\n\nThe picture is embroidered in a four-color outline that represents the primary colors used for the game's logo.",
+    	"website": "https://jtoh.fandom.com/wiki/Juke%27s_Towers_of_Hell_(Game)",
+    	"subreddit": "",
+    	"center": [
+    		1520.5,
+    		1628.5
+    	],
+    	"path": [
+    		[
+    			1506.5,
+    			1604.5
+    		],
+    		[
+    			1533.5,
+    			1604.5
+    		],
+    		[
+    			1533.5,
+    			1652.5
+    		],
+    		[
+    			1506.5,
+    			1652.5
+    		]
+    	]
+    }
 ];
 
 //console.log("There are "+atlas.length+" entries in the Atlas.");
