@@ -12,9 +12,9 @@ To submit new entries or request changes to existing ones, please visist [/r/pla
 
 ## Map Contributions
 
-To contribute to the map, we require a certain format for artwork region and labels. This can be generated on the [contributing page](/index.html?mode=draw) on the website.
+### WE ONLY ACCEPT NEW CONTRIBUTIONS ON REDDIT
 
-You can either post this contribution to the subreddit, or make a Pull Request on the GitHub repo.
+To contribute to the map, we require a certain format for artwork region and labels. This can be generated on the [contributing page](/index.html?mode=draw) on the website. 
 
 ### Reddit Submission
 
@@ -22,11 +22,11 @@ You can either post this contribution to the subreddit, or make a Pull Request o
 2. Flair your post with the "New Entry" tag.
 3. A moderator will accept your contribution shortly.
 
-### GitHub Submission
+## Map Edits
 
 1. Create a fork of our repo.
-2. Enter your data into the `web/_js/atlas.js` file, with the correct format and ID number.
-3. Create a Pull Request.
+2. Enter your data into the `web/_js/atlas.json` file, with the correct format and ID number.
+3. Create a Pull Request against the `/cleanup` branch
 
 ## Cleaning Contributions
 
