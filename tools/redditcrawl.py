@@ -16,7 +16,7 @@ successcount = 0
 
 latestID = int(input("Latest ID: "))
 
-for submission in reddit.subreddit('placeAtlas2').new(limit=220):
+for submission in reddit.subreddit('placeAtlas2').new(limit=1100):
 	"""
 	Auth setup
 	1. Head to https://www.reddit.com/prefs/apps
@@ -39,18 +39,20 @@ for submission in reddit.subreddit('placeAtlas2').new(limit=220):
 	"""
 	#print(dir(submission))
 	if(submission.link_flair_text == "New Entry"):
+		print(submission.id)
 		text = submission.selftext
 		text = text.replace("\\", "")
-		text = text.replace("\"id\": 0,", "\"id\": 0,\n\t\t\"submitted_by\": \""+submission.author.name+"\",")
+		try:
+			text = text.replace("\"id\": 0,", "\"id\": 0,\n\t\t\"submitted_by\": \""+submission.author.name+"\",")
+		except AttributeError:
+			text = text.replace("\"id\": 0,", "\"id\": 0,\n\t\t\"submitted_by\": \""+"unknown"+"\",")
+
 
 		lines = text.split("\n")
 
-		
-
 		for i, line in enumerate(lines):
 			if("\"id\": 0" in line):
-				print("rep")
-				lines[i] = line.replace("\"id\": 0", "\"id\": "+str(latestID))
+				lines[i] = line.replace("\"id\": 0", "\"id\": "+"\""+str(submission.id)+"\"")
 				latestID = latestID + 1
 		text = "\n".join(lines)
 		try:
