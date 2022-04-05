@@ -296,6 +296,7 @@ var atlas = [
 {"id":245,"submitted_by":"StrikerX3","name":"Victini and the V-Wheel","description":"A depiction of Victini and his V-Wheel from Pokémon Mystery Dungeon: Gates to Infinity.","website":"","subreddit":"/r/MysteryDungeon","center":[1752.5,1485.5],"path":[[1734.5,1473.5],[1734.5,1496.5],[1770.5,1496.5],[1770.5,1473.5]]},
 {"id":246,"name": "Green Greens", "description": "A collaboration between /r/PlaceTrees and the Super Smash Bros. Melee community. Based on the Smash 64 stage Dream Land, with Pikachu, Fox, Falco, and Kirby fighting.", "website": "https://supersmashbros.fandom.com/wiki/Dream_Land_(Super_Smash_Bros.)", "subreddit": "", "center": [ 762.5, 918.5 ], "path": [[753.5,931.5],[771.5,931.5],[774.5,928.5],[774.5,908.5],[772.5,906.5],[753.5,906.5],[750.5,910.5],[750.5,928.5]]},
 {"id":247,"name": "Veloren", "description": "Veloren is an open source multiplayer voxel RPG written in Rust.", "website": "https://veloren.net/", "subreddit": "/r/veloren", "center": [ 741.5, 642.5 ], "path": [ [ 736.5, 637.5 ], [ 745.5, 637.5 ], [ 745.5, 646.5 ], [ 736.5, 646.5 ], [ 736.5, 646.5 ] ] },
+{"id":248,"submitted_by":"ICastTidalWave","name": "Wings of Fire Logo","description": "Wings of Fire is a series of children's fantasy novels written by author Tui T. Sutherland.","website": "","subreddit": "r/WingsOfFire","center": [1066.5,482.5],"path": [[1053.5,465.5],[1078.5,465.5],[1078.5,498.5],[1053.5,498.5],[1053.5,480.5],[1053.5,472.5]]}
 ];
 
 //console.log("There are "+atlas.length+" entries in the Atlas.");
