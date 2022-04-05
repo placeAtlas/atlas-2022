@@ -289,6 +289,7 @@ var atlas = [
 {"id":238,"name":"Shisheyu_Mayamoto's Logo", "description": "Shisheyu Mayamoto's Twitch channel's logo", "website": "https://www.twitch.tv/shisheyu_mayamoto", "subreddit": "", "center": [ 1915.5, 1568.5 ], "path": [ [ 1909.5, 1562.5 ], [ 1909.5, 1573.5 ], [ 1921.5, 1573.5 ], [ 1921.5, 1562.5 ], [ 1909.5, 1562.5 ] ] },
 {"id":239,"name":"Esperanto","description": "A proposed international language designed to be as simple as possible to understand","website": "https://esperanto.net/en/","subreddit": "/r/esperanto","center": [1466.5,494.5],"path": [[1433.5,487.5],[1499.5,487.5],[1499.5,501.5],[1433.5,501.5]]},
 {"id":240,"name":"VRChat Modding Group","description":"Logo of the VRChat Modding Group, a community dedicated to creating and maintaining mods for the VR social platform VRChat","website":"https://discord.gg/vrcmg","subreddit":"","center":[1294.5,1985.5],"path":[[1284.5,1976.5],[1305.5,1976.5],[1305.5,1992.5],[1304.5,1992.5],[1304.5,1993.5],[1302.5,1993.5],[1302.5,1995.5],[1300.5,1995.5],[1298.5,1993.5],[1292.5,1993.5],[1292.5,1995.5],[1285.5,1995.5],[1285.5,1993.5],[1284.5,1993.5]]},
+{"id":241,"name": "Disco Elisium", "description": "Main characters of the game.", "website": "https://discoelysium.com/", "subreddit": "https://www.reddit.com/r/DiscoElysium/", "center": [ 1383.5, 1900.5 ], "path": [ [ 1362.5, 1884.5 ], [ 1403.5, 1884.5 ], [ 1403.5, 1917.5 ], [ 1364.5, 1917.5 ] ] },
 ];
 
 //console.log("There are "+atlas.length+" entries in the Atlas.");
