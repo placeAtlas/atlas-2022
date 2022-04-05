@@ -8,6 +8,30 @@ This project was created by Roland Rytz and is licensed under the GNU Affero Gen
 
 To submit new entries or request changes to existing ones, please visist [/r/placeAtlas2](https://www.reddit.com/r/placeAtlas2/).
 
+# How To Contribute
+
+## Map Contributions
+
+To contribute to the map, we require a certain format for artwork region and labels. This can be generated on the [contributing page](/index.html?mode=draw) on the website.
+
+You can either post this contribution to the subreddit, or make a Pull Request on the GitHub repo.
+
+### Reddit Submission
+
+1. Follow the instructions on the [contributing page](/index.html?mode=draw), then click "Post Direct to Reddit".
+2. Flair your post with the "New Entry" tag.
+3. A moderator will accept your contribution shortly.
+
+### GitHub Submission
+
+1. Create a fork of our repo.
+2. Enter your data into the `web/_js/atlas.js` file, with the correct format and ID number.
+3. Create a Pull Request.
+
+## Cleaning Contributions
+
+If you spot a duplicate, please PR against `/cleaning`. To help find duplicates, run the code locally, changing line 92 of `main.js` to `overlap`.
+
 ---
 
 1. To allow github-pages rendering, make a subtree for the web folder under gh-pages branch
