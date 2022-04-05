@@ -226,9 +226,10 @@ var atlas = [
 {"id":176,"name": "Interlingue", "description": "Flag of Interlingue, an IAL to communicate between Western European languages.", "website": "https://occidental-lang.com", "subreddit": "/r/interlingue", "center": [ 768.5, 328.5 ], "path": [ [ 765.5, 326.5 ], [ 770.5, 326.5 ], [ 770.5, 329.5 ], [ 765.5, 329.5 ] ] },
 {"id":177, "name": "Viossa", "description": "Flag of the conpidgin Viossa.", "website": "", "subreddit": "/r/viossa", "center": [ 775.5, 296.5 ], "path": [ [ 769.5, 290.5 ], [ 780.5, 290.5 ], [ 780.5, 301.5 ], [ 769.5, 301.5 ] ] },
 {"id":178, "name": "Lojban", "description": "Flag of Lojban", "website": "https://lojban.org", "subreddit": "/r/lojban", "center": [ 760.5, 328.5 ], "path": [ [ 763.5, 326.5 ], [ 757.5, 326.5 ], [ 757.5, 330.5 ], [ 763.5, 330.5 ] ] },
-
-];
-
+{"id":179,"name":"Watch Dominion Banner","description":"A banner for watchdominion.org, a documentary","website":"https://www.watchdominion.org","subreddit":"/r/vegan","center":[1830.5,1583.5],"path":[[1787.5,1555.5],[1875.5,1555.5],[1875.5,1562.5],[1873.5,1562.5],[1873.5,1612.5],[1799.5,1612.5],[1786.5,1600.5],[1786.5,1555.5]]},
+{"id":180,"name":"Small Watch Dominion Banner","description":"A small banner for watchdominion.org, a documentary","website":"https://www.watchdominion.org","subreddit":"/r/vegan","center":[1969.5,902.5],"path":[[1939.5,887.5],[1998.5,887.5],[1998.5,916.5],[1939.5,916.5]]},
+{"id":181,"name":"A Meat Eater's Case For Veganism QR","description":"A QR code leading to a video called \"A Meat Eater's Case For Veganism\" by CosmicSkeptic. In the first 24 hours after this QR code was posted, the video gained 100k views.","website":"https://www.youtube.com/watch?v=C1vW9iSpLLk","subreddit":"/r/vegan","center":[1381.5,1933.5],"path":[[1365.5,1917.5],[1397.5,1917.5],[1397.5,1949.5],[1365.5,1949.5]]} ];	
+	
 //console.log("There are "+atlas.length+" entries in the Atlas.");
 
 /*
