@@ -44,7 +44,19 @@ If you spot a duplicate, please PR against `/cleanup`. To help find duplicates, 
 
 ---
 
-1. To allow github-pages rendering, make a subtree for the web folder under gh-pages branch
-    - `git subtree push --prefix web origin gh-pages`
-    - This needs to be called every time there's changes on master.
-2. Then from `Settings` > `Pages`, select the `gh-pages` branch and the `/ (root)` folder. Then click save.
+# github pages support
+## Setup
+1. To allow github-pages rendering, create a `gh-pages` branch then move the web folder to docs.
+```bash
+git checkout -b gh-pages
+git mv web docs
+// Update tools/validate_json.py to point to `docs` folder
+git add tools/validate_json.py
+git commit -m "Move web to docs"
+git push --set-upstream origin gh-pages
+```
+2. Then from `Settings` > `Pages`, select the `gh-pages` branch and the `/docs` folder. Then click save.
+## Updating
+1. Go back to `master`, fetch from upstream, handle conflicts as needed
+2. Go back to `gh-pages` and rebase `master`
+3. Push
