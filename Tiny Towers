@@ -1,0 +1,29 @@
+    {
+    	"id": 0,
+    	"name": "Tiny Towers (JTOH)",
+    	"description": "A small mural dedicated to the Roblox game Juke's Towers of Hell. It depicts one of the game's towers, Tower of Hecc, and a \"neat,\" or a much smaller tower. This was a subsidiary project to the main JTOH build found on r/place.",
+    	"website": "https://jtoh.fandom.com/wiki/Juke%27s_Towers_of_Hell_(Game)",
+    	"subreddit": "",
+    	"center": [
+    		875.5,
+    		543.5
+    	],
+    	"path": [
+    		[
+    			873.5,
+    			534.5
+    		],
+    		[
+    			877.5,
+    			534.5
+    		],
+    		[
+    			877.5,
+    			552.5
+    		],
+    		[
+    			873.5,
+    			552.5
+    		]
+    	]
+    }
