@@ -73,9 +73,25 @@ function applyView(){
 	
 }
 
+var atlas = null;
+
 init();
 
-function init(){
+async function init(){
+
+	let resp = await fetch("/web/atlas.json");
+	atlas = await resp.json();
+	atlas.sort(function (a, b) {
+		if (a.center[1] < b.center[1]) {
+			return -1;
+		}
+		if (a.center[1] > b.center[1]) {
+			return 1;
+		}
+		// a must be equal to b
+		return 0;
+	});
+	
 
 	//console.log(document.documentElement.clientWidth, document.documentElement.clientHeight);
 
