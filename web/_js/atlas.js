@@ -226,7 +226,7 @@ var atlas = [
 {"id":176,"name": "Interlingue", "description": "Flag of Interlingue, an IAL to communicate between Western European languages.", "website": "https://occidental-lang.com", "subreddit": "/r/interlingue", "center": [ 768.5, 328.5 ], "path": [ [ 765.5, 326.5 ], [ 770.5, 326.5 ], [ 770.5, 329.5 ], [ 765.5, 329.5 ] ] },
 {"id":177, "name": "Viossa", "description": "Flag of the conpidgin Viossa.", "website": "", "subreddit": "/r/viossa", "center": [ 775.5, 296.5 ], "path": [ [ 769.5, 290.5 ], [ 780.5, 290.5 ], [ 780.5, 301.5 ], [ 769.5, 301.5 ] ] },
 {"id":178, "name": "Lojban", "description": "Flag of Lojban", "website": "https://lojban.org", "subreddit": "/r/lojban", "center": [ 760.5, 328.5 ], "path": [ [ 763.5, 326.5 ], [ 757.5, 326.5 ], [ 757.5, 330.5 ], [ 763.5, 330.5 ] ] },
-
+{"id":179, "name": "Disco Elysium", "description": "Disco Elysium is a 2019 role-playing video game developed and published by ZA/UM. Inspired by Infinity Engine–era games, particularly Planescape: Torment, the game was written and designed by Estonian novelist Robert Kurvitz and features a distinctive oil painting art style with music by the English band Sea Power.","website": "https://discoelysium.com/", "subreddit": "/r/DiscoElysium", "center": [ 1384.5, 1902.5 ], "path": [ [ 1367.5, 1916.5 ], [ 1401.5, 1916.5 ], [ 1401.5, 1887.5 ], [ 1367.5, 1887.5] ]}
 ];
 
 //console.log("There are "+atlas.length+" entries in the Atlas.");
