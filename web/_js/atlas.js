@@ -226,7 +226,9 @@ var atlas = [
 {"id":176,"name": "Interlingue", "description": "Flag of Interlingue, an IAL to communicate between Western European languages.", "website": "https://occidental-lang.com", "subreddit": "/r/interlingue", "center": [ 768.5, 328.5 ], "path": [ [ 765.5, 326.5 ], [ 770.5, 326.5 ], [ 770.5, 329.5 ], [ 765.5, 329.5 ] ] },
 {"id":177, "name": "Viossa", "description": "Flag of the conpidgin Viossa.", "website": "", "subreddit": "/r/viossa", "center": [ 775.5, 296.5 ], "path": [ [ 769.5, 290.5 ], [ 780.5, 290.5 ], [ 780.5, 301.5 ], [ 769.5, 301.5 ] ] },
 {"id":178, "name": "Lojban", "description": "Flag of Lojban", "website": "https://lojban.org", "subreddit": "/r/lojban", "center": [ 760.5, 328.5 ], "path": [ [ 763.5, 326.5 ], [ 757.5, 326.5 ], [ 757.5, 330.5 ], [ 763.5, 330.5 ] ] },
-
+{"id":179,"name":"Blurryface Album Cover","description":"The Blurryface album cover for the band Twenty One Pilots. ","website":"https://en.wikipedia.org/wiki/Blurryface","subreddit":"/r/twentyonepilots","center":[398.5,1588.5],"path":[[401.5,1584.5],[394.5,1584.5],[394.5,1592.5],[402.5,1592.5]]},
+{"id":180,"name":"SAI and Ned","description":"The Scaled and Icy album era logo for the band Twenty One Pilots and the mythical creature of the bands lore named Ned. ","website":"https://en.wikipedia.org/wiki/Twenty_One_Pilots","subreddit":"/r/twentyonepilots","center":[307.5,1655.5],"path":[[323.5,1635.5],[315.5,1635.5],[310.5,1631.5],[290.5,1635.5],[291.5,1678.5],[323.5,1676.5],[323.5,1653.5],[323.5,1635.5]]},
+{"id":181,"name":"East is Up & Trench Flower","description":"The band Twenty One Pilots uses these symbols for the lore of their Album Trench. ","website":"https://www.twentyonepilots.wiki/docs/dmaorg/","subreddit":"/r/twentyonepilots","center":[747.5,662.5],"path":[[754.5,653.5],[748.5,653.5],[748.5,667.5],[754.5,667.5],[754.5,653.5],[759.5,653.5],[759.5,660.5],[755.5,660.5],[754.5,657.5],[754.5,658.5]]}
 ];
 
 //console.log("There are "+atlas.length+" entries in the Atlas.");
