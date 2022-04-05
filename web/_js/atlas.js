@@ -249,6 +249,7 @@ var atlas = [
 {"id":199,"submitted_by": "L33Tech", "name":"Place Start","description":"A start menu for r/place, syled after Windows XP","website":"","subreddit":"/r/PlaceStart","center":[589.5,1985.5],"path":[[0.5,1970.5],[1200.5,1972.5],[1200.5,1999.5],[0.5,2000.5],[0.5,1970.5]]},
 {"id":200,"submitted_by": "L33Tech", "name":"r/TheBlueCorner","description":"Exactly what it sounds like, but filled with amogus.","website":"","subreddit":"/r/TheBlueCorner","center":[1959.5,1939.5],"path":[[1915.5,1868.5],[2002.5,1867.5],[2004.5,2007.5],[1916.5,2013.5],[1916.5,1991.5],[1916.5,1922.5],[1916.5,1868.5]]},
 {"id":201,"name":"The Rust programming language","description":"This little square belongs to the community of the Rust programming language","website":"https://rust-lang.org","subreddit":"r/rust","center":[735.5,622.5],"path":[[722.5,608.5],[722.5,635.5],[748.5,635.5],[748.5,608.5]]},
+{ "id":202, "name": "jvne", "description": "an image depicting the eyes of sewerslvt's album \"draining love story\" as well as her iconic purple flower, and stylized name.", "website": "https://geometriclullaby.bandcamp.com/album/draining-love-story", "subreddit": "r/sewerslvt", "center": [ 109.5, 517.5 ], "path": [ [ 93.5, 505.5 ], [ 125.5, 505.5 ], [ 125.5, 529.5 ], [ 93.5, 529.5 ], [ 93.5, 524.5 ], [ 93.5, 524.5 ] ] },
 ];
 
 //console.log("There are "+atlas.length+" entries in the Atlas.");
