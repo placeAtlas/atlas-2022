@@ -226,7 +226,9 @@ var atlas = [
 {"id":176,"name": "Interlingue", "description": "Flag of Interlingue, an IAL to communicate between Western European languages.", "website": "https://occidental-lang.com", "subreddit": "/r/interlingue", "center": [ 768.5, 328.5 ], "path": [ [ 765.5, 326.5 ], [ 770.5, 326.5 ], [ 770.5, 329.5 ], [ 765.5, 329.5 ] ] },
 {"id":177, "name": "Viossa", "description": "Flag of the conpidgin Viossa.", "website": "", "subreddit": "/r/viossa", "center": [ 775.5, 296.5 ], "path": [ [ 769.5, 290.5 ], [ 780.5, 290.5 ], [ 780.5, 301.5 ], [ 769.5, 301.5 ] ] },
 {"id":178, "name": "Lojban", "description": "Flag of Lojban", "website": "https://lojban.org", "subreddit": "/r/lojban", "center": [ 760.5, 328.5 ], "path": [ [ 763.5, 326.5 ], [ 757.5, 326.5 ], [ 757.5, 330.5 ], [ 763.5, 330.5 ] ] },
-
+{"id":0, "name": "Maple syrup", "description": "A can of maple syrup with its classic Québec packaging", "website": "", "subreddit": "/r/Quebec", "center": [ 1039.5, 1035.5 ], "path": [ [ 1029.5, 1046.5 ], [ 1029.5, 1024.5 ], [ 1030.5, 1023.5 ], [ 1032.5, 1022.5 ], [ 1034.5, 1022.5 ], [ 1035.5, 1021.5 ], [ 1042.5, 1021.5 ], [ 1043.5, 1022.5 ], [ 1046.5, 1022.5 ], [ 1047.5, 1023.5 ], [ 1048.5, 1024.5 ], [ 1048.5, 1046.5 ], [ 1047.5, 1047.5 ], [ 1045.5, 1048.5 ], [ 1031.5, 1048.5 ], [ 1029.5, 1046.5 ] ] },
+{"id":0, "name": "City of Laval", "description": "The logo of the city of Laval in the province of Québec, Canada","website": "", "subreddit": "/r/Laval", "center": [913.5,1065.5],"path":[[903.5,1064.5],[903.5,1056.5],[909.5,1056.5],[915.5,1062.5],[920.5,1062.5],[924.5,1066.5],[924.5,1071.5],[910.5,1071.5],[903.5,1064.5]]},
+{"id":0, "name": "Manic-5 / Daniel-Johnson Dam", "description": "Iconic dam on the Manicouagan river in the province of Québec, Canada", "website": "", "subreddit": "", "center":[0.5,0.5],"path":[]},
 ];
 
 //console.log("There are "+atlas.length+" entries in the Atlas.");
