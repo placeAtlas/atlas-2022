@@ -192,7 +192,6 @@ var atlas = [
 {"id":163,"name":"Flag of Taiwan","description":"","website":"","subreddit":"","center":[286.5,165.5],"path":[[276.5,158.5],[295.5,158.5],[295.5,172.5],[276.5,172.5]]},
 {"id":164,"name":"Flag of South Korea","description":"","website":"","subreddit":"","center":[306.5,165.5],"path":[[295.5,158.5],[316.5,158.5],[316.5,172.5],[295.5,172.5]]},
 {"id":165,"name":"Flag of Japan","description":"","website":"","subreddit":"","center":[327.5,165.5],"path":[[316.5,158.5],[337.5,158.5],[337.5,172.5],[316.5,172.5]]},
-{"id":166,"name":"John Egbert","description":"A major character from Homestuck.","website":"","subreddit":"","center":[251.5,112.5],"path":[[243.5,102.5],[258.5,102.5],[258.5,121.5],[243.5,121.5]]},
 {"id":167,"name":"Nepeta Leijon","description":"A character from Homestuck.","website":"","subreddit":"","center":[180.5,153.5],"path":[[171.5,141.5],[188.5,141.5],[188.5,165.5],[171.5,165.5]]},
 {"id":168,"name":"Faroe Islands","description":"","website":"","subreddit":"","center":[437.5,120.5],"path":[[412.5,103.5],[461.5,103.5],[461.5,136.5],[412.5,136.5]]},
 {"id":169,"name":"Flag of Norway","description":"","website":"","subreddit":"","center":[352.5,72.5],"path":[[493.5,36.5],[215.5,36.5],[215.5,95.5],[231.5,95.5],[231.5,100.5],[259.5,100.5],[259.5,124.5],[268.5,125.5],[334.5,124.5],[334.5,78.5],[400.5,78.5],[400.5,124.5],[412.5,124.5],[412.5,103.5],[461.5,103.5],[461.5,119.5],[475.5,119.5],[475.5,103.5],[495.5,102.5],[494.5,79.5]]},
