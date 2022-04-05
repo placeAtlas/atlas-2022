@@ -87,6 +87,8 @@ for(var i = 0; i < atlas.length; i++) {
 
 // sort by center.y, so that lines will overlap less
 
+/*
+
 // Populate with test data
 
 for(var i = 0; i < 10000; i++) {
@@ -164,3 +166,5 @@ for(var i = 0; i < 10000; i++) {
     		]
 	});
 }
+
+*/
