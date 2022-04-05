@@ -168,6 +168,10 @@ header > a:hover {
 	color: #FFAA00;
 }
 
+header h1 {
+	font-size: 24px;
+}
+
 #logo {
 	padding: 5px;
 	/*background-color: #FFF;*/

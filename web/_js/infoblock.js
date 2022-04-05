@@ -4,7 +4,7 @@ function createInfoBlock(entry) {
 
     let headerElement = document.createElement("h2");
     let linkElement = document.createElement("a");
-    linkElement.href = "?" + entry.id;
+    linkElement.href = "?id=" + entry.id;
     linkElement.innerText = entry.name;
     headerElement.appendChild(linkElement);
 
