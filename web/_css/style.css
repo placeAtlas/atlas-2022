@@ -655,6 +655,7 @@ input[type="checkbox"] {
     right: 10px;
     display: flex;
 	gap: 10px;
+	z-index: 100;
 }
 
 div:not(.listHidden) > #bottomBar {
@@ -728,6 +729,14 @@ div:not(.listHidden) > #bottomBar {
 	z-index: 1100;
 	min-width: 320px;
 	text-align: center;
+	display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+#author p {
+	margin: 0;
+	line-height: inherit;
 }
 
 #zoomControls {
