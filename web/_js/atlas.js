@@ -226,7 +226,259 @@ var atlas = [
 {"id":176,"name": "Interlingue", "description": "Flag of Interlingue, an IAL to communicate between Western European languages.", "website": "https://occidental-lang.com", "subreddit": "/r/interlingue", "center": [ 768.5, 328.5 ], "path": [ [ 765.5, 326.5 ], [ 770.5, 326.5 ], [ 770.5, 329.5 ], [ 765.5, 329.5 ] ] },
 {"id":177, "name": "Viossa", "description": "Flag of the conpidgin Viossa.", "website": "", "subreddit": "/r/viossa", "center": [ 775.5, 296.5 ], "path": [ [ 769.5, 290.5 ], [ 780.5, 290.5 ], [ 780.5, 301.5 ], [ 769.5, 301.5 ] ] },
 {"id":178, "name": "Lojban", "description": "Flag of Lojban", "website": "https://lojban.org", "subreddit": "/r/lojban", "center": [ 760.5, 328.5 ], "path": [ [ 763.5, 326.5 ], [ 757.5, 326.5 ], [ 757.5, 330.5 ], [ 763.5, 330.5 ] ] },
-
+	{
+    	"id": 178,
+    	"name": "Madoka Magica",
+    	"description": "A 2011 Japanese anime television series created by Magica Quartet and animated by Shaft. The story follows a group of middle school girls, led by protagonist Madoka Kaname, who make supernatural contracts to become magical girls (mahō shōjo). In battling surreal enemies known as \"witches\", they learn of the anguish and peril associated with their new roles.",
+    	"website": "https://discord.gg/madoka",
+    	"subreddit": "/r/MadokaMagica",
+    	"submitted_by": "ipatrol",
+    	"center": [
+    		1705.5,
+    		1947.5
+    	],
+    	"path": [
+    		[
+    			1679.5,
+    			1918.5
+    		],
+    		[
+    			1681.5,
+    			1977.5
+    		],
+    		[
+    			1731.5,
+    			1977.5
+    		],
+    		[
+    			1731.5,
+    			1918.5
+    		]
+    	]
+    },
+    {
+    	"id": 179,
+    	"name": "VShojo",
+    	"description": "A virtual YouTuber (VTuber) company based in the United States. The members depicted here are, from left to right, Ironmouse, Silvervale, and Apricot (also known as Froot).",
+    	"website": "https://www.vshojo.com/",
+    	"subreddit": "/r/VShojo",
+    	"center": [
+    		1450.5,
+    		1184.5
+    	],
+    	"path": [
+    		[
+    			1415.5,
+    			1200.5
+    		],
+    		[
+    			1484.5,
+    			1200.5
+    		],
+    		[
+    			1484.5,
+    			1168.5
+    		],
+    		[
+    			1415.5,
+    			1168.5
+    		]
+    	]
+    },
+    {
+    	"id": 180,
+    	"name": "KAF",
+    	"description": "A Japanese female Virtual Singer on YouTube, signed to KAMITSUBAKI STUDIO.",
+    	"website": "https://www.youtube.com/channel/UCQ1U65-CQdIoZ2_NA4Z4F7A",
+    	"subreddit": "/r/VirtualYoutubers",
+    	"center": [
+    		1433.5,
+    		1114.5
+    	],
+    	"path": [
+    		[
+    			1416.5,
+    			1103.5
+    		],
+    		[
+    			1451.5,
+    			1103.5
+    		],
+    		[
+    			1451.5,
+    			1125.5
+    		],
+    		[
+    			1415.5,
+    			1125.5
+    		]
+    	]
+    },
+    {
+    	"id": 181,
+    	"name": "Snuffy",
+    	"description": "An English-speaking female raccoon VTuber from Ohio who debuted on the 20 April 2020. She is independently produced, but closely associated with VShojo.",
+    	"website": "https://www.twitch.tv/snuffy",
+    	"subreddit": "/r/SnuffyFans",
+    	"center": [
+    		694.5,
+    		1075.5
+    	],
+    	"path": [
+    		[
+    			667.5,
+    			1050.5
+    		],
+    		[
+    			720.5,
+    			1050.5
+    		],
+    		[
+    			720.5,
+    			1099.5
+    		],
+    		[
+    			667.5,
+    			1099.5
+    		]
+    	]
+    },
+    {
+    	"id": 182,
+    	"name": "Hololive",
+    	"description": "A virtual YouTuber agency owned by Japanese tech entertainment company Cover Corporation. Many members are depicted here, but the largest ones are (from left to right) Fubuki, Rushia, Matsuri, and Suisei.",
+    	"website": "http://en.hololive.tv/",
+    	"subreddit": "/r/Hololive",
+    	"center": [
+    		1409.35,
+    		910.93
+    	],
+    	"path": [
+    			[
+				1.4133000000000002e3,
+				8.728000000000001e2
+				],
+				[
+					1.412e3,
+					8.813000000000001e2
+				],
+				[
+					1.4133000000000002e3,
+					8.968000000000001e2
+				],
+				[
+					1.419e3,
+					8.97e2
+				],
+				[
+					1.4237e3,
+					9.05e2
+				],
+				[
+					1.423e3,
+					8.957e2
+				],
+				[
+					1.4525e3,
+					8.958000000000001e2
+				],
+				[
+					1.451e3,
+					8.733000000000001e2
+				],
+				[
+					1.5013000000000002e3,
+					8.732e2
+				],
+				[
+					1.5008000000000002e3,
+					9.353000000000001e2
+				],
+				[
+					1.4519e3,
+					9.359000000000001e2
+				],
+				[
+					1.4518000000000002e3,
+					9.331e2
+				],
+				[
+					1.402e3,
+					9.331e2
+				],
+				[
+					1.4021000000000001e3,
+					9.552e2
+				],
+				[
+					1.3328000000000002e3,
+					9.552e2
+				],
+				[
+					1.3322e3,
+					8.745e2
+				]    	
+    	]
+    },
+    {
+    	"id": 183,
+    	"name": "Panama",
+    	"description": "Above the flag of Panama, a Panamanian-flagged ship loaded with containers.",
+    	"website": "",
+    	"subreddit": "/r/Panama",
+    	"iso": "PA",
+    	"center": [
+    		1222.5,
+    		1927.5
+    	],
+    	"path": [
+    		[
+    			1200.5,
+    			1900.5
+    		],
+    		[
+    			1243.5,
+    			1900.5
+    		],
+    		[
+    			1243.5,
+    			1954.5
+    		],
+    		[
+    			1200.5,
+    			1954.5
+    		]
+    	]
+    },
+    {
+    	"id": 184,
+    	"name": "Katwa Shoujo",
+    	"description": "An (optionally erotic) visual novel about life at a Japanese high school for students with disabilities. Developed by a team of 4chan users in 2012 based on a 2000 sketch by Raita Honjou.",
+    	"website": "http://katawashoujo.blogspot.com/",
+    	"subreddit": "/r/katawashoujo",
+    	"center": [
+    		1575.5,
+    		1186.5
+    	],
+    	"path": [
+    		[
+    			1550.5,
+    			1172.5
+    		],
+    		[
+    			1600.5,
+    			1172.5
+    		],
+    		[
+    			1600.5,
+    			1200.5
+    		],
+    		[
+    			1550.5,
+    			1200.5
+    		]
+    	]
+    }
 ];
 
 //console.log("There are "+atlas.length+" entries in the Atlas.");
