@@ -10,5 +10,7 @@ oldusers.html
 web/_js/minified.js
 allCharacters.txt
 combined.js
+*.DS_Store
+.vscode/
 web/_site/**
 docs/_site/**
