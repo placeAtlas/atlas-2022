@@ -226,7 +226,7 @@ var atlas = [
 {"id":176,"name": "Interlingue", "description": "Flag of Interlingue, an IAL to communicate between Western European languages.", "website": "https://occidental-lang.com", "subreddit": "/r/interlingue", "center": [ 768.5, 328.5 ], "path": [ [ 765.5, 326.5 ], [ 770.5, 326.5 ], [ 770.5, 329.5 ], [ 765.5, 329.5 ] ] },
 {"id":177, "name": "Viossa", "description": "Flag of the conpidgin Viossa.", "website": "", "subreddit": "/r/viossa", "center": [ 775.5, 296.5 ], "path": [ [ 769.5, 290.5 ], [ 780.5, 290.5 ], [ 780.5, 301.5 ], [ 769.5, 301.5 ] ] },
 {"id":178, "name": "Lojban", "description": "Flag of Lojban", "website": "https://lojban.org", "subreddit": "/r/lojban", "center": [ 760.5, 328.5 ], "path": [ [ 763.5, 326.5 ], [ 757.5, 326.5 ], [ 757.5, 330.5 ], [ 763.5, 330.5 ] ] },
-
+{ "id": 0, "name": "BanG Dream! Girls Band Party", "description": "BanG Dream! Girls Band Party!, also known as Garupa or Bandori, is a mobile rhythm game developed by Craft Egg and published by Bushiroad for the Android and iOS platforms. Part of Bushiroad's BanG Dream! music franchise, it was released in Japan in March 2017, and worldwide in April 2018.\nArt was created by the Bandori Discord community featuring Kasumi Toyama and Arisa Ichigaya", "website": "https://discord.gg/bangdream", "subreddit": "/r/BanGDream/", "center": [ 343.5, 1053.5 ], "path": [ [ 323.5, 1040.5 ], [ 362.5, 1040.5 ], [ 362.5, 1067.5 ], [ 324.5, 1067.5 ] ] }
 ];
 
 //console.log("There are "+atlas.length+" entries in the Atlas.");
