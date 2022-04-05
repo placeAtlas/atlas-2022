@@ -10,4 +10,5 @@ oldusers.html
 web/_js/minified.js
 allCharacters.txt
 combined.js
-web/_site
+web/_site/**
+docs/_site/**
