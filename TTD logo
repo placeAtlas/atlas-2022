@@ -1,0 +1,33 @@
+{
+    	"id": 0,
+    	"name": "TTD logo",
+    	"description": "The logo of Transport Tycoon Deluxe, a game originally developed by Chris Sawyer in 1995.\nNowadays an open source reimplementation is being actively maintained and improved by the OpenTTD community.",
+    	"website": "https://www.openttd.org/",
+    	"subreddit": "r/openttd",
+    	"center": [
+    		1563.5,
+    		172.5
+    	],
+    	"path": [
+    		[
+    			1559.5,
+    			166.5
+    		],
+    		[
+    			1567.5,
+    			166.5
+    		],
+    		[
+    			1567.5,
+    			177.5
+    		],
+    		[
+    			1559.5,
+    			177.5
+    		],
+    		[
+    			1559.5,
+    			166.5
+    		]
+    	]
+    }
