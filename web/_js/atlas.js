@@ -226,7 +226,7 @@ var atlas = [
 {"id":176,"name": "Interlingue", "description": "Flag of Interlingue, an IAL to communicate between Western European languages.", "website": "https://occidental-lang.com", "subreddit": "/r/interlingue", "center": [ 768.5, 328.5 ], "path": [ [ 765.5, 326.5 ], [ 770.5, 326.5 ], [ 770.5, 329.5 ], [ 765.5, 329.5 ] ] },
 {"id":177, "name": "Viossa", "description": "Flag of the conpidgin Viossa.", "website": "", "subreddit": "/r/viossa", "center": [ 775.5, 296.5 ], "path": [ [ 769.5, 290.5 ], [ 780.5, 290.5 ], [ 780.5, 301.5 ], [ 769.5, 301.5 ] ] },
 {"id":178, "name": "Lojban", "description": "Flag of Lojban", "website": "https://lojban.org", "subreddit": "/r/lojban", "center": [ 760.5, 328.5 ], "path": [ [ 763.5, 326.5 ], [ 757.5, 326.5 ], [ 757.5, 330.5 ], [ 763.5, 330.5 ] ] },
-{"id":179, "name": "Kobold Legion", "description": "A friendly kobold shows off the Kobold Legion logo, alongside his friend, lilblep.","website": "","subreddit": "/r/KoboldLegion","center": [1704.5,369.5],"path": [[1701.5,382.5],[1717.5,382.5],[1717.5,370.5],[1720.5,367.5],[1720.5,364.5],[1718.5,363.5],[1713.5,363.5],[1713.5,360.5],[1711.5,356.5],[1704.5,356.5],[1702.5,358.5],[1695.5,358.5],[1692.5,362.5],[1692.5,377.5],[1701.5,377.5]},
+{"id":179, "name": "Kobold Legion", "description": "A friendly kobold shows off the Kobold Legion logo, alongside his friend, lilblep.","website": "","subreddit": "/r/KoboldLegion","center": [1704.5,369.5],"path": [[1701.5,382.5],[1717.5,382.5],[1717.5,370.5],[1720.5,367.5],[1720.5,364.5],[1718.5,363.5],[1713.5,363.5],[1713.5,360.5],[1711.5,356.5],[1704.5,356.5],[1702.5,358.5],[1695.5,358.5],[1692.5,362.5],[1692.5,377.5],[1701.5,377.5]]},
 
 ];
 
