@@ -688,7 +688,6 @@ div:not(.listHidden) > #bottomBar {
 	flex: 1;
 	background-color: #555;
 	border: 1px #000 solid;
-	padding: 3px;
 	font-size: 12px;
 	text-align: center;
 	min-width: 300px;
@@ -696,8 +695,28 @@ div:not(.listHidden) > #bottomBar {
 
 #timeControls input {
     height: 100%;
+	background: #555;
+	-webkit-appearance: none;
+	appearance: none;
     width: 100%;
 }
+
+.slider::-webkit-slider-thumb {
+	-webkit-appearance: none;
+	appearance: none;
+	width: 10px;
+	height: 25px;
+	background: #d3d3d3;
+	cursor: pointer;
+  }
+  
+  .slider::-moz-range-thumb {
+	appearance: none;
+	width: 10px;
+	height: 25px;
+	background: #d3d3d3;
+	cursor: pointer;
+  }
 
 #author {
 	background-color: #555;
