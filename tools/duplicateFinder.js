@@ -35,7 +35,7 @@ function main() {
 
                 if( outer_area / insec_area < 0.01 ) {
                     // duplicate 
-                    console.log(`DUPLICATE [${submission.id}]<${sub2.name}> - [${submission.id}]<${submission.name}>`);
+                    console.log(`DUPLICATE [${sub2.id}]<${sub2.name}> - [${submission.id}]<${submission.name}>`);
                     parent = sub2.id;
                     if(!sub2.children) sub2.children = [];
                     sub2.children.push(submission.id);
