@@ -227,6 +227,35 @@ var atlas = [
 {"id":177, "name": "Viossa", "description": "Flag of the conpidgin Viossa.", "website": "", "subreddit": "/r/viossa", "center": [ 775.5, 296.5 ], "path": [ [ 769.5, 290.5 ], [ 780.5, 290.5 ], [ 780.5, 301.5 ], [ 769.5, 301.5 ] ] },
 {"id":178, "name": "Lojban", "description": "Flag of Lojban", "website": "https://lojban.org", "subreddit": "/r/lojban", "center": [ 760.5, 328.5 ], "path": [ [ 763.5, 326.5 ], [ 757.5, 326.5 ], [ 757.5, 330.5 ], [ 763.5, 330.5 ] ] },
 {"id":179,"name":"The University of Texas at Austin","description":"The hand-sign, mascot, and the main tower of the University of Texas at Austin. Hook 'Em!","website":"https://utexas.edu","subreddit":"/r/UTAustin","center":[583.5,961.5],"path":[[594.5,974.5],[593.5,948.5],[573.5,948.5],[573.5,973.5],[594.5,974.5]]}
+    {
+    	"id": 180,
+    	"name": "Ralsei",
+    	"description": "Ralsei is a character from the video game Deltarune",
+    	"website": "https://deltarune.com",
+    	"subreddit": "/r/deltarune",
+    	"center": [
+    		1760.5,
+    		229.5
+    	],
+    	"path": [
+    		[
+    			1747.5,
+    			206.5
+    		],
+    		[
+    			1772.5,
+    			206.5
+    		],
+    		[
+    			1772.5,
+    			252.5
+    		],
+    		[
+    			1747.5,
+    			252.5
+    		]
+    	]
+    }
 ];
 
 //console.log("There are "+atlas.length+" entries in the Atlas.");
