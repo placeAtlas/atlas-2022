@@ -14,9 +14,16 @@ reddit = praw.Reddit(client_id=client_id, client_secret=client_secret, user_agen
 failcount = 0
 successcount = 0
 
-latestID = int(input("Latest ID: "))
+jsonfile = open("../web/atlas.json", "r")
+existing = json.load(jsonfile)
 
-for submission in reddit.subreddit('placeAtlas2').new(limit=1100):
+existing_ids = []
+
+for item in existing:
+	existing_ids.append(item['id'])
+
+
+for submission in reddit.subreddit('placeAtlas2').new(limit=1500):
 	"""
 	Auth setup
 	1. Head to https://www.reddit.com/prefs/apps
@@ -38,7 +45,7 @@ for submission in reddit.subreddit('placeAtlas2').new(limit=1100):
 
 	"""
 	#print(dir(submission))
-	if(submission.link_flair_text == "New Entry"):
+	if(submission.link_flair_text == "New Entry" and submission.id not in existing_ids):
 		print(submission.id)
 		text = submission.selftext
 		text = text.replace("\\", "")
@@ -53,7 +60,6 @@ for submission in reddit.subreddit('placeAtlas2').new(limit=1100):
 		for i, line in enumerate(lines):
 			if("\"id\": 0" in line):
 				lines[i] = line.replace("\"id\": 0", "\"id\": "+"\""+str(submission.id)+"\"")
-				latestID = latestID + 1
 		text = "\n".join(lines)
 		try:
 			outfile.write(json.dumps(json.loads(text))+",\n")
