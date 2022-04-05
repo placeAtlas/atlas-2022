@@ -136,7 +136,7 @@ var atlas = [
 {"id":85,"name":"Cave Story","description":"Cave Story, originally released as Dōkutsu Monogatari, is a 2004 Metroidvania platform-adventure game for Microsoft Windows. It was developed over five years by Japanese developer Daisuke \"Pixel\" Amaya in his free time.","website":"https://www.reddit.com/r/cavestory/","subreddit":"r/cavestory","center":[585.5,883.5],"path":[[563.5,866.5],[608.5,866.5],[607.5,901.5],[562.5,900.5]]},
 {"id":86,"name":"Blender","description":"Blender Logo. Blender is a free and open-source 3D computer graphics software.","website":"https://www.blender.org/","subreddit":"r/blender","center":[127.5,105.5],"path":[[121.5,103.5],[122.5,102.5],[123.5,102.5],[124.5,100.5],[127.5,99.5],[130.5,102.5],[133.5,105.5],[133.5,107.5],[132.5,108.5],[131.5,109.5],[131.5,110.5],[130.5,111.5],[128.5,111.5],[127.5,110.5],[125.5,109.5],[123.5,108.5],[121.5,107.5],[122.5,105.5],[121.5,104.5],[121.5,102.5]]},
 {"id":87,"name":"Catalonia","description":"The flag of Catalonia","website":"","subreddit":"r/Catalunya","center":[715.5,346.5],"path":[[689.5,360.5],[740.5,360.5],[740.5,332.5],[689.5,332.5]]},
-{"id":88,"name":"Update TF2","description":"TF2 is seemingly been abandoned by their respective developers","website":"","subreddit":"r/tf2","center":[682.5,53.5],"path":[[657.5,35.5],[707.5,35.5],[707.5,70.5],[657.5,70.5]]},
+{"id":88,"name":"Update TF2 (Moved)","description":"The old location of the Update TF2 Mural","website":"","subreddit":"r/tf2","center":[682.5,53.5],"path":[[657.5,35.5],[707.5,35.5],[707.5,70.5],[657.5,70.5]]},
 {"id":89,"name":"Indonesian Flag","description":"Indonesian flag with indonesian archipelago and pinguin pixelart","website":"","subreddit":"r/indonesia","center":[116.5,793.5],"path":[[89.5,781.5],[143.5,781.5],[143.5,804.5],[89.5,804.5]]},
 {"id":90,"name":"League of Legends Logo","description":"A logo for League of Legends, with a red filter for its background.","website":"https://www.leagueoflegends.com/en-us/","subreddit":"r/leagueoflegends","center":[731.5,228.5],"path":[[709.5,203.5],[709.5,249.5],[759.5,250.5],[747.5,205.5]]},
 {"id":91,"name":"Mexico","description":"Flag of Mexico with a Mayan Pyramid","website":"","subreddit":"r/Mexico","center":[826.5,486.5],"path":[[787.5,521.5],[865.5,521.5],[865.5,451.5],[787.5,451.5]]},
@@ -296,6 +296,39 @@ var atlas = [
 {"id":245,"submitted_by":"StrikerX3","name":"Victini and the V-Wheel","description":"A depiction of Victini and his V-Wheel from Pokémon Mystery Dungeon: Gates to Infinity.","website":"","subreddit":"/r/MysteryDungeon","center":[1752.5,1485.5],"path":[[1734.5,1473.5],[1734.5,1496.5],[1770.5,1496.5],[1770.5,1473.5]]},
 {"id":246,"name": "Green Greens", "description": "A collaboration between /r/PlaceTrees and the Super Smash Bros. Melee community. Based on the Smash 64 stage Dream Land, with Pikachu, Fox, Falco, and Kirby fighting.", "website": "https://supersmashbros.fandom.com/wiki/Dream_Land_(Super_Smash_Bros.)", "subreddit": "", "center": [ 762.5, 918.5 ], "path": [[753.5,931.5],[771.5,931.5],[774.5,928.5],[774.5,908.5],[772.5,906.5],[753.5,906.5],[750.5,910.5],[750.5,928.5]]},
 {"id":247,"name": "Veloren", "description": "Veloren is an open source multiplayer voxel RPG written in Rust.", "website": "https://veloren.net/", "subreddit": "/r/veloren", "center": [ 741.5, 642.5 ], "path": [ [ 736.5, 637.5 ], [ 745.5, 637.5 ], [ 745.5, 646.5 ], [ 736.5, 646.5 ], [ 736.5, 646.5 ] ] },
+    {
+    	"id": 0,
+    	"name": "Update TF2 (Second Location)",
+    	"description": "A joint coalition of relatively abandoned games Team Fortress 2 and Titanfall 2 asking for updates. Featuring the Source Engine, The Jarate (A Sniper weapon from Team Fortress 2), and an iconic line from Titanfall's campaign.",
+    	"website": "",
+    	"subreddit": "r/tf2 and r/titanfall",
+    	"center": [
+    		815.5,
+    		53.5
+    	],
+    	"path": [
+    		[
+    			790.5,
+    			35.5
+    		],
+    		[
+    			840.5,
+    			35.5
+    		],
+    		[
+    			840.5,
+    			70.5
+    		],
+    		[
+    			790.5,
+    			70.5
+    		],
+    		[
+    			790.5,
+    			44.5
+    		]
+    	]
+    }
 ];
 
 //console.log("There are "+atlas.length+" entries in the Atlas.");
