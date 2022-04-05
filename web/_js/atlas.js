@@ -226,8 +226,7 @@ var atlas = [
 {"id":176,"name": "Interlingue", "description": "Flag of Interlingue, an IAL to communicate between Western European languages.", "website": "https://occidental-lang.com", "subreddit": "/r/interlingue", "center": [ 768.5, 328.5 ], "path": [ [ 765.5, 326.5 ], [ 770.5, 326.5 ], [ 770.5, 329.5 ], [ 765.5, 329.5 ] ] },
 {"id":177, "name": "Viossa", "description": "Flag of the conpidgin Viossa.", "website": "", "subreddit": "/r/viossa", "center": [ 775.5, 296.5 ], "path": [ [ 769.5, 290.5 ], [ 780.5, 290.5 ], [ 780.5, 301.5 ], [ 769.5, 301.5 ] ] },
 {"id":178, "name": "Lojban", "description": "Flag of Lojban", "website": "https://lojban.org", "subreddit": "/r/lojban", "center": [ 760.5, 328.5 ], "path": [ [ 763.5, 326.5 ], [ 757.5, 326.5 ], [ 757.5, 330.5 ], [ 763.5, 330.5 ] ] },
-
-];
+{"id": 0,"name": "Genshin Impact Icon","description": "The Genshin Impact Icon, a gatcha game made by hoyoverse","website": "","subreddit": "r/GenshinPlace","center": [1750.5,1787.5],"path": [[1737.5,1762.5],[1771.5,1762.5],[1772.5,1810.5],[1723.5,1808.5],[1727.5,1802.5],[1728.5,1801.5],[1729.5,1800.5],[1730.5,1798.5],[1731.5,1797.5],[1731.5,1793.5],[1730.5,1792.5],[1729.5,1791.5],[1728.5,1791.5],[1728.5,1790.5],[1727.5,1790.5],[1726.5,1789.5],[1725.5,1788.5],[1724.5,1788.5],[1724.5,1774.5],[1737.5,1774.5],[1737.5,1771.5]]}];
 
 //console.log("There are "+atlas.length+" entries in the Atlas.");
 
