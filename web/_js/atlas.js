@@ -226,7 +226,7 @@ var atlas = [
 {"id":176,"name": "Interlingue", "description": "Flag of Interlingue, an IAL to communicate between Western European languages.", "website": "https://occidental-lang.com", "subreddit": "/r/interlingue", "center": [ 768.5, 328.5 ], "path": [ [ 765.5, 326.5 ], [ 770.5, 326.5 ], [ 770.5, 329.5 ], [ 765.5, 329.5 ] ] },
 {"id":177, "name": "Viossa", "description": "Flag of the conpidgin Viossa.", "website": "", "subreddit": "/r/viossa", "center": [ 775.5, 296.5 ], "path": [ [ 769.5, 290.5 ], [ 780.5, 290.5 ], [ 780.5, 301.5 ], [ 769.5, 301.5 ] ] },
 {"id":178, "name": "Lojban", "description": "Flag of Lojban", "website": "https://lojban.org", "subreddit": "/r/lojban", "center": [ 760.5, 328.5 ], "path": [ [ 763.5, 326.5 ], [ 757.5, 326.5 ], [ 757.5, 330.5 ], [ 763.5, 330.5 ] ] },
-
+{"id":179,"name":"A-SOUL & JiaranDiana","description":"A-SOUL is a 3D Virtual YouTuber team, there name are: @向晚大魔王 @嘉然今天吃什么 @乃琳Queen @贝拉Kira @珈乐Carol and they official account @A-SOUL_Official . You can find they in Bilibili(Chinese Youtube).","website":"https://space.bilibili.com/703007996","subreddit":"/r/asoul","center":[981.5,489.5],"path":[[957.5,509.5],[957.5,498.5],[965.5,498.5],[965.5,466.5],[998.5,465.5],[998.5,496.5],[1003.5,496.5],[1003.5,509.5]]}
 ];
 
 //console.log("There are "+atlas.length+" entries in the Atlas.");
