@@ -244,6 +244,7 @@ var atlas = [
 {"id":194,"submitted_by": "L33Tech", "name":"Place Start","description":"A start menu for r/place, syled after Windows XP","website":"","subreddit":"/r/PlaceStart","center":[589.5,1985.5],"path":[[0.5,1970.5],[1200.5,1972.5],[1200.5,1999.5],[0.5,2000.5],[0.5,1970.5]]},
 {"id":195,"submitted_by": "L33Tech", "name":"r/TheBlueCorner","description":"Exactly what it sounds like, but filled with amogus.","website":"","subreddit":"/r/TheBlueCorner","center":[1959.5,1939.5],"path":[[1915.5,1868.5],[2002.5,1867.5],[2004.5,2007.5],[1916.5,2013.5],[1916.5,1991.5],[1916.5,1922.5],[1916.5,1868.5]]},
 {"id":196,"name":"The Rust programming language","description":"This little square belongs to the community of the Rust programming language","website":"https://rust-lang.org","subreddit":"r/rust","center":[735.5,622.5],"path":[[722.5,608.5],[722.5,635.5],[748.5,635.5],[748.5,608.5]]},
+{"id":197,"submitted_by": "sweetchilli_philly","name": "University of British Columbia","description": "Western Canada's largest university. Known for its beautiful campus, and a popular local seagull - Birb ","website": "","subreddit": "r/ubc","center": [184.5,539.5],"path": [[175.5,528.5],[175.5,551.5],[192.5,551.5],[193.5,528.5]]},
 ];
 
 //console.log("There are "+atlas.length+" entries in the Atlas.");
