@@ -45,3 +45,6 @@ function pointIsInPolygon (point, polygon) {
     
     return inside;
 };
+
+if( typeof window == "undefined") // for use in /tools using nodejs
+    module.exports = pointIsInPolygon;

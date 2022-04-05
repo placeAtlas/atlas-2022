@@ -41,7 +41,7 @@ function createInfoBlock(entry) {
     }
     let idElement = document.createElement("p");
     idElement.style.fontFamily = "Dejavu Sans Mono, sans, Sans-Serif;";
-    idElement.innerText = "id: " + entry.id;
+    idElement.innerText = "id: " + entry.id + ( !!entry.child ? (", "+entry.child+" identical entries") : "" );
     element.appendChild(idElement);
 
     return element;
