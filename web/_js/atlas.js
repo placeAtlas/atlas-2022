@@ -226,7 +226,111 @@ var atlas = [
 {"id":176,"name": "Interlingue", "description": "Flag of Interlingue, an IAL to communicate between Western European languages.", "website": "https://occidental-lang.com", "subreddit": "/r/interlingue", "center": [ 768.5, 328.5 ], "path": [ [ 765.5, 326.5 ], [ 770.5, 326.5 ], [ 770.5, 329.5 ], [ 765.5, 329.5 ] ] },
 {"id":177, "name": "Viossa", "description": "Flag of the conpidgin Viossa.", "website": "", "subreddit": "/r/viossa", "center": [ 775.5, 296.5 ], "path": [ [ 769.5, 290.5 ], [ 780.5, 290.5 ], [ 780.5, 301.5 ], [ 769.5, 301.5 ] ] },
 {"id":178, "name": "Lojban", "description": "Flag of Lojban", "website": "https://lojban.org", "subreddit": "/r/lojban", "center": [ 760.5, 328.5 ], "path": [ [ 763.5, 326.5 ], [ 757.5, 326.5 ], [ 757.5, 330.5 ], [ 763.5, 330.5 ] ] },
-
+    {
+    	"id": 0,
+    	"name": "Slice of Bread with Strawberry Jam and Honey",
+    	"description": "Tom and the Slice of Bread with Strawberry Jam and Honey (German title: \"Tom und das Erdbeermarmeladebrot mit Honig\") is a German animated television series for children ages 3–8 years. The hero of the five-minute films is Tom, who is always on the lookout for a strawberry jam sandwich with honey and almost always ends up with exactly half a loaf of bread that tastes \"as good to him as if it had been a whole one.\" ",
+    	"website": "https://www.youtube.com/c/filmbildertom/",
+    	"subreddit": "",
+    	"center": [
+    		1349.5,
+    		858.5
+    	],
+    	"path": [
+    		[
+    			1343.5,
+    			851.5
+    		],
+    		[
+    			1346.5,
+    			849.5
+    		],
+    		[
+    			1349.5,
+    			848.5
+    		],
+    		[
+    			1350.5,
+    			848.5
+    		],
+    		[
+    			1352.5,
+    			849.5
+    		],
+    		[
+    			1354.5,
+    			851.5
+    		],
+    		[
+    			1356.5,
+    			852.5
+    		],
+    		[
+    			1357.5,
+    			853.5
+    		],
+    		[
+    			1358.5,
+    			854.5
+    		],
+    		[
+    			1358.5,
+    			856.5
+    		],
+    		[
+    			1359.5,
+    			858.5
+    		],
+    		[
+    			1360.5,
+    			860.5
+    		],
+    		[
+    			1359.5,
+    			863.5
+    		],
+    		[
+    			1357.5,
+    			864.5
+    		],
+    		[
+    			1354.5,
+    			866.5
+    		],
+    		[
+    			1352.5,
+    			866.5
+    		],
+    		[
+    			1348.5,
+    			866.5
+    		],
+    		[
+    			1344.5,
+    			866.5
+    		],
+    		[
+    			1342.5,
+    			865.5
+    		],
+    		[
+    			1340.5,
+    			864.5
+    		],
+    		[
+    			1339.5,
+    			863.5
+    		],
+    		[
+    			1339.5,
+    			858.5
+    		],
+    		[
+    			1339.5,
+    			855.5
+    		]
+    	]
+    }
 ];
 
 //console.log("There are "+atlas.length+" entries in the Atlas.");
