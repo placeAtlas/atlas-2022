@@ -2,6 +2,7 @@
 import praw
 import json
 import time
+import re
 
 outfile = open('temp_atlas.json', 'w', encoding='utf-8')
 failfile = open('manual_atlas.json', 'w', encoding='utf-8')
@@ -51,7 +52,13 @@ for submission in reddit.subreddit('placeAtlas2').new(limit=2000):
 		break
 	if(submission.link_flair_text == "New Entry"):
 		text = submission.selftext
-		text = text.replace("\\", "")
+		#Old backslash filter:
+		#text = text.replace("\\", "")
+		#New one: One \\ escapes a backslash in python's parser
+		# Two escape it again in the regex parser, so \\\\ is \
+		# Then anything but " or n is replaced with the first capture group (anything but " or n)
+		# Test in repl: re.sub("\\\\([^\"n])", "\\1", "\\t < removed slash, t stays and > stays \\n \\\"")
+		re.sub("\\\\([^\"n])", "\\1", text)
 		try:
 			text = text.replace("\"id\": 0,", "\"id\": 0,\n\t\t\"submitted_by\": \""+submission.author.name+"\",")
 		except AttributeError:
