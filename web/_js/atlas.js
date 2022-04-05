@@ -264,6 +264,7 @@ var atlas = [
 {"id":214,"submitted_by": "L33Tech", "name":"Place Start","description":"A start menu for r/place, syled after Windows XP","website":"","subreddit":"/r/PlaceStart","center":[589.5,1985.5],"path":[[0.5,1970.5],[1200.5,1972.5],[1200.5,1999.5],[0.5,2000.5],[0.5,1970.5]]},
 {"id":215,"submitted_by": "L33Tech", "name":"r/TheBlueCorner","description":"Exactly what it sounds like, but filled with amogus.","website":"","subreddit":"/r/TheBlueCorner","center":[1959.5,1939.5],"path":[[1915.5,1868.5],[2002.5,1867.5],[2004.5,2007.5],[1916.5,2013.5],[1916.5,1991.5],[1916.5,1922.5],[1916.5,1868.5]]},
 {"id":216,"name":"The Rust programming language","description":"This little square belongs to the community of the Rust programming language","website":"https://rust-lang.org","subreddit":"r/rust","center":[735.5,622.5],"path":[[722.5,608.5],[722.5,635.5],[748.5,635.5],[748.5,608.5]]},
+{"id":217,"name":"wavetro","description":"Teddy and Ben, two of the most prominent characters of wavetro's former 3D animation career","website":"https://wavetro.net/","subreddit":"r/wavetro","center":[1056.5,406.5],"path":[[1050.5,407.5],[1050.5,402.5],[1051.5,401.5],[1058.5,401.5],[1059.5,402.5],[1060.5,401.5],[1061.5,401.5],[1062.5,402.5],[1062.5,411.5],[1061.5,412.5],[1060.5,413.5],[1055.5,413.5],[1054.5,412.5],[1053.5,411.5],[1053.5,409.5],[1052.5,408.5],[1051.5,408.5]]},
 ];
 
 //console.log("There are "+atlas.length+" entries in the Atlas.");
