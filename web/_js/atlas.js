@@ -235,6 +235,8 @@ var atlas = [
 {"id":185, "submitted_by": "L33Tech", "name":"SMP Online","description":"The SMP Online Minecraft server community!","website":"https://callmecarson.live","subreddit":"/r/CallMeCarson","center":[516.5,1686.5],"path":[[499.5,1673.5],[499.5,1673.5],[537.5,1673.5],[536.5,1685.5],[530.5,1685.5],[530.5,1699.5],[500.5,1700.5],[500.5,1688.5],[499.5,1688.5],[499.5,1680.5]]},
 {"id":186, "submitted_by": "L33Tech", "name":"Place Start","description":"A start menu for r/place, syled after Windows XP","website":"","subreddit":"/r/PlaceStart","center":[589.5,1985.5],"path":[[0.5,1970.5],[1200.5,1972.5],[1200.5,1999.5],[0.5,2000.5],[0.5,1970.5]]},
 {"id":187, "submitted_by": "L33Tech", "name":"r/TheBlueCorner","description":"Exactly what it sounds like, but filled with amogus.","website":"","subreddit":"/r/TheBlueCorner","center":[1959.5,1939.5],"path":[[1915.5,1868.5],[2002.5,1867.5],[2004.5,2007.5],[1916.5,2013.5],[1916.5,1991.5],[1916.5,1922.5],[1916.5,1868.5]]},
+{"id":188, "name": "Leif", "description": "Leif from the Paper Mario inspired RPG Bug Fables", "website": "https://bugfables.dangenentertainment.com/", "subreddit": "r/BugFables", "center": [ 1494.5, 82.5 ], "path": [ [ 1490.5, 72.5 ], [ 1492.5, 70.5 ], [ 1496.5, 70.5 ], [ 1500.5, 76.5 ], [ 1499.5, 81.5 ], [ 1497.5, 84.5 ], [ 1497.5, 88.5 ], [ 1496.5, 95.5 ], [ 1491.5, 95.5 ], [ 1489.5, 87.5 ], [ 1490.5, 83.5 ], [ 1491.5, 78.5 ], [ 1489.5, 71.5 ] ] },
+
 ];
 
 //console.log("There are "+atlas.length+" entries in the Atlas.");
