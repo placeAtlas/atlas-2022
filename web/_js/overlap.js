@@ -34,7 +34,7 @@ function initOverlap(){
 
 	var backgroundCanvas = document.createElement("canvas");
 	backgroundCanvas.width = 2000;
-	backgroundCanvas.height = 1000;
+	backgroundCanvas.height = 2000;
 	var backgroundContext = backgroundCanvas.getContext("2d");
 
 	var filterInput = document.getElementById("searchList");
@@ -72,12 +72,12 @@ function initOverlap(){
 		highlightEntryFromUrl();
 	}*/
 
-	if(document.documentElement.clientWidth > 1000){
+	if(document.documentElement.clientWidth > 2000){
 		entriesListShown = true;
 		wrapper.className = wrapper.className.replace(/ listHidden/g, "");
 	}
 
-	if(document.documentElement.clientWidth < 1000){
+	if(document.documentElement.clientWidth < 2000){
 		entriesListShown = false;
 		wrapper.className += " listHidden";
 	}
@@ -546,12 +546,12 @@ function initOverlap(){
 	window.addEventListener("resize", function(){
 		//console.log(document.documentElement.clientWidth, document.documentElement.clientHeight);
 
-		if(document.documentElement.clientWidth > 1000 && viewportWidth <= 1000){
+		if(document.documentElement.clientWidth > 2000 && viewportWidth <= 2000){
 			entriesListShown = true;
 			wrapper.className = wrapper.className.replace(/ listHidden/g, "");
 		}
 
-		if(document.documentElement.clientWidth < 1000 && viewportWidth >= 1000){
+		if(document.documentElement.clientWidth < 2000 && viewportWidth >= 2000){
 			entriesListShown = false;
 			wrapper.className += " listHidden";
 		}
