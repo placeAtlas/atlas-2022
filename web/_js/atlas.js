@@ -306,6 +306,43 @@ var atlas = [
 			994.5
 		]
 	]
+},
+{
+	"id": 0,
+	"name": "Atomium",
+	"description": "The Atomium is an artwork in the Belgian capital Brussels. Its shape represents the shape of an atom.",
+	"website": "",
+	"subreddit": "r/Belgium",
+	"center": [
+		290.5,
+		814.5
+	],
+	"path": [
+		[
+			290.5,
+			797.5
+		],
+		[
+			287.5,
+			797.5
+		],
+		[
+			274.5,
+			812.5
+		],
+		[
+			279.5,
+			830.5
+		],
+		[
+			302.5,
+			830.5
+		],
+		[
+			302.5,
+			797.5
+		]
+	]
 }
 ];
 
