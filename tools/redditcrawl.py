@@ -2,8 +2,8 @@
 import praw
 import json
 
-outfile = open('temp_atlas.json', 'w')
-failfile = open('manual_atlas.json', 'w')
+outfile = open('temp_atlas.json', 'w', encoding='utf-8')
+failfile = open('manual_atlas.json', 'w', encoding='utf-8')
 
 credentials = open('credentials', 'r')
 client_id = credentials.readline().strip(' \t\n\r')
