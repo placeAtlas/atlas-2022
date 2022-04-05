@@ -226,6 +226,7 @@ var atlas = [
 {"id":176,"name": "Interlingue", "description": "Flag of Interlingue, an IAL to communicate between Western European languages.", "website": "https://occidental-lang.com", "subreddit": "/r/interlingue", "center": [ 768.5, 328.5 ], "path": [ [ 765.5, 326.5 ], [ 770.5, 326.5 ], [ 770.5, 329.5 ], [ 765.5, 329.5 ] ] },
 {"id":177, "name": "Viossa", "description": "Flag of the conpidgin Viossa.", "website": "", "subreddit": "/r/viossa", "center": [ 775.5, 296.5 ], "path": [ [ 769.5, 290.5 ], [ 780.5, 290.5 ], [ 780.5, 301.5 ], [ 769.5, 301.5 ] ] },
 {"id":178, "name": "Lojban", "description": "Flag of Lojban", "website": "https://lojban.org", "subreddit": "/r/lojban", "center": [ 760.5, 328.5 ], "path": [ [ 763.5, 326.5 ], [ 757.5, 326.5 ], [ 757.5, 330.5 ], [ 763.5, 330.5 ] ] },
+{"id": 179,"name": "3Ton","description": "A 3rd party Twitch emote depicting streamer Zoil's face, built by Zoil and his community.","website": "https://www.twitch.tv/Zoil","subreddit": "/r/Zoil","center": [1619.5,930.5],"path": [[1607.5,904.5],[1645.5,904.5],[1645.5,915.5],[1646.5,915.5],[1646.5,921.5],[1645.5,921.5],[1645.5,953.5],[1640.5,953.5],[1640.5,954.5],[1639.5,954.5],[1639.5,955.5],[1634.5,955.5],[1634.5,956.5],[1603.5,956.5],[1603.5,955.5],[1593.5,946.5],[1593.5,945.5],[1592.5,944.5],[1592.5,943.5],[1591.5,942.5],[1591.5,917.5],[1592.5,917.5],[1593.5,916.5],[1593.5,915.5],[1592.5,914.5],[1591.5,913.5],[1593.5,911.5],[1593.5,908.5],[1607.5,908.5],[1607.5,904.5]]}
 
 ];
 
