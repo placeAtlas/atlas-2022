@@ -1,9 +1,10 @@
 
 import praw
 import json
+import time
 
-outfile = open('temp_atlas.json', 'w')
-failfile = open('manual_atlas.json', 'w')
+outfile = open('temp_atlas.json', 'w', encoding='utf-8')
+failfile = open('manual_atlas.json', 'w', encoding='utf-8')
 
 credentials = open('credentials', 'r')
 client_id = credentials.readline().strip(' \t\n\r')
@@ -23,7 +24,7 @@ for item in existing:
 	existing_ids.append(item['id'])
 
 
-for submission in reddit.subreddit('placeAtlas2').new(limit=1500):
+for submission in reddit.subreddit('placeAtlas2').new(limit=1000):
 	"""
 	Auth setup
 	1. Head to https://www.reddit.com/prefs/apps
@@ -45,8 +46,10 @@ for submission in reddit.subreddit('placeAtlas2').new(limit=1500):
 
 	"""
 	#print(dir(submission))
-	if(submission.link_flair_text == "New Entry" and submission.id not in existing_ids):
-		print(submission.id)
+	if (submission.id in existing_ids):
+		print("Found first duplicate!")
+		break
+	if(submission.link_flair_text == "New Entry"):
 		text = submission.selftext
 		text = text.replace("\\", "")
 		try:
@@ -64,12 +67,9 @@ for submission in reddit.subreddit('placeAtlas2').new(limit=1500):
 		try:
 			outfile.write(json.dumps(json.loads(text))+",\n")
 		except json.JSONDecodeError:
-			print("Errored "+submission.title)
 			failfile.write(text+",\n")
 			failcount += 1
-		print("written "+submission.title)
+		print("written "+submission.id+" submitted "+str(round(time.time()-submission.created_utc))+" seconds ago")
 		successcount += 1
-	else:
-		print("skipped "+submission.title)
 
 print(f"\n\nSuccess: {successcount}\nFail: {failcount}\nPlease check manual_atlas.txt for failed entries to manually resolve.")
