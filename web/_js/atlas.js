@@ -226,8 +226,7 @@ var atlas = [
 {"id":176,"name": "Interlingue", "description": "Flag of Interlingue, an IAL to communicate between Western European languages.", "website": "https://occidental-lang.com", "subreddit": "/r/interlingue", "center": [ 768.5, 328.5 ], "path": [ [ 765.5, 326.5 ], [ 770.5, 326.5 ], [ 770.5, 329.5 ], [ 765.5, 329.5 ] ] },
 {"id":177, "name": "Viossa", "description": "Flag of the conpidgin Viossa.", "website": "", "subreddit": "/r/viossa", "center": [ 775.5, 296.5 ], "path": [ [ 769.5, 290.5 ], [ 780.5, 290.5 ], [ 780.5, 301.5 ], [ 769.5, 301.5 ] ] },
 {"id":178, "name": "Lojban", "description": "Flag of Lojban", "website": "https://lojban.org", "subreddit": "/r/lojban", "center": [ 760.5, 328.5 ], "path": [ [ 763.5, 326.5 ], [ 757.5, 326.5 ], [ 757.5, 330.5 ], [ 763.5, 330.5 ] ] },
-
-];
+{"id":4260,"name": "The Orange Pixel Project","description": "Intended to be a single orange pixel, contained in it's own 1x1 canvas. Site of heavy battle. Represents a stalwart mercenary contract between u/naterichster and the Shovel Knight community.","website": "","subreddit": "r/shovelknight","center": [664.5,319.5],"path":[[665.5,318.5],[665.5,320.5],[663.5,320.5],[663.5,318.5]]}];
 
 //console.log("There are "+atlas.length+" entries in the Atlas.");
 
