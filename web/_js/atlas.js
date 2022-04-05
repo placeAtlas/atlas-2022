@@ -226,7 +226,8 @@ var atlas = [
 {"id":176,"name": "Interlingue", "description": "Flag of Interlingue, an IAL to communicate between Western European languages.", "website": "https://occidental-lang.com", "subreddit": "/r/interlingue", "center": [ 768.5, 328.5 ], "path": [ [ 765.5, 326.5 ], [ 770.5, 326.5 ], [ 770.5, 329.5 ], [ 765.5, 329.5 ] ] },
 {"id":177, "name": "Viossa", "description": "Flag of the conpidgin Viossa.", "website": "", "subreddit": "/r/viossa", "center": [ 775.5, 296.5 ], "path": [ [ 769.5, 290.5 ], [ 780.5, 290.5 ], [ 780.5, 301.5 ], [ 769.5, 301.5 ] ] },
 {"id":178, "name": "Lojban", "description": "Flag of Lojban", "website": "https://lojban.org", "subreddit": "/r/lojban", "center": [ 760.5, 328.5 ], "path": [ [ 763.5, 326.5 ], [ 757.5, 326.5 ], [ 757.5, 330.5 ], [ 763.5, 330.5 ] ] },
-{"id": 0,"name": "Sacred Hearts Club Symbol","description": "The logo used for the 3rd studio album of the indie-pop band Foster The People","website": "https://www.fosterthepeople.com/","subreddit": "/r/FosterThePeople","center": [1343.5,1307.5],"path": [[1343.5,1307.5],[1343.5,1300.5],[1343.5,1314.5],[1349.5,1310.5],[1350.5,1303.5],[1343.5,1300.5],[1338.5,1302.5],[1336.5,1308.5],[1339.5,1313.5],[1343.5,1314.5],[1348.5,1312.5],[1350.5,1309.5],[1350.5,1309.5]]},
+{"id": 0,"name": "Sacred Hearts Club Symbol","description": "The logo used for the 3rd studio album of the indie-pop band Foster The People","website": "https://www.fosterthepeople.com/","subreddit": "/r/FosterThePeople","center": [1343.5,1307.5],"path": [[1344.5,1300.5],[1349.5,1303.5],[1349.5,1311.5],[1344.5,1314.5],[1340.5,1313.5],[1338.5,1311.5],[1337.5,1310.5],[1336.5,1305.5],[1340.5,1301.5],[1342.5,1300.5]]},
+
 ];
 
 //console.log("There are "+atlas.length+" entries in the Atlas.");
