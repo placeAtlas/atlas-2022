@@ -226,6 +226,7 @@ var atlas = [
 {"id":176,"name": "Interlingue", "description": "Flag of Interlingue, an IAL to communicate between Western European languages.", "website": "https://occidental-lang.com", "subreddit": "/r/interlingue", "center": [ 768.5, 328.5 ], "path": [ [ 765.5, 326.5 ], [ 770.5, 326.5 ], [ 770.5, 329.5 ], [ 765.5, 329.5 ] ] },
 {"id":177, "name": "Viossa", "description": "Flag of the conpidgin Viossa.", "website": "", "subreddit": "/r/viossa", "center": [ 775.5, 296.5 ], "path": [ [ 769.5, 290.5 ], [ 780.5, 290.5 ], [ 780.5, 301.5 ], [ 769.5, 301.5 ] ] },
 {"id":178, "name": "Lojban", "description": "Flag of Lojban", "website": "https://lojban.org", "subreddit": "/r/lojban", "center": [ 760.5, 328.5 ], "path": [ [ 763.5, 326.5 ], [ 757.5, 326.5 ], [ 757.5, 330.5 ], [ 763.5, 330.5 ] ] },
+{"id":179,"name":"Grandson","description":"The logo for music artist Grandson","website":"https://www.grandsondiscord.com","subreddit":"/r/grandson","center":[1324.5,413.5],"path":[[1321.5,406.5],[1320.5,407.5],[1319.5,408.5],[1318.5,409.5],[1318.5,410.5],[1317.5,411.5],[1317.5,413.5],[1317.5,414.5],[1318.5,415.5],[1318.5,416.5],[1318.5,417.5],[1319.5,418.5],[1319.5,419.5],[1320.5,420.5],[1321.5,421.5],[1325.5,421.5],[1326.5,420.5],[1327.5,419.5],[1328.5,419.5],[1329.5,418.5],[1329.5,417.5],[1330.5,416.5],[1330.5,415.5],[1331.5,414.5],[1331.5,412.5],[1331.5,408.5],[1330.5,407.5],[1329.5,406.5],[1321.5,406.5]]},
 
 ];
 
