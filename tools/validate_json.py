@@ -9,6 +9,6 @@ path = "./../web/atlas.json"
 if (len(sys.argv) > 1):
     path = sys.argv[1]
 
-json.load(open(path))
+json.load(open(path, "r", encoding='utf-8'))
 
 print("JSON is valid")
