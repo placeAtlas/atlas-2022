@@ -35,7 +35,7 @@ To contribute to the map, we require a certain format for artwork region and lab
 ### Map Edits
 
 1. Create a fork of our repo.
-2. Enter your data into the `web/_js/atlas.json` file, with the correct format and ID number.
+2. Enter your data into the `web/atlas.json` file, with the correct format and ID number.
 3. Create a Pull Request against the `cleanup` branch.
 
 ### Cleaning Contributions
