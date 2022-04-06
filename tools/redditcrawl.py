@@ -15,6 +15,7 @@ reddit = praw.Reddit(client_id=client_id, client_secret=client_secret, user_agen
 
 failcount = 0
 successcount = 0
+totalcount = 0
 
 jsonfile = open("../web/atlas.json", "r", encoding='utf-8')
 existing = json.load(jsonfile)
@@ -73,10 +74,11 @@ for submission in reddit.subreddit('placeAtlas2').new(limit=2000):
 		text = "\n".join(lines)
 		try:
 			outfile.write(json.dumps(json.loads(text))+",\n")
+			successcount += 1
 		except json.JSONDecodeError:
 			failfile.write(text+",\n")
 			failcount += 1
 		print("written "+submission.id+" submitted "+str(round(time.time()-submission.created_utc))+" seconds ago")
-		successcount += 1
+		totalcount += 1
 
-print(f"\n\nSuccess: {successcount}\nFail: {failcount}\nPlease check manual_atlas.txt for failed entries to manually resolve.")
+print(f"\n\nSuccess: {successcount}/{totalcount}\nFail: {failcount}/{totalcount}\nPlease check manual_atlas.txt for failed entries to manually resolve.")
