@@ -32,4 +32,4 @@ To contribute to the map, we require a certain format for artwork region and lab
 
 ## Cleaning Contributions
 
-If you spot a duplicate, please PR against `/cleanup`. To help find duplicates, run the code locally, changing line 92 of `main.js` to `overlap`.
+If you spot a duplicate, please PR against `/cleanup`. To help find duplicates, append `?mode=overlap` to the url: [`https://place-atlas.stefanocoding.me?mode=overlap`](https://place-atlas.stefanocoding.me?mode=overlap).
