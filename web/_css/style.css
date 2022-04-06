@@ -78,6 +78,7 @@ a:hover {
 }
 
 button,
+#exportDirectPost,
 #aboutBackButton,
 #drawBackButton {
 	background-image: linear-gradient(to bottom, #888, #666);
@@ -103,6 +104,7 @@ button:disabled:hover {
 }
 
 button:hover,
+#exportDirectPost:hover,
 #aboutBackButton:hover,
 #drawBackButton:hover {
 	background-image: linear-gradient(to bottom, #999, #777);
