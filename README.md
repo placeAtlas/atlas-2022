@@ -35,12 +35,12 @@ To contribute to the map, we require a certain format for artwork region and lab
 ### Map Edits
 
 1. Create a fork of our repo.
-2. Enter your data into the `web/atlas.json` file, with the correct format and ID number.
-3. Create a Pull Request against the `/cleanup` branch.
+2. Enter your data into the `web/_js/atlas.json` file, with the correct format and ID number.
+3. Create a Pull Request against the `cleanup` branch.
 
 ### Cleaning Contributions
 
-If you spot a duplicate, please PR against `/cleanup`. To help find duplicates, append `?mode=overlap` to the url: [`https://place-atlas.stefanocoding.me?mode=overlap`](https://place-atlas.stefanocoding.me?mode=overlap).
+If you spot a duplicate, please PR against the `cleanup` branch. To help find duplicates, append `?mode=overlap` to the url: [`https://place-atlas.stefanocoding.me?mode=overlap`](https://place-atlas.stefanocoding.me?mode=overlap).
 
 ---
 
