@@ -3,6 +3,7 @@ import praw
 import json
 import time
 import re
+import os
 
 outfile = open('temp_atlas.json', 'w', encoding='utf-8')
 failfile = open('manual_atlas.json', 'w', encoding='utf-8')
@@ -25,7 +26,9 @@ existing_ids = []
 for item in existing:
 	existing_ids.append(item['id'])
 
-
+total_all_flairs = 0
+duplicate_count = 0
+outfile.write("[\n")
 for submission in reddit.subreddit('placeAtlas2').new(limit=2000):
 	"""
 	Auth setup
@@ -47,10 +50,14 @@ for submission in reddit.subreddit('placeAtlas2').new(limit=2000):
 	4. Pull Request
 
 	"""
-	#print(dir(submission))
+	total_all_flairs += 1
 	if (submission.id in existing_ids):
 		print("Found first duplicate!")
-		break
+		duplicate_count += 1
+		if (duplicate_count > 50):
+			break
+		else:
+			continue
 	if(submission.link_flair_text == "New Entry"):
 		text = submission.selftext
 		#Old backslash filter:
@@ -73,7 +80,7 @@ for submission in reddit.subreddit('placeAtlas2').new(limit=2000):
 				lines[i] = line.replace("\"id\": 0", "\"id\": "+"\""+str(submission.id)+"\"")
 		text = "\n".join(lines)
 		try:
-			outfile.write(json.dumps(json.loads(text))+",\n")
+			outfile.write(json.dumps(json.loads(text))+"  ,\n")
 			successcount += 1
 		except json.JSONDecodeError:
 			failfile.write(text+",\n")
@@ -81,4 +88,10 @@ for submission in reddit.subreddit('placeAtlas2').new(limit=2000):
 		print("written "+submission.id+" submitted "+str(round(time.time()-submission.created_utc))+" seconds ago")
 		totalcount += 1
 
-print(f"\n\nSuccess: {successcount}/{totalcount}\nFail: {failcount}/{totalcount}\nPlease check manual_atlas.txt for failed entries to manually resolve.")
+# Remove ,\n
+outfile.seek(outfile.tell()-4, os.SEEK_SET)
+outfile.truncate()
+
+outfile.write("\n]")
+
+print(f"\n\nTotal all flairs:{total_all_flairs}\nSuccess: {successcount}/{totalcount}\nFail: {failcount}/{totalcount}\nPlease check manual_atlas.txt for failed entries to manually resolve.")
