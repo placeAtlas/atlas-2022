@@ -1,4 +1,16 @@
 function createInfoBlock(entry) {
+    function createInfoParagraph(name, value){
+        let entryParagraphPositionElement = document.createElement("p");
+        let nameElement = document.createElement("span");
+        nameElement.style.fontWeight = "bold";
+        nameElement.innerText = name;
+        let valueElement = document.createElement("span");
+        valueElement.innerText = value;
+        entryParagraphPositionElement.appendChild(nameElement);
+        entryParagraphPositionElement.appendChild(valueElement);
+        return entryParagraphPositionElement;
+    }
+
     var element = document.createElement("div");
     element.className = "object";
 
@@ -15,6 +27,15 @@ function createInfoBlock(entry) {
         descElement.innerText = entry.description;
         element.appendChild(descElement);
     }
+    
+    let [x, y] = entry.center;
+    element.appendChild(createInfoParagraph("Position: ", `${Math.floor(x)}x${Math.floor(y)}`));
+
+    if(entry.path){
+        let area = calcPolygonArea(entry.path);
+        element.appendChild(createInfoParagraph("Area: ", `${area} pixels`));
+    }
+    
     if (entry.website) {
         let websiteLinkElement = document.createElement("a");
         websiteLinkElement.target = "_blank";
@@ -39,9 +60,8 @@ function createInfoBlock(entry) {
             element.appendChild(subredditLinkElement);
         }
     }
-    let idElement = document.createElement("p");
+    let idElement = createInfoParagraph("ID: ", entry.id);
     idElement.style.fontFamily = "Dejavu Sans Mono, sans, Sans-Serif;";
-    idElement.innerText = "id: " + entry.id
     element.appendChild(idElement);
 
     return element;
