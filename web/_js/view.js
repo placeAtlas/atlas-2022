@@ -449,6 +449,21 @@ function initView(){
 					return 0;
 				}
 			break;
+			case "area":
+				sortFunction = function(a, b){
+					// todo: not exactly optimised
+					let areaA = calcPolygonArea(a.path);
+					let areaB = calcPolygonArea(b.path);
+					if (areaA > areaB) {
+						return -1;
+					}
+					if (areaA < areaB) {
+						return 1;
+					}
+						// areaA must be equal to areaB
+					return 0;
+				}
+			break;
 			case "relevant":
 				sortFunction = function(a, b){
 					if(a.name.toLowerCase().indexOf(filter) !== -1 && b.name.toLowerCase().indexOf(filter) !== -1){
