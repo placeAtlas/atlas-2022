@@ -78,7 +78,8 @@ var atlas = null;
 init();
 
 async function init(){
-
+	// For Reviewing Reddit Changes
+	//let resp = await fetch("../tools/temp_atlas.json");
 	let resp = await fetch("./atlas.json");
 	atlas = await resp.json();
 	atlas.sort(function (a, b) {
@@ -135,6 +136,33 @@ async function init(){
 			initOverlap();
 		}
 	}
+	
+	function changeOverlapMode(){
+		console.log(mode)
+		switch(mode){
+			case "overlap":
+				window.location.href = "?mode=explore"
+				break;
+			case "explore":
+				window.location.href = "?"
+				break;
+			default:
+				window.location.href = "?mode=overlap"
+				break;
+		}
+
+		return false;
+	}
+
+	const modeMap = {
+		"view": "Overlap",
+		"overlap": "Explore",
+		"explore": "Atlas"
+	}
+
+	const toggleMode = document.getElementById("toggleMode");
+	toggleMode.onclick = changeOverlapMode;
+	toggleMode.innerHTML = modeMap[mode];
 
 	document.getElementById("loading").style.display = "none";
 

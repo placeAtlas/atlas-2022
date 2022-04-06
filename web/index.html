@@ -36,7 +36,7 @@
 		<meta name="viewport" content="width=device-width, height=device-height, initial-scale=1, minimum-scale=1, maximum-scale=1, user-scalable=no, shrink-to-fit=no">
 		<meta name="mobile-web-app-capable" content="yes">
 		
-		<link href="./_css/style.css?version=1.0.32" rel="stylesheet" type="text/css" media="all">
+		<link href="./_css/style.css?version=1.0.33" rel="stylesheet" type="text/css" media="all">
 		
 		<script type="application/ld+json">
 			{
@@ -79,7 +79,7 @@
 					     by reddit and the like as the thumbnail for the site.
 					     The original is only 5.9kB, which wouldn't get much
 					     smaller by reducing the actualy size.  -->
-					<h1 id="title">The /r/place Atlas</h1>
+					<h1 id="title">The 2022 /r/place Atlas</h1>
 				</a>
 
 			</header>
@@ -106,8 +106,8 @@
 			<div id="entriesListContainer">
 				<nav>
 					<a id="aboutLink" href="./about.html">About</a>
-					<a id="drawLink" href="./index.html?mode=draw">Contribute</a>
-					<a id="overlapLink" href="./index.html?mode=overlap">Overlap</a>
+					<a id="drawLink" href="./index.html?mode=draw">Draw</a>
+					<a id="toggleMode" onclick="return changeOverlapMode()">Overlap</a>
 					<button title="Discord" onclick="window.location.href='https://discord.gg/pJkm23b2nA'">
 						<img class="Discord" alt="Discord Logo" src="./_img/discord.svg">
 					</button>
@@ -189,16 +189,22 @@
 			
 			<div id="exportOverlay" class="overlay">
 				<div id="exportWindow">
-					<p>Please copy the text below and submit it as a<br>
-					new text post to <a target="_blank" href="https://www.reddit.com/r/placeAtlas2/">/r/placeAtlas2</a> on Reddit.</p>
-					<p>I will then check it and add it to the atlas.</p>
 					<div style="background-color:#666; padding:5px">
 						<p><b>Warning</b></p>
 						<p><b>DO NOT</b> include the character <b>"</b> (quotation marks) in your submission. It will not be approved.</p>
 					</div>
-					<textarea cols="50" rows="5" id="exportString"></textarea>
+					<p><b>Recommended:</b> Post directly after clicking this button. Don't forget to flair it with the "New Entry" tag. </p>
 					<div style="display:flex; flex-direction:column;align-items:center">
 						<a href="_blank" id="exportDirectPost">Post Direct to Reddit</a>
+					</div>
+					<hr style="border-bottom: solid black 1px"/>
+					<i>or...</i>
+					<p>Please copy the text below and submit it as a
+					new text post to <a target="_blank" href="https://www.reddit.com/r/placeAtlas2/">/r/placeAtlas2</a> on Reddit.</p>
+					<p>Don't forget to flair it with the "New Entry" tag.</p>
+					<p>We will then check it and add it to the atlas.</p>
+					<textarea cols="20" rows="5" id="exportString"></textarea>
+					<div style="display:flex; flex-direction:column;align-items:center">
 						<button id="exportCloseButton">Done</button>
 					</div>
 				</div>
