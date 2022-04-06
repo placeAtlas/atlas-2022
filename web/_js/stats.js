@@ -21,13 +21,6 @@ for(var q = 0; q < atlas.length; q++){
 
 	area = Math.abs(area/2);
 
-	if(atlas[q].name == "Companion Cube"){
-		var w = atlas[q].path[1][0] - atlas[q].path[0][0];
-		var h = atlas[q].path[2][1] - atlas[q].path[1][1];
-		console.log(w, h, w*h);
-		console.log(area, Math.sqrt(area));
-	}
-
 	areasSum += area;
 	areas.push(area);
 
