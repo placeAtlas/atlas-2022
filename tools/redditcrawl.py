@@ -54,7 +54,7 @@ for submission in reddit.subreddit('placeAtlas2').new(limit=2000):
 	if (submission.id in existing_ids):
 		print("Found first duplicate!")
 		duplicate_count += 1
-		if (duplicate_count > 50):
+		if (duplicate_count > 10):
 			break
 		else:
 			continue
