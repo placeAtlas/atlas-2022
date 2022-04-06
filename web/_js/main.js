@@ -93,6 +93,8 @@ async function init(){
 		return 0;
 	});
 	
+	// precalculate area
+	atlas.forEach(n => n.area = calcPolygonArea(n.path));
 
 	//console.log(document.documentElement.clientWidth, document.documentElement.clientHeight);
 

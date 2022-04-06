@@ -32,8 +32,7 @@ function createInfoBlock(entry) {
     element.appendChild(createInfoParagraph("Position: ", `${Math.floor(x)}x${Math.floor(y)}`));
 
     if(entry.path){
-        let area = calcPolygonArea(entry.path);
-        element.appendChild(createInfoParagraph("Area: ", `${area} pixels`));
+        element.appendChild(createInfoParagraph("Area: ", `${entry.area} pixels`));
     }
     
     if (entry.website) {
