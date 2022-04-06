@@ -668,11 +668,11 @@ div:not(.listHidden) > #bottomBar {
 	}
 
 	.listHidden #author {
-		flex: 1;
+		flex: 1 !important;
 	}
 }
 
-@media (max-width: 750px) {
+@media (max-width: 800px) {
 	#bottomBar {
 		flex-wrap: wrap;
 	}
