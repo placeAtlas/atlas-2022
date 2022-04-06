@@ -1,89 +1,227 @@
-    {
-    	"id": twxaks,
-    	"name": "Fire Emblem",
-    	"description": "Fire Emblem is a tactical role-playing game franchise published by Nintendo. Roy and Leif are shown with an owl named from the Fire Emblem mobile game named Feh above perched on top of the Fire Emblem title.",
-    	"website": "",
-    	"subreddit": "/r/Fireemblem",
-    	"center": [
-    		1836.5,
-784.5
-],
-"path": [
-[
-1834.5,
-772.5
-],
-[
-1811.5,
-772.5
-],
-[
-1811.5,
-804.5
-],
-[
-1845.5,
-804.5
-],
-[
-1845.5,
-794.5
-],
-[
-1846.5,
-793.5
-],
-[
-1846.5,
-792.5
-],
-[
-1855.5,
-792.5
-],
-[
-1855.5,
-790.5
-],
-[
-1858.5,
-787.5
-],
-[
-1859.5,
-778.5
-],
-[
-1873.5,
-778.5
-],
-[
-1873.5,
-772.5
-],
-[
-1857.5,
-772.5
-],
-[
-1850.5,
-767.5
-],
-[
-1849.5,
-766.5
-],
-[
-1848.5,
-762.5
-],
-[
-1848.5,
-760.5
-],
-[
-1835.5,
-760.5
-]
-]
-} 
+{
+	"id": twugae,
+	"name": "Fire Emblem",
+	"description": "Fire Emblem is a tactical role-playing game franchise published by Nintendo. Shown here are Marth from Fire Emblem: Shadow Dragon and the Blade of Light, Eirika from Fire Emblem: The Sacred Stones, and Feh from Fire Emblem Heroes.",
+	"website": "",
+	"subreddit": "/r/fireemblem",
+	"center": [
+		494.5,
+		698.5
+	],
+	"path": [
+		[
+			473.5,
+			713.5
+		],
+		[
+			514.5,
+			713.5
+		],
+		[
+			514.5,
+			682.5
+		],
+		[
+			473.5,
+			682.5
+		]
+	]
+}
+
+{
+	"id": twrjrw,
+	"name": "Fire Emblem",
+	"description": "Fire Emblem is a tactical role-playing game franchise published by Nintendo. Characters shown from left to right are Micaiah, Anna, and Tiki with the Japanese title of the series: ファイアーエムブレム (pronounced Faiāemuburemu).",
+	"website": "",
+	"subreddit": "r/fireemblem",
+	"center": [
+		499.5,
+		1378.5
+	],
+	"path": [
+		[
+			469.5,
+			1361.5
+		],
+		[
+			469.5,
+			1395.5
+		],
+		[
+			529.5,
+			1395.5
+		],
+		[
+			529.5,
+			1361.5
+		],
+		[
+			529.5,
+			1361.5
+		]
+	]
+}
+
+{
+
+"id": twsdkj,
+
+"name": "Alfonse",
+
+"description": "Alfonse is one of the main characters from the mobile gacha game, Fire Emblem Heroes. Fire Emblem Heroes is a tactical role-playing game published by Nintendo in 2017, and is one of Nintendo's highest grossing mobile games to date.
+
+This pixel art was made possible by exiaax and r/fireemblem in collaboration with the Gacha Alliance.",
+
+"website": "https://fire-emblem-heroes.com",
+
+"subreddit": "/r/Fireemblemheroes",
+
+"center": \[
+
+1577.5,
+
+1751.5
+
+\],
+
+"path": \[
+
+\[
+
+1588.5,
+
+1761.5
+
+\],
+
+\[
+
+1566.5,
+
+1761.5
+
+\],
+
+\[
+
+1566.5,
+
+1746.5
+
+\],
+
+\[
+
+1567.5,
+
+1746.5
+
+\],
+
+\[
+
+1567.5,
+
+1745.5
+
+\],
+
+\[
+
+1569.5,
+
+1745.5
+
+\],
+
+\[
+
+1569.5,
+
+1743.5
+
+\],
+
+\[
+
+1575.5,
+
+1740.5
+
+\],
+
+\[
+
+1582.5,
+
+1740.5
+
+\],
+
+\[
+
+1582.5,
+
+1741.5
+
+\],
+
+\[
+
+1584.5,
+
+1741.5
+
+\],
+
+\[
+
+1589.5,
+
+1747.5
+
+\],
+
+\[
+
+1589.5,
+
+1752.5
+
+\],
+
+\[
+
+1588.5,
+
+1753.5
+
+\],
+
+\[
+
+1587.5,
+
+1756.5
+
+\],
+
+\[
+
+1587.5,
+
+1759.5
+
+\],
+
+\[
+
+1588.5,
+
+1760.5
+
+\]
+
+\]
+
+}
