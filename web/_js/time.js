@@ -1,17 +1,73 @@
 const timeConfig = [
     {
-        timestamp: 16000000,
-        url: "/_img/place-indexed-4.png",
+        timestamp: 1648822500,
+        url: "/_img/place/1648822500.png",
         image: null
     },
     {
-        timestamp: 16000030,
-        url: "/_img/place-indexed-5.png",
+        timestamp: 1648847036,
+        url: "/_img/place/1648847036.png",
         image: null
     },
     {
-        timestamp: 16000060,
-        url: "/_img/place-indexed.png",
+        timestamp: 1648870452,
+        url: "/_img/place/1648870452.png",
+        image: null
+    },
+    {
+        timestamp: 1648893666,
+        url: "/_img/place/1648893666.png",
+        image: null
+    },
+    {
+        timestamp: 1648917500,
+        url: "/_img/place/1648917500.png",
+        image: null
+    },
+    {
+        timestamp: 1648942113,
+        url: "/_img/place/1648942113.png",
+        image: null
+    },
+    {
+        timestamp: 1648956234,
+        url: "/_img/place/1648956234.png",
+        image: null
+    },
+    {
+        timestamp: 1648968061,
+        url: "/_img/place/1648968061.png",
+        image: null
+    },
+    {
+        timestamp: 1648979987,
+        url: "/_img/place/1648979987.png",
+        image: null
+    },
+
+    {
+        timestamp: 1648992274,
+        url: "/_img/place/1648992274.png",
+        image: null
+    },
+    {
+        timestamp: 1649012915,
+        url: "/_img/place/1649012915.png",
+        image: null
+    },
+    {
+        timestamp: 1649037182,
+        url: "/_img/place/1649037182.png",
+        image: null
+    },
+    {
+        timestamp: 1649060793,
+        url: "/_img/place/1649060793.png",
+        image: null
+    },
+    {
+        timestamp: 1649084741,
+        url: "/_img/place/1649084741.png",
         image: null
     },
 ];
