@@ -345,7 +345,9 @@ function initView(){
 				}
 
 				if(changed){
-					hovered = newHovered;
+					hovered = newHovered.sort(function(a, b){
+						return calcPolygonArea(a.path) - calcPolygonArea(b.path);
+					});
 
 					objectsContainer.innerHTML = "";
 
