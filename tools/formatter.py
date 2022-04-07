@@ -88,6 +88,15 @@ def fix_r_caps(entry: dict):
 
 	return entry
 
+def fix_no_protocol_urls(entry: dict):
+	if not "website" in entry:
+		return entry
+	
+	if entry["website"].startswith("http"):
+		entry["website"] = "https://" + entry["website"]
+
+	return entry
+
 def per_line_entries(entries: list):
 	out = "[\n"
 	for entry in entries:
@@ -103,6 +112,8 @@ def format_all(entry: dict, silent=False):
 	entry = remove_extras(entry)
 	print_("Fixing r/ capitalization...")
 	entry = fix_r_caps(entry)
+	print_("Fixing links without protocol...")
+	entry = fix_no_protocol_urls(entry)
 	print_("Collapsing Markdown links...")
 	entry = collapse_links(entry)
 	print_("Fix formatting of subreddit...")
