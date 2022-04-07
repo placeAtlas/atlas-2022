@@ -72,19 +72,19 @@ for submission in reddit.subreddit('placeAtlas2').new(limit=2000):
 			failfile.write(text+",\n")
 			failcount += 1
 
-		if (submission_json):
+		if submission_json:
 
 			submission_json_dummy = {"id": submission.id, "submitted_by": ""}
 			try:
 				submission_json_dummy["submitted_by"] = submission.author.name
 			except AttributeError:
-				submission_json_dummy["submitted_by"]
+				submission_json_dummy["submitted_by"] = "unknown"
 			for key in submission_json:
 				if not key in submission_json_dummy:
 					submission_json_dummy[key] = submission_json[key];
 			submission_json = format_all(submission_json_dummy)
 
-			outfile.write(json.dumps(json.loads(text))+"  ,\n")
+			outfile.write(json.dumps(submission_json) + ",\n")
 			successcount += 1
 
 		print("written "+submission.id+" submitted "+str(round(time.time()-submission.created_utc))+" seconds ago")
