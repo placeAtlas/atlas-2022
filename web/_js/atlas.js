@@ -39,9 +39,15 @@ function getPositionOfEntry(entry){
 	return [parseInt(startX), parseInt(startY)];
 }
 
+const areaMap = new Map();
 
 // Modified from https://stackoverflow.com/a/33670691 
 function calcPolygonArea(vertices) {
+	var hit = areaMap.get(vertices);
+	if (hit != null) {
+		return hit;
+	}
+
     var total = 0;
 
     for (var i = 0, l = vertices.length; i < l; i++) {
@@ -54,5 +60,8 @@ function calcPolygonArea(vertices) {
       total -= (subX * subY * 0.5);
     }
 
-    return Math.floor(Math.abs(total));
+	var area = Math.floor(Math.abs(total));
+	areaMap.set(vertices, area);
+	
+    return area;
 }
