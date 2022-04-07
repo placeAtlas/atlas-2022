@@ -28,6 +28,7 @@ FS_REGEX = {
 
 CL_REGEX = r'\[(.+?)\]\((.+?)\)'
 CWTS_REGEX = r'^(?:(?:https?:\/\/)?(?:(?:www|old|new|np)\.)?)?reddit\.com\/r\/([A-Za-z0-9][A-Za-z0-9_]{1,20})(?:\/)$'
+CSTW_REGEX = r'^http[s]?://(?:[a-zA-Z]|[0-9]|[$-_@.&+]|[!*\(\),]|(?:%[0-9a-fA-F][0-9a-fA-F]))+$'
 
 # r/... to /r/...
 SUBREDDIT_TEMPLATE = r"/r/\1"
@@ -101,18 +102,29 @@ def fix_no_protocol_urls(entry: dict):
 	return entry
 
 def convert_website_to_subreddit(entry: dict):
-	if (not "website" in entry or not entry['website']):
+	if (not "website" in entry or not entry['website']) or ("subreddit" in entry and not entry['subreddit'] == ""):
 		return entry
 
 	if re.match(CWTS_REGEX, entry["website"]):
 		new_subreddit = re.sub(CWTS_REGEX, SUBREDDIT_TEMPLATE, entry["website"])
 		if (new_subreddit.lower() == entry["subreddit"].lower()):
 			entry["website"] = ""
-		elif ("subreddit" in entry and entry["subreddit"] == ""):
+		else:
 			entry["subreddit"] = new_subreddit
 			entry["website"] = ""
 
 	return entry
+
+def convert_subreddit_to_website(entry: dict):
+	if (not "subreddit" in entry or not entry['subreddit']) or ("website" in entry and not entry['website'] == ""):
+		return entry
+
+	if re.match(CSTW_REGEX, entry["subreddit"]):
+		entry["website"] = entry["subreddit"]
+		entry["subreddit"] = ""
+
+	return entry
+	
 
 def per_line_entries(entries: list):
 	out = "[\n"
@@ -135,6 +147,8 @@ def format_all(entry: dict, silent=False):
 	entry = collapse_links(entry)
 	print_("Converting website links to subreddit (if possible)...")
 	entry = convert_website_to_subreddit(entry)
+	print_("Converting subreddit links to website (if needed)...")
+	entry = convert_subreddit_to_website(entry)
 	print_("Removing extras...")
 	entry = remove_extras(entry)
 	print_("Completed!")
