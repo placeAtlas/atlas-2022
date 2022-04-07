@@ -29,6 +29,11 @@ FS_REGEX = {
 	# "pattern5": r'\[(?:https?:\/\/)?(?!^www\.)(.+)\.reddit\.com(?:\/[^"]*)*\]\((?:https:\/\/)?(?!^www\.)(.+)\.reddit\.com(?:\/[^"]*)*\)"',
 }
 
+VALIDATE_REGEX = {
+	"subreddit": r'^\/r\/([A-Za-z0-9][A-Za-z0-9_]{1,20})(, *\/r\/([A-Za-z0-9][A-Za-z0-9_]{1,20}))*$|^$',
+	"website": r'^http[s]?://(?:[a-zA-Z]|[0-9]|[$-_@.&+]|[!*\(\),]|(?:%[0-9a-fA-F][0-9a-fA-F]))+$|^$'
+}
+
 CL_REGEX = r'\[(.+?)\]\((.+?)\)'
 CWTS_REGEX = r'^(?:(?:https?:\/\/)?(?:(?:www|old|new|np)\.)?)?reddit\.com\/r\/([A-Za-z0-9][A-Za-z0-9_]{1,20})(?:\/)$'
 CSTW_REGEX = r'^http[s]?://(?:[a-zA-Z]|[0-9]|[$-_@.&+]|[!*\(\),]|(?:%[0-9a-fA-F][0-9a-fA-F]))+$'
@@ -132,6 +137,13 @@ def convert_subreddit_to_website(entry: dict):
 
 	return entry
 	
+def validate(entry: dict):
+	if (not "id" in entry or (not entry['id'] and not entry['id'] == 0)):
+		print(f"Wait, no id here! How did this happened? {entry}")
+		return
+	for key in entry:
+		if key in VALIDATE_REGEX and not re.match(VALIDATE_REGEX[key], entry[key]):
+			print(f"{key} of entry {entry['id']} is still invalid! {entry[key]}")
 
 def per_line_entries(entries: list):
 	out = "[\n"
@@ -158,6 +170,8 @@ def format_all(entry: dict, silent=False):
 	entry = convert_subreddit_to_website(entry)
 	print_("Removing extras...")
 	entry = remove_extras(entry)
+	print_("Validating...")
+	validate(entry)
 	print_("Completed!")
 	return entry
 
