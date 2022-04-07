@@ -18,7 +18,7 @@ UNUSED AND FAULTY
    - [place.reddit.com](https://place.reddit.com)
 """
 FS_REGEX = {
-	"commatization": r',*(?: +and)? +',
+	"commatization": r',*(?: +(and|&))? +',
 	"pattern1": r'\/*[rR]\/([A-Za-z0-9][A-Za-z0-9_]{1,20})(?:\/$)?',
 	"pattern2": r'^\/*[rR](?!\/)([A-Za-z0-9][A-Za-z0-9_]{1,20})(?:\/$)?',
 	"pattern3": r'(?:(?:https?:\/\/)?(?:(?:www|old|new|np)\.)?)?reddit\.com\/r\/([A-Za-z0-9][A-Za-z0-9_]{1,20})(?:\/[^" ]*)*',
@@ -74,6 +74,11 @@ def collapse_links(entry: dict):
 	return entry
 
 def remove_extras(entry: dict):
+	if "subreddit" in entry and entry["subreddit"]:
+		# if not entry["subreddit"].startswith('/r/'):
+		# 	entry["subreddit"] = re.sub(r'^(.*)(?=\/r\/)', r'', entry["subreddit"])
+		entry["subreddit"] = re.sub(r'[.,]+$', r'', entry["subreddit"])
+
 	for key in entry:
 		if not entry[key] or not isinstance(entry[key], str): 
 			continue
@@ -89,9 +94,6 @@ def remove_extras(entry: dict):
 		# Psuedo-empty strings
 		if entry[key] in ["n/a", "N/A", "na", "NA", "-", "null", "none", "None"]:
 			entry[key] = ""
-
-	# if "subreddit" in entry and entry["subreddit"] and not entry["subreddit"].startswith('/r/'):
-	# 	entry["subreddit"] = re.sub(r'^(.*)(?=\/r\/)', r'', entry["subreddit"])
 
 	return entry
 
