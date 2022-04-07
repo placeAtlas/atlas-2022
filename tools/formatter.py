@@ -23,7 +23,7 @@ UNUSED AND FAULTY
 format_subreddit_regex = {
 	# r/... to /r/...
 	"template": r"/r/\1",
-	"commatization": r',* +',
+	"commatization": r',*(?: +and)? +',
 	"pattern1": r'\/?[rR]\/([A-Za-z0-9][A-Za-z0-9_]{1,20})(?:\/$)?',
 	"pattern2": r'^\/?[rR](?!\/)([A-Za-z0-9][A-Za-z0-9_]{1,20})(?:\/$)?',
 	"pattern3": r'(?:(?:https?:\/\/)?(?:(?:www|old|new|np)\.)?)?reddit\.com\/r\/([A-Za-z0-9][A-Za-z0-9_]{1,20})(?:\/[^" ]*)*',
@@ -32,10 +32,10 @@ format_subreddit_regex = {
 	# "pattern6": r'\[(?:https?:\/\/)?(?!^www\.)(.+)\.reddit\.com(?:\/[^"]*)*\]\((?:https:\/\/)?(?!^www\.)(.+)\.reddit\.com(?:\/[^"]*)*\)"',
 }
 
-collapse_links_regex = re.compile(r'\[(.+?)\]\((.+?)\)')
+collapse_links_regex = r'\[(.+?)\]\((.+?)\)'
 
 def format_subreddit(entry: dict):
-	if not "subreddit" in entry:
+	if not "subreddit" in entry or not entry['subreddit']:
 		return entry
 
 	subredditLink = entry["subreddit"]
@@ -52,11 +52,12 @@ def format_subreddit(entry: dict):
 	return entry
 
 def collapse_links(entry: dict):
-	if not "website" in entry:
+	if not "website" in entry or not entry['website']:
 		return entry
+		
 	website = entry["website"];
-	if collapse_links_regex.search(website):
-		match = collapse_links_regex.search(website)
+	if re.search(collapse_links_regex, website):
+		match = re.search(collapse_links_regex, website)
 		if match.group(1) == match.group(2):
 			website = match.group(2)
 
@@ -72,7 +73,7 @@ def remove_extras(entry: dict):
 		entry[key] = re.sub(r'(\s+)$', r'', entry[key])
 		# Double spaces and commas
 		entry[key] = re.sub(r' {2,}', r' ', entry[key])
-		entry[key] = re.sub(r'\n{2,}', r' ', entry[key])
+		entry[key] = re.sub(r'\n{2,}', r'\n', entry[key])
 		entry[key] = re.sub(r',{2,}', r',', entry[key])
 		# Psuedo-empty strings
 		if entry[key] in ["n/a", "N/A", "-", "null", "none", "None"]:
@@ -81,7 +82,7 @@ def remove_extras(entry: dict):
 	return entry
 
 def fix_r_caps(entry: dict):
-	if not "description" in entry:
+	if not "description" in entry or not entry['description']:
 		return entry
 	
 	entry["description"] = re.sub(r'R\/', 'r/', entry["description"])
@@ -89,10 +90,10 @@ def fix_r_caps(entry: dict):
 	return entry
 
 def fix_no_protocol_urls(entry: dict):
-	if not "website" in entry:
+	if not "website" in entry or not entry['website']:
 		return entry
 	
-	if entry["website"].startswith("http"):
+	if not entry["website"].startswith("http"):
 		entry["website"] = "https://" + entry["website"]
 
 	return entry
