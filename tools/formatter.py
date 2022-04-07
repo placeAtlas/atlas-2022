@@ -20,9 +20,7 @@ UNUSED AND FAULTY
 6. - [https://place.reddit.com](https://place.reddit.com)
    - [place.reddit.com](https://place.reddit.com)
 """
-format_subreddit_regex = {
-	# r/... to /r/...
-	"template": r"/r/\1",
+FS_REGEX = {
 	"commatization": r',*(?: +and)? +',
 	"pattern1": r'\/?[rR]\/([A-Za-z0-9][A-Za-z0-9_]{1,20})(?:\/$)?',
 	"pattern2": r'^\/?[rR](?!\/)([A-Za-z0-9][A-Za-z0-9_]{1,20})(?:\/$)?',
@@ -32,18 +30,22 @@ format_subreddit_regex = {
 	# "pattern6": r'\[(?:https?:\/\/)?(?!^www\.)(.+)\.reddit\.com(?:\/[^"]*)*\]\((?:https:\/\/)?(?!^www\.)(.+)\.reddit\.com(?:\/[^"]*)*\)"',
 }
 
-collapse_links_regex = r'\[(.+?)\]\((.+?)\)'
+CL_REGEX = r'\[(.+?)\]\((.+?)\)'
+CWTS_REGEX = r'^(?:(?:https?:\/\/)?(?:(?:www|old|new|np)\.)?)?reddit\.com\/r\/([A-Za-z0-9][A-Za-z0-9_]{1,20})(?:\/)$'
+
+# r/... to /r/...
+SUBREDDIT_TEMPLATE = r"/r/\1"
 
 def format_subreddit(entry: dict):
 	if not "subreddit" in entry or not entry['subreddit']:
 		return entry
 
 	subredditLink = entry["subreddit"]
-	subredditLink = re.sub(format_subreddit_regex["commatization"], ', ', subredditLink)
-	subredditLink = re.sub(format_subreddit_regex["pattern4"], format_subreddit_regex["template"], subredditLink)
-	subredditLink = re.sub(format_subreddit_regex["pattern3"], format_subreddit_regex["template"], subredditLink)
-	subredditLink = re.sub(format_subreddit_regex["pattern1"], format_subreddit_regex["template"], subredditLink)
-	subredditLink = re.sub(format_subreddit_regex["pattern2"], format_subreddit_regex["template"], subredditLink)
+	subredditLink = re.sub(FS_REGEX["commatization"], ', ', subredditLink)
+	subredditLink = re.sub(FS_REGEX["pattern4"], SUBREDDIT_TEMPLATE, subredditLink)
+	subredditLink = re.sub(FS_REGEX["pattern3"], SUBREDDIT_TEMPLATE, subredditLink)
+	subredditLink = re.sub(FS_REGEX["pattern1"], SUBREDDIT_TEMPLATE, subredditLink)
+	subredditLink = re.sub(FS_REGEX["pattern2"], SUBREDDIT_TEMPLATE, subredditLink)
 
 	if not subredditLink:
 		return entry
@@ -56,8 +58,8 @@ def collapse_links(entry: dict):
 		return entry
 		
 	website = entry["website"];
-	if re.search(collapse_links_regex, website):
-		match = re.search(collapse_links_regex, website)
+	if re.search(CL_REGEX, website):
+		match = re.search(CL_REGEX, website)
 		if match.group(1) == match.group(2):
 			website = match.group(2)
 
@@ -98,6 +100,20 @@ def fix_no_protocol_urls(entry: dict):
 
 	return entry
 
+def convert_website_to_subreddit(entry: dict):
+	if (not "website" in entry or not entry['website']):
+		return entry
+
+	if re.match(CWTS_REGEX, entry["website"]):
+		new_subreddit = re.sub(CWTS_REGEX, SUBREDDIT_TEMPLATE, entry["website"])
+		if (new_subreddit.lower() == entry["subreddit"].lower()):
+			entry["website"] = ""
+		elif ("subreddit" in entry and entry["subreddit"] == ""):
+			entry["subreddit"] = new_subreddit
+			entry["website"] = ""
+
+	return entry
+
 def per_line_entries(entries: list):
 	out = "[\n"
 	for entry in entries:
@@ -115,6 +131,8 @@ def format_all(entry: dict, silent=False):
 	entry = fix_r_caps(entry)
 	print_("Fixing links without protocol...")
 	entry = fix_no_protocol_urls(entry)
+	print_("Converting website links to subreddit (if possible)...")
+	entry = convert_website_to_subreddit(entry)
 	print_("Collapsing Markdown links...")
 	entry = collapse_links(entry)
 	print_("Fix formatting of subreddit...")
