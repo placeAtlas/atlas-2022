@@ -155,6 +155,11 @@ function initView(){
 
 	buildObjectsList(null, null);
 
+	timeCallback = (tempAtlas) => {
+		renderBackground(tempAtlas);
+		render();
+	}
+
 	// parse linked atlas entry id from link hash
 	/*if (window.location.hash.substring(3)){
 		zoom = 4;

@@ -73,12 +73,16 @@ const timeConfig = [
     {
         timestamp: 1649113199,
         url: "/_img/place/final.png",
-        image: null
+        image: null,
+        showAtlas: true,
     },
 ];
 
 let slider = document.getElementById("timeControlsSlider");
 let image = document.getElementById("image");
+
+let timeCallback = (a) => {};
+let atlasBackup = [];
 
 // SETUP
 slider.max = timeConfig.length;
@@ -98,4 +102,11 @@ async function updateTime(index) {
         configObject.image = URL.createObjectURL(imageBlob);
     }
     image.src = configObject.image;
+    // TEMP ATLAS ONLY ON LAST TIMESTAMP
+    if (configObject.showAtlas) {
+        atlas = atlasBackup
+    } else {
+        atlas = []
+    }
+    timeCallback(atlas)
 }
