@@ -129,7 +129,6 @@ function initView(){
 	var filterInput = document.getElementById("searchList");
 
 	var entriesList = document.getElementById("entriesList");
-	var hideListButton = document.getElementById("hideListButton");
 	var entriesListShown = true;
 
 	var sortedAtlas;
@@ -223,19 +222,6 @@ function initView(){
 
 		buildObjectsList(filterInput.value.toLowerCase(), this.value);
 
-	});
-	
-	hideListButton.addEventListener("click", function(e){
-		entriesListShown = !entriesListShown;
-		if(entriesListShown){
-			wrapper.className = wrapper.className.replace(/ listHidden/g, "");
-		} else {
-			wrapper.className += " listHidden";
-		}
-		applyView();
-		render();
-		updateLines();
-		return false;
 	});
 
 	closeObjectsListButton.addEventListener("click", function(e){
