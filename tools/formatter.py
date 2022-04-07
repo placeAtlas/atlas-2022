@@ -131,12 +131,12 @@ def format_all(entry: dict, silent=False):
 	entry = fix_r_caps(entry)
 	print_("Fixing links without protocol...")
 	entry = fix_no_protocol_urls(entry)
-	print_("Converting website links to subreddit (if possible)...")
-	entry = convert_website_to_subreddit(entry)
 	print_("Collapsing Markdown links...")
 	entry = collapse_links(entry)
 	print_("Fix formatting of subreddit...")
 	entry = format_subreddit(entry)
+	print_("Converting website links to subreddit (if possible)...")
+	entry = convert_website_to_subreddit(entry)
 	print_("Completed!")
 	return entry
 
