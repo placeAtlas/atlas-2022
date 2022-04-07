@@ -451,7 +451,6 @@ function initView(){
 			break;
 			case "area":
 				sortFunction = function(a, b){
-					// todo: not exactly optimised
 					return calcPolygonArea(b.path) - calcPolygonArea(a.path);
 				}
 			break;
