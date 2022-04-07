@@ -1,4 +1,7 @@
+![Entry count](https://img.shields.io/badge/dynamic/json?color=blue&label=count&query=%24.length&url=https%3A%2F%2Fgithub.com%2FplaceAtlas%2Fatlas%2Fblob%2Fmaster%2Fweb%2Fatlas.json%3Fraw%3Dtrue) ![Commit activity](https://img.shields.io/github/commit-activity/w/placeAtlas/atlas) [![License](https://img.shields.io/github/license/placeAtlas/atlas)](https://github.com/placeAtlas/atlas/blob/master/LICENSE)
+
 # The 2022 Place Atlas
+
 The /r/place Atlas is a project aiming to catalog all the artworks created during Reddit's 2022 /r/place event.
 This project was created by Roland Rytz and is licensed under the GNU Affero General Public License v3.0.
 
