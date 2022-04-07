@@ -29,86 +29,39 @@ window.addEventListener("error", function (e) {
 	document.getElementById("loadingContent").innerHTML = errorMessage;
 });
 
-function pointIsInPolygon (point, polygon) {
-	// ray-casting algorithm based on
-	// http://www.ecse.rpi.edu/Homepages/wrf/Research/Short_Notes/pnpoly.html
+function getPositionOfEntry(entry){
+	let startX = 2000, startY = 2000;
+	for(let [x, y] of entry.path){
+		startX = Math.min(x, startX);
+		startY = Math.min(y, startY)
+	}
+	if(startX === 2000 || startY === 2000) return null;
+	return [parseInt(startX), parseInt(startY)];
+}
+
+const areaMap = new Map();
+
+// Modified from https://stackoverflow.com/a/33670691 
+function calcPolygonArea(vertices) {
+	var hit = areaMap.get(vertices);
+	if (hit != null) {
+		return hit;
+	}
+
+    var total = 0;
+
+    for (var i = 0, l = vertices.length; i < l; i++) {
+      var addX = vertices[i][0];
+      var addY = vertices[i == vertices.length - 1 ? 0 : i + 1][1];
+      var subX = vertices[i == vertices.length - 1 ? 0 : i + 1][0];
+      var subY = vertices[i][1];
+
+      total += (addX * addY * 0.5);
+      total -= (subX * subY * 0.5);
+    }
+
+	var area = Math.floor(Math.abs(total));
+	areaMap.set(vertices, area);
 	
-	var x = point[0], y = point[1];
-	
-	var inside = false;
-	for (var i = 0, j = polygon.length - 1; i < polygon.length; j = i++) {
-		var xi = polygon[i][0], yi = polygon[i][1];
-		var xj = polygon[j][0], yj = polygon[j][1];
-		
-		var intersect = ((yi > y) != (yj > y))
-			&& (x < (xj - xi) * (y - yi) / (yj - yi) + xi);
-		if (intersect) inside = !inside;
-	}
-	return inside;
-};
-
-//console.log("There are "+atlas.length+" entries in the Atlas.");
-
-/*
-atlas.sort(function(a, b) {
-	if (a.id < b.id) {
-		return -1;
-	}
-	if (a.id > b.id) {
-		return 1;
-	}
-		// a must be equal to b
-	return 0;
-});
-
-for(var i = 0; i < atlas.length; i++) {
-	if(atlas[i-1]){
-		if(atlas[i-1].id == atlas[i].id) {
-			console.log(atlas[i-1].id + ": "+ atlas[i-1].name);
-			console.log(atlas[i  ].id + ": "+ atlas[i  ].name);
-		}
-	}
+    return area;
 }
-
-console.log("biggest id: "+atlas[atlas.length-1].id + ", " + atlas[atlas.length-1].name);
-*/
-
-/*
-for(var i = 0; i < atlas.length; i++) {
-	if(typeof atlas[i].website == "undefined") {
-		console.log(atlas[i].name);
-	} else if(atlas[i].website.trim() != "") {
-		if(atlas[i].website.trim().substring(0, 4) != "http") {
-			console.log(atlas[i].name + ": " + atlas[i].website);
-		}
-	}
-}
-*/
-
-// sort by center.y, so that lines will overlap less
-
-/*
-
-// Populate with test data
-
-for(var i = 0; i < 10000; i++) {
-	var x = ~~(Math.random() * 1000)+0.5;
-	var y = ~~(Math.random() * 1000)+0.5;
-	var w = ~~(Math.random()*100);
-	var h = ~~(Math.random()*100);
-	atlas.push( {
-		"id": 5,
-		"name": "test"+(i+3),
-		"website": "",
-		"subreddit": "",
-		"center": [0, 0],
-		"path":[
-			[x, y],
-			[x+w, y],
-			[x+w, y+h],
-			[x, y+h]
-		]
-	});
-}
-
-*/

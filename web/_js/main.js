@@ -47,7 +47,7 @@ var lastPosition = [0, 0];
 var viewportSize = [0, 0];
 
 document.getElementById("donateButton").addEventListener("click", function(e){
-	document.getElementById("bitcoinQR").src = "./_img/bitcoinQR.png?from=index";
+//	document.getElementById("bitcoinQR").src = "./_img/bitcoinQR.png?from=index";
 	document.getElementById("donateOverlay").style.display = "flex";
 });
 
@@ -78,7 +78,8 @@ var atlas = null;
 init();
 
 async function init(){
-
+	// For Reviewing Reddit Changes
+	//let resp = await fetch("../tools/temp_atlas.json");
 	let resp = await fetch("./atlas.json");
 	atlas = await resp.json();
 	atlas.sort(function (a, b) {
@@ -135,6 +136,33 @@ async function init(){
 			initOverlap();
 		}
 	}
+	
+	function changeOverlapMode(){
+		console.log(mode)
+		switch(mode){
+			case "overlap":
+				window.location.href = "?mode=explore"
+				break;
+			case "explore":
+				window.location.href = "?"
+				break;
+			default:
+				window.location.href = "?mode=overlap"
+				break;
+		}
+
+		return false;
+	}
+
+	const modeMap = {
+		"view": "Overlap",
+		"overlap": "Explore",
+		"explore": "Atlas"
+	}
+
+	const toggleMode = document.getElementById("toggleMode");
+	toggleMode.onclick = changeOverlapMode;
+	toggleMode.innerHTML = modeMap[mode];
 
 	document.getElementById("loading").style.display = "none";
 
@@ -243,14 +271,23 @@ async function init(){
 		initialPinchZoom = zoom;
 		
 		lastPosition = [x, y];
-		
-		if(e.deltaY > 0){
 
-			zoom = zoom / 2;
-			
-		} else if(e.deltaY < 0){
-			
-			zoom = zoom * 2;
+		// Check if we are zooming by pixels
+		// https://developer.mozilla.org/en-US/docs/Web/API/WheelEvent/deltaMode
+		if (e.deltaMode === 0) {
+			// Scale the pixel delta by the current zoom factor
+			// We want to zoom faster when closer, and slower when further
+			// This creates a smoother experience
+			zoom -= e.deltaY * (0.001 * zoom);
+		} else {
+			if(e.deltaY > 0){
+	
+				zoom = zoom / 2;
+				
+			} else if(e.deltaY < 0){
+				
+				zoom = zoom * 2;
+			}
 		}
 
 		zoom = Math.max(minZoom, Math.min(maxZoom, zoom));

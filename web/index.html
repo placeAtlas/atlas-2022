@@ -36,7 +36,7 @@
 		<meta name="viewport" content="width=device-width, height=device-height, initial-scale=1, minimum-scale=1, maximum-scale=1, user-scalable=no, shrink-to-fit=no">
 		<meta name="mobile-web-app-capable" content="yes">
 		
-		<link href="./_css/style.css?version=1.0.32" rel="stylesheet" type="text/css" media="all">
+		<link href="./_css/style.css?version=1.0.33" rel="stylesheet" type="text/css" media="all">
 		
 		<script type="application/ld+json">
 			{
@@ -79,7 +79,7 @@
 					     by reddit and the like as the thumbnail for the site.
 					     The original is only 5.9kB, which wouldn't get much
 					     smaller by reducing the actualy size.  -->
-					<h1 id="title">The /r/place Atlas</h1>
+					<h1 id="title">The 2022 /r/place Atlas</h1>
 				</a>
 
 			</header>
@@ -92,22 +92,22 @@
 						<noscript>
 							<p>Sorry, you need JavaScript to view the Atlas.</p>
 							<p>All JavaScript on this site is licensed under either the MIT or AGPL license.</p>
-							<p><a href="https://github.com/RolandR/place-atlas/">See the source on GitHub</a></p>
+							<p><a href="https://github.com/placeAtlas/atlas">See the source on GitHub</a></p>
 						</noscript>
 					</div>
 				</div>
 				<canvas id="linesCanvas"></canvas>
 				<div id="innerContainer">
 					<canvas id="highlightCanvas" width="2000" height="2000"></canvas>
-					<img id="image" src="./_img/place-indexed.png" width="2000" height="2000" alt="Canvas of /r/place in the state of when the experiment was concluded." />
+					<img id="image" src="./_img/place-indexed-final-place.png" width="2000" height="2000" alt="Canvas of /r/place in the state of when the experiment was concluded." />
 				</div>
 			</div>
 			
 			<div id="entriesListContainer">
 				<nav>
 					<a id="aboutLink" href="./about.html">About</a>
-					<a id="drawLink" href="./index.html?mode=draw">Contribute</a>
-					<a id="overlapLink" href="./index.html?mode=overlap">Overlap</a>
+					<a id="drawLink" href="./index.html?mode=draw">Draw</a>
+					<a id="toggleMode" onclick="return changeOverlapMode()">Overlap</a>
 					<button title="Discord" onclick="window.location.href='https://discord.gg/pJkm23b2nA'">
 						<img class="Discord" alt="Discord Logo" src="./_img/discord.svg">
 					</button>
@@ -126,6 +126,7 @@
 							<option value="alphaDesc">↑ Alphabetical</option>
 							<option value="newest">Newest</option>
 							<option value="oldest">Oldest</option>
+							<option value="area">Area</option>
 						</select>
 					</div>
 				</div>
@@ -185,12 +186,23 @@
 			
 			<div id="exportOverlay" class="overlay">
 				<div id="exportWindow">
+
 					<p>Please copy the text below and submit it as a<br>
 					new text post to <a target="_blank" href="https://www.reddit.com/r/placeAtlas2/">/r/placeAtlas2</a> on Reddit.</p>
 					<p>I will then check it and add it to the atlas.</p>
 					<textarea cols="50" rows="5" id="exportString"></textarea>
+
 					<div style="display:flex; flex-direction:column;align-items:center">
 						<a href="_blank" id="exportDirectPost">Post Direct to Reddit</a>
+					</div>
+					<hr style="border-bottom: solid black 1px"/>
+					<i>or...</i>
+					<p>Please copy the text below and submit it as a
+					new text post to <a target="_blank" href="https://www.reddit.com/r/placeAtlas2/">/r/placeAtlas2</a> on Reddit.</p>
+					<p>Don't forget to flair it with the "New Entry" tag.</p>
+					<p>We will then check it and add it to the atlas.</p>
+					<textarea cols="20" rows="5" id="exportString"></textarea>
+					<div style="display:flex; flex-direction:column;align-items:center">
 						<button id="exportCloseButton">Done</button>
 					</div>
 				</div>
@@ -198,25 +210,20 @@
 			
 			<div id="donateOverlay" class="overlay">
 				<div id="donateWindow">
-					<h2>Donations - Original Source Code Creator</h2>
-					<p>Roland Rytz jas worked on the Atlas full-time (and more!) for over two weeks.</p>
-					<p>If you'd like to support him, you can do so by <a target="_blank" href="https://paypal.me/draemmli">PayPal</a> or Bitcoin.</p>
-					<p>If you donate more than 10(€/$/CHF/mBTC), He'll send you a nice sticker of the Place canvas (2017)!</p>
-					<p id="bitcoinNotice">If you donate by Bitcoin and want a sticker, please send him a<br>message with your Bitcoin address <i>before</i> you make the transaction!</a>
+					<h2>Donation Links</h2>
+					<p>Current 2022 Atlas Maintainers:</p>
+					<p> - <a target="_blank" href="https://paypal.me/placeAtlas/5">PayPal</a></p>
+					<p> - <a target="_blank" href="https://www.patreon.com/placeAtlas">Patreon</a></p>
+					<p> - <a target="_blank" href="https://ko-fi.com/placeatlas">Ko-Fi</a></p>
+					<p>Original 2017 Atlas Developer (draemmli aka Roland Rytz): </p>
+					<p> - <a target="_blank" href="https://paypal.me/draemmli">PayPal</a></p>
 					
-					<h2>His Bitcoin Address</h2>
-					<img id="bitcoinQR" alt="QR Code of Bitcoin Address" height="300" width="300">
-					<br>
-					<input type="text" onclick="this.select();" readonly value="1DnBGYpH6HZYHvpCq3QqqtH1HxwwVe2QxN">
-					<br>
-					<p>Hi there! The current maintainer of the 2022 version of this website, should I accept donations and make stickers of the 2022 version? Please tell me on our <a href="https://discord.gg/pJkm23b2nA" target="_noblank">Discord Server</a> or on my Reddit (<a href="https://reddit.com/user/TCOOfficiall" target="_noblank">u/TCOOfficiall</a>)</p>
-					<br>
 					<button id="closeBitcoinButton">Close</button>
 					<br>
 				</div>
 			</div>
 			<div id="author">
-				Code by <a href="https://draemm.li/various/place-atlas/" target="_blank" rel="author">Roland Rytz</a>. Source on <a target="_blank" href="https://github.com/RolandR/place-atlas">GitHub</a> (<a target="_blank" href="https://github.com/Codixer/place-atlas">2022 Version Github</a>). Images provided by <a target="_blank" href="https://place.thatguyalex.com/">Alex Tsernoh</a>.
+				Code forked by <a href="https://place-atlas.stefanocoding.me/" target="_blank" rel="author">Stefano Haagmans</a>. Source on <a target="_blank" href="https://github.com/placeAtlas/atlas">GitHub</a>, Images provided by <a target="_blank" href="https://place.thatguyalex.com/">Alex Tsernoh</a>. This site is powered by <a href="https://www.netlify.com">Netlify</a>.
 			</div>
 		</div>
 		<script type="text/javascript" src="./_js/infoblock.js?version=1.0"></script>
