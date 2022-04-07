@@ -76,7 +76,9 @@ def remove_extras(entry: dict):
 		entry[key] = re.sub(r'^(\s+)', r'', entry[key])
 		entry[key] = re.sub(r'(\s+)$', r'', entry[key])
 		# Double characters
-		entry[key] = re.sub(r' {2,}', r' ', entry[key])
+		entry[key] = re.sub(r' {2,}(?!\n)', r' ', entry[key])
+		entry[key] = re.sub(r' {3,}\n', r'  ', entry[key])
+		entry[key] = re.sub(r'\n{3,}', r'\n\n', entry[key])
 		entry[key] = re.sub(r'r\/{2,}', r'r\/', entry[key])
 		entry[key] = re.sub(r',{2,}', r',', entry[key])
 		# Psuedo-empty strings
