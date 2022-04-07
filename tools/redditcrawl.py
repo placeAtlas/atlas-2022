@@ -1,4 +1,5 @@
 
+from array import array
 import praw
 import json
 import time
@@ -63,29 +64,32 @@ for submission in reddit.subreddit('placeAtlas2').new(limit=2000):
 
 	if(submission.link_flair_text == "New Entry"):
 
-		text = submission.selftext
-		submission_json = ""
-
 		try:
+
+			text = submission.selftext
 			submission_json = json.loads(text)
-		except json.JSONDecodeError:
-			failfile.write(text+",\n")
+
+			if submission_json:
+
+				# Assert if path does not empty
+				assert len(submission_json["path"]) > 0
+
+				submission_json_dummy = {"id": submission.id, "submitted_by": ""}
+				try:
+					submission_json_dummy["submitted_by"] = submission.author.name
+				except AttributeError:
+					submission_json_dummy["submitted_by"] = "unknown"
+				for key in submission_json:
+					if not key in submission_json_dummy:
+						submission_json_dummy[key] = submission_json[key];
+				submission_json = format_all(submission_json_dummy)
+
+				outfile.write(json.dumps(submission_json) + ",\n")
+				successcount += 1
+
+		except Exception as e:
+			failfile.write(text+"\n\n" + "="*40 + "\n\n")
 			failcount += 1
-
-		if submission_json:
-
-			submission_json_dummy = {"id": submission.id, "submitted_by": ""}
-			try:
-				submission_json_dummy["submitted_by"] = submission.author.name
-			except AttributeError:
-				submission_json_dummy["submitted_by"] = "unknown"
-			for key in submission_json:
-				if not key in submission_json_dummy:
-					submission_json_dummy[key] = submission_json[key];
-			submission_json = format_all(submission_json_dummy)
-
-			outfile.write(json.dumps(submission_json) + ",\n")
-			successcount += 1
 
 		print("written "+submission.id+" submitted "+str(round(time.time()-submission.created_utc))+" seconds ago")
 		totalcount += 1
