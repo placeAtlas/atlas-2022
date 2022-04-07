@@ -18,7 +18,7 @@ UNUSED AND FAULTY
    - [place.reddit.com](https://place.reddit.com)
 """
 FS_REGEX = {
-	"commatization": r',*(?: +(and|&))? +',
+	"commatization": r'( *(,+ +|,+ |,+)| +)(and|&)( *(,+ +|,+ |,+)| +)',
 	"pattern1": r'\/*[rR]\/([A-Za-z0-9][A-Za-z0-9_]{1,20})(?:\/$)?',
 	"pattern2": r'^\/*[rR](?!\/)([A-Za-z0-9][A-Za-z0-9_]{1,20})(?:\/$)?',
 	"pattern3": r'(?:(?:https?:\/\/)?(?:(?:www|old|new|np)\.)?)?reddit\.com\/r\/([A-Za-z0-9][A-Za-z0-9_]{1,20})(?:\/[^" ]*)*',
@@ -47,6 +47,7 @@ def format_subreddit(entry: dict):
 		return entry
 
 	subredditLink = entry["subreddit"]
+	subredditLink = re.sub(FS_REGEX["commatization"], ', ', subredditLink)
 	subredditLink = re.sub(FS_REGEX["pattern3"], SUBREDDIT_TEMPLATE, subredditLink)
 	subredditLink = re.sub(FS_REGEX["pattern1"], SUBREDDIT_TEMPLATE, subredditLink)
 	subredditLink = re.sub(FS_REGEX["pattern2"], SUBREDDIT_TEMPLATE, subredditLink)
