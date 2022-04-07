@@ -22,6 +22,9 @@ FS_REGEX = {
 	"pattern1": r'\/?[rR]\/([A-Za-z0-9][A-Za-z0-9_]{1,20})(?:\/$)?',
 	"pattern2": r'^\/?[rR](?!\/)([A-Za-z0-9][A-Za-z0-9_]{1,20})(?:\/$)?',
 	"pattern3": r'(?:(?:https?:\/\/)?(?:(?:www|old|new|np)\.)?)?reddit\.com\/r\/([A-Za-z0-9][A-Za-z0-9_]{1,20})(?:\/[^" ]*)*',
+	"pattern1user": r'\/?(?:u|user)\/([A-Za-z0-9][A-Za-z0-9_]{1,20})(?:\/$)?',
+	"pattern2user": r'^\/?(?:u|user)(?!\/)([A-Za-z0-9][A-Za-z0-9_]{1,20})(?:\/$)?',
+	"pattern3user": r'(?:(?:https?:\/\/)?(?:(?:www|old|new|np)\.)?)?reddit\.com\/(?:u|user)\/([A-Za-z0-9][A-Za-z0-9_]{1,20})(?:\/[^" ]*)*',
 	# "pattern4": r'(?:https?:\/\/)?(?!^www\.)(.+)\.reddit\.com(?:\/[^"]*)*',
 	# "pattern5": r'\[(?:https?:\/\/)?(?!^www\.)(.+)\.reddit\.com(?:\/[^"]*)*\]\((?:https:\/\/)?(?!^www\.)(.+)\.reddit\.com(?:\/[^"]*)*\)"',
 }
@@ -32,6 +35,7 @@ CSTW_REGEX = r'^http[s]?://(?:[a-zA-Z]|[0-9]|[$-_@.&+]|[!*\(\),]|(?:%[0-9a-fA-F]
 
 # r/... to /r/...
 SUBREDDIT_TEMPLATE = r"/r/\1"
+USER_TEMPLATE = r"/r/\1"
 
 def format_subreddit(entry: dict):
 	if not "subreddit" in entry or not entry['subreddit']:
@@ -41,6 +45,9 @@ def format_subreddit(entry: dict):
 	subredditLink = re.sub(FS_REGEX["pattern3"], SUBREDDIT_TEMPLATE, subredditLink)
 	subredditLink = re.sub(FS_REGEX["pattern1"], SUBREDDIT_TEMPLATE, subredditLink)
 	subredditLink = re.sub(FS_REGEX["pattern2"], SUBREDDIT_TEMPLATE, subredditLink)
+	subredditLink = re.sub(FS_REGEX["pattern3user"], USER_TEMPLATE, subredditLink)
+	subredditLink = re.sub(FS_REGEX["pattern1user"], USER_TEMPLATE, subredditLink)
+	subredditLink = re.sub(FS_REGEX["pattern2user"], USER_TEMPLATE, subredditLink)
 
 	if not subredditLink:
 		return entry
