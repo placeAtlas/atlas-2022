@@ -164,6 +164,21 @@ async function init(){
 	toggleMode.onclick = changeOverlapMode;
 	toggleMode.innerHTML = modeMap[mode];
 
+	var hideListButton = document.getElementById("hideListButton");
+	
+	hideListButton.addEventListener("click", function(e){
+		entriesListShown = !entriesListShown;
+		if(entriesListShown){
+			wrapper.className = wrapper.className.replace(/ listHidden/g, "");
+		} else {
+			wrapper.className += " listHidden";
+		}
+		applyView();
+		render();
+		updateLines();
+		return false;
+	});
+
 	document.getElementById("loading").style.display = "none";
 
 	document.getElementById("zoomInButton").addEventListener("click", function(e){
