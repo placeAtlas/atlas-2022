@@ -273,12 +273,12 @@ function initView(){
 
 		//var id = parseInt(window.location.hash.substring(3));
 		
-		var entry = atlas.filter(function(e){
+		var entries = atlas.filter(function(e){
 			return e.id === id;
 		});
 
-		if (entry.length === 1){
-			entry = entry[0];
+		if (entries.length === 1){
+			let entry = entries[0];
 
 			document.title = entry.name + " on the 2022 /r/place Atlas";
 			
@@ -532,7 +532,6 @@ function initView(){
 					applyView();
 				}
 				if(document.documentElement.clientWidth < 500){
-					
 					objectsContainer.innerHTML = "";
 
 					entriesListShown = false;
@@ -591,7 +590,7 @@ function initView(){
 		}
 	}
 
-	function render(){
+	async function render(){
 
 		context.clearRect(0, 0, canvas.width, canvas.height);
 
@@ -635,6 +634,29 @@ function initView(){
 
 		context.globalCompositeOperation = "source-out";
 		context.drawImage(backgroundCanvas, 0, 0);
+
+		if(hovered.length === 1 && hovered[0].path.length && hovered[0].overrideImage){
+			let undisputableHovered = hovered[0];
+			// Find the left-topmost point of all the paths
+			let entryPosition = getPositionOfEntry(undisputableHovered);
+			if(entryPosition){
+				const [startX, startY] = entryPosition;
+				let overrideImage = new Image();
+				const loadingPromise = new Promise((res, rej) => {
+					overrideImage.onerror = rej;
+					overrideImage.onload = res;
+				});
+				overrideImage.src = "imageOverrides/" + undisputableHovered.overrideImage;
+				try{
+					await loadingPromise;
+					context.globalCompositeOperation = "source-over";
+					context.drawImage(overrideImage, startX, startY);
+				}catch(ex){
+					console.log("Cannot override image.");
+					console.log(ex);
+				}
+			}
+		}
 
 		for(var i = 0; i < hovered.length; i++){
 
