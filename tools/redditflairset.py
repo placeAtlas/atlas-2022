@@ -1,12 +1,12 @@
+# Script to retroactively fix flairs
+# Only touches things flaired "New entry" that either fail JSON parsing or are already in the atlas
+# Otherwise, it leaves them untouched
 
 import praw
 import json
 import time
 import re
 import os
-
-outfile = open('temp_atlas.json', 'w', encoding='utf-8')
-failfile = open('manual_atlas.json', 'w', encoding='utf-8')
 
 credentials = open('credentials', 'r')
 client_id = credentials.readline().strip(' \t\n\r')
@@ -17,8 +17,8 @@ pw = credentials.readline().strip(' \t\n\r')
 reddit = praw.Reddit(client_id=client_id, client_secret=client_secret, user_agent='atlas_bot',username=user,password=pw)
 has_write_access = not reddit.read_only
 if not has_write_access:
-	print("Warning: No write access. Post flairs will not be updated")
-	sleep(5)
+	print("No write access, exiting without doing anything")
+	quit()
 
 jsonfile = open("../web/atlas.json", "r", encoding='utf-8')
 existing = json.load(jsonfile)
@@ -30,17 +30,24 @@ for item in existing:
 
 def set_flair(submission, flair):
 	if has_write_access and submission.link_flair_text != flair:
+		print(submission.link_flair_text)
+		print(submission.id)
+		print(flair)
 		flair_choices = submission.flair.choices()
 		flair = next(x for x in flair_choices if x["flair_text_editable"] and flair == x["flair_text"])
 		submission.flair.select(flair["flair_template_id"])
+		return 1
+	return 0
 
 total_all_flairs = 0
-duplicate_count = 0
-failcount = 0
-successcount = 0
-totalcount = 0
-outfile.write("[\n")
-for submission in reddit.subreddit('placeAtlas2').new(limit=2000):
+rejected_count = 0
+processed_count = 0
+#for submission in reddit.subreddit('placeAtlas2').new(limit=1000):
+#for submission in reddit.subreddit('placeAtlas2').search('flair:"New Entry"',limit=1000,syntax='lucene', sort="top"):
+#for submission in reddit.subreddit('placeAtlas2').search('flair:"New Entry"',limit=1000,syntax='lucene', sort="comments"):
+#for submission in reddit.subreddit('placeAtlas2').search('flair:"New Entry"',limit=1000,syntax='lucene', sort="hot"):
+#for submission in reddit.subreddit('placeAtlas2').search('flair:"New Entry"',limit=1000,syntax='lucene', sort="new"):
+#for submission in reddit.subreddit('placeAtlas2').search('flair:"New Entry"',limit=1000,syntax='lucene', sort="relevance"):
 	"""
 	Auth setup
 	1. Head to https://www.reddit.com/prefs/apps
@@ -52,7 +59,7 @@ for submission in reddit.subreddit('placeAtlas2').new(limit=2000):
 	7. Append to file called "credentials"
 	8. Copy Secret 
 	9. Append on newline to "credentials" file
-	10. If you want flair write access append 2 newlines with username and password (Must be a mod, don't do this if you don't know what you're doing)
+	10-. Append 2 newlines with username and password if you want flair write access
 	11. Run Script
 
 	Running Script
@@ -64,13 +71,8 @@ for submission in reddit.subreddit('placeAtlas2').new(limit=2000):
 	"""
 	total_all_flairs += 1
 	if (submission.id in existing_ids):
-		set_flair(submission, "Processed Entry")
-		print("Found first duplicate!")
-		duplicate_count += 1
-		if (duplicate_count > 0):
-			break
-		else:
-			continue
+		processed_count += set_flair(submission, "Processed Entry")
+		continue
 	if(submission.link_flair_text == "New Entry"):
 		text = submission.selftext
 		#Old backslash filter:
@@ -85,7 +87,6 @@ for submission in reddit.subreddit('placeAtlas2').new(limit=2000):
 		except AttributeError:
 			text = text.replace("\"id\": 0,", "\"id\": 0,\n\t\t\"submitted_by\": \""+"unknown"+"\",")
 
-
 		lines = text.split("\n")
 
 		for i, line in enumerate(lines):
@@ -93,20 +94,9 @@ for submission in reddit.subreddit('placeAtlas2').new(limit=2000):
 				lines[i] = line.replace("\"id\": 0", "\"id\": "+"\""+str(submission.id)+"\"")
 		text = "\n".join(lines)
 		try:
-			outfile.write(json.dumps(json.loads(text))+"  ,\n")
-			successcount += 1
-			set_flair(submission, "Processed Entry")
+			json.dumps(json.loads(text))
+			# Do not set processed, we're only updating old entries in atlas or invalid submission flairs and not processing
 		except json.JSONDecodeError:
-			failfile.write(text+",\n")
-			failcount += 1
-			set_flair(submission, "Rejected Entry")
-		print("written "+submission.id+" submitted "+str(round(time.time()-submission.created_utc))+" seconds ago")
-		totalcount += 1
+			rejected_count += set_flair(submission, "Rejected Entry")
 
-# Remove ,\n
-outfile.seek(outfile.tell()-4, os.SEEK_SET)
-outfile.truncate()
-
-outfile.write("\n]")
-
-print(f"\n\nTotal all flairs:{total_all_flairs}\nSuccess: {successcount}/{totalcount}\nFail: {failcount}/{totalcount}\nPlease check manual_atlas.txt for failed entries to manually resolve.")
+print(f"\n\nTotal all flairs:{total_all_flairs}\nUpdated as rejected: {rejected_count}/{total_all_flairs}\nUpdated as processed: {processed_count}/{total_all_flairs}\n")
