@@ -38,7 +38,6 @@ def format_subreddit(entry: dict):
 		return entry
 
 	subredditLink = entry["subreddit"]
-	subredditLink = re.sub(FS_REGEX["pattern4"], SUBREDDIT_TEMPLATE, subredditLink)
 	subredditLink = re.sub(FS_REGEX["pattern3"], SUBREDDIT_TEMPLATE, subredditLink)
 	subredditLink = re.sub(FS_REGEX["pattern1"], SUBREDDIT_TEMPLATE, subredditLink)
 	subredditLink = re.sub(FS_REGEX["pattern2"], SUBREDDIT_TEMPLATE, subredditLink)
@@ -72,7 +71,7 @@ def remove_extras(entry: dict):
 		# Double characters
 		entry[key] = re.sub(r' {2,}', r' ', entry[key])
 		entry[key] = re.sub(r'\n{2,}', r'\n', entry[key])
-		entry[key] = re.sub(r'\/{2,}', r'\/', entry[key])
+		entry[key] = re.sub(r'r\/{2,}', r'r\/', entry[key])
 		entry[key] = re.sub(r',{2,}', r',', entry[key])
 		# Psuedo-empty strings
 		if entry[key] in ["n/a", "N/A", "-", "null", "none", "None"]:
