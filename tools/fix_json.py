@@ -29,6 +29,28 @@ UNUSED AND FAULTY
    - [place.reddit.com](https://place.reddit.com)
 """
 
+EMPTY_STRINGS = set(['n/a', '-', 'none', 'null'])
+
+def cleanString(contents):
+    # Remove leading/trailing spaces.
+    contents = re.sub(r'": "(\s+)', r'": "', contents)
+    contents = re.sub(r'(\s+)"(, |,|\})', r'"\2', contents)
+
+    # Remove double spaces.
+    contents = re.sub(r' {2,}', r' ', contents)
+
+    # Remove double commas.
+    contents = re.sub(r',{2,}', r',', contents)
+
+    # Convert pseudo-empty strings to empty strings.
+    if (contents.lower() in EMPTY_STRINGS):
+        contents = ''
+
+    # Fix capitalization of "r/".
+    contents = re.sub(r'R\/', 'r/', contents)
+
+    return contents
+
 def fixSubreddit(contents: str):
     contents = re.sub(patternCommatization, ', ', contents)
 
@@ -49,6 +71,7 @@ def fixJson(path):
         # Convert invalid subreddit links to r/... format.
         if 'subreddit' in entry:
             entry['subreddit'] = fixSubreddit(entry['subreddit'])
+            entry['subreddit'] = cleanString(entry['subreddit'])
 
         if 'website' in entry:
             # Collapse Markdown-formatted website links.
@@ -60,7 +83,11 @@ def fixJson(path):
 
             if website and not website.startswith('http'):
                 website = 'https://' + website
-            entry['website'] = website
+
+            entry['website'] = cleanString(website)
+
+        entry['name'] = cleanString(entry['name'])
+        entry['description'] = cleanString(entry['description'])
 
     newJson = json.dumps(atlasJson)
     # Print the JSON in the existing Atlas format.
