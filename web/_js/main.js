@@ -92,6 +92,8 @@ async function init(){
 		// a must be equal to b
 		return 0;
 	});
+	//TEMP FOR TIME TRAVEL
+	atlasBackup = atlas;
 	
 
 	//console.log(document.documentElement.clientWidth, document.documentElement.clientHeight);
