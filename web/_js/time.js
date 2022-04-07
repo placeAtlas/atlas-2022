@@ -70,6 +70,11 @@ const timeConfig = [
         url: "/_img/place/1649084741.png",
         image: null
     },
+    {
+        timestamp: 1649113199,
+        url: "/_img/place/final.png",
+        image: null
+    },
 ];
 
 let slider = document.getElementById("timeControlsSlider");
