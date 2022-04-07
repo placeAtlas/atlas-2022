@@ -11,13 +11,10 @@ Examples:
 3. - https://www.reddit.com/r/place
    - www.reddit.com/r/place
    - reddit.com/r/place
-4. - [https://www.reddit.com/r/place](https://www.reddit.com/r/place)
-   - [www.reddit.com/r/place](www.reddit.com/r/place)
-   - [reddit.com/r/place](reddit.com/r/place)
 UNUSED AND FAULTY
-5. - https://place.reddit.com
+4. - https://place.reddit.com
    - place.reddit.com
-6. - [https://place.reddit.com](https://place.reddit.com)
+5. - [https://place.reddit.com](https://place.reddit.com)
    - [place.reddit.com](https://place.reddit.com)
 """
 FS_REGEX = {
@@ -25,9 +22,8 @@ FS_REGEX = {
 	"pattern1": r'\/?[rR]\/([A-Za-z0-9][A-Za-z0-9_]{1,20})(?:\/$)?',
 	"pattern2": r'^\/?[rR](?!\/)([A-Za-z0-9][A-Za-z0-9_]{1,20})(?:\/$)?',
 	"pattern3": r'(?:(?:https?:\/\/)?(?:(?:www|old|new|np)\.)?)?reddit\.com\/r\/([A-Za-z0-9][A-Za-z0-9_]{1,20})(?:\/[^" ]*)*',
-	"pattern4": r'\[[A-Za-z0-9][A-Za-z0-9_]{1,20}\]\((?:(?:https:\/\/)?(?:(?:www|old|new|np)\.)?)?reddit\.com\/r\/([A-Za-z0-9][A-Za-z0-9_]{1,20})(?:\/[^" ]*)*\)',
-	# "pattern5": r'(?:https?:\/\/)?(?!^www\.)(.+)\.reddit\.com(?:\/[^"]*)*',
-	# "pattern6": r'\[(?:https?:\/\/)?(?!^www\.)(.+)\.reddit\.com(?:\/[^"]*)*\]\((?:https:\/\/)?(?!^www\.)(.+)\.reddit\.com(?:\/[^"]*)*\)"',
+	# "pattern4": r'(?:https?:\/\/)?(?!^www\.)(.+)\.reddit\.com(?:\/[^"]*)*',
+	# "pattern5": r'\[(?:https?:\/\/)?(?!^www\.)(.+)\.reddit\.com(?:\/[^"]*)*\]\((?:https:\/\/)?(?!^www\.)(.+)\.reddit\.com(?:\/[^"]*)*\)"',
 }
 
 CL_REGEX = r'\[(.+?)\]\((.+?)\)'
@@ -41,7 +37,6 @@ def format_subreddit(entry: dict):
 		return entry
 
 	subredditLink = entry["subreddit"]
-	subredditLink = re.sub(FS_REGEX["commatization"], ', ', subredditLink)
 	subredditLink = re.sub(FS_REGEX["pattern4"], SUBREDDIT_TEMPLATE, subredditLink)
 	subredditLink = re.sub(FS_REGEX["pattern3"], SUBREDDIT_TEMPLATE, subredditLink)
 	subredditLink = re.sub(FS_REGEX["pattern1"], SUBREDDIT_TEMPLATE, subredditLink)
@@ -73,13 +68,17 @@ def remove_extras(entry: dict):
 		# Leading and trailing spaces
 		entry[key] = re.sub(r'^(\s+)', r'', entry[key])
 		entry[key] = re.sub(r'(\s+)$', r'', entry[key])
-		# Double spaces and commas
+		# Double characters
 		entry[key] = re.sub(r' {2,}', r' ', entry[key])
 		entry[key] = re.sub(r'\n{2,}', r'\n', entry[key])
+		entry[key] = re.sub(r'\/{2,}', r'\/', entry[key])
 		entry[key] = re.sub(r',{2,}', r',', entry[key])
 		# Psuedo-empty strings
 		if entry[key] in ["n/a", "N/A", "-", "null", "none", "None"]:
 			entry[key] = ""
+
+	# if "subreddit" in entry and entry["subreddit"] and not entry["subreddit"].startswith('/r/'):
+	# 	entry["subreddit"] = re.sub(r'^(.*)(?=\/r\/)', r'', entry["subreddit"])
 
 	return entry
 
@@ -87,7 +86,8 @@ def fix_r_caps(entry: dict):
 	if not "description" in entry or not entry['description']:
 		return entry
 	
-	entry["description"] = re.sub(r'R\/', 'r/', entry["description"])
+	entry["description"] = re.sub(r'([^\w]|^)\/R\/', '\1/r/', entry["description"])
+	entry["description"] = re.sub(r'([^\w]|^)R\/', '\1r/', entry["description"])
 
 	return entry
 
@@ -125,18 +125,18 @@ def format_all(entry: dict, silent=False):
 	def print_(*args, **kwargs):
 		if not silent:
 			print(*args, **kwargs)
-	print_("Removing extras...")
-	entry = remove_extras(entry)
 	print_("Fixing r/ capitalization...")
 	entry = fix_r_caps(entry)
 	print_("Fixing links without protocol...")
 	entry = fix_no_protocol_urls(entry)
-	print_("Collapsing Markdown links...")
-	entry = collapse_links(entry)
 	print_("Fix formatting of subreddit...")
 	entry = format_subreddit(entry)
+	print_("Collapsing Markdown links...")
+	entry = collapse_links(entry)
 	print_("Converting website links to subreddit (if possible)...")
 	entry = convert_website_to_subreddit(entry)
+	print_("Removing extras...")
+	entry = remove_extras(entry)
 	print_("Completed!")
 	return entry
 
