@@ -271,14 +271,23 @@ async function init(){
 		initialPinchZoom = zoom;
 		
 		lastPosition = [x, y];
-		
-		if(e.deltaY > 0){
 
-			zoom = zoom / 2;
-			
-		} else if(e.deltaY < 0){
-			
-			zoom = zoom * 2;
+		// Check if we are zooming by pixels
+		// https://developer.mozilla.org/en-US/docs/Web/API/WheelEvent/deltaMode
+		if (e.deltaMode === 0) {
+			// Scale the pixel delta by the current zoom factor
+			// We want to zoom faster when closer, and slower when further
+			// This creates a smoother experience
+			zoom -= e.deltaY * (0.001 * zoom);
+		} else {
+			if(e.deltaY > 0){
+	
+				zoom = zoom / 2;
+				
+			} else if(e.deltaY < 0){
+				
+				zoom = zoom * 2;
+			}
 		}
 
 		zoom = Math.max(minZoom, Math.min(maxZoom, zoom));
