@@ -1,0 +1,70 @@
+#!/usr/bin/python
+
+import re
+import json
+
+patternParent = re.compile(r'"subreddit": ?"(?!")(.+?)"')
+patternCommatization = re.compile(r',* +')
+pattern1 = re.compile(r'\/?[rR]\/([A-Za-z0-9][A-Za-z0-9_]{1,20})(?:\/$)?')
+pattern2 = re.compile(r'^\/?[rR](?!\/)([A-Za-z0-9][A-Za-z0-9_]{1,20})(?:\/$)?')
+pattern3 = re.compile(r'(?:(?:https?:\/\/)?(?:(?:www|old|new|np)\.)?)?reddit\.com\/r\/([A-Za-z0-9][A-Za-z0-9_]{1,20})(?:\/[^" ]*)*')
+pattern4 = re.compile(r'\[[A-Za-z0-9][A-Za-z0-9_]{1,20}\]\((?:(?:https:\/\/)?(?:(?:www|old|new|np)\.)?)?reddit\.com\/r\/([A-Za-z0-9][A-Za-z0-9_]{1,20})(?:\/[^" ]*)*\)')
+# pattern5 = re.compile(r'(?:https?:\/\/)?(?!^www\.)(.+)\.reddit\.com(?:\/[^"]*)*')
+# pattern6 = re.compile(r'\[(?:https?:\/\/)?(?!^www\.)(.+)\.reddit\.com(?:\/[^"]*)*\]\((?:https:\/\/)?(?!^www\.)(.+)\.reddit\.com(?:\/[^"]*)*\)"')
+"""
+Examples:
+1. - /r/place
+   - r/place
+2. /rplace
+3. - https://www.reddit.com/r/place
+   - www.reddit.com/r/place
+   - reddit.com/r/place
+4. - [https://www.reddit.com/r/place](https://www.reddit.com/r/place)
+   - [www.reddit.com/r/place](www.reddit.com/r/place)
+   - [reddit.com/r/place](reddit.com/r/place)
+UNUSED AND FAULTY
+5. - https://place.reddit.com
+   - place.reddit.com
+6. - [https://place.reddit.com](https://place.reddit.com)
+   - [place.reddit.com](https://place.reddit.com)
+"""
+
+def fixSubreddit(contents: str):
+    contents = re.sub(patternCommatization, ', ', contents)
+
+    # r/... to /r/.. (change if not needed)
+    template = r"/r/\1"
+    contents = re.sub(pattern4, template, contents)
+    contents = re.sub(pattern3, template, contents)
+    contents = re.sub(pattern1, template, contents)
+    contents = re.sub(pattern2, template, contents)
+    return contents
+
+def fixJson(path):
+    print(f'Fixing {path}...')
+
+    atlasJson = json.load(open(path, 'r', encoding='utf-8'))
+
+    for entry in atlasJson:
+        # Convert invalid subreddit links to r/... format.
+        if 'subreddit' in entry:
+            entry['subreddit'] = fixSubreddit(entry['subreddit'])
+
+        # Collapse Markdown-formatted website links.
+        if 'website' in entry:
+            website = entry['website']
+            if website.startswith('['):
+                linkBoundary = website.find('](')
+                if linkBoundary >= 0:
+                    entry['website'] = website[linkBoundary + 2 : -1]
+
+    newJson = json.dumps(atlasJson)
+    # Print the JSON in the existing Atlas format.
+    # Newline after start bracket and before end bracket.
+    newJson = newJson[:1] + '\r\n' + newJson[1:-1] + '\r\n' + newJson[-1:]
+    # Newline after each entry.
+    newJson = newJson.replace(', {"id"', ',\r\n{"id"')
+
+    with open(path, 'w', encoding='utf-8') as f:
+        f.write(newJson)
+    print("Writing completed. All done.")

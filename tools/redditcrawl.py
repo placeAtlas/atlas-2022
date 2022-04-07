@@ -4,94 +4,105 @@ import json
 import time
 import re
 import os
+from fix_json import *
 
-outfile = open('temp_atlas.json', 'w', encoding='utf-8')
-failfile = open('manual_atlas.json', 'w', encoding='utf-8')
+outfile_path = 'temp_atlas.json'
+with open(outfile_path, 'w', encoding='utf-8') as outfile:
+	with open('manual_atlas.json', 'w', encoding='utf-8') as failfile:
+		with open('credentials', 'r') as credentials:
+			client_id = credentials.readline().strip(' \t\n\r')
+			client_secret = credentials.readline().strip(' \t\n\r')
 
-credentials = open('credentials', 'r')
-client_id = credentials.readline().strip(' \t\n\r')
-client_secret = credentials.readline().strip(' \t\n\r')
+		reddit = praw.Reddit(client_id=client_id, client_secret=client_secret, user_agent='atlas_bot')
 
-reddit = praw.Reddit(client_id=client_id, client_secret=client_secret, user_agent='atlas_bot')
+		failcount = 0
+		successcount = 0
+		totalcount = 0
 
-failcount = 0
-successcount = 0
-totalcount = 0
+		with open("../web/atlas.json", "r", encoding='utf-8') as jsonfile:
+			existing = json.load(jsonfile)
 
-jsonfile = open("../web/atlas.json", "r", encoding='utf-8')
-existing = json.load(jsonfile)
+		existing_ids = []
 
-existing_ids = []
+		for item in existing:
+			existing_ids.append(item['id'])
 
-for item in existing:
-	existing_ids.append(item['id'])
+		total_all_flairs = 0
+		duplicate_count = 0
+		outfile.write("[\n")
+		for submission in reddit.subreddit('placeAtlas2').new(limit=2000):
+			"""
+			Auth setup
+			1. Head to https://www.reddit.com/prefs/apps
+			2. Click "create another app"
+			3. Give it a name and description
+			4. Select "script"
+			5. Redirect to http://localhost:8080
+			6. Copy ID (under Personal Use Script)
+			7. Append to file called "credentials"
+			8. Copy Secret
+			9. Append on newline to "credentials" file
+			10. Run Script
 
-total_all_flairs = 0
-duplicate_count = 0
-outfile.write("[\n")
-for submission in reddit.subreddit('placeAtlas2').new(limit=2000):
-	"""
-	Auth setup
-	1. Head to https://www.reddit.com/prefs/apps
-	2. Click "create another app"
-	3. Give it a name and description
-	4. Select "script"
-	5. Redirect to http://localhost:8080
-	6. Copy ID (under Personal Use Script)
-	7. Append to file called "credentials"
-	8. Copy Secret 
-	9. Append on newline to "credentials" file
-	10. Run Script
+			Running Script
+			1. Input the next ID to use
+			2. Manually resolve errors in manual_atlas.json
+			3. Copy temp_atlas.json entries into web/_js/atlas.js
+			4. Pull Request
 
-	Running Script
-	1. Input the next ID to use
-	2. Manually resolve errors in manual_atlas.json
-	3. Copy temp_atlas.json entries into web/_js/atlas.js
-	4. Pull Request
-
-	"""
-	total_all_flairs += 1
-	if (submission.id in existing_ids):
-		print("Found first duplicate!")
-		duplicate_count += 1
-		if (duplicate_count > 10):
-			break
-		else:
-			continue
-	if(submission.link_flair_text == "New Entry"):
-		text = submission.selftext
-		#Old backslash filter:
-		#text = text.replace("\\", "")
-		#New one: One \\ escapes a backslash in python's parser
-		# Two escape it again in the regex parser, so \\\\ is \
-		# Then anything but " or n is replaced with the first capture group (anything but " or n)
-		# Test in repl: re.sub("\\\\([^\"n])", "\\1", "\\t < removed slash, t stays and > stays \\n \\\"")
-		text = re.sub("\\\\([^\"n])", "\\1", text)
-		try:
-			text = text.replace("\"id\": 0,", "\"id\": 0,\n\t\t\"submitted_by\": \""+submission.author.name+"\",")
-		except AttributeError:
-			text = text.replace("\"id\": 0,", "\"id\": 0,\n\t\t\"submitted_by\": \""+"unknown"+"\",")
+			"""
+			total_all_flairs += 1
+			if (submission.id in existing_ids):
+				print("Found first duplicate!")
+				duplicate_count += 1
+				if (duplicate_count > 10):
+					break
+				else:
+					continue
+			if(submission.link_flair_text == "New Entry"):
+				text = submission.selftext
+				#Old backslash filter:
+				#text = text.replace("\\", "")
+				#New one: One \\ escapes a backslash in python's parser
+				# Two escape it again in the regex parser, so \\\\ is \
+				# Then anything but " or n is replaced with the first capture group (anything but " or n)
+				# Test in repl: re.sub("\\\\([^\"n])", "\\1", "\\t < removed slash, t stays and > stays \\n \\\"")
+				text = re.sub("\\\\([^\"n])", "\\1", text)
+				try:
+					text = text.replace("\"id\": 0,", "\"id\": 0,\n\t\t\"submitted_by\": \""+submission.author.name+"\",")
+				except AttributeError:
+					text = text.replace("\"id\": 0,", "\"id\": 0,\n\t\t\"submitted_by\": \""+"unknown"+"\",")
 
 
-		lines = text.split("\n")
+				lines = text.split("\n")
 
-		for i, line in enumerate(lines):
-			if("\"id\": 0" in line):
-				lines[i] = line.replace("\"id\": 0", "\"id\": "+"\""+str(submission.id)+"\"")
-		text = "\n".join(lines)
-		try:
-			outfile.write(json.dumps(json.loads(text))+"  ,\n")
-			successcount += 1
-		except json.JSONDecodeError:
-			failfile.write(text+",\n")
-			failcount += 1
-		print("written "+submission.id+" submitted "+str(round(time.time()-submission.created_utc))+" seconds ago")
-		totalcount += 1
+				for i, line in enumerate(lines):
+					if("\"id\": 0" in line):
+						lines[i] = line.replace("\"id\": 0", "\"id\": "+"\""+str(submission.id)+"\"")
+				text = "\n".join(lines)
 
-# Remove ,\n
-outfile.seek(outfile.tell()-4, os.SEEK_SET)
-outfile.truncate()
+				failed = False
+				try:
+					formatted_json = json.dumps(json.loads(text))
+					if "\"path\": []" in formatted_json:
+						failed = True
+					else:
+						outfile.write(formatted_json+",\n")
+						successcount += 1
+				except json.JSONDecodeError:
+					failed = True
+				if failed:
+					failfile.write(text+",\n")
+					failcount += 1
+				print("written "+submission.id+" submitted "+str(round(time.time()-submission.created_utc))+" seconds ago")
+				totalcount += 1
 
-outfile.write("\n]")
+	# Remove ,\n
+	outfile.seek(outfile.tell()-2, os.SEEK_SET)
+	outfile.truncate()
+
+	outfile.write("\n]")
 
 print(f"\n\nTotal all flairs:{total_all_flairs}\nSuccess: {successcount}/{totalcount}\nFail: {failcount}/{totalcount}\nPlease check manual_atlas.txt for failed entries to manually resolve.")
+
+fixJson(outfile_path)

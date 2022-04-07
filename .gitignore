@@ -12,3 +12,4 @@ allCharacters.txt
 combined.js
 *.DS_Store
 .vscode/
+*.pyc
