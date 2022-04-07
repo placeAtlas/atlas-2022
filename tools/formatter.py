@@ -31,12 +31,12 @@ FS_REGEX = {
 
 VALIDATE_REGEX = {
 	"subreddit": r'^\/r\/([A-Za-z0-9][A-Za-z0-9_]{1,20})(, *\/r\/([A-Za-z0-9][A-Za-z0-9_]{1,20}))*$|^$',
-	"website": r'^http[s]?://(?:[a-zA-Z]|[0-9]|[$-_@.&+]|[!*\(\),]|(?:%[0-9a-fA-F][0-9a-fA-F]))+$|^$'
+	"website": r'^https?://[^\s/$.?#].[^\s]*$|^$'
 }
 
 CL_REGEX = r'\[(.+?)\]\((.+?)\)'
 CWTS_REGEX = r'^(?:(?:https?:\/\/)?(?:(?:www|old|new|np)\.)?)?reddit\.com\/r\/([A-Za-z0-9][A-Za-z0-9_]{1,20})(?:\/)$'
-CSTW_REGEX = r'^http[s]?://(?:[a-zA-Z]|[0-9]|[$-_@.&+]|[!*\(\),]|(?:%[0-9a-fA-F][0-9a-fA-F]))+$'
+CSTW_REGEX = r'^https?://[^\s/$.?#].[^\s]*$'
 
 # r/... to /r/...
 SUBREDDIT_TEMPLATE = r"/r/\1"
