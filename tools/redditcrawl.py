@@ -1,11 +1,11 @@
 
-from array import array
 import praw
 import json
 import time
-import re
 import os
 from formatter import format_all
+import traceback
+import re
 
 outfile = open('temp_atlas.json', 'w', encoding='utf-8')
 failfile = open('manual_atlas.json', 'w', encoding='utf-8')
@@ -67,6 +67,11 @@ for submission in reddit.subreddit('placeAtlas2').new(limit=2000):
 		try:
 
 			text = submission.selftext
+			rawtext = text
+
+			text = text.replace("\\", "")
+			text = re.compile(r".*(\{.+\}).*", re.DOTALL).search(text).group(1)
+
 			submission_json = json.loads(text)
 
 			if submission_json:
@@ -88,10 +93,15 @@ for submission in reddit.subreddit('placeAtlas2').new(limit=2000):
 				successcount += 1
 
 		except Exception as e:
-			failfile.write(text+"\n\n" + "="*40 + "\n\n")
+			failfile.write(
+				"\n\n" + "="*40 + "\n\n" +
+				submission.id + "\n\n" +
+				traceback.format_exc() + "\n\n" +
+				rawtext
+			)
 			failcount += 1
 
-		print("written "+submission.id+" submitted "+str(round(time.time()-submission.created_utc))+" seconds ago")
+		print("written "+submission.id+", submitted "+str(round(time.time()-submission.created_utc))+" seconds ago")
 		totalcount += 1
 
 # Remove ,\n
