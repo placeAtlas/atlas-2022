@@ -114,26 +114,29 @@ def fix_no_protocol_urls(entry: dict):
 	return entry
 
 def convert_website_to_subreddit(entry: dict):
-	if (not "website" in entry or not entry['website']) or ("subreddit" in entry and not entry['subreddit'] == ""):
+	if not "website" in entry or not entry['website']:
 		return entry
 
 	if re.match(CWTS_REGEX, entry["website"]):
 		new_subreddit = re.sub(CWTS_REGEX, SUBREDDIT_TEMPLATE, entry["website"])
 		if (new_subreddit.lower() == entry["subreddit"].lower()):
 			entry["website"] = ""
-		else:
+		elif "subreddit" in entry and entry['subreddit'] == "":
 			entry["subreddit"] = new_subreddit
 			entry["website"] = ""
 
 	return entry
 
 def convert_subreddit_to_website(entry: dict):
-	if (not "subreddit" in entry or not entry['subreddit']) or ("website" in entry and not entry['website'] == ""):
+	if not "subreddit" in entry or not entry['subreddit']:
 		return entry
 
 	if re.match(CSTW_REGEX, entry["subreddit"]):
-		entry["website"] = entry["subreddit"]
-		entry["subreddit"] = ""
+		if (entry["website"].lower() == entry["subreddit"].lower()):
+			entry["subreddit"] = ""
+		elif "website" in entry and entry['website'] == "":
+			entry["website"] = entry["subreddit"]
+			entry["subreddit"] = ""
 
 	return entry
 	
