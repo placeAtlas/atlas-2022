@@ -47,7 +47,7 @@ var lastPosition = [0, 0];
 var viewportSize = [0, 0];
 
 document.getElementById("donateButton").addEventListener("click", function(e){
-	document.getElementById("bitcoinQR").src = "./_img/bitcoinQR.png?from=index";
+//	document.getElementById("bitcoinQR").src = "./_img/bitcoinQR.png?from=index";
 	document.getElementById("donateOverlay").style.display = "flex";
 });
 
