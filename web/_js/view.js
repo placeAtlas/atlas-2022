@@ -449,6 +449,11 @@ function initView(){
 					return 0;
 				}
 			break;
+			case "area":
+				sortFunction = function(a, b){
+					return calcPolygonArea(b.path) - calcPolygonArea(a.path);
+				}
+			break;
 			case "relevant":
 				sortFunction = function(a, b){
 					if(a.name.toLowerCase().indexOf(filter) !== -1 && b.name.toLowerCase().indexOf(filter) !== -1){
