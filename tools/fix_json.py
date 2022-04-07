@@ -50,13 +50,17 @@ def fixJson(path):
         if 'subreddit' in entry:
             entry['subreddit'] = fixSubreddit(entry['subreddit'])
 
-        # Collapse Markdown-formatted website links.
         if 'website' in entry:
+            # Collapse Markdown-formatted website links.
             website = entry['website']
             if website.startswith('['):
                 linkBoundary = website.find('](')
                 if linkBoundary >= 0:
-                    entry['website'] = website[linkBoundary + 2 : -1]
+                    website = website[linkBoundary + 2 : -1]
+
+            if website and not website.startswith('http'):
+                website = 'https://' + website
+            entry['website'] = website
 
     newJson = json.dumps(atlasJson)
     # Print the JSON in the existing Atlas format.
