@@ -155,6 +155,11 @@ function initView(){
 
 	buildObjectsList(null, null);
 
+	timeCallback = (tempAtlas) => {
+		renderBackground(tempAtlas);
+		render();
+	}
+
 	// parse linked atlas entry id from link hash
 	/*if (window.location.hash.substring(3)){
 		zoom = 4;
@@ -345,7 +350,9 @@ function initView(){
 				}
 
 				if(changed){
-					hovered = newHovered;
+					hovered = newHovered.sort(function(a, b){
+						return calcPolygonArea(a.path) - calcPolygonArea(b.path);
+					});
 
 					objectsContainer.innerHTML = "";
 
@@ -386,6 +393,7 @@ function initView(){
 				return (
 					   value.name.toLowerCase().indexOf(filter) !== -1
 					|| value.description.toLowerCase().indexOf(filter) !== -1
+					|| value.subreddit && value.subreddit.toLowerCase().indexOf(filter) !== -1
 				);
 			});
 			document.getElementById("atlasSize").innerHTML = "Found "+sortedAtlas.length+" entries.";

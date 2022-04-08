@@ -99,7 +99,8 @@
 				<canvas id="linesCanvas"></canvas>
 				<div id="innerContainer">
 					<canvas id="highlightCanvas" width="2000" height="2000"></canvas>
-					<img id="image" src="./_img/place-indexed-final-place.png" width="2000" height="2000" alt="Canvas of /r/place in the state of when the experiment was concluded." />
+
+					<img id="image" width="2000" height="2000" alt="Canvas of /r/place in the state of when the experiment was concluded." />
 				</div>
 			</div>
 			
@@ -138,7 +139,19 @@
 			
 			<button id="hideListButton"></button>
 			
-			<div id="zoomControls"><button title="Zoom In" id="zoomInButton"></button><button title="Reset View" id="zoomResetButton"></button><button title="Zoom Out" id="zoomOutButton"></button></div>
+			<div id="bottomBar">
+				<div id="zoomControls">
+					<button title="Zoom In" id="zoomInButton"></button>
+					<button title="Reset View" id="zoomResetButton"></button>
+					<button title="Zoom Out" id="zoomOutButton"></button>
+				</div>
+				<div id="timeControls">
+					<input type="range" min="1" max="1" value="1" class="slider" id="timeControlsSlider">
+				</div>
+				<div id="author">
+					<p>Code by <a href="https://draemm.li/various/place-atlas/" target="_blank" rel="author">Roland Rytz</a>. Source on <a target="_blank" href="https://github.com/placeAtlas/atlas">GitHub</a>. This site is powered by <a href="https://www.netlify.com">Netlify</a>. Images provided by <a target="_blank" href="https://place.thatguyalex.com/">Alex Tsernoh</a>.</p>
+				</div>
+			</div>
 			
 			<div id="drawControlsContainer">
 				<a id="drawBackButton" href="./">&lt; Back to the Atlas</a>
@@ -173,10 +186,6 @@
 					<p>Click anywhere on the image to start drawing a shape.
 					When you're happy with the result, click the "Finish" button above or press the Enter key.</p>
 					<p>You can then add more information about your object.</p>
-					<div style="background-color:#666; padding:20px">
-						<p><b>Warning</b></p>
-						<p><b>DO NOT</b> include the character <b>"</b> (quotation marks) in your submission. It will not be approved.</p>
-					</div><br>
 					<div style="background-color:#7289DA; padding:20px">
 						<p><b>Need Help?</b></p>
 						<b>You can ask for help on our discord server <a href="https://discord.gg/pJkm23b2nA">here</a>!</b><br>
@@ -190,11 +199,12 @@
 			
 			<div id="exportOverlay" class="overlay">
 				<div id="exportWindow">
-					<div style="background-color:#666; padding:5px">
-						<p><b>Warning</b></p>
-						<p><b>DO NOT</b> include the character <b>"</b> (quotation marks) in your submission. It will not be approved.</p>
-					</div>
-					<p><b>Recommended:</b> Post directly after clicking this button. Don't forget to flair it with the "New Entry" tag. </p>
+
+					<p>Please copy the text below and submit it as a<br>
+					new text post to <a target="_blank" href="https://www.reddit.com/r/placeAtlas2/">/r/placeAtlas2</a> on Reddit.</p>
+					<p>I will then check it and add it to the atlas.</p>
+					<textarea cols="50" rows="5" id="exportString"></textarea>
+
 					<div style="display:flex; flex-direction:column;align-items:center">
 						<a href="_blank" id="exportDirectPost">Post Direct to Reddit</a>
 					</div>
@@ -225,10 +235,8 @@
 					<br>
 				</div>
 			</div>
-			<div id="author">
-				Code forked by <a href="https://place-atlas.stefanocoding.me/" target="_blank" rel="author">Stefano Haagmans</a>. Source on <a target="_blank" href="https://github.com/placeAtlas/atlas">GitHub</a>, Images provided by <a target="_blank" href="https://place.thatguyalex.com/">Alex Tsernoh</a>. This site is powered by <a href="https://www.netlify.com">Netlify</a>.
-			</div>
 		</div>
+		<script type="text/javascript" src="./_js/time.js?version=1.0.3"></script>
 		<script type="text/javascript" src="./_js/infoblock.js?version=1.0"></script>
 		<script type="text/javascript" src="./_js/pointInPolygon.js?version=1.0"></script>
 		<script type="text/javascript" src="./_js/atlas.js?version=1.0.50"></script>
