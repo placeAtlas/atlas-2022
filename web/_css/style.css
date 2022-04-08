@@ -491,6 +491,16 @@ noscript {
 	margin-bottom: 10px;
 }
 
+p.edit {
+	color: #FFFF00;
+}
+p.add {
+	color: #00FF00;
+}
+p.delete {
+	color: #FF0000;
+}
+
 #drawControlsContainer {
 	background-color: #444;
 	border-right: 1px #000 solid;
