@@ -109,8 +109,8 @@ for submission in reddit.subreddit('placeAtlas2').new(limit=2000):
 		print("written "+submission.id+", submitted "+str(round(time.time()-submission.created_utc))+" seconds ago")
 		totalcount += 1
 
-# Remove ,\n
-outfile.seek(outfile.tell()-4, os.SEEK_SET)
+# Remove last trailing comma
+outfile.seek(outfile.tell()-3, os.SEEK_SET)
 outfile.truncate()
 
 outfile.write("\n]")
