@@ -46,7 +46,7 @@ var lastPosition = [0, 0];
 
 var viewportSize = [0, 0];
 
-document.getElementById("donateButton").addEventListener("click", function(e){
+document.getElementById("entriesListDonate").addEventListener("click", function(e){
 //	document.getElementById("bitcoinQR").src = "./_img/bitcoinQR.png?from=index";
 	document.getElementById("donateOverlay").style.display = "flex";
 });
@@ -188,33 +188,6 @@ async function init(){
 		}
 	}
 	
-	function changeOverlapMode(){
-		console.log(mode)
-		switch(mode){
-			case "overlap":
-				window.location.href = "?mode=explore"
-				break;
-			case "explore":
-				window.location.href = "?"
-				break;
-			default:
-				window.location.href = "?mode=overlap"
-				break;
-		}
-
-		return false;
-	}
-
-	const modeMap = {
-		"view": "Overlap",
-		"overlap": "Explore",
-		"explore": "Atlas"
-	}
-
-	const toggleMode = document.getElementById("toggleMode");
-	toggleMode.onclick = changeOverlapMode;
-	toggleMode.innerHTML = modeMap[mode] || "Overlap";
-
 	document.getElementById("loading").style.display = "none";
 
 	document.getElementById("zoomInButton").addEventListener("click", function(e){
