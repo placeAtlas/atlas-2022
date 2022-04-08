@@ -393,6 +393,7 @@ function initView(){
 				return (
 					   value.name.toLowerCase().indexOf(filter) !== -1
 					|| value.description.toLowerCase().indexOf(filter) !== -1
+					|| value.subreddit && value.subreddit.toLowerCase().indexOf(filter) !== -1
 				);
 			});
 			document.getElementById("atlasSize").innerHTML = "Found "+sortedAtlas.length+" entries.";
