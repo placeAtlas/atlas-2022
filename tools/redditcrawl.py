@@ -1,11 +1,10 @@
-
 import praw
 import json
 import time
-import os
-from formatter import format_all
-import traceback
 import re
+import os
+import traceback
+from formatter import format_all
 
 outfile = open('temp_atlas.json', 'w', encoding='utf-8')
 failfile = open('manual_atlas.json', 'w', encoding='utf-8')
@@ -30,10 +29,6 @@ if not has_write_access:
 	print("Warning: No write access. Post flairs will not be updated.")
 	time.sleep(5)
 
-failcount = 0
-successcount = 0
-totalcount = 0
-
 jsonfile = open("../web/atlas.json", "r", encoding='utf-8')
 existing = json.load(jsonfile)
 
@@ -50,6 +45,10 @@ def set_flair(submission, flair):
 
 total_all_flairs = 0
 duplicate_count = 0
+failcount = 0
+successcount = 0
+totalcount = 0
+
 outfile.write("[\n")
 for submission in reddit.subreddit('placeAtlas2').new(limit=2000):
 	"""
@@ -78,9 +77,10 @@ for submission in reddit.subreddit('placeAtlas2').new(limit=2000):
 	total_all_flairs += 1
 
 	if (submission.id in existing_ids):
+		set_flair(submission, "Processed Entry")
 		print("Found first duplicate!")
 		duplicate_count += 1
-		if (duplicate_count > 10):
+		if (duplicate_count > 0):
 			break
 		else:
 			continue
