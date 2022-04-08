@@ -99,7 +99,8 @@
 				<canvas id="linesCanvas"></canvas>
 				<div id="innerContainer">
 					<canvas id="highlightCanvas" width="2000" height="2000"></canvas>
-					<img id="image" src="./_img/place-indexed-final-place.png" width="2000" height="2000" alt="Canvas of /r/place in the state of when the experiment was concluded." />
+
+					<img id="image" width="2000" height="2000" alt="Canvas of /r/place in the state of when the experiment was concluded." />
 				</div>
 			</div>
 			
@@ -138,7 +139,19 @@
 			
 			<button id="hideListButton"></button>
 			
-			<div id="zoomControls"><button title="Zoom In" id="zoomInButton"></button><button title="Reset View" id="zoomResetButton"></button><button title="Zoom Out" id="zoomOutButton"></button></div>
+			<div id="bottomBar">
+				<div id="zoomControls">
+					<button title="Zoom In" id="zoomInButton"></button>
+					<button title="Reset View" id="zoomResetButton"></button>
+					<button title="Zoom Out" id="zoomOutButton"></button>
+				</div>
+				<div id="timeControls">
+					<input type="range" min="1" max="1" value="1" class="slider" id="timeControlsSlider">
+				</div>
+				<div id="author">
+					<p>Code by <a href="https://draemm.li/various/place-atlas/" target="_blank" rel="author">Roland Rytz</a>. Source on <a target="_blank" href="https://github.com/placeAtlas/atlas">GitHub</a>. This site is powered by <a href="https://www.netlify.com">Netlify</a>. Images provided by <a target="_blank" href="https://place.thatguyalex.com/">Alex Tsernoh</a>.</p>
+				</div>
+			</div>
 			
 			<div id="drawControlsContainer">
 				<a id="drawBackButton" href="./">&lt; Back to the Atlas</a>
@@ -222,10 +235,8 @@
 					<br>
 				</div>
 			</div>
-			<div id="author">
-				Code forked by <a href="https://place-atlas.stefanocoding.me/" target="_blank" rel="author">Stefano Haagmans</a>. Source on <a target="_blank" href="https://github.com/placeAtlas/atlas">GitHub</a>, Images provided by <a target="_blank" href="https://place.thatguyalex.com/">Alex Tsernoh</a>. This site is powered by <a href="https://www.netlify.com">Netlify</a>.
-			</div>
 		</div>
+		<script type="text/javascript" src="./_js/time.js?version=1.0.3"></script>
 		<script type="text/javascript" src="./_js/infoblock.js?version=1.0"></script>
 		<script type="text/javascript" src="./_js/pointInPolygon.js?version=1.0"></script>
 		<script type="text/javascript" src="./_js/atlas.js?version=1.0.50"></script>
