@@ -756,7 +756,7 @@ function initView(){
 				,e.touches[0].clientY
 			];
 		}
-	});
+	}, );
 
 	container.addEventListener("mouseup", function(e){
 		if(Math.abs(lastPos[0] - e.clientX) + Math.abs(lastPos[1] - e.clientY) <= 4){

@@ -354,7 +354,7 @@ async function init(){
 
 		touchstart(e);
 
-	});
+	},	{passive: true});
 
 	function mousedown(x, y){
 		lastPosition = [x, y];
