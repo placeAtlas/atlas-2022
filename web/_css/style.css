@@ -1241,6 +1241,6 @@ h2#abouth2 {
 	display: block;
 }
 
-body:not([data-dev]) show-only-on-dev {
-	display: none;
+body:not([data-dev]) .show-only-on-dev {
+	display: none !important;
 }
