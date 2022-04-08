@@ -13,8 +13,8 @@ with open('credentials', 'r') as file:
 	credentials = file.readlines()
 	client_id = credentials[0].strip()
 	client_secret = credentials[1].strip()
-	username = credentials[2].strip()
-	password = credentials[3].strip()
+	username = credentials[2].strip() if len(credentials) > 3 else ""
+	password = credentials[3].strip() if len(credentials) > 3 else ""
 
 reddit = praw.Reddit(
 	client_id=client_id, 
