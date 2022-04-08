@@ -18,7 +18,7 @@ UNUSED AND FAULTY
    - [place.reddit.com](https://place.reddit.com)
 """
 FS_REGEX = {
-	"commatization": r'( *(,+ +|,+ |,+)| +)(and|&)( *(,+ +|,+ |,+)| +)',
+	"commatization": r'( *(,+ +|,+ |,+)| +)(and|&|;)( *(,+ +|,+ |,+)| +)',
 	"pattern1": r'\/*[rR]\/([A-Za-z0-9][A-Za-z0-9_]{1,20})(?:\/$)?',
 	"pattern2": r'^\/*[rR](?!\/)([A-Za-z0-9][A-Za-z0-9_]{1,20})(?:\/$)?',
 	"pattern3": r'(?:(?:https?:\/\/)?(?:(?:www|old|new|np)\.)?)?reddit\.com\/r\/([A-Za-z0-9][A-Za-z0-9_]{1,20})(?:\/[^" ]*)*',
