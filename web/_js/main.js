@@ -325,7 +325,7 @@ async function init(){
 		applyZoom(x, y, zoom);
 
 		e.preventDefault();
-	});
+	}, {passive: true});
 
 	/*function setDesiredZoom(x, y, target){
 		zoom = (zoom*2 + target)/3;
