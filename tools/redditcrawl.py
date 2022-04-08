@@ -10,11 +10,25 @@ import re
 outfile = open('temp_atlas.json', 'w', encoding='utf-8')
 failfile = open('manual_atlas.json', 'w', encoding='utf-8')
 
-credentials = open('credentials', 'r')
-client_id = credentials.readline().strip(' \t\n\r')
-client_secret = credentials.readline().strip(' \t\n\r')
+with open('credentials', 'r') as file:
+	credentials = file.readlines()
+	client_id = credentials[0].strip()
+	client_secret = credentials[1].strip()
+	username = credentials[2].strip()
+	password = credentials[3].strip()
 
-reddit = praw.Reddit(client_id=client_id, client_secret=client_secret, user_agent='atlas_bot')
+reddit = praw.Reddit(
+	client_id=client_id, 
+	client_secret=client_secret,
+	username=username,
+	password=password,
+	user_agent='atlas_bot'
+)
+
+has_write_access = not reddit.read_only
+if not has_write_access:
+	print("Warning: No write access. Post flairs will not be updated.")
+	time.sleep(5)
 
 failcount = 0
 successcount = 0
@@ -27,6 +41,12 @@ existing_ids = []
 
 for item in existing:
 	existing_ids.append(item['id'])
+
+def set_flair(submission, flair):
+	if has_write_access and submission.link_flair_text != flair:
+		flair_choices = submission.flair.choices()
+		flair = next(x for x in flair_choices if x["flair_text_editable"] and flair == x["flair_text"])
+		submission.flair.select(flair["flair_template_id"])
 
 total_all_flairs = 0
 duplicate_count = 0
@@ -62,7 +82,7 @@ for submission in reddit.subreddit('placeAtlas2').new(limit=2000):
 		else:
 			continue
 
-	if(submission.link_flair_text == "New Entry"):
+	if (submission.link_flair_text == "New Entry"):
 
 		try:
 
@@ -93,6 +113,7 @@ for submission in reddit.subreddit('placeAtlas2').new(limit=2000):
 
 				outfile.write(json.dumps(submission_json) + ",\n")
 				successcount += 1
+				set_flair(submission, "Processed Entry")
 
 		except Exception as e:
 			failfile.write(
@@ -105,8 +126,9 @@ for submission in reddit.subreddit('placeAtlas2').new(limit=2000):
 				text + "\n\n"
 			)
 			failcount += 1
+			set_flair(submission, "Rejected Entry")
 
-		print("written "+submission.id+", submitted "+str(round(time.time()-submission.created_utc))+" seconds ago")
+		print("Wrote "+submission.id+", submitted "+str(round(time.time()-submission.created_utc))+" seconds ago")
 		totalcount += 1
 
 # Remove last trailing comma
