@@ -1,0 +1,22 @@
+on:
+  pull_request_target:
+    types:
+        - opened
+  pull_request:
+    types:
+        - opened
+  issues:
+
+permissions:
+  contents: read
+  issues: write
+  pull-requests: write
+  statuses: write
+  checks: write
+
+jobs:
+  labeler:
+    name: Labeler
+    runs-on: ubuntu-latest
+    steps:
+      - uses: fuxingloh/multi-labeler@v1

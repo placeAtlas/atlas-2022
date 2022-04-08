@@ -1,0 +1,15 @@
+version: v1
+
+labels:
+  - label: "Website Improvements"
+    matcher:
+      files:
+        any: [ "web/**" ]
+        all: [ "!web/atlas.json" ]
+  - label: "Tooling"
+    matcher:
+      files:
+        any: [ "tools/**", ".github/workflows/**" ]
+  - label: "SUBMIT ON REDDIT"
+    matcher:
+      title: "^[Aa]dd(ing|ed|s)?"
