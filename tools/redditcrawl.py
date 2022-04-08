@@ -59,11 +59,14 @@ for submission in reddit.subreddit('placeAtlas2').new(limit=2000):
 	3. Give it a name and description
 	4. Select "script"
 	5. Redirect to http://localhost:8080
-	6. Copy ID (under Personal Use Script)
-	7. Append to file called "credentials"
-	8. Copy Secret 
-	9. Append on newline to "credentials" file
-	10. Run Script
+	6. Create file "credentials" with the format below.
+	┌─────────────────────────────────────────────────────┐
+	│ [ID]        <-  Under "personal use script"         │
+	│ [Secret]                                            │
+	│ [Username]  <-  Must be a mod, don't do this if you │
+	│ [Password]  <-  don't know what you are doing.      │
+	└─────────────────────────────────────────────────────┘
+	7. Run Script
 
 	Running Script
 	1. Input the next ID to use
