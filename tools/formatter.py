@@ -35,7 +35,10 @@ VALIDATE_REGEX = {
 }
 
 CL_REGEX = r'\[(.+?)\]\((.+?)\)'
-CWTS_REGEX = r'^(?:(?:https?:\/\/)?(?:(?:www|old|new|np)\.)?)?reddit\.com\/r\/([A-Za-z0-9][A-Za-z0-9_]{1,20})(?:\/)$'
+CWTS_REGEX = {
+	"url": r'^(?:(?:https?:\/\/)?(?:(?:www|old|new|np)\.)?)?reddit\.com\/r\/([A-Za-z0-9][A-Za-z0-9_]{1,20})(?:\/)$',
+	"subreddit": r'^\/*[rR]\/([A-Za-z0-9][A-Za-z0-9_]{1,20})\/?$'
+}
 CSTW_REGEX = {
 	"website": r'^https?://[^\s/$.?#].[^\s]*$',
 	"user": r'^\/*u\/([A-Za-z0-9][A-Za-z0-9_]{1,20})$'
@@ -122,8 +125,15 @@ def convert_website_to_subreddit(entry: dict):
 	if not "website" in entry or not entry['website']:
 		return entry
 
-	if re.match(CWTS_REGEX, entry["website"]):
-		new_subreddit = re.sub(CWTS_REGEX, SUBREDDIT_TEMPLATE, entry["website"])
+	if re.match(CWTS_REGEX["url"], entry["website"]):
+		new_subreddit = re.sub(CWTS_REGEX["url"], SUBREDDIT_TEMPLATE, entry["website"])
+		if (new_subreddit.lower() == entry["subreddit"].lower()):
+			entry["website"] = ""
+		elif not "subreddit" in entry or entry['subreddit'] == "":
+			entry["subreddit"] = new_subreddit
+			entry["website"] = ""
+	elif re.match(CWTS_REGEX["subreddit"], entry["website"]):
+		new_subreddit = re.sub(CWTS_REGEX["subreddit"], SUBREDDIT_TEMPLATE, entry["website"])
 		if (new_subreddit.lower() == entry["subreddit"].lower()):
 			entry["website"] = ""
 		elif not "subreddit" in entry or entry['subreddit'] == "":
@@ -171,8 +181,6 @@ def format_all(entry: dict, silent=False):
 			print(*args, **kwargs)
 	print_("Fixing r/ capitalization...")
 	entry = fix_r_caps(entry)
-	print_("Fixing links without protocol...")
-	entry = fix_no_protocol_urls(entry)
 	print_("Fix formatting of subreddit...")
 	entry = format_subreddit(entry)
 	print_("Collapsing Markdown links...")
@@ -181,6 +189,8 @@ def format_all(entry: dict, silent=False):
 	entry = convert_website_to_subreddit(entry)
 	print_("Converting subreddit links to website (if needed)...")
 	entry = convert_subreddit_to_website(entry)
+	print_("Fixing links without protocol...")
+	entry = fix_no_protocol_urls(entry)
 	print_("Removing extras...")
 	entry = remove_extras(entry)
 	print_("Validating...")
