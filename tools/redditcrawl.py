@@ -1,24 +1,33 @@
-
 import praw
 import json
 import time
 import re
 import os
+import traceback
+from formatter import format_all
 
 outfile = open('temp_atlas.json', 'w', encoding='utf-8')
 failfile = open('manual_atlas.json', 'w', encoding='utf-8')
 
-credentials = open('credentials', 'r')
-client_id = credentials.readline().strip(' \t\n\r')
-client_secret = credentials.readline().strip(' \t\n\r')
-user = credentials.readline().strip(' \t\n\r')
-pw = credentials.readline().strip(' \t\n\r')
+with open('credentials', 'r') as file:
+	credentials = file.readlines()
+	client_id = credentials[0].strip()
+	client_secret = credentials[1].strip()
+	username = credentials[2].strip()
+	password = credentials[3].strip()
 
-reddit = praw.Reddit(client_id=client_id, client_secret=client_secret, user_agent='atlas_bot',username=user,password=pw)
+reddit = praw.Reddit(
+	client_id=client_id, 
+	client_secret=client_secret,
+	username=username,
+	password=password,
+	user_agent='atlas_bot'
+)
+
 has_write_access = not reddit.read_only
 if not has_write_access:
-	print("Warning: No write access. Post flairs will not be updated")
-	sleep(5)
+	print("Warning: No write access. Post flairs will not be updated.")
+	time.sleep(5)
 
 jsonfile = open("../web/atlas.json", "r", encoding='utf-8')
 existing = json.load(jsonfile)
@@ -39,6 +48,7 @@ duplicate_count = 0
 failcount = 0
 successcount = 0
 totalcount = 0
+
 outfile.write("[\n")
 for submission in reddit.subreddit('placeAtlas2').new(limit=2000):
 	"""
@@ -48,12 +58,14 @@ for submission in reddit.subreddit('placeAtlas2').new(limit=2000):
 	3. Give it a name and description
 	4. Select "script"
 	5. Redirect to http://localhost:8080
-	6. Copy ID (under Personal Use Script)
-	7. Append to file called "credentials"
-	8. Copy Secret 
-	9. Append on newline to "credentials" file
-	10. If you want flair write access append 2 newlines with username and password (Must be a mod, don't do this if you don't know what you're doing)
-	11. Run Script
+	6. Create file "credentials" with the format below.
+	┌─────────────────────────────────────────────────────┐
+	│ [ID]        <-  Under "personal use script"         │
+	│ [Secret]                                            │
+	│ [Username]  <-  Must be a mod, don't do this if you │
+	│ [Password]  <-  don't know what you are doing.      │
+	└─────────────────────────────────────────────────────┘
+	7. Run Script
 
 	Running Script
 	1. Input the next ID to use
@@ -63,6 +75,7 @@ for submission in reddit.subreddit('placeAtlas2').new(limit=2000):
 
 	"""
 	total_all_flairs += 1
+
 	if (submission.id in existing_ids):
 		set_flair(submission, "Processed Entry")
 		print("Found first duplicate!")
@@ -71,40 +84,59 @@ for submission in reddit.subreddit('placeAtlas2').new(limit=2000):
 			break
 		else:
 			continue
-	if(submission.link_flair_text == "New Entry"):
-		text = submission.selftext
-		#Old backslash filter:
-		#text = text.replace("\\", "")
-		#New one: One \\ escapes a backslash in python's parser
-		# Two escape it again in the regex parser, so \\\\ is \
-		# Then anything but " or n is replaced with the first capture group (anything but " or n)
-		# Test in repl: re.sub("\\\\([^\"n])", "\\1", "\\t < removed slash, t stays and > stays \\n \\\"")
-		text = re.sub("\\\\([^\"n])", "\\1", text)
+
+	if (submission.link_flair_text == "New Entry"):
+
 		try:
-			text = text.replace("\"id\": 0,", "\"id\": 0,\n\t\t\"submitted_by\": \""+submission.author.name+"\",")
-		except AttributeError:
-			text = text.replace("\"id\": 0,", "\"id\": 0,\n\t\t\"submitted_by\": \""+"unknown"+"\",")
 
+			text = submission.selftext
+			rawtext = text
 
-		lines = text.split("\n")
+			text = text.replace('\u200c', '')
+			text = re.compile(r".*(\{.+\}).*", re.DOTALL).search(text).group(1)
+			# Test if it needs to escape the escape character. Usually happens on fancy mode.
+			try: json.loads(text)
+			except json.JSONDecodeError: text = re.sub(r"\\(.)", r"\1", text)
 
-		for i, line in enumerate(lines):
-			if("\"id\": 0" in line):
-				lines[i] = line.replace("\"id\": 0", "\"id\": "+"\""+str(submission.id)+"\"")
-		text = "\n".join(lines)
-		try:
-			outfile.write(json.dumps(json.loads(text))+"  ,\n")
-			successcount += 1
-			set_flair(submission, "Processed Entry")
-		except json.JSONDecodeError:
-			failfile.write(text+",\n")
+			submission_json = json.loads(text)
+
+			if submission_json:
+
+				# Assert if path does not empty
+				assert len(submission_json["path"]) > 0
+
+				submission_json_dummy = {"id": submission.id, "submitted_by": ""}
+				try:
+					submission_json_dummy["submitted_by"] = submission.author.name
+				except AttributeError:
+					submission_json_dummy["submitted_by"] = "unknown"
+				for key in submission_json:
+					if not key in submission_json_dummy:
+						submission_json_dummy[key] = submission_json[key];
+				submission_json = format_all(submission_json_dummy, True)
+
+				outfile.write(json.dumps(submission_json) + ",\n")
+				successcount += 1
+				set_flair(submission, "Processed Entry")
+
+		except Exception as e:
+			failfile.write(
+				"\n\n" + "="*40 + "\n\n" +
+				submission.id + "\n\n" +
+				traceback.format_exc() + "\n\n" +
+				"==== RAW ====" + "\n\n" +
+				rawtext + "\n\n"
+				"==== CLEAN ====" + "\n\n" +
+				text + "\n\n"
+			)
 			failcount += 1
 			set_flair(submission, "Rejected Entry")
-		print("written "+submission.id+" submitted "+str(round(time.time()-submission.created_utc))+" seconds ago")
+
+		print("Wrote "+submission.id+", submitted "+str(round(time.time()-submission.created_utc))+" seconds ago")
 		totalcount += 1
 
-# Remove ,\n
-outfile.seek(outfile.tell()-4, os.SEEK_SET)
+# Remove last trailing comma
+outfile.seek(outfile.tell()-3, os.SEEK_SET)
 outfile.truncate()
 
 outfile.write("\n]")
