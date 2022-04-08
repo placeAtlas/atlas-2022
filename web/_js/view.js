@@ -342,6 +342,9 @@ function initView(){
 				 (e.clientX - (container.clientWidth/2 - innerContainer.clientWidth/2 + zoomOrigin[0] + container.offsetLeft))/zoom
 				,(e.clientY - (container.clientHeight/2 - innerContainer.clientHeight/2 + zoomOrigin[1] + container.offsetTop))/zoom
 			];
+			var coords_p = document.getElementById("coords_p");
+			console.log(coords_p)
+			coords_p.innerText = Math.ceil(pos[0]) + ", " + Math.ceil(pos[1]);
 
 			if(pos[0] <= 2200 && pos[0] >= -100 && pos[0] <= 2200 && pos[0] >= -100){
 				var newHovered = [];

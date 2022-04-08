@@ -648,6 +648,37 @@ input[type="checkbox"] {
 	display: none;
 }
 
+#coordsWrapper {
+	min-width: 100px;
+	position: absolute;
+    top: 10px;
+    left: 400px;
+    display: flex;
+	gap: 10px;
+	z-index: 100;
+}
+@media (max-width: 750px) {
+	#coordsWrapper {
+		display: none;
+	}
+}
+#coords {
+	background-color: #555;
+	border: 1px #000 solid;
+	padding: 3px;
+	font-size: 18px;
+	z-index: 1100;
+	display: flex;
+    align-items: center;
+    justify-content: center;
+	text-align: center;
+}
+
+#coords p {
+	margin: 0;
+	line-height: inherit;
+}
+
 #bottomBar {
 	position: absolute;
     bottom: 10px;
