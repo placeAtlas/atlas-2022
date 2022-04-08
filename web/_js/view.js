@@ -114,8 +114,23 @@ function renderBackground(atlas){
 
 		backgroundContext.closePath();
 
-		backgroundContext.strokeStyle = "rgba(255, 255, 255, 0.8)";
+		var bgStrokeStyle;
+		switch (atlas[i].diff) {
+			case "add":
+				bgStrokeStyle = "rgba(0, 255, 0, 1)";
+				backgroundContext.lineWidth = 2;
+				break;
+			case "edit":
+				bgStrokeStyle = "rgba(255, 255, 0, 1)";
+				backgroundContext.lineWidth = 2;
+				break;
+			default:
+				bgStrokeStyle = "rgba(255, 255, 255, 0.8)";
+				break;
+		}
+		backgroundContext.strokeStyle = bgStrokeStyle;
 		backgroundContext.stroke();
+		backgroundContext.lineWidth = 1;
 	}
 }
 
@@ -691,7 +706,19 @@ function initView(){
 
 			context.globalCompositeOperation = "source-over";
 
-			context.strokeStyle = "rgba(0, 0, 0, 1)";
+			var hoverStrokeStyle;
+			switch (hovered[i].diff) {
+				case "add":
+					hoverStrokeStyle = "rgba(0, 155, 0, 1)";
+					break;
+				case "edit":
+					hoverStrokeStyle = "rgba(155, 155, 0, 1)";
+					break;
+				default:
+					hoverStrokeStyle = "rgba(0, 0, 0, 1)";
+					break;
+			}
+			context.strokeStyle = hoverStrokeStyle;
 			//context.lineWidth = zoom;
 			context.stroke();
 		}
