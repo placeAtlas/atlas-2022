@@ -3,7 +3,7 @@
     "background_color": "#f69435",
     "display": "minimal-ui",
     "scope": "/",
-    "start_url": "https://place-atlas.stefanocoding.me/",
+    "start_url": "/",
     "name": "r/place atlas",
     "short_name": "r/placeAtlas2",
     "description": "The atlas for the r/place event from 2022",
