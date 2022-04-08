@@ -40,7 +40,7 @@ CSTW_REGEX = r'^https?://[^\s/$.?#].[^\s]*$'
 
 # r/... to /r/...
 SUBREDDIT_TEMPLATE = r"/r/\1"
-USER_TEMPLATE = r"/r/\1"
+USER_TEMPLATE = r"/u/\1"
 
 def format_subreddit(entry: dict):
 	if not "subreddit" in entry or not entry['subreddit']:
