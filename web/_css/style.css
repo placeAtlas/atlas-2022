@@ -1234,7 +1234,6 @@ h2#abouth2 {
   
 #viewModes .dropdown-content a:hover {
 	background-image: linear-gradient(to bottom, #999, #777);
-	cursor: default;
 }
   
 #viewModes:hover .dropdown-content,
