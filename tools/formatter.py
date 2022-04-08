@@ -216,7 +216,7 @@ def per_line_entries(entries: list):
 	out = "[\n"
 	for entry in entries:
 		if entry:
-			out += json.dumps(entry) + ",\n"
+			out += json.dumps(entry, ensure_ascii=False) + ",\n"
 	out = out[:-2] + "\n]"
 	return out
 

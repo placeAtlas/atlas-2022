@@ -115,7 +115,7 @@ for submission in reddit.subreddit('placeAtlas2').new(limit=2000):
 				assert validation_status < 3, \
 					"Submission invalid after validation. This may be caused by not enough points on the path."
 					
-				outfile.write(json.dumps(submission_json) + ",\n")
+				outfile.write(json.dumps(submission_json, ensure_ascii=False) + ",\n")
 				successcount += 1
 				set_flair(submission, "Processed Entry")
 
