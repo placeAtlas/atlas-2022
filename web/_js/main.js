@@ -142,29 +142,34 @@ async function init(){
 		try {
 			let liveResp = await fetch("https://place-atlas.stefanocoding.me/atlas.json");
 			let liveJson = await liveResp.json();
-			let liveAtlasReduced = liveJson.reduce(function(a, c) {
+			let liveAtlasReduced = liveJson.reduce(function(a, c){
 				a[c.id] = c;
 				return a;
 			},{});
-			if(mode.endsWith("only")){
-				atlas = atlas.filter(function(entry) {
+			if(mode.includes("only")){
+				atlas = atlas.filter(function(entry){
 					return JSON.stringify(entry) !== JSON.stringify(liveAtlasReduced[entry.id]);
 				});
 			}
-			atlas = atlas.map(function(entry) {
+			atlas = atlas.map(function(entry){
 				if(liveAtlasReduced[entry.id] === undefined){
 					entry.diff = "add";
-				}else if(JSON.stringify(entry) !== JSON.stringify(liveAtlasReduced[entry.id])){
+				} else if(JSON.stringify(entry) !== JSON.stringify(liveAtlasReduced[entry.id])){
 					entry.diff = "edit";
 				}
 				return entry;
 			});
 			//TEMP FOR TIME TRAVEL
 			atlasBackup = atlas;
-		} catch (error) {
-			console.log("Diff mode failed to load, reverting to normal view - " + error);
+		} catch(error){
+			console.log("Diff mode failed to load - " + error);
 		} finally {
-			initView();
+			if(mode.endsWith("onlyoverlap") && initOverlap){
+				initOverlap();
+			}
+			else {
+				initView();
+			}
 		}
 	}
 	
