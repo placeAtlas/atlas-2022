@@ -36,7 +36,10 @@ VALIDATE_REGEX = {
 
 CL_REGEX = r'\[(.+?)\]\((.+?)\)'
 CWTS_REGEX = r'^(?:(?:https?:\/\/)?(?:(?:www|old|new|np)\.)?)?reddit\.com\/r\/([A-Za-z0-9][A-Za-z0-9_]{1,20})(?:\/)$'
-CSTW_REGEX = r'^https?://[^\s/$.?#].[^\s]*$'
+CSTW_REGEX = {
+	"website": r'^https?://[^\s/$.?#].[^\s]*$',
+	"user": r'^\/*u\/([A-Za-z0-9][A-Za-z0-9_]{1,20})$'
+}
 
 # r/... to /r/...
 SUBREDDIT_TEMPLATE = r"/r/\1"
@@ -123,7 +126,7 @@ def convert_website_to_subreddit(entry: dict):
 		new_subreddit = re.sub(CWTS_REGEX, SUBREDDIT_TEMPLATE, entry["website"])
 		if (new_subreddit.lower() == entry["subreddit"].lower()):
 			entry["website"] = ""
-		elif "subreddit" in entry and entry['subreddit'] == "":
+		elif not "subreddit" in entry or entry['subreddit'] == "":
 			entry["subreddit"] = new_subreddit
 			entry["website"] = ""
 
@@ -133,11 +136,16 @@ def convert_subreddit_to_website(entry: dict):
 	if not "subreddit" in entry or not entry['subreddit']:
 		return entry
 
-	if re.match(CSTW_REGEX, entry["subreddit"]):
+	if re.match(CSTW_REGEX["website"], entry["subreddit"]):
 		if (entry["website"].lower() == entry["subreddit"].lower()):
 			entry["subreddit"] = ""
-		elif "website" in entry and entry['website'] == "":
+		elif not "website" in entry or entry['website'] == "":
 			entry["website"] = entry["subreddit"]
+			entry["subreddit"] = ""
+	elif re.match(CSTW_REGEX["user"], entry["subreddit"]):
+		if not "website" in entry or entry['website'] == "":
+			username = re.match(CSTW_REGEX["user"], entry["subreddit"]).group(1)
+			entry["website"] = "https://www.reddit.com/user/" + username
 			entry["subreddit"] = ""
 
 	return entry
