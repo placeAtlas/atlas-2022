@@ -1,78 +1,78 @@
 const timeConfig = [
     {
         timestamp: 1648822500,
-        url: "/_img/place/1648822500.png",
+        url: "./_img/place/1648822500.png",
         image: null
     },
     {
         timestamp: 1648847036,
-        url: "/_img/place/1648847036.png",
+        url: "./_img/place/1648847036.png",
         image: null
     },
     {
         timestamp: 1648870452,
-        url: "/_img/place/1648870452.png",
+        url: "./_img/place/1648870452.png",
         image: null
     },
     {
         timestamp: 1648893666,
-        url: "/_img/place/1648893666.png",
+        url: "./_img/place/1648893666.png",
         image: null
     },
     {
         timestamp: 1648917500,
-        url: "/_img/place/1648917500.png",
+        url: "./_img/place/1648917500.png",
         image: null
     },
     {
         timestamp: 1648942113,
-        url: "/_img/place/1648942113.png",
+        url: "./_img/place/1648942113.png",
         image: null
     },
     {
         timestamp: 1648956234,
-        url: "/_img/place/1648956234.png",
+        url: "./_img/place/1648956234.png",
         image: null
     },
     {
         timestamp: 1648968061,
-        url: "/_img/place/1648968061.png",
+        url: "./_img/place/1648968061.png",
         image: null
     },
     {
         timestamp: 1648979987,
-        url: "/_img/place/1648979987.png",
+        url: "./_img/place/1648979987.png",
         image: null
     },
 
     {
         timestamp: 1648992274,
-        url: "/_img/place/1648992274.png",
+        url: "./_img/place/1648992274.png",
         image: null
     },
     {
         timestamp: 1649012915,
-        url: "/_img/place/1649012915.png",
+        url: "./_img/place/1649012915.png",
         image: null
     },
     {
         timestamp: 1649037182,
-        url: "/_img/place/1649037182.png",
+        url: "./_img/place/1649037182.png",
         image: null
     },
     {
         timestamp: 1649060793,
-        url: "/_img/place/1649060793.png",
+        url: "./_img/place/1649060793.png",
         image: null
     },
     {
         timestamp: 1649084741,
-        url: "/_img/place/1649084741.png",
+        url: "./_img/place/1649084741.png",
         image: null
     },
     {
         timestamp: 1649113199,
-        url: "/_img/place/final.png",
+        url: "./_img/place/final.png",
         image: null,
         showAtlas: true,
     },
