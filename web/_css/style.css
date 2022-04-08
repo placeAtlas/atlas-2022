@@ -87,7 +87,6 @@ button,
 	padding: 5px;
 	cursor: pointer;
 	text-shadow: 1px 1px 0 #444;
-	text-decoration: none;
 }
 
 button::-moz-focus-inner,
@@ -1218,7 +1217,7 @@ h2#abouth2 {
 	left: 0;
 	position: absolute;
 	display: none;
-	background-image: linear-gradient(to bottom, #888, #666);
+	background: #666;
 	border: 1px #000 solid;
 	cursor: pointer;
 	width: 125%
@@ -1233,7 +1232,16 @@ h2#abouth2 {
 	text-shadow: 1px 1px 0 #444;
 }
   
-#viewModes .dropdown-content a:hover {background-color: #ddd;}
+#viewModes .dropdown-content a:hover {
+	background-image: linear-gradient(to bottom, #999, #777);
+	cursor: default;
+}
   
 #viewModes:hover .dropdown-content,
-#viewModes:active .dropdown-content  {display: block;}
+#viewModes:active .dropdown-content {
+	display: block;
+}
+
+body:not([data-dev]) show-only-on-dev {
+	display: none;
+}

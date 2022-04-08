@@ -23,6 +23,7 @@
 	========================================================================
 */
 
+const prodDomain = "http://place-atlas.stefanocoding.me"
 
 var innerContainer = document.getElementById("innerContainer");
 var container = document.getElementById("container");
@@ -74,6 +75,8 @@ function applyView(){
 }
 
 var atlas = null;
+
+if (document.location.host !== prodDomain) document.body.dataset.dev = ""
 
 init();
 
