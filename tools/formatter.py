@@ -18,7 +18,7 @@ UNUSED AND FAULTY
    - [place.reddit.com](https://place.reddit.com)
 """
 FS_REGEX = {
-	"commatization": r'( *(,+ +|,+ |,+)| +)(and|&|;)( *(,+ +|,+ |,+)| +)',
+	"commatization": r'( *(,+ +|,+ |,+)| +)(and|&|;)( *(,+ +|,+ |,+)| +)|, *$',
 	"pattern1": r'\/*[rR]\/([A-Za-z0-9][A-Za-z0-9_]{1,20})(?:\/$)?',
 	"pattern2": r'^\/*[rR](?!\/)([A-Za-z0-9][A-Za-z0-9_]{1,20})(?:\/$)?',
 	"pattern3": r'(?:(?:https?:\/\/)?(?:(?:www|old|new|np)\.)?)?reddit\.com\/r\/([A-Za-z0-9][A-Za-z0-9_]{1,20})(?:\/[^" ]*)*',
@@ -84,8 +84,7 @@ def remove_extras(entry: dict):
 		if not entry[key] or not isinstance(entry[key], str): 
 			continue
 		# Leading and trailing spaces
-		entry[key] = re.sub(r'^(\s+)', r'', entry[key])
-		entry[key] = re.sub(r'(\s+)$', r'', entry[key])
+		entry[key] = entry[key].strip()
 		# Double characters
 		entry[key] = re.sub(r' {2,}(?!\n)', r' ', entry[key])
 		entry[key] = re.sub(r' {3,}\n', r'  ', entry[key])
