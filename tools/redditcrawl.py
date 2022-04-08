@@ -99,7 +99,10 @@ for submission in reddit.subreddit('placeAtlas2').new(limit=2000):
 				"\n\n" + "="*40 + "\n\n" +
 				submission.id + "\n\n" +
 				traceback.format_exc() + "\n\n" +
-				rawtext
+				"==== RAW ====" + "\n\n" +
+				rawtext + "\n\n"
+				"==== CLEAN ====" + "\n\n" +
+				text + "\n\n"
 			)
 			failcount += 1
 
