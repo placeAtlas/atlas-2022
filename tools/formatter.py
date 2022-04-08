@@ -18,7 +18,7 @@ UNUSED AND FAULTY
    - [place.reddit.com](https://place.reddit.com)
 """
 FS_REGEX = {
-	"commatization": r'( *(,+ +|,+ |,+)| +)(and|&|;)( *(,+ +|,+ |,+)| +)|, *$',
+	"commatization": r'( *(,+ +|,+ |,+)| +)(and|&|;)( *(,+ +|,+ |,+)| +)|, *$| +',
 	"pattern1": r'\/*[rR]\/([A-Za-z0-9][A-Za-z0-9_]{1,20})(?:\/$)?',
 	"pattern2": r'^\/*[rR](?!\/)([A-Za-z0-9][A-Za-z0-9_]{1,20})(?:\/$)?',
 	"pattern3": r'(?:(?:https?:\/\/)?(?:(?:www|old|new|np)\.)?)?reddit\.com\/r\/([A-Za-z0-9][A-Za-z0-9_]{1,20})(?:\/[^" ]*)*',
@@ -30,7 +30,7 @@ FS_REGEX = {
 }
 
 VALIDATE_REGEX = {
-	"subreddit": r'^\/r\/([A-Za-z0-9][A-Za-z0-9_]{1,20})(, *\/r\/([A-Za-z0-9][A-Za-z0-9_]{1,20}))*$|^$',
+	"subreddit": r'^ *\/?r\/([A-Za-z0-9][A-Za-z0-9_]{1,20}) *(, *\/?r\/([A-Za-z0-9][A-Za-z0-9_]{1,20}) *)*$|^$',
 	"website": r'^https?://[^\s/$.?#].[^\s]*$|^$'
 }
 
