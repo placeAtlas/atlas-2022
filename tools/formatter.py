@@ -202,7 +202,7 @@ def validate(entry: dict):
 		return_status = 3
 	elif len(entry["path"]) < 3:
 		print(f"Entry {entry['id']} only has {len(entry['path'])} point(s)!")
-		return_status = 2
+		return_status = 3
 	for key in entry:
 		if key in VALIDATE_REGEX and not re.match(VALIDATE_REGEX[key], entry[key]):
 			if return_status < 2: return_status = 2
