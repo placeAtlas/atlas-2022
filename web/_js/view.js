@@ -124,6 +124,10 @@ function renderBackground(atlas){
 				bgStrokeStyle = "rgba(255, 255, 0, 1)";
 				backgroundContext.lineWidth = 2;
 				break;
+			case "delete":
+				bgStrokeStyle = "rgba(255, 0, 0, 1)";
+				backgroundContext.lineWidth = 2;
+				break;
 			default:
 				bgStrokeStyle = "rgba(255, 255, 255, 0.8)";
 				break;
