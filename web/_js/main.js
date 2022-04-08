@@ -325,7 +325,7 @@ async function init(){
 		applyZoom(x, y, zoom);
 
 		e.preventDefault();
-	});
+	}, {passive: true});
 
 	/*function setDesiredZoom(x, y, target){
 		zoom = (zoom*2 + target)/3;
@@ -354,7 +354,7 @@ async function init(){
 
 		touchstart(e);
 
-	});
+	},	{passive: true});
 
 	function mousedown(x, y){
 		lastPosition = [x, y];
