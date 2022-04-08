@@ -11,12 +11,14 @@ failfile = open('manual_atlas.json', 'w', encoding='utf-8')
 credentials = open('credentials', 'r')
 client_id = credentials.readline().strip(' \t\n\r')
 client_secret = credentials.readline().strip(' \t\n\r')
+user = credentials.readline().strip(' \t\n\r')
+pw = credentials.readline().strip(' \t\n\r')
 
-reddit = praw.Reddit(client_id=client_id, client_secret=client_secret, user_agent='atlas_bot')
-
-failcount = 0
-successcount = 0
-totalcount = 0
+reddit = praw.Reddit(client_id=client_id, client_secret=client_secret, user_agent='atlas_bot',username=user,password=pw)
+has_write_access = not reddit.read_only
+if not has_write_access:
+	print("Warning: No write access. Post flairs will not be updated")
+	sleep(5)
 
 jsonfile = open("../web/atlas.json", "r", encoding='utf-8')
 existing = json.load(jsonfile)
@@ -26,8 +28,17 @@ existing_ids = []
 for item in existing:
 	existing_ids.append(item['id'])
 
+def set_flair(submission, flair):
+	if has_write_access and submission.link_flair_text != flair:
+		flair_choices = submission.flair.choices()
+		flair = next(x for x in flair_choices if x["flair_text_editable"] and flair == x["flair_text"])
+		submission.flair.select(flair["flair_template_id"])
+
 total_all_flairs = 0
 duplicate_count = 0
+failcount = 0
+successcount = 0
+totalcount = 0
 outfile.write("[\n")
 for submission in reddit.subreddit('placeAtlas2').new(limit=2000):
 	"""
@@ -41,7 +52,8 @@ for submission in reddit.subreddit('placeAtlas2').new(limit=2000):
 	7. Append to file called "credentials"
 	8. Copy Secret 
 	9. Append on newline to "credentials" file
-	10. Run Script
+	10. If you want flair write access append 2 newlines with username and password (Must be a mod, don't do this if you don't know what you're doing)
+	11. Run Script
 
 	Running Script
 	1. Input the next ID to use
@@ -52,9 +64,10 @@ for submission in reddit.subreddit('placeAtlas2').new(limit=2000):
 	"""
 	total_all_flairs += 1
 	if (submission.id in existing_ids):
+		set_flair(submission, "Processed Entry")
 		print("Found first duplicate!")
 		duplicate_count += 1
-		if (duplicate_count > 10):
+		if (duplicate_count > 0):
 			break
 		else:
 			continue
@@ -82,9 +95,11 @@ for submission in reddit.subreddit('placeAtlas2').new(limit=2000):
 		try:
 			outfile.write(json.dumps(json.loads(text))+"  ,\n")
 			successcount += 1
+			set_flair(submission, "Processed Entry")
 		except json.JSONDecodeError:
 			failfile.write(text+",\n")
 			failcount += 1
+			set_flair(submission, "Rejected Entry")
 		print("written "+submission.id+" submitted "+str(round(time.time()-submission.created_utc))+" seconds ago")
 		totalcount += 1
 
