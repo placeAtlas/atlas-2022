@@ -71,16 +71,24 @@ def format_subreddit(entry: dict):
 	return entry
 
 def collapse_links(entry: dict):
-	if not "website" in entry or not entry['website']:
-		return entry
-		
-	website = entry["website"];
-	if re.search(CL_REGEX, website):
-		match = re.search(CL_REGEX, website)
-		if match.group(1) == match.group(2):
-			website = match.group(2)
+	if "website" in entry and entry['website']:
+		website = entry["website"];
+		if re.search(CL_REGEX, website):
+			match = re.search(CL_REGEX, website)
+			if match.group(1) == match.group(2):
+				website = match.group(2)
 
-	entry["website"] = website
+		entry["website"] = website
+
+	if "subreddit" in entry and entry['subreddit']:
+		subreddit = entry["subreddit"];
+		if re.search(CL_REGEX, subreddit):
+			match = re.search(CL_REGEX, subreddit)
+			if match.group(1) == match.group(2):
+				subreddit = match.group(2)
+
+		entry["subreddit"] = subreddit
+
 	return entry
 
 def remove_extras(entry: dict):
