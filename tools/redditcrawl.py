@@ -89,6 +89,7 @@ for submission in reddit.subreddit('placeAtlas2').new(limit=2000):
 			text = submission.selftext
 			rawtext = text
 
+			text = text.replace('\u200c', '')
 			text = re.compile(r".*(\{.+\}).*", re.DOTALL).search(text).group(1)
 			# Test if it needs to escape the escape character. Usually happens on fancy mode.
 			try: json.loads(text)
