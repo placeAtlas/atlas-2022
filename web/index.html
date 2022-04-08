@@ -21,7 +21,7 @@
 -->
 
 <!DOCTYPE html>
-<html>
+<html lang="en">
 	<head>
 		<meta charset="UTF-8">
 		<title>The 2022 /r/place Atlas</title>
@@ -33,7 +33,7 @@
 		
 		<!-- <meta name="google-site-verification" content="gZGHpBSMzffAbIn0qB8b00We6EwSGkDTfDoQVv-NWss"/> -->
 		
-		<meta name="viewport" content="width=device-width, height=device-height, initial-scale=1, minimum-scale=1, maximum-scale=1, user-scalable=no, shrink-to-fit=no">
+		<meta name="viewport" content="width=device-width, height=device-height, initial-scale=1, minimum-scale=1, maximum-scale=1, shrink-to-fit=no"> <!-- user-scalable=no -->
 		<meta name="mobile-web-app-capable" content="yes">
 		
 		<link href="./_css/style.css?version=1.0.33" rel="stylesheet" type="text/css" media="all">
@@ -137,7 +137,14 @@
 			</div>
 			<div id="entriesListBackground"></div>
 			
-			<button id="hideListButton"></button>
+			<button id="hideListButton" aria-label:="Show List Button"></button>
+
+			<div id="coordsWrapper" class="collapsed">
+
+				<div id="coords">
+					<p id="coords_p">0, 0</p>
+				</div>
+			</div>
 			
 			<div id="bottomBar">
 				<div id="zoomControls">
@@ -145,7 +152,7 @@
 					<button title="Reset View" id="zoomResetButton"></button>
 					<button title="Zoom Out" id="zoomOutButton"></button>
 				</div>
-				<div id="timeControls">
+					<div id="timeControls">
 					<input type="range" min="1" max="1" value="1" class="slider" id="timeControlsSlider">
 				</div>
 				
