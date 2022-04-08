@@ -89,7 +89,7 @@ for submission in reddit.subreddit('placeAtlas2').new(limit=2000):
 				for key in submission_json:
 					if not key in submission_json_dummy:
 						submission_json_dummy[key] = submission_json[key];
-				submission_json = format_all(submission_json_dummy)
+				submission_json = format_all(submission_json_dummy, True)
 
 				outfile.write(json.dumps(submission_json) + ",\n")
 				successcount += 1
