@@ -651,11 +651,17 @@ input[type="checkbox"] {
 #coordsWrapper {
 	min-width: 100px;
 	position: absolute;
-    top: 10px;
-    left: 400px;
     display: flex;
 	gap: 10px;
 	z-index: 100;
+}
+.collapsed {	
+    top: 49px;
+    left: 149px;
+}
+.uncollapsed {
+    top: 49px;
+    left: 380px;
 }
 @media (max-width: 750px) {
 	#coordsWrapper {
