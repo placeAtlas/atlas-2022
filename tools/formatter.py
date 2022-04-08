@@ -280,4 +280,3 @@ if __name__ == '__main__':
 		print("Writing completed. All done.")
 
 	go("../web/atlas.json")
-	go("../web/atlas-before-ids-migration.json")
