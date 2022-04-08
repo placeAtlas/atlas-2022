@@ -49,6 +49,9 @@ SUBREDDIT_TEMPLATE = r"/r/\1"
 USER_TEMPLATE = r"/u/\1"
 
 def format_subreddit(entry: dict):
+	"""
+	Fix formatting of the value on "subreddit".
+	"""
 	if not "subreddit" in entry or not entry['subreddit']:
 		return entry
 
@@ -81,6 +84,9 @@ def collapse_links(entry: dict):
 	return entry
 
 def remove_extras(entry: dict):
+	"""
+	Removing unnecessary extra characters and converts select characters.
+	"""
 	if "subreddit" in entry and entry["subreddit"]:
 		# if not entry["subreddit"].startswith('/r/'):
 		# 	entry["subreddit"] = re.sub(r'^(.*)(?=\/r\/)', r'', entry["subreddit"])
@@ -107,6 +113,9 @@ def remove_extras(entry: dict):
 	return entry
 
 def fix_r_caps(entry: dict):
+	"""
+	Fixes capitalization of /r/. (/R/place -> /r/place)
+	"""
 	if not "description" in entry or not entry['description']:
 		return entry
 	
@@ -116,6 +125,9 @@ def fix_r_caps(entry: dict):
 	return entry
 
 def fix_no_protocol_urls(entry: dict):
+	"""
+	Fixes URLs with no protocol by adding "https://" protocol.
+	"""
 	if not "website" in entry or not entry['website']:
 		return entry
 	
@@ -125,6 +137,9 @@ def fix_no_protocol_urls(entry: dict):
 	return entry
 
 def convert_website_to_subreddit(entry: dict):
+	"""
+	Converts the subreddit link on "website" to "subreddit" if possible.
+	"""
 	if not "website" in entry or not entry['website']:
 		return entry
 
@@ -146,6 +161,9 @@ def convert_website_to_subreddit(entry: dict):
 	return entry
 
 def convert_subreddit_to_website(entry: dict):
+	"""
+	Converts the links on "subreddit" to a "website" if needed. This also supports Reddit users (/u/reddit). 
+	"""
 	if not "subreddit" in entry or not entry['subreddit']:
 		return entry
 
@@ -163,22 +181,56 @@ def convert_subreddit_to_website(entry: dict):
 
 	return entry
 	
+
 def validate(entry: dict):
+	"""
+	Validates the entry. Catch errors and tell warnings related to the entry.
+
+	Status code key:
+	0: All valid, no problems
+	1: Informational logs that may be ignored
+	2: Warnings that may effect user experience when interacting with the entry
+	3: Errors that make the entry inaccessible or broken.
+	"""
+	return_status = 0
 	if (not "id" in entry or (not entry['id'] and not entry['id'] == 0)):
 		print(f"Wait, no id here! How did this happened? {entry}")
-		return
+		return_status = 3
+		entry['id'] = '[MISSING_ID]'
+	if not ("path" in entry and isinstance(entry["path"], list) and len(entry["path"]) > 0):
+		print(f"Entry {entry['id']} has no points!")
+		return_status = 3
+	elif len(entry["path"]) < 3:
+		print(f"Entry {entry['id']} only has {len(entry['path'])} point(s)!")
+		return_status = 2
 	for key in entry:
 		if key in VALIDATE_REGEX and not re.match(VALIDATE_REGEX[key], entry[key]):
+			if return_status < 2: return_status = 2
 			print(f"{key} of entry {entry['id']} is still invalid! {entry[key]}")
+	return return_status
 
 def per_line_entries(entries: list):
+	"""
+	Returns a string of all the entries, with every entry in one line.
+	"""
 	out = "[\n"
 	for entry in entries:
-		out += json.dumps(entry) + ",\n"
+		if entry:
+			out += json.dumps(entry) + ",\n"
 	out = out[:-2] + "\n]"
 	return out
 
 def format_all(entry: dict, silent=False):
+	"""
+	Format using all the available formatters.
+	Outputs a tuple containing the entry and the validation status code.
+
+	Status code key:
+	0: All valid, no problems
+	1: Informational logs that may be ignored
+	2: Warnings that may effect user experience when interacting with the entry
+	3: Errors that make the entry inaccessible or broken.
+	"""
 	def print_(*args, **kwargs):
 		if not silent:
 			print(*args, **kwargs)
@@ -197,9 +249,9 @@ def format_all(entry: dict, silent=False):
 	print_("Removing extras...")
 	entry = remove_extras(entry)
 	print_("Validating...")
-	validate(entry)
+	status_code = validate(entry)
 	print_("Completed!")
-	return entry
+	return ( entry, status_code )
 
 if __name__ == '__main__':
 
@@ -211,7 +263,12 @@ if __name__ == '__main__':
 			entries = json.loads(f1.read())
 
 		for i in range(len(entries)):
-			entries[i] = format_all(entries[i], True)
+			entry_formatted, validation_status = format_all(entries[i], True)
+			if validation_status > 2:
+				print(f"Entry {entry_formatted['id']} will be removed! {json.dumps(entry_formatted)}")
+				entries[i] = None
+			else:
+				entries[i] = entry_formatted
 			if not (i % 500):
 				print(f"{i} checked.")
 
