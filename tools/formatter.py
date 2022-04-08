@@ -97,6 +97,9 @@ def remove_extras(entry: dict):
 		entry[key] = re.sub(r'\n{3,}', r'\n\n', entry[key])
 		entry[key] = re.sub(r'r\/{2,}', r'r\/', entry[key])
 		entry[key] = re.sub(r',{2,}', r',', entry[key])
+		# Smart quotation marks
+		entry[key] = re.sub(r'[\u201c\u201d]', '"', entry[key])
+		entry[key] = re.sub(r'[\u2018\u2019]', "'", entry[key])
 		# Psuedo-empty strings
 		if entry[key] in ["n/a", "N/A", "na", "NA", "-", "null", "none", "None"]:
 			entry[key] = ""
