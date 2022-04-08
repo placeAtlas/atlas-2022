@@ -252,6 +252,7 @@ function initView(){
 		} else {
 			wrapper.className += " listHidden";
 		}
+		updateHovering();
 		applyView();
 		render();
 		updateLines();
@@ -336,12 +337,20 @@ function initView(){
 	}
 
 	function updateHovering(e, tapped){
+		var coordsWrapper = document.getElementById("coordsWrapper");
+		if (entriesListShown) {
+			coordsWrapper.className = "uncollapsed"
+		} else {
+			coordsWrapper.className = "collapsed"
+		}
 		
 		if(!dragging && (!fixed || tapped)){
 			var pos = [
 				 (e.clientX - (container.clientWidth/2 - innerContainer.clientWidth/2 + zoomOrigin[0] + container.offsetLeft))/zoom
 				,(e.clientY - (container.clientHeight/2 - innerContainer.clientHeight/2 + zoomOrigin[1] + container.offsetTop))/zoom
 			];
+			var coords_p = document.getElementById("coords_p");
+			coords_p.innerText = Math.ceil(pos[0]) + ", " + Math.ceil(pos[1]);
 
 			if(pos[0] <= 2200 && pos[0] >= -100 && pos[0] <= 2200 && pos[0] >= -100){
 				var newHovered = [];
@@ -568,6 +577,7 @@ function initView(){
 					zoom = 4;
 					renderBackground(atlas);
 					applyView();
+					updateHovering();
 					
 					zoomOrigin = [
 						 innerContainer.clientWidth/2  - this.entry.center[0]* zoom// + container.offsetLeft
@@ -803,6 +813,7 @@ function initView(){
 			entriesListShown = false;
 			wrapper.className += " listHidden";
 		}
+		updateHovering();
 
 		viewportWidth = document.documentElement.clientWidth;
 		
