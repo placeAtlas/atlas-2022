@@ -18,12 +18,12 @@
 	but WITHOUT ANY WARRANTY; without even the implied warranty of
 	MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.
 	For more information, see:
-	http://place-atlas.stefanocoding.me/license.txt
+	https://place-atlas.stefanocoding.me/license.txt
 	
 	========================================================================
 */
 
-const prodDomain = "http://place-atlas.stefanocoding.me"
+const prodDomain = "place-atlas.stefanocoding.me"
 
 var innerContainer = document.getElementById("innerContainer");
 var container = document.getElementById("container");
