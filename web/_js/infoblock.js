@@ -85,5 +85,11 @@ function createInfoBlock(entry) {
     idElement.style.fontFamily = "Dejavu Sans Mono, sans, Sans-Serif;";
     element.appendChild(idElement);
 
+    let editElement = document.createElement("a");
+    editElement.innerText = "Edit"
+    editElement.className = "objectEdit"
+    editElement.href = "./?mode=draw&id=" + entry.id
+    element.appendChild(editElement);
+
     return element;
 }
