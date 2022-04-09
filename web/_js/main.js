@@ -110,6 +110,14 @@ async function init(){
 		} else {
 			mode = "view";
 		}
+
+		// Backwards compatibility for old links using "search" id arg
+		if(args.includes("id=")){
+			let idHash = "id=" + args.split("id=")[1].split("&")[0];
+			window.location.hash = idHash;
+			let idArgMatch = new RegExp(`${idHash}&?`); // Patten for the id plus a following & if present
+			window.location.search = window.location.search.substring(1).replace(idArgMatch, "");
+		}
 	}
 
 	document.body.dataset.mode = mode
