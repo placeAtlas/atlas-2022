@@ -12,4 +12,4 @@ allCharacters.txt
 combined.js
 *.DS_Store
 .vscode/
-_img/place/
+web/atlas-before-ids-migration.json
