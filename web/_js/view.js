@@ -165,7 +165,6 @@ window.addEventListener("resize", function(){
 });
 
 function updateLines(){
-	console.log(8)
 
 	linesCanvas.width = linesCanvas.clientWidth;
 	linesCanvas.height = linesCanvas.clientHeight;
@@ -216,7 +215,6 @@ function updateLines(){
 }
 
 function renderBackground(atlas){
-	console.log(7)
 
 	backgroundContext.clearRect(0, 0, canvas.width, canvas.height);
 
@@ -271,7 +269,6 @@ function renderBackground(atlas){
 }
 
 function buildObjectsList(filter, sort){
-	console.log(6)
 
 	if(entriesList.contains(moreEntriesButton)){
 		entriesList.removeChild(moreEntriesButton);
@@ -499,7 +496,6 @@ function buildObjectsList(filter, sort){
 }
 
 function shuffle(){
-	console.log(5)
 	//console.log("shuffled atlas");
 	for (var i = sortedAtlas.length - 1; i > 0; i--) {
 		var j = Math.floor(Math.random() * (i + 1));
@@ -510,7 +506,6 @@ function shuffle(){
 }
 
 async function render(){
-	console.log(4)
 
 	context.clearRect(0, 0, canvas.width, canvas.height);
 
@@ -618,7 +613,6 @@ async function render(){
 }
 
 function updateHovering(e, tapped){
-	console.log(3)
 		
 	if(!dragging && (!fixed || tapped)){
 		var pos = [
@@ -678,7 +672,6 @@ function updateHovering(e, tapped){
 }
 
 function highlightEntryFromUrl(){
-	console.log(2)
 
 	var objectsContainer = document.getElementById("objectsList");
 
@@ -737,7 +730,6 @@ function highlightEntryFromUrl(){
 }
 
 function initView(){
-	console.log(1)
 
 	buildObjectsList(null, null);
 	renderBackground(atlas);
