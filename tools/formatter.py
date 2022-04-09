@@ -263,11 +263,11 @@ def per_line_entries(entries: list):
 	"""
 	Returns a string of all the entries, with every entry in one line.
 	"""
-	out = "[\n"
+	out = "[\r\n"
 	for entry in entries:
 		if entry:
-			out += json.dumps(entry, ensure_ascii=False) + ",\n"
-	out = out[:-2] + "\n]"
+			out += json.dumps(entry, ensure_ascii=False) + ",\r\n"
+	out = out[:-2] + "\r\n]"
 	return out
 
 def format_all(entry: dict, silent=False):
@@ -326,8 +326,8 @@ if __name__ == '__main__':
 
 		print(f"{len(entries)} checked.")
 
-		with open(path, "w", encoding='UTF-8') as f2:
-			f2.write(per_line_entries(entries))
+		with open(path, "wb") as f2:
+			f2.write(per_line_entries(entries).encode(encoding='utf-8'))
 
 		print("Writing completed. All done.")
 
