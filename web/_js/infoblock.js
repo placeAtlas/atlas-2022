@@ -22,6 +22,12 @@ function createInfoBlock(entry) {
 
     element.appendChild(headerElement);
 
+    if (entry.diff) {
+        let diffElement = createInfoParagraph("Diff: ", entry.diff);
+        diffElement.className = entry.diff;
+        element.appendChild(diffElement);
+    }
+
     if (entry.description) {
         let descElement = document.createElement("p");
         descElement.innerText = entry.description;
