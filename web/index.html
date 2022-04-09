@@ -183,15 +183,17 @@
 			<div id="drawControlsContainer">
 				<a id="drawBackButton" class="button" href="./">&lt; Back to the Atlas</a>
 				<div id="drawControls">
-					<div>
-						<button id="undoButton" disabled>Undo</button>
-						<button disabled id="redoButton">Redo</button>
+					<div id="objectDraw">
+						<div>
+							<button id="undoButton" disabled>Undo</button>
+							<button disabled id="redoButton">Redo</button>
+						</div>
+						<button disabled id="finishButton">Finish (Enter)</button>
+						<button id="resetButton">Reset</button>
+						<label id="highlightUnchartedLabel" title="Highlight uncharted areas of the map" class="checkboxLabel">
+							<input type="checkbox" id="highlightUncharted" checked> Highlight Empty
+						</label>
 					</div>
-					<button disabled id="finishButton">Finish (Enter)</button>
-					<button id="resetButton">Reset</button>
-					<label id="highlightUnchartedLabel" title="Highlight uncharted areas of the map" class="checkboxLabel">
-						<input type="checkbox" id="highlightUncharted" checked> Highlight Empty
-					</label>
 					<div id="objectInfo">
 						<label for="nameField">Name</label>
 						<input id="nameField" type="text" value="" placeholder="A short title">
@@ -202,7 +204,7 @@
 						<label for="subredditField">Subreddit</label>
 						<input id="subredditField" type="text" value="" placeholder="/r/example">
 						<div id="infoButtons">
-							<button id="cancelButton">Cancel</button>
+							<button id="cancelButton">Back</button>
 							<button id="exportButton">OK</button>
 						</div>
 					</div>
@@ -227,7 +229,7 @@
 			<div id="exportOverlay" class="overlay">
 				<div id="exportWindow">
 					<p><b>Recommended:</b> Post directly after clicking this button. Don't forget to flair it with the "New Entry" tag. </p>
-					<div style="display:flex; flex-direction:column;align-items:center">
+					<div class="exportButtons">
 						<a href="_blank" id="exportDirectPost" class="button">Post Direct to Reddit</a>
 					</div>
 					<hr style="border-bottom: solid black 1px"/>
@@ -237,7 +239,8 @@
 					<p>Don't forget to flair it with the "New Entry" tag.</p>
 					<p>We will then check it and add it to the atlas.</p>
 					<textarea cols="20" rows="5" id="exportString"></textarea>
-					<div style="display:flex; flex-direction:column;align-items:center">
+					<div  class="exportButtons" id="exportButtons">
+						<button id="exportBackButton">Back</button>
 						<button id="exportCloseButton">Done</button>
 					</div>
 				</div>

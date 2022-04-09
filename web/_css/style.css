@@ -508,6 +508,16 @@ noscript {
 	margin-bottom: 10px;
 }
 
+.object p:last-of-type {
+	float: left;
+}
+
+.object .objectEdit {
+	float: right;
+	padding-left: 1em;
+	padding-right: 1em;
+}
+
 p.edit {
 	color: #FFFF00;
 }
@@ -548,19 +558,19 @@ p.delete {
 	width: 170px;
 }
 
-#drawControls > * {
+#drawControls > div > * {
 	width: 100%;
 	display: flex;
 	justify-content: center;
 	margin-bottom: 5px;
 }
 
-#drawControls > * > * {
+#drawControls > div > * > * {
 	flex-grow: 1;
 	margin-right: 5px;
 }
 
-#drawControls > * > *:last-child {
+#drawControls > div > * > *:last-child {
 	margin-right: 0;
 }
 
@@ -666,7 +676,14 @@ input[type="checkbox"] {
 	flex-shrink: 0;
 }
 
-#exportCloseButton {
+.exportButtons {
+	display: flex; 
+	flex-direction: row;
+	justify-content: center;
+	gap: 1em
+}
+
+#exportButtons > * {
 	margin-bottom: 0;
 	width: 100px;
 	align-self: flex-end;

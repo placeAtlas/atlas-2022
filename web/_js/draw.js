@@ -26,6 +26,7 @@ function initDraw(){
 	var undoButton = document.getElementById("undoButton");
 	var redoButton = document.getElementById("redoButton");
 	var highlightUnchartedLabel = document.getElementById("highlightUnchartedLabel");
+	var entryId = 0
 	
 	var objectInfoBox = document.getElementById("objectInfo");
 	var hintText = document.getElementById("hint");
@@ -35,6 +36,7 @@ function initDraw(){
 
 	var exportOverlay = document.getElementById("exportOverlay");
 	var exportCloseButton = document.getElementById("exportCloseButton");
+	var exportBackButton = document.getElementById("exportBackButton")
 
 	var rShiftPressed = false;
 	var lShiftPressed = false;
@@ -56,8 +58,8 @@ function initDraw(){
 
 	container.addEventListener("mousedown", function(e){
 		lastPos = [
-			 e.clientX
-			,e.clientY
+			 e.clientX,
+			e.clientY
 		];
 	});
 
@@ -66,8 +68,8 @@ function initDraw(){
 		y = y - container.offsetTop;
 
 		var pos = [
-			 ~~((x - (container.clientWidth/2  - innerContainer.clientWidth/2  + zoomOrigin[0]))/zoom)+0.5
-			,~~((y - (container.clientHeight/2 - innerContainer.clientHeight/2 + zoomOrigin[1]))/zoom)+0.5
+			~~((x - (container.clientWidth/2  - innerContainer.clientWidth/2  + zoomOrigin[0]))/zoom)+0.5,
+			~~((y - (container.clientHeight/2 - innerContainer.clientHeight/2 + zoomOrigin[1]))/zoom)+0.5
 		];
 		
 		if(shiftPressed && path.length > 0){
@@ -162,7 +164,7 @@ function initDraw(){
 	});
 	
 	cancelButton.addEventListener("click", function(e){
-		reset();
+		back();
 	});
 
 	document.getElementById("nameField").addEventListener("keyup", function(e){
@@ -192,9 +194,10 @@ function initDraw(){
 		exportOverlay.style.display = "none";
 	});
 
-	exportCloseButton.addEventListener("click", function(e){
-		exportDirectPost();
-	})
+	exportBackButton.addEventListener("click", function(e){
+		finish();
+		exportOverlay.style.display = "none";
+	});
 
 	document.getElementById("highlightUncharted").addEventListener("click", function(e){
 		highlightUncharted = this.checked;
@@ -203,13 +206,13 @@ function initDraw(){
 
 	function exportJson(){		
 		var exportObject = {
-			 id: 0
-			,name: document.getElementById("nameField").value
-			,description: document.getElementById("descriptionField").value
-			,website: document.getElementById("websiteField").value
-			,subreddit: document.getElementById("subredditField").value
-			,center: calculateCenter(path)
-			,path: path
+			id: entryId,
+			name: document.getElementById("nameField").value,
+			description: document.getElementById("descriptionField").value,
+			website: document.getElementById("websiteField").value,
+			subreddit: document.getElementById("subredditField").value,
+			center: calculateCenter(path),
+			path: path
 		};
 		var jsonString = JSON.stringify(exportObject, null, "\t");
 		var textarea = document.getElementById("exportString");
@@ -219,6 +222,9 @@ function initDraw(){
 		textarea.value = jsonString;
 		console.log("a");
 		var directPostUrl = "https://www.reddit.com/r/placeAtlas2/submit?selftext=true&title=New%20Submission&text="+encodeURIComponent(document.getElementById("exportString").value);
+		if (jsonString.length > 7493) {
+			directPostUrl = "https://www.reddit.com/r/placeAtlas2/submit?selftext=true&title=New%20Submission&text="+encodeURIComponent("    " + JSON.stringify(exportObject));
+		}
 		document.getElementById("exportDirectPost").href=directPostUrl;
 
 		exportOverlay.style.display = "flex";
@@ -278,12 +284,8 @@ function initDraw(){
 		drawing = false;
 		render(path);
 		objectInfoBox.style.display = "block";
+		objectDraw.style.display = "none";
 		hintText.style.display = "none";
-		finishButton.style.display = "none";
-		undoButton.style.display = "none";
-		redoButton.style.display = "none";
-		resetButton.style.display = "none";
-		highlightUnchartedLabel.style.display = "none";
 		document.getElementById("nameField").focus();
 	}
 
@@ -296,17 +298,21 @@ function initDraw(){
 		drawing = true;
 		render(path);
 		objectInfoBox.style.display = "none";
+		objectDraw.style.display = "block";
 		hintText.style.display = "block";
-		finishButton.style.display = "block";
-		undoButton.style.display = "block";
-		redoButton.style.display = "block";
-		resetButton.style.display = "block";
-		highlightUnchartedLabel.style.display = "block";
 
 		document.getElementById("nameField").value = "";
 		document.getElementById("descriptionField").value = "";
 		document.getElementById("websiteField").value = "";
 		document.getElementById("subredditField").value = "";
+	}
+
+	function back(){
+		drawing = true;
+		render(path);
+		objectInfoBox.style.display = "none";
+		objectDraw.style.display = "block";
+		hintText.style.display = "block";
 	}
 
 	function renderBackground(){
@@ -382,6 +388,45 @@ function initDraw(){
 			coords_p.innerText = Math.ceil(pos[0]) + ", " + Math.ceil(pos[1]);
 	
 		}
+	}
+
+	const getEntry = id => {
+		const entries = atlas.filter(entry => entry.id === id)
+		if (entries.length === 1) return entries[0]
+		return {}
+	}
+
+	let params = new URLSearchParams(document.location.search)
+
+	if (params.has('id')) {
+		entry = getEntry(params.get('id'))
+		document.getElementById("nameField").value = entry.name
+		document.getElementById("descriptionField").value = entry.description
+		document.getElementById("websiteField").value = entry.website
+		document.getElementById("subredditField").value = entry.subreddit
+		path = entry.path
+		redoButton.disabled = true;
+		undoButton.disabled = false;
+		entryId = params.get('id')
+
+		if(path.length >= 3){
+			finishButton.disabled = false;
+		}
+		render(path)
+
+		zoom = 4;
+
+		zoomOrigin = [
+			innerContainer.clientWidth/2  - entry.center[0]* zoom,// + container.offsetLeft
+		   	innerContainer.clientHeight/2 - entry.center[1]* zoom// + container.offsetTop
+	   ];
+
+	   	scaleZoomOrigin = [
+		   2000/2 - entry.center[0],// + container.offsetLeft
+		   2000/2 - entry.center[1]// + container.offsetTop
+	   	];
+
+	   applyView();
 	}
 
 }
