@@ -1,31 +1,25 @@
-
-
-
-
 /*
 	========================================================================
-	The /r/place Atlas
-	
-	An Atlas of Reddit's /r/place, with information to each
+	The 2022 /r/place Atlas
+
+	An Atlas of Reddit's 2022 /r/place, with information to each
 	artwork	of the canvas provided by the community.
-	
-	Copyright (C) 2017 Roland Rytz <roland@draemm.li>
+
+	Copyright (c) 2017 Roland Rytz <roland@draemm.li>
+	Copyright (c) 2022 r/placeAtlas2 contributors
+
 	Licensed under the GNU Affero General Public License Version 3
-	This program is free software: you can redistribute it and/or modify
-	it under the terms of the GNU Affero General Public License as
-	published by the Free Software Foundation, either version 3 of the
-	License, or (at your option) any later version.
-	This program is distributed in the hope that it will be useful,
-	but WITHOUT ANY WARRANTY; without even the implied warranty of
-	MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.
-	For more information, see:
-	http://place-atlas.stefanocoding.me/license.txt
-	
+	https://place-atlas.stefanocoding.me/license.txt
 	========================================================================
 */
 
-
 function initDraw(){
+	
+	wrapper.classList.remove('listHidden')
+
+	window.render = render
+	window.renderBackground = renderBackground
+	window.updateHovering = updateHovering
 
 	var finishButton = document.getElementById("finishButton");
 	var resetButton = document.getElementById("resetButton");
@@ -46,14 +40,10 @@ function initDraw(){
 	var lShiftPressed = false;
 	var shiftPressed = false;
 
-	var backgroundCanvas = document.createElement("canvas");
-	backgroundCanvas.width = 2000;
-	backgroundCanvas.height = 2000;
-	var backgroundContext = backgroundCanvas.getContext("2d");
-
 	var highlightUncharted = true;
 
 	renderBackground();
+	applyView();
 
 	container.style.cursor = "crosshair";
 	
@@ -61,8 +51,6 @@ function initDraw(){
 	var drawing = true;
 
 	var undoHistory = [];
-
-	var lastPos = [0, 0];
 
 	render(path);
 
@@ -118,6 +106,8 @@ function initDraw(){
 	window.addEventListener("mousemove", function(e){
 		
 		if(!dragging && drawing && path.length > 0){
+
+			console.log(123)
 			
 			var coords = getCanvasCoords(e.clientX, e.clientY);
 			render(path.concat([coords]));
@@ -241,33 +231,25 @@ function initDraw(){
 	function calculateCenter(path){
 
 		var area = 0,
-            i,
-            j,
-            point1,
-            point2;
+			i,
+			j,
+			point1,
+			point2,
+			x = 0,
+			y = 0,
+			f;
 
-        for (i = 0, j = path.length - 1; i < path.length; j=i,i++) {
-            point1 = path[i];
-            point2 = path[j];
-            area += point1[0] * point2[1];
-            area -= point1[1] * point2[0];
-        }
-        area *= 3;
-		
-		var x = 0,
-            y = 0,
-            f;
+		for (i = 0, j = path.length - 1; i < path.length; j=i,i++) {
+			point1 = path[i];
+			point2 = path[j];
+			f = point1[0] * point2[1] - point2[0] * point1[1];
+			area += f;
+			x += (point1[0] + point2[0]) * f;
+			y += (point1[1] + point2[1]) * f;
+		}
+		area *= 3;
 
-        for (i = 0, j = path.length - 1; i < path.length; j=i,i++) {
-            point1 = path[i];
-            point2 = path[j];
-            f = point1[0] * point2[1] - point2[0] * point1[1];
-            x += (point1[0] + point2[0]) * f;
-            y += (point1[1] + point2[1]) * f;
-        }
-
-        return [~~(x / area)+0.5, ~~(y / area)+0.5];
-        
+		return [Math.floor(x / area)+0.5, Math.floor(y / area)+0.5];
 	}
 
 	function undo(){
@@ -390,6 +372,18 @@ function initDraw(){
 		
 	}
 	
+	function updateHovering(e, tapped){
+		if(!dragging && (!fixed || tapped)){
+			var pos = [
+				 (e.clientX - (container.clientWidth/2 - innerContainer.clientWidth/2 + zoomOrigin[0] + container.offsetLeft))/zoom
+				,(e.clientY - (container.clientHeight/2 - innerContainer.clientHeight/2 + zoomOrigin[1] + container.offsetTop))/zoom
+			];
+			var coords_p = document.getElementById("coords_p");
+			coords_p.innerText = Math.ceil(pos[0]) + ", " + Math.ceil(pos[1]);
+	
+		}
+	}
+
 }
 
 
