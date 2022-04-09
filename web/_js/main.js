@@ -1,25 +1,16 @@
-
-
-
 /*
 	========================================================================
-	The /r/place Atlas
-	
-	An Atlas of Reddit's /r/place, with information to each
+	The 2022 /r/place Atlas
+
+	An Atlas of Reddit's 2022 /r/place, with information to each
 	artwork	of the canvas provided by the community.
-	
-	Copyright (C) 2017 Roland Rytz <roland@draemm.li>
+
+	Copyright (c) 2017 Roland Rytz <roland@draemm.li>
+	Copyright (c) 2022 r/placeAtlas2 contributors
+
 	Licensed under the GNU Affero General Public License Version 3
-	This program is free software: you can redistribute it and/or modify
-	it under the terms of the GNU Affero General Public License as
-	published by the Free Software Foundation, either version 3 of the
-	License, or (at your option) any later version.
-	This program is distributed in the hope that it will be useful,
-	but WITHOUT ANY WARRANTY; without even the implied warranty of
-	MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.
 	For more information, see:
 	https://place-atlas.stefanocoding.me/license.txt
-	
 	========================================================================
 */
 

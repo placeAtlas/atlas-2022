@@ -1,22 +1,15 @@
 /*
 	========================================================================
-	The /r/place Atlas
-	
-	An Atlas of Reddit's /r/place, with information to each
+	The 2022 /r/place Atlas
+
+	An Atlas of Reddit's 2022 /r/place, with information to each
 	artwork	of the canvas provided by the community.
-	
-	Copyright (C) 2017 Roland Rytz <roland@draemm.li>
+
+	Copyright (c) 2017 Roland Rytz <roland@draemm.li>
+	Copyright (c) 2022 r/placeAtlas2 contributors
+
 	Licensed under the GNU Affero General Public License Version 3
-	This program is free software: you can redistribute it and/or modify
-	it under the terms of the GNU Affero General Public License as
-	published by the Free Software Foundation, either version 3 of the
-	License, or (at your option) any later version.
-	This program is distributed in the hope that it will be useful,
-	but WITHOUT ANY WARRANTY; without even the implied warranty of
-	MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.
-	For more information, see:
-	https://draemm.li/various/place-atlas/license.txt
-	
+	https://place-atlas.stefanocoding.me/license.txt
 	========================================================================
 */
 
@@ -256,7 +249,7 @@ optgroup {
 	left: 0;
 	right: 0;
 	bottom: 0;
-	z-index: 100;
+	z-index: 1000;
 }
 
 #loading > div {
@@ -682,7 +675,6 @@ input[type="checkbox"] {
 	border: 1px #000 solid;
 	padding: 3px;
 	font-size: 18px;
-	z-index: 1100;
 	display: flex;
     align-items: center;
     justify-content: center;
@@ -701,7 +693,6 @@ input[type="checkbox"] {
     right: 10px;
     display: flex;
 	gap: 10px;
-	z-index: 100;
 }
 
 div:not(.listHidden) > #bottomBar {
@@ -1072,7 +1063,7 @@ button#zoomResetButton {
 }
 
 #aboutBackButton {
-	margin: 20px 20px 0 20px;
+	margin: 20px 0 20px;
 	padding: 10px 20px;
 }
 
@@ -1243,4 +1234,10 @@ h2#abouth2 {
 
 body:not([data-dev]) .show-only-on-dev {
 	display: none !important;
+}
+
+#netlifyBadges {
+	display: flex;
+	align-items: center;
+	gap: .5rem
 }
