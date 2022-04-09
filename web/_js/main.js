@@ -528,7 +528,7 @@ async function init(){
 	if ("serviceWorker" in navigator) {
   window.addEventListener("load", function() {
     navigator.serviceWorker
-      .register("/_js/serviceWorker.js.js")
+      .register("/_js/serviceWorker.js")
       .then(res => console.log("service worker registered"))
       .catch(err => console.log("service worker not registered", err));
   });
