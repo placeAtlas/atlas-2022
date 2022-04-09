@@ -18,7 +18,7 @@ window.addEventListener("error", function (e) {
 	var errorMessage = "<p class=\"error\">An error has occurred:</p>";
 	errorMessage += "<p class=\"errorBody\">" + e.message + "</p>";
 	errorMessage += "<p class=\"errorBody\">on line " + e.lineno + "</p>";
-	errorMessage += "<p class=\"error\">If this keeps happening, feel free to tell us on <a href=\"https://discord.gg/pJkm23b2nA\">Discord</a>.</p>";
+	errorMessage += "<p class=\"error\">If this keeps happening, feel free to tell us on <a href=\"https://discord.gg/pJkm23b2nA\">our Discord server</a>.</p>";
 	document.getElementById("loadingContent").innerHTML = errorMessage;
 });
 
