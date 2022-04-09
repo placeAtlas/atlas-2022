@@ -161,7 +161,7 @@ async function init(){
 			//TEMP FOR TIME TRAVEL
 			atlasBackup = atlas;
 		} catch (error) {
-			console.log("Diff mode failed to load, reverting to normal view - " + error);
+			console.warn("Diff mode failed to load, reverting to normal view.", error);
 		} finally {
 			if(initOverlap && mode.includes("overlap")){
 				initOverlap();
