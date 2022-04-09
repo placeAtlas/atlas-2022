@@ -50,7 +50,7 @@ function createInfoBlock(entry) {
     }
     
     let [x, y] = entry.center;
-    element.appendChild(createInfoParagraph("Position: ", `${Math.floor(x)}x${Math.floor(y)}`));
+    element.appendChild(createInfoParagraph("Position: ", `${Math.floor(x)}, ${Math.floor(y)}`));
 
     if(entry.path){
         let area = calcPolygonArea(entry.path);
