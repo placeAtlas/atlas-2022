@@ -146,12 +146,12 @@ async function init(){
 				a[c.id] = c;
 				return a;
 			},{});
-			let removedEntries = liveJson.map(function(entry) {
-				if(atlasReduced[entry.id] === undefined){
-					entry.diff = "delete";
-				}
-				return entry;
-			});
+			let removedEntries = liveJson.filter(entry => 
+				atlasReduced[entry.id] === undefined
+			).map(entry => {
+				entry.diff = "delete"
+				return entry
+			})
 			atlas.push(...removedEntries)
 
 			if(mode.includes("only")){
@@ -159,7 +159,6 @@ async function init(){
 					return typeof entry.diff == "string"
 				});
 			}
-
 			//TEMP FOR TIME TRAVEL
 			atlasBackup = atlas;
 		} catch (error) {
