@@ -231,33 +231,25 @@ function initDraw(){
 	function calculateCenter(path){
 
 		var area = 0,
-            i,
-            j,
-            point1,
-            point2;
+			i,
+			j,
+			point1,
+			point2,
+			x = 0,
+			y = 0,
+			f;
 
-        for (i = 0, j = path.length - 1; i < path.length; j=i,i++) {
-            point1 = path[i];
-            point2 = path[j];
-            area += point1[0] * point2[1];
-            area -= point1[1] * point2[0];
-        }
-        area *= 3;
-		
-		var x = 0,
-            y = 0,
-            f;
+		for (i = 0, j = path.length - 1; i < path.length; j=i,i++) {
+			point1 = path[i];
+			point2 = path[j];
+			f = point1[0] * point2[1] - point2[0] * point1[1];
+			area += f;
+			x += (point1[0] + point2[0]) * f;
+			y += (point1[1] + point2[1]) * f;
+		}
+		area *= 3;
 
-        for (i = 0, j = path.length - 1; i < path.length; j=i,i++) {
-            point1 = path[i];
-            point2 = path[j];
-            f = point1[0] * point2[1] - point2[0] * point1[1];
-            x += (point1[0] + point2[0]) * f;
-            y += (point1[1] + point2[1]) * f;
-        }
-
-        return [~~(x / area)+0.5, ~~(y / area)+0.5];
-        
+		return [Math.min(x / area)+0.5, Math.max(y / area)+0.5];
 	}
 
 	function undo(){
