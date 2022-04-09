@@ -1,22 +1,15 @@
 /*
 	========================================================================
-	The /r/place Atlas
-	
-	An Atlas of Reddit's /r/place, with information to each
+	The 2022 /r/place Atlas
+
+	An Atlas of Reddit's 2022 /r/place, with information to each
 	artwork	of the canvas provided by the community.
-	
-	Copyright (C) 2017 Roland Rytz <roland@draemm.li>
+
+	Copyright (c) 2017 Roland Rytz <roland@draemm.li>
+	Copyright (c) 2022 r/placeAtlas2 contributors
+
 	Licensed under the GNU Affero General Public License Version 3
-	This program is free software: you can redistribute it and/or modify
-	it under the terms of the GNU Affero General Public License as
-	published by the Free Software Foundation, either version 3 of the
-	License, or (at your option) any later version.
-	This program is distributed in the hope that it will be useful,
-	but WITHOUT ANY WARRANTY; without even the implied warranty of
-	MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.
-	For more information, see:
-	https://draemm.li/various/place-atlas/license.txt
-	
+	https://place-atlas.stefanocoding.me/license.txt
 	========================================================================
 */
 
@@ -78,9 +71,7 @@ a:hover {
 }
 
 button,
-#exportDirectPost,
-#aboutBackButton,
-#drawBackButton {
+.button {
 	background-image: linear-gradient(to bottom, #888, #666);
 	border: 1px #000 solid;
 	color: #FFF;
@@ -91,12 +82,15 @@ button,
 	text-shadow: 1px 1px 0 #444;
 }
 
-button::-moz-focus-inner {
+button::-moz-focus-inner,
+.button::-moz-focus-inner {
 	border: 0;
 }
 
 button:disabled,
-button:disabled:hover {
+button:disabled:hover,
+.button:disabled,
+.button:disabled:hover {
 	background-image: none;
 	background-color: #666;
 	color: #AAA;
@@ -104,9 +98,7 @@ button:disabled:hover {
 }
 
 button:hover,
-#exportDirectPost:hover,
-#aboutBackButton:hover,
-#drawBackButton:hover {
+.button:hover {
 	background-image: linear-gradient(to bottom, #999, #777);
 	text-decoration: none;
 }
@@ -257,7 +249,7 @@ optgroup {
 	left: 0;
 	right: 0;
 	bottom: 0;
-	z-index: 100;
+	z-index: 1000;
 }
 
 #loading > div {
@@ -514,7 +506,7 @@ p.delete {
 	padding: 0 20px;
 }
 
-.draw #drawControlsContainer {
+[data-mode="draw"] #drawControlsContainer {
 	display: block;
 }
 
@@ -616,6 +608,7 @@ input[type="checkbox"] {
 	background-color: rgba(0, 0, 0, .8);
 	display: none;
 	justify-content: center;
+	z-index: 1000;
 }
 
 #exportWindow {
@@ -664,15 +657,14 @@ input[type="checkbox"] {
     display: flex;
 	gap: 10px;
 	z-index: 100;
+	top: 49px;
+    left: 380px;
 }
-.collapsed {	
+#wrapper.listHidden #coordsWrapper {	
     top: 49px;
     left: 149px;
 }
-.uncollapsed {
-    top: 49px;
-    left: 380px;
-}
+
 @media (max-width: 750px) {
 	#coordsWrapper {
 		display: none;
@@ -683,7 +675,6 @@ input[type="checkbox"] {
 	border: 1px #000 solid;
 	padding: 3px;
 	font-size: 18px;
-	z-index: 1100;
 	display: flex;
     align-items: center;
     justify-content: center;
@@ -702,7 +693,6 @@ input[type="checkbox"] {
     right: 10px;
     display: flex;
 	gap: 10px;
-	z-index: 100;
 }
 
 div:not(.listHidden) > #bottomBar {
@@ -863,18 +853,18 @@ button#zoomResetButton {
 		height: 40px;
 	}
 
-	#entriesListContainer > nav {
+	#entriesListNav {
 		width: calc(100% - 45px);
 	}
 }
 
 @media (max-width: 350px) {
-	#entriesListContainer > nav > a#drawLink {
+	#entriesListNav > a#drawLink {
 		display: none;
 	}
 }
 
-.draw #entriesListContainer {
+[data-mode="draw"] #entriesListContainer {
 	display: none;
 }
 
@@ -882,55 +872,48 @@ button#zoomResetButton {
 	display: none;
 }
 
-#entriesListContainer > nav {
+#entriesListNav {
 	margin: 10px 0;
 	display: flex;
 	flex-shrink: 0;
 	justify-content: center;
 }
 
-#entriesListContainer > nav > a,
-#entriesListContainer > nav > button {
-	background-image: linear-gradient(to bottom, #888, #666);
-	border: 1px #000 solid;
-	color: #FFF;
-	text-align: center;
+#entriesListNav > * {
 	display: block;
-	padding: 4px;
 	cursor: pointer;
 	width: 120px;
 	height: 30px;
 	margin-right: 10px;
-	text-shadow: 1px 1px 0 #444;
 }
 
-#entriesListContainer > nav > button {
+#entriesListNav > .small {
 	width: 30px;
 	padding: 2px;
 	flex-shrink: 0;
 }
 
-#entriesListContainer > nav > button > img {
+#entriesListNav > .small > img {
 	height: 22px;
 	width: 22px;
 }
 
-#entriesListContainer > nav > button:last-child {
+#entriesListNav > .small:last-child {
 	margin-right: 0;
 }
 
-#entriesListContainer > nav > a:hover {
+#entriesListNav > a:hover {
 	text-decoration: none;
 	background-image: linear-gradient(to bottom, #999, #777);
 }
 
-#entriesListContainer > nav > button:hover {
+#entriesListNav > .small:hover {
 	background-image: none;
 	background: transparent;
 	border-color: transparent;
 }
 
-#entriesListContainer > nav > button:hover > img {
+#entriesListDonate:hover > img {
 	text-decoration: none;
 	background-image: linear-gradient(to bottom, #FFAA00, #FFAA00);
 	border-radius: 15px;
@@ -939,7 +922,7 @@ button#zoomResetButton {
 	height: 28px;
 	width: 28px;
 }
-#entriesListContainer > nav > button:hover > img.Discord {
+#entriesListDiscord:hover > img {
 	text-decoration: none;
 	background-image: linear-gradient(to bottom, #7289DA, #7289DA);
 	border-radius: 12px;
@@ -955,12 +938,12 @@ button#zoomResetButton {
 	top: 50px;
 	bottom: 0;
 	width: 360px;
-	z-index: -600;
+	z-index: -400;
 	background-color: #333;
 	border-right: 1px #000 solid;
 }
 
-.draw #entriesListBackground {
+[data-mode="draw"] #entriesListBackground {
 	display: none;
 }
 
@@ -994,7 +977,7 @@ button#zoomResetButton {
 	background-color: #555;
 }
 
-.draw #hideListButton {
+[data-mode="draw"] #hideListButton {
 	display: none;
 }
 
@@ -1027,6 +1010,10 @@ button#zoomResetButton {
 #entriesListControls input:focus {
 	outline: none;
 	border-color: #CCC;
+}
+
+[data-mode="explore"] #entriesListControls {
+	display: none;
 }
 
 #atlasSize {
@@ -1080,7 +1067,7 @@ button#zoomResetButton {
 }
 
 #aboutBackButton {
-	margin: 20px 20px 0 20px;
+	margin: 20px 0 20px;
 	padding: 10px 20px;
 }
 
@@ -1124,11 +1111,10 @@ button#zoomResetButton {
     line-height: 26px;
 }
 
-#bitcoinButton {
+#donateButton {
 	cursor: pointer;
 }
 
-#bitcoinWindow,
 #donateWindow {
 	display: inline-block;
 	z-index: 2000;
@@ -1150,10 +1136,6 @@ button#zoomResetButton {
 	max-width: 800px;
 }
 
-#donateWindow > #bitcoinQR {
-	
-}
-
 #donateWindow > p {
 	margin: 2px 0;
 	padding: 0 20px;
@@ -1161,13 +1143,11 @@ button#zoomResetButton {
 	width: 100%;
 }
 
-#bitcoinWindow > *,
 #donateWindow > * {
 	display: inline-block;
 	margin: 5px 0;
 }
 
-#bitcoinWindow > h2,
 #donateWindow > h2 {
 	font-weight: 200;
 	background-color: #555;
@@ -1177,7 +1157,6 @@ button#zoomResetButton {
 	text-shadow: 1px 1px 0 #000;
 }
 
-#bitcoinWindow input,
 #donateWindow input {
 	width: 100%;
 	max-width: 350px;
@@ -1188,7 +1167,6 @@ button#zoomResetButton {
 	color: #FFF;
 }
 
-#bitcoinWindow button,
 #donateWindow button {
 	padding: 10px 20px;
 	margin-bottom: 20px;
@@ -1201,7 +1179,68 @@ h2#abouth2 {
 	text-shadow: 2px 2px 0 #000;
 }
 
-#bitcoinNotice {
-	color: #AAA;
-	margin-top: 7px;
+#viewModes {
+	position: relative;
+	display: inline-block;
+}
+
+#viewModes .buffer {
+	bottom: -10px;
+	left: 0;
+	position: absolute;
+	height: 20px;
+	width: 100%
+}
+
+#viewModes .dropdown-content {
+	margin-top: 1.5rem;
+	top: 10px;
+	left: 0;
+	position: absolute;
+	display: none;
+	background: #666;
+	border: 1px #000 solid;
+	cursor: pointer;
+	width: 125%
+}
+  
+#viewModes .dropdown-content a {
+	color: #FFF;
+	text-align: left;
+	padding: 5px 10px;
+	display: block;
+	text-decoration: none;
+	text-shadow: 1px 1px 0 #444;
+}
+  
+#viewModes .dropdown-content a:hover {
+	background-image: linear-gradient(to bottom, #999, #777);
+}
+  
+#viewModes:hover .dropdown-content,
+#viewModes:active .dropdown-content {
+	display: block;
+}
+
+body:not([data-dev]) .show-only-on-dev {
+	display: none !important;
+}
+
+#netlifyBadges {
+	display: flex;
+	align-items: center;
+	gap: .5rem
+}
+
+#donateWindow a.button {
+	padding: 1rem
+}
+
+#donateWindow a.button svg {
+	height: 1em;
+	vertical-align: -0.125em;
+}
+
+#donateWindow a.button path {
+	color: white;
 }
