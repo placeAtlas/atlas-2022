@@ -13,6 +13,7 @@ const assets = [
   "/_js/stats.js",
   "/_js/time.js",
   "/_js/view.js",
+  "/_img/place/final.png"
   "/atlas.json"
 ];
 
