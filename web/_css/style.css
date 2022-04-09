@@ -608,6 +608,7 @@ input[type="checkbox"] {
 	background-color: rgba(0, 0, 0, .8);
 	display: none;
 	justify-content: center;
+	z-index: 1000;
 }
 
 #exportWindow {
