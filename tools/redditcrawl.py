@@ -101,11 +101,25 @@ for submission in reddit.subreddit('placeAtlas2').new(limit=2000):
 
 			if submission_json:
 
-				submission_json_dummy = {"id": submission.id, "submitted_by": ""}
+				submission_json_dummy = {"id": submission.id, "edit": True, "contributors": []}
+
+				if (submission_json.id != 0):
+					submission_json_dummy["id"] = submission_json.id
+				else:
+					del submission_json_dummy["edit"]
+
+				if "submitted_by" in submission_json:
+					submission_json_dummy["contributors"].append(submission_json['submitted_by'])
+					del submission_json['submitted_by']
+				elif "contributors" in submission_json:
+					submission_json_dummy["contributors"] = submission_json["contributors"]
+
 				try:
-					submission_json_dummy["submitted_by"] = submission.author.name
+					if not submission.author.name in submission_json_dummy:
+						submission_json_dummy["contributors"].append(submission.author.name)
 				except AttributeError:
-					submission_json_dummy["submitted_by"] = "unknown"
+					submission_json_dummy["contributors"].append("unknown")
+
 				for key in submission_json:
 					if not key in submission_json_dummy:
 						submission_json_dummy[key] = submission_json[key];
