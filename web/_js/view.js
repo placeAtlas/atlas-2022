@@ -1,27 +1,18 @@
-
-
-
 /*
 	========================================================================
-	The /r/place Atlas
+	The 2022 /r/place Atlas
 
-	An Atlas of Reddit's /r/place, with information to each
+	An Atlas of Reddit's 2022 /r/place, with information to each
 	artwork	of the canvas provided by the community.
 
-	Copyright (C) 2017 Roland Rytz <roland@draemm.li>
-	Licensed under the GNU Affero General Public License Version 3
-	This program is free software: you can redistribute it and/or modify
-	it under the terms of the GNU Affero General Public License as
-	published by the Free Software Foundation, either version 3 of the
-	License, or (at your option) any later version.
-	This program is distributed in the hope that it will be useful,
-	but WITHOUT ANY WARRANTY; without even the implied warranty of
-	MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.
-	For more information, see:
-	http://place-atlas.stefanocoding.me/license.txt
+	Copyright (c) 2017 Roland Rytz <roland@draemm.li>
+	Copyright (c) 2022 r/placeAtlas2 contributors
 
+	Licensed under the GNU Affero General Public License Version 3
+	https://place-atlas.stefanocoding.me/license.txt
 	========================================================================
 */
+
 var linesCanvas = document.getElementById("linesCanvas");
 var linesContext = linesCanvas.getContext("2d");
 var hovered = [];
@@ -33,6 +24,145 @@ var backgroundCanvas = document.createElement("canvas");
 backgroundCanvas.width = 2000;
 backgroundCanvas.height = 2000;
 var backgroundContext = backgroundCanvas.getContext("2d");
+
+var wrapper = document.getElementById("wrapper");
+	
+var objectsContainer = document.getElementById("objectsList");
+var closeObjectsListButton = document.getElementById("closeObjectsListButton");
+
+var filterInput = document.getElementById("searchList");
+
+var entriesList = document.getElementById("entriesList");
+var hideListButton = document.getElementById("hideListButton");
+var entriesListShown = false;
+
+var sortedAtlas;
+
+var entriesLimit = 50;
+var entriesOffset = 0;
+var moreEntriesButton = document.createElement("button");
+moreEntriesButton.innerHTML = "Show "+entriesLimit+" more";
+moreEntriesButton.id = "moreEntriesButton";
+moreEntriesButton.onclick = function(){
+	buildObjectsList(null, null);
+	renderBackground();
+	render();
+};
+
+var defaultSort = "shuffle";
+document.getElementById("sort").value = defaultSort;
+
+var lastPos = [0, 0];
+
+var fixed = false; // Fix hovered items in place, so that clicking on links is possible
+
+if(document.documentElement.clientWidth > 2000){
+	entriesListShown = true;
+	wrapper.classList.remove('listHidden')
+}
+
+if(document.documentElement.clientWidth < 2000){
+	entriesListShown = false;
+	wrapper.classList.add('listHidden')
+}
+
+filterInput.addEventListener("input", function(e){
+	entriesOffset = 0;
+	entriesList.innerHTML = "";
+	entriesList.appendChild(moreEntriesButton);
+
+	if(this.value === ""){
+		document.getElementById("relevantOption").disabled = true;
+		sortedAtlas = atlas.concat();
+		buildObjectsList(null, null);
+	} else {
+		document.getElementById("relevantOption").disabled = false;
+		buildObjectsList(this.value.toLowerCase(), "relevant");
+	}
+
+});
+
+document.getElementById("sort").addEventListener("input", function(e){
+	entriesOffset = 0;
+	entriesList.innerHTML = "";
+	entriesList.appendChild(moreEntriesButton);
+
+	if(this.value != "relevant"){
+		defaultSort = this.value;
+	}
+
+	buildObjectsList(filterInput.value.toLowerCase(), this.value);
+
+});
+
+hideListButton.addEventListener("click", function(e){
+	entriesListShown = !entriesListShown;
+	if(entriesListShown){
+		wrapper.classList.remove('listHidden')
+	} else {
+		wrapper.classList.add('listHidden')
+	}
+	updateHovering();
+	applyView();
+	render();
+	updateLines();
+	return false;
+});
+
+closeObjectsListButton.addEventListener("click", function(e){
+	hovered = [];
+	objectsContainer.innerHTML = "";
+	updateLines();
+	closeObjectsListButton.className = "hidden";
+	fixed = false;
+	render();
+});
+
+
+function toggleFixed(e, tapped){
+	if(!fixed && hovered.length == 0){
+		return 0;
+	}
+	fixed = !fixed;
+	if(!fixed){
+		updateHovering(e, tapped);
+		render();
+	}
+}
+
+window.addEventListener("resize", updateLines);
+window.addEventListener("mousemove", updateLines);
+window.addEventListener("dblClick", updateLines);
+window.addEventListener("wheel", updateLines);
+
+
+objectsContainer.addEventListener("scroll", function(e){
+	updateLines();
+});
+
+window.addEventListener("resize", function(){
+	//console.log(document.documentElement.clientWidth, document.documentElement.clientHeight);
+
+	var viewportWidth = document.documentElement.clientWidth;
+
+	if(document.documentElement.clientWidth > 2000 && viewportWidth <= 2000){
+		entriesListShown = true;
+		wrapper.className = wrapper.className.replace(/ listHidden/g, "");
+	}
+
+	if(document.documentElement.clientWidth < 2000 && viewportWidth >= 2000){
+		entriesListShown = false;
+		wrapper.className += " listHidden";
+	}
+	updateHovering();
+
+	viewportWidth = document.documentElement.clientWidth;
+	
+	applyView();
+	render();
+	updateLines();
+	
+});
 
 function updateLines(){
 
@@ -138,41 +268,473 @@ function renderBackground(atlas){
 	}
 }
 
-function initView(){
-	
-	var wrapper = document.getElementById("wrapper");
-	
-	var objectsContainer = document.getElementById("objectsList");
-	var closeObjectsListButton = document.getElementById("closeObjectsListButton");
+function buildObjectsList(filter, sort){
 
-	var filterInput = document.getElementById("searchList");
+	if(entriesList.contains(moreEntriesButton)){
+		entriesList.removeChild(moreEntriesButton);
+	}
 
-	var entriesList = document.getElementById("entriesList");
-	var hideListButton = document.getElementById("hideListButton");
-	var entriesListShown = true;
+	if(!sortedAtlas){
+		sortedAtlas = atlas.concat();
+		document.getElementById("atlasSize").innerHTML = "The Atlas contains "+sortedAtlas.length+" entries.";
+	}
 
-	var sortedAtlas;
+	if(filter){
+		sortedAtlas = atlas.filter(function(value){
+			return (
+				   value.name.toLowerCase().indexOf(filter) !== -1
+				|| value.description.toLowerCase().indexOf(filter) !== -1
+				|| value.subreddit && value.subreddit.toLowerCase().indexOf(filter) !== -1
+				|| value.id === filter
+			);
+		});
+		document.getElementById("atlasSize").innerHTML = "Found "+sortedAtlas.length+" entries.";
+	} else {
+		document.getElementById("atlasSize").innerHTML = "The Atlas contains "+sortedAtlas.length+" entries.";
+	}
 
-	var entriesLimit = 50;
-	var entriesOffset = 0;
-	var moreEntriesButton = document.createElement("button");
-	moreEntriesButton.innerHTML = "Show "+entriesLimit+" more";
-	moreEntriesButton.id = "moreEntriesButton";
-	moreEntriesButton.onclick = function(){
-		buildObjectsList(null, null);
-	};
+	if(sort === null){
+		sort = defaultSort;
+	}
 
-	var defaultSort = "shuffle";
-	document.getElementById("sort").value = defaultSort;
-
-	var lastPos = [0, 0];
-
-	var fixed = false; // Fix hovered items in place, so that clicking on links is possible
-
-	renderBackground(atlas);
+	renderBackground(sortedAtlas);
 	render();
 
+	document.getElementById("sort").value = sort;
+
+	//console.log(sort);
+
+	var sortFunction;
+
+	//console.log(sort);
+
+	switch(sort){
+		case "shuffle":
+			sortFunction = null;
+			if(entriesOffset == 0){
+				shuffle();
+			}
+		break;
+		case "alphaAsc":
+			sortFunction = function(a, b){
+				return a.name.toLowerCase().localeCompare(b.name.toLowerCase());
+			}
+		break;
+		case "alphaDesc":
+			sortFunction = function(a, b){
+				return b.name.toLowerCase().localeCompare(a.name.toLowerCase());
+			}
+		break;
+		case "newest":
+			sortFunction = function(a, b){
+				if (a.id > b.id) {
+					return -1;
+				}
+				if (a.id < b.id) {
+					return 1;
+				}
+					// a must be equal to b
+				return 0;
+			}
+		break;
+		case "oldest":
+			sortFunction = function(a, b){
+				if (a.id < b.id) {
+					return -1;
+				}
+				if (a.id > b.id) {
+					return 1;
+				}
+					// a must be equal to b
+				return 0;
+			}
+		break;
+		case "area":
+			sortFunction = function(a, b){
+				return calcPolygonArea(b.path) - calcPolygonArea(a.path);
+			}
+		break;
+		case "relevant":
+			sortFunction = function(a, b){
+				if(a.name.toLowerCase().indexOf(filter) !== -1 && b.name.toLowerCase().indexOf(filter) !== -1){
+					if (a.name.toLowerCase().indexOf(filter) < b.name.toLowerCase().indexOf(filter)) {
+						return -1;
+					}
+					else if (a.name.toLowerCase().indexOf(filter) > b.name.toLowerCase().indexOf(filter)) {
+						return 1;
+					} else {
+						return a.name.toLowerCase().localeCompare(b.name.toLowerCase());
+					}
+				} else if(a.name.toLowerCase().indexOf(filter) !== -1){
+					return -1;
+				} else if(b.name.toLowerCase().indexOf(filter) !== -1){
+					return 1;
+				} else {
+					if (a.description.toLowerCase().indexOf(filter) < b.description.toLowerCase().indexOf(filter)) {
+						return -1;
+					}
+					else if (a.description.toLowerCase().indexOf(filter) > b.description.toLowerCase().indexOf(filter)) {
+						return 1;
+					} else {
+						return a.name.toLowerCase().localeCompare(b.name.toLowerCase());
+					}
+				}
+			}
+		break;
+	}
+
+	if(sortFunction){
+		sortedAtlas.sort(sortFunction);
+	}
+
+	for(var i = entriesOffset; i < entriesOffset+entriesLimit; i++){
+
+		if(i >= sortedAtlas.length){
+			break;
+		}
+
+
+		var element = createInfoBlock(sortedAtlas[i]);
+
+		element.entry = sortedAtlas[i];
+
+		element.addEventListener("mouseenter", function(e){
+			if(!fixed && !dragging){
+				objectsContainer.innerHTML = "";
+				
+				previousZoomOrigin = [zoomOrigin[0], zoomOrigin[1]];
+				previousScaleZoomOrigin = [scaleZoomOrigin[0], scaleZoomOrigin[1]];
+
+				applyView();
+				
+				zoomOrigin = [
+					 innerContainer.clientWidth/2  - this.entry.center[0]* zoom// + container.offsetLeft
+					,innerContainer.clientHeight/2 - this.entry.center[1]* zoom// + container.offsetTop
+				]
+
+				scaleZoomOrigin = [
+					2000/2  - this.entry.center[0]
+					,2000/2  - this.entry.center[1]
+				]
+
+				//console.log(zoomOrigin);
+
+				
+				applyView();
+				hovered = [this.entry];
+				render();
+				hovered[0].element = this;
+				updateLines();
+			}
+
+		});
+
+		element.addEventListener("click", function(e){
+			toggleFixed(e);
+			if(fixed){
+				previousZoomOrigin = [zoomOrigin[0], zoomOrigin[1]];
+				previousScaleZoomOrigin = [scaleZoomOrigin[0], scaleZoomOrigin[1]];
+				applyView();
+			}
+			if(document.documentElement.clientWidth < 500){
+				objectsContainer.innerHTML = "";
+
+				entriesListShown = false;
+				wrapper.className += " listHidden";
+
+				zoom = 4;
+				renderBackground(atlas);
+				applyView();
+				updateHovering();
+				
+				zoomOrigin = [
+					 innerContainer.clientWidth/2  - this.entry.center[0]* zoom// + container.offsetLeft
+					,innerContainer.clientHeight/2 - this.entry.center[1]* zoom// + container.offsetTop
+				]
+
+				scaleZoomOrigin = [
+					2000/2  - this.entry.center[0]
+					,2000/2  - this.entry.center[1]
+				]
+
+				previousZoomOrigin = [zoomOrigin[0], zoomOrigin[1]];
+				previousScaleZoomOrigin = [scaleZoomOrigin[0], scaleZoomOrigin[1]];
+
+				fixed = true;
+
+				hovered = [this.entry];
+				hovered[0].element = this;
+				
+				applyView();
+				render();
+				updateLines();
+				
+			}
+			
+		});
+
+		element.addEventListener("mouseleave", function(e){
+			if(!fixed && !dragging){
+				zoomOrigin = [previousScaleZoomOrigin[0]*zoom, previousScaleZoomOrigin[1]*zoom];
+				scaleZoomOrigin = [previousScaleZoomOrigin[0], previousScaleZoomOrigin[1]];
+				applyView();
+				hovered = [];
+				updateLines();
+				render();
+			}
+		});
+
+		entriesList.appendChild(element);
+
+	}
+
+	entriesOffset += entriesLimit;
+
+	if(sortedAtlas.length > entriesOffset){
+		moreEntriesButton.innerHTML = "Show "+Math.min(entriesLimit, sortedAtlas.length - entriesOffset)+" more";
+		entriesList.appendChild(moreEntriesButton);
+	}
+}
+
+function shuffle(){
+	//console.log("shuffled atlas");
+	for (var i = sortedAtlas.length - 1; i > 0; i--) {
+		var j = Math.floor(Math.random() * (i + 1));
+		var temp = sortedAtlas[i];
+		sortedAtlas[i] = sortedAtlas[j];
+		sortedAtlas[j] = temp;
+	}
+}
+
+async function render(){
+
+	context.clearRect(0, 0, canvas.width, canvas.height);
+
+	//canvas.width = 1000*zoom;
+	//canvas.height = 1000*zoom;
+	
+	context.globalCompositeOperation = "source-over";
+	context.clearRect(0, 0, canvas.width, canvas.height);
+
+	if(hovered.length > 0){
+		container.style.cursor = "pointer";
+	} else {
+		container.style.cursor = "default";
+	}
+
+
+	for(var i = 0; i < hovered.length; i++){
+
+
+		var path = hovered[i].path;
+
+		context.beginPath();
+
+		if(path[0]){
+			//context.moveTo(path[0][0]*zoom, path[0][1]*zoom);
+			context.moveTo(path[0][0], path[0][1]);
+		}
+
+		for(var p = 1; p < path.length; p++){
+			//context.lineTo(path[p][0]*zoom, path[p][1]*zoom);
+			context.lineTo(path[p][0], path[p][1]);
+		}
+
+		context.closePath();
+
+		context.globalCompositeOperation = "source-over";
+
+		context.fillStyle = "rgba(0, 0, 0, 1)";
+		context.fill();
+	}
+
+	context.globalCompositeOperation = "source-out";
+	context.drawImage(backgroundCanvas, 0, 0);
+
+	if(hovered.length === 1 && hovered[0].path.length && hovered[0].overrideImage){
+		let undisputableHovered = hovered[0];
+		// Find the left-topmost point of all the paths
+		let entryPosition = getPositionOfEntry(undisputableHovered);
+		if(entryPosition){
+			const [startX, startY] = entryPosition;
+			let overrideImage = new Image();
+			const loadingPromise = new Promise((res, rej) => {
+				overrideImage.onerror = rej;
+				overrideImage.onload = res;
+			});
+			overrideImage.src = "imageOverrides/" + undisputableHovered.overrideImage;
+			try{
+				await loadingPromise;
+				context.globalCompositeOperation = "source-over";
+				context.drawImage(overrideImage, startX, startY);
+			}catch(ex){
+				console.log("Cannot override image.");
+				console.log(ex);
+			}
+		}
+	}
+
+	for(var i = 0; i < hovered.length; i++){
+
+		var path = hovered[i].path;
+
+		context.beginPath();
+
+		if(path[0]){
+			//context.moveTo(path[0][0]*zoom, path[0][1]*zoom);
+			context.moveTo(path[0][0], path[0][1]);
+		}
+
+		for(var p = 1; p < path.length; p++){
+			//context.lineTo(path[p][0]*zoom, path[p][1]*zoom);
+			context.lineTo(path[p][0], path[p][1]);
+		}
+
+		context.closePath();
+
+		context.globalCompositeOperation = "source-over";
+
+		var hoverStrokeStyle;
+		switch (hovered[i].diff) {
+			case "add":
+				hoverStrokeStyle = "rgba(0, 155, 0, 1)";
+				break;
+			case "edit":
+				hoverStrokeStyle = "rgba(155, 155, 0, 1)";
+				break;
+			default:
+				hoverStrokeStyle = "rgba(0, 0, 0, 1)";
+				break;
+		}
+		context.strokeStyle = hoverStrokeStyle;
+		//context.lineWidth = zoom;
+		context.stroke();
+	}
+
+}
+
+function updateHovering(e, tapped){
+		
+	if(!dragging && (!fixed || tapped)){
+		var pos = [
+			 (e.clientX - (container.clientWidth/2 - innerContainer.clientWidth/2 + zoomOrigin[0] + container.offsetLeft))/zoom
+			,(e.clientY - (container.clientHeight/2 - innerContainer.clientHeight/2 + zoomOrigin[1] + container.offsetTop))/zoom
+		];
+		var coords_p = document.getElementById("coords_p");
+		coords_p.innerText = Math.ceil(pos[0]) + ", " + Math.ceil(pos[1]);
+
+		if(pos[0] <= 2200 && pos[0] >= -100 && pos[0] <= 2200 && pos[0] >= -100){
+			var newHovered = [];
+			for(var i = 0; i < atlas.length; i++){
+				if(pointIsInPolygon(pos, atlas[i].path)){
+					newHovered.push(atlas[i]);
+				}
+			}
+
+			var changed = false;
+
+			if(hovered.length == newHovered.length){
+				for(var i = 0; i < hovered.length; i++){
+					if(hovered[i].id != newHovered[i].id){
+						changed = true;
+						break;
+					}
+				}
+			} else {
+				changed = true;
+			}
+
+			if(changed){
+				hovered = newHovered.sort(function(a, b){
+					return calcPolygonArea(a.path) - calcPolygonArea(b.path);
+				});
+
+				objectsContainer.innerHTML = "";
+
+				for(var i in hovered){
+					var element = createInfoBlock(hovered[i]);
+
+					objectsContainer.appendChild(element);
+
+					hovered[i].element = element;
+				}
+
+				if(hovered.length > 0){
+					closeObjectsListButton.className = "";
+				} else {
+					closeObjectsListButton.className = "hidden";
+				}
+
+
+				render();
+			}
+		}
+	}
+}
+
+function highlightEntryFromUrl(){
+
+	var objectsContainer = document.getElementById("objectsList");
+
+	var id = 0;
+	
+	var args = window.location.search;
+	if(args){
+		id = args.split("id=")[1];
+		if(id){
+			id = id.split("&")[0];
+		}
+	}
+
+	//var id = parseInt(window.location.hash.substring(3));
+	
+	var entries = atlas.filter(function(e){
+		return e.id === id;
+	});
+
+	if (entries.length === 1){
+		let entry = entries[0];
+
+		document.title = entry.name + " on the 2022 /r/place Atlas";
+		
+		var infoElement = createInfoBlock(entry);
+		objectsContainer.innerHTML = "";
+		objectsContainer.appendChild(infoElement);
+
+		//console.log(entry.center[0]);
+		//console.log(entry.center[1]);
+
+		zoom = 4;
+		renderBackground(atlas);
+		applyView();
+		
+		zoomOrigin = [
+			 innerContainer.clientWidth/2  - entry.center[0]* zoom// + container.offsetLeft
+			,innerContainer.clientHeight/2 - entry.center[1]* zoom// + container.offsetTop
+		];
+
+		scaleZoomOrigin = [
+			2000/2 - entry.center[0]// + container.offsetLeft
+			,2000/2 - entry.center[1]// + container.offsetTop
+		];
+
+		//console.log(zoomOrigin);
+		
+		applyView();
+		hovered = [entry];
+		render();
+		hovered[0].element = infoElement;
+		closeObjectsListButton.className = "";
+		updateLines();
+		fixed = true;
+	}
+}
+
+function initView(){
+
 	buildObjectsList(null, null);
+	renderBackground(atlas);
+	render();
 
 	timeCallback = (tempAtlas) => {
 		renderBackground(tempAtlas);
@@ -186,21 +748,9 @@ function initView(){
 		highlightEntryFromUrl();
 	}*/
 
-	if(document.documentElement.clientWidth > 2000){
-		entriesListShown = true;
-		wrapper.className = wrapper.className.replace(/ listHidden/g, "");
-	}
-
-	if(document.documentElement.clientWidth < 2000){
-		entriesListShown = false;
-		wrapper.className += " listHidden";
-	}
-
 	applyView();
 	render();
 	updateLines();
-
-	
 
 	var args = window.location.search;
 	if(args){
@@ -210,6 +760,31 @@ function initView(){
 		}
 	}
 
+}
+
+function initExplore(){
+
+	window.updateHovering = updateHovering
+
+	function updateHovering(e, tapped){
+		if(!dragging && (!fixed || tapped)){
+			var pos = [
+				 (e.clientX - (container.clientWidth/2 - innerContainer.clientWidth/2 + zoomOrigin[0] + container.offsetLeft))/zoom
+				,(e.clientY - (container.clientHeight/2 - innerContainer.clientHeight/2 + zoomOrigin[1] + container.offsetTop))/zoom
+			];
+			var coords_p = document.getElementById("coords_p");
+			coords_p.innerText = Math.ceil(pos[0]) + ", " + Math.ceil(pos[1]);
+	
+		}
+	}
+
+	renderBackground(atlas);
+
+	applyView();
+
+}
+
+function initGlobal() {
 	container.addEventListener("mousemove", function(e){
 		if(e.sourceCapabilities){
 			if(!e.sourceCapabilities.firesTouchEvents){
@@ -219,551 +794,16 @@ function initView(){
 			updateHovering(e);
 		}
 	});
+}
 
-	filterInput.addEventListener("input", function(e){
-		entriesOffset = 0;
-		entriesList.innerHTML = "";
-		entriesList.appendChild(moreEntriesButton);
-
-		if(this.value === ""){
-			document.getElementById("relevantOption").disabled = true;
-			sortedAtlas = atlas.concat();
-			buildObjectsList(null, null);
-		} else {
-			document.getElementById("relevantOption").disabled = false;
-			buildObjectsList(this.value.toLowerCase(), "relevant");
-		}
-
-	});
-
-	document.getElementById("sort").addEventListener("input", function(e){
-		entriesOffset = 0;
-		entriesList.innerHTML = "";
-		entriesList.appendChild(moreEntriesButton);
-
-		if(this.value != "relevant"){
-			defaultSort = this.value;
-		}
-
-		buildObjectsList(filterInput.value.toLowerCase(), this.value);
-
-	});
-	
-	hideListButton.addEventListener("click", function(e){
-		entriesListShown = !entriesListShown;
-		if(entriesListShown){
-			wrapper.className = wrapper.className.replace(/ listHidden/g, "");
-		} else {
-			wrapper.className += " listHidden";
-		}
-		updateHovering();
-		applyView();
-		render();
-		updateLines();
-		return false;
-	});
-
-	closeObjectsListButton.addEventListener("click", function(e){
-		hovered = [];
-		objectsContainer.innerHTML = "";
-		updateLines();
-		closeObjectsListButton.className = "hidden";
-		fixed = false;
-		render();
-	});
-
-	function shuffle(){
-		//console.log("shuffled atlas");
-		for (var i = sortedAtlas.length - 1; i > 0; i--) {
-			var j = Math.floor(Math.random() * (i + 1));
-			var temp = sortedAtlas[i];
-			sortedAtlas[i] = sortedAtlas[j];
-			sortedAtlas[j] = temp;
-		}
-	}
-
-	function highlightEntryFromUrl(){
-
-		var objectsContainer = document.getElementById("objectsList");
-
-		var id = 0;
-		
-		var args = window.location.search;
-		if(args){
-			id = args.split("id=")[1];
-			if(id){
-				id = id.split("&")[0];
-			}
-		}
-
-		//var id = parseInt(window.location.hash.substring(3));
-		
-		var entries = atlas.filter(function(e){
-			return e.id === id;
-		});
-
-		if (entries.length === 1){
-			let entry = entries[0];
-
-			document.title = entry.name + " on the 2022 /r/place Atlas";
-			
-			var infoElement = createInfoBlock(entry);
-			objectsContainer.innerHTML = "";
-			objectsContainer.appendChild(infoElement);
-
-			//console.log(entry.center[0]);
-			//console.log(entry.center[1]);
-
-			zoom = 4;
-			renderBackground(atlas);
-			applyView();
-			
-			zoomOrigin = [
-				 innerContainer.clientWidth/2  - entry.center[0]* zoom// + container.offsetLeft
-				,innerContainer.clientHeight/2 - entry.center[1]* zoom// + container.offsetTop
-			];
-
-			scaleZoomOrigin = [
-				2000/2 - entry.center[0]// + container.offsetLeft
-				,2000/2 - entry.center[1]// + container.offsetTop
-			];
-
-			//console.log(zoomOrigin);
-			
-			applyView();
-			hovered = [entry];
-			render();
-			hovered[0].element = infoElement;
-			closeObjectsListButton.className = "";
-			updateLines();
-			fixed = true;
-		}
-	}
-
-	function updateHovering(e, tapped){
-		var coordsWrapper = document.getElementById("coordsWrapper");
-		if (entriesListShown) {
-			coordsWrapper.className = "uncollapsed"
-		} else {
-			coordsWrapper.className = "collapsed"
-		}
-		
-		if(!dragging && (!fixed || tapped)){
-			var pos = [
-				 (e.clientX - (container.clientWidth/2 - innerContainer.clientWidth/2 + zoomOrigin[0] + container.offsetLeft))/zoom
-				,(e.clientY - (container.clientHeight/2 - innerContainer.clientHeight/2 + zoomOrigin[1] + container.offsetTop))/zoom
-			];
-			var coords_p = document.getElementById("coords_p");
-			coords_p.innerText = Math.ceil(pos[0]) + ", " + Math.ceil(pos[1]);
-
-			if(pos[0] <= 2200 && pos[0] >= -100 && pos[0] <= 2200 && pos[0] >= -100){
-				var newHovered = [];
-				for(var i = 0; i < atlas.length; i++){
-					if(pointIsInPolygon(pos, atlas[i].path)){
-						newHovered.push(atlas[i]);
-					}
-				}
-
-				var changed = false;
-
-				if(hovered.length == newHovered.length){
-					for(var i = 0; i < hovered.length; i++){
-						if(hovered[i].id != newHovered[i].id){
-							changed = true;
-							break;
-						}
-					}
-				} else {
-					changed = true;
-				}
-
-				if(changed){
-					hovered = newHovered.sort(function(a, b){
-						return calcPolygonArea(a.path) - calcPolygonArea(b.path);
-					});
-
-					objectsContainer.innerHTML = "";
-
-					for(var i in hovered){
-						var element = createInfoBlock(hovered[i]);
-
-						objectsContainer.appendChild(element);
-
-						hovered[i].element = element;
-					}
-
-					if(hovered.length > 0){
-						closeObjectsListButton.className = "";
-					} else {
-						closeObjectsListButton.className = "hidden";
-					}
-
-
-					render();
-				}
-			}
-		}
-	}
-
-	function buildObjectsList(filter, sort){
-
-		if(entriesList.contains(moreEntriesButton)){
-			entriesList.removeChild(moreEntriesButton);
-		}
-
-		if(!sortedAtlas){
-			sortedAtlas = atlas.concat();
-			document.getElementById("atlasSize").innerHTML = "The Atlas contains "+sortedAtlas.length+" entries.";
-		}
-
-		if(filter){
-			sortedAtlas = atlas.filter(function(value){
-				return (
-					   value.name.toLowerCase().indexOf(filter) !== -1
-					|| value.description.toLowerCase().indexOf(filter) !== -1
-					|| value.subreddit && value.subreddit.toLowerCase().indexOf(filter) !== -1
-					|| value.id === filter
-				);
-			});
-			document.getElementById("atlasSize").innerHTML = "Found "+sortedAtlas.length+" entries.";
-		} else {
-			document.getElementById("atlasSize").innerHTML = "The Atlas contains "+sortedAtlas.length+" entries.";
-		}
-
-		if(sort === null){
-			sort = defaultSort;
-		}
-
-		renderBackground(sortedAtlas);
-		render();
-
-		document.getElementById("sort").value = sort;
-
-		//console.log(sort);
-
-		var sortFunction;
-
-		//console.log(sort);
-
-		switch(sort){
-			case "shuffle":
-				sortFunction = null;
-				if(entriesOffset == 0){
-					shuffle();
-				}
-			break;
-			case "alphaAsc":
-				sortFunction = function(a, b){
-					return a.name.toLowerCase().localeCompare(b.name.toLowerCase());
-				}
-			break;
-			case "alphaDesc":
-				sortFunction = function(a, b){
-					return b.name.toLowerCase().localeCompare(a.name.toLowerCase());
-				}
-			break;
-			case "newest":
-				sortFunction = function(a, b){
-					if (a.id > b.id) {
-						return -1;
-					}
-					if (a.id < b.id) {
-						return 1;
-					}
-						// a must be equal to b
-					return 0;
-				}
-			break;
-			case "oldest":
-				sortFunction = function(a, b){
-					if (a.id < b.id) {
-						return -1;
-					}
-					if (a.id > b.id) {
-						return 1;
-					}
-						// a must be equal to b
-					return 0;
-				}
-			break;
-			case "area":
-				sortFunction = function(a, b){
-					return calcPolygonArea(b.path) - calcPolygonArea(a.path);
-				}
-			break;
-			case "relevant":
-				sortFunction = function(a, b){
-					if(a.name.toLowerCase().indexOf(filter) !== -1 && b.name.toLowerCase().indexOf(filter) !== -1){
-						if (a.name.toLowerCase().indexOf(filter) < b.name.toLowerCase().indexOf(filter)) {
-							return -1;
-						}
-						else if (a.name.toLowerCase().indexOf(filter) > b.name.toLowerCase().indexOf(filter)) {
-							return 1;
-						} else {
-							return a.name.toLowerCase().localeCompare(b.name.toLowerCase());
-						}
-					} else if(a.name.toLowerCase().indexOf(filter) !== -1){
-						return -1;
-					} else if(b.name.toLowerCase().indexOf(filter) !== -1){
-						return 1;
-					} else {
-						if (a.description.toLowerCase().indexOf(filter) < b.description.toLowerCase().indexOf(filter)) {
-							return -1;
-						}
-						else if (a.description.toLowerCase().indexOf(filter) > b.description.toLowerCase().indexOf(filter)) {
-							return 1;
-						} else {
-							return a.name.toLowerCase().localeCompare(b.name.toLowerCase());
-						}
-					}
-				}
-			break;
-		}
-
-		if(sortFunction){
-			sortedAtlas.sort(sortFunction);
-		}
-
-		for(var i = entriesOffset; i < entriesOffset+entriesLimit; i++){
-
-			if(i >= sortedAtlas.length){
-				break;
-			}
-
-
-			var element = createInfoBlock(sortedAtlas[i]);
-
-			element.entry = sortedAtlas[i];
-
-			element.addEventListener("mouseenter", function(e){
-				if(!fixed && !dragging){
-					objectsContainer.innerHTML = "";
-					
-					previousZoomOrigin = [zoomOrigin[0], zoomOrigin[1]];
-					previousScaleZoomOrigin = [scaleZoomOrigin[0], scaleZoomOrigin[1]];
-
-					applyView();
-					
-					zoomOrigin = [
-						 innerContainer.clientWidth/2  - this.entry.center[0]* zoom// + container.offsetLeft
-						,innerContainer.clientHeight/2 - this.entry.center[1]* zoom// + container.offsetTop
-					]
-
-					scaleZoomOrigin = [
-						2000/2  - this.entry.center[0]
-						,2000/2  - this.entry.center[1]
-					]
-
-					//console.log(zoomOrigin);
-
-					
-					applyView();
-					hovered = [this.entry];
-					render();
-					hovered[0].element = this;
-					updateLines();
-				}
-
-			});
-
-			element.addEventListener("click", function(e){
-				toggleFixed(e);
-				if(fixed){
-					previousZoomOrigin = [zoomOrigin[0], zoomOrigin[1]];
-					previousScaleZoomOrigin = [scaleZoomOrigin[0], scaleZoomOrigin[1]];
-					applyView();
-				}
-				if(document.documentElement.clientWidth < 500){
-					objectsContainer.innerHTML = "";
-
-					entriesListShown = false;
-					wrapper.className += " listHidden";
-
-					zoom = 4;
-					renderBackground(atlas);
-					applyView();
-					updateHovering();
-					
-					zoomOrigin = [
-						 innerContainer.clientWidth/2  - this.entry.center[0]* zoom// + container.offsetLeft
-						,innerContainer.clientHeight/2 - this.entry.center[1]* zoom// + container.offsetTop
-					]
-
-					scaleZoomOrigin = [
-						2000/2  - this.entry.center[0]
-						,2000/2  - this.entry.center[1]
-					]
-
-					previousZoomOrigin = [zoomOrigin[0], zoomOrigin[1]];
-					previousScaleZoomOrigin = [scaleZoomOrigin[0], scaleZoomOrigin[1]];
-
-					fixed = true;
-
-					hovered = [this.entry];
-					hovered[0].element = this;
-					
-					applyView();
-					render();
-					updateLines();
-					
-				}
-				
-			});
-
-			element.addEventListener("mouseleave", function(e){
-				if(!fixed && !dragging){
-					zoomOrigin = [previousScaleZoomOrigin[0]*zoom, previousScaleZoomOrigin[1]*zoom];
-					scaleZoomOrigin = [previousScaleZoomOrigin[0], previousScaleZoomOrigin[1]];
-					applyView();
-					hovered = [];
-					updateLines();
-					render();
-				}
-			});
-
-			entriesList.appendChild(element);
-
-		}
-
-		entriesOffset += entriesLimit;
-
-		if(sortedAtlas.length > entriesOffset){
-			moreEntriesButton.innerHTML = "Show "+Math.min(entriesLimit, sortedAtlas.length - entriesOffset)+" more";
-			entriesList.appendChild(moreEntriesButton);
-		}
-	}
-
-	async function render(){
-
-		context.clearRect(0, 0, canvas.width, canvas.height);
-
-		//canvas.width = 1000*zoom;
-		//canvas.height = 1000*zoom;
-		
-		context.globalCompositeOperation = "source-over";
-		context.clearRect(0, 0, canvas.width, canvas.height);
-
-		if(hovered.length > 0){
-			container.style.cursor = "pointer";
-		} else {
-			container.style.cursor = "default";
-		}
-
-
-		for(var i = 0; i < hovered.length; i++){
-
-
-			var path = hovered[i].path;
-
-			context.beginPath();
-
-			if(path[0]){
-				//context.moveTo(path[0][0]*zoom, path[0][1]*zoom);
-				context.moveTo(path[0][0], path[0][1]);
-			}
-
-			for(var p = 1; p < path.length; p++){
-				//context.lineTo(path[p][0]*zoom, path[p][1]*zoom);
-				context.lineTo(path[p][0], path[p][1]);
-			}
-
-			context.closePath();
-
-			context.globalCompositeOperation = "source-over";
-
-			context.fillStyle = "rgba(0, 0, 0, 1)";
-			context.fill();
-		}
-
-		context.globalCompositeOperation = "source-out";
-		context.drawImage(backgroundCanvas, 0, 0);
-
-		if(hovered.length === 1 && hovered[0].path.length && hovered[0].overrideImage){
-			let undisputableHovered = hovered[0];
-			// Find the left-topmost point of all the paths
-			let entryPosition = getPositionOfEntry(undisputableHovered);
-			if(entryPosition){
-				const [startX, startY] = entryPosition;
-				let overrideImage = new Image();
-				const loadingPromise = new Promise((res, rej) => {
-					overrideImage.onerror = rej;
-					overrideImage.onload = res;
-				});
-				overrideImage.src = "imageOverrides/" + undisputableHovered.overrideImage;
-				try{
-					await loadingPromise;
-					context.globalCompositeOperation = "source-over";
-					context.drawImage(overrideImage, startX, startY);
-				}catch(ex){
-					console.log("Cannot override image.");
-					console.log(ex);
-				}
-			}
-		}
-
-		for(var i = 0; i < hovered.length; i++){
-
-			var path = hovered[i].path;
-
-			context.beginPath();
-
-			if(path[0]){
-				//context.moveTo(path[0][0]*zoom, path[0][1]*zoom);
-				context.moveTo(path[0][0], path[0][1]);
-			}
-
-			for(var p = 1; p < path.length; p++){
-				//context.lineTo(path[p][0]*zoom, path[p][1]*zoom);
-				context.lineTo(path[p][0], path[p][1]);
-			}
-
-			context.closePath();
-
-			context.globalCompositeOperation = "source-over";
-
-			var hoverStrokeStyle;
-			switch (hovered[i].diff) {
-				case "add":
-					hoverStrokeStyle = "rgba(0, 155, 0, 1)";
-					break;
-				case "edit":
-					hoverStrokeStyle = "rgba(155, 155, 0, 1)";
-					break;
-				default:
-					hoverStrokeStyle = "rgba(0, 0, 0, 1)";
-					break;
-			}
-			context.strokeStyle = hoverStrokeStyle;
-			//context.lineWidth = zoom;
-			context.stroke();
-		}
-
-
-	}
-
-	function toggleFixed(e, tapped){
-		if(!fixed && hovered.length == 0){
-			return 0;
-		}
-		fixed = !fixed;
-		if(!fixed){
-			updateHovering(e, tapped);
-			render();
-		}
-	}
-
-	window.addEventListener("resize", updateLines);
-	window.addEventListener("mousemove", updateLines);
-	window.addEventListener("dblClick", updateLines);
-	window.addEventListener("wheel", updateLines);
-
+function initViewGlobal() {
 	container.addEventListener("mousedown", function(e){
 		lastPos = [
 			 e.clientX
 			,e.clientY
 		];
 	});
-
+	
 	container.addEventListener("touchstart", function(e){
 		if(e.touches.length == 1){
 			lastPos = [
@@ -772,16 +812,16 @@ function initView(){
 			];
 		}
 	},{passive: true} );
-
+	
 	container.addEventListener("mouseup", function(e){
 		if(Math.abs(lastPos[0] - e.clientX) + Math.abs(lastPos[1] - e.clientY) <= 4){
 			toggleFixed(e);
 		}
 	});
-
+	
 	container.addEventListener("touchend", function(e){
 		e.preventDefault()
-
+	
 		//console.log(e);
 		//console.log(e.changedTouches[0].clientX);
 		if(e.changedTouches.length == 1){
@@ -799,33 +839,4 @@ function initView(){
 			}
 		}
 	});
-
-	objectsContainer.addEventListener("scroll", function(e){
-		updateLines();
-	});
-
-	window.addEventListener("resize", function(){
-		//console.log(document.documentElement.clientWidth, document.documentElement.clientHeight);
-
-		var viewportWidth = document.documentElement.clientWidth;
-
-		if(document.documentElement.clientWidth > 2000 && viewportWidth <= 2000){
-			entriesListShown = true;
-			wrapper.className = wrapper.className.replace(/ listHidden/g, "");
-		}
-
-		if(document.documentElement.clientWidth < 2000 && viewportWidth >= 2000){
-			entriesListShown = false;
-			wrapper.className += " listHidden";
-		}
-		updateHovering();
-
-		viewportWidth = document.documentElement.clientWidth;
-		
-		applyView();
-		render();
-		updateLines();
-		
-	});
-
 }

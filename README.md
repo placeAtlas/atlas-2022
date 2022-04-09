@@ -1,4 +1,4 @@
-[![Entry count](https://img.shields.io/badge/dynamic/json?color=blue&label=count&query=%24.length&url=https%3A%2F%2Fgithub.com%2FplaceAtlas%2Fatlas%2Fblob%2Fmaster%2Fweb%2Fatlas.json%3Fraw%3Dtrue)](https://place-atlas.stefanocoding.me/)
+[![Entry count](https://img.shields.io/badge/dynamic/json?color=blue&label=entries&query=%24.length&url=https%3A%2F%2Fgithub.com%2FplaceAtlas%2Fatlas%2Fblob%2Fmaster%2Fweb%2Fatlas.json%3Fraw%3Dtrue)](https://place-atlas.stefanocoding.me/)
 ![Commit activity](https://img.shields.io/github/commit-activity/w/placeAtlas/atlas)
 [![Netlify](https://img.shields.io/netlify/1e7291ce-0680-45ed-9843-47a32a992bbb?logo=netlify&logoColor=white)](https://app.netlify.com/sites/place-atlas/deploys)
 [![License](https://img.shields.io/github/license/placeAtlas/atlas)](https://github.com/placeAtlas/atlas/blob/master/LICENSE)  
