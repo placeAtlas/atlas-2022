@@ -1,3 +1,18 @@
+/*
+	========================================================================
+	The 2022 /r/place Atlas
+
+	An Atlas of Reddit's 2022 /r/place, with information to each
+	artwork	of the canvas provided by the community.
+
+	Copyright (c) 2017 Roland Rytz <roland@draemm.li>
+	Copyright (c) 2022 r/placeAtlas2 contributors
+
+	Licensed under the GNU Affero General Public License Version 3
+	https://place-atlas.stefanocoding.me/license.txt
+	========================================================================
+*/
+
 function createInfoBlock(entry) {
     function createInfoParagraph(name, value){
         let entryParagraphPositionElement = document.createElement("p");
@@ -35,7 +50,7 @@ function createInfoBlock(entry) {
     }
     
     let [x, y] = entry.center;
-    element.appendChild(createInfoParagraph("Position: ", `${Math.floor(x)}x${Math.floor(y)}`));
+    element.appendChild(createInfoParagraph("Position: ", `${Math.floor(x)}, ${Math.floor(y)}`));
 
     if(entry.path){
         let area = calcPolygonArea(entry.path);
