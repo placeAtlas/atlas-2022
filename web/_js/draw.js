@@ -249,7 +249,7 @@ function initDraw(){
 		}
 		area *= 3;
 
-		return [Math.min(x / area)+0.5, Math.max(y / area)+0.5];
+		return [Math.floor(x / area)+0.5, Math.floor(y / area)+0.5];
 	}
 
 	function undo(){
