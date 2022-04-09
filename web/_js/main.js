@@ -9,7 +9,6 @@
 	Copyright (c) 2022 r/placeAtlas2 contributors
 
 	Licensed under the GNU Affero General Public License Version 3
-	For more information, see:
 	https://place-atlas.stefanocoding.me/license.txt
 	========================================================================
 */
@@ -114,25 +113,17 @@ async function init(){
 		}
 	}
 
-	if(mode == "view"){
-		
-		wrapper.className = wrapper.className.replace(/ drawMode/g, "");
-		initView();
-		
-	} else if(mode=="draw"){
-		
-		wrapper.className += " draw";
-		initDraw();
-		
-	} else if(mode=="about"){
+	document.body.dataset.mode = mode
+
+	if(mode === "draw"){
+		initDraw();	
+	} else if(mode === "about"){
 		window.location = "./about.html";
-	} else if(mode=="overlap"){
-		wrapper.className = wrapper.className.replace(/ drawMode/g, "");
+	} else if(mode === "overlap"){
 		if(initOverlap){
 			initOverlap();
 		}
 	} else if(mode.startsWith("diff")){
-		wrapper.className = wrapper.className.replace(/ drawMode/g, "");
 		try {
 			let liveResp = await fetch("https://place-atlas.stefanocoding.me/atlas.json");
 			let liveJson = await liveResp.json();
@@ -180,6 +171,10 @@ async function init(){
 				initView();
 			}
 		}
+	} else if(mode === "explore"){
+		initExplore();
+	} else {
+		initView();
 	}
 	
 	document.getElementById("loading").style.display = "none";

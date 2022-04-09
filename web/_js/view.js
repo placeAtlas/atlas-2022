@@ -332,12 +332,6 @@ function initView(){
 	}
 
 	function updateHovering(e, tapped){
-		var coordsWrapper = document.getElementById("coordsWrapper");
-		if (entriesListShown) {
-			coordsWrapper.className = "uncollapsed"
-		} else {
-			coordsWrapper.className = "collapsed"
-		}
 		
 		if(!dragging && (!fixed || tapped)){
 			var pos = [
@@ -815,6 +809,179 @@ function initView(){
 		applyView();
 		render();
 		updateLines();
+		
+	});
+
+}
+
+function initExplore(){
+	
+	var wrapper = document.getElementById("wrapper");
+	
+	var objectsContainer = document.getElementById("objectsList");
+	var closeObjectsListButton = document.getElementById("closeObjectsListButton");
+
+	var filterInput = document.getElementById("searchList");
+
+	var entriesList = document.getElementById("entriesList");
+	var hideListButton = document.getElementById("hideListButton");
+	var entriesListShown = true;
+
+	var defaultSort = "shuffle";
+	document.getElementById("sort").value = defaultSort;
+
+	var lastPos = [0, 0];
+
+	var fixed = false; // Fix hovered items in place, so that clicking on links is possible
+
+	renderBackground(atlas);
+
+	timeCallback = (tempAtlas) => {
+		renderBackground(tempAtlas);
+	}
+
+	if(document.documentElement.clientWidth > 2000){
+		entriesListShown = true;
+		wrapper.className = wrapper.className.replace(/ listHidden/g, "");
+	}
+
+	if(document.documentElement.clientWidth < 2000){
+		entriesListShown = false;
+		wrapper.className += " listHidden";
+	}
+
+	applyView();
+
+	container.addEventListener("mousemove", function(e){
+		if(e.sourceCapabilities){
+			if(!e.sourceCapabilities.firesTouchEvents){
+				updateHovering(e);
+			}
+		} else {
+			updateHovering(e);
+		}
+	});
+
+
+	filterInput.addEventListener("input", function(e){
+		entriesOffset = 0;
+		entriesList.innerHTML = "";
+		entriesList.appendChild(moreEntriesButton);
+
+		if(this.value === ""){
+			document.getElementById("relevantOption").disabled = true;
+			sortedAtlas = atlas.concat();
+		} else {
+			document.getElementById("relevantOption").disabled = false;
+		}
+
+	});
+
+	document.getElementById("sort").addEventListener("input", function(e){
+		entriesOffset = 0;
+		entriesList.innerHTML = "";
+		entriesList.appendChild(moreEntriesButton);
+
+		if(this.value != "relevant"){
+			defaultSort = this.value;
+		}
+
+	});
+	
+	hideListButton.addEventListener("click", function(e){
+		entriesListShown = !entriesListShown;
+		if(entriesListShown){
+			wrapper.className = wrapper.className.replace(/ listHidden/g, "");
+		} else {
+			wrapper.className += " listHidden";
+		}
+		updateHovering();
+		applyView();
+		return false;
+	});
+
+	closeObjectsListButton.addEventListener("click", function(e){
+		hovered = [];
+		objectsContainer.innerHTML = "";
+		closeObjectsListButton.className = "hidden";
+		fixed = false;
+	});
+
+	function updateHovering(e, tapped){
+		
+		if(!dragging && (!fixed || tapped)){
+			var pos = [
+				 (e.clientX - (container.clientWidth/2 - innerContainer.clientWidth/2 + zoomOrigin[0] + container.offsetLeft))/zoom
+				,(e.clientY - (container.clientHeight/2 - innerContainer.clientHeight/2 + zoomOrigin[1] + container.offsetTop))/zoom
+			];
+			var coords_p = document.getElementById("coords_p");
+			coords_p.innerText = Math.ceil(pos[0]) + ", " + Math.ceil(pos[1]);
+		}
+	}
+
+	function toggleFixed(e, tapped){
+		if(!fixed && hovered.length == 0){
+			return 0;
+		}
+		fixed = !fixed;
+	}
+
+	container.addEventListener("mousedown", function(e){
+		lastPos = [
+			 e.clientX
+			,e.clientY
+		];
+	});
+
+	container.addEventListener("touchstart", function(e){
+		if(e.touches.length == 1){
+			lastPos = [
+				 e.touches[0].clientX
+				,e.touches[0].clientY
+			];
+		}
+	},{passive: true} );
+
+	container.addEventListener("mouseup", function(e){
+		if(Math.abs(lastPos[0] - e.clientX) + Math.abs(lastPos[1] - e.clientY) <= 4){
+			toggleFixed(e);
+		}
+	});
+
+	container.addEventListener("touchend", function(e){
+		e.preventDefault()
+
+		//console.log(e);
+		//console.log(e.changedTouches[0].clientX);
+		if(e.changedTouches.length == 1){
+			e = e.changedTouches[0];
+			//console.log(lastPos[0] - e.clientX);
+			if(Math.abs(lastPos[0] - e.clientX) + Math.abs(lastPos[1] - e.clientY) <= 4){
+				//console.log("Foo!!");
+				dragging = false;
+				fixed = false;
+			}
+		}
+	});
+
+	window.addEventListener("resize", function(){
+		//console.log(document.documentElement.clientWidth, document.documentElement.clientHeight);
+
+		var viewportWidth = document.documentElement.clientWidth;
+
+		if(document.documentElement.clientWidth > 2000 && viewportWidth <= 2000){
+			entriesListShown = true;
+			wrapper.className = wrapper.className.replace(/ listHidden/g, "");
+		}
+
+		if(document.documentElement.clientWidth < 2000 && viewportWidth >= 2000){
+			entriesListShown = false;
+			wrapper.className += " listHidden";
+		}
+
+		viewportWidth = document.documentElement.clientWidth;
+		
+		applyView();
 		
 	});
 

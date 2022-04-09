@@ -506,7 +506,7 @@ p.delete {
 	padding: 0 20px;
 }
 
-.draw #drawControlsContainer {
+[data-mode="draw"] #drawControlsContainer {
 	display: block;
 }
 
@@ -656,15 +656,14 @@ input[type="checkbox"] {
     display: flex;
 	gap: 10px;
 	z-index: 100;
+	top: 49px;
+    left: 380px;
 }
-.collapsed {	
+#wrapper.listHidden #coordsWrapper {	
     top: 49px;
     left: 149px;
 }
-.uncollapsed {
-    top: 49px;
-    left: 380px;
-}
+
 @media (max-width: 750px) {
 	#coordsWrapper {
 		display: none;
@@ -864,7 +863,7 @@ button#zoomResetButton {
 	}
 }
 
-.draw #entriesListContainer {
+[data-mode="draw"] #entriesListContainer {
 	display: none;
 }
 
@@ -943,7 +942,7 @@ button#zoomResetButton {
 	border-right: 1px #000 solid;
 }
 
-.draw #entriesListBackground {
+[data-mode="draw"] #entriesListBackground {
 	display: none;
 }
 
@@ -977,7 +976,7 @@ button#zoomResetButton {
 	background-color: #555;
 }
 
-.draw #hideListButton {
+[data-mode="draw"] #hideListButton {
 	display: none;
 }
 
@@ -1010,6 +1009,10 @@ button#zoomResetButton {
 #entriesListControls input:focus {
 	outline: none;
 	border-color: #CCC;
+}
+
+[data-mode="explore"] #entriesListControls {
+	display: none;
 }
 
 #atlasSize {
