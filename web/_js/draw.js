@@ -14,6 +14,12 @@
 */
 
 function initDraw(){
+	
+	wrapper.classList.remove('listHidden')
+
+	window.render = render
+	window.renderBackground = renderBackground
+	window.updateHovering = updateHovering
 
 	var finishButton = document.getElementById("finishButton");
 	var resetButton = document.getElementById("resetButton");
@@ -34,14 +40,10 @@ function initDraw(){
 	var lShiftPressed = false;
 	var shiftPressed = false;
 
-	var backgroundCanvas = document.createElement("canvas");
-	backgroundCanvas.width = 2000;
-	backgroundCanvas.height = 2000;
-	var backgroundContext = backgroundCanvas.getContext("2d");
-
 	var highlightUncharted = true;
 
 	renderBackground();
+	applyView();
 
 	container.style.cursor = "crosshair";
 	
@@ -49,8 +51,6 @@ function initDraw(){
 	var drawing = true;
 
 	var undoHistory = [];
-
-	var lastPos = [0, 0];
 
 	render(path);
 
@@ -106,6 +106,8 @@ function initDraw(){
 	window.addEventListener("mousemove", function(e){
 		
 		if(!dragging && drawing && path.length > 0){
+
+			console.log(123)
 			
 			var coords = getCanvasCoords(e.clientX, e.clientY);
 			render(path.concat([coords]));
@@ -378,6 +380,18 @@ function initDraw(){
 		
 	}
 	
+	function updateHovering(e, tapped){
+		if(!dragging && (!fixed || tapped)){
+			var pos = [
+				 (e.clientX - (container.clientWidth/2 - innerContainer.clientWidth/2 + zoomOrigin[0] + container.offsetLeft))/zoom
+				,(e.clientY - (container.clientHeight/2 - innerContainer.clientHeight/2 + zoomOrigin[1] + container.offsetTop))/zoom
+			];
+			var coords_p = document.getElementById("coords_p");
+			coords_p.innerText = Math.ceil(pos[0]) + ", " + Math.ceil(pos[1]);
+	
+		}
+	}
+
 }
 
 

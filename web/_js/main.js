@@ -114,6 +114,9 @@ async function init(){
 
 	document.body.dataset.mode = mode
 
+	initGlobal()
+	if (mode !== "draw") initViewGlobal()
+
 	if(mode === "draw"){
 		initDraw();	
 	} else if(mode === "about"){
