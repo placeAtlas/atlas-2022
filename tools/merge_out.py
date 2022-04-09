@@ -8,13 +8,14 @@ from formatter import format_all, per_line_entries
 
 out_ids = []
 out_dupe_ids = []
+out_edited_added_ids = []
 atlas_ids = []
 
 with open('temp_atlas.json', 'r', encoding='utf-8') as out_file:
-	out_json = json.loads(out_file)
+	out_json = json.loads(out_file.read())
 
-with open('../atlas.json', 'r', encoding='utf-8') as atlas_file:
-	atlas_json = json.loads(atlas_file)
+with open('../web/atlas.json', 'r', encoding='utf-8') as atlas_file:
+	atlas_json = json.loads(atlas_file.read())
 
 for entry in atlas_json:
 	atlas_ids.append(entry['id'])
@@ -32,10 +33,17 @@ for entry in out_json:
 	if ('edit' in entry and entry['edit']) or entry['id'] in out_ids:
 		index = next((i for i, item in enumerate(atlas_json) if item["id"] == entry['id']), None)
 		if 'edit' in entry: 
+			out_edited_added_ids.append(entry['edit'])
 			del entry['edit']
 		atlas_json[index] = entry
 	else:
 		atlas_json.append(entry)
 
-with open('../atlas.json', 'w', encoding='utf-8') as atlas_file:
+print('Writing...')
+with open('../web/atlas.json', 'w', encoding='utf-8') as atlas_file:
 	atlas_file.write(per_line_entries(atlas_json))
+
+with open('../data/edit-ids.txt', 'a', encoding='utf-8') as edit_ids_file:
+	edit_ids_file.write('\n'.join(out_edited_added_ids) + '\n')
+
+print('All done.')

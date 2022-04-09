@@ -36,6 +36,11 @@ with open('../data/edit-ids.txt', 'r') as edit_ids_file:
 	for id in [x.strip() for x in edit_ids_file.readlines()]:
 		existing_ids.append(id)
 
+with open('../data/edit-ids.txt', 'r') as edit_ids_file:
+	for id in [x.strip() for x in edit_ids_file.readlines()]:
+		existing_ids.append(id)
+
+
 def set_flair(submission, flair):
 	if has_write_access and submission.link_flair_text != flair:
 		flair_choices = submission.flair.choices()
