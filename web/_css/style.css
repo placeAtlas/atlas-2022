@@ -937,7 +937,7 @@ button#zoomResetButton {
 	top: 50px;
 	bottom: 0;
 	width: 360px;
-	z-index: -600;
+	z-index: -400;
 	background-color: #333;
 	border-right: 1px #000 solid;
 }
