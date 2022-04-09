@@ -1111,11 +1111,10 @@ button#zoomResetButton {
     line-height: 26px;
 }
 
-#bitcoinButton {
+#donateButton {
 	cursor: pointer;
 }
 
-#bitcoinWindow,
 #donateWindow {
 	display: inline-block;
 	z-index: 2000;
@@ -1137,10 +1136,6 @@ button#zoomResetButton {
 	max-width: 800px;
 }
 
-#donateWindow > #bitcoinQR {
-	
-}
-
 #donateWindow > p {
 	margin: 2px 0;
 	padding: 0 20px;
@@ -1148,13 +1143,11 @@ button#zoomResetButton {
 	width: 100%;
 }
 
-#bitcoinWindow > *,
 #donateWindow > * {
 	display: inline-block;
 	margin: 5px 0;
 }
 
-#bitcoinWindow > h2,
 #donateWindow > h2 {
 	font-weight: 200;
 	background-color: #555;
@@ -1164,7 +1157,6 @@ button#zoomResetButton {
 	text-shadow: 1px 1px 0 #000;
 }
 
-#bitcoinWindow input,
 #donateWindow input {
 	width: 100%;
 	max-width: 350px;
@@ -1175,7 +1167,6 @@ button#zoomResetButton {
 	color: #FFF;
 }
 
-#bitcoinWindow button,
 #donateWindow button {
 	padding: 10px 20px;
 	margin-bottom: 20px;
@@ -1186,11 +1177,6 @@ h2#abouth2 {
 	font-size: 40px;
 	margin-bottom: 20px;
 	text-shadow: 2px 2px 0 #000;
-}
-
-#bitcoinNotice {
-	color: #AAA;
-	margin-top: 7px;
 }
 
 #viewModes {
@@ -1244,4 +1230,17 @@ body:not([data-dev]) .show-only-on-dev {
 	display: flex;
 	align-items: center;
 	gap: .5rem
+}
+
+#donateWindow a.button {
+	padding: 1rem
+}
+
+#donateWindow a.button svg {
+	height: 1em;
+	vertical-align: -0.125em;
+}
+
+#donateWindow a.button path {
+	color: white;
 }
