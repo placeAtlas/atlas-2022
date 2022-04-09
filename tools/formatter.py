@@ -2,6 +2,7 @@
 
 import re
 import json
+import io
 
 """
 Examples:
@@ -263,11 +264,11 @@ def per_line_entries(entries: list):
 	"""
 	Returns a string of all the entries, with every entry in one line.
 	"""
-	out = "[\r\n"
+	out = "[\n"
 	for entry in entries:
 		if entry:
-			out += json.dumps(entry, ensure_ascii=False) + ",\r\n"
-	out = out[:-2] + "\r\n]"
+			out += json.dumps(entry, ensure_ascii=False) + ",\n"
+	out = out[:-2] + "\n]"
 	return out
 
 def format_all(entry: dict, silent=False):
@@ -326,8 +327,8 @@ if __name__ == '__main__':
 
 		print(f"{len(entries)} checked.")
 
-		with open(path, "wb") as f2:
-			f2.write(per_line_entries(entries).encode(encoding='utf-8'))
+		with io.open(path, "w", encoding='utf-8', newline='\r\n') as f2:
+			f2.write(per_line_entries(entries))
 
 		print("Writing completed. All done.")
 
