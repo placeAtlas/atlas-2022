@@ -312,7 +312,7 @@ def format_all(entry: dict, silent=False):
 	entry = fix_no_protocol_urls(entry)
 	print_("Removing extras...")
 	entry = remove_extras(entry)
-	print_("removing duplicate points")
+	print_("Removing duplicate points...")
 	entry = remove_duplicate_points(entry)
 	print_("Updating center")
 	entry = update_center(entry)
