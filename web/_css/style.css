@@ -732,6 +732,7 @@ div:not(.listHidden) > #bottomBar {
 	font-size: 12px;
 	text-align: center;
 	min-width: 300px;
+	position: relative;
 }
 
 #timeControls input {
@@ -740,6 +741,26 @@ div:not(.listHidden) > #bottomBar {
 	-webkit-appearance: none;
 	appearance: none;
     width: 100%;
+}
+
+#timeControlsTooltip {
+	display: none;
+	position: absolute;
+	padding: 0.5em 2em;
+	background: #555;
+	border: 1px #000 solid;
+	justify-content: center;
+	bottom: 40px;
+	white-space: nowrap;
+}
+
+#timeControlsTooltip p {
+	line-height: normal;
+	margin-bottom: 0;
+}
+
+#timeControls:hover #timeControlsTooltip {
+	display: flex;
 }
 
 .slider::-webkit-slider-thumb {
