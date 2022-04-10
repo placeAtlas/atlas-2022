@@ -96,63 +96,83 @@ const timeConfig = [
 let slider = document.getElementById("timeControlsSlider");
 let tooltip = document.getElementById("timeControlsTooltip")
 let image = document.getElementById("image");
-let abortController = new AbortController()
-let currentUpdateIndex = 0
-let updateTimeout = setTimeout(null, 0)
 
-let timeCallback = (a) => {};
-let atlasBackup = [];
+let defaultPeriod = timeConfig.length
+var period = defaultPeriod
+window.period = period
 
 // SETUP
-slider.max = timeConfig.length;
-slider.value = timeConfig.length;
+slider.max = timeConfig.length - 1;
+document.querySelector('#startPeriodField').max = defaultPeriod
+document.querySelector('#endPeriodField').max = defaultPeriod
+slider.value = slider.max;
 updateTime(slider.value)
 
 slider.addEventListener("input", (event) => {
-    updateTooltip(parseInt(event.target.value))
-    clearTimeout(updateTimeout)
-    updateTimeout = setTimeout(() => {
-        updateTime(parseInt(event.target.value))
-    }, 100)
+    updateTime(parseInt(event.target.value))
 })
 
-async function updateTime(index) {
-    document.body.dataset.canvasLoading = true
-    abortController.abort()
-    abortController = new AbortController()
-    currentUpdateIndex++
-    let myUpdateIndex = currentUpdateIndex
-    let configObject = timeConfig[index-1];
+document.querySelector('#startPeriodField').oninput = (event) => {
+    slider.value = parseInt(event.target.value)
+    updateTime(parseInt(event.target.value))
+};
+
+document.querySelector('#endPeriodField').oninput = (event) => {
+    slider.value = parseInt(event.target.value)
+    updateTime(parseInt(event.target.value))
+};
+
+const dispatchTimeUpdateEvent = (period = slider.value, atlas = atlas) => {
+    console.log('dispatched!')
+    const timeUpdateEvent = new CustomEvent('timeupdate', {
+        detail: {
+            period: period,
+            atlas: atlas
+        }
+    });
+    document.dispatchEvent(timeUpdateEvent);
+}
+
+async function updateTime(currentPeriod) {
+    period = currentPeriod
+    let configObject = timeConfig[currentPeriod];
     if (!configObject.image) {
         console.log("fetching");
-        let fetchResult = await fetch(configObject.url, {
-            signal: abortController.signal
-        });
-        if (currentUpdateIndex !== myUpdateIndex) {
-            hideLoading()
-            return
-        }
+        let fetchResult = await fetch(configObject.url);
         let imageBlob = await fetchResult.blob();
         configObject.image = URL.createObjectURL(imageBlob);
     }
     image.src = configObject.image;
     // TEMP ATLAS ONLY ON LAST TIMESTAMP
-    if (configObject.showAtlas) {
-        atlas = atlasBackup
-    } else {
-        atlas = []
+    atlas = []
+    for ( var atlasIndex in atlasAll ) {
+        var validPeriods = atlasAll[atlasIndex].period
+        var isValid = false
+        if (validPeriods === undefined) validPeriods = defaultPeriod + ""
+        if (typeof validPeriods === "string") {
+            validPeriods.split(', ').some(period => {
+                if (period.search('-') + 1) {
+                    var [before, after] = period.split('-')
+                    if (currentPeriod >= before && currentPeriod <= after) {
+                        return atlas.push(atlasAll[atlasIndex])
+                    }
+                } else {
+                    var single = period
+                    if (single == currentPeriod) {
+                        return atlas.push(atlasAll[atlasIndex])
+                    }
+                }
+            })
+        }
+        if (isValid) atlas.push(atlasAll[atlasIndex])
     }
-    timeCallback(atlas)
-    document.body.dataset.canvasLoading = false
-}
-
-function updateTooltip(index) {
-    var configObject = timeConfig[index-1]
+    dispatchTimeUpdateEvent(currentPeriod, atlas)
     if (typeof configObject.timestamp === "number") tooltip.querySelector('p').textContent = new Date(configObject.timestamp*1000).toUTCString()
     else tooltip.querySelector('p').textContent = configObject.timestamp
     tooltip.style.left = (((slider.offsetWidth)*(slider.value-1)/(slider.max-1)) - tooltip.offsetWidth/2) + "px"
 }
 
-tooltip.parentElement.addEventListener('mouseenter', () => updateTooltip(parseInt(slider.value)))
+tooltip.parentElement.addEventListener('mouseenter', () => tooltip.style.left = (((slider.offsetWidth)*(slider.value-1)/(slider.max-1)) - tooltip.offsetWidth/2) + "px")
 
-window.addEventListener('resize', () => updateTooltip(parseInt(slider.value)))
+window.addEventListener('resize', () => tooltip.style.left = (((slider.offsetWidth)*(slider.value-1)/(slider.max-1)) - tooltip.offsetWidth/2) + "px")
+

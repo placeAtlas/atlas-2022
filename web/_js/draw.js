@@ -30,6 +30,10 @@ function initDraw(){
 	
 	var objectInfoBox = document.getElementById("objectInfo");
 	var hintText = document.getElementById("hint");
+
+	var startPeriodField = document.getElementById('startPeriodField')
+	var endPeriodField = document.getElementById('endPeriodField')
+	var periodVisbilityInfo = document.getElementById('periodVisbilityInfo')
 	
 	var exportButton = document.getElementById("exportButton");
 	var cancelButton = document.getElementById("cancelButton");
@@ -212,8 +216,14 @@ function initDraw(){
 			website: document.getElementById("websiteField").value,
 			subreddit: document.getElementById("subredditField").value,
 			center: calculateCenter(path),
-			path: path
+			path: path,
 		};
+
+		if (startPeriodField.value === endPeriodField.value) {
+			exportObject.period = [startPeriodField.value]
+		} else if (startPeriodField.value * 1 < endPeriodField.value * 1) {
+			exportObject.period = [startPeriodField.value + "-" + endPeriodField.value]
+		}
 		var jsonString = JSON.stringify(exportObject, null, "\t");
 		var textarea = document.getElementById("exportString");
 		jsonString = jsonString.split("\n");
@@ -287,6 +297,11 @@ function initDraw(){
 		objectDraw.style.display = "none";
 		hintText.style.display = "none";
 		document.getElementById("nameField").focus();
+		if (period >= startPeriodField.value * 1 && period <= endPeriodField.value * 1) {
+			periodVisbilityInfo.textContent = ""
+		} else {
+			periodVisbilityInfo.textContent = "Not visible during this period!"
+		}
 	}
 
 	function reset(){
@@ -428,6 +443,14 @@ function initDraw(){
 
 	   applyView();
 	}
+
+	document.addEventListener('timeupdate', (event) => {
+		if (period >= startPeriodField.value && period <= endPeriodField.value) {
+			periodVisbilityInfo.textContent = ""
+		} else {
+			periodVisbilityInfo.textContent = "Not visible during this period!"
+		}
+	})
 
 }
 

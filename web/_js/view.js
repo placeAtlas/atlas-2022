@@ -83,15 +83,11 @@ filterInput.addEventListener("input", function(e){
 });
 
 document.getElementById("sort").addEventListener("input", function(e){
-	entriesOffset = 0;
-	entriesList.innerHTML = "";
-	entriesList.appendChild(moreEntriesButton);
-
 	if(this.value != "relevant"){
 		defaultSort = this.value;
 	}
 
-	buildObjectsList(filterInput.value.toLowerCase(), this.value);
+	resetEntriesList(filterInput.value.toLowerCase(), this.value);
 
 });
 
@@ -268,7 +264,7 @@ function renderBackground(atlas){
 	}
 }
 
-function buildObjectsList(filter, sort){
+function buildObjectsList(filter = null, sort = null){
 
 	if(entriesList.contains(moreEntriesButton)){
 		entriesList.removeChild(moreEntriesButton);
@@ -506,6 +502,15 @@ function shuffle(){
 	}
 }
 
+function resetEntriesList() {
+	entriesOffset = 0;
+	entriesList.innerHTML = "";
+	entriesList.appendChild(moreEntriesButton);
+
+	buildObjectsList(filter = null, sort = null)
+
+}
+
 async function render(){
 
 	context.clearRect(0, 0, canvas.width, canvas.height);
@@ -728,10 +733,12 @@ function initView(){
 	renderBackground(atlas);
 	render();
 
-	timeCallback = (tempAtlas) => {
+	document.addEventListener('timeupdate', (event) => {
+		sortedAtlas = atlas.concat()
+		resetEntriesList(null, null)
 		renderBackground(tempAtlas);
 		render();
-	}
+	})
 
 	// parse linked atlas entry id from link hash
 	/*if (window.location.hash.substring(3)){

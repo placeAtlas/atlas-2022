@@ -64,6 +64,9 @@ function applyView(){
 }
 
 var atlas = null;
+window.atlas = atlas
+var atlasAll = null
+window.atlasAll = atlasAll
 
 if (document.location.host !== prodDomain) document.body.dataset.dev = ""
 
@@ -85,7 +88,7 @@ async function init(){
 		return 0;
 	});
 	//TEMP FOR TIME TRAVEL
-	atlasBackup = atlas;
+	atlasAll = atlas;
 	
 
 	//console.log(document.documentElement.clientWidth, document.documentElement.clientHeight);
@@ -170,7 +173,7 @@ async function init(){
 				});
 			}
 			//TEMP FOR TIME TRAVEL
-			atlasBackup = atlas;
+			atlasAll = atlas;
 		} catch (error) {
 			console.warn("Diff mode failed to load, reverting to normal view.", error);
 		} finally {
