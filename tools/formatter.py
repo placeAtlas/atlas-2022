@@ -126,7 +126,7 @@ def remove_duplicate_points(entry: dict):
     """
     path: list = entry['path']
     last: list = path[0]
-    for i in range(len(path)-1, 0, -1):
+    for i in range(len(path)-1, -1, -1):
         current: list = path[i]
         if current == last:
             path.pop(i)
