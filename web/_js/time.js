@@ -123,7 +123,6 @@ document.querySelector('#endPeriodField').oninput = (event) => {
 };
 
 const dispatchTimeUpdateEvent = (period = slider.value, atlas = atlas) => {
-    console.log('dispatched!')
     const timeUpdateEvent = new CustomEvent('timeupdate', {
         detail: {
             period: period,
@@ -137,7 +136,6 @@ async function updateTime(currentPeriod) {
     period = currentPeriod
     let configObject = timeConfig[currentPeriod];
     if (!configObject.image) {
-        console.log("fetching");
         let fetchResult = await fetch(configObject.url);
         let imageBlob = await fetchResult.blob();
         configObject.image = URL.createObjectURL(imageBlob);
