@@ -35,6 +35,9 @@ for entry in out_json:
 		if 'edit' in entry: 
 			out_edited_added_ids.append(entry['edit'])
 			del entry['edit']
+		if 'submitted_by' in atlas_json[index]:
+			atlas_json[index].contributors = [ atlas_json[index]['submitted_by'] ]
+		entry['contributors'] = atlas_json[index]['contributors'] + list(set(entry['contributors']) - set(atlas_json[index]['contributors']))
 		atlas_json[index] = entry
 	else:
 		atlas_json.append(entry)
