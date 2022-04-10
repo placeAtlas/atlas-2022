@@ -90,10 +90,11 @@ const timeConfig = [
         url: "./_img/place/final.png",
         image: null,
         showAtlas: true,
-    },
+    }
 ];
 
 let slider = document.getElementById("timeControlsSlider");
+let tooltip = document.getElementById("timeControlsTooltip")
 let image = document.getElementById("image");
 
 let timeCallback = (a) => {};
@@ -102,11 +103,11 @@ let atlasBackup = [];
 // SETUP
 slider.max = timeConfig.length;
 slider.value = timeConfig.length;
-updateTime(timeConfig.length)
+updateTime(slider.value)
 
-slider.oninput = (event) => {
+slider.addEventListener("input", (event) => {
     updateTime(parseInt(event.target.value))
-};
+})
 
 async function updateTime(index) {
     let configObject = timeConfig[index-1];
@@ -124,4 +125,13 @@ async function updateTime(index) {
         atlas = []
     }
     timeCallback(atlas)
+    if (typeof configObject.timestamp === "number") tooltip.querySelector('p').textContent = new Date(configObject.timestamp*1000).toUTCString()
+    else tooltip.querySelector('p').textContent = configObject.timestamp
+    tooltip.style.left = (((slider.offsetWidth)*(slider.value-1)/(slider.max-1)) - tooltip.offsetWidth/2) + "px"
 }
+
+tooltip.parentElement.addEventListener('mouseenter', () => tooltip.style.left = (((slider.offsetWidth)*(slider.value-1)/(slider.max-1)) - tooltip.offsetWidth/2) + "px"
+)
+
+window.addEventListener('resize', () => tooltip.style.left = (((slider.offsetWidth)*(slider.value-1)/(slider.max-1)) - tooltip.offsetWidth/2) + "px"
+)
