@@ -130,7 +130,7 @@ def remove_duplicate_points(entry: dict):
 		current: list = path[i]
 		if current == previous:
 			path.pop(i)
-			previous = current
+		previous = current
 
 	return entry
 
