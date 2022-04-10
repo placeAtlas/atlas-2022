@@ -1,3 +1,18 @@
+/*
+	========================================================================
+	The 2022 /r/place Atlas
+
+	An Atlas of Reddit's 2022 /r/place, with information to each
+	artwork	of the canvas provided by the community.
+
+	Copyright (c) 2017 Roland Rytz <roland@draemm.li>
+	Copyright (c) 2022 r/placeAtlas2 contributors
+
+	Licensed under the GNU Affero General Public License Version 3
+	https://place-atlas.stefanocoding.me/license.txt
+	========================================================================
+*/
+
 const timeConfig = [
     {
         timestamp: 1648822500,
@@ -75,10 +90,11 @@ const timeConfig = [
         url: "./_img/place/final.png",
         image: null,
         showAtlas: true,
-    },
+    }
 ];
 
 let slider = document.getElementById("timeControlsSlider");
+let tooltip = document.getElementById("timeControlsTooltip")
 let image = document.getElementById("image");
 
 let timeCallback = (a) => {};
@@ -87,11 +103,11 @@ let atlasBackup = [];
 // SETUP
 slider.max = timeConfig.length;
 slider.value = timeConfig.length;
-updateTime(timeConfig.length)
+updateTime(slider.value)
 
-slider.oninput = (event) => {
+slider.addEventListener("input", (event) => {
     updateTime(parseInt(event.target.value))
-};
+})
 
 async function updateTime(index) {
     let configObject = timeConfig[index-1];
@@ -109,4 +125,13 @@ async function updateTime(index) {
         atlas = []
     }
     timeCallback(atlas)
+    if (typeof configObject.timestamp === "number") tooltip.querySelector('p').textContent = new Date(configObject.timestamp*1000).toUTCString()
+    else tooltip.querySelector('p').textContent = configObject.timestamp
+    tooltip.style.left = (((slider.offsetWidth)*(slider.value-1)/(slider.max-1)) - tooltip.offsetWidth/2) + "px"
 }
+
+tooltip.parentElement.addEventListener('mouseenter', () => tooltip.style.left = (((slider.offsetWidth)*(slider.value-1)/(slider.max-1)) - tooltip.offsetWidth/2) + "px"
+)
+
+window.addEventListener('resize', () => tooltip.style.left = (((slider.offsetWidth)*(slider.value-1)/(slider.max-1)) - tooltip.offsetWidth/2) + "px"
+)

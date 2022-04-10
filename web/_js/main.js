@@ -1,28 +1,19 @@
-
-
-
 /*
 	========================================================================
-	The /r/place Atlas
-	
-	An Atlas of Reddit's /r/place, with information to each
+	The 2022 /r/place Atlas
+
+	An Atlas of Reddit's 2022 /r/place, with information to each
 	artwork	of the canvas provided by the community.
-	
-	Copyright (C) 2017 Roland Rytz <roland@draemm.li>
+
+	Copyright (c) 2017 Roland Rytz <roland@draemm.li>
+	Copyright (c) 2022 r/placeAtlas2 contributors
+
 	Licensed under the GNU Affero General Public License Version 3
-	This program is free software: you can redistribute it and/or modify
-	it under the terms of the GNU Affero General Public License as
-	published by the Free Software Foundation, either version 3 of the
-	License, or (at your option) any later version.
-	This program is distributed in the hope that it will be useful,
-	but WITHOUT ANY WARRANTY; without even the implied warranty of
-	MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.
-	For more information, see:
-	http://place-atlas.stefanocoding.me/license.txt
-	
+	https://place-atlas.stefanocoding.me/license.txt
 	========================================================================
 */
 
+const prodDomain = "place-atlas.stefanocoding.me"
 
 var innerContainer = document.getElementById("innerContainer");
 var container = document.getElementById("container");
@@ -46,12 +37,11 @@ var lastPosition = [0, 0];
 
 var viewportSize = [0, 0];
 
-document.getElementById("donateButton").addEventListener("click", function(e){
-//	document.getElementById("bitcoinQR").src = "./_img/bitcoinQR.png?from=index";
+document.getElementById("entriesListDonate").addEventListener("click", function(e){
 	document.getElementById("donateOverlay").style.display = "flex";
 });
 
-document.getElementById("closeBitcoinButton").addEventListener("click", function(e){
+document.getElementById("closeDonateButton").addEventListener("click", function(e){
 	document.getElementById("donateOverlay").style.display = "none";
 });
 
@@ -74,6 +64,8 @@ function applyView(){
 }
 
 var atlas = null;
+
+if (document.location.host !== prodDomain) document.body.dataset.dev = ""
 
 init();
 
@@ -120,25 +112,20 @@ async function init(){
 		}
 	}
 
-	if(mode == "view"){
-		
-		wrapper.className = wrapper.className.replace(/ drawMode/g, "");
-		initView();
-		
-	} else if(mode=="draw"){
-		
-		wrapper.className += " draw";
-		initDraw();
-		
-	} else if(mode=="about"){
+	document.body.dataset.mode = mode
+
+	initGlobal()
+	if (mode !== "draw") initViewGlobal()
+
+	if(mode === "draw"){
+		initDraw();	
+	} else if(mode === "about"){
 		window.location = "./about.html";
-	} else if(mode=="overlap"){
-		wrapper.className = wrapper.className.replace(/ drawMode/g, "");
+	} else if(mode === "overlap"){
 		if(initOverlap){
 			initOverlap();
 		}
 	} else if(mode.startsWith("diff")){
-		wrapper.className = wrapper.className.replace(/ drawMode/g, "");
 		try {
 			let liveResp = await fetch("https://place-atlas.stefanocoding.me/atlas.json");
 			let liveJson = await liveResp.json();
@@ -161,12 +148,12 @@ async function init(){
 				a[c.id] = c;
 				return a;
 			},{});
-			let removedEntries = liveJson.map(function(entry) {
-				if(atlasReduced[entry.id] === undefined){
-					entry.diff = "delete";
-				}
-				return entry;
-			});
+			let removedEntries = liveJson.filter(entry => 
+				atlasReduced[entry.id] === undefined
+			).map(entry => {
+				entry.diff = "delete"
+				return entry
+			})
 			atlas.push(...removedEntries)
 
 			if(mode.includes("only")){
@@ -174,11 +161,10 @@ async function init(){
 					return typeof entry.diff == "string"
 				});
 			}
-
 			//TEMP FOR TIME TRAVEL
 			atlasBackup = atlas;
 		} catch (error) {
-			console.log("Diff mode failed to load, reverting to normal view - " + error);
+			console.warn("Diff mode failed to load, reverting to normal view.", error);
 		} finally {
 			if(initOverlap && mode.includes("overlap")){
 				initOverlap();
@@ -186,35 +172,12 @@ async function init(){
 				initView();
 			}
 		}
+	} else if(mode === "explore"){
+		initExplore();
+	} else {
+		initView();
 	}
 	
-	function changeOverlapMode(){
-		console.log(mode)
-		switch(mode){
-			case "overlap":
-				window.location.href = "?mode=explore"
-				break;
-			case "explore":
-				window.location.href = "?"
-				break;
-			default:
-				window.location.href = "?mode=overlap"
-				break;
-		}
-
-		return false;
-	}
-
-	const modeMap = {
-		"view": "Overlap",
-		"overlap": "Explore",
-		"explore": "Atlas"
-	}
-
-	const toggleMode = document.getElementById("toggleMode");
-	toggleMode.onclick = changeOverlapMode;
-	toggleMode.innerHTML = modeMap[mode] || "Overlap";
-
 	document.getElementById("loading").style.display = "none";
 
 	document.getElementById("zoomInButton").addEventListener("click", function(e){
