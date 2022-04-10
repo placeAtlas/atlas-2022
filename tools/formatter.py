@@ -121,18 +121,18 @@ def remove_extras(entry: dict):
 	return entry
 
 def remove_duplicate_points(entry: dict):
-    """
-    Removes points from paths that occur twice after each other
-    """
-    path: list = entry['path']
-    previous: list = path[0]
-    for i in range(len(path)-1, -1, -1):
-        current: list = path[i]
-        if current == previous:
-            path.pop(i)
-        previous = current
+	"""
+	Removes points from paths that occur twice after each other
+	"""
+	path: list = entry['path']
+	previous: list = path[0]
+	for i in range(len(path)-1, -1, -1):
+		current: list = path[i]
+		if current == previous:
+			path.pop(i)
+			previous = current
 
-    return entry
+	return entry
 
 def fix_r_caps(entry: dict):
 	"""
