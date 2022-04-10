@@ -13,8 +13,8 @@ with open('credentials', 'r') as file:
 	credentials = file.readlines()
 	client_id = credentials[0].strip()
 	client_secret = credentials[1].strip()
-	username = credentials[2].strip()
-	password = credentials[3].strip()
+	username = credentials[2].strip() if len(credentials) > 3 else ""
+	password = credentials[3].strip() if len(credentials) > 3 else ""
 
 reddit = praw.Reddit(
 	client_id=client_id, 
@@ -102,9 +102,6 @@ for submission in reddit.subreddit('placeAtlas2').new(limit=2000):
 
 			if submission_json:
 
-				# Assert if path does not empty
-				assert len(submission_json["path"]) > 0
-
 				submission_json_dummy = {"id": submission.id, "submitted_by": ""}
 				try:
 					submission_json_dummy["submitted_by"] = submission.author.name
@@ -113,9 +110,12 @@ for submission in reddit.subreddit('placeAtlas2').new(limit=2000):
 				for key in submission_json:
 					if not key in submission_json_dummy:
 						submission_json_dummy[key] = submission_json[key];
-				submission_json = format_all(submission_json_dummy, True)
-
-				outfile.write(json.dumps(submission_json) + ",\n")
+				(submission_json, validation_status) = format_all(submission_json_dummy, True)
+				
+				assert validation_status < 3, \
+					"Submission invalid after validation. This may be caused by not enough points on the path."
+					
+				outfile.write(json.dumps(submission_json, ensure_ascii=False) + ",\n")
 				successcount += 1
 				set_flair(submission, "Processed Entry")
 
