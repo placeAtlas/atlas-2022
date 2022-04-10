@@ -326,7 +326,7 @@ if __name__ == '__main__':
 
 		print(f"{len(entries)} checked.")
 
-		with open(path, "w", encoding='utf-8', newline='\r\n') as f2:
+		with open(path, "w", encoding='utf-8', newline='\n') as f2:
 			f2.write(per_line_entries(entries))
 
 		print("Writing completed. All done.")
