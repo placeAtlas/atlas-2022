@@ -113,8 +113,6 @@ function initDraw(){
 		
 		if(!dragging && drawing && path.length > 0){
 
-			console.log(123)
-			
 			var coords = getCanvasCoords(e.clientX, e.clientY);
 			render(path.concat([coords]));
 		}
@@ -230,7 +228,6 @@ function initDraw(){
 		jsonString = jsonString.join("\n    ");
 		jsonString = "    "+jsonString;
 		textarea.value = jsonString;
-		console.log("a");
 		var directPostUrl = "https://www.reddit.com/r/placeAtlas2/submit?selftext=true&title=New%20Submission&text="+encodeURIComponent(document.getElementById("exportString").value);
 		if (jsonString.length > 7493) {
 			directPostUrl = "https://www.reddit.com/r/placeAtlas2/submit?selftext=true&title=New%20Submission&text="+encodeURIComponent("    " + JSON.stringify(exportObject));

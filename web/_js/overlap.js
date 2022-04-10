@@ -23,6 +23,13 @@ function initOverlap(){
 	renderBackground(atlas);
 	render();
 
+	document.addEventListener('timeupdate', (event) => {
+		sortedAtlas = atlas.concat()
+		resetEntriesList(null, null)
+		renderBackground(tempAtlas);
+		render();
+	})
+
 	applyView();
 	render();
 	updateLines();
