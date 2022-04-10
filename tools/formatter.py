@@ -314,7 +314,7 @@ def format_all(entry: dict, silent=False):
 	entry = remove_extras(entry)
 	print_("Removing duplicate points...")
 	entry = remove_duplicate_points(entry)
-	print_("Updating center")
+	print_("Updating center...")
 	entry = update_center(entry)
 	print_("Validating...")
 	status_code = validate(entry)
