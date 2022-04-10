@@ -7,6 +7,7 @@ import traceback
 from formatter import format_all
 
 outfile = open('temp_atlas.json', 'w', encoding='utf-8')
+editidsfile = open('read-ids-temp.txt', 'w')
 failfile = open('manual_atlas.json', 'w', encoding='utf-8')
 
 with open('credentials', 'r') as file:
@@ -29,13 +30,11 @@ if not has_write_access:
 	print("Warning: No write access. Post flairs will not be updated.")
 	time.sleep(5)
 
-jsonfile = open("../web/atlas.json", "r", encoding='utf-8')
-existing = json.load(jsonfile)
-
 existing_ids = []
 
-for item in existing:
-	existing_ids.append(item['id'])
+with open('../data/edit-ids.txt', 'r') as edit_ids_file:
+	for id in [x.strip() for x in edit_ids_file.readlines()]:
+		existing_ids.append(id)
 
 def set_flair(submission, flair):
 	if has_write_access and submission.link_flair_text != flair:
@@ -116,6 +115,7 @@ for submission in reddit.subreddit('placeAtlas2').new(limit=2000):
 					"Submission invalid after validation. This may be caused by not enough points on the path."
 					
 				outfile.write(json.dumps(submission_json, ensure_ascii=False) + ",\n")
+				editidsfile.write(submission.id + '\n')
 				successcount += 1
 				set_flair(submission, "Processed Entry")
 
