@@ -421,6 +421,18 @@ function initDraw(){
 		undoButton.disabled = false;
 		entryId = params.get('id')
 
+		if (typeof entry.period === "string") {
+            entry.period.split(', ').some(period => {
+                if (period.search('-') + 1) {
+                    var [before, after] = period.split('-')
+                    startPeriodField.value = before
+					endPeriodField.value = after
+					console.log(before, after)
+					return
+                }
+            })
+        }
+
 		if(path.length >= 3){
 			finishButton.disabled = false;
 		}

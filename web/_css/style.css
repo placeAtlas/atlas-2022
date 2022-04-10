@@ -588,6 +588,10 @@ p.delete {
 	display: inline-block;
 }
 
+#highlightUnchartedLabel {
+	font-size: 0.83333333333em
+}
+
 input[type="checkbox"] {
 	margin: 3px;
 	vertical-align: middle;
