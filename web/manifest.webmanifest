@@ -1,32 +1,36 @@
 {
-    "theme_color": "#f69435",
-    "background_color": "#f69435",
+    "theme_color": "#923b15",
+    "background_color": "#111111",
     "display": "minimal-ui",
     "scope": "/",
     "start_url": "/",
     "name": "r/place atlas",
-    "short_name": "r/placeAtlas2",
+    "short_name": "place Atlas",
     "description": "The atlas for the r/place event from 2022",
     "icons": [
         {
             "src": "_img/pwa/icon-192x192.png",
-            "sizes": "192x192",
-            "type": "image/png"
+            "sizes": "196x196",
+            "type": "image/png",
+            "purpose": "any"
         },
         {
-            "src": "_img/pwa/icon-256x256.png",
-            "sizes": "256x256",
-            "type": "image/png"
-        },
-        {
-            "src": "_img/pwa/icon-384x384.png",
-            "sizes": "384x384",
-            "type": "image/png"
+            "src": "_img/pwa/icon-maskable-192x192.png",
+            "sizes": "196x196",
+            "type": "image/png",
+            "purpose": "maskable"
         },
         {
             "src": "_img/pwa/icon-512x512.png",
             "sizes": "512x512",
-            "type": "image/png"
+            "type": "image/png",
+            "purpose": "any"
+        },
+        {
+            "src": "_img/pwa/icon-maskable-512x512.png",
+            "sizes": "512x512",
+            "type": "image/png",
+            "purpose": "maskable"
         }
     ]
 }

@@ -27,18 +27,33 @@
 		<title>The 2022 /r/place Atlas</title>
 		<meta name="description" content="An interactive map of Reddit's 2022 /r/place, with information to each artwork of the canvas.">
 		<meta name="author" content="Roland Rytz (2022 by Stefano#7366)">
-		<meta name="keywords" content="reddit, /r/place 2022">
 		<meta name="application-name" content="The /r/place Atlas 2022">
 		<meta name="robots" content="index, follow">
+		
+		<meta property="og:title" content="The 2022 /r/place Atlas">
+		<meta property="og:type" content="website">
+		<meta property="og:url" content="https://place-atlas.stefanocoding.me/">
+		<meta property="og:image" content="https://place-atlas.stefanocoding.me/_img/logo.png">
+		<meta property="og:image:type" content="image/png">
+		<meta property="og:image:width" content="512">
+		<meta property="og:image:height" content="512">
+		<meta property="og:image:alt" content="The /r/place Atlas logo">
+		<meta property="og:description" content="An interactive map of Reddit's 2022 /r/place, with information to each artwork of the canvas.">
 		
 		<!-- <meta name="google-site-verification" content="gZGHpBSMzffAbIn0qB8b00We6EwSGkDTfDoQVv-NWss"/> -->
 		
 		<meta name="viewport" content="width=device-width, height=device-height, initial-scale=1, minimum-scale=1, maximum-scale=1, shrink-to-fit=no"> <!-- user-scalable=no -->
 		<meta name="mobile-web-app-capable" content="yes">
+		<meta name="color-scheme" content="dark">
+
+		<link rel="apple-touch-icon" href="_img/apple-touch-icon.png" sizes="180x180">
+		<link rel="icon alternate" href="_img/favicon.png" type="image/png" class="js-site-favicon">
+		<link rel="icon" href="_img/favicon.svg" type="image/svg+xml" class="js-site-favicon">
 		
 		<link href="./_css/style.css?version=1.0.33" rel="stylesheet" type="text/css" media="all">
 		<link rel="manifest" href="./manifest.webmanifest">
 		
+		<script type="text/javascript" src="./_js/favicon.js" defer></script>
 		<script type="application/ld+json">
 			{
 				"@context": "http://schema.org",
@@ -74,7 +89,7 @@
 		<div id="wrapper">
 			<header>
 				<a href="./">
-					<img id="logo" src="./_img/logo.png" height="50" width="50" alt="Logo">
+					<img id="logo" src="./_img/logo.svg" height="50" width="50" alt="Logo">
 					<!-- If you wonder why I shrink the image in html,
 					     it's because this is the image that will be used
 					     by reddit and the like as the thumbnail for the site.
