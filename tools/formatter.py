@@ -2,6 +2,7 @@
 
 import re
 import json
+import math
 
 from calculate_center import polylabel
 
@@ -208,32 +209,9 @@ def convert_subreddit_to_website(entry: dict):
 def calculate_center(path: list):
 	"""
 	Caluclates the center of a polygon
-
-	adapted from /web/_js/draw.js:calucalteCenter()
 	"""
-	area = 0
-	x = 0
-	y = 0
-
-	for i in range(len(path)):
-		point1 = path[i]
-		point2 = path[i-1 if i != 0 else len(path)-1]
-		f = point1[0] * point2[1] - point2[0] * point1[1]
-		area += f
-		x += (point1[0] + point2[0]) * f
-		y += (point1[1] + point2[1]) * f
-
-	area *= 3
-
-	if area != 0:
-		return [x // area + 0.5, y // area + 0.5]
-	else:
-		# get the center of a straight line
-		max_x = max(i[0] for i in path)
-		min_x = min(i[0] for i in path)
-		max_y = max(i[1] for i in path)
-		min_y = min(i[1] for i in path)
-		return [(max_x + min_x) // 2 + 0.5, (max_y + min_y) // 2 + 0.5]
+	result = polylabel(path)
+	return [math.floor(result[0]) + 0.5, math.floor(result[1]) + 0.5]
 
 def update_center(entry: dict):
 	"""
@@ -243,7 +221,7 @@ def update_center(entry: dict):
 		return entry
 	path = entry['path']
 	if len(path) > 1:
-		calculated_center = polylabel(path)
+		calculated_center = calculate_center(path)
 		if 'center' not in entry or entry['center'] != calculated_center:
 			entry['center'] = calculated_center
 	return entry
