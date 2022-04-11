@@ -53,7 +53,6 @@ var defaultSort = "shuffle";
 document.getElementById("sort").value = defaultSort;
 
 var lastPos = [0, 0];
-var idLastHighlight; // track the last id to prevent highlighting from different hash arg updates
 
 var fixed = false; // Fix hovered items in place, so that clicking on links is possible
 
@@ -679,20 +678,7 @@ function highlightEntryFromUrl(){
 
 	var objectsContainer = document.getElementById("objectsList");
 
-	var id = 0;
-	
-	var args = window.location.hash;
-	if(args){
-		id = args.split("id=")[1];
-		if(id){
-			id = id.split("&")[0];
-		}
-	}
-
-	if(id === idLastHighlight){
-		return;
-	}
-	idLastHighlight = id;
+	var id = window.location.hash.substring(1); //Remove hash prefix
 
 	var entries = atlas.filter(function(e){
 		return e.id === id;
@@ -759,11 +745,8 @@ function initView(){
 	updateLines();
 
 	var args = window.location.hash;
-	if(args){
-		id = args.split("id=")[1];
-		if(id){
-			highlightEntryFromUrl();
-		}
+	if(args){ // both "/" and just "/#" will be an empty hash string
+		highlightEntryFromUrl();
 	}
 
 }
