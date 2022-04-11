@@ -12,35 +12,35 @@ from math import inf
 
 def _point_to_polygon_distance(x, y, polygon):
 	inside = False
-	min_dist_sq = inf
+	min_distance_squared = inf
 
-	b = polygon[-1]
-	for a in polygon:
-		if ((a[1] > y) != (b[1] > y) and
-				(x < (b[0] - a[0]) * (y - a[1]) / (b[1] - a[1]) + a[0])):
+	previous = polygon[-1]
+	for current in polygon:
+		if ((current[1] > y) != (previous[1] > y) and
+				(x < (previous[0] - current[0]) * (y - current[1]) / (previous[1] - current[1]) + current[0])):
 			inside = not inside
 
-		min_dist_sq = min(min_dist_sq, _get_seg_dist_sq(x, y, a, b))
-		b = a
+		min_distance_squared = min(min_distance_squared, _get_segment_distance_squared(x, y, current, previous))
+		previous = current
 
-	result = sqrt(min_dist_sq)
+	result = sqrt(min_distance_squared)
 	if not inside:
 		return -result
 	return result
 
 
-def _get_seg_dist_sq(px, py, a, b):
-	x = a[0]
-	y = a[1]
-	dx = b[0] - x
-	dy = b[1] - y
+def _get_segment_distance_squared(px, py, point_a, point_b):
+	x = point_a[0]
+	y = point_a[1]
+	dx = point_b[0] - x
+	dy = point_b[1] - y
 
 	if dx != 0 or dy != 0:
 		t = ((px - x) * dx + (py - y) * dy) / (dx * dx + dy * dy)
 
 		if t > 1:
-			x = b[0]
-			y = b[1]
+			x = point_b[0]
+			y = point_b[1]
 
 		elif t > 0:
 			x += dx * t
