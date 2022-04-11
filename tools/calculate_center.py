@@ -4,36 +4,49 @@ which is in turn implemented from https://github.com/mapbox/polylabel
 """
 from math import sqrt
 import time
+from typing import Tuple, List
 
 # Python3
 from queue import PriorityQueue
 from math import inf
 
+Point = Tuple[float, float]
+Polygon = List[Point]
 
-def _point_to_polygon_distance(x, y, polygon):
-	inside = False
-	min_distance_squared = inf
+SQRT2 = sqrt(2)
 
-	previous = polygon[-1]
+
+def _point_to_polygon_distance(x: float, y: float, polygon: Polygon) -> (float, float):
+	inside: bool = False
+	min_distance_squared: float = inf
+	max_distance_sqared: float = -inf
+
+	previous: Point = polygon[-1]
 	for current in polygon:
 		if ((current[1] > y) != (previous[1] > y) and
 				(x < (previous[0] - current[0]) * (y - current[1]) / (previous[1] - current[1]) + current[0])):
 			inside = not inside
 
 		min_distance_squared = min(min_distance_squared, _get_segment_distance_squared(x, y, current, previous))
+		max_distance_sqared = max(max_distance_sqared, _get_max_point_distance(x, y, current))
 		previous = current
 
-	result = sqrt(min_distance_squared)
+	result: float = sqrt(min_distance_squared)
+	max_result: float = sqrt(max_distance_sqared)
 	if not inside:
-		return -result
-	return result
+		return -result, -max_result
+	return result, max_result
 
 
-def _get_segment_distance_squared(px, py, point_a, point_b):
-	x = point_a[0]
-	y = point_a[1]
-	dx = point_b[0] - x
-	dy = point_b[1] - y
+def _get_max_point_distance(px: float, py: float, point: Point) -> float:
+	return (px - point[0]) ** 2 + (py - point[1]) ** 2
+
+
+def _get_segment_distance_squared(px: float, py: float, point_a: Point, point_b: Point) -> float:
+	x: float = point_a[0]
+	y: float = point_a[1]
+	dx: float = point_b[0] - x
+	dy: float = point_b[1] - y
 
 	if dx != 0 or dy != 0:
 		t = ((px - x) * dx + (py - y) * dy) / (dx * dx + dy * dy)
@@ -53,12 +66,15 @@ def _get_segment_distance_squared(px, py, point_a, point_b):
 
 
 class Cell(object):
-	def __init__(self, x, y, h, polygon):
-		self.h = h
-		self.y = y
-		self.x = x
-		self.d = _point_to_polygon_distance(x, y, polygon)
-		self.max = self.d + self.h * sqrt(2)
+	def __init__(self, x: float, y: float, h: float, polygon: Polygon):
+		self.h: float = h
+		self.y: float = y
+		self.x: float = x
+		min_dist, max_dist = _point_to_polygon_distance(x, y, polygon)
+		self.min_dist: float = min_dist
+		self.max_dist: float = max_dist
+		self.max = self.min_dist + self.h * SQRT2
+		self.weight = self.max
 
 	def __lt__(self, other):
 		return self.max < other.max
@@ -76,13 +92,13 @@ class Cell(object):
 		return self.max == other.max
 
 
-def _get_centroid_cell(polygon):
-	area = 0
-	x = 0
-	y = 0
-	previous = polygon[-1]
+def _get_centroid_cell(polygon: Polygon) -> Cell:
+	area: float = 0
+	x: float = 0
+	y: float = 0
+	previous: Point = polygon[-1]
 	for current in polygon:
-		f = current[0] * previous[1] - previous[0] * current[1]
+		f: float = current[0] * previous[1] - previous[0] * current[1]
 		x += (current[0] + previous[0]) * f
 		y += (current[1] + previous[1]) * f
 		area += f * 3
@@ -92,13 +108,13 @@ def _get_centroid_cell(polygon):
 	return Cell(x / area, y / area, 0, polygon)
 
 
-def polylabel(polygon, precision=0.5, debug=False, with_distance=False):
+def polylabel(polygon: Polygon, precision: float=0.5, debug: bool=False):
 	# find bounding box
-	first_item = polygon[0]
-	min_x = first_item[0]
-	min_y = first_item[1]
-	max_x = first_item[0]
-	max_y = first_item[1]
+	first_item: Point = polygon[0]
+	min_x: float = first_item[0]
+	min_y: float = first_item[1]
+	max_x: float = first_item[0]
+	max_y: float = first_item[1]
 	for p in polygon:
 		if p[0] < min_x:
 			min_x = p[0]
@@ -109,64 +125,57 @@ def polylabel(polygon, precision=0.5, debug=False, with_distance=False):
 		if p[1] > max_y:
 			max_y = p[1]
 
-	width = max_x - min_x
-	height = max_y - min_y
-	cell_size = min(width, height)
-	h = cell_size / 2.0
+	width: float = max_x - min_x
+	height: float = max_y - min_y
+	cell_size: float = min(width, height)
+	h: float = cell_size / 2.0
 
-	cell_queue = PriorityQueue()
+	cell_queue: PriorityQueue[Tuple[float, int, Cell]] = PriorityQueue()
 
 	if cell_size == 0:
-		if with_distance:
-			return [min_x, min_y], None
-		else:
-			return [min_x, min_y]
+		return [(max_x - min_x) / 2, (max_y - min_y) / 2]
 
 	# cover polygon with initial cells
-	x = min_x
+	x: float = min_x
 	while x < max_x:
-		y = min_y
+		y: float = min_y
 		while y < max_y:
-			c = Cell(x + h, y + h, h, polygon)
+			c: Cell = Cell(x + h, y + h, h, polygon)
 			y += cell_size
-			cell_queue.put((-c.max, time.time(), c))
+			cell_queue.put((c.weight, time.time(), c))
 		x += cell_size
 
-	best_cell = _get_centroid_cell(polygon)
+	best_cell: Cell = _get_centroid_cell(polygon)
 
-	bbox_cell = Cell(min_x + width / 2, min_y + height / 2, 0, polygon)
-	if bbox_cell.d > best_cell.d:
+	bbox_cell: Cell = Cell(min_x + width / 2, min_y + height / 2, 0, polygon)
+	if bbox_cell.min_dist > best_cell.min_dist:
 		best_cell = bbox_cell
 
 	num_of_probes = cell_queue.qsize()
 	while not cell_queue.empty():
 		_, __, cell = cell_queue.get()
 
-		if cell.d > best_cell.d:
+		if cell.min_dist > best_cell.min_dist:
 			best_cell = cell
 
 			if debug:
-				print('found best {} after {} probes'.format(
-					round(1e4 * cell.d) / 1e4, num_of_probes))
+				print(f'found best {round(cell.min_dist, 4)} after {num_of_probes} probes')
 
-		if cell.max - best_cell.d <= precision:
+		if cell.max - best_cell.min_dist <= precision:
 			continue
 
 		h = cell.h / 2
 		c = Cell(cell.x - h, cell.y - h, h, polygon)
-		cell_queue.put((-c.max, time.time(), c))
+		cell_queue.put((c.weight, time.time(), c))
 		c = Cell(cell.x + h, cell.y - h, h, polygon)
-		cell_queue.put((-c.max, time.time(), c))
+		cell_queue.put((c.weight, time.time(), c))
 		c = Cell(cell.x - h, cell.y + h, h, polygon)
-		cell_queue.put((-c.max, time.time(), c))
+		cell_queue.put((c.weight, time.time(), c))
 		c = Cell(cell.x + h, cell.y + h, h, polygon)
-		cell_queue.put((-c.max, time.time(), c))
+		cell_queue.put((c.weight, time.time(), c))
 		num_of_probes += 4
 
 	if debug:
-		print('num probes: {}'.format(num_of_probes))
-		print('best distance: {}'.format(best_cell.d))
-	if with_distance:
-		return [best_cell.x, best_cell.y], best_cell.d
-	else:
+		print(f'num probes: {num_of_probes}')
+		print(f'best distance: {best_cell.min_dist}')
 		return [best_cell.x, best_cell.y]
