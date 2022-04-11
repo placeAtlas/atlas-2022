@@ -3,6 +3,8 @@
 import re
 import json
 
+from calculate_center import polylabel
+
 """
 Examples:
 1. - /r/place
@@ -241,7 +243,7 @@ def update_center(entry: dict):
 		return entry
 	path = entry['path']
 	if len(path) > 1:
-		calculated_center = calculate_center(path)
+		calculated_center = polylabel(path)
 		if 'center' not in entry or entry['center'] != calculated_center:
 			entry['center'] = calculated_center
 	return entry
