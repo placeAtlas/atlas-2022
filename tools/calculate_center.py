@@ -150,11 +150,13 @@ def polylabel(polygon: Polygon, precision: float=0.5, debug: bool=False):
 	if bbox_cell.min_dist > best_cell.min_dist:
 		best_cell = bbox_cell
 
+	threshold: float = log10(cell_size) / 2.0
+
 	num_of_probes = cell_queue.qsize()
 	while not cell_queue.empty():
 		_, __, cell = cell_queue.get()
 
-		if cell.min_dist > best_cell.min_dist or (cell.center_dist < best_cell.center_dist and cell.min_dist > best_cell.min_dist - log10(cell_size) / 2.0):
+		if cell.min_dist > best_cell.min_dist or (cell.center_dist < best_cell.center_dist and cell.min_dist > best_cell.min_dist - threshold):
 			best_cell = cell
 
 			if debug:
