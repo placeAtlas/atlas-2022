@@ -2,7 +2,7 @@
 From https://github.com/Twista/python-polylabel/,
 which is in turn implemented from https://github.com/mapbox/polylabel
 """
-from math import sqrt
+from math import sqrt, log10
 import time
 from typing import Tuple, List
 
@@ -154,7 +154,7 @@ def polylabel(polygon: Polygon, precision: float=0.5, debug: bool=False):
 	while not cell_queue.empty():
 		_, __, cell = cell_queue.get()
 
-		if cell.min_dist > best_cell.min_dist or (cell.center_dist < best_cell.center_dist and cell.min_dist > best_cell.min_dist - 0.5):
+		if cell.min_dist > best_cell.min_dist or (cell.center_dist < best_cell.center_dist and cell.min_dist > best_cell.min_dist - log10(cell_size) / 2.0):
 			best_cell = cell
 
 			if debug:
