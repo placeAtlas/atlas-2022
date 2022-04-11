@@ -102,7 +102,7 @@ hideListButton.addEventListener("click", function(e){
 	} else {
 		wrapper.classList.add('listHidden')
 	}
-	updateHovering();
+	updateHovering(e);
 	applyView();
 	render();
 	updateLines();
@@ -154,7 +154,7 @@ window.addEventListener("resize", function(){
 		entriesListShown = false;
 		wrapper.className += " listHidden";
 	}
-	updateHovering();
+	updateHovering(e);
 
 	viewportWidth = document.documentElement.clientWidth;
 	
@@ -445,7 +445,7 @@ function buildObjectsList(filter, sort){
 				zoom = 4;
 				renderBackground(atlas);
 				applyView();
-				updateHovering();
+				updateHovering(e);
 				
 				zoomOrigin = [
 					 innerContainer.clientWidth/2  - this.entry.center[0]* zoom// + container.offsetLeft
