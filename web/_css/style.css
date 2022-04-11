@@ -945,7 +945,7 @@ button#zoomResetButton {
 	height: 28px;
 	width: 28px;
 }
-#entriesListDiscord:hover > img {
+#entriesListDiscord:hover > svg {
 	text-decoration: none;
 	background-image: linear-gradient(to bottom, #7289DA, #7289DA);
 	border-radius: 12px;
