@@ -65,7 +65,13 @@ function applyView(){
 
 var atlas = null;
 
-if (document.location.host !== prodDomain) document.body.dataset.dev = ""
+if (document.location.host !== prodDomain) {
+	document.body.dataset.dev = ""
+} else {
+	document.querySelectorAll('option.dev-only').forEach(el => {
+		el.hidden = true
+	})
+}
 
 init();
 
@@ -113,6 +119,7 @@ async function init(){
 	}
 
 	document.body.dataset.mode = mode
+	document.getElementById('modeSelect').value = mode
 
 	initGlobal()
 	if (mode !== "draw") initViewGlobal()
@@ -176,7 +183,15 @@ async function init(){
 		initExplore();
 	} else {
 		initView();
+		document.getElementById('modeSelect').value = ""
 	}
+
+	document.getElementById("modeSelect").addEventListener('change', e => {
+		let searchParams = new URLSearchParams(document.location.search)
+		if (e.target.value === "") searchParams.delete('mode')
+		else searchParams.set('mode', e.target.value)
+		document.location.search = searchParams.toString()
+	})
 	
 	document.getElementById("loading").style.display = "none";
 

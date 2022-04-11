@@ -782,6 +782,56 @@ function initExplore(){
 
 	applyView();
 
+	var args = window.location.search;
+	if(args){
+		id = args.split("id=")[1];
+		if(id){
+			highlightEntryFromUrl();
+		}
+	}
+
+	function highlightEntryFromUrl(){
+	
+		var id = 0;
+		
+		var args = window.location.search;
+		if(args){
+			id = args.split("id=")[1];
+			if(id){
+				id = id.split("&")[0];
+			}
+		}
+	
+		//var id = parseInt(window.location.hash.substring(3));
+		
+		var entries = atlas.filter(function(e){
+			return e.id === id;
+		});
+	
+		if (entries.length === 1){
+			let entry = entries[0];
+	
+			document.title = entry.name + " on the 2022 /r/place Atlas";
+	
+			zoom = 4;
+			applyView();
+			
+			zoomOrigin = [
+				 innerContainer.clientWidth/2  - entry.center[0]* zoom// + container.offsetLeft
+				,innerContainer.clientHeight/2 - entry.center[1]* zoom// + container.offsetTop
+			];
+	
+			scaleZoomOrigin = [
+				2000/2 - entry.center[0]// + container.offsetLeft
+				,2000/2 - entry.center[1]// + container.offsetTop
+			];
+	
+			//console.log(zoomOrigin);
+			
+			applyView();
+		}
+	}
+
 }
 
 function initGlobal() {

@@ -117,17 +117,13 @@
 				<nav id="entriesListNav">
 					<a id="aboutLink" href="./about.html" class="button">About</a>
 					<a id="drawLink" href="./index.html?mode=draw" class="button">Draw</a>
-					<div class="dropdown button" id="viewModes">
-						<span>Modes</span>
-						<span class="buffer"></span>
-						<div class="dropdown-content">
-						  <a href="./">Normal</a>
-						  <a href="./?mode=explore">Explore</a>
-						  <a href="./?mode=overlap">Overlap</a>
-						  <a href="./?mode=diff" class="show-only-on-dev">With Diff</a>
-						  <a href="./?mode=diffonly" class="show-only-on-dev">Diff Only</a>
-						</div>
-					</div> 
+					<select id="modeSelect">
+						<option value="" selected>Normal</option>
+						<option value="explore">Explore</option>
+						<option value="overlap">Overlap</option>
+						<option value="diff" class="dev-only">With Diff</option>
+						<option value="diffonly" class="dev-only">Diff Only</option>
+					</select>
 					<a title="Discord" href="https://discord.gg/pJkm23b2nA" class="button small" id="entriesListDiscord">
 						<img class="Discord" alt="Discord Logo" src="./_img/discord.svg">
 					</a>

@@ -1059,6 +1059,11 @@ button#zoomResetButton {
 	width: 150px;
 }
 
+#modeSelect {
+	flex-shrink: 0.5;
+	text-shadow: 1px 1px 0 #444;
+}
+
 #entriesListControls {
 	width: 100%;
 }
@@ -1201,50 +1206,7 @@ h2#abouth2 {
 	text-shadow: 2px 2px 0 #000;
 }
 
-#viewModes {
-	position: relative;
-	display: inline-block;
-}
-
-#viewModes .buffer {
-	bottom: -10px;
-	left: 0;
-	position: absolute;
-	height: 20px;
-	width: 100%
-}
-
-#viewModes .dropdown-content {
-	margin-top: 1.5rem;
-	top: 10px;
-	left: 0;
-	position: absolute;
-	display: none;
-	background: #666;
-	border: 1px #000 solid;
-	cursor: pointer;
-	width: 125%
-}
-  
-#viewModes .dropdown-content a {
-	color: #FFF;
-	text-align: left;
-	padding: 5px 10px;
-	display: block;
-	text-decoration: none;
-	text-shadow: 1px 1px 0 #444;
-}
-  
-#viewModes .dropdown-content a:hover {
-	background-image: linear-gradient(to bottom, #999, #777);
-}
-  
-#viewModes:hover .dropdown-content,
-#viewModes:active .dropdown-content {
-	display: block;
-}
-
-body:not([data-dev]) .show-only-on-dev {
+body:not([data-dev]) .dev-only {
 	display: none !important;
 }
 
