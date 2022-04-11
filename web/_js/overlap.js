@@ -27,12 +27,8 @@ function initOverlap(){
 	render();
 	updateLines();
 
-	var args = window.location.hash;
-	if(args){
-		id = args.split("id=")[1];
-		if(id){
-			highlightEntryFromUrl();
-		}
+	if(window.location.hash){
+		highlightEntryFromUrl();
 	}
 
 	function renderBackground(atlas) {

@@ -744,8 +744,7 @@ function initView(){
 	render();
 	updateLines();
 
-	var args = window.location.hash;
-	if(args){ // both "/" and just "/#" will be an empty hash string
+	if(window.location.hash){ // both "/" and just "/#" will be an empty hash string
 		highlightEntryFromUrl();
 	}
 
