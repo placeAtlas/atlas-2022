@@ -120,6 +120,20 @@ def remove_extras(entry: dict):
 
 	return entry
 
+def remove_duplicate_points(entry: dict):
+	"""
+	Removes points from paths that occur twice after each other
+	"""
+	path: list = entry['path']
+	previous: list = path[0]
+	for i in range(len(path)-1, -1, -1):
+		current: list = path[i]
+		if current == previous:
+			path.pop(i)
+		previous = current
+
+	return entry
+
 def fix_r_caps(entry: dict):
 	"""
 	Fixes capitalization of /r/. (/R/place -> /r/place)
@@ -298,7 +312,9 @@ def format_all(entry: dict, silent=False):
 	entry = fix_no_protocol_urls(entry)
 	print_("Removing extras...")
 	entry = remove_extras(entry)
-	print_("Updating center")
+	print_("Removing duplicate points...")
+	entry = remove_duplicate_points(entry)
+	print_("Updating center...")
 	entry = update_center(entry)
 	print_("Validating...")
 	status_code = validate(entry)
