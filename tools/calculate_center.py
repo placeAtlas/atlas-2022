@@ -150,13 +150,23 @@ def polylabel(polygon: Polygon, precision: float=0.5, debug: bool=False):
 	if bbox_cell.min_dist > best_cell.min_dist:
 		best_cell = bbox_cell
 
-	threshold: float = log10(cell_size) / 2.0
+	# how much closer is an point allowed to be to the border,
+	# while having a shorter distance to the centroid
+	threshold: float = log10(cell_size) / 3.0
 
 	num_of_probes = cell_queue.qsize()
 	while not cell_queue.empty():
 		_, __, cell = cell_queue.get()
 
-		if cell.min_dist > best_cell.min_dist or (cell.center_dist < best_cell.center_dist and cell.min_dist > best_cell.min_dist - threshold):
+		# update if either the cell is further from the edge,
+		# or if it is sufficiently similary far from the edge,
+		# but closer to the centroid
+		if (cell.min_dist > best_cell.min_dist
+				or (
+					cell.center_dist < best_cell.center_dist
+					and cell.min_dist > best_cell.min_dist - threshold
+				)
+			):
 			best_cell = cell
 
 			if debug:
