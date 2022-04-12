@@ -5,7 +5,7 @@ import TinyQueue from 'https://cdn.jsdelivr.net/npm/tinyqueue@2.0.3/index.min.js
 if (TinyQueue.default) TinyQueue = TinyQueue.default; // temporary webpack fix
 
 export default function polylabel(polygon, precision, debug) {
-	precision = precision || 1.0;
+	precision = precision || 0.5;
 
 	// find the bounding box of the outer ring
 	var minX, minY, maxX, maxY;
@@ -31,28 +31,34 @@ export default function polylabel(polygon, precision, debug) {
 	// a priority queue of cells in order of their "potential" (max distance to polygon)
 	var cellQueue = new TinyQueue(undefined, compareMax);
 
+	let centroid = getCentroid(polygon);
+
 	// cover polygon with initial cells
 	for (var x = minX; x < maxX; x += cellSize) {
 		for (var y = minY; y < maxY; y += cellSize) {
-			cellQueue.push(new Cell(x + h, y + h, h, polygon));
+			cellQueue.push(new Cell(x + h, y + h, h, polygon, centroid));
 		}
 	}
 
 	// take centroid as the first best guess
-	var bestCell = getCentroidCell(polygon);
+	var bestCell = getCentroidCell(centroid, polygon);
 
 	// second guess: bounding box centroid
-	var bboxCell = new Cell(minX + width / 2, minY + height / 2, 0, polygon);
+	var bboxCell = new Cell(minX + width / 2, minY + height / 2, 0, polygon, centroid);
 	if (bboxCell.d > bestCell.d) bestCell = bboxCell;
 
 	var numProbes = cellQueue.length;
+	let threshold = Math.log10(cellSize) / 3.0
 
 	while (cellQueue.length) {
 		// pick the most promising cell from the queue
 		var cell = cellQueue.pop();
 
 		// update the best cell if we found a better one
-		if (cell.d > bestCell.d) {
+		if (cell.d > bestCell.d || (
+				cell.centerDist < bestCell.centerDist &&
+				cell.d > bestCell.d - threshold
+		)) {
 			bestCell = cell;
 			if (debug) console.log('found best %f after %d probes', Math.round(1e4 * cell.d) / 1e4, numProbes);
 		}
@@ -62,10 +68,10 @@ export default function polylabel(polygon, precision, debug) {
 
 		// split the cell into four cells
 		h = cell.h / 2;
-		cellQueue.push(new Cell(cell.x - h, cell.y - h, h, polygon));
-		cellQueue.push(new Cell(cell.x + h, cell.y - h, h, polygon));
-		cellQueue.push(new Cell(cell.x - h, cell.y + h, h, polygon));
-		cellQueue.push(new Cell(cell.x + h, cell.y + h, h, polygon));
+		cellQueue.push(new Cell(cell.x - h, cell.y - h, h, polygon, centroid));
+		cellQueue.push(new Cell(cell.x + h, cell.y - h, h, polygon, centroid));
+		cellQueue.push(new Cell(cell.x - h, cell.y + h, h, polygon, centroid));
+		cellQueue.push(new Cell(cell.x + h, cell.y + h, h, polygon, centroid));
 		numProbes += 4;
 	}
 
@@ -80,15 +86,17 @@ export default function polylabel(polygon, precision, debug) {
 }
 
 function compareMax(a, b) {
-	return b.max - a.max;
+	return b.weight - a.weight;
 }
 
-function Cell(x, y, h, polygon) {
+function Cell(x, y, h, polygon, centroid) {
 	this.x = x; // cell center x
 	this.y = y; // cell center y
 	this.h = h; // half the cell size
 	this.d = pointToPolygonDist(x, y, polygon); // distance from cell center to polygon
+	this.centerDist = (centroid[0] - x) ** 2 + (centroid[1] - y) ** 2
 	this.max = this.d + this.h * Math.SQRT2; // max distance to polygon within a cell
+	this.weight = -this.centerDist - this.max
 }
 
 // signed distance from point to polygon outline (negative if point is outside)
@@ -110,7 +118,7 @@ function pointToPolygonDist(x, y, polygon) {
 }
 
 // get polygon centroid
-function getCentroidCell(polygon) {
+function getCentroid(polygon) {
 	var area = 0;
 	var x = 0;
 	var y = 0;
@@ -123,8 +131,12 @@ function getCentroidCell(polygon) {
 		y += (a[1] + b[1]) * f;
 		area += f * 3;
 	}
-	if (area === 0) return new Cell(polygon[0][0], polygon[0][1], 0, polygon);
-	return new Cell(x / area, y / area, 0, polygon);
+	if (area === 0) return [polygon[0][0], polygon[0][1]];
+	return [x / area, y / area];
+}
+
+function getCentroidCell(centroid, polygon) {
+	return new Cell(centroid[0], centroid[1], 0, polygon, centroid);
 }
 
 // get squared distance from a point to a segment

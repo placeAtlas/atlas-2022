@@ -229,8 +229,8 @@ window.initDraw = function(){
 
 
 	function calculateCenter(path){
-	let result = polylabel(path)
-	return [Math.floor(result[0]) + 0.5, Math.floor(result[1]) + 0.5]
+		let result = polylabel(path, 0.5, true)
+		return [Math.floor(result[0]) + 0.5, Math.floor(result[1]) + 0.5]
 	}
 
 	function undo(){
