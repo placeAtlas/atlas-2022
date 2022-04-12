@@ -98,8 +98,7 @@ let tooltip = document.getElementById("timeControlsTooltip")
 let image = document.getElementById("image");
 let abortController = new AbortController()
 let currentUpdateIndex = 0
-let loadingTimeout = setInterval(null, 0)
-let updateTimeout = setInterval(null, 0)
+let updateTimeout = setTimeout(null, 0)
 
 let timeCallback = (a) => {};
 let atlasBackup = [];
@@ -111,7 +110,7 @@ updateTime(slider.value)
 
 slider.addEventListener("input", (event) => {
     clearTimeout(updateTimeout)
-    updateTimeout = setInterval(() => {
+    updateTimeout = setTimeout(() => {
         updateTime(parseInt(event.target.value))
     }, 100)
 })
