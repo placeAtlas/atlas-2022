@@ -5,157 +5,152 @@ import TinyQueue from 'https://cdn.jsdelivr.net/npm/tinyqueue@2.0.3/index.min.js
 if (TinyQueue.default) TinyQueue = TinyQueue.default; // temporary webpack fix
 
 export default function polylabel(polygon, precision, debug) {
-    precision = precision || 1.0;
+	precision = precision || 1.0;
 
-    // find the bounding box of the outer ring
-    var minX, minY, maxX, maxY;
-    for (var i = 0; i < polygon[0].length; i++) {
-        var p = polygon[0][i];
-        if (!i || p[0] < minX) minX = p[0];
-        if (!i || p[1] < minY) minY = p[1];
-        if (!i || p[0] > maxX) maxX = p[0];
-        if (!i || p[1] > maxY) maxY = p[1];
-    }
+	// find the bounding box of the outer ring
+	var minX, minY, maxX, maxY;
+	for (var i = 0; i < polygon.length; i++) {
+		var p = polygon[i];
+		if (!i || p[0] < minX) minX = p[0];
+		if (!i || p[1] < minY) minY = p[1];
+		if (!i || p[0] > maxX) maxX = p[0];
+		if (!i || p[1] > maxY) maxY = p[1];
+	}
 
-    var width = maxX - minX;
-    var height = maxY - minY;
-    var cellSize = Math.min(width, height);
-    var h = cellSize / 2;
+	var width = maxX - minX;
+	var height = maxY - minY;
+	var cellSize = Math.min(width, height);
+	var h = cellSize / 2;
 
-    if (cellSize === 0) {
-        var degeneratePoleOfInaccessibility = [minX, minY];
-        degeneratePoleOfInaccessibility.distance = 0;
-        return degeneratePoleOfInaccessibility;
-    }
+	if (cellSize === 0) {
+		var degeneratePoleOfInaccessibility = [minX, minY];
+		degeneratePoleOfInaccessibility.distance = 0;
+		return degeneratePoleOfInaccessibility;
+	}
 
-    // a priority queue of cells in order of their "potential" (max distance to polygon)
-    var cellQueue = new tinyque(undefined, compareMax);
+	// a priority queue of cells in order of their "potential" (max distance to polygon)
+	var cellQueue = new TinyQueue(undefined, compareMax);
 
-    // cover polygon with initial cells
-    for (var x = minX; x < maxX; x += cellSize) {
-        for (var y = minY; y < maxY; y += cellSize) {
-            cellQueue.push(new Cell(x + h, y + h, h, polygon));
-        }
-    }
+	// cover polygon with initial cells
+	for (var x = minX; x < maxX; x += cellSize) {
+		for (var y = minY; y < maxY; y += cellSize) {
+			cellQueue.push(new Cell(x + h, y + h, h, polygon));
+		}
+	}
 
-    // take centroid as the first best guess
-    var bestCell = getCentroidCell(polygon);
+	// take centroid as the first best guess
+	var bestCell = getCentroidCell(polygon);
 
-    // second guess: bounding box centroid
-    var bboxCell = new Cell(minX + width / 2, minY + height / 2, 0, polygon);
-    if (bboxCell.d > bestCell.d) bestCell = bboxCell;
+	// second guess: bounding box centroid
+	var bboxCell = new Cell(minX + width / 2, minY + height / 2, 0, polygon);
+	if (bboxCell.d > bestCell.d) bestCell = bboxCell;
 
-    var numProbes = cellQueue.length;
+	var numProbes = cellQueue.length;
 
-    while (cellQueue.length) {
-        // pick the most promising cell from the queue
-        var cell = cellQueue.pop();
+	while (cellQueue.length) {
+		// pick the most promising cell from the queue
+		var cell = cellQueue.pop();
 
-        // update the best cell if we found a better one
-        if (cell.d > bestCell.d) {
-            bestCell = cell;
-            if (debug) console.log('found best %f after %d probes', Math.round(1e4 * cell.d) / 1e4, numProbes);
-        }
+		// update the best cell if we found a better one
+		if (cell.d > bestCell.d) {
+			bestCell = cell;
+			if (debug) console.log('found best %f after %d probes', Math.round(1e4 * cell.d) / 1e4, numProbes);
+		}
 
-        // do not drill down further if there's no chance of a better solution
-        if (cell.max - bestCell.d <= precision) continue;
+		// do not drill down further if there's no chance of a better solution
+		if (cell.max - bestCell.d <= precision) continue;
 
-        // split the cell into four cells
-        h = cell.h / 2;
-        cellQueue.push(new Cell(cell.x - h, cell.y - h, h, polygon));
-        cellQueue.push(new Cell(cell.x + h, cell.y - h, h, polygon));
-        cellQueue.push(new Cell(cell.x - h, cell.y + h, h, polygon));
-        cellQueue.push(new Cell(cell.x + h, cell.y + h, h, polygon));
-        numProbes += 4;
-    }
+		// split the cell into four cells
+		h = cell.h / 2;
+		cellQueue.push(new Cell(cell.x - h, cell.y - h, h, polygon));
+		cellQueue.push(new Cell(cell.x + h, cell.y - h, h, polygon));
+		cellQueue.push(new Cell(cell.x - h, cell.y + h, h, polygon));
+		cellQueue.push(new Cell(cell.x + h, cell.y + h, h, polygon));
+		numProbes += 4;
+	}
 
-    if (debug) {
-        console.log('num probes: ' + numProbes);
-        console.log('best distance: ' + bestCell.d);
-    }
+	if (debug) {
+		console.log('num probes: ' + numProbes);
+		console.log('best distance: ' + bestCell.d);
+	}
 
-    var poleOfInaccessibility = [bestCell.x, bestCell.y];
-    poleOfInaccessibility.distance = bestCell.d;
-    return poleOfInaccessibility;
+	var poleOfInaccessibility = [bestCell.x, bestCell.y];
+	poleOfInaccessibility.distance = bestCell.d;
+	return poleOfInaccessibility;
 }
 
 function compareMax(a, b) {
-    return b.max - a.max;
+	return b.max - a.max;
 }
 
 function Cell(x, y, h, polygon) {
-    this.x = x; // cell center x
-    this.y = y; // cell center y
-    this.h = h; // half the cell size
-    this.d = pointToPolygonDist(x, y, polygon); // distance from cell center to polygon
-    this.max = this.d + this.h * Math.SQRT2; // max distance to polygon within a cell
+	this.x = x; // cell center x
+	this.y = y; // cell center y
+	this.h = h; // half the cell size
+	this.d = pointToPolygonDist(x, y, polygon); // distance from cell center to polygon
+	this.max = this.d + this.h * Math.SQRT2; // max distance to polygon within a cell
 }
 
 // signed distance from point to polygon outline (negative if point is outside)
 function pointToPolygonDist(x, y, polygon) {
-    var inside = false;
-    var minDistSq = Infinity;
+	var inside = false;
+	var minDistSq = Infinity;
 
-    for (var k = 0; k < polygon.length; k++) {
-        var ring = polygon[k];
+	for (var i = 0, len = polygon.length, j = len - 1; i < len; j = i++) {
+		var a = polygon[i];
+		var b = polygon[j];
 
-        for (var i = 0, len = ring.length, j = len - 1; i < len; j = i++) {
-            var a = ring[i];
-            var b = ring[j];
+		if ((a[1] > y !== b[1] > y) &&
+			(x < (b[0] - a[0]) * (y - a[1]) / (b[1] - a[1]) + a[0])) inside = !inside;
 
-            if ((a[1] > y !== b[1] > y) &&
-                (x < (b[0] - a[0]) * (y - a[1]) / (b[1] - a[1]) + a[0])) inside = !inside;
+		minDistSq = Math.min(minDistSq, getSegDistSq(x, y, a, b));
+	}
 
-            minDistSq = Math.min(minDistSq, getSegDistSq(x, y, a, b));
-        }
-    }
-
-    return minDistSq === 0 ? 0 : (inside ? 1 : -1) * Math.sqrt(minDistSq);
+	return minDistSq === 0 ? 0 : (inside ? 1 : -1) * Math.sqrt(minDistSq);
 }
 
 // get polygon centroid
 function getCentroidCell(polygon) {
-    var area = 0;
-    var x = 0;
-    var y = 0;
-    var points = polygon[0];
+	var area = 0;
+	var x = 0;
+	var y = 0;
 
-    for (var i = 0, len = points.length, j = len - 1; i < len; j = i++) {
-        var a = points[i];
-        var b = points[j];
-        var f = a[0] * b[1] - b[0] * a[1];
-        x += (a[0] + b[0]) * f;
-        y += (a[1] + b[1]) * f;
-        area += f * 3;
-    }
-    if (area === 0) return new Cell(points[0][0], points[0][1], 0, polygon);
-    return new Cell(x / area, y / area, 0, polygon);
+	for (var i = 0, len = polygon.length, j = len - 1; i < len; j = i++) {
+		var a = polygon[i];
+		var b = polygon[j];
+		var f = a[0] * b[1] - b[0] * a[1];
+		x += (a[0] + b[0]) * f;
+		y += (a[1] + b[1]) * f;
+		area += f * 3;
+	}
+	if (area === 0) return new Cell(polygon[0][0], polygon[0][1], 0, polygon);
+	return new Cell(x / area, y / area, 0, polygon);
 }
 
 // get squared distance from a point to a segment
 function getSegDistSq(px, py, a, b) {
 
-    var x = a[0];
-    var y = a[1];
-    var dx = b[0] - x;
-    var dy = b[1] - y;
+	var x = a[0];
+	var y = a[1];
+	var dx = b[0] - x;
+	var dy = b[1] - y;
 
-    if (dx !== 0 || dy !== 0) {
+	if (dx !== 0 || dy !== 0) {
 
-        var t = ((px - x) * dx + (py - y) * dy) / (dx * dx + dy * dy);
+		var t = ((px - x) * dx + (py - y) * dy) / (dx * dx + dy * dy);
 
-        if (t > 1) {
-            x = b[0];
-            y = b[1];
+		if (t > 1) {
+			x = b[0];
+			y = b[1];
 
-        } else if (t > 0) {
-            x += dx * t;
-            y += dy * t;
-        }
-    }
+		} else if (t > 0) {
+			x += dx * t;
+			y += dy * t;
+		}
+	}
 
-    dx = px - x;
-    dy = py - y;
+	dx = px - x;
+	dy = py - y;
 
-    return dx * dx + dy * dy;
+	return dx * dx + dy * dy;
 }
