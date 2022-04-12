@@ -124,7 +124,7 @@ header {
 	background-color: #555;
 	border-right: 1px #000 solid;
 	border-bottom: 1px #000 solid;
-	z-index: 2000;
+	z-index: 2100;
 	display: inline-block;
 }
 
@@ -249,7 +249,16 @@ optgroup {
 	left: 0;
 	right: 0;
 	bottom: 0;
+	z-index: 2000;
+}
+
+[data-init-done][data-canvas-loading='false'] #loading {
+	display: none
+}
+
+[data-init-done] #loading {
 	z-index: 1000;
+	animation: fadeInOut 4s linear 0s 1;
 }
 
 #loading > div {
@@ -273,8 +282,23 @@ optgroup {
 }
 
 #loading > div > span {
-	font-family: "DejaVu Sans", Helvetica, sans-serif;
+	font-family: dejavu, Helvetica, sans-serif;
 	font-weight: 200;
+}
+
+@keyframes fadeInOut {
+    0% {
+        opacity: 0;
+    }
+    50% {
+        opacity: 0;
+    }
+    52.5% {
+        opacity: 1;
+    }
+    100% {
+        opacity: 1;
+    }
 }
 
 @keyframes spinner {
@@ -608,7 +632,7 @@ input[type="checkbox"] {
 	background-color: rgba(0, 0, 0, .8);
 	display: none;
 	justify-content: center;
-	z-index: 1000;
+	z-index: 2000;
 }
 
 #exportWindow {
@@ -656,7 +680,7 @@ input[type="checkbox"] {
 	position: absolute;
     display: flex;
 	gap: 10px;
-	z-index: 100;
+	z-index: 1100;
 	top: 5px;
 	left: 364px;
 }
@@ -763,6 +787,11 @@ div:not(.listHidden) > #bottomBar {
 	display: flex;
 }
 
+#zoomControls,
+#timeControls {
+	z-index: 1100;
+}
+
 .slider::-webkit-slider-thumb {
 	-webkit-appearance: none;
 	appearance: none;
@@ -785,7 +814,7 @@ div:not(.listHidden) > #bottomBar {
 	border: 1px #000 solid;
 	padding: 3px;
 	font-size: 12px;
-	z-index: 1100;
+	z-index: 2100;
 	min-width: 320px;
 	text-align: center;
 	display: flex;
@@ -1139,7 +1168,7 @@ button#zoomResetButton {
 
 #donateWindow {
 	display: inline-block;
-	z-index: 2000;
+	z-index: 2100;
 	max-width: 400px;
 	background-color: #444;
 	border: 1px #000 solid;
