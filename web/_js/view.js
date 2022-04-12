@@ -102,7 +102,7 @@ hideListButton.addEventListener("click", function(e){
 	} else {
 		wrapper.classList.add('listHidden')
 	}
-	updateHovering();
+	updateHovering(e);
 	applyView();
 	render();
 	updateLines();
@@ -154,7 +154,7 @@ window.addEventListener("resize", function(){
 		entriesListShown = false;
 		wrapper.className += " listHidden";
 	}
-	updateHovering();
+	updateHovering(e);
 
 	viewportWidth = document.documentElement.clientWidth;
 	
@@ -445,7 +445,7 @@ function buildObjectsList(filter, sort){
 				zoom = 4;
 				renderBackground(atlas);
 				applyView();
-				updateHovering();
+				updateHovering(e);
 				
 				zoomOrigin = [
 					 innerContainer.clientWidth/2  - this.entry.center[0]* zoom// + container.offsetLeft
@@ -672,22 +672,14 @@ function updateHovering(e, tapped){
 	}
 }
 
+window.addEventListener("hashchange", highlightEntryFromUrl);
+
 function highlightEntryFromUrl(){
 
 	var objectsContainer = document.getElementById("objectsList");
 
-	var id = 0;
-	
-	var args = window.location.search;
-	if(args){
-		id = args.split("id=")[1];
-		if(id){
-			id = id.split("&")[0];
-		}
-	}
+	var id = window.location.hash.substring(1); //Remove hash prefix
 
-	//var id = parseInt(window.location.hash.substring(3));
-	
 	var entries = atlas.filter(function(e){
 		return e.id === id;
 	});
@@ -752,12 +744,8 @@ function initView(){
 	render();
 	updateLines();
 
-	var args = window.location.search;
-	if(args){
-		id = args.split("id=")[1];
-		if(id){
-			highlightEntryFromUrl();
-		}
+	if(window.location.hash){ // both "/" and just "/#" will be an empty hash string
+		highlightEntryFromUrl();
 	}
 
 }
