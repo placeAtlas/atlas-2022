@@ -96,6 +96,10 @@ const timeConfig = [
 let slider = document.getElementById("timeControlsSlider");
 let tooltip = document.getElementById("timeControlsTooltip")
 let image = document.getElementById("image");
+let abortController = new AbortController()
+let currentUpdateIndex = 0
+let loadingTimeout = setInterval(null, 0)
+let updateTimeout = setInterval(null, 0)
 
 let timeCallback = (a) => {};
 let atlasBackup = [];
@@ -106,14 +110,28 @@ slider.value = timeConfig.length;
 updateTime(slider.value)
 
 slider.addEventListener("input", (event) => {
-    updateTime(parseInt(event.target.value))
+    clearTimeout(updateTimeout)
+    updateTimeout = setInterval(() => {
+        updateTime(parseInt(event.target.value))
+    }, 100)
 })
 
 async function updateTime(index) {
+    document.body.dataset.canvasLoading = true
+    abortController.abort()
+    abortController = new AbortController()
+    currentUpdateIndex++
+    let myUpdateIndex = currentUpdateIndex
     let configObject = timeConfig[index-1];
     if (!configObject.image) {
         console.log("fetching");
-        let fetchResult = await fetch(configObject.url);
+        let fetchResult = await fetch(configObject.url, {
+            signal: abortController.signal
+        });
+        if (currentUpdateIndex !== myUpdateIndex) {
+            hideLoading()
+            return
+        }
         let imageBlob = await fetchResult.blob();
         configObject.image = URL.createObjectURL(imageBlob);
     }
@@ -128,6 +146,7 @@ async function updateTime(index) {
     if (typeof configObject.timestamp === "number") tooltip.querySelector('p').textContent = new Date(configObject.timestamp*1000).toUTCString()
     else tooltip.querySelector('p').textContent = configObject.timestamp
     tooltip.style.left = (((slider.offsetWidth)*(slider.value-1)/(slider.max-1)) - tooltip.offsetWidth/2) + "px"
+    document.body.dataset.canvasLoading = false
 }
 
 tooltip.parentElement.addEventListener('mouseenter', () => tooltip.style.left = (((slider.offsetWidth)*(slider.value-1)/(slider.max-1)) - tooltip.offsetWidth/2) + "px"
