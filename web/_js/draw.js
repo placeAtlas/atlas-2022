@@ -1,3 +1,4 @@
+import {polylabel}from './polylabel.js';
 /*
 	========================================================================
 	The 2022 /r/place Atlas
@@ -14,7 +15,6 @@
 */
 
 function initDraw(){
-	
 	wrapper.classList.remove('listHidden')
 
 	window.render = render
@@ -229,27 +229,8 @@ function initDraw(){
 
 
 	function calculateCenter(path){
-
-		var area = 0,
-			i,
-			j,
-			point1,
-			point2,
-			x = 0,
-			y = 0,
-			f;
-
-		for (i = 0, j = path.length - 1; i < path.length; j=i,i++) {
-			point1 = path[i];
-			point2 = path[j];
-			f = point1[0] * point2[1] - point2[0] * point1[1];
-			area += f;
-			x += (point1[0] + point2[0]) * f;
-			y += (point1[1] + point2[1]) * f;
-		}
-		area *= 3;
-
-		return [Math.floor(x / area)+0.5, Math.floor(y / area)+0.5];
+	let result = polylabel(path)
+	return [Math.floor(result[0]) + 0.5, Math.floor(result[1]) + 0.5]
 	}
 
 	function undo(){
