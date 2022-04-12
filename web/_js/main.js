@@ -126,7 +126,7 @@ async function init(){
 	if (mode !== "draw") initViewGlobal()
 
 	if(mode === "draw"){
-		initDraw();	
+		window.initDraw();
 	} else if(mode === "about"){
 		window.location = "./about.html";
 	} else if(mode === "overlap"){

@@ -14,7 +14,7 @@ import polylabel from './polylabel.js';
 	========================================================================
 */
 
-function initDraw(){
+window.initDraw = function(){
 	wrapper.classList.remove('listHidden')
 
 	window.render = render
@@ -366,5 +366,3 @@ function initDraw(){
 	}
 
 }
-
-
