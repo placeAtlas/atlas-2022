@@ -1,13 +1,10 @@
 'use strict';
 
-import {tinyqueue} from 'https://cdn.jsdelivr.net/npm/tinyqueue@2.0.3/tinyqueue.min.js';
+import TinyQueue from 'https://cdn.jsdelivr.net/npm/tinyqueue@2.0.3/index.min.js';
 
-if (tinyqueue.default) tinyqueue = tinyqueue.default; // temporary webpack fix
+if (TinyQueue.default) TinyQueue = TinyQueue.default; // temporary webpack fix
 
-module.exports = polylabel;
-module.exports.default = polylabel;
-
-function polylabel(polygon, precision, debug) {
+export default function polylabel(polygon, precision, debug) {
     precision = precision || 1.0;
 
     // find the bounding box of the outer ring

@@ -1,4 +1,4 @@
-import {polylabel}from './polylabel.js';
+import polylabel from './polylabel.js';
 /*
 	========================================================================
 	The 2022 /r/place Atlas
