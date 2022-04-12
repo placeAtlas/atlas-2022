@@ -1,6 +1,6 @@
 'use strict';
 
-import TinyQueue from 'https://cdn.jsdelivr.net/npm/tinyqueue@2.0.3/index.min.js';
+import TinyQueue from './tinyqueue.min.js';
 
 if (TinyQueue.default) TinyQueue = TinyQueue.default; // temporary webpack fix
 
