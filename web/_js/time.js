@@ -109,6 +109,7 @@ slider.value = timeConfig.length;
 updateTime(slider.value)
 
 slider.addEventListener("input", (event) => {
+    updateTooltip(parseInt(event.target.value))
     clearTimeout(updateTimeout)
     updateTimeout = setTimeout(() => {
         updateTime(parseInt(event.target.value))
@@ -142,14 +143,16 @@ async function updateTime(index) {
         atlas = []
     }
     timeCallback(atlas)
-    if (typeof configObject.timestamp === "number") tooltip.querySelector('p').textContent = new Date(configObject.timestamp*1000).toUTCString()
-    else tooltip.querySelector('p').textContent = configObject.timestamp
-    tooltip.style.left = (((slider.offsetWidth)*(slider.value-1)/(slider.max-1)) - tooltip.offsetWidth/2) + "px"
     document.body.dataset.canvasLoading = false
 }
 
-tooltip.parentElement.addEventListener('mouseenter', () => tooltip.style.left = (((slider.offsetWidth)*(slider.value-1)/(slider.max-1)) - tooltip.offsetWidth/2) + "px"
-)
+function updateTooltip(index) {
+    var configObject = timeConfig[index-1]
+    if (typeof configObject.timestamp === "number") tooltip.querySelector('p').textContent = new Date(configObject.timestamp*1000).toUTCString()
+    else tooltip.querySelector('p').textContent = configObject.timestamp
+    tooltip.style.left = (((slider.offsetWidth)*(slider.value-1)/(slider.max-1)) - tooltip.offsetWidth/2) + "px"
+}
 
-window.addEventListener('resize', () => tooltip.style.left = (((slider.offsetWidth)*(slider.value-1)/(slider.max-1)) - tooltip.offsetWidth/2) + "px"
-)
+tooltip.parentElement.addEventListener('mouseenter', () => updateTooltip(parseInt(slider.value)))
+
+window.addEventListener('resize', () => updateTooltip(parseInt(slider.value)))
