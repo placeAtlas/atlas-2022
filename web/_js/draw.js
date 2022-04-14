@@ -23,9 +23,11 @@ var entryId = 0
 var objectInfoBox = document.getElementById("objectInfo");
 var hintText = document.getElementById("hint");
 
+var periodsStatus = document.getElementById('periodsStatus')
 var periodGroups = document.getElementById('periodGroups')
 var periodGroupTemplate = document.getElementById('period-group').content.firstElementChild.cloneNode(true)
-	
+var periodsAdd = document.getElementById('periodsAdd')	
+
 var exportButton = document.getElementById("exportButton");
 var cancelButton = document.getElementById("cancelButton");
 
@@ -276,10 +278,7 @@ function initDraw(){
 		if(path.length > 0 && drawing){
 			undoHistory.push(path.pop());
 			redoButton.disabled = false;
-			if(path.length == 0){
-				undoButton.disabled = true;
-			}
-			render(path);
+			updatePath()
 		}
 	}
 
@@ -287,16 +286,13 @@ function initDraw(){
 		if(undoHistory.length > 0 && drawing){
 			path.push(undoHistory.pop());
 			undoButton.disabled = false;
-			if(undoHistory.length == 0){
-				redoButton.disabled = true;
-			}
-			render(path);
+			updatePath()
 		}
 	}
 
 	function finish(){
 		drawing = false;
-		render(path);
+		updatePath()
 		objectInfoBox.style.display = "block";
 		objectDraw.style.display = "none";
 		hintText.style.display = "none";
@@ -311,9 +307,6 @@ function initDraw(){
 	function reset(){
 		updatePath([])
 		undoHistory = [];
-		finishButton.disabled = true;
-		undoButton.disabled = true; // Maybe make it undo the cancel action in the future
-		redoButton.disabled = true;
 		drawing = true;
 		objectInfoBox.style.display = "none";
 		objectDraw.style.display = "block";
@@ -327,7 +320,7 @@ function initDraw(){
 
 	function back(){
 		drawing = true;
-		render(path);
+		updatePath()
 		objectInfoBox.style.display = "none";
 		objectDraw.style.display = "block";
 		hintText.style.display = "block";
@@ -470,6 +463,11 @@ function initDraw(){
 		updatePeriodGroups()
 	})
 
+	periodsAdd.addEventListener('click', () => {
+		pathWithPeriods.push([defaultPeriod, []])
+		initPeriodGroups()
+	})
+
 }
 
 function isOnPeriod(start = parseInt(startPeriodField.value), end = parseInt(endPeriodField.value), current = period) {
@@ -480,6 +478,7 @@ function isOnPeriod(start = parseInt(startPeriodField.value), end = parseInt(end
 function initPeriodGroups() {
 
 	periodGroupElements = []
+	periodGroups.textContent = ''
 
 	console.log(pathWithPeriods)
 
@@ -490,6 +489,8 @@ function initPeriodGroups() {
 		let startPeriodEl = periodGroupEl.querySelector('.period-start')
 		let endPeriodEl = periodGroupEl.querySelector('.period-end')
 		let periodVisibilityEl = periodGroupEl.querySelector('.period-visible')
+		let periodDeleteEl = periodGroupEl.querySelector('.period-delete')
+		let periodDuplicateEl = periodGroupEl.querySelector('.period-duplicate')
 
 		let [start, end] = parsePeriod(period)
 
@@ -509,6 +510,15 @@ function initPeriodGroups() {
 		})
 		endPeriodEl.addEventListener('input', () => {
 			updatePeriodGroups()
+		})
+		periodDeleteEl.addEventListener('click', () => {
+			if (pathWithPeriods.length === 1) return
+			pathWithPeriods = pathWithPeriods.filter((_, i) => i !== index)
+			initPeriodGroups()
+		})
+		periodDuplicateEl.addEventListener('click', () => {
+			pathWithPeriods.push([pathWithPeriods[index][0], [...pathWithPeriods[index][1]]])
+			initPeriodGroups()
 		})
 
 		periodGroups.appendChild(periodGroupEl)
@@ -558,9 +568,7 @@ function updatePeriodGroups() {
 		)
 	})
 
-	console.log('lastActivePathIndex: ' + lastActivePathIndex)
-	console.log('currentActivePathIndex: ' + currentActivePathIndex)
-
+	periodsStatus.textContent = ""
 	if (lastActivePathIndex !== undefined) {
 		if (lastActivePathIndex === currentActivePathIndex) {
 			// just update the path
@@ -573,10 +581,13 @@ function updatePeriodGroups() {
 			]
 			console.log(pathWithPeriods[currentActivePathIndex])
 		} else if (currentActivePathIndex === undefined) {
+			pathWithPeriods[lastActivePathIndex][1] = path
 			updatePath([])
-			console.log(path + 'empty!')
+			periodsStatus.textContent = "No paths available on this period!"
 		} else {
 			// switch the path
+			pathWithPeriods[lastActivePathIndex][1] = path
+			updatePath(pathToActive)
 
 		}
 	} else {
@@ -588,13 +599,14 @@ function updatePeriodGroups() {
 }
 
 function parsePeriod(periodString) {
+	periodString = periodString + ""
 	// TODO: Support for multiple/alternative types of canvas
-	if (period.search('-') + 1) {
-		var [start, end] = period.split('-').map(i => parseInt(i))
+	if (periodString.search('-') + 1) {
+		var [start, end] = periodString.split('-').map(i => parseInt(i))
 		return [start, end]
 	} else {
-		let period = parseInt(periodString)
-		return [period, period]
+		let periodNew = parseInt(periodString)
+		return [periodNew, periodNew]
 	}
 }
 
@@ -603,10 +615,11 @@ function formatPeriod(start, end) {
 	else return start + "-" + end
 }
 
-function updatePath(newPath) {
+function updatePath(newPath = path) {
 	path = newPath
 	render(path)
-	if(path.length >= 3){
-		finishButton.disabled = false;
-	}
+	finishButton.disabled = path.length;
+	undoButton.disabled = path.length == 1; // Maybe make it undo the cancel action in the future
+	// TODO: Able to click finish when one period has it.
+	finishButton.disabled = path.length < 3;
 }
