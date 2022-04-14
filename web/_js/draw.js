@@ -628,7 +628,8 @@ function updatePath(newPath = path) {
 	path = newPath
 	render(path)
 	finishButton.disabled = path.length;
-	undoButton.disabled = path.length == 1; // Maybe make it undo the cancel action in the future
+	undoButton.disabled = path.length == 0; // Maybe make it undo the cancel action in the future
+	undoHistory = []
 	// TODO: Able to click finish when one period has it.
 	finishButton.disabled = path.length < 3;
 }
