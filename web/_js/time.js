@@ -97,14 +97,15 @@ let slider = document.getElementById("timeControlsSlider");
 let tooltip = document.getElementById("timeControlsTooltip")
 let image = document.getElementById("image");
 
-let defaultPeriod = timeConfig.length
+let defaultPeriod = timeConfig.length - 1
+let maxPeriod = timeConfig.length - 1
 var period = defaultPeriod
 window.period = period
 
 // SETUP
 slider.max = timeConfig.length - 1;
-document.querySelector('#startPeriodField').max = defaultPeriod
-document.querySelector('#endPeriodField').max = defaultPeriod
+// document.querySelector('#period-group .period-start').max = defaultPeriod
+// document.querySelector('#period-group .period-end').max = defaultPeriod
 slider.value = slider.max;
 updateTime(slider.value)
 
@@ -112,15 +113,15 @@ slider.addEventListener("input", (event) => {
     updateTime(parseInt(event.target.value))
 })
 
-document.querySelector('#startPeriodField').oninput = (event) => {
-    slider.value = parseInt(event.target.value)
-    updateTime(parseInt(event.target.value))
-};
+// document.querySelector('#period-group .period-start').oninput = (event) => {
+//     slider.value = parseInt(event.target.value)
+//     updateTime(parseInt(event.target.value))
+// };
 
-document.querySelector('#endPeriodField').oninput = (event) => {
-    slider.value = parseInt(event.target.value)
-    updateTime(parseInt(event.target.value))
-};
+// document.querySelector('#period-group .period-end').oninput = (event) => {
+//     slider.value = parseInt(event.target.value)
+//     updateTime(parseInt(event.target.value))
+// };
 
 const dispatchTimeUpdateEvent = (period = slider.value, atlas = atlas) => {
     const timeUpdateEvent = new CustomEvent('timeupdate', {

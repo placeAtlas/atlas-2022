@@ -173,7 +173,7 @@
 				</div>
 				<div id="timeControls">
 					<div id="timeControlsTooltip"><p>Time control slider</p></div>
-					<input type="range" min="1" max="1" value="1" class="slider" id="timeControlsSlider">
+					<input type="range" min="0" max="1" value="1" class="slider" id="timeControlsSlider">
 				</div>
 				<div id="author">
 					<p>Code owned by <a href="https://github.com/placeAtlas/atlas" target="_blank" rel="author">Place Atlas</a>. Source on <a target="_blank" href="https://github.com/placeAtlas/atlas">GitHub</a>. Site powered by <a href="https://www.netlify.com">Netlify</a>. Images provided by <a target="_blank" href="https://place.thatguyalex.com/">Alex Tsernoh</a>.</p>
@@ -193,6 +193,11 @@
 						<label id="highlightUnchartedLabel" title="Highlight uncharted areas of the map" class="checkboxLabel button">
 							<input type="checkbox" id="highlightUncharted" checked> Highlight Empty
 						</label>
+						<div id="periods">
+							<p>Periods</p>
+							<div id="periodGroups">
+							</div>	
+						</div>
 					</div>
 					<div id="objectInfo">
 						<label for="nameField">Name</label>
@@ -203,11 +208,6 @@
 						<input id="websiteField" type="text" value="" placeholder="https://example.com">
 						<label for="subredditField">Subreddit</label>
 						<input id="subredditField" type="text" value="" placeholder="/r/example">
-						<label for="websiteField">Start Period</label>
-						<input id="startPeriodField" type="range" min="0">
-						<label for="websiteField">End Period</label>
-						<input id="endPeriodField" type="range" min="0">
-						<p id="periodVisbilityInfo" style="text-align: center">Not visible during this period!</p>
 						<div id="infoButtons">
 							<button id="cancelButton">Back</button>
 							<button id="exportButton">OK</button>
@@ -277,6 +277,17 @@
 				</div>
 			</div>
 		</div>
+
+		<template id="period-group">
+			<div class="period-group">
+				<label for="period-start">Start Period</label>
+				<input class="period-start" type="range" min="0">
+				<label for="period-end">End Period</label>
+				<input class="period-end" type="range" min="0">
+				<p class="period-visible"></p>	
+			</div>
+		</template>
+
 		<script type="text/javascript" src="./_js/time.js"></script>
 		<script type="text/javascript" src="./_js/infoblock.js"></script>
 		<script type="text/javascript" src="./_js/pointInPolygon.js"></script>

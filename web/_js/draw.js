@@ -13,6 +13,33 @@
 	========================================================================
 */
 
+var finishButton = document.getElementById("finishButton");
+var resetButton = document.getElementById("resetButton");
+var undoButton = document.getElementById("undoButton");
+var redoButton = document.getElementById("redoButton");
+var highlightUnchartedLabel = document.getElementById("highlightUnchartedLabel");
+var entryId = 0
+
+var objectInfoBox = document.getElementById("objectInfo");
+var hintText = document.getElementById("hint");
+
+var periodGroups = document.getElementById('periodGroups')
+var periodGroupTemplate = document.getElementById('period-group').content.firstElementChild.cloneNode(true)
+	
+var exportButton = document.getElementById("exportButton");
+var cancelButton = document.getElementById("cancelButton");
+
+var exportOverlay = document.getElementById("exportOverlay");
+var exportCloseButton = document.getElementById("exportCloseButton");
+var exportBackButton = document.getElementById("exportBackButton")
+
+var path = [];
+
+var pathWithPeriods = []
+var periodGroupElements = []
+
+var drawing = true;
+
 function initDraw(){
 	
 	wrapper.classList.remove('listHidden')
@@ -21,26 +48,9 @@ function initDraw(){
 	window.renderBackground = renderBackground
 	window.updateHovering = updateHovering
 
-	var finishButton = document.getElementById("finishButton");
-	var resetButton = document.getElementById("resetButton");
-	var undoButton = document.getElementById("undoButton");
-	var redoButton = document.getElementById("redoButton");
-	var highlightUnchartedLabel = document.getElementById("highlightUnchartedLabel");
-	var entryId = 0
-	
-	var objectInfoBox = document.getElementById("objectInfo");
-	var hintText = document.getElementById("hint");
-
-	var startPeriodField = document.getElementById('startPeriodField')
-	var endPeriodField = document.getElementById('endPeriodField')
-	var periodVisbilityInfo = document.getElementById('periodVisbilityInfo')
-	
-	var exportButton = document.getElementById("exportButton");
-	var cancelButton = document.getElementById("cancelButton");
-
-	var exportOverlay = document.getElementById("exportOverlay");
-	var exportCloseButton = document.getElementById("exportCloseButton");
-	var exportBackButton = document.getElementById("exportBackButton")
+	// var startPeriodField = document.getElementById('startPeriodField')
+	// var endPeriodField = document.getElementById('endPeriodField')
+	// var periodVisbilityInfo = document.getElementById('periodVisbilityInfo')
 
 	var rShiftPressed = false;
 	var lShiftPressed = false;
@@ -53,9 +63,6 @@ function initDraw(){
 
 	container.style.cursor = "crosshair";
 	
-	var path = [];
-	var drawing = true;
-
 	var undoHistory = [];
 
 	render(path);
@@ -294,21 +301,20 @@ function initDraw(){
 		objectDraw.style.display = "none";
 		hintText.style.display = "none";
 		document.getElementById("nameField").focus();
-		if (period >= startPeriodField.value * 1 && period <= endPeriodField.value * 1) {
-			periodVisbilityInfo.textContent = ""
-		} else {
-			periodVisbilityInfo.textContent = "Not visible during this period!"
-		}
+		// if (isOnPeriod()) {
+		// 	periodVisbilityInfo.textContent = ""
+		// } else {
+		// 	periodVisbilityInfo.textContent = "Not visible during this period!"
+		// }
 	}
 
 	function reset(){
-		path = [];
+		updatePath([])
 		undoHistory = [];
 		finishButton.disabled = true;
 		undoButton.disabled = true; // Maybe make it undo the cancel action in the future
 		redoButton.disabled = true;
 		drawing = true;
-		render(path);
 		objectInfoBox.style.display = "none";
 		objectDraw.style.display = "block";
 		hintText.style.display = "block";
@@ -433,10 +439,15 @@ function initDraw(){
             })
         }
 
-		if(path.length >= 3){
-			finishButton.disabled = false;
+		if (Array.isArray(path)) {
+			pathWithPeriods.push([defaultPeriod, path])
+		} else if (typeof path === "object") {
+			pathWithPeriods = Object.entries(path)
 		}
-		render(path)
+
+		console.log(pathWithPeriods)
+
+		initPeriodGroups()
 
 		zoom = 4;
 
@@ -454,13 +465,146 @@ function initDraw(){
 	}
 
 	document.addEventListener('timeupdate', (event) => {
-		if (period >= startPeriodField.value && period <= endPeriodField.value) {
-			periodVisbilityInfo.textContent = ""
-		} else {
-			periodVisbilityInfo.textContent = "Not visible during this period!"
-		}
+		updatePeriodGroups()
 	})
 
 }
 
+function isOnPeriod(start = parseInt(startPeriodField.value), end = parseInt(endPeriodField.value), current = period) {
+	console.log(start, end, current, current >= start && current <= end)
+	return current >= start && current <= end
+}
 
+function initPeriodGroups() {
+
+	periodGroupElements = []
+
+	console.log(pathWithPeriods)
+
+	pathWithPeriods.forEach(([period, path], index) => {
+		let periodGroupEl = periodGroupTemplate.cloneNode(true)
+		periodGroupEl.id = "periodGroup" + index
+
+		let startPeriodEl = periodGroupEl.querySelector('.period-start')
+		let endPeriodEl = periodGroupEl.querySelector('.period-end')
+		let periodVisibilityEl = periodGroupEl.querySelector('.period-visible')
+
+		let [start, end] = parsePeriod(period)
+
+		startPeriodEl.id = "periodStart" + index
+		startPeriodEl.previousSibling.for = startPeriodEl.id
+		endPeriodEl.id = "periodEnd" + index
+		endPeriodEl.previousSibling.for = endPeriodEl.id
+		periodVisibilityEl.id = "periodVisibility" + index
+
+		startPeriodEl.value = start
+		startPeriodEl.max = maxPeriod
+		endPeriodEl.value = end
+		endPeriodEl.max = maxPeriod
+
+		startPeriodEl.addEventListener('input', () => {
+			updatePeriodGroups()
+		})
+		endPeriodEl.addEventListener('input', () => {
+			updatePeriodGroups()
+		})
+
+		periodGroups.appendChild(periodGroupEl)
+		periodGroupElements.push({
+			periodGroupEl,
+			startPeriodEl,
+			endPeriodEl,
+			periodVisibilityEl
+		})
+	})
+	console.log(periodGroupTemplate)
+	updatePeriodGroups()
+
+}
+
+function updatePeriodGroups() {
+	var pathToActive = []
+	var lastActivePathIndex
+	var currentActivePathIndex 
+
+	periodGroupElements.forEach((elements, index) => {
+		let {
+			periodGroupEl,
+			startPeriodEl,
+			endPeriodEl,
+			periodVisibilityEl
+		} = elements
+
+		if (periodGroupEl.dataset.active === "true") lastActivePathIndex = index
+
+		if (isOnPeriod(
+			parseInt(startPeriodEl.value), 
+			parseInt(endPeriodEl.value),
+			period
+		)) {
+			pathToActive = pathWithPeriods[index][1]
+			currentActivePathIndex = index
+			periodGroupEl.dataset.active = true
+		} else {
+			periodGroupEl.dataset.active = false
+		}
+
+		pathWithPeriods[index][0] = formatPeriod(
+			parseInt(startPeriodEl.value), 
+			parseInt(endPeriodEl.value),
+			period
+		)
+	})
+
+	console.log('lastActivePathIndex: ' + lastActivePathIndex)
+	console.log('currentActivePathIndex: ' + currentActivePathIndex)
+
+	if (lastActivePathIndex !== undefined) {
+		if (lastActivePathIndex === currentActivePathIndex) {
+			// just update the path
+			pathWithPeriods[currentActivePathIndex] = [
+				formatPeriod(
+					parseInt(periodGroupElements[currentActivePathIndex].startPeriodEl.value),
+					parseInt(periodGroupElements[currentActivePathIndex].endPeriodEl.value)
+				),
+				path
+			]
+			console.log(pathWithPeriods[currentActivePathIndex])
+		} else if (currentActivePathIndex === undefined) {
+			updatePath([])
+			console.log(path + 'empty!')
+		} else {
+			// switch the path
+
+		}
+	} else {
+		updatePath(pathToActive)
+	}
+
+	drawing = currentActivePathIndex !== undefined
+	
+}
+
+function parsePeriod(periodString) {
+	// TODO: Support for multiple/alternative types of canvas
+	if (period.search('-') + 1) {
+		var [start, end] = period.split('-').map(i => parseInt(i))
+		return [start, end]
+	} else {
+		let period = parseInt(periodString)
+		return [period, period]
+	}
+}
+
+function formatPeriod(start, end) {
+	if (start === end) return start
+	else return start + "-" + end
+}
+
+function updatePath(path) {
+	path = []
+	render(path)
+	if(path.length >= 3){
+		finishButton.disabled = false;
+	}
+}
