@@ -1336,10 +1336,14 @@ body:not([data-dev]) .show-only-on-dev {
 	font-size: 0.9em;
 }
 
-.period-group[data-active="true"] {
+.period-group[data-status="active"] {
 	border-color: lime;
-	box-shadow: 0px 0px lime;
 }
+
+.period-group[data-status="error"] {
+	border-color: red;
+}
+
 
 .period-group input {
 	width: 100%;

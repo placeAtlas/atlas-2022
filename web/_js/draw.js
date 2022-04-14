@@ -36,6 +36,7 @@ var exportCloseButton = document.getElementById("exportCloseButton");
 var exportBackButton = document.getElementById("exportBackButton")
 
 var path = [];
+var center = [];
 
 var pathWithPeriods = []
 var periodGroupElements = []
@@ -116,6 +117,8 @@ function initDraw(){
 			if(path.length >= 3){
 				finishButton.disabled = false;
 			}
+
+			updatePath()
 		}
 	});
 
@@ -229,7 +232,7 @@ function initDraw(){
 
 		pathWithPeriodsTemp = pathWithPeriods.concat()
 
-		console.log(pathWithPeriodsTemp)
+		// console.log(pathWithPeriodsTemp)
 
 		//  calculateCenter(path)
 
@@ -265,31 +268,6 @@ function initDraw(){
 		
 		textarea.focus();
 		textarea.select();
-	}
-
-
-	function calculateCenter(path){
-
-		var area = 0,
-			i,
-			j,
-			point1,
-			point2,
-			x = 0,
-			y = 0,
-			f;
-
-		for (i = 0, j = path.length - 1; i < path.length; j=i,i++) {
-			point1 = path[i];
-			point2 = path[j];
-			f = point1[0] * point2[1] - point2[0] * point1[1];
-			area += f;
-			x += (point1[0] + point2[0]) * f;
-			y += (point1[1] + point2[1]) * f;
-		}
-		area *= 3;
-
-		return [Math.floor(x / area)+0.5, Math.floor(y / area)+0.5];
 	}
 
 	function undo(){
@@ -447,7 +425,7 @@ function initDraw(){
                     var [before, after] = period.split('-')
                     startPeriodField.value = before
 					endPeriodField.value = after
-					console.log(before, after)
+					// console.log(before, after)
 					return
                 }
             })
@@ -459,26 +437,25 @@ function initDraw(){
 			pathWithPeriods = Object.entries(path)
 		}
 
-		console.log(pathWithPeriods)
-
-		zoom = 4;
-
-		zoomOrigin = [
-			innerContainer.clientWidth/2  - entry.center[0]* zoom,// + container.offsetLeft
-		   	innerContainer.clientHeight/2 - entry.center[1]* zoom// + container.offsetTop
-	   ];
-
-	   	scaleZoomOrigin = [
-		   2000/2 - entry.center[0],// + container.offsetLeft
-		   2000/2 - entry.center[1]// + container.offsetTop
-	   	];
-
-	   applyView();
 	} else {
 		pathWithPeriods.push([defaultPeriod, []])
 	}
 
 	initPeriodGroups()
+
+	zoom = 4;
+
+	zoomOrigin = [
+		innerContainer.clientWidth/2  - center[0] * zoom,// + container.offsetLeft
+		innerContainer.clientHeight/2 - center[1] * zoom// + container.offsetTop
+	];
+
+	scaleZoomOrigin = [
+	   2000/2 - center[0],// + container.offsetLeft
+	   2000/2 - center[1]// + container.offsetTop
+	];
+
+   applyView();
 
 	document.addEventListener('timeupdate', (event) => {
 		renderBackground()
@@ -492,8 +469,32 @@ function initDraw(){
 
 }
 
+function calculateCenter(path){
+
+	var area = 0,
+		i,
+		j,
+		point1,
+		point2,
+		x = 0,
+		y = 0,
+		f;
+
+	for (i = 0, j = path.length - 1; i < path.length; j=i,i++) {
+		point1 = path[i];
+		point2 = path[j];
+		f = point1[0] * point2[1] - point2[0] * point1[1];
+		area += f;
+		x += (point1[0] + point2[0]) * f;
+		y += (point1[1] + point2[1]) * f;
+	}
+	area *= 3;
+
+	return [Math.floor(x / area)+0.5, Math.floor(y / area)+0.5];
+}
+
 function isOnPeriod(start = parseInt(startPeriodField.value), end = parseInt(endPeriodField.value), current = period) {
-	console.log(start, end, current, current >= start && current <= end)
+	// console.log(start, end, current, current >= start && current <= end)
 	return current >= start && current <= end
 }
 
@@ -502,7 +503,7 @@ function initPeriodGroups() {
 	periodGroupElements = []
 	periodGroups.textContent = ''
 
-	console.log(pathWithPeriods)
+	// console.log(pathWithPeriods)
 
 	pathWithPeriods.forEach(([period, path], index) => {
 		let periodGroupEl = periodGroupTemplate.cloneNode(true)
@@ -530,12 +531,12 @@ function initPeriodGroups() {
 		startPeriodEl.addEventListener('input', event => {
 			timelineSlider.value = parseInt(event.target.value)
 			updateTime(parseInt(event.target.value))
-			console.log(parseInt(event.target.value))
+			// console.log(parseInt(event.target.value))
 		})
 		endPeriodEl.addEventListener('input', event => {
 			timelineSlider.value = parseInt(event.target.value)
 			updateTime(parseInt(event.target.value))
-			console.log(parseInt(event.target.value))
+			// console.log(parseInt(event.target.value))
 		})
 		periodDeleteEl.addEventListener('click', () => {
 			if (pathWithPeriods.length === 1) return
@@ -555,7 +556,7 @@ function initPeriodGroups() {
 			periodVisibilityEl
 		})
 	})
-	console.log(periodGroupTemplate)
+	// console.log(periodGroupTemplate)
 	updatePeriodGroups()
 
 }
@@ -564,6 +565,7 @@ function updatePeriodGroups() {
 	var pathToActive = []
 	var lastActivePathIndex
 	var currentActivePathIndex 
+	var currentActivePathIndexes = []
 
 	periodGroupElements.forEach((elements, index) => {
 		let {
@@ -574,6 +576,7 @@ function updatePeriodGroups() {
 		} = elements
 
 		if (periodGroupEl.dataset.active === "true") lastActivePathIndex = index
+		periodGroupEl.dataset.active = ""
 
 		if (isOnPeriod(
 			parseInt(startPeriodEl.value), 
@@ -582,9 +585,8 @@ function updatePeriodGroups() {
 		)) {
 			pathToActive = pathWithPeriods[index][1]
 			currentActivePathIndex = index
-			periodGroupEl.dataset.active = true
-		} else {
-			periodGroupEl.dataset.active = false
+			currentActivePathIndexes.push(index)
+			periodGroupEl.dataset.active = "true"
 		}
 
 		pathWithPeriods[index][0] = formatPeriod(
@@ -595,6 +597,16 @@ function updatePeriodGroups() {
 	})
 
 	periodsStatus.textContent = ""
+
+	// if (currentActivePathIndexes.length > 1) {
+	// 	periodsStatus.textContent = "Collision detected! Please resolve it."
+	// 	currentActivePathIndexes.forEach(index => {
+	// 		periodGroupElements[index].periodGroupEl.dataset.status = "error"
+	// 	})
+	// 	currentActivePathIndex = undefined
+	// } 
+	
+	console.log(lastActivePathIndex)
 	if (lastActivePathIndex !== undefined) {
 		if (lastActivePathIndex === currentActivePathIndex) {
 			// just update the path
@@ -605,11 +617,10 @@ function updatePeriodGroups() {
 				),
 				path
 			]
-			console.log(pathWithPeriods[currentActivePathIndex])
+			updatePath()
 		} else if (currentActivePathIndex === undefined) {
 			pathWithPeriods[lastActivePathIndex][1] = path
 			updatePath([])
-			periodsStatus.textContent = "No paths available on this period!"
 		} else {
 			// switch the path
 			pathWithPeriods[lastActivePathIndex][1] = path
@@ -642,13 +653,83 @@ function formatPeriod(start, end) {
 }
 
 function updatePath(newPath = path) {
+	console.log('updatePath')
 	path = newPath
+	center = calculateCenter(path)
 	render(path)
-	finishButton.disabled = path.length;
 	undoButton.disabled = path.length == 0; // Maybe make it undo the cancel action in the future
 	undoHistory = []
-	// TODO: Able to click finish when one period has it.
-	finishButton.disabled = path.length < 3;
+
+	if (path.length === 0) {
+		periodsStatus.textContent = "No paths available on this period!"
+	}
+
+	let [conflicts, invalidPaths, allErrors] = getErrors()
+
+	if (allErrors.length > 0) {
+		periodsStatus.textContent = `Problems detected. Please check the groups indicated by red.`
+		if (conflicts.length > 0) periodsStatus.textContent += `\nConflicts on ${conflicts.join(', ')}.`
+		if (invalidPaths.length > 0) periodsStatus.textContent += `\nInsufficient paths on ${invalidPaths.join(', ')}.`
+		allErrors.forEach(index => {
+			periodGroupElements[index].periodGroupEl.dataset.status = "error"
+		})
+		if (conflicts.length > 0) currentActivePathIndex = undefined
+		finishButton.disabled = true
+	} else {
+		periodsStatus.textContent = ``
+		finishButton.disabled = false
+		periodGroupElements.forEach((elements, index) => {
+			let {
+				periodGroupEl,
+				startPeriodEl,
+				endPeriodEl,
+				periodVisibilityEl
+			} = elements
+			if (periodGroupEl.dataset.active === "true") periodGroupEl.dataset.status = "active"
+			else periodGroupEl.dataset.status = ""
+		})
+	}
+
+}
+
+function getConflicts() {
+
+	let conflicts = new Set()
+	
+	for (let i = pathWithPeriods.length - 1; i > 0; i--) {
+		for (let j = 0; j < i; j++) {
+			let [start1, end1] = parsePeriod(pathWithPeriods[i][0])
+			let [start2, end2] = parsePeriod(pathWithPeriods[j][0])
+			if (
+				(start2 <= start1 && start1 <= end2) ||
+				(start2 <= end1 && end1 <= end2) ||
+				(start1 <= start2 && start2 <= end1) ||
+				(start1 <= end2 && end2 <= end1)
+			) {
+				conflicts.add(i)
+				conflicts.add(j)
+			}
+		}
+	}
+
+	conflicts = [...conflicts]
+
+	return conflicts
+
+}
+
+function getErrors() {
+	let conflicts = getConflicts()
+	let invalidPaths = []
+
+	pathWithPeriods.forEach(([period, path], i) => {
+		if (path.length < 3) invalidPaths.push(i)
+	})
+	
+	console.log('conflicts', conflicts)
+	console.log('invalid paths', invalidPaths)
+
+	return [conflicts, invalidPaths, [...new Set([...conflicts, ...invalidPaths])]]
 }
 
 // function compressPeriod(periodsString) {

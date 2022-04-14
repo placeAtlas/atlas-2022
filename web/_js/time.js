@@ -172,7 +172,6 @@ async function updateTime(currentPeriod) {
             centerChosen = Object.values(atlasAll[atlasIndex].center)[chosenIndex]
         }
 
-        console.log(pathChosen)
         if (pathChosen === undefined) continue
 
         atlas.push({
