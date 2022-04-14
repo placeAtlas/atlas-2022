@@ -223,15 +223,32 @@ function initDraw(){
 			description: document.getElementById("descriptionField").value,
 			website: document.getElementById("websiteField").value,
 			subreddit: document.getElementById("subredditField").value,
-			center: calculateCenter(path),
-			path: path,
+			center: {},
+			path: {},
 		};
 
-		if (startPeriodField.value === endPeriodField.value) {
-			exportObject.period = [startPeriodField.value]
-		} else if (startPeriodField.value * 1 < endPeriodField.value * 1) {
-			exportObject.period = [startPeriodField.value + "-" + endPeriodField.value]
+		pathWithPeriodsTemp = pathWithPeriods.concat()
+
+		console.log(pathWithPeriodsTemp)
+
+		//  calculateCenter(path)
+
+		for (let i = pathWithPeriodsTemp.length - 1; i > 0; i--) {
+			for (let j = 0; j < i; j++) {
+				if (JSON.stringify(pathWithPeriodsTemp[i][1]) === JSON.stringify(pathWithPeriodsTemp[j][1])) {
+					pathWithPeriodsTemp[j][0] = pathWithPeriodsTemp[i][0] + ', ' + pathWithPeriodsTemp[j][0]
+					pathWithPeriodsTemp.splice(i, 1)
+					break
+				}
+			}
 		}
+
+		pathWithPeriodsTemp.forEach(([key, value]) => {
+			// TODO: Compress periods on something like 0-13, 14.
+			exportObject.path[key] = value
+			exportObject.center[key] = calculateCenter(value)
+		})
+
 		var jsonString = JSON.stringify(exportObject, null, "\t");
 		var textarea = document.getElementById("exportString");
 		jsonString = jsonString.split("\n");
@@ -633,3 +650,15 @@ function updatePath(newPath = path) {
 	// TODO: Able to click finish when one period has it.
 	finishButton.disabled = path.length < 3;
 }
+
+// function compressPeriod(periodsString) {
+// 	let periodStrings = periodsString.split(", ")
+// 	let validPeriods = new Set()
+// 	periodStrings.forEach(periodString => {
+// 		let [start, end] = parsePeriod(periodString)
+// 		for (var i = start; i <= end; i++) {
+// 			validPeriods.add(i)
+// 		}
+// 	})
+// 	validPeriods = [...validPeriods].sort()
+// }
