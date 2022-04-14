@@ -447,8 +447,6 @@ function initDraw(){
 
 		console.log(pathWithPeriods)
 
-		initPeriodGroups()
-
 		zoom = 4;
 
 		zoomOrigin = [
@@ -462,7 +460,11 @@ function initDraw(){
 	   	];
 
 	   applyView();
+	} else {
+		pathWithPeriods.push([defaultPeriod, []])
 	}
+
+	initPeriodGroups()
 
 	document.addEventListener('timeupdate', (event) => {
 		updatePeriodGroups()
@@ -601,8 +603,8 @@ function formatPeriod(start, end) {
 	else return start + "-" + end
 }
 
-function updatePath(path) {
-	path = []
+function updatePath(newPath) {
+	path = newPath
 	render(path)
 	if(path.length >= 3){
 		finishButton.disabled = false;
