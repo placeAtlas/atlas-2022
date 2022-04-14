@@ -93,7 +93,7 @@ const timeConfig = [
     }
 ];
 
-let slider = document.getElementById("timeControlsSlider");
+let timelineSlider = document.getElementById("timeControlsSlider");
 let tooltip = document.getElementById("timeControlsTooltip")
 let image = document.getElementById("image");
 
@@ -103,13 +103,13 @@ var period = defaultPeriod
 window.period = period
 
 // SETUP
-slider.max = timeConfig.length - 1;
+timelineSlider.max = timeConfig.length - 1;
 // document.querySelector('#period-group .period-start').max = defaultPeriod
 // document.querySelector('#period-group .period-end').max = defaultPeriod
-slider.value = slider.max;
-updateTime(slider.value)
+timelineSlider.value = timelineSlider.max;
+updateTime(timelineSlider.value)
 
-slider.addEventListener("input", (event) => {
+timelineSlider.addEventListener("input", (event) => {
     updateTime(parseInt(event.target.value))
 })
 
@@ -123,7 +123,7 @@ slider.addEventListener("input", (event) => {
 //     updateTime(parseInt(event.target.value))
 // };
 
-const dispatchTimeUpdateEvent = (period = slider.value, atlas = atlas) => {
+const dispatchTimeUpdateEvent = (period = timelineSlider.value, atlas = atlas) => {
     const timeUpdateEvent = new CustomEvent('timeupdate', {
         detail: {
             period: period,
@@ -168,10 +168,10 @@ async function updateTime(currentPeriod) {
     dispatchTimeUpdateEvent(currentPeriod, atlas)
     if (typeof configObject.timestamp === "number") tooltip.querySelector('p').textContent = new Date(configObject.timestamp*1000).toUTCString()
     else tooltip.querySelector('p').textContent = configObject.timestamp
-    tooltip.style.left = (((slider.offsetWidth)*(slider.value-1)/(slider.max-1)) - tooltip.offsetWidth/2) + "px"
+    tooltip.style.left = (((timelineSlider.offsetWidth)*(timelineSlider.value-1)/(timelineSlider.max-1)) - tooltip.offsetWidth/2) + "px"
 }
 
-tooltip.parentElement.addEventListener('mouseenter', () => tooltip.style.left = (((slider.offsetWidth)*(slider.value-1)/(slider.max-1)) - tooltip.offsetWidth/2) + "px")
+tooltip.parentElement.addEventListener('mouseenter', () => tooltip.style.left = (((timelineSlider.offsetWidth)*(timelineSlider.value-1)/(timelineSlider.max-1)) - tooltip.offsetWidth/2) + "px")
 
-window.addEventListener('resize', () => tooltip.style.left = (((slider.offsetWidth)*(slider.value-1)/(slider.max-1)) - tooltip.offsetWidth/2) + "px")
+window.addEventListener('resize', () => tooltip.style.left = (((timelineSlider.offsetWidth)*(timelineSlider.value-1)/(timelineSlider.max-1)) - tooltip.offsetWidth/2) + "px")
 

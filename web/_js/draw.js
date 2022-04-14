@@ -40,6 +40,7 @@ var path = [];
 var pathWithPeriods = []
 var periodGroupElements = []
 
+var disableDrawingOverride = false
 var drawing = true;
 
 function initDraw(){
@@ -291,8 +292,9 @@ function initDraw(){
 	}
 
 	function finish(){
-		drawing = false;
 		updatePath()
+		drawing = false;
+		disableDrawingOverride = true;
 		objectInfoBox.style.display = "block";
 		objectDraw.style.display = "none";
 		hintText.style.display = "none";
@@ -308,6 +310,7 @@ function initDraw(){
 		updatePath([])
 		undoHistory = [];
 		drawing = true;
+		disableDrawingOverride = false;
 		objectInfoBox.style.display = "none";
 		objectDraw.style.display = "block";
 		hintText.style.display = "block";
@@ -320,6 +323,7 @@ function initDraw(){
 
 	function back(){
 		drawing = true;
+		disableDrawingOverride = false;
 		updatePath()
 		objectInfoBox.style.display = "none";
 		objectDraw.style.display = "block";
@@ -460,6 +464,7 @@ function initDraw(){
 	initPeriodGroups()
 
 	document.addEventListener('timeupdate', (event) => {
+		renderBackground()
 		updatePeriodGroups()
 	})
 
@@ -505,11 +510,15 @@ function initPeriodGroups() {
 		endPeriodEl.value = end
 		endPeriodEl.max = maxPeriod
 
-		startPeriodEl.addEventListener('input', () => {
-			updatePeriodGroups()
+		startPeriodEl.addEventListener('input', event => {
+			timelineSlider.value = parseInt(event.target.value)
+			updateTime(parseInt(event.target.value))
+			console.log(parseInt(event.target.value))
 		})
-		endPeriodEl.addEventListener('input', () => {
-			updatePeriodGroups()
+		endPeriodEl.addEventListener('input', event => {
+			timelineSlider.value = parseInt(event.target.value)
+			updateTime(parseInt(event.target.value))
+			console.log(parseInt(event.target.value))
 		})
 		periodDeleteEl.addEventListener('click', () => {
 			if (pathWithPeriods.length === 1) return
@@ -594,7 +603,7 @@ function updatePeriodGroups() {
 		updatePath(pathToActive)
 	}
 
-	drawing = currentActivePathIndex !== undefined
+	drawing = disableDrawingOverride ? false : currentActivePathIndex !== undefined
 	
 }
 
