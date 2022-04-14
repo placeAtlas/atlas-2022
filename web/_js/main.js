@@ -106,20 +106,21 @@ async function init(){
 	var mode = "view";
 
 	var args = window.location.search;
-	if(args){
-		mode = args.split("mode=")[1];
-		if(mode){
-			mode = mode.split("&")[0];
-		} else {
+	var params = new URLSearchParams(args)
+	if (args){
+		mode = params.get("mode")
+		if (!mode) {
 			mode = "view";
 		}
 
 		// Backwards compatibility for old links using "search" id arg
-		if(args.includes("id=")){
-			let idHash = args.split("id=")[1].split("&")[0];
-			window.location.hash = idHash;
-			let idArgMatch = new RegExp(`id=${idHash}&?`); // Patten for the id plus a following & if present
-			window.location.search = window.location.search.substring(1).replace(idArgMatch, "");
+		if (params.has('id') && params.get('mode') !== 'draw') {
+			let id = params.get('id')
+			params.delete('id')
+			let newLocation = new URL(window.location)
+			newLocation.hash = id
+			newLocation.search = params
+			window.history.replaceState({}, '', newLocation)
 		}
 	}
 
