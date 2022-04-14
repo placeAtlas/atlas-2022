@@ -145,25 +145,41 @@ async function updateTime(currentPeriod) {
     // TEMP ATLAS ONLY ON LAST TIMESTAMP
     atlas = []
     for ( var atlasIndex in atlasAll ) {
-        var validPeriods = atlasAll[atlasIndex].period
-        var isValid = false
-        if (validPeriods === undefined) validPeriods = defaultPeriod + ""
-        if (typeof validPeriods === "string") {
-            validPeriods.split(', ').some(period => {
-                if (period.search('-') + 1) {
-                    var [before, after] = period.split('-')
-                    if (currentPeriod >= before && currentPeriod <= after) {
-                        return atlas.push(atlasAll[atlasIndex])
-                    }
-                } else {
-                    var single = period
-                    if (single == currentPeriod) {
-                        return atlas.push(atlasAll[atlasIndex])
+        var pathChosen, centerChosen
+
+        if (Array.isArray(atlasAll[atlasIndex].path)) {
+            if (currentPeriod !== defaultPeriod) continue
+            pathChosen = atlasAll[atlasIndex].path
+            centerChosen = atlasAll[atlasIndex].center
+        } else {
+            var validPeriods2 = Object.keys(atlasAll[atlasIndex].path)
+            var chosenIndex
+
+            for (let i in validPeriods2) {
+                let validPeriods = validPeriods2[i].split(', ')
+                for (let j in validPeriods) {
+                    let [start, end] = parsePeriod(validPeriods[j])
+                    if (isOnPeriod(start, end, currentPeriod)) {
+                        chosenIndex = i
+                        break
                     }
                 }
-            })
+                if (chosenIndex) break
+            }
+
+            if (chosenIndex === undefined) continue 
+            pathChosen = Object.values(atlasAll[atlasIndex].path)[chosenIndex]
+            centerChosen = Object.values(atlasAll[atlasIndex].center)[chosenIndex]
         }
-        if (isValid) atlas.push(atlasAll[atlasIndex])
+
+        console.log(pathChosen)
+        if (pathChosen === undefined) continue
+
+        atlas.push({
+            ...atlasAll[atlasIndex],
+            path: pathChosen,
+            center: centerChosen,
+        })
     }
     dispatchTimeUpdateEvent(currentPeriod, atlas)
     if (typeof configObject.timestamp === "number") tooltip.querySelector('p').textContent = new Date(configObject.timestamp*1000).toUTCString()
@@ -175,3 +191,19 @@ tooltip.parentElement.addEventListener('mouseenter', () => tooltip.style.left = 
 
 window.addEventListener('resize', () => tooltip.style.left = (((timelineSlider.offsetWidth)*(timelineSlider.value-1)/(timelineSlider.max-1)) - tooltip.offsetWidth/2) + "px")
 
+function isOnPeriod(start, end, current = period) {
+	console.log(start, end, current, current >= start && current <= end)
+	return current >= start && current <= end
+}
+
+function parsePeriod(periodString) {
+	periodString = periodString + ""
+	// TODO: Support for multiple/alternative types of canvas
+	if (periodString.search('-') + 1) {
+		var [start, end] = periodString.split('-').map(i => parseInt(i))
+		return [start, end]
+	} else {
+		let periodNew = parseInt(periodString)
+		return [periodNew, periodNew]
+	}
+}
