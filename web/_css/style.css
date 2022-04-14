@@ -1332,7 +1332,8 @@ body:not([data-dev]) .show-only-on-dev {
 	background-color: #888;
 	border: 1px black solid;
 	padding: 0.5em;
-	margin-bottom: 0.5em
+	margin-bottom: 0.5em;
+	font-size: 0.9em;
 }
 
 .period-group[data-active="true"] {
