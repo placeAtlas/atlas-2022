@@ -565,12 +565,16 @@ p.delete {
 	margin-bottom: 5px;
 }
 
-#drawControls > div > * > * {
+#drawControls .inline {
+	display: flex
+}
+
+#drawControls .inline > * {
 	flex-grow: 1;
 	margin-right: 5px;
 }
 
-#drawControls > div > * > *:last-child {
+#drawControls .inline > *:last-child {
 	margin-right: 0;
 }
 
@@ -1327,7 +1331,8 @@ body:not([data-dev]) .show-only-on-dev {
 .period-group {
 	background-color: #888;
 	border: 1px black solid;
-	padding: .5em
+	padding: 0.5em;
+	margin-bottom: 0.5em
 }
 
 .period-group[data-active="true"] {
@@ -1341,6 +1346,14 @@ body:not([data-dev]) .show-only-on-dev {
 
 #periods .period-visible {
 	margin-bottom: 0;
+}
+
+#periods #periodsStatus:empty {
+	display: none
+}
+
+#periods #periodsStatus {
+	font-size: 0.8em
 }
 
 #drawControls p {

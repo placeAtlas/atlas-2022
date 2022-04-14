@@ -184,7 +184,7 @@
 				<a id="drawBackButton" class="button" href="./">&lt; Back to the Atlas</a>
 				<div id="drawControls">
 					<div id="objectDraw">
-						<div>
+						<div class="inline">
 							<button id="undoButton" disabled>Undo</button>
 							<button disabled id="redoButton">Redo</button>
 						</div>
@@ -195,8 +195,9 @@
 						</label>
 						<div id="periods">
 							<p>Periods</p>
-							<div id="periodGroups">
-							</div>	
+							<p id="periodsStatus"></p>
+							<div id="periodGroups"></div>
+							<button id="periodsAdd">Add Period</button>	
 						</div>
 					</div>
 					<div id="objectInfo">
@@ -284,7 +285,11 @@
 				<input class="period-start" type="range" min="0">
 				<label for="period-end">End Period</label>
 				<input class="period-end" type="range" min="0">
-				<p class="period-visible"></p>	
+				<p class="period-visible"></p>
+				<div class="inline">
+					<button class="period-delete">Delete</button>	
+					<button class="period-duplicate">Duplicate</button>	
+				</div>
 			</div>
 		</template>
 
