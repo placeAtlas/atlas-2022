@@ -736,8 +736,6 @@ function initView(){
 	document.addEventListener('timeupdate', (event) => {
 		sortedAtlas = atlas.concat()
 		resetEntriesList(null, null)
-		renderBackground(tempAtlas);
-		render();
 	})
 
 	// parse linked atlas entry id from link hash
