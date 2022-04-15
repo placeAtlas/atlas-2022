@@ -224,8 +224,7 @@ function initDraw(){
 			id: entryId,
 			name: document.getElementById("nameField").value,
 			description: document.getElementById("descriptionField").value,
-			website: document.getElementById("websiteField").value,
-			subreddit: document.getElementById("subredditField").value,
+			links: {},
 			center: {},
 			path: {},
 		};
@@ -251,6 +250,12 @@ function initDraw(){
 			exportObject.path[key] = value
 			exportObject.center[key] = calculateCenter(value)
 		})
+
+		let inputWebsite = document.getElementById("websiteField").value.split('\n').map(line => line.trim()).filter(line => line)
+		let inputSubreddit = document.getElementById("subredditField").value.split('\n').map(line => line.trim().replace(/^\/?r\//, '')).filter(line => line)
+
+		if (inputWebsite.length) exportObject.links.website = inputWebsite
+		if (inputSubreddit.length) exportObject.links.subreddit = inputSubreddit
 
 		var jsonString = JSON.stringify(exportObject, null, "\t");
 		var textarea = document.getElementById("exportString");
@@ -412,8 +417,8 @@ function initDraw(){
 		entry = getEntry(params.get('id'))
 		document.getElementById("nameField").value = entry.name
 		document.getElementById("descriptionField").value = entry.description
-		document.getElementById("websiteField").value = entry.website
-		document.getElementById("subredditField").value = entry.subreddit
+		document.getElementById("websiteField").value = entry.links.website.join('\n')
+		document.getElementById("subredditField").value = entry.links.subreddit.map(sub => '/r/' + sub).join('\n')
 		path = entry.path
 		redoButton.disabled = true;
 		undoButton.disabled = false;

@@ -390,6 +390,7 @@ function buildObjectsList(filter = null, sort = null){
 		}
 
 
+		// console.log(sortedAtlas[i])
 		var element = createInfoBlock(sortedAtlas[i]);
 
 		element.entry = sortedAtlas[i];

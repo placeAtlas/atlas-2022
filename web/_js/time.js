@@ -108,6 +108,8 @@ timelineSlider.max = timeConfig.length - 1;
 // document.querySelector('#period-group .period-end').max = defaultPeriod
 timelineSlider.value = period;
 
+updateBackground(period)
+
 timelineSlider.addEventListener("input", (event) => {
     updateTime(parseInt(event.target.value))
 })
@@ -132,7 +134,7 @@ const dispatchTimeUpdateEvent = (period = timelineSlider.value, atlas = atlas) =
     document.dispatchEvent(timeUpdateEvent);
 }
 
-async function updateTime(currentPeriod) {
+async function updateBackground(currentPeriod) {
     period = currentPeriod
     let configObject = timeConfig[currentPeriod];
     if (!configObject.image) {
@@ -141,35 +143,33 @@ async function updateTime(currentPeriod) {
         configObject.image = URL.createObjectURL(imageBlob);
     }
     image.src = configObject.image;
-    // TEMP ATLAS ONLY ON LAST TIMESTAMP
+
+    return configObject
+}
+
+async function updateTime(currentPeriod) {
     atlas = []
     for ( var atlasIndex in atlasAll ) {
         var pathChosen, centerChosen
 
-        if (Array.isArray(atlasAll[atlasIndex].path)) {
-            if (currentPeriod !== defaultPeriod) continue
-            pathChosen = atlasAll[atlasIndex].path
-            centerChosen = atlasAll[atlasIndex].center
-        } else {
-            var validPeriods2 = Object.keys(atlasAll[atlasIndex].path)
-            var chosenIndex
+        var validPeriods2 = Object.keys(atlasAll[atlasIndex].path)
+        var chosenIndex
 
-            for (let i in validPeriods2) {
-                let validPeriods = validPeriods2[i].split(', ')
-                for (let j in validPeriods) {
-                    let [start, end] = parsePeriod(validPeriods[j])
-                    if (isOnPeriod(start, end, currentPeriod)) {
-                        chosenIndex = i
-                        break
-                    }
+        for (let i in validPeriods2) {
+            let validPeriods = validPeriods2[i].split(', ')
+            for (let j in validPeriods) {
+                let [start, end] = parsePeriod(validPeriods[j])
+                if (isOnPeriod(start, end, currentPeriod)) {
+                    chosenIndex = i
+                    break
                 }
-                if (chosenIndex) break
             }
-
-            if (chosenIndex === undefined) continue 
-            pathChosen = Object.values(atlasAll[atlasIndex].path)[chosenIndex]
-            centerChosen = Object.values(atlasAll[atlasIndex].center)[chosenIndex]
+            if (chosenIndex) break
         }
+
+        if (chosenIndex === undefined) continue 
+        pathChosen = Object.values(atlasAll[atlasIndex].path)[chosenIndex]
+        centerChosen = Object.values(atlasAll[atlasIndex].center)[chosenIndex]
 
         if (pathChosen === undefined) continue
 
@@ -179,6 +179,7 @@ async function updateTime(currentPeriod) {
             center: centerChosen,
         })
     }
+    let configObject = await updateBackground(currentPeriod)
     dispatchTimeUpdateEvent(currentPeriod, atlas)
     if (typeof configObject.timestamp === "number") tooltip.querySelector('p').textContent = new Date(configObject.timestamp*1000).toUTCString()
     else tooltip.querySelector('p').textContent = configObject.timestamp
