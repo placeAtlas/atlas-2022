@@ -759,6 +759,7 @@ function initView(){
 function initExplore(){
 
 	window.updateHovering = updateHovering
+	window.render = function() {}
 
 	function updateHovering(e, tapped){
 		if(!dragging && (!fixed || tapped)){
