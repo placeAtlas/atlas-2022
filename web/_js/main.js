@@ -87,8 +87,45 @@ async function init(){
 		// a must be equal to b
 		return 0;
 	});
-	
+
 	atlasAll = atlas;
+
+	for (let atlasIndex in atlasAll) {
+		if (Array.isArray(atlasAll[atlasIndex].path)) {
+			let currentPath = atlasAll[atlasIndex].path
+			atlasAll[atlasIndex].path = {}
+			atlasAll[atlasIndex].path[defaultPeriod] = currentPath
+		}
+		if (Array.isArray(atlasAll[atlasIndex].center)) {
+			let currentCenter = atlasAll[atlasIndex].center
+			atlasAll[atlasIndex].center = {}
+			atlasAll[atlasIndex].center[defaultPeriod] = currentCenter
+		}
+		if (atlasAll[atlasIndex].links) {
+			let currentLinks = atlasAll[atlasIndex].links
+			atlasAll[atlasIndex].links = {
+				website: [],
+				subreddit: [],
+				discord: [],
+				wiki: [],
+				...currentLinks
+			}
+		} else {
+			atlasAll[atlasIndex].links = {
+				website: [],
+				subreddit: [],
+				discord: [],
+				wiki: []
+			}
+
+			if (atlasAll[atlasIndex].website) atlasAll[atlasIndex].links.website = [atlasAll[atlasIndex].website]
+			if (atlasAll[atlasIndex].subreddit) atlasAll[atlasIndex].links.subreddit = atlasAll[atlasIndex].subreddit.split(',').map(subreddit => subreddit.trim().replace(/^\/r\//, ''))
+
+			delete atlasAll[atlasIndex].website
+			delete atlasAll[atlasIndex].subreddit
+		}
+	}
+	
 	updateTime(period)
 
 	//console.log(document.documentElement.clientWidth, document.documentElement.clientHeight);

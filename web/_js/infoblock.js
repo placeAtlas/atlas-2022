@@ -14,6 +14,7 @@
 */
 
 function createInfoBlock(entry) {
+    // console.log(entry)
     function createInfoParagraph(name, value){
         let entryParagraphPositionElement = document.createElement("p");
         let nameElement = document.createElement("span");
@@ -56,33 +57,41 @@ function createInfoBlock(entry) {
         let area = calcPolygonArea(entry.path);
         element.appendChild(createInfoParagraph("Area: ", `${area} pixels`));
     }
-    
-    if (entry.website) {
+
+    entry.links.subreddit.forEach(subreddit => {
+        subreddit = "/r/" + subreddit;
+        let subredditLinkElement = document.createElement("a");
+        subredditLinkElement.target = "_blank";
+        subredditLinkElement.href = "https://reddit.com" + subreddit;
+        subredditLinkElement.innerText = subreddit;
+        element.appendChild(subredditLinkElement);
+    })
+
+    entry.links.website.forEach(link => {
         let websiteLinkElement = document.createElement("a");
         websiteLinkElement.target = "_blank";
-        websiteLinkElement.href = entry.website;
+        websiteLinkElement.href = link;
         websiteLinkElement.innerText = "Website";
         element.appendChild(websiteLinkElement);
-    }
-    if (entry.subreddit) {
-        var subreddits = entry.subreddit.split(",");
+    })
 
-        for (var i in subreddits) {
-            var subreddit = subreddits[i].trim();
-            if (subreddit.substring(0, 2) == "r/") {
-                subreddit = "/" + subreddit;
-            } else if (subreddit.substring(0, 1) != "/") {
-                subreddit = "/r/" + subreddit;
-            }
-            let subredditLinkElement = document.createElement("a");
-            subredditLinkElement.target = "_blank";
-            subredditLinkElement.href = "https://reddit.com" + subreddit;
-            subredditLinkElement.innerText = subreddit;
-            element.appendChild(subredditLinkElement);
-        }
-    }
+    entry.links.discord.forEach(link => {
+        let websiteLinkElement = document.createElement("a");
+        websiteLinkElement.target = "_blank";
+        websiteLinkElement.href = link;
+        websiteLinkElement.innerText = "Discord";
+        element.appendChild(websiteLinkElement);
+    })
+
+    entry.links.wiki.forEach(link => {
+        let websiteLinkElement = document.createElement("a");
+        websiteLinkElement.target = "_blank";
+        websiteLinkElement.href = link;
+        websiteLinkElement.innerText = "Wiki Article";
+        element.appendChild(websiteLinkElement);
+    })
+
     let idElement = createInfoParagraph("ID: ", entry.id);
-    idElement.style.fontFamily = "Dejavu Sans Mono, sans, Sans-Serif;";
     element.appendChild(idElement);
 
     if (!entry.diff || entry.diff !== "delete") {
