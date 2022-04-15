@@ -428,7 +428,6 @@ function initDraw(){
 		document.getElementById("descriptionField").value = entry.description
 		document.getElementById("websiteField").value = entry.links.website.join('\n')
 		document.getElementById("subredditField").value = entry.links.subreddit.map(sub => '/r/' + sub).join('\n')
-		pathWithPeriods = Object.entries(entry.path)
 		redoButton.disabled = true;
 		undoButton.disabled = false;
 		entryId = params.get('id')
@@ -444,6 +443,12 @@ function initDraw(){
                 }
             })
         }
+
+		Object.entries(entry.path).forEach(([period, path]) => {
+			period.split(", ").forEach(period => {
+				pathWithPeriods.push([period, path])
+			})
+		})
 
 	} else {
 		pathWithPeriods.push([defaultPeriod, []])
