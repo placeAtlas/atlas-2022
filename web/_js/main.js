@@ -143,7 +143,7 @@ async function init(){
 			let liveResp = await fetch("https://place-atlas.stefanocoding.me/atlas.json");
 			let liveJson = await liveResp.json();
 			liveJson = updateAtlasAll(liveJson)
-			console.log(liveJson)
+			// console.log(liveJson)
 
 			let liveAtlasReduced = liveJson.reduce(function(a, c) {
 				a[c.id] = c;
