@@ -497,7 +497,7 @@ async function init(){
 
 		zoomOrigin[0] = scaleZoomOrigin[0]*zoom;
 		zoomOrigin[1] = scaleZoomOrigin[1]*zoom;
-		
+
 		applyView();
 		updateLines();
 	}

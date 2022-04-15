@@ -114,6 +114,18 @@ textArea {
 	box-sizing: border-box;
 }
 
+textarea {
+	min-height: 35px;
+}
+
+#drawControlsContainer textarea {
+	overflow-y: hidden;
+	resize: none;
+	overflow-wrap: normal;
+	overflow-x: auto;
+	scrollbar-width: thin;
+}
+
 input[type="text"] {
 	height: 25px;
 }
@@ -622,24 +634,14 @@ input[type="checkbox"] {
 	width: 100%;
 }
 
-#descriptionField {
-	width: 220px;
-	height: 70px;
+#drawControlsContainer #descriptionField {
+	min-height: 70px;
+	overflow-wrap: anywhere;
+	overflow-x: hidden;
 }
 
 #infoButtons {
-	display: flex;
 	margin-top: 10px;
-}
-
-#infoButtons button {
-	width: 50px;
-	flex-grow: 1;
-	margin-right: 10px;
-}
-
-#infoButtons button:last-child {
-	margin-right: 0;
 }
 
 .overlay {

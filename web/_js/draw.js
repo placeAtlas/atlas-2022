@@ -36,13 +36,20 @@ var exportCloseButton = document.getElementById("exportCloseButton");
 var exportBackButton = document.getElementById("exportBackButton")
 
 var path = [];
-var center = [];
+var center = [1000, 1000];
 
 var pathWithPeriods = []
 var periodGroupElements = []
 
 var disableDrawingOverride = false
 var drawing = true;
+
+[...document.querySelectorAll("#drawControlsContainer textarea")].forEach(el => {
+	el.addEventListener("input", function() {
+		this.style.height = "auto";
+		this.style.height = (this.scrollHeight) + "px"
+	})
+})
 
 function initDraw(){
 	
@@ -188,17 +195,17 @@ function initDraw(){
 		}
 	});
 
-	document.getElementById("websiteField").addEventListener("keyup", function(e){
-		if(e.key == "Enter"){
-			exportJson();
-		}
-	});
+	// document.getElementById("websiteField").addEventListener("keyup", function(e){
+	// 	if(e.key == "Enter"){
+	// 		exportJson();
+	// 	}
+	// });
 
-	document.getElementById("subredditField").addEventListener("keyup", function(e){
-		if(e.key == "Enter"){
-			exportJson();
-		}
-	});
+	// document.getElementById("subredditField").addEventListener("keyup", function(e){
+	// 	if(e.key == "Enter"){
+	// 		exportJson();
+	// 	}
+	// });
 
 	exportButton.addEventListener("click", function(e){
 		exportJson();
@@ -292,13 +299,16 @@ function initDraw(){
 	}
 
 	function finish(){
+		if (objectInfoBox.style.display === "block") return
 		updatePath()
 		drawing = false;
 		disableDrawingOverride = true;
 		objectInfoBox.style.display = "block";
 		objectDraw.style.display = "none";
 		hintText.style.display = "none";
-		document.getElementById("nameField").focus();
+		[...document.querySelectorAll("#drawControlsContainer textarea")].forEach(el => {
+			if (el.value) el.style.height = (el.scrollHeight) + "px"
+		})			
 		// if (isOnPeriod()) {
 		// 	periodVisbilityInfo.textContent = ""
 		// } else {
@@ -401,12 +411,11 @@ function initDraw(){
 			];
 			var coords_p = document.getElementById("coords_p");
 			coords_p.innerText = Math.ceil(pos[0]) + ", " + Math.ceil(pos[1]);
-	
 		}
 	}
 
 	const getEntry = id => {
-		const entries = atlas.filter(entry => entry.id === id)
+		const entries = atlasAll.filter(entry => entry.id === id)
 		if (entries.length === 1) return entries[0]
 		return {}
 	}
@@ -419,7 +428,7 @@ function initDraw(){
 		document.getElementById("descriptionField").value = entry.description
 		document.getElementById("websiteField").value = entry.links.website.join('\n')
 		document.getElementById("subredditField").value = entry.links.subreddit.map(sub => '/r/' + sub).join('\n')
-		path = entry.path
+		pathWithPeriods = Object.entries(entry.path)
 		redoButton.disabled = true;
 		undoButton.disabled = false;
 		entryId = params.get('id')
@@ -435,12 +444,6 @@ function initDraw(){
                 }
             })
         }
-
-		if (Array.isArray(path)) {
-			pathWithPeriods.push([defaultPeriod, path])
-		} else if (typeof path === "object") {
-			pathWithPeriods = Object.entries(path)
-		}
 
 	} else {
 		pathWithPeriods.push([defaultPeriod, []])
@@ -562,11 +565,13 @@ function initPeriodGroups() {
 		})
 	})
 	// console.log(periodGroupTemplate)
+
 	updatePeriodGroups()
 
 }
 
 function updatePeriodGroups() {
+	// console.log('updatePeriodGroups')
 	var pathToActive = []
 	var lastActivePathIndex
 	var currentActivePathIndex 
@@ -601,6 +606,8 @@ function updatePeriodGroups() {
 		)
 	})
 
+	// console.log('updatePeriodGroups searcher', pathToActive, lastActivePathIndex, currentActivePathIndex, period)
+
 	periodsStatus.textContent = ""
 
 	// if (currentActivePathIndexes.length > 1) {
@@ -611,7 +618,7 @@ function updatePeriodGroups() {
 	// 	currentActivePathIndex = undefined
 	// } 
 	
-	console.log(lastActivePathIndex)
+	// console.log(lastActivePathIndex)
 	if (lastActivePathIndex !== undefined) {
 		if (lastActivePathIndex === currentActivePathIndex) {
 			// just update the path
@@ -633,6 +640,7 @@ function updatePeriodGroups() {
 
 		}
 	} else {
+		console.log('direct active', pathToActive)
 		updatePath(pathToActive)
 	}
 
@@ -657,14 +665,19 @@ function formatPeriod(start, end) {
 	else return start + "-" + end
 }
 
-function updatePath(newPath = path) {
-	console.log('updatePath')
-	path = newPath
-	center = calculateCenter(path)
+function updatePath(newPath) {
+	// console.log('updatePath', path, newPath)
+	if (newPath) path = newPath
+	// console.log('updatePath', path, newPath)
+	if (path.length > 3) center = calculateCenter(path)
 	render(path)
 	undoButton.disabled = path.length == 0; // Maybe make it undo the cancel action in the future
 	undoHistory = []
 
+	updateErrors()
+}
+
+function updateErrors() {
 	if (path.length === 0) {
 		periodsStatus.textContent = "No paths available on this period!"
 	}
@@ -673,12 +686,14 @@ function updatePath(newPath = path) {
 
 	if (allErrors.length > 0) {
 		periodsStatus.textContent = `Problems detected. Please check the groups indicated by red.`
-		if (conflicts.length > 0) periodsStatus.textContent += `\nConflicts on ${conflicts.join(', ')}.`
+		if (conflicts.length > 0) {
+			periodsStatus.textContent += `\nConflicts on ${conflicts.join(', ')}.`
+			currentActivePathIndex = undefined
+		}
 		if (invalidPaths.length > 0) periodsStatus.textContent += `\nInsufficient paths on ${invalidPaths.join(', ')}.`
 		allErrors.forEach(index => {
 			periodGroupElements[index].periodGroupEl.dataset.status = "error"
 		})
-		if (conflicts.length > 0) currentActivePathIndex = undefined
 		finishButton.disabled = true
 	} else {
 		periodsStatus.textContent = ``
@@ -694,9 +709,8 @@ function updatePath(newPath = path) {
 			else periodGroupEl.dataset.status = ""
 		})
 	}
-
 }
-
+ 
 function getConflicts() {
 
 	let conflicts = new Set()
@@ -731,8 +745,8 @@ function getErrors() {
 		if (path.length < 3) invalidPaths.push(i)
 	})
 	
-	console.log('conflicts', conflicts)
-	console.log('invalid paths', invalidPaths)
+	// console.info('conflicts', conflicts)
+	// console.info('invalid paths', invalidPaths)
 
 	return [conflicts, invalidPaths, [...new Set([...conflicts, ...invalidPaths])]]
 }
