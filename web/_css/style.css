@@ -749,6 +749,10 @@ input[type="checkbox"] {
 	gap: 10px;
 }
 
+#bottomBar > * {
+	z-index: 1
+}
+
 div:not(.listHidden) > #bottomBar {
 	left: 370px !important;
 }
