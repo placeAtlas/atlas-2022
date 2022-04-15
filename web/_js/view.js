@@ -140,7 +140,7 @@ objectsContainer.addEventListener("scroll", function(e){
 	updateLines();
 });
 
-window.addEventListener("resize", function(){
+window.addEventListener("resize", function(e){
 	//console.log(document.documentElement.clientWidth, document.documentElement.clientHeight);
 
 	var viewportWidth = document.documentElement.clientWidth;
