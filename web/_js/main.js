@@ -88,43 +88,7 @@ async function init(){
 		return 0;
 	});
 
-	atlasAll = atlas;
-
-	for (let atlasIndex in atlasAll) {
-		if (Array.isArray(atlasAll[atlasIndex].path)) {
-			let currentPath = atlasAll[atlasIndex].path
-			atlasAll[atlasIndex].path = {}
-			atlasAll[atlasIndex].path[defaultPeriod] = currentPath
-		}
-		if (Array.isArray(atlasAll[atlasIndex].center)) {
-			let currentCenter = atlasAll[atlasIndex].center
-			atlasAll[atlasIndex].center = {}
-			atlasAll[atlasIndex].center[defaultPeriod] = currentCenter
-		}
-		if (atlasAll[atlasIndex].links) {
-			let currentLinks = atlasAll[atlasIndex].links
-			atlasAll[atlasIndex].links = {
-				website: [],
-				subreddit: [],
-				discord: [],
-				wiki: [],
-				...currentLinks
-			}
-		} else {
-			atlasAll[atlasIndex].links = {
-				website: [],
-				subreddit: [],
-				discord: [],
-				wiki: []
-			}
-
-			if (atlasAll[atlasIndex].website) atlasAll[atlasIndex].links.website = [atlasAll[atlasIndex].website]
-			if (atlasAll[atlasIndex].subreddit) atlasAll[atlasIndex].links.subreddit = atlasAll[atlasIndex].subreddit.split(',').map(subreddit => subreddit.trim().replace(/^\/r\//, ''))
-
-			delete atlasAll[atlasIndex].website
-			delete atlasAll[atlasIndex].subreddit
-		}
-	}
+	atlasAll = updateAtlasAll(atlas);
 	
 	updateTime(period)
 
@@ -178,12 +142,15 @@ async function init(){
 		try {
 			let liveResp = await fetch("https://place-atlas.stefanocoding.me/atlas.json");
 			let liveJson = await liveResp.json();
+			liveJson = updateAtlasAll(liveJson)
+			console.log(liveJson)
+
 			let liveAtlasReduced = liveJson.reduce(function(a, c) {
 				a[c.id] = c;
 				return a;
 			},{});
 			// Mark added/edited entries
-			atlas = atlas.map(function(entry) {
+			atlasAll = atlasAll.map(function(entry) {
 				if(liveAtlasReduced[entry.id] === undefined){
 					entry.diff = "add";
 				}else if(JSON.stringify(entry) !== JSON.stringify(liveAtlasReduced[entry.id])){
@@ -193,7 +160,7 @@ async function init(){
 			});
 
 			// Mark removed entries
-			let atlasReduced = atlas.reduce(function(a, c) {
+			let atlasReduced = atlasAll.reduce(function(a, c) {
 				a[c.id] = c;
 				return a;
 			},{});
@@ -203,18 +170,18 @@ async function init(){
 				entry.diff = "delete"
 				return entry
 			})
-			atlas.push(...removedEntries)
+			atlasAll.push(...removedEntries)
 
 			if(mode.includes("only")){
-				atlas = atlas.filter(function(entry) {
+				atlasAll = atlasAll.filter(function(entry) {
 					return typeof entry.diff == "string"
 				});
 			}
-			
-			atlasAll = atlas;
+
 		} catch (error) {
 			console.warn("Diff mode failed to load, reverting to normal view.", error);
 		} finally {
+			updateTime()
 			if(initOverlap && mode.includes("overlap")){
 				initOverlap();
 			} else {
@@ -537,4 +504,44 @@ async function init(){
 	
 	document.body.dataset.initDone = ''
 
+}
+
+function updateAtlasAll(atlas) {
+	if (!atlas) atlas = atlasAll
+	for (let atlasIndex in atlas) {
+		if (Array.isArray(atlas[atlasIndex].path)) {
+			let currentPath = atlas[atlasIndex].path
+			atlas[atlasIndex].path = {}
+			atlas[atlasIndex].path[defaultPeriod] = currentPath
+		}
+		if (Array.isArray(atlas[atlasIndex].center)) {
+			let currentCenter = atlas[atlasIndex].center
+			atlas[atlasIndex].center = {}
+			atlas[atlasIndex].center[defaultPeriod] = currentCenter
+		}
+		if (atlas[atlasIndex].links) {
+			let currentLinks = atlas[atlasIndex].links
+			atlas[atlasIndex].links = {
+				website: [],
+				subreddit: [],
+				discord: [],
+				wiki: [],
+				...currentLinks
+			}
+		} else {
+			atlas[atlasIndex].links = {
+				website: [],
+				subreddit: [],
+				discord: [],
+				wiki: []
+			}
+
+			if (atlas[atlasIndex].website) atlas[atlasIndex].links.website = [atlas[atlasIndex].website]
+			if (atlas[atlasIndex].subreddit) atlas[atlasIndex].links.subreddit = atlas[atlasIndex].subreddit.split(',').map(subreddit => subreddit.trim().replace(/^\/r\//, ''))
+
+			delete atlas[atlasIndex].website
+			delete atlas[atlasIndex].subreddit
+		}
+	}
+	return atlas
 }
