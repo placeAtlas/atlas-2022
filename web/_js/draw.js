@@ -465,7 +465,7 @@ function initDraw(){
 
 	periodsAdd.addEventListener('click', () => {
 		pathWithPeriods.push([defaultPeriod, []])
-		console.log(JSON.stringify(pathWithPeriods))
+		// console.log(JSON.stringify(pathWithPeriods))
 		initPeriodGroups()
 	})
 
@@ -514,7 +514,7 @@ function initPeriodGroups() {
 		let periodVariationEl = periodGroupEl.querySelector('.period-variation')
 
 		let [start, end, variation] = parsePeriod(period)
-		console.log(period, start, end, variation)
+		// console.log(period, start, end, variation)
 
 		startPeriodEl.id = "periodStart" + index
 		startPeriodEl.previousSibling.for = startPeriodEl.id
@@ -662,7 +662,7 @@ function updatePeriodGroups() {
 
 		}
 	} else {
-		console.log('direct active', pathToActive)
+		// console.log('direct active', pathToActive)
 		updatePath(pathToActive)
 	}
 

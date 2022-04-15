@@ -233,7 +233,7 @@ const dispatchTimeUpdateEvent = (period = timelineSlider.value, atlas = atlas) =
 
 async function updateBackground(newPeriod = currentPeriod, newVariation = currentVariation) {
     currentPeriod = newPeriod
-    console.log(newPeriod, newVariation)
+    // console.log(newPeriod, newVariation)
     const variationConfig = variationsConfig[newVariation]
     if (currentVariation !== newVariation) {
         currentVariation = newVariation
