@@ -753,7 +753,7 @@ div:not(.listHidden) > #bottomBar {
 	left: 370px !important;
 }
 
-@media (max-width: 1120px) {
+@media (max-width: 1280px) {
 	div:not(.listHidden) > #bottomBar  {
 		flex-wrap: wrap;
 	}
