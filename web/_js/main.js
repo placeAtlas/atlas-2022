@@ -186,8 +186,6 @@ async function init(){
 		initView();
 	}
 	
-	document.getElementById("loading").style.display = "none";
-
 	document.getElementById("zoomInButton").addEventListener("click", function(e){
 
 		/*if(zoomAnimationFrame){
@@ -496,4 +494,6 @@ async function init(){
 		applyView();
 	});
 	
+	document.body.dataset.initDone = ''
+
 }
