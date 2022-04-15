@@ -90,7 +90,7 @@ async function init(){
 
 	atlasAll = updateAtlasAll(atlas);
 	
-	await updateTime(period, variation)
+	await updateTime(currentPeriod, currentVariation)
 
 	//console.log(document.documentElement.clientWidth, document.documentElement.clientHeight);
 

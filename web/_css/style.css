@@ -1339,6 +1339,10 @@ body:not([data-dev]) .show-only-on-dev {
 	font-size: 0.9em;
 }
 
+.period-group * {
+	margin-bottom: 0.25em;
+}
+
 .period-group[data-status="active"] {
 	border-color: lime;
 }
@@ -1347,8 +1351,8 @@ body:not([data-dev]) .show-only-on-dev {
 	border-color: red;
 }
 
-
-.period-group input {
+.period-group input,
+.period-group select {
 	width: 100%;
 }
 
