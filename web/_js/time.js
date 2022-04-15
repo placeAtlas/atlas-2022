@@ -194,21 +194,21 @@ const image = document.getElementById("image");
 
 let defaultPeriod = timeConfig.length - 1
 let maxPeriod = timeConfig.length - 1
-let period = defaultPeriod
-let variation = "default"
-window.period = period
-window.variation = variation
+let currentPeriod = defaultPeriod
+let currentVariation = "default"
+window.currentPeriod = currentPeriod
+window.currentVariation = currentVariation
 
 // SETUP
 timelineSlider.max = timeConfig.length - 1;
-timelineSlider.value = period;
+timelineSlider.value = currentPeriod;
 
 timelineSlider.addEventListener("input", (event) => {
-    updateTime(parseInt(event.target.value), variation)
+    updateTime(parseInt(event.target.value), currentVariation)
 })
 
 variantsEl.addEventListener("input", (event) => {
-    updateTime(period, event.target.value)
+    updateTime(currentPeriod, event.target.value)
 })
 
 // document.querySelector('#period-group .period-start').oninput = (event) => {
@@ -231,18 +231,18 @@ const dispatchTimeUpdateEvent = (period = timelineSlider.value, atlas = atlas) =
     document.dispatchEvent(timeUpdateEvent);
 }
 
-async function updateBackground(newPeriod = period, newVariation = variation) {
-    period = newPeriod
+async function updateBackground(newPeriod = currentPeriod, newVariation = currentVariation) {
+    currentPeriod = newPeriod
     console.log(newPeriod, newVariation)
     const variationConfig = variationsConfig[newVariation]
-    if (variation !== newVariation) {
-        variation = newVariation
+    if (currentVariation !== newVariation) {
+        currentVariation = newVariation
         timelineSlider.max = variationConfig.versions.length - 1;
-        period = variationConfig.default;
-        newPeriod = period 
-        timelineSlider.value = period 
+        currentPeriod = variationConfig.default;
+        newPeriod = currentPeriod 
+        timelineSlider.value = currentPeriod 
     }
-    const configObject = variationConfig.versions[period];
+    const configObject = variationConfig.versions[currentPeriod];
     if (!configObject.image) {
         const fetchResult = await fetch(configObject.url);
         const imageBlob = await fetchResult.blob();
@@ -253,7 +253,7 @@ async function updateBackground(newPeriod = period, newVariation = variation) {
     return [configObject, newPeriod, newVariation]
 }
 
-async function updateTime(newPeriod = period, newVariation = variation) {
+async function updateTime(newPeriod = currentPeriod, newVariation = currentVariation) {
     let configObject
     [configObject, newPeriod, newVariation] = await updateBackground(newPeriod, newVariation)
     
@@ -263,12 +263,13 @@ async function updateTime(newPeriod = period, newVariation = variation) {
 
         let validPeriods2 = Object.keys(atlasAll[atlasIndex].path)
 
-        console.log(chosenIndex)
+        // console.log(chosenIndex)
 
         for (let i in validPeriods2) {
             let validPeriods = validPeriods2[i].split(', ')
             for (let j in validPeriods) {
                 let [start, end, variation] = parsePeriod(validPeriods[j])
+                // console.log(start, end, variation, newPeriod, newVariation)
                 if (isOnPeriod(start, end, variation, newPeriod, newVariation)) {
                     // console.log("match", start, end, variation, newPeriod, newVariation, i)
                     chosenIndex = i
@@ -295,7 +296,7 @@ async function updateTime(newPeriod = period, newVariation = variation) {
             center: centerChosen,
         })
     }
-    console.log(atlas)
+    // console.log(atlas)
 
     dispatchTimeUpdateEvent(newPeriod, atlas)
     if (typeof configObject.timestamp === "number") tooltip.querySelector('p').textContent = new Date(configObject.timestamp*1000).toUTCString()
@@ -312,12 +313,14 @@ function isOnPeriod(start, end, variation, currentPeriod, currentVariation) {
 }
 
 function parsePeriod(periodString) {
+    // console.log(periodString)
     let variation = "default"
 	periodString = periodString + ""
     if (periodString.split(':').length > 1) {
-        variation = periodString.split(':')[0] 
+        let split = periodString.split(':')
+        variation = codeReference[split[0]]
+        periodString = split[1]
     }
-	// TODO: Support for multiple/alternative types of canvas
 	if (periodString.search('-') + 1) {
 		var [start, end] = periodString.split('-').map(i => parseInt(i))
 		return [start, end, variation]

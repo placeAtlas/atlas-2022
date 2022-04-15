@@ -432,18 +432,6 @@ function initDraw(){
 		undoButton.disabled = false;
 		entryId = params.get('id')
 
-		if (typeof entry.period === "string") {
-            entry.period.split(', ').some(period => {
-                if (period.search('-') + 1) {
-                    var [before, after] = period.split('-')
-                    startPeriodField.value = before
-					endPeriodField.value = after
-					// console.log(before, after)
-					return
-                }
-            })
-        }
-
 		Object.entries(entry.path).forEach(([period, path]) => {
 			period.split(", ").forEach(period => {
 				pathWithPeriods.push([period, path])
@@ -477,6 +465,7 @@ function initDraw(){
 
 	periodsAdd.addEventListener('click', () => {
 		pathWithPeriods.push([defaultPeriod, []])
+		console.log(JSON.stringify(pathWithPeriods))
 		initPeriodGroups()
 	})
 
@@ -506,11 +495,6 @@ function calculateCenter(path){
 	return [Math.floor(x / area)+0.5, Math.floor(y / area)+0.5];
 }
 
-function isOnPeriod(start = parseInt(startPeriodField.value), end = parseInt(endPeriodField.value), current = period) {
-	// console.log(start, end, current, current >= start && current <= end)
-	return current >= start && current <= end
-}
-
 function initPeriodGroups() {
 
 	periodGroupElements = []
@@ -527,14 +511,17 @@ function initPeriodGroups() {
 		let periodVisibilityEl = periodGroupEl.querySelector('.period-visible')
 		let periodDeleteEl = periodGroupEl.querySelector('.period-delete')
 		let periodDuplicateEl = periodGroupEl.querySelector('.period-duplicate')
+		let periodVariationEl = periodGroupEl.querySelector('.period-variation')
 
-		let [start, end] = parsePeriod(period)
+		let [start, end, variation] = parsePeriod(period)
+		console.log(period, start, end, variation)
 
 		startPeriodEl.id = "periodStart" + index
 		startPeriodEl.previousSibling.for = startPeriodEl.id
 		endPeriodEl.id = "periodEnd" + index
 		endPeriodEl.previousSibling.for = endPeriodEl.id
 		periodVisibilityEl.id = "periodVisibility" + index
+		periodVariationEl.id = "periodVariation" + index
 
 		startPeriodEl.value = start
 		startPeriodEl.max = maxPeriod
@@ -543,12 +530,12 @@ function initPeriodGroups() {
 
 		startPeriodEl.addEventListener('input', event => {
 			timelineSlider.value = parseInt(event.target.value)
-			updateTime(parseInt(event.target.value))
+			updateTime(parseInt(event.target.value), variation)
 			// console.log(parseInt(event.target.value))
 		})
 		endPeriodEl.addEventListener('input', event => {
 			timelineSlider.value = parseInt(event.target.value)
-			updateTime(parseInt(event.target.value))
+			updateTime(parseInt(event.target.value), variation)
 			// console.log(parseInt(event.target.value))
 		})
 		periodDeleteEl.addEventListener('click', () => {
@@ -560,13 +547,34 @@ function initPeriodGroups() {
 			pathWithPeriods.push([pathWithPeriods[index][0], [...pathWithPeriods[index][1]]])
 			initPeriodGroups()
 		})
+		periodVariationEl.addEventListener('input', event => {
+			let newVariation = event.target.value
+			let newVariationConfig = variationsConfig[newVariation]
+			startPeriodEl.value = newVariationConfig.default
+			startPeriodEl.max = newVariationConfig.versions.length - 1
+			endPeriodEl.value = newVariationConfig.default
+			endPeriodEl.max = newVariationConfig.versions.length - 1	
+			updateTime(period, newVariation)
+			// console.log(parseInt(event.target.value))
+		})
 
 		periodGroups.appendChild(periodGroupEl)
+
+		for (let variation in variationsConfig) {
+			const optionEl = document.createElement('option')
+			optionEl.value = variation
+			optionEl.textContent = variationsConfig[variation].name
+			periodVariationEl.appendChild(optionEl)
+		}
+
+		periodVariationEl.value = variation
+
 		periodGroupElements.push({
 			periodGroupEl,
 			startPeriodEl,
 			endPeriodEl,
-			periodVisibilityEl
+			periodVisibilityEl,
+			periodVariationEl
 		})
 	})
 	// console.log(periodGroupTemplate)
@@ -587,7 +595,8 @@ function updatePeriodGroups() {
 			periodGroupEl,
 			startPeriodEl,
 			endPeriodEl,
-			periodVisibilityEl
+			periodVisibilityEl,
+			periodVariationEl
 		} = elements
 
 		if (periodGroupEl.dataset.active === "true") lastActivePathIndex = index
@@ -596,7 +605,9 @@ function updatePeriodGroups() {
 		if (isOnPeriod(
 			parseInt(startPeriodEl.value), 
 			parseInt(endPeriodEl.value),
-			period
+			periodVariationEl.value,
+			currentPeriod,
+			currentVariation
 		)) {
 			pathToActive = pathWithPeriods[index][1]
 			currentActivePathIndex = index
@@ -607,7 +618,7 @@ function updatePeriodGroups() {
 		pathWithPeriods[index][0] = formatPeriod(
 			parseInt(startPeriodEl.value), 
 			parseInt(endPeriodEl.value),
-			period
+			periodVariationEl.value
 		)
 	})
 
@@ -627,10 +638,16 @@ function updatePeriodGroups() {
 	if (lastActivePathIndex !== undefined) {
 		if (lastActivePathIndex === currentActivePathIndex) {
 			// just update the path
+			let {
+				startPeriodEl,
+				endPeriodEl,
+				periodVariationEl
+			} = periodGroupElements[currentActivePathIndex]
 			pathWithPeriods[currentActivePathIndex] = [
 				formatPeriod(
-					parseInt(periodGroupElements[currentActivePathIndex].startPeriodEl.value),
-					parseInt(periodGroupElements[currentActivePathIndex].endPeriodEl.value)
+					parseInt(startPeriodEl.value),
+					parseInt(endPeriodEl.value),
+					periodVariationEl.value,
 				),
 				path
 			]
@@ -653,21 +670,12 @@ function updatePeriodGroups() {
 	
 }
 
-function parsePeriod(periodString) {
-	periodString = periodString + ""
-	// TODO: Support for multiple/alternative types of canvas
-	if (periodString.search('-') + 1) {
-		var [start, end] = periodString.split('-').map(i => parseInt(i))
-		return [start, end]
-	} else {
-		let periodNew = parseInt(periodString)
-		return [periodNew, periodNew]
-	}
-}
-
-function formatPeriod(start, end) {
-	if (start === end) return start
-	else return start + "-" + end
+function formatPeriod(start, end, variation) {
+	let periodString 
+	if (start === end) periodString = start
+	else periodString = start + "-" + end
+	if (variation !== "default") periodString = variationsConfig[variation].code + ":" + periodString
+	return periodString
 }
 
 function updatePath(newPath) {
@@ -704,12 +712,7 @@ function updateErrors() {
 		periodsStatus.textContent = ``
 		finishButton.disabled = false
 		periodGroupElements.forEach((elements, index) => {
-			let {
-				periodGroupEl,
-				startPeriodEl,
-				endPeriodEl,
-				periodVisibilityEl
-			} = elements
+			let { periodGroupEl } = elements
 			if (periodGroupEl.dataset.active === "true") periodGroupEl.dataset.status = "active"
 			else periodGroupEl.dataset.status = ""
 		})
@@ -721,9 +724,10 @@ function getConflicts() {
 	let conflicts = new Set()
 	
 	for (let i = pathWithPeriods.length - 1; i > 0; i--) {
+		let [start1, end1, period1] = parsePeriod(pathWithPeriods[i][0])
 		for (let j = 0; j < i; j++) {
-			let [start1, end1] = parsePeriod(pathWithPeriods[i][0])
-			let [start2, end2] = parsePeriod(pathWithPeriods[j][0])
+			let [start2, end2, period2] = parsePeriod(pathWithPeriods[j][0])
+			if (period1 !== period2) continue
 			if (
 				(start2 <= start1 && start1 <= end2) ||
 				(start2 <= end1 && end1 <= end2) ||
