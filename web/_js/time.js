@@ -107,7 +107,6 @@ timelineSlider.max = timeConfig.length - 1;
 // document.querySelector('#period-group .period-start').max = defaultPeriod
 // document.querySelector('#period-group .period-end').max = defaultPeriod
 timelineSlider.value = period;
-updateTime(period)
 
 timelineSlider.addEventListener("input", (event) => {
     updateTime(parseInt(event.target.value))
