@@ -87,9 +87,9 @@ async function init(){
 		// a must be equal to b
 		return 0;
 	});
-	//TEMP FOR TIME TRAVEL
-	atlasAll = atlas;
 	
+	atlasAll = atlas;
+	updateTime(period)
 
 	//console.log(document.documentElement.clientWidth, document.documentElement.clientHeight);
 
@@ -173,7 +173,7 @@ async function init(){
 					return typeof entry.diff == "string"
 				});
 			}
-			//TEMP FOR TIME TRAVEL
+			
 			atlasAll = atlas;
 		} catch (error) {
 			console.warn("Diff mode failed to load, reverting to normal view.", error);
