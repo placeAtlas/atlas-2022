@@ -78,7 +78,7 @@ function createInfoBlock(entry) {
     entry.links.discord.forEach(link => {
         let websiteLinkElement = document.createElement("a");
         websiteLinkElement.target = "_blank";
-        websiteLinkElement.href = link;
+        websiteLinkElement.href = "https://discord.gg/" + link;
         websiteLinkElement.innerText = "Discord";
         element.appendChild(websiteLinkElement);
     })
@@ -86,7 +86,7 @@ function createInfoBlock(entry) {
     entry.links.wiki.forEach(link => {
         let websiteLinkElement = document.createElement("a");
         websiteLinkElement.target = "_blank";
-        websiteLinkElement.href = link;
+        websiteLinkElement.href = "https://place-wiki.stefanocoding.me/wiki/" + link.replace(/ /g, '_');
         websiteLinkElement.innerText = "Wiki Article";
         element.appendChild(websiteLinkElement);
     })
