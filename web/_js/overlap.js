@@ -26,7 +26,7 @@ function initOverlap(){
 	document.addEventListener('timeupdate', (event) => {
 		sortedAtlas = atlas.concat()
 		resetEntriesList(null, null)
-		renderBackground(tempAtlas);
+		renderBackground(sortedAtlas);
 		render();
 	})
 

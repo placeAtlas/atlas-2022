@@ -210,6 +210,7 @@ select {
 	cursor: pointer;
 	padding: 3px;
 	padding-left: 7px;
+	padding-right: 25px;
 }
 
 select option[disabled] {
@@ -1365,4 +1366,8 @@ body:not([data-dev]) .show-only-on-dev {
 
 #drawControls p {
 	margin-bottom: 0.5em;
+}
+
+#variantControls select {
+	height: 30px !important;
 }

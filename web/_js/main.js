@@ -90,7 +90,7 @@ async function init(){
 
 	atlasAll = updateAtlasAll(atlas);
 	
-	updateTime(period)
+	await updateTime(period, variation)
 
 	//console.log(document.documentElement.clientWidth, document.documentElement.clientHeight);
 
@@ -181,7 +181,7 @@ async function init(){
 		} catch (error) {
 			console.warn("Diff mode failed to load, reverting to normal view.", error);
 		} finally {
-			updateTime()
+			await updateTime()
 			if(initOverlap && mode.includes("overlap")){
 				initOverlap();
 			} else {
