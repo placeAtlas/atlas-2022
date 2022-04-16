@@ -44,7 +44,12 @@ var periodGroupElements = []
 var disableDrawingOverride = false
 var drawing = true;
 
-[...document.querySelectorAll("#drawControlsContainer textarea")].forEach(el => {
+var periodClipboard = {
+	"index": null,
+	"path": null
+}
+
+;[...document.querySelectorAll("#drawControlsContainer textarea")].forEach(el => {
 	el.addEventListener("input", function() {
 		this.style.height = "auto";
 		this.style.height = (this.scrollHeight) + "px"
@@ -512,6 +517,7 @@ function initPeriodGroups() {
 		let periodDeleteEl = periodGroupEl.querySelector('.period-delete')
 		let periodDuplicateEl = periodGroupEl.querySelector('.period-duplicate')
 		let periodVariationEl = periodGroupEl.querySelector('.period-variation')
+		let periodCopyEl = periodGroupEl.querySelector('.period-copy')
 
 		let [start, end, variation] = parsePeriod(period)
 		// console.log(period, start, end, variation)
@@ -522,6 +528,7 @@ function initPeriodGroups() {
 		endPeriodEl.previousSibling.for = endPeriodEl.id
 		periodVisibilityEl.id = "periodVisibility" + index
 		periodVariationEl.id = "periodVariation" + index
+		periodCopyEl.id = "periodCopy" + index
 
 		startPeriodEl.max = variationsConfig[variation].versions.length - 1
 		endPeriodEl.max = variationsConfig[variation].versions.length - 1
@@ -558,6 +565,26 @@ function initPeriodGroups() {
 			// console.log(parseInt(event.target.value))
 		})
 
+		periodCopyEl.addEventListener("click", event => {
+			const index = parseInt(event.target.id.split('periodCopy')[1])
+			if (event.target.textContent === "Copy") {
+				event.target.textContent = "End"
+				periodClipboard.index = index
+				periodClipboard.path = [...pathWithPeriods[index][1]]
+				updatePeriodGroups()
+			} else if (event.target.textContent === "End") {
+				event.target.textContent = "Copy"
+				periodClipboard.index = null
+				periodClipboard.path = null
+				updatePeriodGroups()
+			} else if (event.target.textContent === "Paste") {
+				pathWithPeriods[index][1] = [...periodClipboard.path]
+				console.log(pathWithPeriods[index])
+				if (pathWithPeriods.length > 2) console.log(pathWithPeriods[2])
+				initPeriodGroups()
+			}
+		})
+
 		periodGroups.appendChild(periodGroupEl)
 
 		for (let variation in variationsConfig) {
@@ -574,7 +601,8 @@ function initPeriodGroups() {
 			startPeriodEl,
 			endPeriodEl,
 			periodVisibilityEl,
-			periodVariationEl
+			periodVariationEl,
+			periodCopyEl
 		})
 	})
 	// console.log(periodGroupTemplate)
@@ -596,7 +624,8 @@ function updatePeriodGroups() {
 			startPeriodEl,
 			endPeriodEl,
 			periodVisibilityEl,
-			periodVariationEl
+			periodVariationEl,
+			periodCopyEl
 		} = elements
 
 		if (periodGroupEl.dataset.active === "true") lastActivePathIndex = index
@@ -620,6 +649,25 @@ function updatePeriodGroups() {
 			parseInt(endPeriodEl.value),
 			periodVariationEl.value
 		)
+
+		if (periodClipboard.index !== null) {
+			if (index !== periodClipboard.index) {
+				periodCopyEl.textContent = "Paste"
+				console.log(JSON.stringify(pathWithPeriods[index][1]))
+				console.log(JSON.stringify(periodClipboard.path))
+				console.log(JSON.stringify(pathWithPeriods[index][1]) === JSON.stringify(periodClipboard.path))
+				if (JSON.stringify(pathWithPeriods[index][1]) === JSON.stringify(periodClipboard.path)) {
+					periodCopyEl.disabled = true
+				} else {
+					periodCopyEl.disabled = false
+				}
+			} else {
+				periodCopyEl.textContent = "End"
+			}
+		} else {
+			periodCopyEl.textContent = "Copy"
+			periodCopyEl.disabled = false
+		}
 	})
 
 	// console.log('updatePeriodGroups searcher', pathToActive, lastActivePathIndex, currentActivePathIndex, period)
