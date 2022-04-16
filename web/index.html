@@ -15,39 +15,40 @@
 
 <!DOCTYPE html>
 <html lang="en">
-	<head>
-		<meta charset="UTF-8">
-		<title>The 2022 /r/place Atlas</title>
-		<meta name="description" content="An interactive map of Reddit's 2022 /r/place, with information to each artwork of the canvas.">
-		<meta name="author" content="Roland Rytz (2022 by Stefano#7366)">
-		<meta name="application-name" content="The /r/place Atlas 2022">
-		<meta name="robots" content="index, follow">
-		
-		<meta property="og:title" content="The 2022 /r/place Atlas">
-		<meta property="og:type" content="website">
-		<meta property="og:url" content="https://place-atlas.stefanocoding.me/">
-		<meta property="og:image" content="https://place-atlas.stefanocoding.me/_img/logo.png">
-		<meta property="og:image:type" content="image/png">
-		<meta property="og:image:width" content="512">
-		<meta property="og:image:height" content="512">
-		<meta property="og:image:alt" content="The /r/place Atlas logo">
-		<meta property="og:description" content="An interactive map of Reddit's 2022 /r/place, with information to each artwork of the canvas.">
-		
-		<!-- <meta name="google-site-verification" content="gZGHpBSMzffAbIn0qB8b00We6EwSGkDTfDoQVv-NWss"/> -->
-		
-		<meta name="viewport" content="width=device-width, height=device-height, initial-scale=1, minimum-scale=1, maximum-scale=1, shrink-to-fit=no"> <!-- user-scalable=no -->
-		<meta name="mobile-web-app-capable" content="yes">
-		<meta name="color-scheme" content="dark">
 
-		<link rel="apple-touch-icon" href="_img/apple-touch-icon.png" sizes="180x180">
-		<link rel="icon alternate" href="_img/favicon.png" type="image/png" class="js-site-favicon">
-		<link rel="icon" href="_img/favicon.svg" type="image/svg+xml" class="js-site-favicon">
-		
-		<link href="./_css/style.css" rel="stylesheet" type="text/css" media="all">
-		<link rel="manifest" href="./manifest.webmanifest">
-		
-		<script type="text/javascript" src="./_js/favicon.js" defer></script>
-		<script type="application/ld+json">
+<head>
+	<meta charset="UTF-8">
+	<title>The 2022 /r/place Atlas</title>
+	<meta name="description" content="An interactive map of Reddit's 2022 /r/place, with information to each artwork of the canvas.">
+	<meta name="author" content="Roland Rytz (2022 by Stefano#7366)">
+	<meta name="application-name" content="The /r/place Atlas 2022">
+	<meta name="robots" content="index, follow">
+
+	<meta property="og:title" content="The 2022 /r/place Atlas">
+	<meta property="og:type" content="website">
+	<meta property="og:url" content="https://place-atlas.stefanocoding.me/">
+	<meta property="og:image" content="https://place-atlas.stefanocoding.me/_img/logo.png">
+	<meta property="og:image:type" content="image/png">
+	<meta property="og:image:width" content="512">
+	<meta property="og:image:height" content="512">
+	<meta property="og:image:alt" content="The /r/place Atlas logo">
+	<meta property="og:description" content="An interactive map of Reddit's 2022 /r/place, with information to each artwork of the canvas.">
+
+	<!-- <meta name="google-site-verification" content="gZGHpBSMzffAbIn0qB8b00We6EwSGkDTfDoQVv-NWss"/> -->
+
+	<meta name="viewport" content="width=device-width, height=device-height, initial-scale=1, minimum-scale=1, maximum-scale=1, shrink-to-fit=no"> <!-- user-scalable=no -->
+	<meta name="mobile-web-app-capable" content="yes">
+	<meta name="color-scheme" content="dark">
+
+	<link rel="apple-touch-icon" href="_img/apple-touch-icon.png" sizes="180x180">
+	<link rel="icon alternate" href="_img/favicon.png" type="image/png" class="js-site-favicon">
+	<link rel="icon" href="_img/favicon.svg" type="image/svg+xml" class="js-site-favicon">
+
+	<link href="./_css/style.css" rel="stylesheet" type="text/css" media="all">
+	<link rel="manifest" href="./manifest.webmanifest">
+
+	<script type="text/javascript" src="./_js/favicon.js" defer></script>
+	<script type="application/ld+json">
 			{
 				"@context": "http://schema.org",
 				"@type": "WebSite",
@@ -77,245 +78,262 @@
 				"description": "An interactive map of Reddit's /r/place, with information to each artwork of the canvas. Originally created by Roland Rytz (2022 by Stefano#7366)..",
 			}
 		</script>
-	</head>
-	<body>
-		<div id="wrapper">
-			<header>
-				<a href="./">
-					<img id="logo" src="./_img/logo.svg" height="50" width="50" alt="Logo">
-					<!-- If you wonder why I shrink the image in html,
+</head>
+
+<body>
+	<div id="wrapper">
+		<header>
+			<a href="./">
+				<img id="logo" src="./_img/logo.svg" height="50" width="50" alt="Logo">
+				<!-- If you wonder why I shrink the image in html,
 					     it's because this is the image that will be used
 					     by reddit and the like as the thumbnail for the site.
 					     The original is only 5.9kB, which wouldn't get much
 					     smaller by reducing the actualy size.  -->
-					<h1 id="title">The 2022 /r/place Atlas</h1>
+				<h1 id="title">The 2022 /r/place Atlas</h1>
+			</a>
+
+		</header>
+
+		<div id="container">
+			<div id="loading">
+				<div id="loadingContent">
+					<div></div><br>
+					<span>&nbsp;&nbsp;Hang on...</span>
+					<noscript>
+						<p>Sorry, you need JavaScript to view the Atlas.</p>
+						<p>All JavaScript on this site is licensed under either the MIT or AGPL license.</p>
+						<p><a href="https://github.com/placeAtlas/atlas">See the source on GitHub</a></p>
+					</noscript>
+				</div>
+			</div>
+			<canvas id="linesCanvas"></canvas>
+			<div id="innerContainer">
+				<canvas id="highlightCanvas" width="2000" height="2000"></canvas>
+
+				<img id="image" width="2000" height="2000" alt="Canvas of /r/place in the state of when the experiment was concluded." />
+			</div>
+		</div>
+
+		<div id="entriesListContainer">
+			<nav id="entriesListNav">
+				<a id="aboutLink" href="./about.html" class="button">About</a>
+				<a id="drawLink" href="./index.html?mode=draw" class="button">Draw</a>
+				<div class="dropdown button" id="viewModes">
+					<span>Modes</span>
+					<span class="buffer"></span>
+					<div class="dropdown-content">
+						<a href="./">Normal</a>
+						<a href="./?mode=explore">Explore</a>
+						<a href="./?mode=overlap">Overlap</a>
+						<a href="./?mode=diff" class="show-only-on-dev">With Diff</a>
+						<a href="./?mode=diffonly" class="show-only-on-dev">Diff Only</a>
+					</div>
+				</div>
+				<a title="Discord" href="https://discord.gg/pJkm23b2nA" class="button small" id="entriesListDiscord">
+					<svg xmlns="http://www.w3.org/2000/svg" width="71" height="55" viewBox="0 0 71 55">
+						<path fill="#FFF" d="M60 5a59 59 0 0 0-15-4l-1 3H27a37 37 0 0 0-2-4 58 58 0 0 0-14 5A60 60 0 0 0 0 46a59 59 0 0 0 18 8l4-5v-1l-6-2v-1a30 30 0 0 0 2-1 42 42 0 0 0 36 0l1 1v1l-6 2v1a47 47 0 0 0 4 6 59 59 0 0 0 18-10A60 60 0 0 0 60 5ZM24 37c-4 0-7-3-7-7s3-7 7-7c3 0 6 3 6 7s-3 7-6 7Zm23 0c-3 0-6-3-6-7s3-7 6-7c4 0 7 3 7 7s-3 7-7 7Z" / alt="Discord">
+					</svg>
 				</a>
-
-			</header>
-			
-			<div id="container">
-				<div id="loading">
-					<div id="loadingContent">
-						<div></div><br>
-						<span>&nbsp;&nbsp;Hang on...</span>
-						<noscript>
-							<p>Sorry, you need JavaScript to view the Atlas.</p>
-							<p>All JavaScript on this site is licensed under either the MIT or AGPL license.</p>
-							<p><a href="https://github.com/placeAtlas/atlas">See the source on GitHub</a></p>
-						</noscript>
-					</div>
-				</div>
-				<canvas id="linesCanvas"></canvas>
-				<div id="innerContainer">
-					<canvas id="highlightCanvas" width="2000" height="2000"></canvas>
-
-					<img id="image" width="2000" height="2000" alt="Canvas of /r/place in the state of when the experiment was concluded." />
-				</div>
-			</div>
-			
-			<div id="entriesListContainer">
-				<nav id="entriesListNav">
-					<a id="aboutLink" href="./about.html" class="button">About</a>
-					<a id="drawLink" href="./index.html?mode=draw" class="button">Draw</a>
-					<div class="dropdown button" id="viewModes">
-						<span>Modes</span>
-						<span class="buffer"></span>
-						<div class="dropdown-content">
-						  <a href="./">Normal</a>
-						  <a href="./?mode=explore">Explore</a>
-						  <a href="./?mode=overlap">Overlap</a>
-						  <a href="./?mode=diff" class="show-only-on-dev">With Diff</a>
-						  <a href="./?mode=diffonly" class="show-only-on-dev">Diff Only</a>
-						</div>
-					</div> 
-					<a title="Discord" href="https://discord.gg/pJkm23b2nA" class="button small" id="entriesListDiscord">
-						<svg xmlns="http://www.w3.org/2000/svg" width="71" height="55" viewBox="0 0 71 55"><path fill="#FFF" d="M60 5a59 59 0 0 0-15-4l-1 3H27a37 37 0 0 0-2-4 58 58 0 0 0-14 5A60 60 0 0 0 0 46a59 59 0 0 0 18 8l4-5v-1l-6-2v-1a30 30 0 0 0 2-1 42 42 0 0 0 36 0l1 1v1l-6 2v1a47 47 0 0 0 4 6 59 59 0 0 0 18-10A60 60 0 0 0 60 5ZM24 37c-4 0-7-3-7-7s3-7 7-7c3 0 6 3 6 7s-3 7-6 7Zm23 0c-3 0-6-3-6-7s3-7 6-7c4 0 7 3 7 7s-3 7-7 7Z"/ alt="Discord"></svg>
-					</a>
-					<button title="Donate!" id="entriesListDonate" class="small">
-						<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64"><path d="M291 384c-1-6-6-8-13-9v-9h-5v9h-4v-9h-6v9h-10v6h3c3 0 3 1 3 2v10h1-1v14c0 1 0 2-2 2h-3l-1 6h10v9h6v-9h4v9h5v-9c9 0 15-3 16-11 1-7-3-10-8-11 3-1 5-4 5-9zm-7 19c0 7-12 6-15 6v-12c3 0 15-1 15 6zm-3-16c0 6-9 5-12 5v-11c3 0 12-1 12 6z" style="fill:#fff" transform="translate(-239 -363)"/ alt="Donate"></svg>
-					</button>
-				</nav>
-				<div id="entriesListControls">
-					<input autofocus id="searchList" type="text" placeholder="Search...">
-					<span id="atlasSize"></span>
-					<div id="sortContainer"><label>Sort:</label>
-						<select id="sort">
-							<option value="shuffle">Random</option>
-							<option value="relevant" id="relevantOption" disabled>Relevant</option>
-							<option value="alphaAsc">↓ Alphabetical</option>
-							<option value="alphaDesc">↑ Alphabetical</option>
-							<option value="newest">Newest</option>
-							<option value="oldest">Oldest</option>
-							<option value="area">Area</option>
-						</select>
-					</div>
-				</div>
-				<div id="entriesList">
-					
-				</div>
-			</div>
-			<div id="entriesListBackground"></div>
-			
-			<button id="hideListButton" aria-label:="Show List Button"></button>
-
-			<div id="coordsWrapper" class="collapsed">
-
-				<div id="coords">
-					<p id="coords_p">0, 0</p>
-				</div>
-			</div>
-			
-			<div id="bottomBar">
-				<div id="zoomControls">
-					<button title="Zoom In" id="zoomInButton"></button>
-					<button title="Reset View" id="zoomResetButton"></button>
-					<button title="Zoom Out" id="zoomOutButton"></button>
-				</div>
-				<div id="timeControls">
-					<div id="timeControlsTooltip"><p>Time control slider</p></div>
-					<input type="range" min="0" max="1" value="1" class="slider" id="timeControlsSlider">
-				</div>
-				<div id="variantControls">
-					<select name="variants" id="variants">
+				<button title="Donate!" id="entriesListDonate" class="small">
+					<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64">
+						<path d="M291 384c-1-6-6-8-13-9v-9h-5v9h-4v-9h-6v9h-10v6h3c3 0 3 1 3 2v10h1-1v14c0 1 0 2-2 2h-3l-1 6h10v9h6v-9h4v9h5v-9c9 0 15-3 16-11 1-7-3-10-8-11 3-1 5-4 5-9zm-7 19c0 7-12 6-15 6v-12c3 0 15-1 15 6zm-3-16c0 6-9 5-12 5v-11c3 0 12-1 12 6z" style="fill:#fff" transform="translate(-239 -363)" / alt="Donate">
+					</svg>
+				</button>
+			</nav>
+			<div id="entriesListControls">
+				<input autofocus id="searchList" type="text" placeholder="Search...">
+				<span id="atlasSize"></span>
+				<div id="sortContainer"><label>Sort:</label>
+					<select id="sort">
+						<option value="shuffle">Random</option>
+						<option value="relevant" id="relevantOption" disabled>Relevant</option>
+						<option value="alphaAsc">↓ Alphabetical</option>
+						<option value="alphaDesc">↑ Alphabetical</option>
+						<option value="newest">Newest</option>
+						<option value="oldest">Oldest</option>
+						<option value="area">Area</option>
 					</select>
 				</div>
-				<div id="author">
-					<p>Code owned by <a href="https://github.com/placeAtlas/atlas" target="_blank" rel="author">Place Atlas</a>. Source on <a target="_blank" href="https://github.com/placeAtlas/atlas">GitHub</a>. Site powered by <a href="https://www.netlify.com">Netlify</a>. Images provided by <a target="_blank" href="https://place.thatguyalex.com/">Alex Tsernoh</a>.</p>
+			</div>
+			<div id="entriesList">
+
+			</div>
+		</div>
+		<div id="entriesListBackground"></div>
+
+		<button id="hideListButton" aria-label:="Show List Button"></button>
+
+		<div id="coordsWrapper" class="collapsed">
+
+			<div id="coords">
+				<p id="coords_p">0, 0</p>
+			</div>
+		</div>
+
+		<div id="bottomBar">
+			<div id="zoomControls">
+				<button title="Zoom In" id="zoomInButton"></button>
+				<button title="Reset View" id="zoomResetButton"></button>
+				<button title="Zoom Out" id="zoomOutButton"></button>
+			</div>
+			<div id="timeControls">
+				<div id="timeControlsTooltip">
+					<p>Time control slider</p>
+				</div>
+				<input type="range" min="0" max="1" value="1" class="slider" id="timeControlsSlider">
+			</div>
+			<div id="variantControls">
+				<select name="variants" id="variants">
+				</select>
+			</div>
+			<div id="author">
+				<p>Code owned by <a href="https://github.com/placeAtlas/atlas" target="_blank" rel="author">Place Atlas</a>. Source on <a target="_blank" href="https://github.com/placeAtlas/atlas">GitHub</a>. Site powered by <a href="https://www.netlify.com">Netlify</a>. Images provided by <a target="_blank" href="https://place.thatguyalex.com/">Alex Tsernoh</a>.</p>
+			</div>
+		</div>
+
+		<div id="drawControlsContainer">
+			<a id="drawBackButton" class="button" href="./">&lt; Back to the Atlas</a>
+			<div id="drawControls">
+				<div id="objectDraw">
+					<div class="inline">
+						<button id="undoButton" disabled>Undo</button>
+						<button disabled id="redoButton">Redo</button>
+					</div>
+					<button disabled id="finishButton">Finish (Enter)</button>
+					<button id="resetButton">Reset</button>
+					<label id="highlightUnchartedLabel" title="Highlight uncharted areas of the map" class="checkboxLabel button">
+						<input type="checkbox" id="highlightUncharted" checked> Highlight Empty
+					</label>
+					<div id="periods">
+						<p>Periods</p>
+						<p id="periodsStatus"></p>
+						<div id="periodGroups"></div>
+						<button id="periodsAdd">Add Period</button>
+					</div>
+				</div>
+				<div id="objectInfo">
+					<label for="nameField">Name</label>
+					<input id="nameField" type="text" value="" placeholder="A short title">
+					<label for="descriptionField">Description</label>
+					<textarea id="descriptionField" placeholder="A short description to be understood by everyone"></textarea>
+					<label for="websiteField">Website</label>
+					<textarea id="websiteField" placeholder="https://example.com"></textarea>
+					<label for="subredditField">Subreddit</label>
+					<textarea id="subredditField" placeholder="/r/example"></textarea>
+					<label for="discordField">Discord</label>
+					<textarea id="discordField" placeholder="pJkm23b2nA"></textarea>
+					<label for="wikiField">Wiki</label>
+					<textarea id="wikiField" placeholder="Page Title"></textarea>
+					<div class="inline">
+						<button id="cancelButton">Back</button>
+						<button id="exportButton">OK</button>
+					</div>
 				</div>
 			</div>
-			
-			<div id="drawControlsContainer">
-				<a id="drawBackButton" class="button" href="./">&lt; Back to the Atlas</a>
-				<div id="drawControls">
-					<div id="objectDraw">
-						<div class="inline">
-							<button id="undoButton" disabled>Undo</button>
-							<button disabled id="redoButton">Redo</button>
-						</div>
-						<button disabled id="finishButton">Finish (Enter)</button>
-						<button id="resetButton">Reset</button>
-						<label id="highlightUnchartedLabel" title="Highlight uncharted areas of the map" class="checkboxLabel button">
-							<input type="checkbox" id="highlightUncharted" checked> Highlight Empty
-						</label>
-						<div id="periods">
-							<p>Periods</p>
-							<p id="periodsStatus"></p>
-							<div id="periodGroups"></div>
-							<button id="periodsAdd">Add Period</button>	
-						</div>
-					</div>
-					<div id="objectInfo">
-						<label for="nameField">Name</label>
-						<input id="nameField" type="text" value="" placeholder="A short title">
-						<label for="descriptionField">Description</label>
-						<textarea id="descriptionField" placeholder="A short description to be understood by everyone"></textarea>
-						<label for="websiteField">Website</label>
-						<textarea id="websiteField" placeholder="https://example.com"></textarea>
-						<label for="subredditField">Subreddit</label>
-						<textarea id="subredditField" placeholder="/r/example"></textarea>
-						<label for="discordField">Discord</label>
-						<textarea id="discordField" placeholder="pJkm23b2nA"></textarea>
-						<label for="wikiField">Wiki</label>
-						<textarea id="wikiField" placeholder="Page Title"></textarea>
-						<div class="inline">
-							<button id="cancelButton">Back</button>
-							<button id="exportButton">OK</button>
-						</div>
-					</div>
-				</div>
-				<div id="hint">
-					<p>You can suggest new entries to the Atlas for art that isn't mapped yet.</p>
-					<p>Please read <a href="https://www.reddit.com/r/placeAtlas2/comments/tu203o/how_to_contribute/" target="_blank">this reddit post</a> for instructions.</p>
-					<p>Click anywhere on the image to start drawing a shape.
+			<div id="hint">
+				<p>You can suggest new entries to the Atlas for art that isn't mapped yet.</p>
+				<p>Please read <a href="https://www.reddit.com/r/placeAtlas2/comments/tu203o/how_to_contribute/" target="_blank">this reddit post</a> for instructions.</p>
+				<p>Click anywhere on the image to start drawing a shape.
 					When you're happy with the result, click the "Finish" button above or press the Enter key.</p>
-					<p>You can then add more information about your object.</p>
-					<div style="background-color:#7289DA; padding:20px">
-						<p><b>Need Help?</b></p>
-						<b>You can ask for help on <a href="https://discord.gg/pJkm23b2nA">our Discord server</a>!</b><br>
-					</div>
-				</div>
-			</div>
-			
-			<button class="hidden" id="closeObjectsListButton"></button>
-			<div id="objectsList">
-			</div>
-			
-			<div id="exportOverlay" class="overlay">
-				<div id="exportWindow">
-					<p><b>Recommended:</b> Post directly after clicking this button. Don't forget to flair it with the "New Entry" tag. </p>
-					<div class="exportButtons">
-						<a href="_blank" id="exportDirectPost" class="button">Post Direct to Reddit</a>
-					</div>
-					<hr style="border-bottom: solid black 1px"/>
-					<i>or...</i>
-					<p>Please copy the text below and submit it as a
-					new text post to <a target="_blank" href="https://www.reddit.com/r/placeAtlas2/">/r/placeAtlas2</a> on Reddit.</p>
-					<p>Don't forget to flair it with the "New Entry" tag.</p>
-					<p>We will then check it and add it to the atlas.</p>
-					<textarea cols="20" rows="5" id="exportString"></textarea>
-					<div  class="exportButtons" id="exportButtons">
-						<button id="exportBackButton">Back</button>
-						<button id="exportCloseButton">Done</button>
-					</div>
-				</div>
-			</div>
-			
-			<div id="donateOverlay" class="overlay">
-				<div id="donateWindow">
-					<h2>Donation Links</h2>
-					<p>Current 2022 Atlas Maintainers:</p>
-					<a class="button" target="_blank" href="https://paypal.me/placeAtlas/5">
-						<svg role="img" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><title>PayPal</title><path fill="white" d="M7.076 21.337H2.47a.641.641 0 0 1-.633-.74L4.944.901C5.026.382 5.474 0 5.998 0h7.46c2.57 0 4.578.543 5.69 1.81 1.01 1.15 1.304 2.42 1.012 4.287-.023.143-.047.288-.077.437-.983 5.05-4.349 6.797-8.647 6.797h-2.19c-.524 0-.968.382-1.05.9l-1.12 7.106zm14.146-14.42a3.35 3.35 0 0 0-.607-.541c-.013.076-.026.175-.041.254-.93 4.778-4.005 7.201-9.138 7.201h-2.19a.563.563 0 0 0-.556.479l-1.187 7.527h-.506l-.24 1.516a.56.56 0 0 0 .554.647h3.882c.46 0 .85-.334.922-.788.06-.26.76-4.852.816-5.09a.932.932 0 0 1 .923-.788h.58c3.76 0 6.705-1.528 7.565-5.946.36-1.847.174-3.388-.777-4.471z"/></svg>
-						PayPal
-					</a>
-					<a class="button" target="_blank" href="https://www.patreon.com/placeAtlas">
-						<svg role="img" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><title>Patreon</title><path fill="white" d="M0 .48v23.04h4.22V.48zm15.385 0c-4.764 0-8.641 3.88-8.641 8.65 0 4.755 3.877 8.623 8.641 8.623 4.75 0 8.615-3.868 8.615-8.623C24 4.36 20.136.48 15.385.48z"/></svg>
-						Patreon
-					</a>
-					<a class="button" target="_blank" href="https://ko-fi.com/placeatlas">
-						<svg role="img" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><title>Ko-fi</title><path fill="white" d="M23.881 8.948c-.773-4.085-4.859-4.593-4.859-4.593H.723c-.604 0-.679.798-.679.798s-.082 7.324-.022 11.822c.164 2.424 2.586 2.672 2.586 2.672s8.267-.023 11.966-.049c2.438-.426 2.683-2.566 2.658-3.734 4.352.24 7.422-2.831 6.649-6.916zm-11.062 3.511c-1.246 1.453-4.011 3.976-4.011 3.976s-.121.119-.31.023c-.076-.057-.108-.09-.108-.09-.443-.441-3.368-3.049-4.034-3.954-.709-.965-1.041-2.7-.091-3.71.951-1.01 3.005-1.086 4.363.407 0 0 1.565-1.782 3.468-.963 1.904.82 1.832 3.011.723 4.311zm6.173.478c-.928.116-1.682.028-1.682.028V7.284h1.77s1.971.551 1.971 2.638c0 1.913-.985 2.667-2.059 3.015z"/></svg>
-						Ko-Fi
-					</a>
-					<p>Original 2017 Atlas Developer (draemmli aka Roland Rytz): </p>
-					<a class="button" target="_blank" href="https://paypal.me/draemmli">
-						<svg role="img" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><title>PayPal</title><path fill="white" d="M7.076 21.337H2.47a.641.641 0 0 1-.633-.74L4.944.901C5.026.382 5.474 0 5.998 0h7.46c2.57 0 4.578.543 5.69 1.81 1.01 1.15 1.304 2.42 1.012 4.287-.023.143-.047.288-.077.437-.983 5.05-4.349 6.797-8.647 6.797h-2.19c-.524 0-.968.382-1.05.9l-1.12 7.106zm14.146-14.42a3.35 3.35 0 0 0-.607-.541c-.013.076-.026.175-.041.254-.93 4.778-4.005 7.201-9.138 7.201h-2.19a.563.563 0 0 0-.556.479l-1.187 7.527h-.506l-.24 1.516a.56.56 0 0 0 .554.647h3.882c.46 0 .85-.334.922-.788.06-.26.76-4.852.816-5.09a.932.932 0 0 1 .923-.788h.58c3.76 0 6.705-1.528 7.565-5.946.36-1.847.174-3.388-.777-4.471z"/></svg>
-						PayPal
-					</a>
-					<br>
-					<button id="closeDonateButton">Close</button>
+				<p>You can then add more information about your object.</p>
+				<div style="background-color:#7289DA; padding:20px">
+					<p><b>Need Help?</b></p>
+					<b>You can ask for help on <a href="https://discord.gg/pJkm23b2nA">our Discord server</a>!</b><br>
 				</div>
 			</div>
 		</div>
 
-		<template id="period-group">
-			<div class="period-group">
-				<label for="period-start">Start Period</label>
-				<input class="period-start" type="range" min="0">
-				<label for="period-end">End Period</label>
-				<input class="period-end" type="range" min="0">
-				<p class="period-visible"></p>
-				<div class="inline">
-					<button class="period-copy">Copy</button>
-					<button class="period-delete">Delete</button>	
-					<button class="period-duplicate">Duplicate</button>	
+		<button class="hidden" id="closeObjectsListButton"></button>
+		<div id="objectsList">
+		</div>
+
+		<div id="exportOverlay" class="overlay">
+			<div id="exportWindow">
+				<p><b>Recommended:</b> Post directly after clicking this button. Don't forget to flair it with the "New Entry" tag. </p>
+				<div class="exportButtons">
+					<a href="_blank" id="exportDirectPost" class="button">Post Direct to Reddit</a>
 				</div>
-				<select class="period-variation"></select>
+				<hr style="border-bottom: solid black 1px" />
+				<i>or...</i>
+				<p>Please copy the text below and submit it as a
+					new text post to <a target="_blank" href="https://www.reddit.com/r/placeAtlas2/">/r/placeAtlas2</a> on Reddit.</p>
+				<p>Don't forget to flair it with the "New Entry" tag.</p>
+				<p>We will then check it and add it to the atlas.</p>
+				<textarea cols="20" rows="5" id="exportString"></textarea>
+				<div class="exportButtons" id="exportButtons">
+					<button id="exportBackButton">Back</button>
+					<button id="exportCloseButton">Done</button>
+				</div>
 			</div>
-		</template>
+		</div>
 
-		<script type="text/javascript" src="./_js/time.js"></script>
-		<script type="text/javascript" src="./_js/infoblock.js"></script>
-		<script type="text/javascript" src="./_js/pointInPolygon.js"></script>
-		<script type="text/javascript" src="./_js/atlas.js"></script>
-		<script type="text/javascript" src="./_js/view.js"></script>
-		<script type="text/javascript" src="./_js/overlap.js"></script>
-		<script type="text/javascript" src="./_js/draw.js"></script>
-		<script type="text/javascript" src="./_js/main.js"></script>
-<!--
-		<script type="text/javascript" src="./_js/stats.js"></script>
+		<div id="donateOverlay" class="overlay">
+			<div id="donateWindow">
+				<h2>Donation Links</h2>
+				<p>Current 2022 Atlas Maintainers:</p>
+				<a class="button" target="_blank" href="https://paypal.me/placeAtlas/5">
+					<svg role="img" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+						<title>PayPal</title>
+						<path fill="white" d="M7.076 21.337H2.47a.641.641 0 0 1-.633-.74L4.944.901C5.026.382 5.474 0 5.998 0h7.46c2.57 0 4.578.543 5.69 1.81 1.01 1.15 1.304 2.42 1.012 4.287-.023.143-.047.288-.077.437-.983 5.05-4.349 6.797-8.647 6.797h-2.19c-.524 0-.968.382-1.05.9l-1.12 7.106zm14.146-14.42a3.35 3.35 0 0 0-.607-.541c-.013.076-.026.175-.041.254-.93 4.778-4.005 7.201-9.138 7.201h-2.19a.563.563 0 0 0-.556.479l-1.187 7.527h-.506l-.24 1.516a.56.56 0 0 0 .554.647h3.882c.46 0 .85-.334.922-.788.06-.26.76-4.852.816-5.09a.932.932 0 0 1 .923-.788h.58c3.76 0 6.705-1.528 7.565-5.946.36-1.847.174-3.388-.777-4.471z" />
+					</svg>
+					PayPal
+				</a>
+				<a class="button" target="_blank" href="https://www.patreon.com/placeAtlas">
+					<svg role="img" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+						<title>Patreon</title>
+						<path fill="white" d="M0 .48v23.04h4.22V.48zm15.385 0c-4.764 0-8.641 3.88-8.641 8.65 0 4.755 3.877 8.623 8.641 8.623 4.75 0 8.615-3.868 8.615-8.623C24 4.36 20.136.48 15.385.48z" />
+					</svg>
+					Patreon
+				</a>
+				<a class="button" target="_blank" href="https://ko-fi.com/placeatlas">
+					<svg role="img" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+						<title>Ko-fi</title>
+						<path fill="white" d="M23.881 8.948c-.773-4.085-4.859-4.593-4.859-4.593H.723c-.604 0-.679.798-.679.798s-.082 7.324-.022 11.822c.164 2.424 2.586 2.672 2.586 2.672s8.267-.023 11.966-.049c2.438-.426 2.683-2.566 2.658-3.734 4.352.24 7.422-2.831 6.649-6.916zm-11.062 3.511c-1.246 1.453-4.011 3.976-4.011 3.976s-.121.119-.31.023c-.076-.057-.108-.09-.108-.09-.443-.441-3.368-3.049-4.034-3.954-.709-.965-1.041-2.7-.091-3.71.951-1.01 3.005-1.086 4.363.407 0 0 1.565-1.782 3.468-.963 1.904.82 1.832 3.011.723 4.311zm6.173.478c-.928.116-1.682.028-1.682.028V7.284h1.77s1.971.551 1.971 2.638c0 1.913-.985 2.667-2.059 3.015z" />
+					</svg>
+					Ko-Fi
+				</a>
+				<p>Original 2017 Atlas Developer (draemmli aka Roland Rytz): </p>
+				<a class="button" target="_blank" href="https://paypal.me/draemmli">
+					<svg role="img" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+						<title>PayPal</title>
+						<path fill="white" d="M7.076 21.337H2.47a.641.641 0 0 1-.633-.74L4.944.901C5.026.382 5.474 0 5.998 0h7.46c2.57 0 4.578.543 5.69 1.81 1.01 1.15 1.304 2.42 1.012 4.287-.023.143-.047.288-.077.437-.983 5.05-4.349 6.797-8.647 6.797h-2.19c-.524 0-.968.382-1.05.9l-1.12 7.106zm14.146-14.42a3.35 3.35 0 0 0-.607-.541c-.013.076-.026.175-.041.254-.93 4.778-4.005 7.201-9.138 7.201h-2.19a.563.563 0 0 0-.556.479l-1.187 7.527h-.506l-.24 1.516a.56.56 0 0 0 .554.647h3.882c.46 0 .85-.334.922-.788.06-.26.76-4.852.816-5.09a.932.932 0 0 1 .923-.788h.58c3.76 0 6.705-1.528 7.565-5.946.36-1.847.174-3.388-.777-4.471z" />
+					</svg>
+					PayPal
+				</a>
+				<br>
+				<button id="closeDonateButton">Close</button>
+			</div>
+		</div>
+	</div>
 
+	<template id="period-group">
+		<div class="period-group">
+			<label for="period-start">Start Period</label>
+			<input class="period-start" type="range" min="0">
+			<label for="period-end">End Period</label>
+			<input class="period-end" type="range" min="0">
+			<p class="period-visible"></p>
+			<div class="inline">
+				<button class="period-copy">Copy</button>
+				<button class="period-delete">Delete</button>
+				<button class="period-duplicate">Duplicate</button>
+			</div>
+			<select class="period-variation"></select>
+		</div>
+	</template>
 
-		<script type="text/javascript" src="./_js/minified.js"></script>
--->
-	</body>
+	<script type="text/javascript" src="./_js/time.js"></script>
+	<script type="text/javascript" src="./_js/infoblock.js"></script>
+	<script type="text/javascript" src="./_js/pointInPolygon.js"></script>
+	<script type="text/javascript" src="./_js/atlas.js"></script>
+	<script type="text/javascript" src="./_js/view.js"></script>
+	<script type="text/javascript" src="./_js/overlap.js"></script>
+	<script type="text/javascript" src="./_js/draw.js"></script>
+	<script type="text/javascript" src="./_js/main.js"></script>
+	<!-- <script type="text/javascript" src="./_js/stats.js"></script>
+	<script type="text/javascript" src="./_js/minified.js"></script> -->
+
+</body>
+
 </html>
