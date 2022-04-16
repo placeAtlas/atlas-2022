@@ -524,9 +524,9 @@ function initPeriodGroups() {
 		periodVariationEl.id = "periodVariation" + index
 
 		startPeriodEl.value = start
-		startPeriodEl.max = maxPeriod
 		endPeriodEl.value = end
-		endPeriodEl.max = maxPeriod
+		startPeriodEl.max = variationsConfig[variation].versions.length - 1
+		endPeriodEl.max = variationsConfig[variation].versions.length - 1
 
 		startPeriodEl.addEventListener('input', event => {
 			timelineSlider.value = parseInt(event.target.value)
