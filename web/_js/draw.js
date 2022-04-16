@@ -554,7 +554,7 @@ function initPeriodGroups() {
 			startPeriodEl.max = newVariationConfig.versions.length - 1
 			endPeriodEl.value = newVariationConfig.default
 			endPeriodEl.max = newVariationConfig.versions.length - 1	
-			updateTime(period, newVariation)
+			updateTime(newVariationConfig.default, newVariation)
 			// console.log(parseInt(event.target.value))
 		})
 
