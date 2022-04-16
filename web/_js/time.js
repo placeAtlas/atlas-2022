@@ -141,7 +141,7 @@ async function updateBackground(newPeriod = currentPeriod, newVariation = curren
 		const context = canvas.getContext('2d')
 		context.canvas.width = 2000
 		context.canvas.height = 2000
-		for await (const url of configObject.url) {
+		await Promise.all(configObject.url.map(async url => {
 			if (imageCache[url] === undefined) {
 				const fetchResult = await fetch(url, {
 					signal: abortController.signal
@@ -152,6 +152,8 @@ async function updateBackground(newPeriod = currentPeriod, newVariation = curren
 				const imageBlob = await fetchResult.blob()
 				imageCache[url] = URL.createObjectURL(imageBlob)
 			}
+		}))
+		for await (const url of configObject.url) {
 			const imageLayer = new Image()
 			// console.log(imageCache[url])
 			await new Promise(resolve => {
@@ -162,8 +164,8 @@ async function updateBackground(newPeriod = currentPeriod, newVariation = curren
 				}
 				imageLayer.src = imageCache[url]
 			})
-
 		}
+
 		if (currentUpdateIndex !== myUpdateIndex) return [configObject, newPeriod, newVariation]
 		const blob = await new Promise(resolve => canvas.toBlob(resolve))
 		// console.log(URL.createObjectURL(blob))
