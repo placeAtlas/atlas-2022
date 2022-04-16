@@ -191,6 +191,9 @@ for (let variation in variationsConfig) {
 const timelineSlider = document.getElementById("timeControlsSlider");
 const tooltip = document.getElementById("timeControlsTooltip")
 const image = document.getElementById("image");
+let abortController = new AbortController()
+let currentUpdateIndex = 0
+let updateTimeout = setTimeout(null, 0)
 
 let defaultPeriod = timeConfig.length - 1
 let maxPeriod = timeConfig.length - 1
@@ -204,7 +207,11 @@ timelineSlider.max = timeConfig.length - 1;
 timelineSlider.value = currentPeriod;
 
 timelineSlider.addEventListener("input", (event) => {
-    updateTime(parseInt(event.target.value), currentVariation)
+    updateTooltip(parseInt(event.target.value), currentVariation)
+    clearTimeout(updateTimeout)
+    updateTimeout = setTimeout(() => {
+        updateTime(parseInt(event.target.value), currentVariation)
+    }, 100)
 })
 
 variantsEl.addEventListener("input", (event) => {
@@ -232,6 +239,10 @@ const dispatchTimeUpdateEvent = (period = timelineSlider.value, atlas = atlas) =
 }
 
 async function updateBackground(newPeriod = currentPeriod, newVariation = currentVariation) {
+    abortController.abort()
+    abortController = new AbortController()
+    currentUpdateIndex++
+    let myUpdateIndex = currentUpdateIndex
     currentPeriod = newPeriod
     // console.log(newPeriod, newVariation)
     const variationConfig = variationsConfig[newVariation]
@@ -244,16 +255,25 @@ async function updateBackground(newPeriod = currentPeriod, newVariation = curren
     }
     const configObject = variationConfig.versions[currentPeriod];
     if (!configObject.image) {
-        const fetchResult = await fetch(configObject.url);
-        const imageBlob = await fetchResult.blob();
+        console.log("fetching");
+        let fetchResult = await fetch(configObject.url, {
+            signal: abortController.signal
+        });
+        if (currentUpdateIndex !== myUpdateIndex) {
+            hideLoading()
+            return
+        }
+        let imageBlob = await fetchResult.blob();
         configObject.image = URL.createObjectURL(imageBlob);
     }
     image.src = configObject.image;
-    
+
     return [configObject, newPeriod, newVariation]
 }
 
 async function updateTime(newPeriod = currentPeriod, newVariation = currentVariation) {
+    document.body.dataset.canvasLoading = true
+
     let configObject
     [configObject, newPeriod, newVariation] = await updateBackground(newPeriod, newVariation)
     
@@ -299,14 +319,19 @@ async function updateTime(newPeriod = currentPeriod, newVariation = currentVaria
     // console.log(atlas)
 
     dispatchTimeUpdateEvent(newPeriod, atlas)
+    document.body.dataset.canvasLoading = false
+}
+
+function updateTooltip(newPeriod, newVariation) {
+    var configObject = variationsConfig[newVariation].versions[newPeriod]
     if (typeof configObject.timestamp === "number") tooltip.querySelector('p').textContent = new Date(configObject.timestamp*1000).toUTCString()
     else tooltip.querySelector('p').textContent = configObject.timestamp
     tooltip.style.left = (((timelineSlider.offsetWidth)*(timelineSlider.value-1)/(timelineSlider.max-1)) - tooltip.offsetWidth/2) + "px"
 }
 
-tooltip.parentElement.addEventListener('mouseenter', () => tooltip.style.left = (((timelineSlider.offsetWidth)*(timelineSlider.value-1)/(timelineSlider.max-1)) - tooltip.offsetWidth/2) + "px")
+// tooltip.parentElement.addEventListener('mouseenter', () => updateTooltip(parseInt(timelineSlider.value), currentVariation))
 
-window.addEventListener('resize', () => tooltip.style.left = (((timelineSlider.offsetWidth)*(timelineSlider.value-1)/(timelineSlider.max-1)) - tooltip.offsetWidth/2) + "px")
+window.addEventListener('resize', () => updateTooltip(parseInt(timelineSlider.value), currentVariation))
 
 function isOnPeriod(start, end, variation, currentPeriod, currentVariation) {
 	return currentPeriod >= start && currentPeriod <= end && variation === currentVariation 
