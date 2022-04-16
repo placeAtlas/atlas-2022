@@ -169,7 +169,6 @@ async function updateBackground(newPeriod = currentPeriod, newVariation = curren
 				signal: abortController.signal
 			});
 			if (currentUpdateIndex !== myUpdateIndex) {
-				hideLoading()
 				return [configObject, newPeriod, newVariation]
 			}
 			const imageBlob = await fetchResult.blob()
@@ -187,7 +186,6 @@ async function updateBackground(newPeriod = currentPeriod, newVariation = curren
 					signal: abortController.signal
 				});
 				if (currentUpdateIndex !== myUpdateIndex) {
-					hideLoading()
 					break
 				}
 				const imageBlob = await fetchResult.blob()
