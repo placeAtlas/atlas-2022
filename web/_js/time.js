@@ -80,6 +80,25 @@ const variationsConfig = {
 				url: "./_img/place/final.png"
 			}
 		]
+	},
+	tfc: {
+		name: "The Final Clean",
+		code: "T",
+		default: 2,
+		versions: [
+			{
+				timestamp: "Draft 1",
+				url: "./_img/canvas/tfc/draft1.png",
+			},
+			{
+				timestamp: "Draft 2",
+				url: "./_img/canvas/tfc/draft2.png",
+			},
+			{
+				timestamp: "Final",
+				url: "./_img/canvas/tfc/final.png",
+			},
+		]
 	}
 }
 
