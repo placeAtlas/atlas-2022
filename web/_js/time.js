@@ -170,7 +170,7 @@ async function updateBackground(newPeriod = currentPeriod, newVariation = curren
 			});
 			if (currentUpdateIndex !== myUpdateIndex) {
 				hideLoading()
-				return
+				return [configObject, newPeriod, newVariation]
 			}
 			const imageBlob = await fetchResult.blob()
 			imageCache[configObject.url] = URL.createObjectURL(imageBlob)
@@ -205,7 +205,7 @@ async function updateBackground(newPeriod = currentPeriod, newVariation = curren
 			})
 
 		}
-		if (currentUpdateIndex !== myUpdateIndex) return
+		if (currentUpdateIndex !== myUpdateIndex) return [configObject, newPeriod, newVariation]
 		const blob = await new Promise(resolve => canvas.toBlob(resolve))
 		console.log(URL.createObjectURL(blob))
 		image.src = URL.createObjectURL(blob)
