@@ -75,7 +75,7 @@ init();
 async function init(){
 	// For Reviewing Reddit Changes
 	//let resp = await fetch("../tools/temp_atlas.json");
-	let resp = await fetch("./atlas.json");
+	const resp = await fetch("./atlas.json");
 	atlas = await resp.json();
 	atlas.sort(function (a, b) {
 		if (a.center[1] < b.center[1]) {
@@ -116,9 +116,9 @@ async function init(){
 
 		// Backwards compatibility for old links using "search" id arg
 		if (params.has('id') && params.get('mode') !== 'draw') {
-			let id = params.get('id')
+			const id = params.get('id')
 			params.delete('id')
-			let newLocation = new URL(window.location)
+			const newLocation = new URL(window.location)
 			newLocation.hash = id
 			newLocation.search = params
 			window.history.replaceState({}, '', newLocation)
@@ -140,12 +140,12 @@ async function init(){
 		}
 	} else if(mode.startsWith("diff")){
 		try {
-			let liveResp = await fetch("https://place-atlas.stefanocoding.me/atlas.json");
+			const liveResp = await fetch("https://place-atlas.stefanocoding.me/atlas.json");
 			let liveJson = await liveResp.json();
 			liveJson = updateAtlasAll(liveJson)
 			// console.log(liveJson)
 
-			let liveAtlasReduced = liveJson.reduce(function(a, c) {
+			const liveAtlasReduced = liveJson.reduce(function(a, c) {
 				a[c.id] = c;
 				return a;
 			},{});
@@ -160,11 +160,11 @@ async function init(){
 			});
 
 			// Mark removed entries
-			let atlasReduced = atlasAll.reduce(function(a, c) {
+			const atlasReduced = atlasAll.reduce(function(a, c) {
 				a[c.id] = c;
 				return a;
 			},{});
-			let removedEntries = liveJson.filter(entry => 
+			const removedEntries = liveJson.filter(entry => 
 				atlasReduced[entry.id] === undefined
 			).map(entry => {
 				entry.diff = "delete"
@@ -508,19 +508,19 @@ async function init(){
 
 function updateAtlasAll(atlas) {
 	if (!atlas) atlas = atlasAll
-	for (let atlasIndex in atlas) {
+	for (const atlasIndex in atlas) {
 		if (Array.isArray(atlas[atlasIndex].path)) {
-			let currentPath = atlas[atlasIndex].path
+			const currentPath = atlas[atlasIndex].path
 			atlas[atlasIndex].path = {}
 			atlas[atlasIndex].path[defaultPeriod] = currentPath
 		}
 		if (Array.isArray(atlas[atlasIndex].center)) {
-			let currentCenter = atlas[atlasIndex].center
+			const currentCenter = atlas[atlasIndex].center
 			atlas[atlasIndex].center = {}
 			atlas[atlasIndex].center[defaultPeriod] = currentCenter
 		}
 		if (atlas[atlasIndex].links) {
-			let currentLinks = atlas[atlasIndex].links
+			const currentLinks = atlas[atlasIndex].links
 			atlas[atlasIndex].links = {
 				website: [],
 				subreddit: [],

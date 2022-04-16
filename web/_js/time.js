@@ -88,7 +88,7 @@ const imageCache = {}
 
 const variantsEl = document.getElementById("variants")
 
-for (let variation in variationsConfig) {
+for (const variation in variationsConfig) {
     codeReference[variationsConfig[variation].code] = variation
     const optionEl = document.createElement('option')
     optionEl.value = variation
@@ -104,7 +104,7 @@ let currentUpdateIndex = 0
 let updateTimeout = setTimeout(null, 0)
 
 let currentVariation = "default"
-let defaultPeriod = variationsConfig[currentVariation].default
+const defaultPeriod = variationsConfig[currentVariation].default
 let currentPeriod = defaultPeriod
 window.currentPeriod = currentPeriod
 window.currentVariation = currentVariation
@@ -150,7 +150,7 @@ async function updateBackground(newPeriod = currentPeriod, newVariation = curren
     abortController.abort()
     abortController = new AbortController()
     currentUpdateIndex++
-    let myUpdateIndex = currentUpdateIndex
+    const myUpdateIndex = currentUpdateIndex
     currentPeriod = newPeriod
     // console.log(newPeriod, newVariation)
     const variationConfig = variationsConfig[newVariation]
@@ -165,14 +165,14 @@ async function updateBackground(newPeriod = currentPeriod, newVariation = curren
     const configObject = variationConfig.versions[currentPeriod];
     if (typeof configObject.url === "string") {
         if (imageCache[configObject.url] === undefined)  {
-            let fetchResult = await fetch(configObject.url, {
+            const fetchResult = await fetch(configObject.url, {
                 signal: abortController.signal
             });
             if (currentUpdateIndex !== myUpdateIndex) {
                 hideLoading()
                 return
             }
-            let imageBlob = await fetchResult.blob()
+            const imageBlob = await fetchResult.blob()
             imageCache[configObject.url] = URL.createObjectURL(imageBlob)  
         }
         image.src = imageCache[configObject.url]
@@ -181,16 +181,16 @@ async function updateBackground(newPeriod = currentPeriod, newVariation = curren
         const context = canvas.getContext('2d')
         context.canvas.width = 2000
         context.canvas.height = 2000
-        for await (let url of configObject.url) {
+        for await (const url of configObject.url) {
             if (imageCache[url] === undefined)  {
-                let fetchResult = await fetch(url, {
+                const fetchResult = await fetch(url, {
                     signal: abortController.signal
                 });
                 if (currentUpdateIndex !== myUpdateIndex) {
                     hideLoading()
                     break
                 }
-                let imageBlob = await fetchResult.blob()
+                const imageBlob = await fetchResult.blob()
                 imageCache[url] = URL.createObjectURL(imageBlob) 
             }
             const imageLayer = new Image()
@@ -224,14 +224,14 @@ async function updateTime(newPeriod = currentPeriod, newVariation = currentVaria
     for ( var atlasIndex in atlasAll ) {
         let pathChosen, centerChosen, chosenIndex
 
-        let validPeriods2 = Object.keys(atlasAll[atlasIndex].path)
+        const validPeriods2 = Object.keys(atlasAll[atlasIndex].path)
 
         // console.log(chosenIndex)
 
-        for (let i in validPeriods2) {
-            let validPeriods = validPeriods2[i].split(', ')
-            for (let j in validPeriods) {
-                let [start, end, variation] = parsePeriod(validPeriods[j])
+        for (const i in validPeriods2) {
+            const validPeriods = validPeriods2[i].split(', ')
+            for (const j in validPeriods) {
+                const [start, end, variation] = parsePeriod(validPeriods[j])
                 // console.log(start, end, variation, newPeriod, newVariation)
                 if (isOnPeriod(start, end, variation, newPeriod, newVariation)) {
                     // console.log("match", start, end, variation, newPeriod, newVariation, i)
@@ -285,7 +285,7 @@ function parsePeriod(periodString) {
     let variation = "default"
 	periodString = periodString + ""
     if (periodString.split(':').length > 1) {
-        let split = periodString.split(':')
+        const split = periodString.split(':')
         variation = codeReference[split[0]]
         periodString = split[1]
     }
@@ -293,7 +293,7 @@ function parsePeriod(periodString) {
 		var [start, end] = periodString.split('-').map(i => parseInt(i))
 		return [start, end, variation]
 	} else {
-		let periodNew = parseInt(periodString)
+		const periodNew = parseInt(periodString)
 		return [periodNew, periodNew, variation]
 	}
 }
