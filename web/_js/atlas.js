@@ -24,7 +24,7 @@ window.addEventListener("error", function (e) {
 
 function getPositionOfEntry(entry){
 	let startX = 2000, startY = 2000;
-	for(let [x, y] of entry.path){
+	for(const [x, y] of entry.path){
 		startX = Math.min(x, startX);
 		startY = Math.min(y, startY)
 	}

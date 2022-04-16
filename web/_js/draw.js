@@ -263,8 +263,8 @@ function initDraw(){
 			exportObject.center[key] = calculateCenter(value)
 		})
 
-		let inputWebsite = document.getElementById("websiteField").value.split('\n').map(line => line.trim()).filter(line => line)
-		let inputSubreddit = document.getElementById("subredditField").value.split('\n').map(line => line.trim().replace(/^\/?r\//, '')).filter(line => line)
+		const inputWebsite = document.getElementById("websiteField").value.split('\n').map(line => line.trim()).filter(line => line)
+		const inputSubreddit = document.getElementById("subredditField").value.split('\n').map(line => line.trim().replace(/^\/?r\//, '')).filter(line => line)
 
 		if (inputWebsite.length) exportObject.links.website = inputWebsite
 		if (inputSubreddit.length) exportObject.links.subreddit = inputSubreddit
@@ -425,7 +425,7 @@ function initDraw(){
 		return {}
 	}
 
-	let params = new URLSearchParams(document.location.search)
+	const params = new URLSearchParams(document.location.search)
 
 	if (params.has('id')) {
 		entry = getEntry(params.get('id'))
@@ -508,18 +508,18 @@ function initPeriodGroups() {
 	// console.log(pathWithPeriods)
 
 	pathWithPeriods.forEach(([period, path], index) => {
-		let periodGroupEl = periodGroupTemplate.cloneNode(true)
+		const periodGroupEl = periodGroupTemplate.cloneNode(true)
 		periodGroupEl.id = "periodGroup" + index
 
-		let startPeriodEl = periodGroupEl.querySelector('.period-start')
-		let endPeriodEl = periodGroupEl.querySelector('.period-end')
-		let periodVisibilityEl = periodGroupEl.querySelector('.period-visible')
-		let periodDeleteEl = periodGroupEl.querySelector('.period-delete')
-		let periodDuplicateEl = periodGroupEl.querySelector('.period-duplicate')
-		let periodVariationEl = periodGroupEl.querySelector('.period-variation')
-		let periodCopyEl = periodGroupEl.querySelector('.period-copy')
+		const startPeriodEl = periodGroupEl.querySelector('.period-start')
+		const endPeriodEl = periodGroupEl.querySelector('.period-end')
+		const periodVisibilityEl = periodGroupEl.querySelector('.period-visible')
+		const periodDeleteEl = periodGroupEl.querySelector('.period-delete')
+		const periodDuplicateEl = periodGroupEl.querySelector('.period-duplicate')
+		const periodVariationEl = periodGroupEl.querySelector('.period-variation')
+		const periodCopyEl = periodGroupEl.querySelector('.period-copy')
 
-		let [start, end, variation] = parsePeriod(period)
+		const [start, end, variation] = parsePeriod(period)
 		// console.log(period, start, end, variation)
 
 		startPeriodEl.id = "periodStart" + index
@@ -555,8 +555,8 @@ function initPeriodGroups() {
 			initPeriodGroups()
 		})
 		periodVariationEl.addEventListener('input', event => {
-			let newVariation = event.target.value
-			let newVariationConfig = variationsConfig[newVariation]
+			const newVariation = event.target.value
+			const newVariationConfig = variationsConfig[newVariation]
 			startPeriodEl.value = newVariationConfig.default
 			startPeriodEl.max = newVariationConfig.versions.length - 1
 			endPeriodEl.value = newVariationConfig.default
@@ -587,7 +587,7 @@ function initPeriodGroups() {
 
 		periodGroups.appendChild(periodGroupEl)
 
-		for (let variation in variationsConfig) {
+		for (const variation in variationsConfig) {
 			const optionEl = document.createElement('option')
 			optionEl.value = variation
 			optionEl.textContent = variationsConfig[variation].name
@@ -619,7 +619,7 @@ function updatePeriodGroups() {
 	var currentActivePathIndexes = []
 
 	periodGroupElements.forEach((elements, index) => {
-		let {
+		const {
 			periodGroupEl,
 			startPeriodEl,
 			endPeriodEl,
@@ -686,7 +686,7 @@ function updatePeriodGroups() {
 	if (lastActivePathIndex !== undefined) {
 		if (lastActivePathIndex === currentActivePathIndex) {
 			// just update the path
-			let {
+			const {
 				startPeriodEl,
 				endPeriodEl,
 				periodVariationEl
@@ -743,7 +743,7 @@ function updateErrors() {
 		periodsStatus.textContent = "No paths available on this period!"
 	}
 
-	let [conflicts, invalidPaths, allErrors] = getErrors()
+	const [conflicts, invalidPaths, allErrors] = getErrors()
 
 	if (allErrors.length > 0) {
 		periodsStatus.textContent = `Problems detected. Please check the groups indicated by red.`
@@ -760,7 +760,7 @@ function updateErrors() {
 		periodsStatus.textContent = ``
 		finishButton.disabled = false
 		periodGroupElements.forEach((elements, index) => {
-			let { periodGroupEl } = elements
+			const { periodGroupEl } = elements
 			if (periodGroupEl.dataset.active === "true") periodGroupEl.dataset.status = "active"
 			else periodGroupEl.dataset.status = ""
 		})
@@ -772,9 +772,9 @@ function getConflicts() {
 	let conflicts = new Set()
 	
 	for (let i = pathWithPeriods.length - 1; i > 0; i--) {
-		let [start1, end1, period1] = parsePeriod(pathWithPeriods[i][0])
+		const [start1, end1, period1] = parsePeriod(pathWithPeriods[i][0])
 		for (let j = 0; j < i; j++) {
-			let [start2, end2, period2] = parsePeriod(pathWithPeriods[j][0])
+			const [start2, end2, period2] = parsePeriod(pathWithPeriods[j][0])
 			if (period1 !== period2) continue
 			if (
 				(start2 <= start1 && start1 <= end2) ||
@@ -795,8 +795,8 @@ function getConflicts() {
 }
 
 function getErrors() {
-	let conflicts = getConflicts()
-	let invalidPaths = []
+	const conflicts = getConflicts()
+	const invalidPaths = []
 
 	pathWithPeriods.forEach(([period, path], i) => {
 		if (path.length < 3) invalidPaths.push(i)

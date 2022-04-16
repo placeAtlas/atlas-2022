@@ -558,12 +558,12 @@ async function render(){
 	context.drawImage(backgroundCanvas, 0, 0);
 
 	if(hovered.length === 1 && hovered[0].path.length && hovered[0].overrideImage){
-		let undisputableHovered = hovered[0];
+		const undisputableHovered = hovered[0];
 		// Find the left-topmost point of all the paths
-		let entryPosition = getPositionOfEntry(undisputableHovered);
+		const entryPosition = getPositionOfEntry(undisputableHovered);
 		if(entryPosition){
 			const [startX, startY] = entryPosition;
-			let overrideImage = new Image();
+			const overrideImage = new Image();
 			const loadingPromise = new Promise((res, rej) => {
 				overrideImage.onerror = rej;
 				overrideImage.onload = res;
@@ -691,7 +691,7 @@ function highlightEntryFromUrl(){
 	});
 
 	if (entries.length === 1){
-		let entry = entries[0];
+		const entry = entries[0];
 
 		document.title = entry.name + " on the 2022 /r/place Atlas";
 		
