@@ -146,6 +146,7 @@ const dispatchTimeUpdateEvent = (period = timelineSlider.value, atlas = atlas) =
 }
 
 async function updateBackground(newPeriod = currentPeriod, newVariation = currentVariation) {
+    console.log(newPeriod, newVariation)
     abortController.abort()
     abortController = new AbortController()
     currentUpdateIndex++
@@ -158,8 +159,9 @@ async function updateBackground(newPeriod = currentPeriod, newVariation = curren
         timelineSlider.max = variationConfig.versions.length - 1;
         currentPeriod = variationConfig.default;
         newPeriod = currentPeriod 
-        timelineSlider.value = currentPeriod 
     }
+    timelineSlider.value = currentPeriod 
+    variantsEl.value = currentVariation 
     const configObject = variationConfig.versions[currentPeriod];
     if (typeof configObject.url === "string") {
         if (imageCache[configObject.url] === undefined)  {
