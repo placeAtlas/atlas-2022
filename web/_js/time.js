@@ -21,162 +21,70 @@ const variationsConfig = {
         versions: [
             {
                 timestamp: 1648822500,
-                url: "./_img/place/1648822500.png",
-                image: null
+                url: "./_img/place/1648822500.png"
             },
             {
                 timestamp: 1648847036,
-                url: "./_img/place/1648847036.png",
-                image: null
+                url: "./_img/place/1648847036.png"
             },
             {
                 timestamp: 1648870452,
-                url: "./_img/place/1648870452.png",
-                image: null
+                url: "./_img/place/1648870452.png"
             },
             {
                 timestamp: 1648893666,
-                url: "./_img/place/1648893666.png",
-                image: null
+                url: "./_img/place/1648893666.png"
             },
             {
                 timestamp: 1648917500,
-                url: "./_img/place/1648917500.png",
-                image: null
+                url: "./_img/place/1648917500.png"
             },
             {
                 timestamp: 1648942113,
-                url: "./_img/place/1648942113.png",
-                image: null
+                url: "./_img/place/1648942113.png"
             },
             {
                 timestamp: 1648956234,
-                url: "./_img/place/1648956234.png",
-                image: null
+                url: "./_img/place/1648956234.png"
             },
             {
                 timestamp: 1648968061,
-                url: "./_img/place/1648968061.png",
-                image: null
+                url: "./_img/place/1648968061.png"
             },
             {
                 timestamp: 1648979987,
-                url: "./_img/place/1648979987.png",
-                image: null
+                url: "./_img/place/1648979987.png"
             },
             {
                 timestamp: 1648992274,
-                url: "./_img/place/1648992274.png",
-                image: null
+                url: "./_img/place/1648992274.png"
             },
             {
                 timestamp: 1649012915,
-                url: "./_img/place/1649012915.png",
-                image: null
+                url: "./_img/place/1649012915.png"
             },
             {
                 timestamp: 1649037182,
-                url: "./_img/place/1649037182.png",
-                image: null
+                url: "./_img/place/1649037182.png"
             },
             {
                 timestamp: 1649060793,
-                url: "./_img/place/1649060793.png",
-                image: null
+                url: "./_img/place/1649060793.png"
             },
             {
                 timestamp: 1649084741,
-                url: "./_img/place/1649084741.png",
-                image: null
+                url: "./_img/place/1649084741.png"
             },
             {
                 timestamp: 1649113199,
-                url: "./_img/place/final.png",
-                image: null,
+                url: "./_img/place/final.png"
             }
         ]
     }
 }
 
-const timeConfig = [
-    {
-        timestamp: 1648822500,
-        url: "./_img/place/1648822500.png",
-        image: null
-    },
-    {
-        timestamp: 1648847036,
-        url: "./_img/place/1648847036.png",
-        image: null
-    },
-    {
-        timestamp: 1648870452,
-        url: "./_img/place/1648870452.png",
-        image: null
-    },
-    {
-        timestamp: 1648893666,
-        url: "./_img/place/1648893666.png",
-        image: null
-    },
-    {
-        timestamp: 1648917500,
-        url: "./_img/place/1648917500.png",
-        image: null
-    },
-    {
-        timestamp: 1648942113,
-        url: "./_img/place/1648942113.png",
-        image: null
-    },
-    {
-        timestamp: 1648956234,
-        url: "./_img/place/1648956234.png",
-        image: null
-    },
-    {
-        timestamp: 1648968061,
-        url: "./_img/place/1648968061.png",
-        image: null
-    },
-    {
-        timestamp: 1648979987,
-        url: "./_img/place/1648979987.png",
-        image: null
-    },
-    {
-        timestamp: 1648992274,
-        url: "./_img/place/1648992274.png",
-        image: null
-    },
-    {
-        timestamp: 1649012915,
-        url: "./_img/place/1649012915.png",
-        image: null
-    },
-    {
-        timestamp: 1649037182,
-        url: "./_img/place/1649037182.png",
-        image: null
-    },
-    {
-        timestamp: 1649060793,
-        url: "./_img/place/1649060793.png",
-        image: null
-    },
-    {
-        timestamp: 1649084741,
-        url: "./_img/place/1649084741.png",
-        image: null
-    },
-    {
-        timestamp: 1649113199,
-        url: "./_img/place/final.png",
-        image: null,
-    }
-];
-
 const codeReference = {}
+const imageCache = {}
 
 const variantsEl = document.getElementById("variants")
 
@@ -195,15 +103,14 @@ let abortController = new AbortController()
 let currentUpdateIndex = 0
 let updateTimeout = setTimeout(null, 0)
 
-let defaultPeriod = timeConfig.length - 1
-let maxPeriod = timeConfig.length - 1
-let currentPeriod = defaultPeriod
 let currentVariation = "default"
+let defaultPeriod = variationsConfig[currentVariation].default
+let currentPeriod = defaultPeriod
 window.currentPeriod = currentPeriod
 window.currentVariation = currentVariation
 
 // SETUP
-timelineSlider.max = timeConfig.length - 1;
+timelineSlider.max = variationsConfig[currentVariation].versions.length - 1;
 timelineSlider.value = currentPeriod;
 
 timelineSlider.addEventListener("input", (event) => {
@@ -254,19 +161,53 @@ async function updateBackground(newPeriod = currentPeriod, newVariation = curren
         timelineSlider.value = currentPeriod 
     }
     const configObject = variationConfig.versions[currentPeriod];
-    if (!configObject.image) {
-        console.log("fetching");
-        let fetchResult = await fetch(configObject.url, {
-            signal: abortController.signal
-        });
-        if (currentUpdateIndex !== myUpdateIndex) {
-            hideLoading()
-            return
+    if (typeof configObject.url === "string") {
+        if (imageCache[configObject.url] === undefined)  {
+            let fetchResult = await fetch(configObject.url, {
+                signal: abortController.signal
+            });
+            if (currentUpdateIndex !== myUpdateIndex) {
+                hideLoading()
+                return
+            }
+            let imageBlob = await fetchResult.blob()
+            imageCache[configObject.url] = URL.createObjectURL(imageBlob)  
         }
-        let imageBlob = await fetchResult.blob();
-        configObject.image = URL.createObjectURL(imageBlob);
+        image.src = imageCache[configObject.url]
+    } else {
+        const canvas = document.createElement('canvas')
+        const context = canvas.getContext('2d')
+        context.canvas.width = 2000
+        context.canvas.height = 2000
+        for await (let url of configObject.url) {
+            if (imageCache[url] === undefined)  {
+                let fetchResult = await fetch(url, {
+                    signal: abortController.signal
+                });
+                if (currentUpdateIndex !== myUpdateIndex) {
+                    hideLoading()
+                    break
+                }
+                let imageBlob = await fetchResult.blob()
+                imageCache[url] = URL.createObjectURL(imageBlob) 
+            }
+            const imageLayer = new Image()
+            console.log(imageCache[url])
+            await new Promise(resolve => {
+                imageLayer.onload = () => {
+                    context.drawImage(imageLayer, 0, 0)
+                    console.log("image done")        
+                    resolve()
+                }
+                imageLayer.src = imageCache[url]
+            })
+            
+        }
+        if (currentUpdateIndex !== myUpdateIndex) return
+        const blob = await new Promise(resolve => canvas.toBlob(resolve))
+        console.log(URL.createObjectURL(blob))
+        image.src = URL.createObjectURL(blob)
     }
-    image.src = configObject.image;
 
     return [configObject, newPeriod, newVariation]
 }
@@ -329,7 +270,7 @@ function updateTooltip(newPeriod, newVariation) {
     tooltip.style.left = Math.max(((timelineSlider.offsetWidth)*(timelineSlider.value >= 1 ? timelineSlider.value - 1:0)/(timelineSlider.max-1)) - tooltip.offsetWidth/2, 0) + "px"
 }
 
-// tooltip.parentElement.addEventListener('mouseenter', () => updateTooltip(parseInt(timelineSlider.value), currentVariation))
+tooltip.parentElement.addEventListener('mouseenter', () => updateTooltip(parseInt(timelineSlider.value), currentVariation))
 
 window.addEventListener('resize', () => updateTooltip(parseInt(timelineSlider.value), currentVariation))
 
