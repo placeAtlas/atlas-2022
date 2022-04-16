@@ -74,7 +74,7 @@ function initOverlap() {
 			}
 		}
 
-		console.log(blank + " blank pixels, which are " + Math.round(blank / 100) / 100 + "% of the canvas (" + (100 - Math.round(blank / 100) / 100) + "% mapped)");
+		console.info(blank + " blank pixels, which are " + Math.round(blank / 100) / 100 + "% of the canvas (" + (100 - Math.round(blank / 100) / 100) + "% mapped)");
 	}
 
 }

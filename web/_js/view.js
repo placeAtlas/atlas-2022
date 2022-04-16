@@ -574,8 +574,7 @@ async function render() {
 				context.globalCompositeOperation = "source-over";
 				context.drawImage(overrideImage, startX, startY);
 			} catch (ex) {
-				console.log("Cannot override image.");
-				console.log(ex);
+				console.error("Cannot override image.", ex);
 			}
 		}
 	}

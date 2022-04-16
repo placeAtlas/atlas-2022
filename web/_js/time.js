@@ -146,7 +146,7 @@ const dispatchTimeUpdateEvent = (period = timelineSlider.value, atlas = atlas) =
 }
 
 async function updateBackground(newPeriod = currentPeriod, newVariation = currentVariation) {
-	console.log(newPeriod, newVariation)
+	// console.log(newPeriod, newVariation)
 	abortController.abort()
 	abortController = new AbortController()
 	currentUpdateIndex++
@@ -194,11 +194,11 @@ async function updateBackground(newPeriod = currentPeriod, newVariation = curren
 				imageCache[url] = URL.createObjectURL(imageBlob)
 			}
 			const imageLayer = new Image()
-			console.log(imageCache[url])
+			// console.log(imageCache[url])
 			await new Promise(resolve => {
 				imageLayer.onload = () => {
 					context.drawImage(imageLayer, 0, 0)
-					console.log("image done")
+					// console.log("image done")
 					resolve()
 				}
 				imageLayer.src = imageCache[url]
@@ -207,7 +207,7 @@ async function updateBackground(newPeriod = currentPeriod, newVariation = curren
 		}
 		if (currentUpdateIndex !== myUpdateIndex) return [configObject, newPeriod, newVariation]
 		const blob = await new Promise(resolve => canvas.toBlob(resolve))
-		console.log(URL.createObjectURL(blob))
+		// console.log(URL.createObjectURL(blob))
 		image.src = URL.createObjectURL(blob)
 	}
 
