@@ -579,7 +579,7 @@ function initPeriodGroups() {
 				updatePeriodGroups()
 			} else if (event.target.textContent === "Paste") {
 				pathWithPeriods[index][1] = [...periodClipboard.path]
-				console.log(pathWithPeriods[index])
+				// console.log(pathWithPeriods[index])
 				if (pathWithPeriods.length > 2) console.log(pathWithPeriods[2])
 				initPeriodGroups()
 			}
@@ -653,9 +653,9 @@ function updatePeriodGroups() {
 		if (periodClipboard.index !== null) {
 			if (index !== periodClipboard.index) {
 				periodCopyEl.textContent = "Paste"
-				console.log(JSON.stringify(pathWithPeriods[index][1]))
-				console.log(JSON.stringify(periodClipboard.path))
-				console.log(JSON.stringify(pathWithPeriods[index][1]) === JSON.stringify(periodClipboard.path))
+				// console.log(JSON.stringify(pathWithPeriods[index][1]))
+				// console.log(JSON.stringify(periodClipboard.path))
+				// console.log(JSON.stringify(pathWithPeriods[index][1]) === JSON.stringify(periodClipboard.path))
 				if (JSON.stringify(pathWithPeriods[index][1]) === JSON.stringify(periodClipboard.path)) {
 					periodCopyEl.disabled = true
 				} else {

@@ -14,7 +14,7 @@
 */
 
 window.addEventListener("error", function (e) {
-	console.log(e);
+	console.error(e);
 	let errorMessage = "<p class=\"error\">An error has occurred:</p>";
 	errorMessage += "<p class=\"errorBody\">" + e.message + "</p>";
 	errorMessage += "<p class=\"errorBody\">on line " + e.lineno + "</p>";

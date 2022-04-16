@@ -82,8 +82,8 @@ for (const i in areas) {
 	}
 }
 
-console.log("There are " + largerThanMax + " entries larger than " + max + ", accounting for " + (largerThanMax / areas.length * 100) + "% of all entries.");
-console.log("The largest entry has an area of " + areas[areas.length - 1] + " pixels.");
+console.info("There are " + largerThanMax + " entries larger than " + max + ", accounting for " + (largerThanMax / areas.length * 100) + "% of all entries.");
+console.info("The largest entry has an area of " + areas[areas.length - 1] + " pixels.");
 
 const counts = [0];
 const brackets = [max / steps];
@@ -230,12 +230,12 @@ document.getElementById("wrapper").appendChild(el);
 
 //console.log(areas);
 
-console.log("Median area: " + areas[~~(areas.length / 2)]);
+console.info("Median area: " + areas[~~(areas.length / 2)]);
 
-console.log("Average area: " + (areasSum / atlas.length));
+console.info("Average area: " + (areasSum / atlas.length));
 
 const topCount = 50;
-console.log("The " + topCount + " largest entries:");
+console.info("The " + topCount + " largest entries:");
 
 let outstring = "";
 
@@ -243,7 +243,7 @@ for (let i = 0; i < topCount; i++) {
 	outstring += ((i + 1) + "|[" + atlas[atlas.length - i - 1].name + "](http://place-atlas.stefanocoding.me/?id=" + atlas[atlas.length - i - 1].id + ")|" + ~~atlas[atlas.length - i - 1].area + "|" + Math.round(atlas[atlas.length - i - 1].area / 100) / 100 + "%\n");
 }
 
-console.log(outstring);
+console.info(outstring);
 
 atlas.sort(function (a, b) {
 	if (a.center[0] < b.center[0]) {
@@ -256,7 +256,7 @@ atlas.sort(function (a, b) {
 	return 0;
 });
 
-console.log("Median x: " + atlas[~~(atlas.length / 2)].center[0]);
+console.info("Median x: " + atlas[~~(atlas.length / 2)].center[0]);
 
 atlas.sort(function (a, b) {
 	if (a.center[1] < b.center[1]) {
@@ -269,7 +269,7 @@ atlas.sort(function (a, b) {
 	return 0;
 });
 
-console.log("Median y: " + atlas[~~(atlas.length / 2)].center[1]);
+console.info("Median y: " + atlas[~~(atlas.length / 2)].center[1]);
 
 
 
