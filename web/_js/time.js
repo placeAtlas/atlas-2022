@@ -75,7 +75,7 @@ timelineSlider.addEventListener("input", (event) => {
     updateTooltip(parseInt(event.target.value), currentVariation)
     clearTimeout(updateTimeout)
     updateTimeout = setTimeout(() => {
-        updateTime(parseInt(event.target.value), currentVariation)
+        updateTime(parseInt(timelineSlider.value), currentVariation)
     }, 10)
 })
 
@@ -144,7 +144,7 @@ async function updateBackground(newPeriod = currentPeriod, newVariation = curren
 					signal: abortController.signal
 				});
 				if (currentUpdateIndex !== myUpdateIndex) {
-					break
+					return
 				}
 				const imageBlob = await fetchResult.blob()
 				imageCache[url] = URL.createObjectURL(imageBlob)
