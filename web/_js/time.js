@@ -114,11 +114,14 @@ timelineSlider.max = variationsConfig[currentVariation].versions.length - 1;
 timelineSlider.value = currentPeriod;
 
 timelineSlider.addEventListener("input", (event) => {
-	updateTooltip(parseInt(event.target.value), currentVariation)
-	clearTimeout(updateTimeout)
-	updateTimeout = setTimeout(() => {
-		updateTime(parseInt(event.target.value), currentVariation)
-	}, 10)
+    updateTooltip(parseInt(event.target.value), currentVariation)
+    clearTimeout(updateTimeout)
+    updateTimeout = setTimeout(() => {
+        updateTime(parseInt(timelineSlider.value), currentVariation)
+		setTimeout(() => {
+			updateTime(parseInt(timelineSlider.value), currentVariation)
+		}, 50)	
+    }, 25)
 })
 
 variantsEl.addEventListener("input", (event) => {
@@ -186,7 +189,7 @@ async function updateBackground(newPeriod = currentPeriod, newVariation = curren
 					signal: abortController.signal
 				});
 				if (currentUpdateIndex !== myUpdateIndex) {
-					break
+					return
 				}
 				const imageBlob = await fetchResult.blob()
 				imageCache[url] = URL.createObjectURL(imageBlob)
