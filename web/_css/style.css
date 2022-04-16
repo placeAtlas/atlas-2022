@@ -1376,6 +1376,10 @@ body:not([data-dev]) .show-only-on-dev {
 	margin-bottom: 0.5em;
 }
 
+#variantControls {
+	align-self: flex-end;
+}
+
 #variantControls select {
 	height: 30px !important;
 }
