@@ -13,125 +13,253 @@
 	========================================================================
 */
 
-const timeConfig = [
-    {
-        timestamp: 1648822500,
-        url: "./_img/place/1648822500.png",
-        image: null
-    },
-    {
-        timestamp: 1648847036,
-        url: "./_img/place/1648847036.png",
-        image: null
-    },
-    {
-        timestamp: 1648870452,
-        url: "./_img/place/1648870452.png",
-        image: null
-    },
-    {
-        timestamp: 1648893666,
-        url: "./_img/place/1648893666.png",
-        image: null
-    },
-    {
-        timestamp: 1648917500,
-        url: "./_img/place/1648917500.png",
-        image: null
-    },
-    {
-        timestamp: 1648942113,
-        url: "./_img/place/1648942113.png",
-        image: null
-    },
-    {
-        timestamp: 1648956234,
-        url: "./_img/place/1648956234.png",
-        image: null
-    },
-    {
-        timestamp: 1648968061,
-        url: "./_img/place/1648968061.png",
-        image: null
-    },
-    {
-        timestamp: 1648979987,
-        url: "./_img/place/1648979987.png",
-        image: null
-    },
-
-    {
-        timestamp: 1648992274,
-        url: "./_img/place/1648992274.png",
-        image: null
-    },
-    {
-        timestamp: 1649012915,
-        url: "./_img/place/1649012915.png",
-        image: null
-    },
-    {
-        timestamp: 1649037182,
-        url: "./_img/place/1649037182.png",
-        image: null
-    },
-    {
-        timestamp: 1649060793,
-        url: "./_img/place/1649060793.png",
-        image: null
-    },
-    {
-        timestamp: 1649084741,
-        url: "./_img/place/1649084741.png",
-        image: null
-    },
-    {
-        timestamp: 1649113199,
-        url: "./_img/place/final.png",
-        image: null,
-        showAtlas: true,
-    }
-];
-
-let slider = document.getElementById("timeControlsSlider");
-let tooltip = document.getElementById("timeControlsTooltip")
-let image = document.getElementById("image");
-
-let timeCallback = (a) => {};
-let atlasBackup = [];
-
-// SETUP
-slider.max = timeConfig.length;
-slider.value = timeConfig.length;
-updateTime(slider.value)
-
-slider.addEventListener("input", (event) => {
-    updateTime(parseInt(event.target.value))
-})
-
-async function updateTime(index) {
-    let configObject = timeConfig[index-1];
-    if (!configObject.image) {
-        console.log("fetching");
-        let fetchResult = await fetch(configObject.url);
-        let imageBlob = await fetchResult.blob();
-        configObject.image = URL.createObjectURL(imageBlob);
-    }
-    image.src = configObject.image;
-    // TEMP ATLAS ONLY ON LAST TIMESTAMP
-    if (configObject.showAtlas) {
-        atlas = atlasBackup
-    } else {
-        atlas = []
-    }
-    timeCallback(atlas)
-    if (typeof configObject.timestamp === "number") tooltip.querySelector('p').textContent = new Date(configObject.timestamp*1000).toUTCString()
-    else tooltip.querySelector('p').textContent = configObject.timestamp
-    tooltip.style.left = (((slider.offsetWidth)*(slider.value-1)/(slider.max-1)) - tooltip.offsetWidth/2) + "px"
+const variationsConfig = {
+	default: {
+		name: "r/place",
+		code: "",
+		default: 164,
+		versions: [{ "timestamp": 1648818000, "url": ["./_img/canvas/place30ex/start.png"] }, { "timestamp": 1648819800, "url": ["./_img/canvas/place30/005.png", "./_img/canvas/place30/000_005.png"] }, { "timestamp": 1648821600, "url": ["./_img/canvas/place30/005.png", "./_img/canvas/place30/001_005.png"] }, { "timestamp": 1648823400, "url": ["./_img/canvas/place30/005.png", "./_img/canvas/place30/002_005.png"] }, { "timestamp": 1648825200, "url": ["./_img/canvas/place30/005.png", "./_img/canvas/place30/003_005.png"] }, { "timestamp": 1648827000, "url": ["./_img/canvas/place30/005.png", "./_img/canvas/place30/004_005.png"] }, { "timestamp": 1648828800, "url": "./_img/canvas/place30/005.png" }, { "timestamp": 1648830600, "url": ["./_img/canvas/place30/005.png", "./_img/canvas/place30/006_005.png"] }, { "timestamp": 1648832400, "url": ["./_img/canvas/place30/005.png", "./_img/canvas/place30/007_005.png"] }, { "timestamp": 1648834200, "url": ["./_img/canvas/place30/005.png", "./_img/canvas/place30/008_005.png"] }, { "timestamp": 1648836000, "url": ["./_img/canvas/place30/005.png", "./_img/canvas/place30/009_005.png"] }, { "timestamp": 1648837800, "url": ["./_img/canvas/place30/005.png", "./_img/canvas/place30/010_005.png"] }, { "timestamp": 1648839600, "url": ["./_img/canvas/place30/016.png", "./_img/canvas/place30/011_016.png"] }, { "timestamp": 1648841400, "url": ["./_img/canvas/place30/016.png", "./_img/canvas/place30/012_016.png"] }, { "timestamp": 1648843200, "url": ["./_img/canvas/place30/016.png", "./_img/canvas/place30/013_016.png"] }, { "timestamp": 1648845000, "url": ["./_img/canvas/place30/016.png", "./_img/canvas/place30/014_016.png"] }, { "timestamp": 1648846800, "url": ["./_img/canvas/place30/016.png", "./_img/canvas/place30/015_016.png"] }, { "timestamp": 1648848600, "url": "./_img/canvas/place30/016.png" }, { "timestamp": 1648850400, "url": ["./_img/canvas/place30/016.png", "./_img/canvas/place30/017_016.png"] }, { "timestamp": 1648852200, "url": ["./_img/canvas/place30/016.png", "./_img/canvas/place30/018_016.png"] }, { "timestamp": 1648854000, "url": ["./_img/canvas/place30/016.png", "./_img/canvas/place30/019_016.png"] }, { "timestamp": 1648855800, "url": ["./_img/canvas/place30/016.png", "./_img/canvas/place30/020_016.png"] }, { "timestamp": 1648857600, "url": ["./_img/canvas/place30/016.png", "./_img/canvas/place30/021_016.png"] }, { "timestamp": 1648859400, "url": ["./_img/canvas/place30/027.png", "./_img/canvas/place30/022_027.png"] }, { "timestamp": 1648861200, "url": ["./_img/canvas/place30/027.png", "./_img/canvas/place30/023_027.png"] }, { "timestamp": 1648863000, "url": ["./_img/canvas/place30/027.png", "./_img/canvas/place30/024_027.png"] }, { "timestamp": 1648864800, "url": ["./_img/canvas/place30/027.png", "./_img/canvas/place30/025_027.png"] }, { "timestamp": 1648866600, "url": ["./_img/canvas/place30/027.png", "./_img/canvas/place30/026_027.png"] }, { "timestamp": 1648868400, "url": "./_img/canvas/place30/027.png" }, { "timestamp": 1648870200, "url": ["./_img/canvas/place30/027.png", "./_img/canvas/place30/028_027.png"] }, { "timestamp": 1648872000, "url": ["./_img/canvas/place30/027.png", "./_img/canvas/place30/029_027.png"] }, { "timestamp": 1648873800, "url": ["./_img/canvas/place30/027.png", "./_img/canvas/place30/030_027.png"] }, { "timestamp": 1648875600, "url": ["./_img/canvas/place30/027.png", "./_img/canvas/place30/031_027.png"] }, { "timestamp": 1648877400, "url": ["./_img/canvas/place30/027.png", "./_img/canvas/place30/032_027.png"] }, { "timestamp": 1648879200, "url": ["./_img/canvas/place30/038.png", "./_img/canvas/place30/033_038.png"] }, { "timestamp": 1648881000, "url": ["./_img/canvas/place30/038.png", "./_img/canvas/place30/034_038.png"] }, { "timestamp": 1648882800, "url": ["./_img/canvas/place30/038.png", "./_img/canvas/place30/035_038.png"] }, { "timestamp": 1648884600, "url": ["./_img/canvas/place30/038.png", "./_img/canvas/place30/036_038.png"] }, { "timestamp": 1648886400, "url": ["./_img/canvas/place30/038.png", "./_img/canvas/place30/037_038.png"] }, { "timestamp": 1648888200, "url": "./_img/canvas/place30/038.png" }, { "timestamp": 1648890000, "url": ["./_img/canvas/place30/038.png", "./_img/canvas/place30/039_038.png"] }, { "timestamp": 1648891800, "url": ["./_img/canvas/place30/038.png", "./_img/canvas/place30/040_038.png"] }, { "timestamp": 1648893600, "url": ["./_img/canvas/place30/038.png", "./_img/canvas/place30/041_038.png"] }, { "timestamp": 1648895400, "url": ["./_img/canvas/place30/038.png", "./_img/canvas/place30/042_038.png"] }, { "timestamp": 1648897200, "url": ["./_img/canvas/place30/038.png", "./_img/canvas/place30/043_038.png"] }, { "timestamp": 1648899000, "url": ["./_img/canvas/place30/049.png", "./_img/canvas/place30/044_049.png"] }, { "timestamp": 1648900800, "url": ["./_img/canvas/place30/049.png", "./_img/canvas/place30/045_049.png"] }, { "timestamp": 1648902600, "url": ["./_img/canvas/place30/049.png", "./_img/canvas/place30/046_049.png"] }, { "timestamp": 1648904400, "url": ["./_img/canvas/place30/049.png", "./_img/canvas/place30/047_049.png"] }, { "timestamp": 1648906200, "url": ["./_img/canvas/place30/049.png", "./_img/canvas/place30/048_049.png"] }, { "timestamp": 1648908000, "url": "./_img/canvas/place30/049.png" }, { "timestamp": 1648909800, "url": ["./_img/canvas/place30/049.png", "./_img/canvas/place30/050_049.png"] }, { "timestamp": 1648911600, "url": ["./_img/canvas/place30/049.png", "./_img/canvas/place30/051_049.png"] }, { "timestamp": 1648913400, "url": ["./_img/canvas/place30/049.png", "./_img/canvas/place30/052_049.png"] }, { "timestamp": 1648915200, "url": ["./_img/canvas/place30/049.png", "./_img/canvas/place30/053_049.png"] }, { "timestamp": 1648917000, "url": ["./_img/canvas/place30/049.png", "./_img/canvas/place30/054_049.png"] }, { "timestamp": 1648918800, "url": ["./_img/canvas/place30/060.png", "./_img/canvas/place30/055_060.png"] }, { "timestamp": 1648920600, "url": ["./_img/canvas/place30/060.png", "./_img/canvas/place30/056_060.png"] }, { "timestamp": 1648922400, "url": ["./_img/canvas/place30/060.png", "./_img/canvas/place30/057_060.png"] }, { "timestamp": 1648924200, "url": ["./_img/canvas/place30/060.png", "./_img/canvas/place30/058_060.png"] }, { "timestamp": 1648926000, "url": ["./_img/canvas/place30/060.png", "./_img/canvas/place30/059_060.png"] }, { "timestamp": 1648927800, "url": "./_img/canvas/place30/060.png" }, { "timestamp": 1648929600, "url": ["./_img/canvas/place30/060.png", "./_img/canvas/place30/061_060.png"] }, { "timestamp": 1648931400, "url": ["./_img/canvas/place30/060.png", "./_img/canvas/place30/062_060.png"] }, { "timestamp": 1648933200, "url": ["./_img/canvas/place30/060.png", "./_img/canvas/place30/063_060.png"] }, { "timestamp": 1648935000, "url": ["./_img/canvas/place30/060.png", "./_img/canvas/place30/064_060.png"] }, { "timestamp": 1648936800, "url": ["./_img/canvas/place30/060.png", "./_img/canvas/place30/065_060.png"] }, { "timestamp": 1648938600, "url": ["./_img/canvas/place30/071.png", "./_img/canvas/place30/066_071.png"] }, { "timestamp": 1648940400, "url": ["./_img/canvas/place30/071.png", "./_img/canvas/place30/067_071.png"] }, { "timestamp": 1648942200, "url": ["./_img/canvas/place30/071.png", "./_img/canvas/place30/068_071.png"] }, { "timestamp": 1648944000, "url": ["./_img/canvas/place30/071.png", "./_img/canvas/place30/069_071.png"] }, { "timestamp": 1648945800, "url": ["./_img/canvas/place30/071.png", "./_img/canvas/place30/070_071.png"] }, { "timestamp": 1648947600, "url": "./_img/canvas/place30/071.png" }, { "timestamp": 1648949400, "url": ["./_img/canvas/place30/071.png", "./_img/canvas/place30/072_071.png"] }, { "timestamp": 1648951200, "url": ["./_img/canvas/place30/071.png", "./_img/canvas/place30/073_071.png"] }, { "timestamp": 1648953000, "url": ["./_img/canvas/place30/071.png", "./_img/canvas/place30/074_071.png"] }, { "timestamp": 1648954800, "url": ["./_img/canvas/place30/071.png", "./_img/canvas/place30/075_071.png"] }, { "timestamp": 1648956600, "url": ["./_img/canvas/place30/071.png", "./_img/canvas/place30/076_071.png"] }, { "timestamp": 1648958400, "url": ["./_img/canvas/place30/082.png", "./_img/canvas/place30/077_082.png"] }, { "timestamp": 1648960200, "url": ["./_img/canvas/place30/082.png", "./_img/canvas/place30/078_082.png"] }, { "timestamp": 1648962000, "url": ["./_img/canvas/place30/082.png", "./_img/canvas/place30/079_082.png"] }, { "timestamp": 1648963800, "url": ["./_img/canvas/place30/082.png", "./_img/canvas/place30/080_082.png"] }, { "timestamp": 1648965600, "url": ["./_img/canvas/place30/082.png", "./_img/canvas/place30/081_082.png"] }, { "timestamp": 1648967400, "url": "./_img/canvas/place30/082.png" }, { "timestamp": 1648969200, "url": ["./_img/canvas/place30/082.png", "./_img/canvas/place30/083_082.png"] }, { "timestamp": 1648971000, "url": ["./_img/canvas/place30/082.png", "./_img/canvas/place30/084_082.png"] }, { "timestamp": 1648972800, "url": ["./_img/canvas/place30/082.png", "./_img/canvas/place30/085_082.png"] }, { "timestamp": 1648974600, "url": ["./_img/canvas/place30/082.png", "./_img/canvas/place30/086_082.png"] }, { "timestamp": 1648976400, "url": ["./_img/canvas/place30/082.png", "./_img/canvas/place30/087_082.png"] }, { "timestamp": 1648978200, "url": ["./_img/canvas/place30/093.png", "./_img/canvas/place30/088_093.png"] }, { "timestamp": 1648980000, "url": ["./_img/canvas/place30/093.png", "./_img/canvas/place30/089_093.png"] }, { "timestamp": 1648981800, "url": ["./_img/canvas/place30/093.png", "./_img/canvas/place30/090_093.png"] }, { "timestamp": 1648983600, "url": ["./_img/canvas/place30/093.png", "./_img/canvas/place30/091_093.png"] }, { "timestamp": 1648985400, "url": ["./_img/canvas/place30/093.png", "./_img/canvas/place30/092_093.png"] }, { "timestamp": 1648987200, "url": "./_img/canvas/place30/093.png" }, { "timestamp": 1648989000, "url": ["./_img/canvas/place30/093.png", "./_img/canvas/place30/094_093.png"] }, { "timestamp": 1648990800, "url": ["./_img/canvas/place30/093.png", "./_img/canvas/place30/095_093.png"] }, { "timestamp": 1648992600, "url": ["./_img/canvas/place30/093.png", "./_img/canvas/place30/096_093.png"] }, { "timestamp": 1648994400, "url": ["./_img/canvas/place30/093.png", "./_img/canvas/place30/097_093.png"] }, { "timestamp": 1648996200, "url": ["./_img/canvas/place30/093.png", "./_img/canvas/place30/098_093.png"] }, { "timestamp": 1648998000, "url": ["./_img/canvas/place30/104.png", "./_img/canvas/place30/099_104.png"] }, { "timestamp": 1648999800, "url": ["./_img/canvas/place30/104.png", "./_img/canvas/place30/100_104.png"] }, { "timestamp": 1649001600, "url": ["./_img/canvas/place30/104.png", "./_img/canvas/place30/101_104.png"] }, { "timestamp": 1649003400, "url": ["./_img/canvas/place30/104.png", "./_img/canvas/place30/102_104.png"] }, { "timestamp": 1649005200, "url": ["./_img/canvas/place30/104.png", "./_img/canvas/place30/103_104.png"] }, { "timestamp": 1649007000, "url": "./_img/canvas/place30/104.png" }, { "timestamp": 1649008800, "url": ["./_img/canvas/place30/104.png", "./_img/canvas/place30/105_104.png"] }, { "timestamp": 1649010600, "url": ["./_img/canvas/place30/104.png", "./_img/canvas/place30/106_104.png"] }, { "timestamp": 1649012400, "url": ["./_img/canvas/place30/104.png", "./_img/canvas/place30/107_104.png"] }, { "timestamp": 1649014200, "url": ["./_img/canvas/place30/104.png", "./_img/canvas/place30/108_104.png"] }, { "timestamp": 1649016000, "url": ["./_img/canvas/place30/104.png", "./_img/canvas/place30/109_104.png"] }, { "timestamp": 1649017800, "url": ["./_img/canvas/place30/115.png", "./_img/canvas/place30/110_115.png"] }, { "timestamp": 1649019600, "url": ["./_img/canvas/place30/115.png", "./_img/canvas/place30/111_115.png"] }, { "timestamp": 1649021400, "url": ["./_img/canvas/place30/115.png", "./_img/canvas/place30/112_115.png"] }, { "timestamp": 1649023200, "url": ["./_img/canvas/place30/115.png", "./_img/canvas/place30/113_115.png"] }, { "timestamp": 1649025000, "url": ["./_img/canvas/place30/115.png", "./_img/canvas/place30/114_115.png"] }, { "timestamp": 1649026800, "url": "./_img/canvas/place30/115.png" }, { "timestamp": 1649028600, "url": ["./_img/canvas/place30/115.png", "./_img/canvas/place30/116_115.png"] }, { "timestamp": 1649030400, "url": ["./_img/canvas/place30/115.png", "./_img/canvas/place30/117_115.png"] }, { "timestamp": 1649032200, "url": ["./_img/canvas/place30/115.png", "./_img/canvas/place30/118_115.png"] }, { "timestamp": 1649034000, "url": ["./_img/canvas/place30/115.png", "./_img/canvas/place30/119_115.png"] }, { "timestamp": 1649035800, "url": ["./_img/canvas/place30/115.png", "./_img/canvas/place30/120_115.png"] }, { "timestamp": 1649037600, "url": ["./_img/canvas/place30/126.png", "./_img/canvas/place30/121_126.png"] }, { "timestamp": 1649039400, "url": ["./_img/canvas/place30/126.png", "./_img/canvas/place30/122_126.png"] }, { "timestamp": 1649041200, "url": ["./_img/canvas/place30/126.png", "./_img/canvas/place30/123_126.png"] }, { "timestamp": 1649043000, "url": ["./_img/canvas/place30/126.png", "./_img/canvas/place30/124_126.png"] }, { "timestamp": 1649044800, "url": ["./_img/canvas/place30/126.png", "./_img/canvas/place30/125_126.png"] }, { "timestamp": 1649046600, "url": "./_img/canvas/place30/126.png" }, { "timestamp": 1649048400, "url": ["./_img/canvas/place30/126.png", "./_img/canvas/place30/127_126.png"] }, { "timestamp": 1649050200, "url": ["./_img/canvas/place30/126.png", "./_img/canvas/place30/128_126.png"] }, { "timestamp": 1649052000, "url": ["./_img/canvas/place30/126.png", "./_img/canvas/place30/129_126.png"] }, { "timestamp": 1649053800, "url": ["./_img/canvas/place30/126.png", "./_img/canvas/place30/130_126.png"] }, { "timestamp": 1649055600, "url": ["./_img/canvas/place30/126.png", "./_img/canvas/place30/131_126.png"] }, { "timestamp": 1649057400, "url": ["./_img/canvas/place30/137.png", "./_img/canvas/place30/132_137.png"] }, { "timestamp": 1649059200, "url": ["./_img/canvas/place30/137.png", "./_img/canvas/place30/133_137.png"] }, { "timestamp": 1649061000, "url": ["./_img/canvas/place30/137.png", "./_img/canvas/place30/134_137.png"] }, { "timestamp": 1649062800, "url": ["./_img/canvas/place30/137.png", "./_img/canvas/place30/135_137.png"] }, { "timestamp": 1649064600, "url": ["./_img/canvas/place30/137.png", "./_img/canvas/place30/136_137.png"] }, { "timestamp": 1649066400, "url": "./_img/canvas/place30/137.png" }, { "timestamp": 1649068200, "url": ["./_img/canvas/place30/137.png", "./_img/canvas/place30/138_137.png"] }, { "timestamp": 1649070000, "url": ["./_img/canvas/place30/137.png", "./_img/canvas/place30/139_137.png"] }, { "timestamp": 1649071800, "url": ["./_img/canvas/place30/137.png", "./_img/canvas/place30/140_137.png"] }, { "timestamp": 1649073600, "url": ["./_img/canvas/place30/137.png", "./_img/canvas/place30/141_137.png"] }, { "timestamp": 1649075400, "url": ["./_img/canvas/place30/137.png", "./_img/canvas/place30/142_137.png"] }, { "timestamp": 1649077200, "url": ["./_img/canvas/place30/148.png", "./_img/canvas/place30/143_148.png"] }, { "timestamp": 1649079000, "url": ["./_img/canvas/place30/148.png", "./_img/canvas/place30/144_148.png"] }, { "timestamp": 1649080800, "url": ["./_img/canvas/place30/148.png", "./_img/canvas/place30/145_148.png"] }, { "timestamp": 1649082600, "url": ["./_img/canvas/place30/148.png", "./_img/canvas/place30/146_148.png"] }, { "timestamp": 1649084400, "url": ["./_img/canvas/place30/148.png", "./_img/canvas/place30/147_148.png"] }, { "timestamp": 1649086200, "url": "./_img/canvas/place30/148.png" }, { "timestamp": 1649088000, "url": ["./_img/canvas/place30/148.png", "./_img/canvas/place30/149_148.png"] }, { "timestamp": 1649089800, "url": ["./_img/canvas/place30/148.png", "./_img/canvas/place30/150_148.png"] }, { "timestamp": 1649091600, "url": ["./_img/canvas/place30/148.png", "./_img/canvas/place30/151_148.png"] }, { "timestamp": 1649093400, "url": ["./_img/canvas/place30/148.png", "./_img/canvas/place30/152_148.png"] }, { "timestamp": 1649095200, "url": ["./_img/canvas/place30/148.png", "./_img/canvas/place30/153_148.png"] }, { "timestamp": 1649097000, "url": ["./_img/canvas/place30/159.png", "./_img/canvas/place30/154_159.png"] }, { "timestamp": 1649098800, "url": ["./_img/canvas/place30/159.png", "./_img/canvas/place30/155_159.png"] }, { "timestamp": 1649100600, "url": ["./_img/canvas/place30/159.png", "./_img/canvas/place30/156_159.png"] }, { "timestamp": 1649102400, "url": ["./_img/canvas/place30/159.png", "./_img/canvas/place30/157_159.png"] }, { "timestamp": 1649104200, "url": ["./_img/canvas/place30/159.png", "./_img/canvas/place30/158_159.png"] }, { "timestamp": 1649106000, "url": "./_img/canvas/place30/159.png" }, { "timestamp": 1649107800, "url": ["./_img/canvas/place30/159.png", "./_img/canvas/place30/160_159.png"] }, { "timestamp": 1649109600, "url": ["./_img/canvas/place30/159.png", "./_img/canvas/place30/161_159.png"] }, { "timestamp": 1649111400, "url": ["./_img/canvas/place30/159.png", "./_img/canvas/place30/162_159.png"] }, { "timestamp": 1649112460, "url": ["./_img/canvas/place30ex/final.png"] }, { "timestamp": 1649113200, "url": ["./_img/canvas/place30/159.png", "./_img/canvas/place30/163_159.png"] }, { "timestamp": 1649115000, "url": ["./_img/canvas/place30/159.png", "./_img/canvas/place30/164_159.png"] }, { "timestamp": 1649116800, "url": ["./_img/canvas/place30/159.png", "./_img/canvas/place30/165_159.png"] }, { "timestamp": 1649116967, "url": ["./_img/canvas/place30ex/end.png"] }]
+	},
+	tfc: {
+		name: "The Final Clean",
+		code: "T",
+		default: 2,
+		versions: [
+			{
+				timestamp: "Draft 1",
+				url: "./_img/canvas/tfc/draft1.png",
+			},
+			{
+				timestamp: "Draft 2",
+				url: "./_img/canvas/tfc/draft2.png",
+			},
+			{
+				timestamp: "Final",
+				url: "./_img/canvas/tfc/final.png",
+			},
+		]
+	}
 }
 
-tooltip.parentElement.addEventListener('mouseenter', () => tooltip.style.left = (((slider.offsetWidth)*(slider.value-1)/(slider.max-1)) - tooltip.offsetWidth/2) + "px"
-)
+const codeReference = {}
+const imageCache = {}
 
-window.addEventListener('resize', () => tooltip.style.left = (((slider.offsetWidth)*(slider.value-1)/(slider.max-1)) - tooltip.offsetWidth/2) + "px"
-)
+const variantsEl = document.getElementById("variants")
+
+for (const variation in variationsConfig) {
+	codeReference[variationsConfig[variation].code] = variation
+	const optionEl = document.createElement('option')
+	optionEl.value = variation
+	optionEl.textContent = variationsConfig[variation].name
+	variantsEl.appendChild(optionEl)
+}
+
+const timelineSlider = document.getElementById("timeControlsSlider");
+const tooltip = document.getElementById("timeControlsTooltip")
+const image = document.getElementById("image");
+let abortController = new AbortController()
+let currentUpdateIndex = 0
+let updateTimeout = setTimeout(null, 0)
+
+let currentVariation = "default"
+const defaultPeriod = variationsConfig[currentVariation].default
+let currentPeriod = defaultPeriod
+window.currentPeriod = currentPeriod
+window.currentVariation = currentVariation
+
+// SETUP
+timelineSlider.max = variationsConfig[currentVariation].versions.length - 1;
+timelineSlider.value = currentPeriod;
+
+timelineSlider.addEventListener("input", (event) => {
+	updateTooltip(parseInt(event.target.value), currentVariation)
+	clearTimeout(updateTimeout)
+	updateTimeout = setTimeout(() => {
+		updateTime(parseInt(timelineSlider.value), currentVariation)
+		setTimeout(() => {
+			if (timelineSlider.value != currentPeriod && abortController.signal.aborted) {
+				updateTime(parseInt(timelineSlider.value), currentVariation)
+			}
+		}, 50)
+	}, 25)
+})
+
+variantsEl.addEventListener("input", (event) => {
+	updateTime(currentPeriod, event.target.value)
+})
+
+// document.querySelector('#period-group .period-start').oninput = (event) => {
+//     slider.value = parseInt(event.target.value)
+//     updateTime(parseInt(event.target.value))
+// };
+
+// document.querySelector('#period-group .period-end').oninput = (event) => {
+//     slider.value = parseInt(event.target.value)
+//     updateTime(parseInt(event.target.value))
+// };
+
+const dispatchTimeUpdateEvent = (period = timelineSlider.value, atlas = atlas) => {
+	const timeUpdateEvent = new CustomEvent('timeupdate', {
+		detail: {
+			period: period,
+			atlas: atlas
+		}
+	});
+	document.dispatchEvent(timeUpdateEvent);
+}
+
+async function updateBackground(newPeriod = currentPeriod, newVariation = currentVariation) {
+	abortController.abort()
+	abortController = new AbortController()
+	currentUpdateIndex++
+	const myUpdateIndex = currentUpdateIndex
+	currentPeriod = newPeriod
+	// console.log(newPeriod, newVariation)
+	const variationConfig = variationsConfig[newVariation]
+	if (currentVariation !== newVariation) {
+		currentVariation = newVariation
+		timelineSlider.max = variationConfig.versions.length - 1;
+		currentPeriod = variationConfig.default;
+		newPeriod = currentPeriod
+	}
+	timelineSlider.value = currentPeriod
+	variantsEl.value = currentVariation
+	const configObject = variationConfig.versions[currentPeriod];
+	if (typeof configObject.url === "string") {
+		if (imageCache[configObject.url] === undefined) {
+			const fetchResult = await fetch(configObject.url, {
+				signal: abortController.signal
+			});
+			if (currentUpdateIndex !== myUpdateIndex) {
+				return [configObject, newPeriod, newVariation]
+			}
+			const imageBlob = await fetchResult.blob()
+			imageCache[configObject.url] = URL.createObjectURL(imageBlob)
+		}
+		image.src = imageCache[configObject.url]
+	} else {
+		const canvas = document.createElement('canvas')
+		const context = canvas.getContext('2d')
+		context.canvas.width = 2000
+		context.canvas.height = 2000
+		await Promise.all(configObject.url.map(async url => {
+			if (imageCache[url] === undefined) {
+				const fetchResult = await fetch(url, {
+					signal: abortController.signal
+				});
+				if (currentUpdateIndex !== myUpdateIndex) {
+					return
+				}
+				const imageBlob = await fetchResult.blob()
+				imageCache[url] = URL.createObjectURL(imageBlob)
+			}
+		}))
+		for await (const url of configObject.url) {
+			const imageLayer = new Image()
+			// console.log(imageCache[url])
+			await new Promise(resolve => {
+				imageLayer.onload = () => {
+					context.drawImage(imageLayer, 0, 0)
+					// console.log("image done")
+					resolve()
+				}
+				imageLayer.src = imageCache[url]
+			})
+		}
+
+		if (currentUpdateIndex !== myUpdateIndex) return [configObject, newPeriod, newVariation]
+		const blob = await new Promise(resolve => canvas.toBlob(resolve))
+		// console.log(URL.createObjectURL(blob))
+		image.src = URL.createObjectURL(blob)
+	}
+
+	return [configObject, newPeriod, newVariation]
+}
+
+async function updateTime(newPeriod = currentPeriod, newVariation = currentVariation) {
+	document.body.dataset.canvasLoading = true
+
+	let configObject
+	[configObject, newPeriod, newVariation] = await updateBackground(newPeriod, newVariation)
+
+	atlas = []
+	for (const atlasIndex in atlasAll) {
+		let pathChosen, centerChosen, chosenIndex
+
+		const validPeriods2 = Object.keys(atlasAll[atlasIndex].path)
+
+		// console.log(chosenIndex)
+
+		for (const i in validPeriods2) {
+			const validPeriods = validPeriods2[i].split(', ')
+			for (const j in validPeriods) {
+				const [start, end, variation] = parsePeriod(validPeriods[j])
+				// console.log(start, end, variation, newPeriod, newVariation)
+				if (isOnPeriod(start, end, variation, newPeriod, newVariation)) {
+					// console.log("match", start, end, variation, newPeriod, newVariation, i)
+					chosenIndex = i
+					break
+				}
+			}
+			if (chosenIndex !== undefined) break
+		}
+
+		// console.log(testMatches)
+
+		// console.log(chosenIndex)
+		if (chosenIndex === undefined) continue
+		pathChosen = Object.values(atlasAll[atlasIndex].path)[chosenIndex]
+		centerChosen = Object.values(atlasAll[atlasIndex].center)[chosenIndex]
+
+		if (pathChosen === undefined) continue
+
+		// console.log(123)
+
+		atlas.push({
+			...atlasAll[atlasIndex],
+			path: pathChosen,
+			center: centerChosen,
+		})
+	}
+	// console.log(atlas)
+
+	dispatchTimeUpdateEvent(newPeriod, atlas)
+	document.body.dataset.canvasLoading = false
+}
+
+function updateTooltip(newPeriod, newVariation) {
+	const configObject = variationsConfig[newVariation].versions[newPeriod]
+	if (typeof configObject.timestamp === "number") tooltip.querySelector('p').textContent = new Date(configObject.timestamp * 1000).toUTCString()
+	else tooltip.querySelector('p').textContent = configObject.timestamp
+	if (timelineSlider.max === 1) {
+		tooltip.style.left = (0 - tooltip.offsetWidth/2) + "px"
+	} else {
+		tooltip.style.left = (((timelineSlider.offsetWidth)*(timelineSlider.value)/(timelineSlider.max)) - tooltip.offsetWidth/2) + "px"
+	}
+}
+
+tooltip.parentElement.addEventListener('mouseenter', () => updateTooltip(parseInt(timelineSlider.value), currentVariation))
+
+window.addEventListener('resize', () => updateTooltip(parseInt(timelineSlider.value), currentVariation))
+
+function isOnPeriod(start, end, variation, currentPeriod, currentVariation) {
+	return currentPeriod >= start && currentPeriod <= end && variation === currentVariation
+}
+
+function parsePeriod(periodString) {
+	// console.log(periodString)
+	let variation = "default"
+	periodString = periodString + ""
+	if (periodString.split(':').length > 1) {
+		const split = periodString.split(':')
+		variation = codeReference[split[0]]
+		periodString = split[1]
+	}
+	if (periodString.search('-') + 1) {
+		const [start, end] = periodString.split('-').map(i => parseInt(i))
+		return [start, end, variation]
+	} else {
+		const periodNew = parseInt(periodString)
+		return [periodNew, periodNew, variation]
+	}
+}
