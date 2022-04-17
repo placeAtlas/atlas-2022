@@ -35,6 +35,14 @@ const exportOverlay = document.getElementById("exportOverlay");
 const exportCloseButton = document.getElementById("exportCloseButton");
 const exportBackButton = document.getElementById("exportBackButton")
 
+const nameField = document.getElementById("nameField")
+const descriptionField = document.getElementById("descriptionField")
+const websiteField = document.getElementById("websiteField")
+const subredditField = document.getElementById("subredditField")
+const discordField = document.getElementById("discordField")
+const wikiField = document.getElementById("wikiField")
+const exportArea = document.getElementById("exportString");
+
 let path = [];
 let center = [1000, 1000];
 
@@ -194,19 +202,19 @@ function initDraw() {
 		back();
 	});
 
-	document.getElementById("nameField").addEventListener("keyup", function (e) {
+	nameField.addEventListener("keyup", function (e) {
 		if (e.key == "Enter") {
 			exportJson();
 		}
 	});
 
-	// document.getElementById("websiteField").addEventListener("keyup", function(e){
+	// websiteField.addEventListener("keyup", function(e){
 	// 	if(e.key == "Enter"){
 	// 		exportJson();
 	// 	}
 	// });
 
-	// document.getElementById("subredditField").addEventListener("keyup", function(e){
+	// subredditField.addEventListener("keyup", function(e){
 	// 	if(e.key == "Enter"){
 	// 		exportJson();
 	// 	}
@@ -234,8 +242,8 @@ function initDraw() {
 	function exportJson() {
 		const exportObject = {
 			id: entryId,
-			name: document.getElementById("nameField").value,
-			description: document.getElementById("descriptionField").value,
+			name: nameField.value,
+			description: descriptionField.value,
 			links: {},
 			center: {},
 			path: {},
@@ -263,19 +271,22 @@ function initDraw() {
 			exportObject.center[key] = calculateCenter(value)
 		})
 
-		const inputWebsite = document.getElementById("websiteField").value.split('\n').map(line => line.trim()).filter(line => line)
-		const inputSubreddit = document.getElementById("subredditField").value.split('\n').map(line => line.trim().replace(/^\/?r\//, '')).filter(line => line)
+		const inputWebsite = websiteField.value.split('\n').map(line => line.trim()).filter(line => line)
+		const inputSubreddit = subredditField.value.split('\n').map(line => line.trim().replace(/(?:(?:(?:(?:https?:\/\/)?(?:(?:www|old|new|np)\.)?)?reddit\.com)?\/)?r\/([A-Za-z0-9][A-Za-z0-9_]{1,20})(?:\/[^" ]*)*/, '$1')).filter(line => line)
+		const inputDiscord = discordField.value.split('\n').map(line => line.trim().replace(/(?:https?:\/\/)?(?:www\.)?(?:(?:discord)?\.?gg|discord(?:app?)\.com\/invite)\/([^\s/]+?)(?=\b)/, '$1')).filter(line => line)
+		const inputWiki = wikiField.value.split('\n').map(line => line.trim().replace(/ /g, '_')).filter(line => line)
 
 		if (inputWebsite.length) exportObject.links.website = inputWebsite
 		if (inputSubreddit.length) exportObject.links.subreddit = inputSubreddit
+		if (inputDiscord.length) exportObject.links.discord = inputDiscord
+		if (inputWiki.length) exportObject.links.wiki = inputWiki
 
 		let jsonString = JSON.stringify(exportObject, null, "\t");
-		const textarea = document.getElementById("exportString");
 		jsonString = jsonString.split("\n");
 		jsonString = jsonString.join("\n    ");
 		jsonString = "    " + jsonString;
-		textarea.value = jsonString;
-		let directPostUrl = "https://www.reddit.com/r/placeAtlas2/submit?selftext=true&title=New%20Submission&text=" + encodeURIComponent(document.getElementById("exportString").value);
+		exportArea.value = jsonString;
+		let directPostUrl = "https://www.reddit.com/r/placeAtlas2/submit?selftext=true&title=New%20Submission&text=" + encodeURIComponent(exportArea.value);
 		if (jsonString.length > 7493) {
 			directPostUrl = "https://www.reddit.com/r/placeAtlas2/submit?selftext=true&title=New%20Submission&text=" + encodeURIComponent("    " + JSON.stringify(exportObject));
 		}
@@ -283,8 +294,8 @@ function initDraw() {
 
 		exportOverlay.style.display = "flex";
 
-		textarea.focus();
-		textarea.select();
+		exportArea.focus();
+		exportArea.select();
 	}
 
 	function undo() {
@@ -330,10 +341,10 @@ function initDraw() {
 		objectDraw.style.display = "block";
 		hintText.style.display = "block";
 
-		document.getElementById("nameField").value = "";
-		document.getElementById("descriptionField").value = "";
-		document.getElementById("websiteField").value = "";
-		document.getElementById("subredditField").value = "";
+		nameField.value = "";
+		descriptionField.value = "";
+		websiteField.value = "";
+		subredditField.value = "";
 	}
 
 	function back() {
@@ -431,10 +442,12 @@ function initDraw() {
 
 	if (params.has('id')) {
 		entry = getEntry(params.get('id'))
-		document.getElementById("nameField").value = entry.name
-		document.getElementById("descriptionField").value = entry.description
-		document.getElementById("websiteField").value = entry.links.website.join('\n')
-		document.getElementById("subredditField").value = entry.links.subreddit.map(sub => '/r/' + sub).join('\n')
+		nameField.value = entry.name
+		descriptionField.value = entry.description
+		websiteField.value = entry.links.website.join('\n')
+		subredditField.value = entry.links.subreddit.map(sub => '/r/' + sub).join('\n')
+		discordField.value = entry.links.discord.join('\n')
+		wikiField.value = entry.links.wiki.map(page => page.replace(/_/, ' ')).join('\n')
 		redoButton.disabled = true;
 		undoButton.disabled = false;
 		entryId = params.get('id')
