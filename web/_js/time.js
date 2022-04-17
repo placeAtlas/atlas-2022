@@ -231,7 +231,11 @@ function updateTooltip(newPeriod, newVariation) {
 	const configObject = variationsConfig[newVariation].versions[newPeriod]
 	if (typeof configObject.timestamp === "number") tooltip.querySelector('p').textContent = new Date(configObject.timestamp * 1000).toUTCString()
 	else tooltip.querySelector('p').textContent = configObject.timestamp
-	tooltip.style.left = Math.max(((timelineSlider.offsetWidth) * (timelineSlider.value >= 1 ? timelineSlider.value - 1 : 0) / (timelineSlider.max - 1)) - tooltip.offsetWidth / 2, 0) + "px"
+	if (timelineSlider.max === 1) {
+		tooltip.style.left = (0 - tooltip.offsetWidth/2) + "px"
+	} else {
+		tooltip.style.left = (((timelineSlider.offsetWidth)*(timelineSlider.value)/(timelineSlider.max)) - tooltip.offsetWidth/2) + "px"
+	}
 }
 
 tooltip.parentElement.addEventListener('mouseenter', () => updateTooltip(parseInt(timelineSlider.value), currentVariation))
