@@ -374,6 +374,8 @@ function initDraw() {
 
 	function render(path) {
 
+		if (!Array.isArray(path)) return
+
 		context.globalCompositeOperation = "source-over";
 		context.clearRect(0, 0, canvas.width, canvas.height);
 
