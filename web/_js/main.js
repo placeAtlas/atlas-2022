@@ -15,64 +15,67 @@
 
 const prodDomain = "place-atlas.stefanocoding.me"
 
-var innerContainer = document.getElementById("innerContainer");
-var container = document.getElementById("container");
-var canvas = document.getElementById("highlightCanvas");
-var context = canvas.getContext("2d");
+const innerContainer = document.getElementById("innerContainer");
+const container = document.getElementById("container");
+const canvas = document.getElementById("highlightCanvas");
+const context = canvas.getContext("2d");
 
-var zoom = 1;
+let zoom = 1;
 
-if(window.devicePixelRatio){
-	zoom = 1/window.devicePixelRatio;
+if (window.devicePixelRatio) {
+	zoom = 1 / window.devicePixelRatio;
 }
 
-var maxZoom = 128;
-var minZoom = 0.1;
+const maxZoom = 128;
+const minZoom = 0.1;
 
-var zoomOrigin = [0, 0];
-var scaleZoomOrigin = [0, 0];
+let zoomOrigin = [0, 0];
+let scaleZoomOrigin = [0, 0];
 
-var dragging = false;
-var lastPosition = [0, 0];
+let dragging = false;
+let lastPosition = [0, 0];
 
-var viewportSize = [0, 0];
+const viewportSize = [0, 0];
 
-document.getElementById("entriesListDonate").addEventListener("click", function(e){
+document.getElementById("entriesListDonate").addEventListener("click", function (e) {
 	document.getElementById("donateOverlay").style.display = "flex";
 });
 
-document.getElementById("closeDonateButton").addEventListener("click", function(e){
+document.getElementById("closeDonateButton").addEventListener("click", function (e) {
 	document.getElementById("donateOverlay").style.display = "none";
 });
 
-function applyView(){
-	
+function applyView() {
+
 	//console.log(zoomOrigin, scaleZoomOrigin);
 	//console.log(scaleZoomOrigin[0]);
 
 	scaleZoomOrigin[0] = Math.max(-1000, Math.min(1000, scaleZoomOrigin[0]));
 	scaleZoomOrigin[1] = Math.max(-1000, Math.min(1000, scaleZoomOrigin[1]));
 
-	zoomOrigin = [scaleZoomOrigin[0]*zoom, scaleZoomOrigin[1]*zoom];
+	zoomOrigin = [scaleZoomOrigin[0] * zoom, scaleZoomOrigin[1] * zoom];
 
-	innerContainer.style.height = (~~(zoom*2000))+"px";
-	innerContainer.style.width = (~~(zoom*2000))+"px";
-	
-	innerContainer.style.left = ~~(container.clientWidth/2 - innerContainer.clientWidth/2 + zoomOrigin[0] + container.offsetLeft)+"px";
-	innerContainer.style.top = ~~(container.clientHeight/2 - innerContainer.clientHeight/2 + zoomOrigin[1] + container.offsetTop)+"px";
-	
+	innerContainer.style.height = (~~(zoom * 2000)) + "px";
+	innerContainer.style.width = (~~(zoom * 2000)) + "px";
+
+	innerContainer.style.left = ~~(container.clientWidth / 2 - innerContainer.clientWidth / 2 + zoomOrigin[0] + container.offsetLeft) + "px";
+	innerContainer.style.top = ~~(container.clientHeight / 2 - innerContainer.clientHeight / 2 + zoomOrigin[1] + container.offsetTop) + "px";
+
 }
 
-var atlas = null;
+let atlas = null;
+window.atlas = atlas
+let atlasAll = null
+window.atlasAll = atlasAll
 
 if (document.location.host !== prodDomain) document.body.dataset.dev = ""
 
 init();
 
-async function init(){
+async function init() {
 	// For Reviewing Reddit Changes
 	//let resp = await fetch("../tools/temp_atlas.json");
-	let resp = await fetch("./atlas.json");
+	const resp = await fetch("./atlas.json");
 	atlas = await resp.json();
 	atlas.sort(function (a, b) {
 		if (a.center[1] < b.center[1]) {
@@ -84,31 +87,41 @@ async function init(){
 		// a must be equal to b
 		return 0;
 	});
-	//TEMP FOR TIME TRAVEL
-	atlasBackup = atlas;
-	
+
+	atlasAll = updateAtlasAll(atlas);
+
+	await updateTime(currentPeriod, currentVariation)
 
 	//console.log(document.documentElement.clientWidth, document.documentElement.clientHeight);
 
 	zoomOrigin = [0, 0];
 	applyView();
 
-	var initialPinchDistance = 0;
-	var initialPinchZoom = 0;
-	var initialPinchZoomOrigin = [0, 0];
+	let initialPinchDistance = 0;
+	let initialPinchZoom = 0;
+	let initialPinchZoomOrigin = [0, 0];
 
-	var desiredZoom;
-	var zoomAnimationFrame;
+	let desiredZoom;
+	let zoomAnimationFrame;
 
-	var mode = "view";
+	let mode = "view";
 
-	var args = window.location.search;
-	if(args){
-		mode = args.split("mode=")[1];
-		if(mode){
-			mode = mode.split("&")[0];
-		} else {
+	const args = window.location.search;
+	const params = new URLSearchParams(args)
+	if (args) {
+		mode = params.get("mode")
+		if (!mode) {
 			mode = "view";
+		}
+
+		// Backwards compatibility for old links using "search" id arg
+		if (params.has('id') && params.get('mode') !== 'draw') {
+			const id = params.get('id')
+			params.delete('id')
+			const newLocation = new URL(window.location)
+			newLocation.hash = id
+			newLocation.search = params
+			window.history.replaceState({}, '', newLocation)
 		}
 	}
 
@@ -117,77 +130,78 @@ async function init(){
 	initGlobal()
 	if (mode !== "draw") initViewGlobal()
 
-	if(mode === "draw"){
-		initDraw();	
-	} else if(mode === "about"){
+	if (mode === "draw") {
+		initDraw();
+	} else if (mode === "about") {
 		window.location = "./about.html";
-	} else if(mode === "overlap"){
-		if(initOverlap){
+	} else if (mode === "overlap") {
+		if (initOverlap) {
 			initOverlap();
 		}
-	} else if(mode.startsWith("diff")){
+	} else if (mode.startsWith("diff")) {
 		try {
-			let liveResp = await fetch("https://place-atlas.stefanocoding.me/atlas.json");
+			const liveResp = await fetch("https://place-atlas.stefanocoding.me/atlas.json");
 			let liveJson = await liveResp.json();
-			let liveAtlasReduced = liveJson.reduce(function(a, c) {
+			liveJson = updateAtlasAll(liveJson)
+			// console.log(liveJson)
+
+			const liveAtlasReduced = liveJson.reduce(function (a, c) {
 				a[c.id] = c;
 				return a;
-			},{});
+			}, {});
 			// Mark added/edited entries
-			atlas = atlas.map(function(entry) {
-				if(liveAtlasReduced[entry.id] === undefined){
+			atlasAll = atlasAll.map(function (entry) {
+				if (liveAtlasReduced[entry.id] === undefined) {
 					entry.diff = "add";
-				}else if(JSON.stringify(entry) !== JSON.stringify(liveAtlasReduced[entry.id])){
+				} else if (JSON.stringify(entry) !== JSON.stringify(liveAtlasReduced[entry.id])) {
 					entry.diff = "edit";
 				}
 				return entry;
 			});
 
 			// Mark removed entries
-			let atlasReduced = atlas.reduce(function(a, c) {
+			const atlasReduced = atlasAll.reduce(function (a, c) {
 				a[c.id] = c;
 				return a;
-			},{});
-			let removedEntries = liveJson.filter(entry => 
+			}, {});
+			const removedEntries = liveJson.filter(entry =>
 				atlasReduced[entry.id] === undefined
 			).map(entry => {
 				entry.diff = "delete"
 				return entry
 			})
-			atlas.push(...removedEntries)
+			atlasAll.push(...removedEntries)
 
-			if(mode.includes("only")){
-				atlas = atlas.filter(function(entry) {
+			if (mode.includes("only")) {
+				atlasAll = atlasAll.filter(function (entry) {
 					return typeof entry.diff == "string"
 				});
 			}
-			//TEMP FOR TIME TRAVEL
-			atlasBackup = atlas;
+
 		} catch (error) {
 			console.warn("Diff mode failed to load, reverting to normal view.", error);
 		} finally {
-			if(initOverlap && mode.includes("overlap")){
+			await updateTime()
+			if (initOverlap && mode.includes("overlap")) {
 				initOverlap();
 			} else {
 				initView();
 			}
 		}
-	} else if(mode === "explore"){
+	} else if (mode === "explore") {
 		initExplore();
 	} else {
 		initView();
 	}
-	
-	document.getElementById("loading").style.display = "none";
 
-	document.getElementById("zoomInButton").addEventListener("click", function(e){
+	document.getElementById("zoomInButton").addEventListener("click", function (e) {
 
 		/*if(zoomAnimationFrame){
 			window.cancelAnimationFrame(zoomAnimationFrame);
 		}*/
-		
-		var x = container.clientWidth/2;
-		var y = container.clientHeight/2;
+
+		const x = container.clientWidth / 2;
+		const y = container.clientHeight / 2;
 
 		initialPinchZoomOrigin = [
 			scaleZoomOrigin[0],
@@ -195,23 +209,23 @@ async function init(){
 		];
 
 		initialPinchZoom = zoom;
-		
+
 		lastPosition = [x, y];
 		zoom = zoom * 2;
 		zoom = Math.max(minZoom, Math.min(maxZoom, zoom));
-		
+
 		applyZoom(x, y, zoom);
-		
+
 	});
 
-	document.getElementById("zoomOutButton").addEventListener("click", function(e){
+	document.getElementById("zoomOutButton").addEventListener("click", function (e) {
 
 		/*if(zoomAnimationFrame){
 			window.cancelAnimationFrame(zoomAnimationFrame);
 		}*/
-		
-		var x = container.clientWidth/2;
-		var y = container.clientHeight/2;
+
+		const x = container.clientWidth / 2;
+		const y = container.clientHeight / 2;
 
 		initialPinchZoomOrigin = [
 			scaleZoomOrigin[0],
@@ -219,15 +233,15 @@ async function init(){
 		];
 
 		initialPinchZoom = zoom;
-		
+
 		lastPosition = [x, y];
 		zoom = zoom / 2;
 		zoom = Math.max(minZoom, Math.min(maxZoom, zoom));
-		
+
 		applyZoom(x, y, zoom);
 	});
 
-	document.getElementById("zoomResetButton").addEventListener("click", function(e){
+	document.getElementById("zoomResetButton").addEventListener("click", function (e) {
 		zoom = 1;
 		zoomOrigin = [0, 0];
 		scaleZoomOrigin = [0, 0];
@@ -235,13 +249,13 @@ async function init(){
 		applyView();
 	});
 
-	container.addEventListener("dblclick", function(e){
+	container.addEventListener("dblclick", function (e) {
 		/*if(zoomAnimationFrame){
 			window.cancelAnimationFrame(zoomAnimationFrame);
 		}*/
 
-		var x = e.clientX - container.offsetLeft;
-		var y = e.clientY - container.offsetTop;
+		const x = e.clientX - container.offsetLeft;
+		const y = e.clientY - container.offsetTop;
 
 		initialPinchZoomOrigin = [
 			scaleZoomOrigin[0],
@@ -249,15 +263,15 @@ async function init(){
 		];
 
 		initialPinchZoom = zoom;
-		
+
 		lastPosition = [x, y];
 
-		if(e.ctrlKey){
+		if (e.ctrlKey) {
 
 			zoom = zoom / 2;
-			
+
 		} else {
-			
+
 			zoom = zoom * 2;
 		}
 
@@ -268,14 +282,14 @@ async function init(){
 	});
 
 
-	container.addEventListener("wheel", function(e){
+	container.addEventListener("wheel", function (e) {
 
 		/*if(zoomAnimationFrame){
 			window.cancelAnimationFrame(zoomAnimationFrame);
 		}*/
 
-		var x = e.clientX - container.offsetLeft;
-		var y = e.clientY - container.offsetTop;
+		const x = e.clientX - container.offsetLeft;
+		const y = e.clientY - container.offsetTop;
 
 		initialPinchZoomOrigin = [
 			scaleZoomOrigin[0],
@@ -283,7 +297,7 @@ async function init(){
 		];
 
 		initialPinchZoom = zoom;
-		
+
 		lastPosition = [x, y];
 
 		// Check if we are zooming by pixels
@@ -294,12 +308,12 @@ async function init(){
 			// This creates a smoother experience
 			zoom -= e.deltaY * (0.001 * zoom);
 		} else {
-			if(e.deltaY > 0){
-	
+			if (e.deltaY > 0) {
+
 				zoom = zoom / 2;
-				
-			} else if(e.deltaY < 0){
-				
+
+			} else if (e.deltaY < 0) {
+
 				zoom = zoom * 2;
 			}
 		}
@@ -308,7 +322,7 @@ async function init(){
 		applyZoom(x, y, zoom);
 
 		e.preventDefault();
-	}, {passive: true});
+	}, { passive: true });
 
 	/*function setDesiredZoom(x, y, target){
 		zoom = (zoom*2 + target)/3;
@@ -324,36 +338,36 @@ async function init(){
 		}
 	}*/
 
-	container.addEventListener("mousedown", function(e){
+	container.addEventListener("mousedown", function (e) {
 		mousedown(e.clientX, e.clientY);
 		e.preventDefault();
 	});
-	
-	container.addEventListener("touchstart", function(e){
 
-		if(e.touches.length == 2){
+	container.addEventListener("touchstart", function (e) {
+
+		if (e.touches.length == 2) {
 			e.preventDefault();
 		}
 
 		touchstart(e);
 
-	},	{passive: true});
+	}, { passive: true });
 
-	function mousedown(x, y){
+	function mousedown(x, y) {
 		lastPosition = [x, y];
 		dragging = true;
 	}
 
-	function touchstart(e){
-		
-		if(e.touches.length == 1){
-			
+	function touchstart(e) {
+
+		if (e.touches.length == 1) {
+
 			mousedown(e.touches[0].clientX, e.touches[0].clientY);
-			
-		} else if(e.touches.length == 2){
-			
+
+		} else if (e.touches.length == 2) {
+
 			initialPinchDistance = Math.sqrt(
-				  Math.pow(e.touches[0].clientX - e.touches[1].clientX, 2)
+				Math.pow(e.touches[0].clientX - e.touches[1].clientX, 2)
 				+ Math.pow(e.touches[0].clientY - e.touches[1].clientY, 2)
 			);
 
@@ -362,46 +376,46 @@ async function init(){
 				scaleZoomOrigin[0],
 				scaleZoomOrigin[1]
 			];
-			
+
 			mousedown(
-				(e.touches[0].clientX + e.touches[1].clientX)/2,
-				(e.touches[0].clientY + e.touches[1].clientY)/2
+				(e.touches[0].clientX + e.touches[1].clientX) / 2,
+				(e.touches[0].clientY + e.touches[1].clientY) / 2
 			);
-			
+
 		}
-		
+
 	}
 
-	window.addEventListener("mousemove", function(e){
+	window.addEventListener("mousemove", function (e) {
 		updateLines();
 		mousemove(e.clientX, e.clientY);
-		if(dragging){
+		if (dragging) {
 			e.preventDefault();
 		}
 	});
-	window.addEventListener("touchmove", function(e){
+	window.addEventListener("touchmove", function (e) {
 
-		if(e.touches.length == 2 || e.scale > 1){
+		if (e.touches.length == 2 || e.scale > 1) {
 			e.preventDefault();
 		}
 
 		touchmove(e);
 
 	},
-	{passive: false}
+		{ passive: false }
 	);
 
-	function mousemove(x, y){
-		if(dragging){
-			var deltaX = x - lastPosition[0];
-			var deltaY = y - lastPosition[1];
+	function mousemove(x, y) {
+		if (dragging) {
+			const deltaX = x - lastPosition[0];
+			const deltaY = y - lastPosition[1];
 			lastPosition = [x, y];
 
 			zoomOrigin[0] += deltaX;
 			zoomOrigin[1] += deltaY;
 
-			scaleZoomOrigin[0] += deltaX/zoom;
-			scaleZoomOrigin[1] += deltaY/zoom;
+			scaleZoomOrigin[0] += deltaX / zoom;
+			scaleZoomOrigin[1] += deltaY / zoom;
 
 			previousZoomOrigin = [zoomOrigin[0], zoomOrigin[1]];
 			previousScaleZoomOrigin = [scaleZoomOrigin[0], scaleZoomOrigin[1]];
@@ -411,81 +425,123 @@ async function init(){
 		}
 	}
 
-	function touchmove(e){
+	function touchmove(e) {
 
 		updateLines();
-		
-		if(e.touches.length == 1){
-			
+
+		if (e.touches.length == 1) {
+
 			mousemove(e.touches[0].clientX, e.touches[0].clientY);
-			
-		} else if(e.touches.length == 2){
-			
-			var newPinchDistance = Math.sqrt(
-				  Math.pow(e.touches[0].clientX - e.touches[1].clientX, 2)
+
+		} else if (e.touches.length == 2) {
+
+			const newPinchDistance = Math.sqrt(
+				Math.pow(e.touches[0].clientX - e.touches[1].clientX, 2)
 				+ Math.pow(e.touches[0].clientY - e.touches[1].clientY, 2)
 			);
 
 			zoom = initialPinchZoom * newPinchDistance / initialPinchDistance;
 
-			var x = (e.touches[0].clientX + e.touches[1].clientX)/2 - container.offsetLeft;
-			var y = (e.touches[0].clientY + e.touches[1].clientY)/2 - container.offsetTop;
+			const x = (e.touches[0].clientX + e.touches[1].clientX) / 2 - container.offsetLeft;
+			const y = (e.touches[0].clientY + e.touches[1].clientY) / 2 - container.offsetTop;
 
 			applyZoom(x, y, zoom);
-			
+
 		}
-		
+
 	}
 
-	function applyZoom(x, y, zoom){
+	function applyZoom(x, y, zoom) {
 
-		var deltaX = x - lastPosition[0];
-		var deltaY = y - lastPosition[1];
+		const deltaX = x - lastPosition[0];
+		const deltaY = y - lastPosition[1];
 
-		var pinchTranslateX = (x - container.clientWidth/2 - deltaX);
-		var pinchTranslateY = (y - container.clientHeight/2 - deltaY);
+		const pinchTranslateX = (x - container.clientWidth / 2 - deltaX);
+		const pinchTranslateY = (y - container.clientHeight / 2 - deltaY);
 
-		scaleZoomOrigin[0] = initialPinchZoomOrigin[0] + deltaX/zoom + pinchTranslateX/zoom - pinchTranslateX/initialPinchZoom;
-		scaleZoomOrigin[1] = initialPinchZoomOrigin[1] + deltaY/zoom + pinchTranslateY/zoom - pinchTranslateY/initialPinchZoom;
+		scaleZoomOrigin[0] = initialPinchZoomOrigin[0] + deltaX / zoom + pinchTranslateX / zoom - pinchTranslateX / initialPinchZoom;
+		scaleZoomOrigin[1] = initialPinchZoomOrigin[1] + deltaY / zoom + pinchTranslateY / zoom - pinchTranslateY / initialPinchZoom;
 
-		zoomOrigin[0] = scaleZoomOrigin[0]*zoom;
-		zoomOrigin[1] = scaleZoomOrigin[1]*zoom;
-		
+		zoomOrigin[0] = scaleZoomOrigin[0] * zoom;
+		zoomOrigin[1] = scaleZoomOrigin[1] * zoom;
+
 		applyView();
 		updateLines();
 	}
 
-	window.addEventListener("mouseup", function(e){
-		if(dragging){
+	window.addEventListener("mouseup", function (e) {
+		if (dragging) {
 			e.preventDefault();
 		}
 		mouseup(e.clientX, e.clientY);
 	});
 	window.addEventListener("touchend", touchend);
 
-	function mouseup(x, y){
-		if(dragging){
+	function mouseup(x, y) {
+		if (dragging) {
 			dragging = false;
 		}
 	}
 
-	function touchend(e){
-		
-		if(e.touches.length == 0){
-			
+	function touchend(e) {
+
+		if (e.touches.length == 0) {
+
 			mouseup();
-			
-		} else if(e.touches.length == 1){
+
+		} else if (e.touches.length == 1) {
 			initialPinchZoom = zoom;
 			lastPosition = [e.touches[0].clientX, e.touches[0].clientY];
 		}
-		
+
 	}
 
-	window.addEventListener("resize", function(){
+	window.addEventListener("resize", function () {
 		//console.log(document.documentElement.clientWidth, document.documentElement.clientHeight);
-		
+
 		applyView();
 	});
-	
+
+	document.body.dataset.initDone = ''
+
+}
+
+function updateAtlasAll(atlas) {
+	if (!atlas) atlas = atlasAll
+	for (const atlasIndex in atlas) {
+		if (Array.isArray(atlas[atlasIndex].path)) {
+			const currentPath = atlas[atlasIndex].path
+			atlas[atlasIndex].path = {}
+			atlas[atlasIndex].path[defaultPeriod] = currentPath
+		}
+		if (Array.isArray(atlas[atlasIndex].center)) {
+			const currentCenter = atlas[atlasIndex].center
+			atlas[atlasIndex].center = {}
+			atlas[atlasIndex].center[defaultPeriod] = currentCenter
+		}
+		if (atlas[atlasIndex].links) {
+			const currentLinks = atlas[atlasIndex].links
+			atlas[atlasIndex].links = {
+				website: [],
+				subreddit: [],
+				discord: [],
+				wiki: [],
+				...currentLinks
+			}
+		} else {
+			atlas[atlasIndex].links = {
+				website: [],
+				subreddit: [],
+				discord: [],
+				wiki: []
+			}
+
+			if (atlas[atlasIndex].website) atlas[atlasIndex].links.website = [atlas[atlasIndex].website]
+			if (atlas[atlasIndex].subreddit) atlas[atlasIndex].links.subreddit = atlas[atlasIndex].subreddit.split(',').map(subreddit => subreddit.trim().replace(/^\/r\//, ''))
+
+			delete atlas[atlasIndex].website
+			delete atlas[atlasIndex].subreddit
+		}
+	}
+	return atlas
 }

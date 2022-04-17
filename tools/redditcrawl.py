@@ -7,6 +7,7 @@ import traceback
 from formatter import format_all
 
 outfile = open('temp_atlas.json', 'w', encoding='utf-8')
+editidsfile = open('read-ids-temp.txt', 'w')
 failfile = open('manual_atlas.json', 'w', encoding='utf-8')
 
 with open('credentials', 'r') as file:
@@ -29,13 +30,16 @@ if not has_write_access:
 	print("Warning: No write access. Post flairs will not be updated.")
 	time.sleep(5)
 
-jsonfile = open("../web/atlas.json", "r", encoding='utf-8')
-existing = json.load(jsonfile)
-
 existing_ids = []
 
-for item in existing:
-	existing_ids.append(item['id'])
+with open('../data/edit-ids.txt', 'r') as edit_ids_file:
+	for id in [x.strip() for x in edit_ids_file.readlines()]:
+		existing_ids.append(id)
+
+with open('../data/edit-ids.txt', 'r') as edit_ids_file:
+	for id in [x.strip() for x in edit_ids_file.readlines()]:
+		existing_ids.append(id)
+
 
 def set_flair(submission, flair):
 	if has_write_access and submission.link_flair_text != flair:
@@ -84,8 +88,8 @@ for submission in reddit.subreddit('placeAtlas2').new(limit=2000):
 			break
 		else:
 			continue
-
-	if (submission.link_flair_text == "New Entry"):
+	
+	if submission.link_flair_text == "New Entry" or submission.link_flair_text == "Edit Entry":
 
 		try:
 
@@ -102,11 +106,41 @@ for submission in reddit.subreddit('placeAtlas2').new(limit=2000):
 
 			if submission_json:
 
-				submission_json_dummy = {"id": submission.id, "submitted_by": ""}
-				try:
-					submission_json_dummy["submitted_by"] = submission.author.name
-				except AttributeError:
-					submission_json_dummy["submitted_by"] = "unknown"
+				if submission.link_flair_text == "Edit Entry":
+
+					assert submission_json["id"] != 0, "ID is tampered, it must not be 0!"
+					submission_json_dummy = {"id": submission_json["id"], "edit": True, "contributors": []}
+
+					if "submitted_by" in submission_json:
+						submission_json_dummy["contributors"].append(submission_json['submitted_by'])
+						del submission_json['submitted_by']
+					elif "contributors" in submission_json:
+						submission_json_dummy["contributors"] = submission_json["contributors"]
+
+					try:
+						if not submission.author.name in submission_json_dummy:
+							submission_json_dummy["contributors"].append(submission.author.name)
+					except AttributeError:
+						submission_json_dummy["contributors"].append("unknown")
+
+				else:
+
+					assert submission_json["id"] == 0, "ID is tampered, it must be 0!"
+					submission_json_dummy = {"id": submission.id, "contributors": []}
+
+					if "submitted_by" in submission_json:
+						submission_json_dummy["contributors"].append(submission_json['submitted_by'])
+						del submission_json['submitted_by']
+					elif "contributors" in submission_json:
+						submission_json_dummy["contributors"] = submission_json["contributors"]
+
+					try:
+						if not submission.author.name in submission_json_dummy:
+							submission_json_dummy["contributors"].append(submission.author.name)
+					except AttributeError:
+						submission_json_dummy["contributors"].append("unknown")
+
+
 				for key in submission_json:
 					if not key in submission_json_dummy:
 						submission_json_dummy[key] = submission_json[key];
@@ -116,6 +150,7 @@ for submission in reddit.subreddit('placeAtlas2').new(limit=2000):
 					"Submission invalid after validation. This may be caused by not enough points on the path."
 					
 				outfile.write(json.dumps(submission_json, ensure_ascii=False) + ",\n")
+				editidsfile.write(submission.id + '\n')
 				successcount += 1
 				set_flair(submission, "Processed Entry")
 

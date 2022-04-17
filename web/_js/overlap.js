@@ -13,26 +13,29 @@
 	========================================================================
 */
 
-function initOverlap(){
+function initOverlap() {
 
 	window.renderBackground = renderBackground
 
-	var hovered = [];
+	const hovered = [];
 
 	buildObjectsList(null, null);
 	renderBackground(atlas);
 	render();
 
+	document.addEventListener('timeupdate', (event) => {
+		sortedAtlas = atlas.concat()
+		resetEntriesList(null, null)
+		renderBackground(sortedAtlas);
+		render();
+	})
+
 	applyView();
 	render();
 	updateLines();
 
-	var args = window.location.search;
-	if(args){
-		id = args.split("id=")[1];
-		if(id){
-			highlightEntryFromUrl();
-		}
+	if (window.location.hash) {
+		highlightEntryFromUrl();
 	}
 
 	function renderBackground(atlas) {
@@ -42,17 +45,17 @@ function initOverlap(){
 		backgroundContext.fillStyle = "rgba(255, 255, 255, 1)";
 		backgroundContext.fillRect(0, 0, canvas.width, canvas.height);
 
-		for(var i = 0; i < atlas.length; i++){
+		for (let i = 0; i < atlas.length; i++) {
 
-			var path = atlas[i].path;
+			const path = atlas[i].path;
 
 			backgroundContext.beginPath();
 
-			if(path[0]){
+			if (path[0]) {
 				backgroundContext.moveTo(path[0][0], path[0][1]);
 			}
 
-			for(var p = 1; p < path.length; p++){
+			for (let p = 1; p < path.length; p++) {
 				backgroundContext.lineTo(path[p][0], path[p][1]);
 			}
 
@@ -62,16 +65,18 @@ function initOverlap(){
 			backgroundContext.fill();
 		}
 
-		var pixels = backgroundContext.getImageData(0, 0, backgroundCanvas.width, backgroundCanvas.height).data;
-		var blank = 0;
+		const pixels = backgroundContext.getImageData(0, 0, backgroundCanvas.width, backgroundCanvas.height).data;
+		let blank = 0;
 
-		for(var i = 0; i < pixels.length; i+=4){
-			if(pixels[i] == 255){
+		for (let i = 0; i < pixels.length; i += 4) {
+			if (pixels[i] == 255) {
 				blank++;
 			}
 		}
 
-		console.log(blank+" blank pixels, which are "+Math.round(blank/100)/100+"% of the canvas ("+(100-Math.round(blank/100)/100)+"% mapped)");
+		const blankPercentage = (blank / (2000 * 2000)) * 100
+
+		console.info(blank + " blank pixels, which are " + blankPercentage.toPrecision(4) + "% of the canvas (" + (100 - blankPercentage).toPrecision(4) + "% mapped)");
 	}
 
 }

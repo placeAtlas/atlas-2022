@@ -14,76 +14,93 @@
 */
 
 function createInfoBlock(entry) {
-    function createInfoParagraph(name, value){
-        let entryParagraphPositionElement = document.createElement("p");
-        let nameElement = document.createElement("span");
-        nameElement.style.fontWeight = "bold";
-        nameElement.innerText = name;
-        let valueElement = document.createElement("span");
-        valueElement.innerText = value;
-        entryParagraphPositionElement.appendChild(nameElement);
-        entryParagraphPositionElement.appendChild(valueElement);
-        return entryParagraphPositionElement;
-    }
+	// console.log(entry)
+	function createInfoParagraph(name, value) {
+		const entryParagraphPositionElement = document.createElement("p");
+		const nameElement = document.createElement("span");
+		nameElement.style.fontWeight = "bold";
+		nameElement.innerText = name;
+		const valueElement = document.createElement("span");
+		valueElement.innerText = value;
+		entryParagraphPositionElement.appendChild(nameElement);
+		entryParagraphPositionElement.appendChild(valueElement);
+		return entryParagraphPositionElement;
+	}
 
-    var element = document.createElement("div");
-    element.className = "object";
+	const element = document.createElement("div");
+	element.className = "object";
 
-    let headerElement = document.createElement("h2");
-    let linkElement = document.createElement("a");
-    linkElement.href = "?id=" + entry.id;
-    linkElement.innerText = entry.name;
-    headerElement.appendChild(linkElement);
+	const headerElement = document.createElement("h2");
+	const linkElement = document.createElement("a");
+	linkElement.href = "#" + entry.id;
+	linkElement.innerText = entry.name;
+	headerElement.appendChild(linkElement);
 
-    element.appendChild(headerElement);
+	element.appendChild(headerElement);
 
-    if (entry.diff) {
-        let diffElement = createInfoParagraph("Diff: ", entry.diff);
-        diffElement.className = entry.diff;
-        element.appendChild(diffElement);
-    }
+	if (entry.diff) {
+		const diffElement = createInfoParagraph("Diff: ", entry.diff);
+		diffElement.className = entry.diff;
+		element.appendChild(diffElement);
+	}
 
-    if (entry.description) {
-        let descElement = document.createElement("p");
-        descElement.innerText = entry.description;
-        element.appendChild(descElement);
-    }
-    
-    let [x, y] = entry.center;
-    element.appendChild(createInfoParagraph("Position: ", `${Math.floor(x)}, ${Math.floor(y)}`));
+	if (entry.description) {
+		const descElement = document.createElement("p");
+		descElement.innerText = entry.description;
+		element.appendChild(descElement);
+	}
 
-    if(entry.path){
-        let area = calcPolygonArea(entry.path);
-        element.appendChild(createInfoParagraph("Area: ", `${area} pixels`));
-    }
-    
-    if (entry.website) {
-        let websiteLinkElement = document.createElement("a");
-        websiteLinkElement.target = "_blank";
-        websiteLinkElement.href = entry.website;
-        websiteLinkElement.innerText = "Website";
-        element.appendChild(websiteLinkElement);
-    }
-    if (entry.subreddit) {
-        var subreddits = entry.subreddit.split(",");
+	const [x, y] = entry.center;
+	element.appendChild(createInfoParagraph("Position: ", `${Math.floor(x)}, ${Math.floor(y)}`));
 
-        for (var i in subreddits) {
-            var subreddit = subreddits[i].trim();
-            if (subreddit.substring(0, 2) == "r/") {
-                subreddit = "/" + subreddit;
-            } else if (subreddit.substring(0, 1) != "/") {
-                subreddit = "/r/" + subreddit;
-            }
-            let subredditLinkElement = document.createElement("a");
-            subredditLinkElement.target = "_blank";
-            subredditLinkElement.href = "https://reddit.com" + subreddit;
-            subredditLinkElement.innerText = subreddit;
-            element.appendChild(subredditLinkElement);
-        }
-    }
-    let idElement = createInfoParagraph("ID: ", entry.id);
-    idElement.style.fontFamily = "Dejavu Sans Mono, sans, Sans-Serif;";
-    element.appendChild(idElement);
+	if (entry.path) {
+		const area = calcPolygonArea(entry.path);
+		element.appendChild(createInfoParagraph("Area: ", `${area} pixels`));
+	}
 
-    return element;
+	entry.links.subreddit.forEach(subreddit => {
+		subreddit = "/r/" + subreddit;
+		const subredditLinkElement = document.createElement("a");
+		subredditLinkElement.target = "_blank";
+		subredditLinkElement.href = "https://reddit.com" + subreddit;
+		subredditLinkElement.innerText = subreddit;
+		element.appendChild(subredditLinkElement);
+	})
+
+	entry.links.website.forEach(link => {
+		const websiteLinkElement = document.createElement("a");
+		websiteLinkElement.target = "_blank";
+		websiteLinkElement.href = link;
+		websiteLinkElement.innerText = "Website";
+		element.appendChild(websiteLinkElement);
+	})
+
+	entry.links.discord.forEach(link => {
+		const websiteLinkElement = document.createElement("a");
+		websiteLinkElement.target = "_blank";
+		websiteLinkElement.href = "https://discord.gg/" + link;
+		websiteLinkElement.innerText = "Discord";
+		element.appendChild(websiteLinkElement);
+	})
+
+	entry.links.wiki.forEach(link => {
+		const websiteLinkElement = document.createElement("a");
+		websiteLinkElement.target = "_blank";
+		websiteLinkElement.href = "https://place-wiki.stefanocoding.me/wiki/" + link.replace(/ /g, '_');
+		websiteLinkElement.innerText = "Wiki Article";
+		element.appendChild(websiteLinkElement);
+	})
+
+	const idElement = createInfoParagraph("ID: ", entry.id);
+	element.appendChild(idElement);
+
+	if (!entry.diff || entry.diff !== "delete") {
+		const editElement = document.createElement("a");
+		editElement.innerText = "Edit"
+		editElement.className = "objectEdit"
+		editElement.href = "./?mode=draw&id=" + entry.id
+		element.appendChild(editElement);
+	}
+
+	return element;
 }

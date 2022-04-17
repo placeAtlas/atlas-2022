@@ -13,65 +13,65 @@
 	========================================================================
 */
 
-var linesCanvas = document.getElementById("linesCanvas");
-var linesContext = linesCanvas.getContext("2d");
-var hovered = [];
+const linesCanvas = document.getElementById("linesCanvas");
+const linesContext = linesCanvas.getContext("2d");
+let hovered = [];
 
-var previousZoomOrigin = [0, 0];
-var previousScaleZoomOrigin = [0, 0];
+let previousZoomOrigin = [0, 0];
+let previousScaleZoomOrigin = [0, 0];
 
-var backgroundCanvas = document.createElement("canvas");
+const backgroundCanvas = document.createElement("canvas");
 backgroundCanvas.width = 2000;
 backgroundCanvas.height = 2000;
-var backgroundContext = backgroundCanvas.getContext("2d");
+const backgroundContext = backgroundCanvas.getContext("2d");
 
-var wrapper = document.getElementById("wrapper");
-	
-var objectsContainer = document.getElementById("objectsList");
-var closeObjectsListButton = document.getElementById("closeObjectsListButton");
+const wrapper = document.getElementById("wrapper");
 
-var filterInput = document.getElementById("searchList");
+const objectsContainer = document.getElementById("objectsList");
+const closeObjectsListButton = document.getElementById("closeObjectsListButton");
 
-var entriesList = document.getElementById("entriesList");
-var hideListButton = document.getElementById("hideListButton");
-var entriesListShown = false;
+const filterInput = document.getElementById("searchList");
 
-var sortedAtlas;
+const entriesList = document.getElementById("entriesList");
+const hideListButton = document.getElementById("hideListButton");
+let entriesListShown = false;
 
-var entriesLimit = 50;
-var entriesOffset = 0;
-var moreEntriesButton = document.createElement("button");
-moreEntriesButton.innerHTML = "Show "+entriesLimit+" more";
+let sortedAtlas;
+
+const entriesLimit = 50;
+let entriesOffset = 0;
+const moreEntriesButton = document.createElement("button");
+moreEntriesButton.innerHTML = "Show " + entriesLimit + " more";
 moreEntriesButton.id = "moreEntriesButton";
-moreEntriesButton.onclick = function(){
+moreEntriesButton.onclick = function () {
 	buildObjectsList(null, null);
 	renderBackground();
 	render();
 };
 
-var defaultSort = "shuffle";
+let defaultSort = "shuffle";
 document.getElementById("sort").value = defaultSort;
 
-var lastPos = [0, 0];
+let lastPos = [0, 0];
 
-var fixed = false; // Fix hovered items in place, so that clicking on links is possible
+let fixed = false; // Fix hovered items in place, so that clicking on links is possible
 
-if(document.documentElement.clientWidth > 2000){
+if (document.documentElement.clientWidth > 2000) {
 	entriesListShown = true;
 	wrapper.classList.remove('listHidden')
 }
 
-if(document.documentElement.clientWidth < 2000){
+if (document.documentElement.clientWidth < 2000) {
 	entriesListShown = false;
 	wrapper.classList.add('listHidden')
 }
 
-filterInput.addEventListener("input", function(e){
+filterInput.addEventListener("input", function (e) {
 	entriesOffset = 0;
 	entriesList.innerHTML = "";
 	entriesList.appendChild(moreEntriesButton);
 
-	if(this.value === ""){
+	if (this.value === "") {
 		document.getElementById("relevantOption").disabled = true;
 		sortedAtlas = atlas.concat();
 		buildObjectsList(null, null);
@@ -82,34 +82,30 @@ filterInput.addEventListener("input", function(e){
 
 });
 
-document.getElementById("sort").addEventListener("input", function(e){
-	entriesOffset = 0;
-	entriesList.innerHTML = "";
-	entriesList.appendChild(moreEntriesButton);
-
-	if(this.value != "relevant"){
+document.getElementById("sort").addEventListener("input", function (e) {
+	if (this.value != "relevant") {
 		defaultSort = this.value;
 	}
 
-	buildObjectsList(filterInput.value.toLowerCase(), this.value);
+	resetEntriesList(filterInput.value.toLowerCase(), this.value);
 
 });
 
-hideListButton.addEventListener("click", function(e){
+hideListButton.addEventListener("click", function (e) {
 	entriesListShown = !entriesListShown;
-	if(entriesListShown){
+	if (entriesListShown) {
 		wrapper.classList.remove('listHidden')
 	} else {
 		wrapper.classList.add('listHidden')
 	}
-	updateHovering();
+	updateHovering(e);
 	applyView();
 	render();
 	updateLines();
 	return false;
 });
 
-closeObjectsListButton.addEventListener("click", function(e){
+closeObjectsListButton.addEventListener("click", function (e) {
 	hovered = [];
 	objectsContainer.innerHTML = "";
 	updateLines();
@@ -119,12 +115,12 @@ closeObjectsListButton.addEventListener("click", function(e){
 });
 
 
-function toggleFixed(e, tapped){
-	if(!fixed && hovered.length == 0){
+function toggleFixed(e, tapped) {
+	if (!fixed && hovered.length == 0) {
 		return 0;
 	}
 	fixed = !fixed;
-	if(!fixed){
+	if (!fixed) {
 		updateHovering(e, tapped);
 		render();
 	}
@@ -136,56 +132,56 @@ window.addEventListener("dblClick", updateLines);
 window.addEventListener("wheel", updateLines);
 
 
-objectsContainer.addEventListener("scroll", function(e){
+objectsContainer.addEventListener("scroll", function (e) {
 	updateLines();
 });
 
-window.addEventListener("resize", function(){
+window.addEventListener("resize", function (e) {
 	//console.log(document.documentElement.clientWidth, document.documentElement.clientHeight);
 
-	var viewportWidth = document.documentElement.clientWidth;
+	let viewportWidth = document.documentElement.clientWidth;
 
-	if(document.documentElement.clientWidth > 2000 && viewportWidth <= 2000){
+	if (document.documentElement.clientWidth > 2000 && viewportWidth <= 2000) {
 		entriesListShown = true;
 		wrapper.className = wrapper.className.replace(/ listHidden/g, "");
 	}
 
-	if(document.documentElement.clientWidth < 2000 && viewportWidth >= 2000){
+	if (document.documentElement.clientWidth < 2000 && viewportWidth >= 2000) {
 		entriesListShown = false;
 		wrapper.className += " listHidden";
 	}
-	updateHovering();
+	updateHovering(e);
 
 	viewportWidth = document.documentElement.clientWidth;
-	
+
 	applyView();
 	render();
 	updateLines();
-	
+
 });
 
-function updateLines(){
+function updateLines() {
 
 	linesCanvas.width = linesCanvas.clientWidth;
 	linesCanvas.height = linesCanvas.clientHeight;
 	linesContext.lineCap = "round";
-	linesContext.lineWidth = Math.max(Math.min(zoom*1.5, 16*1.5), 6);
+	linesContext.lineWidth = Math.max(Math.min(zoom * 1.5, 16 * 1.5), 6);
 	linesContext.strokeStyle = "#000000";
 
-	for(var i = 0; i < hovered.length; i++){
-		var element = hovered[i].element;
+	for (let i = 0; i < hovered.length; i++) {
+		const element = hovered[i].element;
 
-		if(element.getBoundingClientRect().left != 0){
+		if (element.getBoundingClientRect().left != 0) {
 
 			linesContext.beginPath();
 			//linesContext.moveTo(element.offsetLeft + element.clientWidth - 10, element.offsetTop + 20);
 			linesContext.moveTo(
-				 element.getBoundingClientRect().left + document.documentElement.scrollLeft + element.clientWidth/2
-				,element.getBoundingClientRect().top + document.documentElement.scrollTop + 20
+				element.getBoundingClientRect().left + document.documentElement.scrollLeft + element.clientWidth / 2
+				, element.getBoundingClientRect().top + document.documentElement.scrollTop + 20
 			);
 			linesContext.lineTo(
-				 ~~(hovered[i].center[0]*zoom) + innerContainer.offsetLeft
-				,~~(hovered[i].center[1]*zoom) + innerContainer.offsetTop
+				~~(hovered[i].center[0] * zoom) + innerContainer.offsetLeft
+				, ~~(hovered[i].center[1] * zoom) + innerContainer.offsetTop
 			);
 			linesContext.stroke();
 
@@ -195,26 +191,26 @@ function updateLines(){
 	linesContext.lineWidth = Math.max(Math.min(zoom, 16), 4);
 	linesContext.strokeStyle = "#FFFFFF";
 
-	for(var i = 0; i < hovered.length; i++){
-		var element = hovered[i].element;
+	for (let i = 0; i < hovered.length; i++) {
+		const element = hovered[i].element;
 
-		if(element.getBoundingClientRect().left != 0){
-				
+		if (element.getBoundingClientRect().left != 0) {
+
 			linesContext.beginPath();
 			linesContext.moveTo(
-				 element.getBoundingClientRect().left + document.documentElement.scrollLeft + element.clientWidth/2
-				,element.getBoundingClientRect().top + document.documentElement.scrollTop + 20
+				element.getBoundingClientRect().left + document.documentElement.scrollLeft + element.clientWidth / 2
+				, element.getBoundingClientRect().top + document.documentElement.scrollTop + 20
 			);
 			linesContext.lineTo(
-				 ~~(hovered[i].center[0]*zoom) + innerContainer.offsetLeft
-				,~~(hovered[i].center[1]*zoom) + innerContainer.offsetTop
+				~~(hovered[i].center[0] * zoom) + innerContainer.offsetLeft
+				, ~~(hovered[i].center[1] * zoom) + innerContainer.offsetTop
 			);
 			linesContext.stroke();
 		}
 	}
 }
 
-function renderBackground(atlas){
+function renderBackground(atlas) {
 
 	backgroundContext.clearRect(0, 0, canvas.width, canvas.height);
 
@@ -222,29 +218,29 @@ function renderBackground(atlas){
 	//backgroundCanvas.height = 1000 * zoom;
 
 	//backgroundContext.lineWidth = zoom;
-	
+
 	backgroundContext.fillStyle = "rgba(0, 0, 0, 0.6)";
 	backgroundContext.fillRect(0, 0, backgroundCanvas.width, backgroundCanvas.height);
 
-	for(var i = 0; i < atlas.length; i++){
+	for (let i = 0; i < atlas.length; i++) {
 
-		var path = atlas[i].path;
+		const path = atlas[i].path;
 
 		backgroundContext.beginPath();
 
-		if(path[0]){
+		if (path[0]) {
 			//backgroundContext.moveTo(path[0][0]*zoom, path[0][1]*zoom);
 			backgroundContext.moveTo(path[0][0], path[0][1]);
 		}
 
-		for(var p = 1; p < path.length; p++){
+		for (let p = 1; p < path.length; p++) {
 			//backgroundContext.lineTo(path[p][0]*zoom, path[p][1]*zoom);
 			backgroundContext.lineTo(path[p][0], path[p][1]);
 		}
 
 		backgroundContext.closePath();
 
-		var bgStrokeStyle;
+		let bgStrokeStyle;
 		switch (atlas[i].diff) {
 			case "add":
 				bgStrokeStyle = "rgba(0, 255, 0, 1)";
@@ -268,32 +264,32 @@ function renderBackground(atlas){
 	}
 }
 
-function buildObjectsList(filter, sort){
+function buildObjectsList(filter = null, sort = null) {
 
-	if(entriesList.contains(moreEntriesButton)){
+	if (entriesList.contains(moreEntriesButton)) {
 		entriesList.removeChild(moreEntriesButton);
 	}
 
-	if(!sortedAtlas){
+	if (!sortedAtlas) {
 		sortedAtlas = atlas.concat();
-		document.getElementById("atlasSize").innerHTML = "The Atlas contains "+sortedAtlas.length+" entries.";
+		document.getElementById("atlasSize").innerHTML = "The Atlas contains " + sortedAtlas.length + " entries.";
 	}
 
-	if(filter){
-		sortedAtlas = atlas.filter(function(value){
+	if (filter) {
+		sortedAtlas = atlas.filter(function (value) {
 			return (
-				   value.name.toLowerCase().indexOf(filter) !== -1
+				value.name.toLowerCase().indexOf(filter) !== -1
 				|| value.description.toLowerCase().indexOf(filter) !== -1
 				|| value.subreddit && value.subreddit.toLowerCase().indexOf(filter) !== -1
 				|| value.id === filter
 			);
 		});
-		document.getElementById("atlasSize").innerHTML = "Found "+sortedAtlas.length+" entries.";
+		document.getElementById("atlasSize").innerHTML = "Found " + sortedAtlas.length + " entries.";
 	} else {
-		document.getElementById("atlasSize").innerHTML = "The Atlas contains "+sortedAtlas.length+" entries.";
+		document.getElementById("atlasSize").innerHTML = "The Atlas contains " + sortedAtlas.length + " entries.";
 	}
 
-	if(sort === null){
+	if (sort === null) {
 		sort = defaultSort;
 	}
 
@@ -304,59 +300,59 @@ function buildObjectsList(filter, sort){
 
 	//console.log(sort);
 
-	var sortFunction;
+	let sortFunction;
 
 	//console.log(sort);
 
-	switch(sort){
+	switch (sort) {
 		case "shuffle":
 			sortFunction = null;
-			if(entriesOffset == 0){
+			if (entriesOffset == 0) {
 				shuffle();
 			}
-		break;
+			break;
 		case "alphaAsc":
-			sortFunction = function(a, b){
+			sortFunction = function (a, b) {
 				return a.name.toLowerCase().localeCompare(b.name.toLowerCase());
 			}
-		break;
+			break;
 		case "alphaDesc":
-			sortFunction = function(a, b){
+			sortFunction = function (a, b) {
 				return b.name.toLowerCase().localeCompare(a.name.toLowerCase());
 			}
-		break;
+			break;
 		case "newest":
-			sortFunction = function(a, b){
+			sortFunction = function (a, b) {
 				if (a.id > b.id) {
 					return -1;
 				}
 				if (a.id < b.id) {
 					return 1;
 				}
-					// a must be equal to b
+				// a must be equal to b
 				return 0;
 			}
-		break;
+			break;
 		case "oldest":
-			sortFunction = function(a, b){
+			sortFunction = function (a, b) {
 				if (a.id < b.id) {
 					return -1;
 				}
 				if (a.id > b.id) {
 					return 1;
 				}
-					// a must be equal to b
+				// a must be equal to b
 				return 0;
 			}
-		break;
+			break;
 		case "area":
-			sortFunction = function(a, b){
+			sortFunction = function (a, b) {
 				return calcPolygonArea(b.path) - calcPolygonArea(a.path);
 			}
-		break;
+			break;
 		case "relevant":
-			sortFunction = function(a, b){
-				if(a.name.toLowerCase().indexOf(filter) !== -1 && b.name.toLowerCase().indexOf(filter) !== -1){
+			sortFunction = function (a, b) {
+				if (a.name.toLowerCase().indexOf(filter) !== -1 && b.name.toLowerCase().indexOf(filter) !== -1) {
 					if (a.name.toLowerCase().indexOf(filter) < b.name.toLowerCase().indexOf(filter)) {
 						return -1;
 					}
@@ -365,9 +361,9 @@ function buildObjectsList(filter, sort){
 					} else {
 						return a.name.toLowerCase().localeCompare(b.name.toLowerCase());
 					}
-				} else if(a.name.toLowerCase().indexOf(filter) !== -1){
+				} else if (a.name.toLowerCase().indexOf(filter) !== -1) {
 					return -1;
-				} else if(b.name.toLowerCase().indexOf(filter) !== -1){
+				} else if (b.name.toLowerCase().indexOf(filter) !== -1) {
 					return 1;
 				} else {
 					if (a.description.toLowerCase().indexOf(filter) < b.description.toLowerCase().indexOf(filter)) {
@@ -380,46 +376,47 @@ function buildObjectsList(filter, sort){
 					}
 				}
 			}
-		break;
+			break;
 	}
 
-	if(sortFunction){
+	if (sortFunction) {
 		sortedAtlas.sort(sortFunction);
 	}
 
-	for(var i = entriesOffset; i < entriesOffset+entriesLimit; i++){
+	for (let i = entriesOffset; i < entriesOffset + entriesLimit; i++) {
 
-		if(i >= sortedAtlas.length){
+		if (i >= sortedAtlas.length) {
 			break;
 		}
 
 
-		var element = createInfoBlock(sortedAtlas[i]);
+		// console.log(sortedAtlas[i])
+		const element = createInfoBlock(sortedAtlas[i]);
 
 		element.entry = sortedAtlas[i];
 
-		element.addEventListener("mouseenter", function(e){
-			if(!fixed && !dragging){
+		element.addEventListener("mouseenter", function (e) {
+			if (!fixed && !dragging) {
 				objectsContainer.innerHTML = "";
-				
+
 				previousZoomOrigin = [zoomOrigin[0], zoomOrigin[1]];
 				previousScaleZoomOrigin = [scaleZoomOrigin[0], scaleZoomOrigin[1]];
 
 				applyView();
-				
+
 				zoomOrigin = [
-					 innerContainer.clientWidth/2  - this.entry.center[0]* zoom// + container.offsetLeft
-					,innerContainer.clientHeight/2 - this.entry.center[1]* zoom// + container.offsetTop
+					innerContainer.clientWidth / 2 - this.entry.center[0] * zoom// + container.offsetLeft
+					, innerContainer.clientHeight / 2 - this.entry.center[1] * zoom// + container.offsetTop
 				]
 
 				scaleZoomOrigin = [
-					2000/2  - this.entry.center[0]
-					,2000/2  - this.entry.center[1]
+					2000 / 2 - this.entry.center[0]
+					, 2000 / 2 - this.entry.center[1]
 				]
 
 				//console.log(zoomOrigin);
 
-				
+
 				applyView();
 				hovered = [this.entry];
 				render();
@@ -429,14 +426,14 @@ function buildObjectsList(filter, sort){
 
 		});
 
-		element.addEventListener("click", function(e){
+		element.addEventListener("click", function (e) {
 			toggleFixed(e);
-			if(fixed){
+			if (fixed) {
 				previousZoomOrigin = [zoomOrigin[0], zoomOrigin[1]];
 				previousScaleZoomOrigin = [scaleZoomOrigin[0], scaleZoomOrigin[1]];
 				applyView();
 			}
-			if(document.documentElement.clientWidth < 500){
+			if (document.documentElement.clientWidth < 500) {
 				objectsContainer.innerHTML = "";
 
 				entriesListShown = false;
@@ -445,16 +442,16 @@ function buildObjectsList(filter, sort){
 				zoom = 4;
 				renderBackground(atlas);
 				applyView();
-				updateHovering();
-				
+				updateHovering(e);
+
 				zoomOrigin = [
-					 innerContainer.clientWidth/2  - this.entry.center[0]* zoom// + container.offsetLeft
-					,innerContainer.clientHeight/2 - this.entry.center[1]* zoom// + container.offsetTop
+					innerContainer.clientWidth / 2 - this.entry.center[0] * zoom// + container.offsetLeft
+					, innerContainer.clientHeight / 2 - this.entry.center[1] * zoom// + container.offsetTop
 				]
 
 				scaleZoomOrigin = [
-					2000/2  - this.entry.center[0]
-					,2000/2  - this.entry.center[1]
+					2000 / 2 - this.entry.center[0]
+					, 2000 / 2 - this.entry.center[1]
 				]
 
 				previousZoomOrigin = [zoomOrigin[0], zoomOrigin[1]];
@@ -464,18 +461,18 @@ function buildObjectsList(filter, sort){
 
 				hovered = [this.entry];
 				hovered[0].element = this;
-				
+
 				applyView();
 				render();
 				updateLines();
-				
+
 			}
-			
+
 		});
 
-		element.addEventListener("mouseleave", function(e){
-			if(!fixed && !dragging){
-				zoomOrigin = [previousScaleZoomOrigin[0]*zoom, previousScaleZoomOrigin[1]*zoom];
+		element.addEventListener("mouseleave", function (e) {
+			if (!fixed && !dragging) {
+				zoomOrigin = [previousScaleZoomOrigin[0] * zoom, previousScaleZoomOrigin[1] * zoom];
 				scaleZoomOrigin = [previousScaleZoomOrigin[0], previousScaleZoomOrigin[1]];
 				applyView();
 				hovered = [];
@@ -490,52 +487,61 @@ function buildObjectsList(filter, sort){
 
 	entriesOffset += entriesLimit;
 
-	if(sortedAtlas.length > entriesOffset){
-		moreEntriesButton.innerHTML = "Show "+Math.min(entriesLimit, sortedAtlas.length - entriesOffset)+" more";
+	if (sortedAtlas.length > entriesOffset) {
+		moreEntriesButton.innerHTML = "Show " + Math.min(entriesLimit, sortedAtlas.length - entriesOffset) + " more";
 		entriesList.appendChild(moreEntriesButton);
 	}
 }
 
-function shuffle(){
+function shuffle() {
 	//console.log("shuffled atlas");
-	for (var i = sortedAtlas.length - 1; i > 0; i--) {
-		var j = Math.floor(Math.random() * (i + 1));
-		var temp = sortedAtlas[i];
+	for (let i = sortedAtlas.length - 1; i > 0; i--) {
+		const j = Math.floor(Math.random() * (i + 1));
+		const temp = sortedAtlas[i];
 		sortedAtlas[i] = sortedAtlas[j];
 		sortedAtlas[j] = temp;
 	}
 }
 
-async function render(){
+function resetEntriesList() {
+	entriesOffset = 0;
+	entriesList.innerHTML = "";
+	entriesList.appendChild(moreEntriesButton);
+
+	buildObjectsList(filter = null, sort = null)
+
+}
+
+async function render() {
 
 	context.clearRect(0, 0, canvas.width, canvas.height);
 
 	//canvas.width = 1000*zoom;
 	//canvas.height = 1000*zoom;
-	
+
 	context.globalCompositeOperation = "source-over";
 	context.clearRect(0, 0, canvas.width, canvas.height);
 
-	if(hovered.length > 0){
+	if (hovered.length > 0) {
 		container.style.cursor = "pointer";
 	} else {
 		container.style.cursor = "default";
 	}
 
 
-	for(var i = 0; i < hovered.length; i++){
+	for (let i = 0; i < hovered.length; i++) {
 
 
-		var path = hovered[i].path;
+		const path = hovered[i].path;
 
 		context.beginPath();
 
-		if(path[0]){
+		if (path[0]) {
 			//context.moveTo(path[0][0]*zoom, path[0][1]*zoom);
 			context.moveTo(path[0][0], path[0][1]);
 		}
 
-		for(var p = 1; p < path.length; p++){
+		for (let p = 1; p < path.length; p++) {
 			//context.lineTo(path[p][0]*zoom, path[p][1]*zoom);
 			context.lineTo(path[p][0], path[p][1]);
 		}
@@ -551,41 +557,40 @@ async function render(){
 	context.globalCompositeOperation = "source-out";
 	context.drawImage(backgroundCanvas, 0, 0);
 
-	if(hovered.length === 1 && hovered[0].path.length && hovered[0].overrideImage){
-		let undisputableHovered = hovered[0];
+	if (hovered.length === 1 && hovered[0].path.length && hovered[0].overrideImage) {
+		const undisputableHovered = hovered[0];
 		// Find the left-topmost point of all the paths
-		let entryPosition = getPositionOfEntry(undisputableHovered);
-		if(entryPosition){
+		const entryPosition = getPositionOfEntry(undisputableHovered);
+		if (entryPosition) {
 			const [startX, startY] = entryPosition;
-			let overrideImage = new Image();
+			const overrideImage = new Image();
 			const loadingPromise = new Promise((res, rej) => {
 				overrideImage.onerror = rej;
 				overrideImage.onload = res;
 			});
 			overrideImage.src = "imageOverrides/" + undisputableHovered.overrideImage;
-			try{
+			try {
 				await loadingPromise;
 				context.globalCompositeOperation = "source-over";
 				context.drawImage(overrideImage, startX, startY);
-			}catch(ex){
-				console.log("Cannot override image.");
-				console.log(ex);
+			} catch (ex) {
+				console.error("Cannot override image.", ex);
 			}
 		}
 	}
 
-	for(var i = 0; i < hovered.length; i++){
+	for (let i = 0; i < hovered.length; i++) {
 
-		var path = hovered[i].path;
+		const path = hovered[i].path;
 
 		context.beginPath();
 
-		if(path[0]){
+		if (path[0]) {
 			//context.moveTo(path[0][0]*zoom, path[0][1]*zoom);
 			context.moveTo(path[0][0], path[0][1]);
 		}
 
-		for(var p = 1; p < path.length; p++){
+		for (let p = 1; p < path.length; p++) {
 			//context.lineTo(path[p][0]*zoom, path[p][1]*zoom);
 			context.lineTo(path[p][0], path[p][1]);
 		}
@@ -594,7 +599,7 @@ async function render(){
 
 		context.globalCompositeOperation = "source-over";
 
-		var hoverStrokeStyle;
+		let hoverStrokeStyle;
 		switch (hovered[i].diff) {
 			case "add":
 				hoverStrokeStyle = "rgba(0, 155, 0, 1)";
@@ -613,29 +618,29 @@ async function render(){
 
 }
 
-function updateHovering(e, tapped){
-		
-	if(!dragging && (!fixed || tapped)){
-		var pos = [
-			 (e.clientX - (container.clientWidth/2 - innerContainer.clientWidth/2 + zoomOrigin[0] + container.offsetLeft))/zoom
-			,(e.clientY - (container.clientHeight/2 - innerContainer.clientHeight/2 + zoomOrigin[1] + container.offsetTop))/zoom
+function updateHovering(e, tapped) {
+
+	if (!dragging && (!fixed || tapped)) {
+		const pos = [
+			(e.clientX - (container.clientWidth / 2 - innerContainer.clientWidth / 2 + zoomOrigin[0] + container.offsetLeft)) / zoom
+			, (e.clientY - (container.clientHeight / 2 - innerContainer.clientHeight / 2 + zoomOrigin[1] + container.offsetTop)) / zoom
 		];
-		var coords_p = document.getElementById("coords_p");
+		const coords_p = document.getElementById("coords_p");
 		coords_p.innerText = Math.ceil(pos[0]) + ", " + Math.ceil(pos[1]);
 
-		if(pos[0] <= 2200 && pos[0] >= -100 && pos[0] <= 2200 && pos[0] >= -100){
-			var newHovered = [];
-			for(var i = 0; i < atlas.length; i++){
-				if(pointIsInPolygon(pos, atlas[i].path)){
+		if (pos[0] <= 2200 && pos[0] >= -100 && pos[0] <= 2200 && pos[0] >= -100) {
+			const newHovered = [];
+			for (let i = 0; i < atlas.length; i++) {
+				if (pointIsInPolygon(pos, atlas[i].path)) {
 					newHovered.push(atlas[i]);
 				}
 			}
 
-			var changed = false;
+			let changed = false;
 
-			if(hovered.length == newHovered.length){
-				for(var i = 0; i < hovered.length; i++){
-					if(hovered[i].id != newHovered[i].id){
+			if (hovered.length == newHovered.length) {
+				for (let i = 0; i < hovered.length; i++) {
+					if (hovered[i].id != newHovered[i].id) {
 						changed = true;
 						break;
 					}
@@ -644,22 +649,22 @@ function updateHovering(e, tapped){
 				changed = true;
 			}
 
-			if(changed){
-				hovered = newHovered.sort(function(a, b){
+			if (changed) {
+				hovered = newHovered.sort(function (a, b) {
 					return calcPolygonArea(a.path) - calcPolygonArea(b.path);
 				});
 
 				objectsContainer.innerHTML = "";
 
-				for(var i in hovered){
-					var element = createInfoBlock(hovered[i]);
+				for (const i in hovered) {
+					const element = createInfoBlock(hovered[i]);
 
 					objectsContainer.appendChild(element);
 
 					hovered[i].element = element;
 				}
 
-				if(hovered.length > 0){
+				if (hovered.length > 0) {
 					closeObjectsListButton.className = "";
 				} else {
 					closeObjectsListButton.className = "hidden";
@@ -672,32 +677,24 @@ function updateHovering(e, tapped){
 	}
 }
 
-function highlightEntryFromUrl(){
+window.addEventListener("hashchange", highlightEntryFromUrl);
 
-	var objectsContainer = document.getElementById("objectsList");
+function highlightEntryFromUrl() {
 
-	var id = 0;
-	
-	var args = window.location.search;
-	if(args){
-		id = args.split("id=")[1];
-		if(id){
-			id = id.split("&")[0];
-		}
-	}
+	const objectsContainer = document.getElementById("objectsList");
 
-	//var id = parseInt(window.location.hash.substring(3));
-	
-	var entries = atlas.filter(function(e){
+	const id = window.location.hash.substring(1); //Remove hash prefix
+
+	const entries = atlas.filter(function (e) {
 		return e.id === id;
 	});
 
-	if (entries.length === 1){
-		let entry = entries[0];
+	if (entries.length === 1) {
+		const entry = entries[0];
 
 		document.title = entry.name + " on the 2022 /r/place Atlas";
-		
-		var infoElement = createInfoBlock(entry);
+
+		const infoElement = createInfoBlock(entry);
 		objectsContainer.innerHTML = "";
 		objectsContainer.appendChild(infoElement);
 
@@ -707,19 +704,19 @@ function highlightEntryFromUrl(){
 		zoom = 4;
 		renderBackground(atlas);
 		applyView();
-		
+
 		zoomOrigin = [
-			 innerContainer.clientWidth/2  - entry.center[0]* zoom// + container.offsetLeft
-			,innerContainer.clientHeight/2 - entry.center[1]* zoom// + container.offsetTop
+			innerContainer.clientWidth / 2 - entry.center[0] * zoom// + container.offsetLeft
+			, innerContainer.clientHeight / 2 - entry.center[1] * zoom// + container.offsetTop
 		];
 
 		scaleZoomOrigin = [
-			2000/2 - entry.center[0]// + container.offsetLeft
-			,2000/2 - entry.center[1]// + container.offsetTop
+			2000 / 2 - entry.center[0]// + container.offsetLeft
+			, 2000 / 2 - entry.center[1]// + container.offsetTop
 		];
 
 		//console.log(zoomOrigin);
-		
+
 		applyView();
 		hovered = [entry];
 		render();
@@ -730,16 +727,16 @@ function highlightEntryFromUrl(){
 	}
 }
 
-function initView(){
+function initView() {
 
 	buildObjectsList(null, null);
 	renderBackground(atlas);
 	render();
 
-	timeCallback = (tempAtlas) => {
-		renderBackground(tempAtlas);
-		render();
-	}
+	document.addEventListener('timeupdate', (event) => {
+		sortedAtlas = atlas.concat()
+		resetEntriesList(null, null)
+	})
 
 	// parse linked atlas entry id from link hash
 	/*if (window.location.hash.substring(3)){
@@ -752,29 +749,26 @@ function initView(){
 	render();
 	updateLines();
 
-	var args = window.location.search;
-	if(args){
-		id = args.split("id=")[1];
-		if(id){
-			highlightEntryFromUrl();
-		}
+	if (window.location.hash) { // both "/" and just "/#" will be an empty hash string
+		highlightEntryFromUrl();
 	}
 
 }
 
-function initExplore(){
+function initExplore() {
 
 	window.updateHovering = updateHovering
+	window.render = function () { }
 
-	function updateHovering(e, tapped){
-		if(!dragging && (!fixed || tapped)){
-			var pos = [
-				 (e.clientX - (container.clientWidth/2 - innerContainer.clientWidth/2 + zoomOrigin[0] + container.offsetLeft))/zoom
-				,(e.clientY - (container.clientHeight/2 - innerContainer.clientHeight/2 + zoomOrigin[1] + container.offsetTop))/zoom
+	function updateHovering(e, tapped) {
+		if (!dragging && (!fixed || tapped)) {
+			const pos = [
+				(e.clientX - (container.clientWidth / 2 - innerContainer.clientWidth / 2 + zoomOrigin[0] + container.offsetLeft)) / zoom
+				, (e.clientY - (container.clientHeight / 2 - innerContainer.clientHeight / 2 + zoomOrigin[1] + container.offsetTop)) / zoom
 			];
-			var coords_p = document.getElementById("coords_p");
+			const coords_p = document.getElementById("coords_p");
 			coords_p.innerText = Math.ceil(pos[0]) + ", " + Math.ceil(pos[1]);
-	
+
 		}
 	}
 
@@ -785,9 +779,9 @@ function initExplore(){
 }
 
 function initGlobal() {
-	container.addEventListener("mousemove", function(e){
-		if(e.sourceCapabilities){
-			if(!e.sourceCapabilities.firesTouchEvents){
+	container.addEventListener("mousemove", function (e) {
+		if (e.sourceCapabilities) {
+			if (!e.sourceCapabilities.firesTouchEvents) {
 				updateHovering(e);
 			}
 		} else {
@@ -797,45 +791,45 @@ function initGlobal() {
 }
 
 function initViewGlobal() {
-	container.addEventListener("mousedown", function(e){
+	container.addEventListener("mousedown", function (e) {
 		lastPos = [
-			 e.clientX
-			,e.clientY
+			e.clientX
+			, e.clientY
 		];
 	});
-	
-	container.addEventListener("touchstart", function(e){
-		if(e.touches.length == 1){
+
+	container.addEventListener("touchstart", function (e) {
+		if (e.touches.length == 1) {
 			lastPos = [
-				 e.touches[0].clientX
-				,e.touches[0].clientY
+				e.touches[0].clientX
+				, e.touches[0].clientY
 			];
 		}
-	},{passive: true} );
-	
-	container.addEventListener("mouseup", function(e){
-		if(Math.abs(lastPos[0] - e.clientX) + Math.abs(lastPos[1] - e.clientY) <= 4){
+	}, { passive: true });
+
+	container.addEventListener("mouseup", function (e) {
+		if (Math.abs(lastPos[0] - e.clientX) + Math.abs(lastPos[1] - e.clientY) <= 4) {
 			toggleFixed(e);
 		}
 	});
-	
-	container.addEventListener("touchend", function(e){
+
+	container.addEventListener("touchend", function (e) {
 		e.preventDefault()
-	
+
 		//console.log(e);
 		//console.log(e.changedTouches[0].clientX);
-		if(e.changedTouches.length == 1){
+		if (e.changedTouches.length == 1) {
 			e = e.changedTouches[0];
 			//console.log(lastPos[0] - e.clientX);
-			if(Math.abs(lastPos[0] - e.clientX) + Math.abs(lastPos[1] - e.clientY) <= 4){
+			if (Math.abs(lastPos[0] - e.clientX) + Math.abs(lastPos[1] - e.clientY) <= 4) {
 				//console.log("Foo!!");
 				dragging = false;
 				fixed = false;
 				setTimeout(
-					function(){
+					function () {
 						updateHovering(e, true);
 					}
-				, 10);
+					, 10);
 			}
 		}
 	});
