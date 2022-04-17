@@ -77,7 +77,9 @@ timelineSlider.addEventListener("input", (event) => {
 	updateTimeout = setTimeout(() => {
 		updateTime(parseInt(timelineSlider.value), currentVariation)
 		setTimeout(() => {
-			updateTime(parseInt(timelineSlider.value), currentVariation)
+			if (timelineSlider.value != currentPeriod && abortController.signal.aborted) {
+				updateTime(parseInt(timelineSlider.value), currentVariation)
+			}
 		}, 50)
 	}, 25)
 })
@@ -107,7 +109,6 @@ const dispatchTimeUpdateEvent = (period = timelineSlider.value, atlas = atlas) =
 }
 
 async function updateBackground(newPeriod = currentPeriod, newVariation = currentVariation) {
-	// console.log(newPeriod, newVariation)
 	abortController.abort()
 	abortController = new AbortController()
 	currentUpdateIndex++
