@@ -130,9 +130,6 @@ async function init() {
 	initGlobal()
 	if (mode !== "draw") initViewGlobal()
 
-	if(mode === "draw"){
-		window.initDraw();
-	} else if(mode === "about"){
 	if (mode === "draw") {
 		initDraw();
 	} else if (mode === "about") {

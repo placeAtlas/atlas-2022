@@ -56,8 +56,8 @@ export default function polylabel(polygon, precision, debug) {
 
 		// update the best cell if we found a better one
 		if (cell.d > bestCell.d || (
-				cell.centerDist < bestCell.centerDist &&
-				cell.d > bestCell.d - threshold
+			cell.centerDist < bestCell.centerDist &&
+			cell.d > bestCell.d - threshold
 		)) {
 			bestCell = cell;
 			if (debug) console.log('found best %f after %d probes', Math.round(1e4 * cell.d) / 1e4, numProbes);

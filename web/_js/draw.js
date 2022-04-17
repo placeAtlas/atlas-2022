@@ -1,4 +1,3 @@
-import polylabel from './polylabel.js';
 /*
 	========================================================================
 	The 2022 /r/place Atlas
@@ -13,6 +12,7 @@ import polylabel from './polylabel.js';
 	https://place-atlas.stefanocoding.me/license.txt
 	========================================================================
 */
+import polylabel from './polylabel.js';
 
 const finishButton = document.getElementById("finishButton");
 const resetButton = document.getElementById("resetButton");
@@ -256,9 +256,6 @@ function initDraw() {
 
 		//  calculateCenter(path)
 
-	function calculateCenter(path){
-		let result = polylabel(path)
-		return [Math.floor(result[0]) + 0.5, Math.floor(result[1]) + 0.5]
 		for (let i = pathWithPeriodsTemp.length - 1; i > 0; i--) {
 			for (let j = 0; j < i; j++) {
 				if (JSON.stringify(pathWithPeriodsTemp[i][1]) === JSON.stringify(pathWithPeriodsTemp[j][1])) {
@@ -496,27 +493,8 @@ function initDraw() {
 }
 
 function calculateCenter(path) {
-
-	let area = 0,
-		i,
-		j,
-		point1,
-		point2,
-		x = 0,
-		y = 0,
-		f;
-
-	for (i = 0, j = path.length - 1; i < path.length; j = i, i++) {
-		point1 = path[i];
-		point2 = path[j];
-		f = point1[0] * point2[1] - point2[0] * point1[1];
-		area += f;
-		x += (point1[0] + point2[0]) * f;
-		y += (point1[1] + point2[1]) * f;
-	}
-	area *= 3;
-
-	return [Math.floor(x / area) + 0.5, Math.floor(y / area) + 0.5];
+	let result = polylabel(path)
+	return [Math.floor(result[0]) + 0.5, Math.floor(result[1]) + 0.5]
 }
 
 function initPeriodGroups() {
