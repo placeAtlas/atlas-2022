@@ -1,3 +1,4 @@
+import polylabel from './polylabel.js';
 /*
 	========================================================================
 	The 2022 /r/place Atlas
@@ -255,6 +256,9 @@ function initDraw() {
 
 		//  calculateCenter(path)
 
+	function calculateCenter(path){
+		let result = polylabel(path)
+		return [Math.floor(result[0]) + 0.5, Math.floor(result[1]) + 0.5]
 		for (let i = pathWithPeriodsTemp.length - 1; i > 0; i--) {
 			for (let j = 0; j < i; j++) {
 				if (JSON.stringify(pathWithPeriodsTemp[i][1]) === JSON.stringify(pathWithPeriodsTemp[j][1])) {
