@@ -220,7 +220,7 @@ def fix_no_protocol_urls(entry: dict):
 		for i in range(len(entry["links"]["website"])):
 			if entry["links"]["website"][i] and not entry["links"]["website"][i].startswith("http"):
 				entry["links"]["website"][i] = "https://" + entry["website"]
-	elif "website" in entry and not entry['website']:
+	elif "website" in entry and entry['website']:
 		if not entry["website"].startswith("http"):
 			entry["website"] = "https://" + entry["website"]
 
@@ -344,9 +344,11 @@ def remove_empty_and_similar(entry: dict):
 	Removes empty items on lists, usually from the past formattings.
 	"""
 
-	for key in entry["links"]:
-		small = list(map(lambda x: x.lower(), entry["links"][key]))
-		entry["links"][key] = [x for x in entry["links"][key] if x and x.lower() in small]
+	if "links" in entry:
+
+		for key in entry["li/nks"]:
+			small = list(map(lambda x: x.lower(), entry["links"][key]))
+			entry["links"][key] = [x for x in entry["links"][key] if x and x.lower() in small]
 
 	return entry
 
@@ -370,7 +372,7 @@ def validate(entry: dict):
 
 	if "path" in entry:
 		if isinstance(entry['path'], list):
-			if len(entry["path"]) > 0:
+			if len(entry["path"]) == 0:
 				print(f"Entry {entry['id']} has no points!")
 				return_status = 3
 			elif len(entry["path"]) < 3:
@@ -379,7 +381,7 @@ def validate(entry: dict):
 		else:
 			for key in entry['path']:
 				path = entry['path'][key]
-				if len(path) > 0:
+				if len(path) == 0:
 					print(f"Period {key} of entry {entry['id']} has no points!")
 					return_status = 3
 				elif len(path) < 3:
