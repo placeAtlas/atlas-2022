@@ -459,7 +459,7 @@ if __name__ == '__main__':
 				entries[i] = None
 			else:
 				entries[i] = entry_formatted
-			if not (i % 500):
+			if not (i % 200):
 				print(f"{i} checked.")
 
 		print(f"{len(entries)} checked.")
