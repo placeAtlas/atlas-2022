@@ -25,6 +25,7 @@ FS_REGEX = {
 	"pattern1user": r'\/*(?:u|user)\/([A-Za-z0-9][A-Za-z0-9_]{1,20})(?:\/$)?',
 	"pattern2user": r'^\/*(?:u|user)(?!\/)([A-Za-z0-9][A-Za-z0-9_]{1,20})(?:\/$)?',
 	"pattern3user": r'(?:(?:https?:\/\/)?(?:(?:www|old|new|np)\.)?)?reddit\.com\/(?:u|user)\/([A-Za-z0-9][A-Za-z0-9_]{1,20})(?:\/[^" ]*)*',
+	"pattern1new": r'(?:(?:(?:(?:https?:\/\/)?(?:(?:www|old|new|np)\.)?)?reddit\.com)?\/)?r\/([A-Za-z0-9][A-Za-z0-9_]{1,20})(?:\/[^" ]*)*'
 	# "pattern4": r'(?:https?:\/\/)?(?!^www\.)(.+)\.reddit\.com(?:\/[^"]*)*',
 	# "pattern5": r'\[(?:https?:\/\/)?(?!^www\.)(.+)\.reddit\.com(?:\/[^"]*)*\]\((?:https:\/\/)?(?!^www\.)(.+)\.reddit\.com(?:\/[^"]*)*\)"',
 }
@@ -73,10 +74,8 @@ def format_subreddit(entry: dict):
 
 			subredditLink = entry["links"]["subreddit"][i]
 
-			subredditLink = re.sub(FS_REGEX["commatization"], ', ', subredditLink)
 			subredditLink = re.sub(FS_REGEX["pattern3"], r"\1", subredditLink)
-			subredditLink = re.sub(FS_REGEX["pattern1"], r"\1", subredditLink)
-			subredditLink = re.sub(FS_REGEX["pattern2"], r"\1", subredditLink)
+			subredditLink = re.sub(FS_REGEX["pattern1new"], r"\1", subredditLink)
 
 			entry["links"]["subreddit"][i] = subredditLink
 
