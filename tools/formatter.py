@@ -326,16 +326,12 @@ def update_center(entry: dict):
 	if isinstance(entry['path'], list):
 		path = entry['path']
 		if len(path) > 1:
-			calculated_center = calculate_center(path)
-			if 'center' not in entry or entry['center'] != calculated_center:
-				entry['center'] = calculated_center
+			entry['center'] = calculate_center(path)
 	else:
 		for key in entry['path']:
 			path = entry['path'][key]
 			if len(path) > 1:
-				calculated_center = calculate_center(path)
-				if 'center' not in entry or key not in entry['center'] or entry['center'][key] != calculated_center:
-					entry['center'][key] = calculated_center
+				entry['center'][key] = calculate_center(path)
 	
 	return entry
 

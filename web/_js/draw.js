@@ -12,8 +12,6 @@
 	https://place-atlas.stefanocoding.me/license.txt
 	========================================================================
 */
-import polylabel from './polylabel.js';
-
 const finishButton = document.getElementById("finishButton");
 const resetButton = document.getElementById("resetButton");
 const undoButton = document.getElementById("undoButton");
@@ -53,6 +51,8 @@ let periodGroupElements = []
 let disableDrawingOverride = false
 let drawing = true;
 
+let undoHistory = [];
+
 const periodClipboard = {
 	"index": null,
 	"path": null
@@ -65,6 +65,7 @@ const periodClipboard = {
 		})
 	})
 
+window.initDraw = initDraw
 function initDraw() {
 
 	wrapper.classList.remove('listHidden')
@@ -87,8 +88,6 @@ function initDraw() {
 	applyView();
 
 	container.style.cursor = "crosshair";
-
-	let undoHistory = [];
 
 	render(path);
 
@@ -250,7 +249,7 @@ function initDraw() {
 			path: {},
 		};
 
-		pathWithPeriodsTemp = pathWithPeriods.concat()
+		const pathWithPeriodsTemp = pathWithPeriods.concat()
 
 		// console.log(pathWithPeriodsTemp)
 
@@ -442,7 +441,7 @@ function initDraw() {
 	const params = new URLSearchParams(document.location.search)
 
 	if (params.has('id')) {
-		entry = getEntry(params.get('id'))
+		const entry = getEntry(params.get('id'))
 		nameField.value = entry.name
 		descriptionField.value = entry.description
 		websiteField.value = entry.links.website.join('\n')
