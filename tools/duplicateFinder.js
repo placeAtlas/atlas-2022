@@ -68,6 +68,18 @@ function main() {
 }
 //main();
 
+function scanSelfISecs() {
+    for (submission_key in startAtlas) {
+        let submission = startAtlas[submission_key];
+        let polygon = submission.path;
+
+        if( isPolygonSelfIntersecting(polygon) ) {
+            console.log("SELF_INTERSECTING ["+submission.id+ "] - "+submission.name);
+        }
+    }
+}
+scanSelfISecs();
+
 function getBoundingBox(path) {
     let minX = -1, maxX= -1, minY= -1, maxY= -1;
 
@@ -96,10 +108,35 @@ function doBoundsCollide(bound1, bound2) {
 
 }
 
+function isPolygonSelfIntersecting(poly) {
+    // intersect every linesegment of poly1 with every linesegment of poly2
+    for (let j=0; j<poly.length; j++)
+    {
+        let jnext = (j + 1 === poly.length) ? 0 : j + 1;
+
+        for (let i=j; i<poly.length; i++)
+        {
+            let inext = (i + 1 === poly.length) ? 0 : i + 1;
+            //console.log("inte")
+            //console.log(j, jnext, i, inext)
+            // if polyA[i] is not inside, but polyA[inext], is, entering
+
+            let ip = GetIntersectionPoint( poly[j], poly[jnext], poly[i], poly[inext]);
+            if (ip != null && !pointEquality( ip, poly[j] ) && !pointEquality( ip, poly[jnext] ) && !pointEquality( ip, poly[i] ) && !pointEquality( ip, poly[inext] ) ) {
+                return true
+            };
+        }
+    }
+    return false
+}
+
 function intersectPolygons(polyA, polyB) {
     let a_in_b = [];
     let b_in_a =  [];
+
     let line_isecs = [];
+    let entering_isecs = [];
+    let exiting_isecs = [];
 
     let subdiv_a = [];
     let subdiv_b = [];
@@ -119,42 +156,42 @@ function intersectPolygons(polyA, polyB) {
         {
             let inext = (i + 1 === polyA.length) ? 0 : i + 1;
             //console.log(j, jnext, i, inext)
+            // if polyA[i] is not inside, but polyA[inext], is, entering
+
             let ip = GetIntersectionPoint( polyB[j], polyB[jnext], polyA[i], polyA[inext]);
-            if (ip != null) polygonAdd( line_isecs, ip);
+            if (ip != null) {
+                polygonAdd( line_isecs, ip)
+            };
         }
     }
-    // edge case where point of one polygon is on line of other
-    // => should classify as inside, not an intersection
-    line_isecs = line_isecs.filter( (val) => {
-        if ( polygonHas(polyA, val) ) {
-            polygonAdd(a_in_b, val); return false;
-        }
-        if ( polygonHas(polyB, val) ) {
-            polygonAdd(b_in_a, val); return false;
-        }
-        return true;
-    })
 
     // concave sorting part
-
     // Subdivide polygons 
     for (let i = 0; i< polyA.length; i++) {
         subdiv_a.push( polyA[i] );
         let inext = (i + 1 === polyA.length) ? 0 : i + 1;   
-        let candidates = pointsOnLine( line_isecs, polyA[i], polyA[inext])
+        let candidates = pointsOnLine( line_isecs.filter((v) => !polygonHas(polyA, v)), polyA[i], polyA[inext])
         subdiv_a = subdiv_a.concat(candidates);
     }
 
     for (let i = 0; i< polyB.length; i++) {
         subdiv_b.push( polyB[i] );
         let inext = (i + 1 === polyB.length) ? 0 : i + 1;   
-        let candidates = pointsOnLine( line_isecs, polyB[i], polyB[inext])
+        let candidates = pointsOnLine( line_isecs.filter((v) => !polygonHas(polyB, v)), polyB[i], polyB[inext])
         subdiv_b = subdiv_b.concat(candidates);
+    }
+
+    // classify intersection as entering or exiting
+    for (let i = 0; i < subdiv_a.length; i++) {
+        let inext = (i + 1 === subdiv_a.length) ? 0 : i + 1;  
+
+
+        i
     }
 
     subdiv_a = subdiv_a.filter( (val) => polygonHas( a_in_b, val) || polygonHas(line_isecs, val ) );
     subdiv_b = subdiv_b.filter( (val) => polygonHas( b_in_a, val) || polygonHas(line_isecs, val ) );
-    console.log("a_in_b", a_in_b, "\nb_in_a", b_in_a, "\nline_isecs", line_isecs, "\nsubdiv_a", subdiv_a,"\nsubdiv_b",  subdiv_b);
+    console.log("a_in_b", a_in_b, "\nb_in_a", b_in_a, "\nline_isecs", line_isecs, "\nentering", entering_isecs, "\nexiting", exiting_isecs,"\nsubdiv_a", subdiv_a,"\nsubdiv_b",  subdiv_b);
 
     let unvisited = [...line_isecs];
     let clipped_polygons = [];
@@ -393,13 +430,11 @@ let A = [[1,0],[2,0],[2,2],[4,2],[4,4],[1,4]];
 let B = [[0,1],[3,1],[3,3],[0,3]];
 // expected output: [ [ 1, 1 ], [ 2, 1 ], [ 2, 2 ], [ 3, 2 ], [ 3, 3 ], [ 1, 3 ] ]
 
-let A2 = [[0,1], [2,1], [2,2], [1,3], [2,4], [5,5], [0,5]];
+let A2 = [[0,1], [6,1], [3,2], [1,3], [3,4], [3,5], [0,5]];
 let B2 = [ [2,0], [6,0], [6,6], [2,6] ];
 
 //intersectPolygons(B2, A2);
-svgFromPolygonArray( intersectPolygons( dutch.path, gme.path) );
-
-
+//svgFromPolygonArray( intersectPolygons( dutch.path, gme.path) );
 /*
 console.log( doBoundsCollide( [ 0, 0, 2, 2 ], [1, 1, 2, 2] )  )
 console.log( doBoundsCollide( [ 0, 0, 2, 2 ], [-1, -1, 2, 2] ))
