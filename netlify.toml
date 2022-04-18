@@ -1,0 +1,10 @@
+[[headers]]
+  for = "/*"
+  [headers.values]
+    Access-Control-Allow-Origin = "*"
+
+[[headers]]
+  for = "/_img/place/*.png"
+  [headers.values]
+    # 28 days
+    cache-control = "public, max-age=604800"

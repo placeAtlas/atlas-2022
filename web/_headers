@@ -1,0 +1,6 @@
+/*
+  Access-Control-Allow-Origin: *
+  
+/_img/place/*.png
+  cache-control: public, max-age=604800
+

@@ -12,3 +12,6 @@ allCharacters.txt
 combined.js
 *.DS_Store
 .vscode/
+web/atlas-before-ids-migration.json
+*.pyc
+tools/read-ids-temp.txt
