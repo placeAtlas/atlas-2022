@@ -1,3 +1,28 @@
+"""
+Auth setup
+1. Head to https://www.reddit.com/prefs/apps
+2. Click "create another app"
+3. Give it a name and description
+4. Select "script"
+5. Redirect to http://localhost:8080
+6. Create file "credentials" with the format below
+┌─────────────────────────────────────────────────────┐
+│ [ID]        <-  Under "personal use script"         │
+│ [Secret]                                            │
+│ [Username]  <-  Must be a mod, don't do this if you │
+│ [Password]  <-  don't know what you are doing.      │
+└─────────────────────────────────────────────────────┘
+7. Run Script
+
+Running Script
+1. Input the next ID to use
+2. Manually resolve errors in manual_atlas.json
+3   a. Use merge_out.py, or...
+    b.  a. Copy temp_atlas.json entries into web/_js/atlas.js (mind the edits!)
+        b. Copy read-ids-temp.txt IDs into data/read-ids.txt
+5. Create a pull request
+"""
+
 import praw
 import json
 import time
@@ -61,29 +86,6 @@ successcount = 0
 totalcount = 0
 
 for submission in reddit.subreddit('placeAtlas2').new(limit=2000):
-	"""
-	Auth setup
-	1. Head to https://www.reddit.com/prefs/apps
-	2. Click "create another app"
-	3. Give it a name and description
-	4. Select "script"
-	5. Redirect to http://localhost:8080
-	6. Create file "credentials" with the format below.
-	┌─────────────────────────────────────────────────────┐
-	│ [ID]        <-  Under "personal use script"         │
-	│ [Secret]                                            │
-	│ [Username]  <-  Must be a mod, don't do this if you │
-	│ [Password]  <-  don't know what you are doing.      │
-	└─────────────────────────────────────────────────────┘
-	7. Run Script
-
-	Running Script
-	1. Input the next ID to use
-	2. Manually resolve errors in manual_atlas.json
-	3. Copy temp_atlas.json entries into web/_js/atlas.js
-	4. Pull Request
-
-	"""
 	total_all_flairs += 1
 
 	if (submission.id in existing_ids):
