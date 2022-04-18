@@ -2,13 +2,14 @@ import praw
 import json
 import time
 import re
-import os
 import traceback
 from formatter import format_all
 
-outfile = open('temp_atlas.json', 'w', encoding='utf-8')
-editidsfile = open('read-ids-temp.txt', 'w')
-failfile = open('manual_atlas.json', 'w', encoding='utf-8')
+OUT_FILE = open('temp_atlas.json', 'w', encoding='utf-8')
+READ_IDS_FILE = open('read-ids-temp.txt', 'w')
+FAIL_FILE = open('manual_atlas.json', 'w', encoding='utf-8')
+
+OUT_FILE_LINES = ['[\n', ']\n']
 
 with open('credentials', 'r') as file:
 	credentials = file.readlines()
@@ -32,14 +33,20 @@ if not has_write_access:
 
 existing_ids = []
 
-with open('../data/edit-ids.txt', 'r') as edit_ids_file:
+with open('../data/read-ids.txt', 'r') as edit_ids_file:
 	for id in [x.strip() for x in edit_ids_file.readlines()]:
 		existing_ids.append(id)
 
-with open('../data/edit-ids.txt', 'r') as edit_ids_file:
-	for id in [x.strip() for x in edit_ids_file.readlines()]:
-		existing_ids.append(id)
-
+# with open('../web/atlas.json', 'r') as atlas_file:
+# 	atlas_raw: list = json.loads(atlas_file)
+# 	atlas = {}
+# 	atlas_ids = []
+# 	for index in atlas_raw:
+# 		entry = atlas_raw[index]
+# 		id = entry['id']
+# 		del entry['id']
+# 		atlas[id] = entry
+# 		atlas_ids.append(id)
 
 def set_flair(submission, flair):
 	if has_write_access and submission.link_flair_text != flair:
@@ -53,7 +60,6 @@ failcount = 0
 successcount = 0
 totalcount = 0
 
-outfile.write("[\n")
 for submission in reddit.subreddit('placeAtlas2').new(limit=2000):
 	"""
 	Auth setup
@@ -108,38 +114,29 @@ for submission in reddit.subreddit('placeAtlas2').new(limit=2000):
 
 				if submission.link_flair_text == "Edit Entry":
 
-					assert submission_json["id"] != 0, "ID is tampered, it must not be 0!"
-					submission_json_dummy = {"id": submission_json["id"], "edit": True, "contributors": []}
+					assert submission_json["id"] != 0, "Edit invalid because ID is tampered, it must not be 0!"
 
-					if "submitted_by" in submission_json:
-						submission_json_dummy["contributors"].append(submission_json['submitted_by'])
-						del submission_json['submitted_by']
-					elif "contributors" in submission_json:
-						submission_json_dummy["contributors"] = submission_json["contributors"]
+					submission_json_dummy = {"id": submission_json["id"], "edit": True}
+					submission_json["contributors"] = []
 
 					try:
-						if not submission.author.name in submission_json_dummy:
-							submission_json_dummy["contributors"].append(submission.author.name)
+						if not submission.author.name in submission_json:
+							submission_json["contributors"].append(submission.author.name)
 					except AttributeError:
-						submission_json_dummy["contributors"].append("unknown")
+						pass
 
 				else:
 
-					assert submission_json["id"] == 0, "ID is tampered, it must be 0!"
-					submission_json_dummy = {"id": submission.id, "contributors": []}
-
-					if "submitted_by" in submission_json:
-						submission_json_dummy["contributors"].append(submission_json['submitted_by'])
-						del submission_json['submitted_by']
-					elif "contributors" in submission_json:
-						submission_json_dummy["contributors"] = submission_json["contributors"]
+					assert submission_json["id"] == 0, "Edit invalid because ID is tampered, it must be 0!"
+					
+					submission_json_dummy = {"id": submission.id}
+					submission_json["contributors"] = []
 
 					try:
-						if not submission.author.name in submission_json_dummy:
-							submission_json_dummy["contributors"].append(submission.author.name)
+						if not submission.author.name in submission_json:
+							submission_json["contributors"].append(submission.author.name)
 					except AttributeError:
-						submission_json_dummy["contributors"].append("unknown")
-
+						pass
 
 				for key in submission_json:
 					if not key in submission_json_dummy:
@@ -149,13 +146,13 @@ for submission in reddit.subreddit('placeAtlas2').new(limit=2000):
 				assert validation_status < 3, \
 					"Submission invalid after validation. This may be caused by not enough points on the path."
 					
-				outfile.write(json.dumps(submission_json, ensure_ascii=False) + ",\n")
-				editidsfile.write(submission.id + '\n')
+				OUT_FILE_LINES.insert(len(OUT_FILE_LINES) - 1, json.dumps(submission_json, ensure_ascii=False) + '\n')
+				READ_IDS_FILE.write(submission.id + '\n')
 				successcount += 1
 				set_flair(submission, "Processed Entry")
 
 		except Exception as e:
-			failfile.write(
+			FAIL_FILE.write(
 				"\n\n" + "="*40 + "\n\n" +
 				submission.id + "\n\n" +
 				traceback.format_exc() + "\n\n" +
@@ -170,10 +167,6 @@ for submission in reddit.subreddit('placeAtlas2').new(limit=2000):
 		print("Wrote "+submission.id+", submitted "+str(round(time.time()-submission.created_utc))+" seconds ago")
 		totalcount += 1
 
-# Remove last trailing comma
-outfile.seek(outfile.tell()-3, os.SEEK_SET)
-outfile.truncate()
-
-outfile.write("\n]")
+OUT_FILE.writelines(OUT_FILE_LINES)
 
 print(f"\n\nTotal all flairs:{total_all_flairs}\nSuccess: {successcount}/{totalcount}\nFail: {failcount}/{totalcount}\nPlease check manual_atlas.txt for failed entries to manually resolve.")

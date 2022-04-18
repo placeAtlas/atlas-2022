@@ -6,6 +6,7 @@ import re
 Migrator script from old atlas format to remastered atlas format.
 - center and path: single -> time-specific
 - website and subreddit: single strings -> links object
+- submitted_by -> contributors
 '''
 # 
 
@@ -40,6 +41,7 @@ for entry in entries:
     "links": {},
     "center": {},
     "path": {},
+    "contributors": []
   }
 
   center = entry['center']
@@ -79,7 +81,11 @@ for entry in entries:
     if isinstance(entry["subreddit"], str) and entry["subreddit"]:
       new_entry['links']['subreddit'] = list(map(lambda x: FS_REGEX.sub(r"\1", x), COMMATIZATION.split(entry['subreddit'])))
     del entry['subreddit']
- 
+
+  if "submitted_by" in entry:
+    new_entry['contributors'].append(entry['submitted_by'])
+    del entry['submitted_by']
+  
   entries[index] = {
     **new_entry,
     **entry
