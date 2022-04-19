@@ -105,7 +105,7 @@ for submission in reddit.subreddit('placeAtlas2').new(limit=2000):
 			rawtext = text
 
 			text = text.replace('\u200c', '')
-			text = re.compile(r".*(\{.+\}).*", re.DOTALL).search(text).group(1)
+			text = re.compile(r"(\{.+\})", re.DOTALL).search(text).group(0)
 			# Test if it needs to escape the escape character. Usually happens on fancy mode.
 			try: json.loads(text)
 			except json.JSONDecodeError: text = re.sub(r"\\(.)", r"\1", text)
@@ -118,7 +118,7 @@ for submission in reddit.subreddit('placeAtlas2').new(limit=2000):
 
 					assert submission_json["id"] != 0, "Edit invalid because ID is tampered, it must not be 0!"
 
-					submission_json_dummy = {"id": submission_json["id"], "edit": True}
+					submission_json_dummy = {"id": submission_json["id"], "edit": submission.id}
 					submission_json["contributors"] = []
 
 					try:
@@ -147,7 +147,8 @@ for submission in reddit.subreddit('placeAtlas2').new(limit=2000):
 				
 				assert validation_status < 3, \
 					"Submission invalid after validation. This may be caused by not enough points on the path."
-					
+				
+				OUT_FILE_LINES[len(OUT_FILE_LINES) - 2].replace('\n', ',\n')
 				OUT_FILE_LINES.insert(len(OUT_FILE_LINES) - 1, json.dumps(submission_json, ensure_ascii=False) + '\n')
 				READ_IDS_FILE.write(submission.id + '\n')
 				successcount += 1
@@ -155,7 +156,7 @@ for submission in reddit.subreddit('placeAtlas2').new(limit=2000):
 
 		except Exception as e:
 			FAIL_FILE.write(
-				"\n\n" + "="*40 + "\n\n" +
+				"\n\n" + "="*40 + "\n\nSubmission ID:" +
 				submission.id + "\n\n" +
 				traceback.format_exc() + "\n\n" +
 				"==== RAW ====" + "\n\n" +
@@ -166,7 +167,7 @@ for submission in reddit.subreddit('placeAtlas2').new(limit=2000):
 			failcount += 1
 			set_flair(submission, "Rejected Entry")
 
-		print("Wrote "+submission.id+", submitted "+str(round(time.time()-submission.created_utc))+" seconds ago")
+		print("Wrote " + submission.id + ", submitted " + str(round(time.time()-submission.created_utc)) + " seconds ago")
 		totalcount += 1
 
 OUT_FILE.writelines(OUT_FILE_LINES)

@@ -342,7 +342,7 @@ def remove_empty_and_similar(entry: dict):
 
 	if "links" in entry:
 
-		for key in entry["li/nks"]:
+		for key in entry["links"]:
 			small = list(map(lambda x: x.lower(), entry["links"][key]))
 			entry["links"][key] = [x for x in entry["links"][key] if x and x.lower() in small]
 
