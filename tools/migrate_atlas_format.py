@@ -26,7 +26,7 @@ EXPANSION_1_RANGE = (56, END_IMAGE)
 EXPANSION_2_RANGE = (109, END_IMAGE)
 
 COMMATIZATION =  re.compile(r'(?: *(?:,+ +|,+ |,+)| +)(?:and|&|;)(?: *(?:,+ +|,+ |,+)| +)|, *$| +')
-FS_REGEX = re.compile(r'(?:(?:(?:(?:https?:\/\/)?(?:(?:www|old|new|np)\.)?)?reddit\.com)?\/)?[rR]\/([A-Za-z0-9][A-Za-z0-9_]{3,21})(?:\/[^" ]*)*')
+FS_REGEX = re.compile(r'(?:(?:(?:(?:https?:\/\/)?(?:(?:www|old|new|np)\.)?)?reddit\.com)?\/)?[rR]\/([A-Za-z0-9][A-Za-z0-9_]{2,20})(?:\/[^" ]*)*')
 
 with open(file_path, 'r+', encoding='UTF-8') as file:
   entries = json.loads(file.read())

@@ -22,30 +22,30 @@ UNUSED AND FAULTY
 """
 FS_REGEX = {
 	"commatization": r'( *(,+ +|,+ |,+)| +)(and|&|;)( *(,+ +|,+ |,+)| +)|, *$| +',
-	"pattern1": r'\/*[rR]\/([A-Za-z0-9][A-Za-z0-9_]{3,21})(?:\/$)?',
-	"pattern2": r'^\/*[rR](?!\/)([A-Za-z0-9][A-Za-z0-9_]{3,21})(?:\/$)?',
-	"pattern3": r'(?:(?:https?:\/\/)?(?:(?:www|old|new|np)\.)?)?reddit\.com\/r\/([A-Za-z0-9][A-Za-z0-9_]{3,21})(?:\/[^" ]*)*',
-	"pattern1user": r'\/*(?:u|user)\/([A-Za-z0-9][A-Za-z0-9_]{3,21})(?:\/$)?',
-	"pattern2user": r'^\/*(?:u|user)(?!\/)([A-Za-z0-9][A-Za-z0-9_]{3,21})(?:\/$)?',
-	"pattern3user": r'(?:(?:https?:\/\/)?(?:(?:www|old|new|np)\.)?)?reddit\.com\/(?:u|user)\/([A-Za-z0-9][A-Za-z0-9_]{3,21})(?:\/[^" ]*)*',
-	"pattern1new": r'(?:(?:(?:(?:https?:\/\/)?(?:(?:www|old|new|np)\.)?)?reddit\.com)?\/)?[rR]\/([A-Za-z0-9][A-Za-z0-9_]{3,21})(?:\/[^" ]*)*'
+	"pattern1": r'\/*[rR]\/([A-Za-z0-9][A-Za-z0-9_]{2,20})(?:\/$)?',
+	"pattern2": r'^\/*[rR](?!\/)([A-Za-z0-9][A-Za-z0-9_]{2,20})(?:\/$)?',
+	"pattern3": r'(?:(?:https?:\/\/)?(?:(?:www|old|new|np)\.)?)?reddit\.com\/r\/([A-Za-z0-9][A-Za-z0-9_]{2,20})(?:\/[^" ]*)*',
+	"pattern1user": r'\/*(?:u|user)\/([A-Za-z0-9][A-Za-z0-9_]{2,20})(?:\/$)?',
+	"pattern2user": r'^\/*(?:u|user)(?!\/)([A-Za-z0-9][A-Za-z0-9_]{2,20})(?:\/$)?',
+	"pattern3user": r'(?:(?:https?:\/\/)?(?:(?:www|old|new|np)\.)?)?reddit\.com\/(?:u|user)\/([A-Za-z0-9][A-Za-z0-9_]{2,20})(?:\/[^" ]*)*',
+	"pattern1new": r'(?:(?:(?:(?:https?:\/\/)?(?:(?:www|old|new|np)\.)?)?reddit\.com)?\/)?[rR]\/([A-Za-z0-9][A-Za-z0-9_]{2,20})(?:\/[^" ]*)*'
 	# "pattern4": r'(?:https?:\/\/)?(?!^www\.)(.+)\.reddit\.com(?:\/[^"]*)*',
 	# "pattern5": r'\[(?:https?:\/\/)?(?!^www\.)(.+)\.reddit\.com(?:\/[^"]*)*\]\((?:https:\/\/)?(?!^www\.)(.+)\.reddit\.com(?:\/[^"]*)*\)"',
 }
 
 VALIDATE_REGEX = {
-	"subreddit": r'^ *\/?r\/([A-Za-z0-9][A-Za-z0-9_]{3,21}) *(, *\/?r\/([A-Za-z0-9][A-Za-z0-9_]{3,21}) *)*$|^$',
+	"subreddit": r'^ *\/?r\/([A-Za-z0-9][A-Za-z0-9_]{2,20}) *(, *\/?r\/([A-Za-z0-9][A-Za-z0-9_]{2,20}) *)*$|^$',
 	"website": r'^https?://[^\s/$.?#].[^\s]*$|^$'
 }
 
 CL_REGEX = r'\[(.+?)\]\((.+?)\)'
 CWTS_REGEX = {
-	"url": r'^(?:(?:https?:\/\/)?(?:(?:www|old|new|np)\.)?)?reddit\.com\/r\/([A-Za-z0-9][A-Za-z0-9_]{3,21})(?:\/)$',
-	"subreddit": r'^\/*[rR]\/([A-Za-z0-9][A-Za-z0-9_]{3,21})\/?$'
+	"url": r'^(?:(?:https?:\/\/)?(?:(?:www|old|new|np)\.)?)?reddit\.com\/r\/([A-Za-z0-9][A-Za-z0-9_]{2,20})(?:\/)$',
+	"subreddit": r'^\/*[rR]\/([A-Za-z0-9][A-Za-z0-9_]{2,20})\/?$'
 }
 CSTW_REGEX = {
 	"website": r'^https?://[^\s/$.?#].[^\s]*$',
-	"user": r'^\/*u\/([A-Za-z0-9][A-Za-z0-9_]{3,21})$'
+	"user": r'^\/*u\/([A-Za-z0-9][A-Za-z0-9_]{2,20})$'
 }
 
 # r/... to /r/...
