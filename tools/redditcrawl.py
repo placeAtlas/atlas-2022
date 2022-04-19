@@ -32,7 +32,7 @@ from formatter import format_all
 
 OUT_FILE = open('temp_atlas.json', 'w', encoding='utf-8')
 READ_IDS_FILE = open('read-ids-temp.txt', 'w')
-FAIL_FILE = open('manual_atlas.json', 'w', encoding='utf-8')
+FAIL_FILE = open('manual_atlas.txt', 'w', encoding='utf-8')
 
 OUT_FILE_LINES = ['[\n', ']\n']
 
