@@ -272,7 +272,7 @@ function initDraw() {
 		})
 
 		const inputWebsite = websiteField.value.split('\n').map(line => line.trim()).filter(line => line)
-		const inputSubreddit = subredditField.value.split('\n').map(line => line.trim().replace(/(?:(?:(?:(?:https?:\/\/)?(?:(?:www|old|new|np)\.)?)?reddit\.com)?\/)?[rR]\/([A-Za-z0-9][A-Za-z0-9_]{1,20})(?:\/[^" ]*)*/, '$1')).filter(line => line)
+		const inputSubreddit = subredditField.value.split('\n').map(line => line.trim().replace(/(?:(?:(?:(?:https?:\/\/)?(?:(?:www|old|new|np)\.)?)?reddit\.com)?\/)?[rR]\/([A-Za-z0-9][A-Za-z0-9_]{3,21})(?:\/[^" ]*)*/, '$1')).filter(line => line)
 		const inputDiscord = discordField.value.split('\n').map(line => line.trim().replace(/(?:https?:\/\/)?(?:www\.)?(?:(?:discord)?\.?gg|discord(?:app?)\.com\/invite)\/([^\s/]+?)(?=\b)/, '$1')).filter(line => line)
 		const inputWiki = wikiField.value.split('\n').map(line => line.trim().replace(/ /g, '_')).filter(line => line)
 
