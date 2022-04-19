@@ -156,7 +156,7 @@ for submission in reddit.subreddit('placeAtlas2').new(limit=2000):
 
 		except Exception as e:
 			FAIL_FILE.write(
-				"\n\n" + "="*40 + "\n\nSubmission ID:" +
+				"\n\n" + "="*40 + "\n\nSubmission ID: " +
 				submission.id + "\n\n" +
 				traceback.format_exc() + "\n\n" +
 				"==== RAW ====" + "\n\n" +
@@ -172,4 +172,4 @@ for submission in reddit.subreddit('placeAtlas2').new(limit=2000):
 
 OUT_FILE.writelines(OUT_FILE_LINES)
 
-print(f"\n\nTotal all flairs:{total_all_flairs}\nSuccess: {successcount}/{totalcount}\nFail: {failcount}/{totalcount}\nPlease check manual_atlas.txt for failed entries to manually resolve.")
+print(f"\n\nTotal all flairs: {total_all_flairs}\nSuccess: {successcount}/{totalcount}\nFail: {failcount}/{totalcount}\nPlease check manual_atlas.txt for failed entries to manually resolve.")
