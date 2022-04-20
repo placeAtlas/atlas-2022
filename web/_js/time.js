@@ -125,8 +125,8 @@ async function updateTime(index) {
         atlas = []
     }
     timeCallback(atlas)
-    if (typeof configObject.timestamp === "number") tooltip.querySelector('p').textContent = new Date(configObject.timestamp*1000).toUTCString()
-    else tooltip.querySelector('p').textContent = configObject.timestamp
+    if (typeof configObject.timestamp === "number") tooltip.querySelector('div').textContent = new Date(configObject.timestamp*1000).toUTCString()
+    else tooltip.querySelector('div').textContent = configObject.timestamp
     tooltip.style.left = (((slider.offsetWidth)*(slider.value-1)/(slider.max-1)) - tooltip.offsetWidth/2) + "px"
 }
 

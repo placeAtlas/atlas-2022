@@ -15,26 +15,34 @@
 
 function initDraw(){
 	
+	// Set up interface
 	wrapper.classList.remove('listHidden')
+
+	var backButton = document.getElementById("showListButton");
+	backButton.insertAdjacentHTML("afterend", '<button class="btn btn-outline-primary" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasDraw" aria-controls="offcanvasDraw">Edit</button><a id="drawBackButton" class="btn btn-outline-primary" href="./">Exit Draw Mode</a>');
+
+	var myOffcanvas = document.getElementById("offcanvasDraw");
+	var bsOffcanvas = new bootstrap.Offcanvas(myOffcanvas);
+	bsOffcanvas.show();
 
 	window.render = render
 	window.renderBackground = renderBackground
 	window.updateHovering = updateHovering
 
+	// Initialize variables
 	var finishButton = document.getElementById("finishButton");
 	var resetButton = document.getElementById("resetButton");
 	var undoButton = document.getElementById("undoButton");
 	var redoButton = document.getElementById("redoButton");
-	var highlightUnchartedLabel = document.getElementById("highlightUnchartedLabel");
 	
-	var objectInfoBox = document.getElementById("objectInfo");
-	var hintText = document.getElementById("hint");
+	var drawControlsBody = document.getElementById("offcanvasDraw-drawControls");
+	var objectInfoBody = document.getElementById("offcanvasDraw-objectInfo");
+	var objectInfoForm = document.getElementById("objectInfo");
 	
-	var exportButton = document.getElementById("exportButton");
 	var cancelButton = document.getElementById("cancelButton");
 
-	var exportOverlay = document.getElementById("exportOverlay");
-	var exportCloseButton = document.getElementById("exportCloseButton");
+	var exportModal = new bootstrap.Modal(document.getElementById("exportModal"))
+	var exportModalElement = document.getElementById("exportModal")
 
 	var rShiftPressed = false;
 	var lShiftPressed = false;
@@ -116,14 +124,10 @@ function initDraw(){
 	});
 
 	window.addEventListener("keyup", function(e){
-		if(e.key == "Enter"){
-			finish();
-		} else if(e.key == "z" && e.ctrlKey){
+		if (e.key == "z" && e.ctrlKey){
 			undo();
 		} else if(e.key == "y" && e.ctrlKey){
 			redo();
-		} else if(e.key == "Escape"){
-			exportOverlay.style.display = "none";
 		} else if (e.key === "Shift" ){
 			if(e.code === "ShiftRight"){
 				rShiftPressed = false;
@@ -135,7 +139,9 @@ function initDraw(){
 	});
 
 	window.addEventListener("keydown", function(e){
-		if (e.key === "Shift" ){
+		if (e.key == "Enter"){
+			finish();
+		} else if (e.key === "Shift" ){
 			if(e.code === "ShiftRight"){
 				rShiftPressed = true;
 			} else if(e.code === "ShiftLeft"){
@@ -165,36 +171,16 @@ function initDraw(){
 		reset();
 	});
 
-	document.getElementById("nameField").addEventListener("keyup", function(e){
-		if(e.key == "Enter"){
-			exportJson();
-		}
+	// refocus on button when modal is closed
+	exportModalElement.addEventListener('hidden.bs.modal', function() {
+		document.getElementById("exportButton").focus();
 	});
 
-	document.getElementById("websiteField").addEventListener("keyup", function(e){
-		if(e.key == "Enter"){
-			exportJson();
-		}
+	// bind it the same as you bind a button, but on submit
+	objectInfoForm.addEventListener('submit', function(e) {
+		e.preventDefault()
+		exportJson()
 	});
-
-	document.getElementById("subredditField").addEventListener("keyup", function(e){
-		if(e.key == "Enter"){
-			exportJson();
-		}
-	});
-
-	exportButton.addEventListener("click", function(e){
-		exportJson();
-	});
-
-	exportCloseButton.addEventListener("click", function(e){
-		reset();
-		exportOverlay.style.display = "none";
-	});
-
-	exportCloseButton.addEventListener("click", function(e){
-		exportDirectPost();
-	})
 
 	document.getElementById("highlightUncharted").addEventListener("click", function(e){
 		highlightUncharted = this.checked;
@@ -221,12 +207,8 @@ function initDraw(){
 		var directPostUrl = "https://www.reddit.com/r/placeAtlas2/submit?selftext=true&title=New%20Submission&text="+encodeURIComponent(document.getElementById("exportString").value);
 		document.getElementById("exportDirectPost").href=directPostUrl;
 
-		exportOverlay.style.display = "flex";
-		
-		textarea.focus();
-		textarea.select();
+		exportModal.show();
 	}
-
 
 	function calculateCenter(path){
 
@@ -275,16 +257,13 @@ function initDraw(){
 	}
 
 	function finish(){
-		drawing = false;
-		render(path);
-		objectInfoBox.style.display = "block";
-		hintText.style.display = "none";
-		finishButton.style.display = "none";
-		undoButton.style.display = "none";
-		redoButton.style.display = "none";
-		resetButton.style.display = "none";
-		highlightUnchartedLabel.style.display = "none";
-		document.getElementById("nameField").focus();
+		if(drawing) {
+			drawing = false;
+			render(path);
+			objectInfoBody.removeAttribute("style");
+			drawControlsBody.style.display = "none";
+			document.getElementById("nameField").focus();
+		}
 	}
 
 	function reset(){
@@ -295,13 +274,8 @@ function initDraw(){
 		redoButton.disabled = true;
 		drawing = true;
 		render(path);
-		objectInfoBox.style.display = "none";
-		hintText.style.display = "block";
-		finishButton.style.display = "block";
-		undoButton.style.display = "block";
-		redoButton.style.display = "block";
-		resetButton.style.display = "block";
-		highlightUnchartedLabel.style.display = "block";
+		objectInfoBody.style.display = "none";
+		drawControlsBody.removeAttribute("style");
 
 		document.getElementById("nameField").value = "";
 		document.getElementById("descriptionField").value = "";
@@ -379,11 +353,13 @@ function initDraw(){
 				,(e.clientY - (container.clientHeight/2 - innerContainer.clientHeight/2 + zoomOrigin[1] + container.offsetTop))/zoom
 			];
 			var coords_p = document.getElementById("coords_p");
-			coords_p.innerText = Math.ceil(pos[0]) + ", " + Math.ceil(pos[1]);
-	
+
+			// Displays coordinates as zero instead of NaN
+			if (isNaN(pos[0]) == true) {
+				coords_p.innerText = "0, 0";
+			} else {
+				coords_p.innerText = Math.ceil(pos[0]) + ", " + Math.ceil(pos[1]);
+			}
 		}
 	}
-
 }
-
-

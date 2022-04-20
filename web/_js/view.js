@@ -33,7 +33,6 @@ var closeObjectsListButton = document.getElementById("closeObjectsListButton");
 var filterInput = document.getElementById("searchList");
 
 var entriesList = document.getElementById("entriesList");
-var hideListButton = document.getElementById("hideListButton");
 var entriesListShown = false;
 
 var sortedAtlas;
@@ -42,6 +41,8 @@ var entriesLimit = 50;
 var entriesOffset = 0;
 var moreEntriesButton = document.createElement("button");
 moreEntriesButton.innerHTML = "Show "+entriesLimit+" more";
+moreEntriesButton.type = "button"
+moreEntriesButton.className = "btn btn-primary d-block mb-2 mx-auto"
 moreEntriesButton.id = "moreEntriesButton";
 moreEntriesButton.onclick = function(){
 	buildObjectsList(null, null);
@@ -55,16 +56,6 @@ document.getElementById("sort").value = defaultSort;
 var lastPos = [0, 0];
 
 var fixed = false; // Fix hovered items in place, so that clicking on links is possible
-
-if(document.documentElement.clientWidth > 2000){
-	entriesListShown = true;
-	wrapper.classList.remove('listHidden')
-}
-
-if(document.documentElement.clientWidth < 2000){
-	entriesListShown = false;
-	wrapper.classList.add('listHidden')
-}
 
 filterInput.addEventListener("input", function(e){
 	entriesOffset = 0;
@@ -95,25 +86,43 @@ document.getElementById("sort").addEventListener("input", function(e){
 
 });
 
-hideListButton.addEventListener("click", function(e){
-	entriesListShown = !entriesListShown;
-	if(entriesListShown){
-		wrapper.classList.remove('listHidden')
-	} else {
-		wrapper.classList.add('listHidden')
-	}
+var showDraw = document.getElementById('offcanvasDraw')
+showDraw.addEventListener('show.bs.offcanvas', function() {
+	wrapper.classList.remove('listHidden');
+	applyView();
+})
+
+var hideDraw = document.getElementById('offcanvasDraw')
+hideDraw.addEventListener('hide.bs.offcanvas', function() {
+	wrapper.classList.add('listHidden');
+	applyView();
+})
+
+var showList = document.getElementById('offcanvasList')
+showList.addEventListener('show.bs.offcanvas', function(e) {
+	entriesListShown = true;
+	wrapper.classList.remove('listHidden');
 	updateHovering(e);
 	applyView();
 	render();
 	updateLines();
-	return false;
 });
 
-closeObjectsListButton.addEventListener("click", function(e){
+var hideList = document.getElementById('offcanvasList')
+hideList.addEventListener('hide.bs.offcanvas', function(e) {
+	entriesListShown = false;
+	wrapper.classList.add('listHidden');
+	updateHovering(e);
+	applyView();
+	render();
+	updateLines();
+});
+
+closeObjectsListButton.addEventListener("click", function(){
 	hovered = [];
 	objectsContainer.innerHTML = "";
 	updateLines();
-	closeObjectsListButton.className = "hidden";
+	closeObjectsListButton.className = "d-none";
 	fixed = false;
 	render();
 });
@@ -140,7 +149,7 @@ objectsContainer.addEventListener("scroll", function(e){
 	updateLines();
 });
 
-window.addEventListener("resize", function(){
+window.addEventListener("resize", function(e){
 	//console.log(document.documentElement.clientWidth, document.documentElement.clientHeight);
 
 	var viewportWidth = document.documentElement.clientWidth;
@@ -621,7 +630,13 @@ function updateHovering(e, tapped){
 			,(e.clientY - (container.clientHeight/2 - innerContainer.clientHeight/2 + zoomOrigin[1] + container.offsetTop))/zoom
 		];
 		var coords_p = document.getElementById("coords_p");
-		coords_p.innerText = Math.ceil(pos[0]) + ", " + Math.ceil(pos[1]);
+
+		// Displays coordinates as zero instead of NaN
+		if (isNaN(pos[0]) == true) {
+			coords_p.innerText = "0, 0";
+		} else {
+			coords_p.innerText = Math.ceil(pos[0]) + ", " + Math.ceil(pos[1]);
+		}
 
 		if(pos[0] <= 2200 && pos[0] >= -100 && pos[0] <= 2200 && pos[0] >= -100){
 			var newHovered = [];
@@ -660,9 +675,9 @@ function updateHovering(e, tapped){
 				}
 
 				if(hovered.length > 0){
-					closeObjectsListButton.className = "";
+					closeObjectsListButton.className = "btn btn-secondary shadow";
 				} else {
-					closeObjectsListButton.className = "hidden";
+					closeObjectsListButton.className = "d-none";
 				}
 
 
@@ -688,6 +703,18 @@ function highlightEntryFromUrl(){
 		let entry = entries[0];
 
 		document.title = entry.name + " on the 2022 /r/place Atlas";
+		
+		var objectEditNav = document.getElementById("objectEditNav");
+		if (objectEditNav) {
+			objectEditNav.href = "./?mode=draw&id=" + id;
+			objectEditNav.title = "Edit " + entry.name;
+		}
+		else {
+			document.getElementById("showListButton").insertAdjacentHTML("afterend", '<a class="btn btn-outline-primary" type="button" id="objectEditNav" href="" title="">Edit</a>');
+			let objectEditNav = document.getElementById("objectEditNav");
+			objectEditNav.href = "./?mode=draw&id=" + id;
+			objectEditNav.title = "Edit " + entry.name;
+		}
 		
 		var infoElement = createInfoBlock(entry);
 		objectsContainer.innerHTML = "";
@@ -716,7 +743,7 @@ function highlightEntryFromUrl(){
 		hovered = [entry];
 		render();
 		hovered[0].element = infoElement;
-		closeObjectsListButton.className = "";
+		closeObjectsListButton.className = "btn btn-secondary shadow";
 		updateLines();
 		fixed = true;
 	}

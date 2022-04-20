@@ -37,13 +37,16 @@
 		
 		<meta name="viewport" content="width=device-width, height=device-height, initial-scale=1, minimum-scale=1, maximum-scale=1, shrink-to-fit=no"> <!-- user-scalable=no -->
 		<meta name="mobile-web-app-capable" content="yes">
-		<meta name="color-scheme" content="dark">
-
+		<meta name="color-scheme" content="light dark">
+		
 		<link rel="apple-touch-icon" href="_img/apple-touch-icon.png" sizes="180x180">
 		<link rel="icon alternate" href="_img/favicon.png" type="image/png" class="js-site-favicon">
 		<link rel="icon" href="_img/favicon.svg" type="image/svg+xml" class="js-site-favicon">
 		
-		<link href="./_css/style.css" rel="stylesheet" type="text/css" media="all">
+		<link rel="stylesheet" href="./_css/style.css" type="text/css">
+		<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-dark-5@1.1.3/dist/css/bootstrap-dark.min.css">
+		<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.8.1/font/bootstrap-icons.css">
+
 		<link rel="manifest" href="./manifest.webmanifest">
 		
 		<script type="text/javascript" src="./_js/favicon.js" defer></script>
@@ -79,20 +82,44 @@
 		</script>
 	</head>
 	<body>
-		<div id="wrapper">
-			<header>
-				<a href="./">
-					<img id="logo" src="./_img/logo.svg" height="50" width="50" alt="Logo">
-					<!-- If you wonder why I shrink the image in html,
-					     it's because this is the image that will be used
-					     by reddit and the like as the thumbnail for the site.
-					     The original is only 5.9kB, which wouldn't get much
-					     smaller by reducing the actualy size.  -->
-					<h1 id="title">The 2022 /r/place Atlas</h1>
-				</a>
+		<div id="wrapper" class="listHidden">
+			<nav id="main-navbar" class="navbar navbar-expand-md fixed-top bg-body border-bottom">
+				<div class="container-fluid">
+					<a class="navbar-brand text-body" href="./">
+						<img class="d-inline-block align-text-top me-2" src="./_img/logo.svg" height="32" width="32" alt="">
+						The 2022 /r/place Atlas
+					</a>
+					<button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
+						<svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" fill="currentColor" class="bi bi-list" viewBox="0 0 16 16">
+							<path fill-rule="evenodd" d="M2.5 12a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5zm0-4a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5zm0-4a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5z"/>
+						</svg>
+					</button>
+					<div class="collapse navbar-collapse" id="navbarCollapse">
 
-			</header>
-			
+						<ul class="navbar-nav me-auto my-2 my-md-0">
+							<li class="nav-item">
+								<div class="btn-group" role="group">
+									<button id="showListButton" class="btn btn-outline-primary" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasList" aria-controls="offcanvasList">Enteries List</button>
+								</div>
+							</li>
+						</ul>
+						<ul class="navbar-nav mx-auto">
+							<li class="nav-item d-flex align-items-center gap-2">
+								<span class="p-2">Coordinates: <span class="badge bg-secondary" id="coords_p">0, 0</span></span>
+							</li>
+						</ul>
+						<hr class="d-md-none">
+						<ul class="navbar-nav flex-row flex-wrap ms-auto">
+							<li class="nav-item col-6 col-md-auto">
+								<a href="./" class="nav-link active" aria-current="page">Atlas Map</a>
+							</li>
+							<li class="nav-item col-6 col-md-auto">
+								<a href="./about.html" class="nav-link">About</a>
+							</li>
+						</ul>
+					</div>
+				</div>
+			</nav>
 			<div id="container">
 				<div id="loading">
 					<div id="loadingContent">
@@ -112,160 +139,274 @@
 					<img id="image" width="2000" height="2000" alt="Canvas of /r/place in the state of when the experiment was concluded." />
 				</div>
 			</div>
-			
-			<div id="entriesListContainer">
-				<nav id="entriesListNav">
-					<a id="aboutLink" href="./about.html" class="button">About</a>
-					<a id="drawLink" href="./index.html?mode=draw" class="button">Draw</a>
-					<div class="dropdown button" id="viewModes">
-						<span>Modes</span>
-						<span class="buffer"></span>
-						<div class="dropdown-content">
-						  <a href="./">Normal</a>
-						  <a href="./?mode=explore">Explore</a>
-						  <a href="./?mode=overlap">Overlap</a>
-						  <a href="./?mode=diff" class="show-only-on-dev">With Diff</a>
-						  <a href="./?mode=diffonly" class="show-only-on-dev">Diff Only</a>
+			<div class="offcanvas offcanvas-start bg-body" data-bs-scroll="true" data-bs-backdrop="false" tabindex="-1" id="offcanvasList" aria-labelledby="offcanvasListLabel">
+				<header class="offcanvas-header py-2 border-bottom">
+					<div class="d-flex align-items-center py-1">
+						<h5 class="offcanvas-title" id="offcanvasListLabel">Atlas Entries List</h5>
+					</div>
+					<button type="button" class="btn-close text-reset" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+				</header>
+				<div class="py-3 mx-3 border-bottom">
+					<div class="d-flex gap-2 mb-2">
+						<a class="btn btn-primary w-50" id="drawLink" href="./?mode=draw">Draw</a>
+						<button type="button" class="btn btn-primary dropdown-toggle w-50" id="dropdownModes" data-bs-toggle="dropdown" aria-expanded="false">Modes</button>
+						<ul class="dropdown-menu dropdown-menu-end" aria-labelledby="dropdownModes">
+							<li><a class="dropdown-item" href="./">Normal</a></li>
+							<li><a class="dropdown-item" href="./?mode=explore">Explore</a></li>
+							<li><a class="dropdown-item" href="./?mode=overlap">Overlap</a></li>
+							<li><hr class="dropdown-divider show-only-on-dev"></li>
+							<li><a class="dropdown-item show-only-on-dev" href="./?mode=diff" title="View normal mode with diff">With Diff</a></li>
+							<li><a class="dropdown-item show-only-on-dev" href="./?mode=diffonly" title="View only diff">Diff Only</a></li>
+						</ul>
+					</div>
+					<div class="btn-group w-100 mb-3" role="group" aria-label="Social links and donate button">
+						<a class="btn btn-outline-primary" href="https://discord.gg/pJkm23b2nA" target="_blank" rel="noopener noreferrer">
+							<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-discord" viewBox="0 0 16 16"><path d="M13.545 2.907a13.227 13.227 0 0 0-3.257-1.011.05.05 0 0 0-.052.025c-.141.25-.297.577-.406.833a12.19 12.19 0 0 0-3.658 0 8.258 8.258 0 0 0-.412-.833.051.051 0 0 0-.052-.025c-1.125.194-2.22.534-3.257 1.011a.041.041 0 0 0-.021.018C.356 6.024-.213 9.047.066 12.032c.001.014.01.028.021.037a13.276 13.276 0 0 0 3.995 2.02.05.05 0 0 0 .056-.019c.308-.42.582-.863.818-1.329a.05.05 0 0 0-.01-.059.051.051 0 0 0-.018-.011 8.875 8.875 0 0 1-1.248-.595.05.05 0 0 1-.02-.066.051.051 0 0 1 .015-.019c.084-.063.168-.129.248-.195a.05.05 0 0 1 .051-.007c2.619 1.196 5.454 1.196 8.041 0a.052.052 0 0 1 .053.007c.08.066.164.132.248.195a.051.051 0 0 1-.004.085 8.254 8.254 0 0 1-1.249.594.05.05 0 0 0-.03.03.052.052 0 0 0 .003.041c.24.465.515.909.817 1.329a.05.05 0 0 0 .056.019 13.235 13.235 0 0 0 4.001-2.02.049.049 0 0 0 .021-.037c.334-3.451-.559-6.449-2.366-9.106a.034.034 0 0 0-.02-.019Zm-8.198 7.307c-.789 0-1.438-.724-1.438-1.612 0-.889.637-1.613 1.438-1.613.807 0 1.45.73 1.438 1.613 0 .888-.637 1.612-1.438 1.612Zm5.316 0c-.788 0-1.438-.724-1.438-1.612 0-.889.637-1.613 1.438-1.613.807 0 1.451.73 1.438 1.613 0 .888-.631 1.612-1.438 1.612Z"></path></svg>
+							Discord
+						</a>
+						<a class="btn btn-outline-primary" href="https://www.reddit.com/r/placeAtlas2/" target="_blank" rel="noopener noreferrer">
+							<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-reddit" viewBox="0 0 16 16"><path d="M6.167 8a.831.831 0 0 0-.83.83c0 .459.372.84.83.831a.831.831 0 0 0 0-1.661zm1.843 3.647c.315 0 1.403-.038 1.976-.611a.232.232 0 0 0 0-.306.213.213 0 0 0-.306 0c-.353.363-1.126.487-1.67.487-.545 0-1.308-.124-1.671-.487a.213.213 0 0 0-.306 0 .213.213 0 0 0 0 .306c.564.563 1.652.61 1.977.61zm.992-2.807c0 .458.373.83.831.83.458 0 .83-.381.83-.83a.831.831 0 0 0-1.66 0z"/><path d="M16 8A8 8 0 1 1 0 8a8 8 0 0 1 16 0zm-3.828-1.165c-.315 0-.602.124-.812.325-.801-.573-1.9-.945-3.121-.993l.534-2.501 1.738.372a.83.83 0 1 0 .83-.869.83.83 0 0 0-.744.468l-1.938-.41a.203.203 0 0 0-.153.028.186.186 0 0 0-.086.134l-.592 2.788c-1.24.038-2.358.41-3.17.992-.21-.2-.496-.324-.81-.324a1.163 1.163 0 0 0-.478 2.224c-.02.115-.029.23-.029.353 0 1.795 2.091 3.256 4.669 3.256 2.577 0 4.668-1.451 4.668-3.256 0-.114-.01-.238-.029-.353.401-.181.688-.592.688-1.069 0-.65-.525-1.165-1.165-1.165z"/></svg>
+							Reddit
+						</a>
+						<button type="button" title="Donation links" class="btn btn-outline-primary" data-bs-toggle="modal" data-bs-target="#donateModal">
+							<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-currency-exchange" viewBox="0 0 16 16">
+								<path d="M0 5a5.002 5.002 0 0 0 4.027 4.905 6.46 6.46 0 0 1 .544-2.073C3.695 7.536 3.132 6.864 3 5.91h-.5v-.426h.466V5.05c0-.046 0-.093.004-.135H2.5v-.427h.511C3.236 3.24 4.213 2.5 5.681 2.5c.316 0 .59.031.819.085v.733a3.46 3.46 0 0 0-.815-.082c-.919 0-1.538.466-1.734 1.252h1.917v.427h-1.98c-.003.046-.003.097-.003.147v.422h1.983v.427H3.93c.118.602.468 1.03 1.005 1.229a6.5 6.5 0 0 1 4.97-3.113A5.002 5.002 0 0 0 0 5zm16 5.5a5.5 5.5 0 1 1-11 0 5.5 5.5 0 0 1 11 0zm-7.75 1.322c.069.835.746 1.485 1.964 1.562V14h.54v-.62c1.259-.086 1.996-.74 1.996-1.69 0-.865-.563-1.31-1.57-1.54l-.426-.1V8.374c.54.06.884.347.966.745h.948c-.07-.804-.779-1.433-1.914-1.502V7h-.54v.629c-1.076.103-1.808.732-1.808 1.622 0 .787.544 1.288 1.45 1.493l.358.085v1.78c-.554-.08-.92-.376-1.003-.787H8.25zm1.96-1.895c-.532-.12-.82-.364-.82-.732 0-.41.311-.719.824-.809v1.54h-.005zm.622 1.044c.645.145.943.38.943.796 0 .474-.37.8-1.02.86v-1.674l.077.018z"/>
+							</svg>
+							Donate
+						</button>
+					</div>
+					<div id="entriesListControls" class="d-flex flex-column gap-2 p-3 bg-secondary bg-opacity-10 rounded">
+						<span id="atlasSize"></span>
+						<input autofocus class="form-control" id="searchList" type="search" placeholder="Search…" autocomplete="off" spellcheck="false" aria-label="Search entries">
+						<div class="d-flex align-items-center gap-2"><label>Sort:</label>
+							<select class="form-select" id="sort" title="Sort entries">
+								<option selected value="shuffle">Random</option>
+								<option value="relevant" id="relevantOption" disabled>Relevant</option>
+								<option value="alphaAsc">↓ Alphabetical</option>
+								<option value="alphaDesc">↑ Alphabetical</option>
+								<option value="newest">Newest</option>
+								<option value="oldest">Oldest</option>
+								<option value="area">Area</option>
+							</select>
 						</div>
-					</div> 
-					<a title="Discord" href="https://discord.gg/pJkm23b2nA" class="button small" id="entriesListDiscord">
-						<svg xmlns="http://www.w3.org/2000/svg" width="71" height="55" viewBox="0 0 71 55"><path fill="#FFF" d="M60 5a59 59 0 0 0-15-4l-1 3H27a37 37 0 0 0-2-4 58 58 0 0 0-14 5A60 60 0 0 0 0 46a59 59 0 0 0 18 8l4-5v-1l-6-2v-1a30 30 0 0 0 2-1 42 42 0 0 0 36 0l1 1v1l-6 2v1a47 47 0 0 0 4 6 59 59 0 0 0 18-10A60 60 0 0 0 60 5ZM24 37c-4 0-7-3-7-7s3-7 7-7c3 0 6 3 6 7s-3 7-6 7Zm23 0c-3 0-6-3-6-7s3-7 6-7c4 0 7 3 7 7s-3 7-7 7Z"/ alt="Discord"></svg>
-					</a>
-					<button title="Donate!" id="entriesListDonate" class="small">
-						<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64"><path d="M291 384c-1-6-6-8-13-9v-9h-5v9h-4v-9h-6v9h-10v6h3c3 0 3 1 3 2v10h1-1v14c0 1 0 2-2 2h-3l-1 6h10v9h6v-9h4v9h5v-9c9 0 15-3 16-11 1-7-3-10-8-11 3-1 5-4 5-9zm-7 19c0 7-12 6-15 6v-12c3 0 15-1 15 6zm-3-16c0 6-9 5-12 5v-11c3 0 12-1 12 6z" style="fill:#fff" transform="translate(-239 -363)"/ alt="Donate"></svg>
+					</div>
+				</div>
+				<div id="entriesList" class="card-deck pe-3 mx-3 mt-3 overflow-auto"></div>
+			</div>
+			<div id="bottomBar" class="d-flex flex-wrap gap-2 p-2">
+
+				<div id="zoomControls" class="btn-group shadow" role="group" aria-label="Zoom controls">
+					<button type="button" class="btn btn-secondary" id="zoomInButton" title="Zoom in">
+						<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-plus-lg" viewBox="0 0 16 16">
+							<path fill-rule="evenodd" d="M8 2a.5.5 0 0 1 .5.5v5h5a.5.5 0 0 1 0 1h-5v5a.5.5 0 0 1-1 0v-5h-5a.5.5 0 0 1 0-1h5v-5A.5.5 0 0 1 8 2Z"/>
+						</svg>
 					</button>
-				</nav>
-				<div id="entriesListControls">
-					<input autofocus id="searchList" type="text" placeholder="Search...">
-					<span id="atlasSize"></span>
-					<div id="sortContainer"><label>Sort:</label>
-						<select id="sort">
-							<option value="shuffle">Random</option>
-							<option value="relevant" id="relevantOption" disabled>Relevant</option>
-							<option value="alphaAsc">↓ Alphabetical</option>
-							<option value="alphaDesc">↑ Alphabetical</option>
-							<option value="newest">Newest</option>
-							<option value="oldest">Oldest</option>
-							<option value="area">Area</option>
-						</select>
+					<button type="button" class="btn btn-secondary" id="zoomResetButton" title="Reset view">
+						<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-square" viewBox="0 0 16 16">
+							<path d="M14 1a1 1 0 0 1 1 1v12a1 1 0 0 1-1 1H2a1 1 0 0 1-1-1V2a1 1 0 0 1 1-1h12zM2 0a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V2a2 2 0 0 0-2-2H2z"/>
+						</svg>
+					</button>
+					<button type="button" class="btn btn-secondary" id="zoomOutButton" title="Zoom out">
+						<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-dash-lg" viewBox="0 0 16 16">
+							<path fill-rule="evenodd" d="M2 8a.5.5 0 0 1 .5-.5h11a.5.5 0 0 1 0 1h-11A.5.5 0 0 1 2 8Z"/>
+						</svg>
+					</button>
+				</div>
+				<div class="" id="timeControls">
+					<div class="tooltip fade text-nowrap" role="tooltip" id="timeControlsTooltip"><div class="bg-body rounded p-1">Tooltip</div></div>
+					<label for="timeControlsSlider" class="visually-hidden">Time control slider</label>
+					<input type="range" class="slider bg-secondary px-1 rounded shadow" min="1" max="1" value="1" id="timeControlsSlider" aria-describedby="timeControlsTooltip"></input>
+				</div>
+				<div class="flex-grow-1" id="variantControls">
+					<select class="form-select shadow" name="variants" id="variants" title="Background image variants">
+						<option value="default" selected>r/place</option>
+						<option value="tfc">The Final Clean</option>
+					</select>
+				</div>
+				<div id="author" class="bg-body flex-grow-1 flex-shrink-1  d-flex align-items-center justify-content-center p-2 rounded shadow">
+					<span style="font-size: 0.75rem;">Code owned by <a href="https://github.com/placeAtlas/atlas" target="_blank" rel="noopener noreferrer">Place Atlas</a>. Source on <a href="https://github.com/placeAtlas/atlas" target="_blank" rel="noopener noreferrer">GitHub</a>. Site powered by <a href="https://www.netlify.com" target="_blank" rel="noopener noreferrer">Netlify</a>. Images provided by <a href="https://place.thatguyalex.com/" target="_blank" rel="noopener noreferrer">Alex Tsernoh</a>.</span>
+				</div>
+			</div>
+			<div class="offcanvas offcanvas-start bg-body" data-bs-scroll="true" data-bs-backdrop="false" tabindex="-1" id="offcanvasDraw" aria-labelledby="offcanvasDrawLabel">
+				<header class="offcanvas-header py-2 border-bottom">
+					<div class="d-flex align-items-center py-1">
+						<h5 class="offcanvas-title" id="offcanvasDrawLabel">Edit Entry</h5>
 					</div>
-				</div>
-				<div id="entriesList">
-					
-				</div>
-			</div>
-			<div id="entriesListBackground"></div>
-			
-			<button id="hideListButton" aria-label:="Show List Button"></button>
+					<button type="button" class="btn-close text-reset" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+				</header>
+				<div class="offcanvas-body" id="offcanvasDraw-drawControls">
+					<div id="drawControls" class="d-flex flex-column gap-2 p-3 mb-3 bg-secondary bg-opacity-10 rounded">
+						<div class="d-flex gap-2">
+							<button type="button" class="btn btn-secondary flex-fill" id="undoButton" title="Undo line [ctrl-z]" disabled>
+								<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-arrow-counterclockwise" viewBox="0 0 16 16" aria-hidden="true"><path fill-rule="evenodd" d="M8 3a5 5 0 1 1-4.546 2.914.5.5 0 0 0-.908-.417A6 6 0 1 0 8 2v1z"/><path d="M8 4.466V.534a.25.25 0 0 0-.41-.192L5.23 2.308a.25.25 0 0 0 0 .384l2.36 1.966A.25.25 0 0 0 8 4.466z"/></svg>
+								Undo
+							</button>
+							<button type="button" class="btn btn-secondary flex-fill" id="redoButton" title="Redo line [ctrl-y]" disabled>
+								<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-arrow-clockwise" viewBox="0 0 16 16" aria-hidden="true"><path fill-rule="evenodd" d="M8 3a5 5 0 1 0 4.546 2.914.5.5 0 0 1 .908-.417A6 6 0 1 1 8 2v1z"/><path d="M8 4.466V.534a.25.25 0 0 1 .41-.192l2.36 1.966c.12.1.12.284 0 .384L8.41 4.658A.25.25 0 0 1 8 4.466z"/></svg>
+								Redo
+							</button>
+						</div>
+						<button type="button" class="btn btn-primary" id="finishButton" title="Finish drawing [enter]" disabled>Finish</button>
+						<button type="button" class="btn btn-secondary" id="resetButton">Reset</button>
 
-			<div id="coordsWrapper" class="collapsed">
-
-				<div id="coords">
-					<p id="coords_p">0, 0</p>
-				</div>
-			</div>
-			
-			<div id="bottomBar">
-				<div id="zoomControls">
-					<button title="Zoom In" id="zoomInButton"></button>
-					<button title="Reset View" id="zoomResetButton"></button>
-					<button title="Zoom Out" id="zoomOutButton"></button>
-				</div>
-				<div id="timeControls">
-					<div id="timeControlsTooltip"><p>Time control slider</p></div>
-					<input type="range" min="1" max="1" value="1" class="slider" id="timeControlsSlider">
-				</div>
-				<div id="author">
-					<p>Code owned by <a href="https://github.com/placeAtlas/atlas" target="_blank" rel="author">Place Atlas</a>. Source on <a target="_blank" href="https://github.com/placeAtlas/atlas">GitHub</a>. Site powered by <a href="https://www.netlify.com">Netlify</a>. Images provided by <a target="_blank" href="https://place.thatguyalex.com/">Alex Tsernoh</a>.</p>
-				</div>
-			</div>
-			
-			<div id="drawControlsContainer">
-				<a id="drawBackButton" class="button" href="./">&lt; Back to the Atlas</a>
-				<div id="drawControls">
-					<div>
-						<button id="undoButton" disabled>Undo</button>
-						<button disabled id="redoButton">Redo</button>
+						<div class="form-check" id="highlightUnchartedLabel">
+							<input class="form-check-input" type="checkbox" id="highlightUncharted" checked>
+							<label class="form-check-label" for="highlightUncharted" title="Highlight uncharted areas of the map">
+								Highlight Empty
+							</label>
+						</div>
 					</div>
-					<button disabled id="finishButton">Finish (Enter)</button>
-					<button id="resetButton">Reset</button>
-					<label id="highlightUnchartedLabel" title="Highlight uncharted areas of the map" class="checkboxLabel">
-						<input type="checkbox" id="highlightUncharted" checked> Highlight Empty
-					</label>
-					<div id="objectInfo">
-						<label for="nameField">Name</label>
-						<input id="nameField" type="text" value="" placeholder="A short title">
-						<label for="descriptionField">Description</label>
-						<textarea id="descriptionField" placeholder="A short description to be understood by everyone"></textarea>
-						<label for="websiteField">Website</label>
-						<input id="websiteField" type="text" value="" placeholder="https://example.com">
-						<label for="subredditField">Subreddit</label>
-						<input id="subredditField" type="text" value="" placeholder="/r/example">
-						<div id="infoButtons">
-							<button id="cancelButton">Cancel</button>
-							<button id="exportButton">OK</button>
+					<div id="hint">
+						<p>Please read <a href="https://www.reddit.com/r/placeAtlas2/comments/tu203o/how_to_contribute/" target="_blank" rel="noopener noreferrer">this Reddit post</a> for instructions.</p>
+						<hr>
+						<p>You can suggest new entries to the Atlas for art that isn't mapped yet.</p>
+						<p>Click anywhere on the image to start drawing a shape. When you're happy with the result, click the "Finish" button above or press the Enter key.</p>
+						<p>You can then add more information about your object.</p>
+						<hr>
+						<div class="text-white p-3 rounded shadow" style="background-color: #5865F2;">
+							<p><strong>Need Help?</strong></p>
+							<p class="mb-0">You can ask for help on <a class="link-light" href="https://discord.gg/pJkm23b2nA" target="_blank" rel="noopener noreferrer">our Discord server</a>!</p>
 						</div>
 					</div>
 				</div>
-				<div id="hint">
-					<p>You can suggest new entries to the Atlas for art that isn't mapped yet.</p>
-					<p>Please read <a href="https://www.reddit.com/r/placeAtlas2/comments/tu203o/how_to_contribute/" target="_blank">this reddit post</a> for instructions.</p>
-					<p>Click anywhere on the image to start drawing a shape.
-					When you're happy with the result, click the "Finish" button above or press the Enter key.</p>
-					<p>You can then add more information about your object.</p>
-					<div style="background-color:#7289DA; padding:20px">
-						<p><b>Need Help?</b></p>
-						<b>You can ask for help on <a href="https://discord.gg/pJkm23b2nA">our Discord server</a>!</b><br>
-					</div>
+				<div class="offcanvas-body" id="offcanvasDraw-objectInfo" style="display: none;">
+					<form id="objectInfo" class="d-flex flex-column p-3 bg-secondary bg-opacity-10 rounded">
+						<div class="mb-3">
+							<label for="nameField" class="form-label">Title</label>
+							<input type="text" id="nameField" class="form-control" placeholder="A short title" required>
+						</div>
+						<div class="mb-3">
+							<label for="descriptionField" class="form-label">Description</label>
+							<textarea id="descriptionField" class="form-control" rows="3" placeholder="A short description to be understood by everyone" required></textarea>
+						</div>
+						<div class="mb-3">
+							<label for="websiteField" class="form-label">Website</label>
+							<input type="url" name="url" id="websiteField"  class="form-control" placeholder="https://example.com" pattern="https?://.*" title="Website URL using the http:// or https:// protocol">
+						</div>
+						<label for="subredditField" class="form-label">Subreddit</label>
+						<div class="mb-3 d-flex flex-column gap-2">
+							<div class="input-group">
+								<span class="input-group-text" id="subredditField-addon">reddit.com/</span>
+								<input type="text" class="form-control" id="subredditField" placeholder="r/example" pattern="^r\/\w+$" title="Subbredit in format of r/example" maxlength="23" aria-describedby="subredditField-addon">
+								<button class="btn btn-outline-secondary" type="button" title="Add Subreddit">
+									<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-plus-lg" viewBox="0 0 16 16">
+										<path fill-rule="evenodd" d="M8 2a.5.5 0 0 1 .5.5v5h5a.5.5 0 0 1 0 1h-5v5a.5.5 0 0 1-1 0v-5h-5a.5.5 0 0 1 0-1h5v-5A.5.5 0 0 1 8 2Z"/>
+									</svg>
+								</button>
+							</div>
+							<!-- Example with a second input created:
+
+							<div class="input-group">
+								<span class="input-group-text" id="subredditField-addon">reddit.com/</span>
+								<input type="text" class="form-control" id="subredditField" placeholder="r/example" pattern="^r\/\w+$" title="Subbredit in format of r/example" aria-describedby="subredditField-addon">
+								<button class="btn btn-outline-secondary" type="button" title="Remove subreddit">
+									<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-trash-fill" viewBox="0 0 16 16">
+										<path d="M2.5 1a1 1 0 0 0-1 1v1a1 1 0 0 0 1 1H3v9a2 2 0 0 0 2 2h6a2 2 0 0 0 2-2V4h.5a1 1 0 0 0 1-1V2a1 1 0 0 0-1-1H10a1 1 0 0 0-1-1H7a1 1 0 0 0-1 1H2.5zm3 4a.5.5 0 0 1 .5.5v7a.5.5 0 0 1-1 0v-7a.5.5 0 0 1 .5-.5zM8 5a.5.5 0 0 1 .5.5v7a.5.5 0 0 1-1 0v-7A.5.5 0 0 1 8 5zm3 .5v7a.5.5 0 0 1-1 0v-7a.5.5 0 0 1 1 0z"/>
+									</svg>
+								</button>
+							</div>
+							<div class="input-group">
+								<span class="input-group-text" id="subredditField1-addon">reddit.com/</span>
+								<input type="text" class="form-control" id="subredditField1" placeholder="r/example" pattern="^r\/\w+$" title="Subbredit in format of r/example" aria-describedby="subredditField1-addon">
+								<button class="btn btn-outline-secondary" type="button" title="Add subreddit">
+									<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-plus-lg" viewBox="0 0 16 16">
+										<path fill-rule="evenodd" d="M8 2a.5.5 0 0 1 .5.5v5h5a.5.5 0 0 1 0 1h-5v5a.5.5 0 0 1-1 0v-5h-5a.5.5 0 0 1 0-1h5v-5A.5.5 0 0 1 8 2Z"/>
+									</svg>
+								</button>
+							</div> -->
+						</div>
+						<label for="discordField" class="form-label">Discord</label>
+						<div class="mb-3 d-flex flex-column gap-2">
+							<div class="input-group">
+								<span class="input-group-text" id="discordField-addon">discord.gg/</span>
+								<input type="text" class="form-control" id="discordField" placeholder="pJkm23b2nA" aria-describedby="discordField-addon"></input>
+								<button type="button" class="btn btn-outline-secondary" title="Add Discord invite">
+									<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-plus-lg" viewBox="0 0 16 16">
+										<path fill-rule="evenodd" d="M8 2a.5.5 0 0 1 .5.5v5h5a.5.5 0 0 1 0 1h-5v5a.5.5 0 0 1-1 0v-5h-5a.5.5 0 0 1 0-1h5v-5A.5.5 0 0 1 8 2Z"/>
+									</svg>
+								</button>
+							</div>
+						</div>
+						<label for="wikiField" class="form-label">Wiki <a href="https://place-wiki.stefanocoding.me/" target="_blank" rel="noopener noreferrer"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-box-arrow-up-right" viewBox="0 0 16 16">
+							<path fill-rule="evenodd" d="M8.636 3.5a.5.5 0 0 0-.5-.5H1.5A1.5 1.5 0 0 0 0 4.5v10A1.5 1.5 0 0 0 1.5 16h10a1.5 1.5 0 0 0 1.5-1.5V7.864a.5.5 0 0 0-1 0V14.5a.5.5 0 0 1-.5.5h-10a.5.5 0 0 1-.5-.5v-10a.5.5 0 0 1 .5-.5h6.636a.5.5 0 0 0 .5-.5z"/>
+							<path fill-rule="evenodd" d="M16 .5a.5.5 0 0 0-.5-.5h-5a.5.5 0 0 0 0 1h3.793L6.146 9.146a.5.5 0 1 0 .708.708L15 1.707V5.5a.5.5 0 0 0 1 0v-5z"/>
+						</svg></a></label>
+						<div class="mb-3 d-flex flex-column gap-2">
+							<div class="input-group">
+								<input type="text" class="form-control" id="wikiField" placeholder="Page title"></input>
+								<button type="button" class="btn btn-outline-secondary" title="Add wiki page">
+									<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-plus-lg" viewBox="0 0 16 16">
+										<path fill-rule="evenodd" d="M8 2a.5.5 0 0 1 .5.5v5h5a.5.5 0 0 1 0 1h-5v5a.5.5 0 0 1-1 0v-5h-5a.5.5 0 0 1 0-1h5v-5A.5.5 0 0 1 8 2Z"/>
+									</svg>
+								</button>
+							</div>
+						</div>
+						<div id="infoButtons" class="d-flex gap-2">
+							<button type="button" class="btn btn-secondary w-50" id="cancelButton">Back</button>
+							<button type="submit" class="btn btn-primary w-50" id="exportButton" data-bs-toggle="modal">Ok</button>
+						</div>
+					</form>
 				</div>
 			</div>
-			
-			<button class="hidden" id="closeObjectsListButton"></button>
-			<div id="objectsList">
-			</div>
-			
-			<div id="exportOverlay" class="overlay">
-				<div id="exportWindow">
-					<p><b>Recommended:</b> Post directly after clicking this button. Don't forget to flair it with the "New Entry" tag. </p>
-					<div style="display:flex; flex-direction:column;align-items:center">
-						<a href="_blank" id="exportDirectPost" class="button">Post Direct to Reddit</a>
-					</div>
-					<hr style="border-bottom: solid black 1px"/>
-					<i>or...</i>
-					<p>Please copy the text below and submit it as a
-					new text post to <a target="_blank" href="https://www.reddit.com/r/placeAtlas2/">/r/placeAtlas2</a> on Reddit.</p>
+			<button type="button" id="closeObjectsListButton" class="d-none btn btn-secondary shadow" aria-label="Close">
+				<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-x-lg" viewBox="0 0 16 16">
+					<path fill-rule="evenodd" d="M13.854 2.146a.5.5 0 0 1 0 .708l-11 11a.5.5 0 0 1-.708-.708l11-11a.5.5 0 0 1 .708 0Z"/>
+					<path fill-rule="evenodd" d="M2.146 2.146a.5.5 0 0 0 0 .708l11 11a.5.5 0 0 0 .708-.708l-11-11a.5.5 0 0 0-.708 0Z"/>
+				</svg>
+			</button>
+			<div id="objectsList" class="p-2"></div>
+		</div>
+		<div class="modal fade" id="exportModal" tabindex="-1" aria-labelledby="exportModalLabel" aria-hidden="true">
+			<div class="modal-dialog modal-dialog-scrollable modal-xl modal-fullscreen-md-down">
+				<div class="modal-content">
+				<div class="modal-header">
+					<h5 class="modal-title" id="exportModalLabel">Export Entry</h5>
+					<button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+				</div>
+				<div class="modal-body d-flex flex-column">
+					<p>Use the Post Direct to Reddit button or manually copy the text below and submit it as a new text post to <a href="https://www.reddit.com/r/placeAtlas2/" target="_blank" rel="noopener noreferrer">/r/placeAtlas2</a> on Reddit.</p>
 					<p>Don't forget to flair it with the "New Entry" tag.</p>
 					<p>We will then check it and add it to the atlas.</p>
-					<textarea cols="20" rows="5" id="exportString"></textarea>
-					<div style="display:flex; flex-direction:column;align-items:center">
-						<button id="exportCloseButton">Done</button>
-					</div>
+					<textarea class="form-control flex-grow-1" cols="40" rows="20" id="exportString" title="Raw JSON string"></textarea>
+				</div>
+				<div class="modal-footer">
+					<button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Done</button>
+					<a id="exportDirectPost" type="button" class="btn btn-primary" href="#" target="_blank" rel="noopener noreferrer">Post Direct to Reddit</a>
+				</div>
 				</div>
 			</div>
-			
-			<div id="donateOverlay" class="overlay">
-				<div id="donateWindow">
-					<h2>Donation Links</h2>
-					<p>Current 2022 Atlas Maintainers:</p>
-					<a class="button" target="_blank" href="https://paypal.me/placeAtlas/5">
-						<svg role="img" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><title>PayPal</title><path fill="white" d="M7.076 21.337H2.47a.641.641 0 0 1-.633-.74L4.944.901C5.026.382 5.474 0 5.998 0h7.46c2.57 0 4.578.543 5.69 1.81 1.01 1.15 1.304 2.42 1.012 4.287-.023.143-.047.288-.077.437-.983 5.05-4.349 6.797-8.647 6.797h-2.19c-.524 0-.968.382-1.05.9l-1.12 7.106zm14.146-14.42a3.35 3.35 0 0 0-.607-.541c-.013.076-.026.175-.041.254-.93 4.778-4.005 7.201-9.138 7.201h-2.19a.563.563 0 0 0-.556.479l-1.187 7.527h-.506l-.24 1.516a.56.56 0 0 0 .554.647h3.882c.46 0 .85-.334.922-.788.06-.26.76-4.852.816-5.09a.932.932 0 0 1 .923-.788h.58c3.76 0 6.705-1.528 7.565-5.946.36-1.847.174-3.388-.777-4.471z"/></svg>
-						PayPal
-					</a>
-					<a class="button" target="_blank" href="https://www.patreon.com/placeAtlas">
-						<svg role="img" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><title>Patreon</title><path fill="white" d="M0 .48v23.04h4.22V.48zm15.385 0c-4.764 0-8.641 3.88-8.641 8.65 0 4.755 3.877 8.623 8.641 8.623 4.75 0 8.615-3.868 8.615-8.623C24 4.36 20.136.48 15.385.48z"/></svg>
-						Patreon
-					</a>
-					<a class="button" target="_blank" href="https://ko-fi.com/placeatlas">
-						<svg role="img" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><title>Ko-fi</title><path fill="white" d="M23.881 8.948c-.773-4.085-4.859-4.593-4.859-4.593H.723c-.604 0-.679.798-.679.798s-.082 7.324-.022 11.822c.164 2.424 2.586 2.672 2.586 2.672s8.267-.023 11.966-.049c2.438-.426 2.683-2.566 2.658-3.734 4.352.24 7.422-2.831 6.649-6.916zm-11.062 3.511c-1.246 1.453-4.011 3.976-4.011 3.976s-.121.119-.31.023c-.076-.057-.108-.09-.108-.09-.443-.441-3.368-3.049-4.034-3.954-.709-.965-1.041-2.7-.091-3.71.951-1.01 3.005-1.086 4.363.407 0 0 1.565-1.782 3.468-.963 1.904.82 1.832 3.011.723 4.311zm6.173.478c-.928.116-1.682.028-1.682.028V7.284h1.77s1.971.551 1.971 2.638c0 1.913-.985 2.667-2.059 3.015z"/></svg>
-						Ko-Fi
-					</a>
-					<p>Original 2017 Atlas Developer (draemmli aka Roland Rytz): </p>
-					<a class="button" target="_blank" href="https://paypal.me/draemmli">
-						<svg role="img" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><title>PayPal</title><path fill="white" d="M7.076 21.337H2.47a.641.641 0 0 1-.633-.74L4.944.901C5.026.382 5.474 0 5.998 0h7.46c2.57 0 4.578.543 5.69 1.81 1.01 1.15 1.304 2.42 1.012 4.287-.023.143-.047.288-.077.437-.983 5.05-4.349 6.797-8.647 6.797h-2.19c-.524 0-.968.382-1.05.9l-1.12 7.106zm14.146-14.42a3.35 3.35 0 0 0-.607-.541c-.013.076-.026.175-.041.254-.93 4.778-4.005 7.201-9.138 7.201h-2.19a.563.563 0 0 0-.556.479l-1.187 7.527h-.506l-.24 1.516a.56.56 0 0 0 .554.647h3.882c.46 0 .85-.334.922-.788.06-.26.76-4.852.816-5.09a.932.932 0 0 1 .923-.788h.58c3.76 0 6.705-1.528 7.565-5.946.36-1.847.174-3.388-.777-4.471z"/></svg>
-						PayPal
-					</a>
-					<br>
-					<button id="closeDonateButton">Close</button>
+		</div>
+		<div class="modal fade" id="donateModal" tabindex="-1" aria-labelledby="donateModalLabel" aria-hidden="true">
+			<div class="modal-dialog modal-fullscreen-sm-down">
+				<div class="modal-content">
+					<div class="modal-header">
+						<h5 class="modal-title" id="donateModalLabel">Donation Links</h5>
+						<button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+					</div>
+					<div class="modal-body">
+						<p>Current 2022 Atlas Maintainers:</p>
+						<a class="btn btn-primary" target="_blank" rel="noopener noreferrer" href="https://paypal.me/placeAtlas/5">
+							<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-paypal" viewBox="0 0 16 16" aria-hidden="true"><path d="M14.06 3.713c.12-1.071-.093-1.832-.702-2.526C12.628.356 11.312 0 9.626 0H4.734a.7.7 0 0 0-.691.59L2.005 13.509a.42.42 0 0 0 .415.486h2.756l-.202 1.28a.628.628 0 0 0 .62.726H8.14c.429 0 .793-.31.862-.731l.025-.13.48-3.043.03-.164.001-.007a.351.351 0 0 1 .348-.297h.38c1.266 0 2.425-.256 3.345-.91.379-.27.712-.603.993-1.005a4.942 4.942 0 0 0 .88-2.195c.242-1.246.13-2.356-.57-3.154a2.687 2.687 0 0 0-.76-.59l-.094-.061ZM6.543 8.82a.695.695 0 0 1 .321-.079H8.3c2.82 0 5.027-1.144 5.672-4.456l.003-.016c.217.124.4.27.548.438.546.623.679 1.535.45 2.71-.272 1.397-.866 2.307-1.663 2.874-.802.57-1.842.815-3.043.815h-.38a.873.873 0 0 0-.863.734l-.03.164-.48 3.043-.024.13-.001.004a.352.352 0 0 1-.348.296H5.595a.106.106 0 0 1-.105-.123l.208-1.32.845-5.214Z"/></svg>
+							PayPal
+						</a>
+						<a class="btn btn-primary" target="_blank" rel="noopener noreferrer" href="https://www.patreon.com/placeAtlas">
+							<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi" viewBox="0 0 24 24" aria-hidden="true"><path d="M0 .48v23.04h4.22V.48zm15.385 0c-4.764 0-8.641 3.88-8.641 8.65 0 4.755 3.877 8.623 8.641 8.623 4.75 0 8.615-3.868 8.615-8.623C24 4.36 20.136.48 15.385.48z"/></svg>
+							Patreon
+						</a>
+						<a class="btn btn-primary" target="_blank" rel="noopener noreferrer" href="https://ko-fi.com/placeatlas">
+							<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi" viewBox="0 0 24 24" aria-hidden="true"><path d="M23.881 8.948c-.773-4.085-4.859-4.593-4.859-4.593H.723c-.604 0-.679.798-.679.798s-.082 7.324-.022 11.822c.164 2.424 2.586 2.672 2.586 2.672s8.267-.023 11.966-.049c2.438-.426 2.683-2.566 2.658-3.734 4.352.24 7.422-2.831 6.649-6.916zm-11.062 3.511c-1.246 1.453-4.011 3.976-4.011 3.976s-.121.119-.31.023c-.076-.057-.108-.09-.108-.09-.443-.441-3.368-3.049-4.034-3.954-.709-.965-1.041-2.7-.091-3.71.951-1.01 3.005-1.086 4.363.407 0 0 1.565-1.782 3.468-.963 1.904.82 1.832 3.011.723 4.311zm6.173.478c-.928.116-1.682.028-1.682.028V7.284h1.77s1.971.551 1.971 2.638c0 1.913-.985 2.667-2.059 3.015z"/></svg>
+							Ko-Fi
+						</a>
+						<hr>
+						<p>Original 2017 Atlas Developer (draemmli aka Roland Rytz): </p>
+						<a class="btn btn-primary" target="_blank" rel="noopener noreferrer" href="https://paypal.me/draemmli">
+							<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-paypal" viewBox="0 0 16 16" aria-hidden="true"><path d="M14.06 3.713c.12-1.071-.093-1.832-.702-2.526C12.628.356 11.312 0 9.626 0H4.734a.7.7 0 0 0-.691.59L2.005 13.509a.42.42 0 0 0 .415.486h2.756l-.202 1.28a.628.628 0 0 0 .62.726H8.14c.429 0 .793-.31.862-.731l.025-.13.48-3.043.03-.164.001-.007a.351.351 0 0 1 .348-.297h.38c1.266 0 2.425-.256 3.345-.91.379-.27.712-.603.993-1.005a4.942 4.942 0 0 0 .88-2.195c.242-1.246.13-2.356-.57-3.154a2.687 2.687 0 0 0-.76-.59l-.094-.061ZM6.543 8.82a.695.695 0 0 1 .321-.079H8.3c2.82 0 5.027-1.144 5.672-4.456l.003-.016c.217.124.4.27.548.438.546.623.679 1.535.45 2.71-.272 1.397-.866 2.307-1.663 2.874-.802.57-1.842.815-3.043.815h-.38a.873.873 0 0 0-.863.734l-.03.164-.48 3.043-.024.13-.001.004a.352.352 0 0 1-.348.296H5.595a.106.106 0 0 1-.105-.123l.208-1.32.845-5.214Z"/></svg>
+							PayPal
+						</a>
+					</div>
+					<div class="modal-footer">
+						<button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+					</div>
 				</div>
 			</div>
 		</div>
@@ -277,6 +418,7 @@
 		<script type="text/javascript" src="./_js/overlap.js"></script>
 		<script type="text/javascript" src="./_js/draw.js"></script>
 		<script type="text/javascript" src="./_js/main.js"></script>
+		<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
 <!--
 		<script type="text/javascript" src="./_js/stats.js"></script>
 
