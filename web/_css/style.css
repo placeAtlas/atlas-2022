@@ -50,7 +50,7 @@ body[data-mode] {
 	z-index: 1100 !important;
 }
 
-@supports (backdrop-filter: blur()) {
+@supports (backdrop-filter: blur()) or (-webkit-backdrop-filter: blur()) {
 	.navbar, #offcanvasList, #offcanvasDraw {
 		-webkit-backdrop-filter: saturate(180%) blur(15px);
 		backdrop-filter: saturate(180%) blur(15px);
@@ -280,7 +280,7 @@ div:not(.listHidden) > #bottomBar {
 	bottom: 40px;
 }
 
-@supports (backdrop-filter: blur()) {
+@supports (backdrop-filter: blur()) or (-webkit-backdrop-filter: blur()) {
 	#timeControlsTooltip div {
 		-webkit-backdrop-filter: saturate(180%) blur(15px);
 		backdrop-filter: saturate(180%) blur(15px);

@@ -86,10 +86,13 @@
 			<nav id="main-navbar" class="navbar navbar-expand-md fixed-top bg-body border-bottom">
 				<div class="container-fluid">
 					<a class="navbar-brand text-body" href="./">
-						<img class="d-inline-block align-text-top me-2" src="./_img/logo.svg" height="32" width="32" alt="">
+						<picture>
+							<source srcset="./_img/favicon-dark.svg" media="(prefers-color-scheme: dark)">
+							<img class="d-inline-block align-text-top me-2" src="./_img/favicon.svg" height="32" width="32" alt="">
+						</picture>
 						The 2022 /r/place Atlas
 					</a>
-					<button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
+					<button class="navbar-toggler text-body collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
 						<svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" fill="currentColor" class="bi bi-list" viewBox="0 0 16 16">
 							<path fill-rule="evenodd" d="M2.5 12a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5zm0-4a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5zm0-4a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5z"/>
 						</svg>
@@ -103,7 +106,7 @@
 								</div>
 							</li>
 						</ul>
-						<ul class="navbar-nav mx-auto">
+						<ul class="navbar-nav mx-auto d-block d-md-none d-lg-block">
 							<li class="nav-item d-flex align-items-center gap-2">
 								<span class="p-2">Coordinates: <span class="badge bg-secondary" id="coords_p">0, 0</span></span>
 							</li>
@@ -111,10 +114,13 @@
 						<hr class="d-md-none">
 						<ul class="navbar-nav flex-row flex-wrap ms-auto">
 							<li class="nav-item col-6 col-md-auto">
-								<a href="./" class="nav-link active" aria-current="page">Atlas Map</a>
+								<a class="nav-link active" href="./" aria-current="page">Atlas Map</a>
 							</li>
 							<li class="nav-item col-6 col-md-auto">
-								<a href="./about.html" class="nav-link">About</a>
+								<a class="nav-link" href="https://place-wiki.stefanocoding.me/">Wiki</a>
+							</li>
+							<li class="nav-item col-6 col-md-auto">
+								<a class="nav-link" href="./about.html">About</a>
 							</li>
 						</ul>
 					</div>

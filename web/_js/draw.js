@@ -20,6 +20,7 @@ function initDraw(){
 
 	var backButton = document.getElementById("showListButton");
 	backButton.insertAdjacentHTML("afterend", '<button class="btn btn-outline-primary" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasDraw" aria-controls="offcanvasDraw">Edit</button><a id="drawBackButton" class="btn btn-outline-primary" href="./">Exit Draw Mode</a>');
+	backButton.remove();
 
 	var myOffcanvas = document.getElementById("offcanvasDraw");
 	var bsOffcanvas = new bootstrap.Offcanvas(myOffcanvas);
