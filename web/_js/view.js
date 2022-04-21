@@ -87,19 +87,19 @@ document.getElementById("sort").addEventListener("input", function(e){
 });
 
 var showDraw = document.getElementById('offcanvasDraw')
-showDraw.addEventListener('show.bs.offcanvas', function() {
+showDraw.addEventListener('shown.bs.offcanvas', function() {
 	wrapper.classList.remove('listHidden');
 	applyView();
 })
 
 var hideDraw = document.getElementById('offcanvasDraw')
-hideDraw.addEventListener('hide.bs.offcanvas', function() {
+hideDraw.addEventListener('hidden.bs.offcanvas', function() {
 	wrapper.classList.add('listHidden');
 	applyView();
 })
 
 var showList = document.getElementById('offcanvasList')
-showList.addEventListener('show.bs.offcanvas', function(e) {
+showList.addEventListener('shown.bs.offcanvas', function(e) {
 	entriesListShown = true;
 	wrapper.classList.remove('listHidden');
 	updateHovering(e);
@@ -109,7 +109,7 @@ showList.addEventListener('show.bs.offcanvas', function(e) {
 });
 
 var hideList = document.getElementById('offcanvasList')
-hideList.addEventListener('hide.bs.offcanvas', function(e) {
+hideList.addEventListener('hidden.bs.offcanvas', function(e) {
 	entriesListShown = false;
 	wrapper.classList.add('listHidden');
 	updateHovering(e);
