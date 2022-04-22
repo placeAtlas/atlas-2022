@@ -66,7 +66,7 @@ const periodClipboard = {
 	"path": null
 }
 
-	;[...document.querySelectorAll("#drawControlsContainer textarea")].forEach(el => {
+	;[...document.querySelectorAll("#objectInfo textarea")].forEach(el => {
 		el.addEventListener("input", function () {
 			this.style.height = "auto";
 			this.style.height = (this.scrollHeight) + "px"
@@ -313,7 +313,7 @@ function initDraw() {
 		disableDrawingOverride = true;
 		objectInfoBody.removeAttribute("style");
 		drawControlsBody.style.display = "none";
-		[...document.querySelectorAll("#drawControlsContainer textarea")].forEach(el => {
+		[...document.querySelectorAll("#objectInfo textarea")].forEach(el => {
 			if (el.value) el.style.height = (el.scrollHeight) + "px"
 		})
 		// if (isOnPeriod()) {
@@ -441,7 +441,7 @@ function initDraw() {
 		nameField.value = entry.name
 		descriptionField.value = entry.description
 		websiteField.value = entry.links.website.join('\n')
-		subredditField.value = entry.links.subreddit.map(sub => '/r/' + sub).join('\n')
+		subredditField.value = entry.links.subreddit.map(sub => 'r/' + sub).join('\n')
 		discordField.value = entry.links.discord.join('\n')
 		wikiField.value = entry.links.wiki.map(page => page.replace(/_/, ' ')).join('\n')
 		redoButton.disabled = true;
@@ -505,7 +505,7 @@ function initPeriodGroups() {
 
 		const startPeriodEl = periodGroupEl.querySelector('.period-start')
 		const endPeriodEl = periodGroupEl.querySelector('.period-end')
-		const periodVisibilityEl = periodGroupEl.querySelector('.period-visible')
+		// const periodVisibilityEl = periodGroupEl.querySelector('.period-visible')
 		const periodDeleteEl = periodGroupEl.querySelector('.period-delete')
 		const periodDuplicateEl = periodGroupEl.querySelector('.period-duplicate')
 		const periodVariationEl = periodGroupEl.querySelector('.period-variation')
@@ -515,10 +515,10 @@ function initPeriodGroups() {
 		// console.log(period, start, end, variation)
 
 		startPeriodEl.id = "periodStart" + index
-		startPeriodEl.previousSibling.for = startPeriodEl.id
+		startPeriodEl.previousElementSibling.htmlFor = startPeriodEl.id
 		endPeriodEl.id = "periodEnd" + index
-		endPeriodEl.previousSibling.for = endPeriodEl.id
-		periodVisibilityEl.id = "periodVisibility" + index
+		endPeriodEl.previousElementSibling.htmlFor = endPeriodEl.id
+		// periodVisibilityEl.id = "periodVisibility" + index
 		periodVariationEl.id = "periodVariation" + index
 		periodCopyEl.id = "periodCopy" + index
 
@@ -554,22 +554,35 @@ function initPeriodGroups() {
 			endPeriodEl.value = newVariationConfig.default
 			endPeriodEl.max = newVariationConfig.versions.length - 1
 			updateTime(newVariationConfig.default, newVariation)
+			if (periodVariationEl.value == "tfc") {
+				const variationIcon = periodVariationEl.parentElement.querySelector('.input-group-text');
+				variationIcon.innerHTML = '<svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" viewBox="0 0 192 192"><defs><style>.a{fill-rule:evenodd;}</style></defs><path class="a" d="M69.79,83.55c-.47,.65-.59,1.35-.59,1.35-.26,1.47,.76,2.72,.92,3.12,2.84,7.1,4.49,13.93,3.97,16.39-.47,2.18-5.6,5.65-12.36,8.33-3.63,1.44-6.11,2.99-8.04,5.01-7.17,7.51-10.24,17.86-7.14,24.05,3.93,7.84,18.38,5.86,28.05-3.85,2.09-2.1,3.15-3.83,6.63-10.77,2.97-5.93,4.26-8.05,5.47-8.95,2.04-1.52,9.82,.1,17.41,3.64,1.71,.8,2.31,1.04,2.78,.98,0,0,.22-.05,.43-.14,1.31-.59,17.43-17,25.58-25.34-1.79,.09-3.57,.18-5.36,.28-2.84,2.63-5.68,5.27-8.52,7.9-10.85-10.85-21.7-21.71-32.55-32.56,1.73-1.8,3.46-3.6,5.18-5.4-.29-1.56-.57-3.12-.86-4.69-1.34,1.27-19.42,18.45-21.01,20.66Zm-10.45,44.57c2.5,0,4.53,2.03,4.53,4.53s-2.03,4.53-4.53,4.53-4.53-2.03-4.53-4.53,2.03-4.53,4.53-4.53Z"/><path class="f" d="M132.9,97.36c-.88,.22-7.88,1.92-9.91-1.04-1.11-1.62-1.05-4.71-.52-6.57,.74-2.59,.9-4.06,.25-4.73-.73-.76-2.03-.31-3.73-.18-3.4,.27-8.08-.86-9.6-3.16-2.77-4.21,4.48-13.03,2.31-14.69-.17-.13-.34-.16-.67-.22-4.24-.73-6.79,4.71-11.66,5.1-2.93,.24-6.21-1.39-7.72-4.02-1.11-1.94-1-3.96-.86-4.95h0s7.38-7.39,17.6-17.52c12.75,12.73,25.51,25.47,38.26,38.2l-13.75,13.79Z"/><polygon points="154 0 154 38 39 38 39 192 0 192 0 0"/><polygon points="192 38 192 192 77 192 77 153 154 153 154 38"/></svg>';
+			} else {
+				const variationIcon = periodVariationEl.parentElement.querySelector('.input-group-text');
+				variationIcon.innerHTML = '<svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" viewBox="0 0 192 192" aria-hidden="true"><polygon points="154 0 154 38 39 38 39 192 0 192 0 0"/><polygon points="192 38 192 192 77 192 77 153 154 153 154 38"/><rect x="77" y="77" width="38" height="38"/></svg>';
+			}
 			// console.log(parseInt(event.target.value))
 		})
 
 		periodCopyEl.addEventListener("click", event => {
 			const index = parseInt(event.target.id.split('periodCopy')[1])
-			if (event.target.textContent === "Copy") {
-				event.target.textContent = "End"
+			if (event.target.textContent === " Copy") {
+				event.target.className = "period-copy btn btn-primary btn-sm flex-fill";
+				event.target.innerHTML = '<i class="bi bi-clipboard-x" aria-hidden="true"></i> End'
 				periodClipboard.index = index
 				periodClipboard.path = [...pathWithPeriods[index][1]]
+				startPeriodEl.disabled = true;
+				endPeriodEl.disabled = true;
 				updatePeriodGroups()
-			} else if (event.target.textContent === "End") {
-				event.target.textContent = "Copy"
+			} else if (event.target.textContent === " End") {
+				event.target.className = "period-copy btn btn-secondary btn-sm flex-fill";
+				event.target.innerHTML = '<i class="bi bi-clipboard" aria-hidden="true"></i> Copy'
 				periodClipboard.index = null
 				periodClipboard.path = null
+				startPeriodEl.disabled = false;
+				endPeriodEl.disabled = false;
 				updatePeriodGroups()
-			} else if (event.target.textContent === "Paste") {
+			} else if (event.target.textContent === " Paste") {
 				pathWithPeriods[index][1] = [...periodClipboard.path]
 				// console.log(pathWithPeriods[index])
 				if (pathWithPeriods.length > 2) console.log(pathWithPeriods[2])
@@ -588,11 +601,19 @@ function initPeriodGroups() {
 
 		periodVariationEl.value = variation
 
+		if (periodVariationEl.value == "tfc") {
+			const variationIcon = periodVariationEl.parentElement.querySelector('.input-group-text');
+			variationIcon.innerHTML = '<svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" viewBox="0 0 192 192"><defs><style>.a{fill-rule:evenodd;}</style></defs><path class="a" d="M69.79,83.55c-.47,.65-.59,1.35-.59,1.35-.26,1.47,.76,2.72,.92,3.12,2.84,7.1,4.49,13.93,3.97,16.39-.47,2.18-5.6,5.65-12.36,8.33-3.63,1.44-6.11,2.99-8.04,5.01-7.17,7.51-10.24,17.86-7.14,24.05,3.93,7.84,18.38,5.86,28.05-3.85,2.09-2.1,3.15-3.83,6.63-10.77,2.97-5.93,4.26-8.05,5.47-8.95,2.04-1.52,9.82,.1,17.41,3.64,1.71,.8,2.31,1.04,2.78,.98,0,0,.22-.05,.43-.14,1.31-.59,17.43-17,25.58-25.34-1.79,.09-3.57,.18-5.36,.28-2.84,2.63-5.68,5.27-8.52,7.9-10.85-10.85-21.7-21.71-32.55-32.56,1.73-1.8,3.46-3.6,5.18-5.4-.29-1.56-.57-3.12-.86-4.69-1.34,1.27-19.42,18.45-21.01,20.66Zm-10.45,44.57c2.5,0,4.53,2.03,4.53,4.53s-2.03,4.53-4.53,4.53-4.53-2.03-4.53-4.53,2.03-4.53,4.53-4.53Z"/><path class="f" d="M132.9,97.36c-.88,.22-7.88,1.92-9.91-1.04-1.11-1.62-1.05-4.71-.52-6.57,.74-2.59,.9-4.06,.25-4.73-.73-.76-2.03-.31-3.73-.18-3.4,.27-8.08-.86-9.6-3.16-2.77-4.21,4.48-13.03,2.31-14.69-.17-.13-.34-.16-.67-.22-4.24-.73-6.79,4.71-11.66,5.1-2.93,.24-6.21-1.39-7.72-4.02-1.11-1.94-1-3.96-.86-4.95h0s7.38-7.39,17.6-17.52c12.75,12.73,25.51,25.47,38.26,38.2l-13.75,13.79Z"/><polygon points="154 0 154 38 39 38 39 192 0 192 0 0"/><polygon points="192 38 192 192 77 192 77 153 154 153 154 38"/></svg>';
+		} else {
+			const variationIcon = periodVariationEl.parentElement.querySelector('.input-group-text');
+			variationIcon.innerHTML = '<svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" viewBox="0 0 192 192" aria-hidden="true"><polygon points="154 0 154 38 39 38 39 192 0 192 0 0"/><polygon points="192 38 192 192 77 192 77 153 154 153 154 38"/><rect x="77" y="77" width="38" height="38"/></svg>';
+		}
+		
 		periodGroupElements.push({
 			periodGroupEl,
 			startPeriodEl,
 			endPeriodEl,
-			periodVisibilityEl,
+			// periodVisibilityEl,
 			periodVariationEl,
 			periodCopyEl
 		})
@@ -615,7 +636,7 @@ function updatePeriodGroups() {
 			periodGroupEl,
 			startPeriodEl,
 			endPeriodEl,
-			periodVisibilityEl,
+			// periodVisibilityEl,
 			periodVariationEl,
 			periodCopyEl
 		} = elements
@@ -644,20 +665,23 @@ function updatePeriodGroups() {
 
 		if (periodClipboard.index !== null) {
 			if (index !== periodClipboard.index) {
-				periodCopyEl.textContent = "Paste"
+				periodCopyEl.innerHTML = '<i class="bi bi-clipboard-plus" aria-hidden="true"></i> Paste'
 				// console.log(JSON.stringify(pathWithPeriods[index][1]))
 				// console.log(JSON.stringify(periodClipboard.path))
 				// console.log(JSON.stringify(pathWithPeriods[index][1]) === JSON.stringify(periodClipboard.path))
 				if (JSON.stringify(pathWithPeriods[index][1]) === JSON.stringify(periodClipboard.path)) {
+					periodCopyEl.innerHTML = '<i class="bi bi-clipboard-check" aria-hidden="true"></i> Paste'
 					periodCopyEl.disabled = true
 				} else {
+					periodCopyEl.innerHTML = '<i class="bi bi-clipboard-plus" aria-hidden="true"></i> Paste'
 					periodCopyEl.disabled = false
 				}
 			} else {
-				periodCopyEl.textContent = "End"
+				periodCopyEl.className = "period-copy btn btn-primary btn-sm flex-fill";
+				periodCopyEl.innerHTML = '<i class="bi bi-clipboard-x" aria-hidden="true"></i> End'
 			}
 		} else {
-			periodCopyEl.textContent = "Copy"
+			periodCopyEl.innerHTML = '<i class="bi bi-clipboard" aria-hidden="true"></i> Copy'
 			periodCopyEl.disabled = false
 		}
 	})

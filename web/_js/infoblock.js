@@ -54,7 +54,9 @@ function createInfoBlock(entry) {
     if (entry.description) {
         const descElement = document.createElement("div");
         descElement.id = "objectDescription";
-        descElement.innerHTML = '<p>' + entry.description.replace(/\n/g, '</p><p>');
+        let formattedDesc = entry.description.replace(/\n{2}/g, '</p><p>');
+        formattedDesc = formattedDesc.replace(/\n/g, '<br>');
+        descElement.innerHTML = '<p>' + formattedDesc + '</p>';
         bodyElement.appendChild(descElement);
     }
 
@@ -92,7 +94,7 @@ function createInfoBlock(entry) {
         linkListElement.appendChild(subredditGroupElement);
 
         entry.links.subreddit.forEach(subreddit => {
-            subreddit = "/r/" + subreddit;
+            subreddit = "r/" + subreddit;
             const subredditLinkElement = document.createElement("a");
             subredditLinkElement.className = "btn btn-primary text-truncate";
             subredditLinkElement.target = "_blank";

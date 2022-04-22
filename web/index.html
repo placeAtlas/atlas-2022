@@ -238,7 +238,8 @@
 					<button type="button" class="btn-close text-reset" data-bs-dismiss="offcanvas" aria-label="Close"></button>
 				</header>
 				<div class="offcanvas-body" id="offcanvasDraw-drawControls">
-					<div id="drawControls" class="d-flex flex-column gap-2 p-3 mb-3 bg-secondary bg-opacity-10 rounded">
+					<div id="drawControls" class="d-flex flex-column gap-2 p-3 pb-2 mb-3 bg-secondary bg-opacity-10 rounded">
+						<h5>Draw</h5>
 						<div class="d-flex gap-2">
 							<button type="button" class="btn btn-secondary flex-fill" id="undoButton" title="Undo line [ctrl-z]" disabled>
 								<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-arrow-counterclockwise" viewBox="0 0 16 16" aria-hidden="true"><path fill-rule="evenodd" d="M8 3a5 5 0 1 1-4.546 2.914.5.5 0 0 0-.908-.417A6 6 0 1 0 8 2v1z"/><path d="M8 4.466V.534a.25.25 0 0 0-.41-.192L5.23 2.308a.25.25 0 0 0 0 .384l2.36 1.966A.25.25 0 0 0 8 4.466z"/></svg>
@@ -254,17 +255,16 @@
 
 						<div class="form-check" id="highlightUnchartedLabel">
 							<input class="form-check-input" type="checkbox" id="highlightUncharted" checked>
-							<label class="form-check-label" for="highlightUncharted" title="Highlight uncharted areas of the map">
+							<label class="form-check-label mb-0" for="highlightUncharted" title="Highlight uncharted areas of the map">
 								Highlight Empty
 							</label>
 						</div>
-
-						<div id="periods">
-							<p>Periods</p>
-							<p id="periodsStatus"></p>
-							<div id="periodGroups"></div>
-							<button id="periodsAdd">Add Period</button>
-						</div>
+					</div>
+					<div id="periods" class="p-2 pt-3 mb-3 bg-secondary bg-opacity-10 rounded">
+						<h5 class="ps-2">Timeline</h5>
+						<p id="periodsStatus"></p>
+						<div id="periodGroups"></div>
+						<button type="button" class="btn btn-primary d-block mx-auto" id="periodsAdd">Add Period</button>
 					</div>
 					<div id="hint">
 						<p>Please read <a href="https://www.reddit.com/r/placeAtlas2/comments/tu203o/how_to_contribute/" target="_blank" rel="noopener noreferrer">this Reddit post</a> for instructions.</p>
@@ -287,7 +287,7 @@
 						</div>
 						<div class="mb-3">
 							<label for="descriptionField" class="form-label">Description</label>
-							<textarea id="descriptionField" class="form-control" rows="3" placeholder="A short description to be understood by everyone" required></textarea>
+							<textarea id="descriptionField" class="form-control overflow-hidden" placeholder="A short description to be understood by everyone"></textarea>
 						</div>
 						<div class="mb-3">
 							<label for="websiteField" class="form-label">Website</label>
@@ -421,18 +421,38 @@
 			</div>
 		</div>
 		<template id="period-group">
-			<div class="period-group">
-				<label for="period-start">Start Period</label>
-				<input class="period-start" type="range" min="0">
-				<label for="period-end">End Period</label>
-				<input class="period-end" type="range" min="0">
-				<p class="period-visible"></p>
-				<div class="inline">
-					<button class="period-copy">Copy</button>
-					<button class="period-delete">Delete</button>
-					<button class="period-duplicate">Duplicate</button>
+			<div class="period-group card mb-2">
+				<div class="card-body">
+					<label for="period-start" class="form-label">Start Period</label>
+					<input type="range" class="period-start form-range" id="period-start" min="0">
+					<label for="period-end" class="form-label">End Period</label>
+					<input type="range" class="period-end form-range" id="period-end" min="0">
+					<!-- <p class="period-visible"></p> -->
+					<div class="d-flex flex-wrap gap-2 mb-2">
+						<button type="button" class="period-copy btn btn-secondary btn-sm flex-fill" id="period-copy">
+							<i class="bi bi-clipboard" aria-hidden="true"></i>
+							Copy
+						</button>
+						<button type="button" class="period-duplicate btn btn-secondary btn-sm flex-fill" id="period-duplicate">
+							<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-back" viewBox="0 0 16 16" aria-hidden="true">
+								<path d="M0 2a2 2 0 0 1 2-2h8a2 2 0 0 1 2 2v2h2a2 2 0 0 1 2 2v8a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2v-2H2a2 2 0 0 1-2-2V2zm2-1a1 1 0 0 0-1 1v8a1 1 0 0 0 1 1h8a1 1 0 0 0 1-1V2a1 1 0 0 0-1-1H2z"/>
+							</svg>
+							Duplicate
+						</button>
+						<button type="button" class="period-delete btn btn-danger btn-sm flex-fill" id="period-delete">
+							<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-trash-fill" viewBox="0 0 16 16" aria-hidden="true">
+								<path d="M2.5 1a1 1 0 0 0-1 1v1a1 1 0 0 0 1 1H3v9a2 2 0 0 0 2 2h6a2 2 0 0 0 2-2V4h.5a1 1 0 0 0 1-1V2a1 1 0 0 0-1-1H10a1 1 0 0 0-1-1H7a1 1 0 0 0-1 1H2.5zm3 4a.5.5 0 0 1 .5.5v7a.5.5 0 0 1-1 0v-7a.5.5 0 0 1 .5-.5zM8 5a.5.5 0 0 1 .5.5v7a.5.5 0 0 1-1 0v-7A.5.5 0 0 1 8 5zm3 .5v7a.5.5 0 0 1-1 0v-7a.5.5 0 0 1 1 0z"/>
+							</svg>
+							Delete
+						</button>
+					</div>
+
+					<div class="input-group">
+						<span class="input-group-text"></span>
+						<select class="period-variation form-select" title="Select which layer this path is used for"></select>
+					</div>
+					
 				</div>
-				<select class="period-variation"></select>
 			</div>
 		</template>
 
