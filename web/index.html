@@ -224,10 +224,7 @@
 					<input type="range" class="slider bg-secondary px-1 rounded shadow" min="1" max="1" value="1" id="timeControlsSlider" aria-describedby="timeControlsTooltip"></input>
 				</div>
 				<div class="flex-grow-1" id="variantControls">
-					<select class="form-select shadow" name="variants" id="variants" title="Background image variants">
-						<option value="default" selected>r/place</option>
-						<option value="tfc">The Final Clean</option>
-					</select>
+					<select class="form-select shadow" name="variants" id="variants" title="Background image variants"></select>
 				</div>
 				<div id="author" class="bg-body flex-grow-1 flex-shrink-1  d-flex align-items-center justify-content-center p-2 rounded shadow">
 					<span style="font-size: 0.75rem;">Code owned by <a href="https://github.com/placeAtlas/atlas" target="_blank" rel="noopener noreferrer">Place Atlas</a>. Source on <a href="https://github.com/placeAtlas/atlas" target="_blank" rel="noopener noreferrer">GitHub</a>. Site powered by <a href="https://www.netlify.com" target="_blank" rel="noopener noreferrer">Netlify</a>. Images provided by <a href="https://place.thatguyalex.com/" target="_blank" rel="noopener noreferrer">Alex Tsernoh</a>.</span>
@@ -260,6 +257,13 @@
 							<label class="form-check-label" for="highlightUncharted" title="Highlight uncharted areas of the map">
 								Highlight Empty
 							</label>
+						</div>
+
+						<div id="periods">
+							<p>Periods</p>
+							<p id="periodsStatus"></p>
+							<div id="periodGroups"></div>
+							<button id="periodsAdd">Add Period</button>
 						</div>
 					</div>
 					<div id="hint">
@@ -416,20 +420,33 @@
 				</div>
 			</div>
 		</div>
+		<template id="period-group">
+			<div class="period-group">
+				<label for="period-start">Start Period</label>
+				<input class="period-start" type="range" min="0">
+				<label for="period-end">End Period</label>
+				<input class="period-end" type="range" min="0">
+				<p class="period-visible"></p>
+				<div class="inline">
+					<button class="period-copy">Copy</button>
+					<button class="period-delete">Delete</button>
+					<button class="period-duplicate">Duplicate</button>
+				</div>
+				<select class="period-variation"></select>
+			</div>
+		</template>
+
+		<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
 		<script type="text/javascript" src="./_js/time.js"></script>
 		<script type="text/javascript" src="./_js/infoblock.js"></script>
 		<script type="text/javascript" src="./_js/pointInPolygon.js"></script>
 		<script type="text/javascript" src="./_js/atlas.js"></script>
 		<script type="text/javascript" src="./_js/view.js"></script>
 		<script type="text/javascript" src="./_js/overlap.js"></script>
+		<script type="text/javascript" src="./_js/polylabel.js"></script>
 		<script type="text/javascript" src="./_js/draw.js"></script>
 		<script type="text/javascript" src="./_js/main.js"></script>
-		<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
-<!--
-		<script type="text/javascript" src="./_js/stats.js"></script>
-
-
-		<script type="text/javascript" src="./_js/minified.js"></script>
--->
+		<!-- <script type="text/javascript" src="./_js/stats.js"></script>
+		<script type="text/javascript" src="./_js/minified.js"></script> -->
 	</body>
 </html>
