@@ -487,7 +487,7 @@ function initDraw() {
 }
 
 function calculateCenter(path) {
-	let result = polylabel(path)
+	const result = polylabel(path)
 	return [Math.floor(result[0]) + 0.5, Math.floor(result[1]) + 0.5]
 }
 

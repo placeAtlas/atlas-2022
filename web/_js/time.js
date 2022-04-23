@@ -180,7 +180,7 @@ async function updateTime(newPeriod = currentPeriod, newVariation = currentVaria
 
 	atlas = []
 	for (const atlasIndex in atlasAll) {
-		let pathChosen, centerChosen, chosenIndex
+		let chosenIndex
 
 		const validPeriods2 = Object.keys(atlasAll[atlasIndex].path)
 
@@ -197,8 +197,8 @@ async function updateTime(newPeriod = currentPeriod, newVariation = currentVaria
 		}
 
 		if (chosenIndex === undefined) continue
-		pathChosen = Object.values(atlasAll[atlasIndex].path)[chosenIndex]
-		centerChosen = Object.values(atlasAll[atlasIndex].center)[chosenIndex]
+		const pathChosen = Object.values(atlasAll[atlasIndex].path)[chosenIndex]
+		const centerChosen = Object.values(atlasAll[atlasIndex].center)[chosenIndex]
 
 		if (pathChosen === undefined) continue
 
