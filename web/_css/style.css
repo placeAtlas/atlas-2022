@@ -866,6 +866,7 @@ div:not(.listHidden)>#bottomBar {
 	width: 90px;
 	display: flex;
 	align-self: flex-end;
+	margin-right: auto;
 }
 
 #zoomControls button {
@@ -1383,3 +1384,10 @@ body:not([data-dev]) .show-only-on-dev {
 #variantControls select {
 	height: 30px !important;
 }
+
+#timeControls.no-time-slider,
+.period-group.no-time-slider input,
+.period-group.no-time-slider label {
+	display: none;
+}
+

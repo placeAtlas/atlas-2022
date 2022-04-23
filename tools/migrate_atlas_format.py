@@ -57,7 +57,7 @@ for entry in entries:
     else:
       time_range = INIT_CANVAS_RANGE
 
-    time_key = '%d-%d, T:0-2' % time_range
+    time_key = '%d-%d, T:0' % time_range
 
     new_entry = {
       **new_entry,

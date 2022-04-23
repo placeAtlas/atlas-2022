@@ -23,16 +23,8 @@ const variationsConfig = {
 	tfc: {
 		name: "The Final Clean",
 		code: "T",
-		default: 2,
+		default: 0,
 		versions: [
-			{
-				timestamp: "Draft 1",
-				url: "./_img/canvas/tfc/draft1.png",
-			},
-			{
-				timestamp: "Draft 2",
-				url: "./_img/canvas/tfc/draft2.png",
-			},
 			{
 				timestamp: "Final",
 				url: "./_img/canvas/tfc/final.png",
@@ -88,16 +80,6 @@ variantsEl.addEventListener("input", (event) => {
 	updateTime(currentPeriod, event.target.value)
 })
 
-// document.querySelector('#period-group .period-start').oninput = (event) => {
-//     slider.value = parseInt(event.target.value)
-//     updateTime(parseInt(event.target.value))
-// };
-
-// document.querySelector('#period-group .period-end').oninput = (event) => {
-//     slider.value = parseInt(event.target.value)
-//     updateTime(parseInt(event.target.value))
-// };
-
 const dispatchTimeUpdateEvent = (period = timelineSlider.value, atlas = atlas) => {
 	const timeUpdateEvent = new CustomEvent('timeupdate', {
 		detail: {
@@ -120,6 +102,9 @@ async function updateBackground(newPeriod = currentPeriod, newVariation = curren
 		timelineSlider.max = variationConfig.versions.length - 1;
 		currentPeriod = variationConfig.default;
 		newPeriod = currentPeriod
+		if (variationConfig.versions.length === 1) timelineSlider.parentElement.classList.add('no-time-slider')
+		else timelineSlider.parentElement.classList.remove('no-time-slider')
+	
 	}
 	timelineSlider.value = currentPeriod
 	variantsEl.value = currentVariation
@@ -208,6 +193,7 @@ async function updateTime(newPeriod = currentPeriod, newVariation = currentVaria
 			center: centerChosen,
 		})
 	}
+
 	dispatchTimeUpdateEvent(newPeriod, atlas)
 	document.body.dataset.canvasLoading = false
 }

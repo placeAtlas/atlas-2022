@@ -522,6 +522,8 @@ function initPeriodGroups() {
 		endPeriodEl.max = variationsConfig[variation].versions.length - 1
 		startPeriodEl.value = start
 		endPeriodEl.value = end
+		if (startPeriodEl.max == 0) periodGroupEl.classList.add('no-time-slider')
+		else periodGroupEl.classList.remove('no-time-slider')
 
 		startPeriodEl.addEventListener('input', event => {
 			timelineSlider.value = parseInt(event.target.value)
@@ -547,6 +549,8 @@ function initPeriodGroups() {
 			startPeriodEl.max = newVariationConfig.versions.length - 1
 			endPeriodEl.value = newVariationConfig.default
 			endPeriodEl.max = newVariationConfig.versions.length - 1
+			if (startPeriodEl.max == 0) periodGroupEl.classList.add('no-time-slider')
+			else periodGroupEl.classList.remove('no-time-slider')
 			updateTime(newVariationConfig.default, newVariation)
 		})
 
