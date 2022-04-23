@@ -27,36 +27,41 @@ var objectInfoForm = document.getElementById("objectInfo");
 
 const hintText = document.getElementById("hint");
 
-const periodsStatus = document.getElementById('periodsStatus')
-const periodGroups = document.getElementById('periodGroups')
-const periodGroupTemplate = document.getElementById('period-group').content.firstElementChild.cloneNode(true)
-const periodsAdd = document.getElementById('periodsAdd')
+const periodsStatus = document.getElementById('periodsStatus');
+const periodGroups = document.getElementById('periodGroups');
+const periodGroupTemplate = document.getElementById('period-group').content.firstElementChild.cloneNode(true);
+const periodsAdd = document.getElementById('periodsAdd');
 
 const exportButton = document.getElementById("exportButton");
 const cancelButton = document.getElementById("cancelButton");
 
-const exportModal = new bootstrap.Modal(document.getElementById("exportModal"))
-const exportModalElement = document.getElementById("exportModal")
+const exportModal = new bootstrap.Modal(document.getElementById("exportModal"));
+const exportModalElement = document.getElementById("exportModal");
 
 const exportOverlay = document.getElementById("exportOverlay");
 const exportCloseButton = document.getElementById("exportCloseButton");
-const exportBackButton = document.getElementById("exportBackButton")
+const exportBackButton = document.getElementById("exportBackButton");
 
-const nameField = document.getElementById("nameField")
-const descriptionField = document.getElementById("descriptionField")
-const websiteField = document.getElementById("websiteField")
-const subredditField = document.getElementById("subredditField")
-const discordField = document.getElementById("discordField")
-const wikiField = document.getElementById("wikiField")
+const nameField = document.getElementById("nameField");
+const descriptionField = document.getElementById("descriptionField");
+const websiteGroup = document.getElementById("websiteGroup");
+const subredditGroup = document.getElementById("subredditGroup");
+const discordGroup = document.getElementById("discordGroup");
+const wikiGroup = document.getElementById("wikiGroup");
 const exportArea = document.getElementById("exportString");
 
 let path = [];
 let center = [1000, 1000];
 
-let pathWithPeriods = []
-let periodGroupElements = []
+let websiteGroupElements = [];
+let subredditGroupElements = [];
+let discordGroupElements = [];
+let wikiGroupElements = [];
 
-let disableDrawingOverride = false
+let pathWithPeriods = [];
+let periodGroupElements = [];
+
+let disableDrawingOverride = false;
 let drawing = true;
 
 let undoHistory = [];
@@ -223,7 +228,6 @@ function initDraw() {
 		document.getElementById("exportButton").focus();
 	});
 
-	// bind it the same as you bind a button, but on submit
 	objectInfoForm.addEventListener('submit', function(e) {
 		e.preventDefault()
 		exportJson()
@@ -266,10 +270,10 @@ function initDraw() {
 			exportObject.center[key] = calculateCenter(value)
 		})
 
-		const inputWebsite = websiteField.value.split('\n').map(line => line.trim()).filter(line => line)
-		const inputSubreddit = subredditField.value.split('\n').map(line => line.trim().replace(/(?:(?:(?:(?:https?:\/\/)?(?:(?:www|old|new|np)\.)?)?reddit\.com)?\/)?[rR]\/([A-Za-z0-9][A-Za-z0-9_]{2,20})(?:\/[^" ]*)*/, '$1')).filter(line => line)
-		const inputDiscord = discordField.value.split('\n').map(line => line.trim().replace(/(?:https?:\/\/)?(?:www\.)?(?:(?:discord)?\.?gg|discord(?:app?)\.com\/invite)\/([^\s/]+?)(?=\b)/, '$1')).filter(line => line)
-		const inputWiki = wikiField.value.split('\n').map(line => line.trim().replace(/ /g, '_')).filter(line => line)
+		const inputWebsite = websiteGroupElements.map(element => element.value.trim()).filter(element => element);
+		const inputSubreddit = subredditGroupElements.map(element => element.value.trim().replace(/(?:(?:(?:(?:https?:\/\/)?(?:(?:www|old|new|np)\.)?)?reddit\.com)?\/)?[rR]\/([A-Za-z0-9][A-Za-z0-9_]{2,20})(?:\/[^" ]*)*/, '$1')).filter(element => element);
+		const inputDiscord = discordGroupElements.map(element => element.value.trim().replace(/(?:https?:\/\/)?(?:www\.)?(?:(?:discord)?\.?gg|discord(?:app?)\.com\/invite)\/([^\s/]+?)(?=\b)/, '$1')).filter(element => element);
+		const inputWiki = wikiGroupElements.map(element => element.value.trim().replace(/ /g, '_')).filter(element => element);
 
 		if (inputWebsite.length) exportObject.links.website = inputWebsite
 		if (inputSubreddit.length) exportObject.links.subreddit = inputSubreddit
@@ -436,14 +440,224 @@ function initDraw() {
 
 	const params = new URLSearchParams(document.location.search)
 
+
+	function addFieldButton(inputButton, inputGroup, array, index, name) {
+		console.log("add button fired");
+		if (inputButton.title == "Remove " + name) {
+			console.log("add (now remove) button fired");
+			removeFieldButton(inputGroup, array, index);
+			return;
+		}
+		inputButton.className = "btn btn-outline-secondary";
+		inputButton.title = "Remove " + name;
+		inputButton.innerHTML = '<i class="bi bi-trash-fill"></i>';
+		console.log(array);
+		if (name == "website") {
+			addWebsiteFields(null, array.length, array);
+		} else if (name == "subreddit") {
+			addSubredditFields(null, array.length, array);
+		} else if (name == "Discord invite") {
+			addDiscordFields(null, array.length, array);
+		} else if (name == "wiki page") {
+			addWikiFields(null, array.length, array);
+		}
+	}
+
+	function removeFieldButton(inputGroup, array, index) {
+		console.log("remove button fired");
+		delete array[index];
+		inputGroup.remove();
+		console.log(array);
+	}
+
+	function addWebsiteFields(link, index, array) {
+		const inputGroup = document.createElement("div");
+		inputGroup.className = "input-group";
+		websiteGroup.appendChild(inputGroup);
+
+		const inputField = document.createElement("input");
+		inputField.type = "url";
+		inputField.name = "url";
+		inputField.className = "form-control";
+		inputField.id = "websiteField" + index;
+		inputField.placeholder = "https://example.com";
+		inputField.pattern = "https?://.*";
+		inputField.title = "Website URL using the http:// or https:// protocol";
+		inputField.setAttribute("aria-labelledby", "websiteLabel");
+		inputField.value = link
+		inputGroup.appendChild(inputField);
+		websiteGroupElements.push(inputField);
+
+		const inputButton = document.createElement("button");
+		inputButton.type = "button";
+		// If button is the last in the array give it the add button
+		if (array.length == index + 1) {
+			inputButton.className = "btn btn-secondary";
+			inputButton.title = "Add website";
+			inputButton.innerHTML = '<i class="bi bi-plus-lg"></i>';
+			inputButton.addEventListener('click', () => addFieldButton(inputButton, inputGroup, websiteGroupElements, index, "website"));
+		} else {
+			inputButton.className = "btn btn-outline-secondary";
+			inputButton.title = "Remove website";
+			inputButton.innerHTML = '<i class="bi bi-trash-fill"></i>';
+			inputButton.addEventListener('click', () => removeFieldButton(inputGroup, array, index));
+		}
+		inputGroup.appendChild(inputButton);
+	}
+
+	function addSubredditFields(link, index, array) {
+		const inputGroup = document.createElement("div");
+		inputGroup.className = "input-group";
+		subredditGroup.appendChild(inputGroup);
+
+		const inputAddon = document.createElement("span");
+		inputAddon.className = "input-group-text";
+		inputAddon.id = "subredditField" + index + "-addon";
+		inputAddon.textContent = "reddit.com/";
+		inputGroup.appendChild(inputAddon);
+
+		const inputField = document.createElement("input");
+		inputField.type = "text";
+		inputField.className = "form-control";
+		inputField.id = "subredditField" + index;
+		inputField.placeholder = "r/example";
+		inputField.pattern = "^r\/\\w+$";
+		inputField.title = "Subbredit in format of r/example";
+		inputField.maxLength = "23";
+		inputField.spellcheck = false;
+		inputField.setAttribute("aria-labelledby", "subredditLabel");
+		inputField.setAttribute("aria-describedby", "subredditField" + index + "-addon");
+		if (link) {
+			inputField.value = "r/" + link 
+		} else {
+			inputField.value = "";
+		}
+		inputGroup.appendChild(inputField);
+		subredditGroupElements.push(inputField);
+
+		const inputButton = document.createElement("button");
+		inputButton.type = "button";
+		// If button is the last in the array give it the add button
+		if (array.length == index + 1) {
+			inputButton.className = "btn btn-secondary";
+			inputButton.title = "Add subreddit";
+			inputButton.innerHTML = '<i class="bi bi-plus-lg"></i>';
+			inputButton.addEventListener('click', () => addFieldButton(inputButton, inputGroup, subredditGroupElements, index, "subreddit"));
+		} else {
+			inputButton.className = "btn btn-outline-secondary";
+			inputButton.title = "Remove subreddit";
+			inputButton.innerHTML = '<i class="bi bi-trash-fill"></i>';
+			inputButton.addEventListener('click', () => removeFieldButton(inputGroup, array, index));
+		}
+		inputGroup.appendChild(inputButton);
+	}
+
+	function addDiscordFields(link, index, array) {
+		const inputGroup = document.createElement("div");
+		inputGroup.className = "input-group";
+		discordGroup.appendChild(inputGroup);
+
+		const inputAddon = document.createElement("span");
+		inputAddon.className = "input-group-text";
+		inputAddon.id = "discordField" + index + "-addon";
+		inputAddon.textContent = "discord.gg/";
+		inputGroup.appendChild(inputAddon);
+
+		const inputField = document.createElement("input");
+		inputField.type = "text";
+		inputField.className = "form-control";
+		inputField.id = "discordField" + index;
+		inputField.placeholder = "pJkm23b2nA";
+		inputField.spellcheck = false;
+		inputField.setAttribute("aria-labelledby", "discordLabel");
+		inputField.setAttribute("aria-describedby", "discordField" + index + "-addon");
+		inputField.value = link
+		inputGroup.appendChild(inputField);
+		discordGroupElements.push(inputField);
+
+		const inputButton = document.createElement("button");
+		inputButton.type = "button";
+		// If button is the last in the array give it the add button
+		if (array.length == index + 1) {
+			inputButton.className = "btn btn-secondary";
+			inputButton.title = "Add Discord invite";
+			inputButton.innerHTML = '<i class="bi bi-plus-lg"></i>';
+			inputButton.addEventListener('click', () => addFieldButton(inputButton, inputGroup, discordGroupElements, index, "Discord invite"));
+		} else {
+			inputButton.className = "btn btn-outline-secondary";
+			inputButton.title = "Remove Discord invite";
+			inputButton.innerHTML = '<i class="bi bi-trash-fill"></i>';
+			inputButton.addEventListener('click', () => removeFieldButton(inputGroup, array, index));
+		}
+		inputGroup.appendChild(inputButton);
+	}
+
+	function addWikiFields(link, index, array) {
+		const inputGroup = document.createElement("div");
+		inputGroup.className = "input-group";
+		wikiGroup.appendChild(inputGroup);
+
+		const inputField = document.createElement("input");
+		inputField.type = "text";
+		inputField.className = "form-control";
+		inputField.id = "wikiField" + index;
+		inputField.placeholder = "Page title";
+		inputField.spellcheck = false;
+		inputField.setAttribute("aria-labelledby", "wikiLabel");
+		inputField.value = link
+		inputGroup.appendChild(inputField);
+		wikiGroupElements.push(inputField);
+
+		const inputButton = document.createElement("button");
+		inputButton.type = "button";
+		// If button is the last in the array give it the add button
+		if (array.length == index + 1) {
+			inputButton.className = "btn btn-secondary";
+			inputButton.title = "Add wiki page";
+			inputButton.innerHTML = '<i class="bi bi-plus-lg"></i>';
+			inputButton.addEventListener('click', () => addFieldButton(inputButton, inputGroup, wikiGroupElements, index, "wiki page"));
+		} else {
+			inputButton.className = "btn btn-outline-secondary";
+			inputButton.title = "Remove wiki page";
+			inputButton.innerHTML = '<i class="bi bi-trash-fill"></i>';
+			inputButton.addEventListener('click', () => removeFieldButton(inputGroup, array, index));
+		}
+		inputGroup.appendChild(inputButton);
+	}
+
 	if (params.has('id')) {
 		const entry = getEntry(params.get('id'))
 		nameField.value = entry.name
 		descriptionField.value = entry.description
-		websiteField.value = entry.links.website.join('\n')
-		subredditField.value = entry.links.subreddit.map(sub => 'r/' + sub).join('\n')
-		discordField.value = entry.links.discord.join('\n')
-		wikiField.value = entry.links.wiki.map(page => page.replace(/_/, ' ')).join('\n')
+
+		if (entry.links.website.length) {
+			entry.links.website.forEach((link, index, array) => {
+				addWebsiteFields(link, index, array);
+			});
+		} else {
+			addWebsiteFields("", -1, entry.links.website);
+		}
+		if (entry.links.subreddit.length) {
+			entry.links.subreddit.forEach((link, index, array) => {
+				addSubredditFields(link, index, array);
+			});
+		} else {
+			addSubredditFields("", -1, entry.links.subreddit);
+		}
+		if (entry.links.discord.length) {
+			entry.links.discord.forEach((link, index, array) => {
+				addDiscordFields(link, index, array);
+			});
+		} else {
+			addDiscordFields("", -1, entry.links.discord);
+		}
+		if (entry.links.wiki.length) {
+			entry.links.wiki.forEach((link, index, array) => {
+				addWikiFields(link, index, array);
+			});
+		} else {
+			addWikiFields("", -1, entry.links.wiki);
+		}
 		redoButton.disabled = true;
 		undoButton.disabled = false;
 		entryId = params.get('id')

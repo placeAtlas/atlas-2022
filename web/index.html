@@ -98,7 +98,6 @@
 						</svg>
 					</button>
 					<div class="collapse navbar-collapse" id="navbarCollapse">
-
 						<ul class="navbar-nav me-auto my-2 my-md-0">
 							<li class="nav-item">
 								<div class="btn-group" role="group">
@@ -183,13 +182,14 @@
 					</div>
 					<div id="entriesListControls" class="d-flex flex-column gap-2 p-3 bg-secondary bg-opacity-10 rounded">
 						<span id="atlasSize"></span>
-						<input autofocus class="form-control" id="searchList" type="search" placeholder="Search…" autocomplete="off" spellcheck="false" aria-label="Search entries">
-						<div class="d-flex align-items-center gap-2"><label>Sort:</label>
+						<input autofocus class="form-control" id="searchList" type="search" placeholder="Search…" autocomplete="off" spellcheck="false" aria-describedby="atlasSize">
+						<div class="d-flex align-items-center gap-2">
+							<label for="sort">Sort:</label>
 							<select class="form-select" id="sort" title="Sort entries">
 								<option selected value="shuffle">Random</option>
 								<option value="relevant" id="relevantOption" disabled>Relevant</option>
-								<option value="alphaAsc">↓ Alphabetical</option>
-								<option value="alphaDesc">↑ Alphabetical</option>
+								<option value="alphaAsc" label="↓ Alphabetical">Descending Alphabetical</option>
+								<option value="alphaDesc" label="↑ Alphabetical">Ascending Alphabetical</option>
 								<option value="newest">Newest</option>
 								<option value="oldest">Oldest</option>
 								<option value="area">Area</option>
@@ -274,7 +274,7 @@
 						<p>You can then add more information about your object.</p>
 						<hr>
 						<div class="text-white p-3 rounded shadow" style="background-color: #5865F2;">
-							<p><strong>Need Help?</strong></p>
+							<h6>Need Help?</h6>
 							<p class="mb-0">You can ask for help on <a class="link-light" href="https://discord.gg/pJkm23b2nA" target="_blank" rel="noopener noreferrer">our Discord server</a>!</p>
 						</div>
 					</div>
@@ -289,71 +289,25 @@
 							<label for="descriptionField" class="form-label">Description</label>
 							<textarea id="descriptionField" class="form-control overflow-hidden" placeholder="A short description to be understood by everyone"></textarea>
 						</div>
-						<div class="mb-3">
-							<label for="websiteField" class="form-label">Website</label>
-							<input type="url" name="url" id="websiteField"  class="form-control" placeholder="https://example.com" pattern="https?://.*" title="Website URL using the http:// or https:// protocol">
-						</div>
-						<label for="subredditField" class="form-label">Subreddit</label>
-						<div class="mb-3 d-flex flex-column gap-2">
-							<div class="input-group">
-								<span class="input-group-text" id="subredditField-addon">reddit.com/</span>
-								<input type="text" class="form-control" id="subredditField" placeholder="r/example" pattern="^r\/\w+$" title="Subbredit in format of r/example" maxlength="23" aria-describedby="subredditField-addon">
-								<button class="btn btn-outline-secondary" type="button" title="Add Subreddit">
-									<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-plus-lg" viewBox="0 0 16 16">
-										<path fill-rule="evenodd" d="M8 2a.5.5 0 0 1 .5.5v5h5a.5.5 0 0 1 0 1h-5v5a.5.5 0 0 1-1 0v-5h-5a.5.5 0 0 1 0-1h5v-5A.5.5 0 0 1 8 2Z"/>
-									</svg>
-								</button>
-							</div>
-							<!-- Example with a second input created:
-
-							<div class="input-group">
-								<span class="input-group-text" id="subredditField-addon">reddit.com/</span>
-								<input type="text" class="form-control" id="subredditField" placeholder="r/example" pattern="^r\/\w+$" title="Subbredit in format of r/example" aria-describedby="subredditField-addon">
-								<button class="btn btn-outline-secondary" type="button" title="Remove subreddit">
-									<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-trash-fill" viewBox="0 0 16 16">
-										<path d="M2.5 1a1 1 0 0 0-1 1v1a1 1 0 0 0 1 1H3v9a2 2 0 0 0 2 2h6a2 2 0 0 0 2-2V4h.5a1 1 0 0 0 1-1V2a1 1 0 0 0-1-1H10a1 1 0 0 0-1-1H7a1 1 0 0 0-1 1H2.5zm3 4a.5.5 0 0 1 .5.5v7a.5.5 0 0 1-1 0v-7a.5.5 0 0 1 .5-.5zM8 5a.5.5 0 0 1 .5.5v7a.5.5 0 0 1-1 0v-7A.5.5 0 0 1 8 5zm3 .5v7a.5.5 0 0 1-1 0v-7a.5.5 0 0 1 1 0z"/>
-									</svg>
-								</button>
-							</div>
-							<div class="input-group">
-								<span class="input-group-text" id="subredditField1-addon">reddit.com/</span>
-								<input type="text" class="form-control" id="subredditField1" placeholder="r/example" pattern="^r\/\w+$" title="Subbredit in format of r/example" aria-describedby="subredditField1-addon">
-								<button class="btn btn-outline-secondary" type="button" title="Add subreddit">
-									<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-plus-lg" viewBox="0 0 16 16">
-										<path fill-rule="evenodd" d="M8 2a.5.5 0 0 1 .5.5v5h5a.5.5 0 0 1 0 1h-5v5a.5.5 0 0 1-1 0v-5h-5a.5.5 0 0 1 0-1h5v-5A.5.5 0 0 1 8 2Z"/>
-									</svg>
-								</button>
-							</div> -->
-						</div>
-						<label for="discordField" class="form-label">Discord</label>
-						<div class="mb-3 d-flex flex-column gap-2">
-							<div class="input-group">
-								<span class="input-group-text" id="discordField-addon">discord.gg/</span>
-								<input type="text" class="form-control" id="discordField" placeholder="pJkm23b2nA" aria-describedby="discordField-addon"></input>
-								<button type="button" class="btn btn-outline-secondary" title="Add Discord invite">
-									<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-plus-lg" viewBox="0 0 16 16">
-										<path fill-rule="evenodd" d="M8 2a.5.5 0 0 1 .5.5v5h5a.5.5 0 0 1 0 1h-5v5a.5.5 0 0 1-1 0v-5h-5a.5.5 0 0 1 0-1h5v-5A.5.5 0 0 1 8 2Z"/>
-									</svg>
-								</button>
-							</div>
-						</div>
-						<label for="wikiField" class="form-label">Wiki <a href="https://place-wiki.stefanocoding.me/" target="_blank" rel="noopener noreferrer"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-box-arrow-up-right" viewBox="0 0 16 16">
-							<path fill-rule="evenodd" d="M8.636 3.5a.5.5 0 0 0-.5-.5H1.5A1.5 1.5 0 0 0 0 4.5v10A1.5 1.5 0 0 0 1.5 16h10a1.5 1.5 0 0 0 1.5-1.5V7.864a.5.5 0 0 0-1 0V14.5a.5.5 0 0 1-.5.5h-10a.5.5 0 0 1-.5-.5v-10a.5.5 0 0 1 .5-.5h6.636a.5.5 0 0 0 .5-.5z"/>
-							<path fill-rule="evenodd" d="M16 .5a.5.5 0 0 0-.5-.5h-5a.5.5 0 0 0 0 1h3.793L6.146 9.146a.5.5 0 1 0 .708.708L15 1.707V5.5a.5.5 0 0 0 1 0v-5z"/>
-						</svg></a></label>
-						<div class="mb-3 d-flex flex-column gap-2">
-							<div class="input-group">
-								<input type="text" class="form-control" id="wikiField" placeholder="Page title"></input>
-								<button type="button" class="btn btn-outline-secondary" title="Add wiki page">
-									<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-plus-lg" viewBox="0 0 16 16">
-										<path fill-rule="evenodd" d="M8 2a.5.5 0 0 1 .5.5v5h5a.5.5 0 0 1 0 1h-5v5a.5.5 0 0 1-1 0v-5h-5a.5.5 0 0 1 0-1h5v-5A.5.5 0 0 1 8 2Z"/>
-									</svg>
-								</button>
-							</div>
-						</div>
+						<label id="websiteLabel" class="form-label">Website</label>
+						<div id="websiteGroup" class="mb-3 d-flex flex-column gap-2"></div>
+						<label id="subredditLabel" class="form-label">Subreddit</label>
+						<div id="subredditGroup" class="mb-3 d-flex flex-column gap-2"></div>
+						<label id="discordLabel" class="form-label">Discord</label>
+						<div id="discordGroup" class="mb-3 d-flex flex-column gap-2"></div>
+						<label id="wikiLabel" class="form-label">
+							<a class="text-decoration-none" href="https://place-wiki.stefanocoding.me/" target="_blank" rel="noopener noreferrer">
+								<span class="text-body">Wiki</span>
+								<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-box-arrow-up-right" viewBox="0 0 16 16">
+									<path fill-rule="evenodd" d="M8.636 3.5a.5.5 0 0 0-.5-.5H1.5A1.5 1.5 0 0 0 0 4.5v10A1.5 1.5 0 0 0 1.5 16h10a1.5 1.5 0 0 0 1.5-1.5V7.864a.5.5 0 0 0-1 0V14.5a.5.5 0 0 1-.5.5h-10a.5.5 0 0 1-.5-.5v-10a.5.5 0 0 1 .5-.5h6.636a.5.5 0 0 0 .5-.5z"/>
+									<path fill-rule="evenodd" d="M16 .5a.5.5 0 0 0-.5-.5h-5a.5.5 0 0 0 0 1h3.793L6.146 9.146a.5.5 0 1 0 .708.708L15 1.707V5.5a.5.5 0 0 0 1 0v-5z"/>
+								</svg>
+							</a>
+						</label>
+						<div id="wikiGroup" class="mb-3 d-flex flex-column gap-2"></div>
 						<div id="infoButtons" class="d-flex gap-2">
 							<button type="button" class="btn btn-secondary w-50" id="cancelButton">Back</button>
-							<button type="submit" class="btn btn-primary w-50" id="exportButton" data-bs-toggle="modal">Ok</button>
+							<button type="submit" class="btn btn-primary w-50" id="exportButton">Ok</button>
 						</div>
 					</form>
 				</div>
