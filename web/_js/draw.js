@@ -251,10 +251,6 @@ function initDraw() {
 
 		const pathWithPeriodsTemp = pathWithPeriods.concat()
 
-		// console.log(pathWithPeriodsTemp)
-
-		//  calculateCenter(path)
-
 		for (let i = pathWithPeriodsTemp.length - 1; i > 0; i--) {
 			for (let j = 0; j < i; j++) {
 				if (JSON.stringify(pathWithPeriodsTemp[i][1]) === JSON.stringify(pathWithPeriodsTemp[j][1])) {
@@ -485,7 +481,6 @@ function initDraw() {
 
 	periodsAdd.addEventListener('click', () => {
 		pathWithPeriods.push([defaultPeriod, []])
-		// console.log(JSON.stringify(pathWithPeriods))
 		initPeriodGroups()
 	})
 
@@ -501,8 +496,6 @@ function initPeriodGroups() {
 	periodGroupElements = []
 	periodGroups.textContent = ''
 
-	// console.log(pathWithPeriods)
-
 	pathWithPeriods.forEach(([period, path], index) => {
 		const periodGroupEl = periodGroupTemplate.cloneNode(true)
 		periodGroupEl.id = "periodGroup" + index
@@ -516,7 +509,6 @@ function initPeriodGroups() {
 		const periodCopyEl = periodGroupEl.querySelector('.period-copy')
 
 		const [start, end, variation] = parsePeriod(period)
-		// console.log(period, start, end, variation)
 
 		startPeriodEl.id = "periodStart" + index
 		startPeriodEl.previousSibling.for = startPeriodEl.id
@@ -534,12 +526,10 @@ function initPeriodGroups() {
 		startPeriodEl.addEventListener('input', event => {
 			timelineSlider.value = parseInt(event.target.value)
 			updateTime(parseInt(event.target.value), variation)
-			// console.log(parseInt(event.target.value))
 		})
 		endPeriodEl.addEventListener('input', event => {
 			timelineSlider.value = parseInt(event.target.value)
 			updateTime(parseInt(event.target.value), variation)
-			// console.log(parseInt(event.target.value))
 		})
 		periodDeleteEl.addEventListener('click', () => {
 			if (pathWithPeriods.length === 1) return
@@ -558,7 +548,6 @@ function initPeriodGroups() {
 			endPeriodEl.value = newVariationConfig.default
 			endPeriodEl.max = newVariationConfig.versions.length - 1
 			updateTime(newVariationConfig.default, newVariation)
-			// console.log(parseInt(event.target.value))
 		})
 
 		periodCopyEl.addEventListener("click", event => {
@@ -575,7 +564,6 @@ function initPeriodGroups() {
 				updatePeriodGroups()
 			} else if (event.target.textContent === "Paste") {
 				pathWithPeriods[index][1] = [...periodClipboard.path]
-				// console.log(pathWithPeriods[index])
 				if (pathWithPeriods.length > 2) console.log(pathWithPeriods[2])
 				initPeriodGroups()
 			}
@@ -601,14 +589,12 @@ function initPeriodGroups() {
 			periodCopyEl
 		})
 	})
-	// console.log(periodGroupTemplate)
 
 	updatePeriodGroups()
 
 }
 
 function updatePeriodGroups() {
-	// console.log('updatePeriodGroups')
 	let pathToActive = []
 	let lastActivePathIndex
 	let currentActivePathIndex
@@ -649,9 +635,6 @@ function updatePeriodGroups() {
 		if (periodClipboard.index !== null) {
 			if (index !== periodClipboard.index) {
 				periodCopyEl.textContent = "Paste"
-				// console.log(JSON.stringify(pathWithPeriods[index][1]))
-				// console.log(JSON.stringify(periodClipboard.path))
-				// console.log(JSON.stringify(pathWithPeriods[index][1]) === JSON.stringify(periodClipboard.path))
 				if (JSON.stringify(pathWithPeriods[index][1]) === JSON.stringify(periodClipboard.path)) {
 					periodCopyEl.disabled = true
 				} else {
@@ -666,19 +649,8 @@ function updatePeriodGroups() {
 		}
 	})
 
-	// console.log('updatePeriodGroups searcher', pathToActive, lastActivePathIndex, currentActivePathIndex, period)
-
 	periodsStatus.textContent = ""
 
-	// if (currentActivePathIndexes.length > 1) {
-	// 	periodsStatus.textContent = "Collision detected! Please resolve it."
-	// 	currentActivePathIndexes.forEach(index => {
-	// 		periodGroupElements[index].periodGroupEl.dataset.status = "error"
-	// 	})
-	// 	currentActivePathIndex = undefined
-	// } 
-
-	// console.log(lastActivePathIndex)
 	if (lastActivePathIndex !== undefined) {
 		if (lastActivePathIndex === currentActivePathIndex) {
 			// just update the path
@@ -706,7 +678,6 @@ function updatePeriodGroups() {
 
 		}
 	} else {
-		// console.log('direct active', pathToActive)
 		updatePath(pathToActive)
 	}
 
@@ -723,9 +694,7 @@ function formatPeriod(start, end, variation) {
 }
 
 function updatePath(newPath) {
-	// console.log('updatePath', path, newPath)
 	if (newPath) path = newPath
-	// console.log('updatePath', path, newPath)
 	if (path.length > 3) center = calculateCenter(path)
 	render(path)
 	undoButton.disabled = path.length == 0; // Maybe make it undo the cancel action in the future

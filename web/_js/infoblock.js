@@ -14,7 +14,6 @@
 */
 
 function createInfoBlock(entry) {
-	// console.log(entry)
 	function createInfoParagraph(name, value) {
 		const entryParagraphPositionElement = document.createElement("p");
 		const nameElement = document.createElement("span");

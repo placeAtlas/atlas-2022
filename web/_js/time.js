@@ -114,7 +114,6 @@ async function updateBackground(newPeriod = currentPeriod, newVariation = curren
 	currentUpdateIndex++
 	const myUpdateIndex = currentUpdateIndex
 	currentPeriod = newPeriod
-	// console.log(newPeriod, newVariation)
 	const variationConfig = variationsConfig[newVariation]
 	if (currentVariation !== newVariation) {
 		currentVariation = newVariation
@@ -156,11 +155,9 @@ async function updateBackground(newPeriod = currentPeriod, newVariation = curren
 		}))
 		for await (const url of configObject.url) {
 			const imageLayer = new Image()
-			// console.log(imageCache[url])
 			await new Promise(resolve => {
 				imageLayer.onload = () => {
 					context.drawImage(imageLayer, 0, 0)
-					// console.log("image done")
 					resolve()
 				}
 				imageLayer.src = imageCache[url]
@@ -169,7 +166,6 @@ async function updateBackground(newPeriod = currentPeriod, newVariation = curren
 
 		if (currentUpdateIndex !== myUpdateIndex) return [configObject, newPeriod, newVariation]
 		const blob = await new Promise(resolve => canvas.toBlob(resolve))
-		// console.log(URL.createObjectURL(blob))
 		image.src = URL.createObjectURL(blob)
 	}
 
@@ -188,15 +184,11 @@ async function updateTime(newPeriod = currentPeriod, newVariation = currentVaria
 
 		const validPeriods2 = Object.keys(atlasAll[atlasIndex].path)
 
-		// console.log(chosenIndex)
-
 		for (const i in validPeriods2) {
 			const validPeriods = validPeriods2[i].split(', ')
 			for (const j in validPeriods) {
 				const [start, end, variation] = parsePeriod(validPeriods[j])
-				// console.log(start, end, variation, newPeriod, newVariation)
 				if (isOnPeriod(start, end, variation, newPeriod, newVariation)) {
-					// console.log("match", start, end, variation, newPeriod, newVariation, i)
 					chosenIndex = i
 					break
 				}
@@ -204,16 +196,11 @@ async function updateTime(newPeriod = currentPeriod, newVariation = currentVaria
 			if (chosenIndex !== undefined) break
 		}
 
-		// console.log(testMatches)
-
-		// console.log(chosenIndex)
 		if (chosenIndex === undefined) continue
 		pathChosen = Object.values(atlasAll[atlasIndex].path)[chosenIndex]
 		centerChosen = Object.values(atlasAll[atlasIndex].center)[chosenIndex]
 
 		if (pathChosen === undefined) continue
-
-		// console.log(123)
 
 		atlas.push({
 			...atlasAll[atlasIndex],
@@ -221,8 +208,6 @@ async function updateTime(newPeriod = currentPeriod, newVariation = currentVaria
 			center: centerChosen,
 		})
 	}
-	// console.log(atlas)
-
 	dispatchTimeUpdateEvent(newPeriod, atlas)
 	document.body.dataset.canvasLoading = false
 }
@@ -247,7 +232,6 @@ function isOnPeriod(start, end, variation, currentPeriod, currentVariation) {
 }
 
 function parsePeriod(periodString) {
-	// console.log(periodString)
 	let variation = "default"
 	periodString = periodString + ""
 	if (periodString.split(':').length > 1) {
