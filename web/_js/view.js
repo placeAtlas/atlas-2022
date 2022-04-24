@@ -119,7 +119,7 @@ hideList.addEventListener('hidden.bs.offcanvas', function(e) {
 
 closeObjectsListButton.addEventListener("click", function(){
 	hovered = [];
-	objectsContainer.innerHTML = "";
+	objectsContainer.replaceChildren();
 	updateLines();
 	closeObjectsListButton.className = "d-none";
 	fixed = false;
@@ -409,7 +409,7 @@ function buildObjectsList(filter = null, sort = null) {
 
 		element.addEventListener("mouseenter", function (e) {
 			if (!fixed && !dragging) {
-				objectsContainer.innerHTML = "";
+				objectsContainer.replaceChildren();
 
 				previousZoomOrigin = [zoomOrigin[0], zoomOrigin[1]];
 				previousScaleZoomOrigin = [scaleZoomOrigin[0], scaleZoomOrigin[1]];
@@ -446,7 +446,7 @@ function buildObjectsList(filter = null, sort = null) {
 				applyView();
 			}
 			if (document.documentElement.clientWidth < 500) {
-				objectsContainer.innerHTML = "";
+				objectsContainer.replaceChildren();
 
 				entriesListShown = false;
 				wrapper.className += " listHidden";
@@ -672,7 +672,7 @@ function updateHovering(e, tapped) {
 					return calcPolygonArea(a.path) - calcPolygonArea(b.path);
 				});
 
-				objectsContainer.innerHTML = "";
+				objectsContainer.replaceChildren()
 
 				for (const i in hovered) {
 					const element = createInfoBlock(hovered[i]);
@@ -711,23 +711,25 @@ function highlightEntryFromUrl() {
 
 		document.title = entry.name + " on the 2022 /r/place Atlas";
 
-		// document.getElementById("showListButton").insertAdjacentHTML("afterend", '<a class="btn btn-outline-primary" type="button" id="objectEditNav" href="" title="">Edit</a>');
-
-		const objectEditNav = document.createElement("a");
-		objectEditNav.className = "btn btn-outline-primary";
-		objectEditNav.id = "objectEditNav";
-		objectEditNav.innerText = "Edit";
-
-		if (!entry.diff || entry.diff !== "delete") {
-			objectEditNav.href = "./?mode=draw&id=" + id;
-			objectEditNav.title = "Edit " + entry.name;
-			document.getElementById("showListButton").parentElement.appendChild(objectEditNav);
+		if ((!entry.diff || entry.diff !== "delete")) {
+			if (document.getElementById("objectEditNav")) {
+				document.getElementById("objectEditNav").href = "./?mode=draw&id=" + id;
+				document.getElementById("objectEditNav").title = "Edit " + entry.name;
+			} else {
+				const objectEditNav = document.createElement("a");
+				objectEditNav.className = "btn btn-outline-primary";
+				objectEditNav.id = "objectEditNav";
+				objectEditNav.innerText = "Edit";
+				objectEditNav.href = "./?mode=draw&id=" + id;
+				objectEditNav.title = "Edit " + entry.name;
+				document.getElementById("showListButton").parentElement.appendChild(objectEditNav);
+			}
 		} else if (entry.diff == "delete" && document.getElementById("objectEditNav")) {
 			document.getElementById("objectEditNav").remove();
 		}
 
 		const infoElement = createInfoBlock(entry);
-		objectsContainer.innerHTML = "";
+		objectsContainer.replaceChildren();
 		objectsContainer.appendChild(infoElement);
 
 		//console.log(entry.center[0]);

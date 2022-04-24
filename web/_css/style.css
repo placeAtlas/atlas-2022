@@ -317,6 +317,15 @@ noscript {
 	box-shadow: 0 .5rem 1rem rgba(17,17,17,.5);
 }
 
+#entriesList .card {
+	box-shadow: none !important;
+	transition: box-shadow 0.15s ease-in-out;
+}
+
+#entriesList .card:hover {
+	box-shadow: 0 0 0 .15rem rgba(var(--bs-primary-rgb), .75) !important;
+}
+
 #entriesListNav {
 	margin: 10px 0;
 	display: flex;

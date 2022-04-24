@@ -17,9 +17,9 @@ function createInfoBlock(entry) {
     function createLabel(name, value, parent) {
         const nameElement = document.createElement("span");
         nameElement.className = "fw-bold";
-        nameElement.innerText = name;
+        nameElement.textContent = name;
         const valueElement = document.createElement("span");
-        valueElement.innerText = value;
+        valueElement.textContent = value;
         parent.appendChild(nameElement);
         parent.appendChild(valueElement);
         return parent;
@@ -41,7 +41,7 @@ function createInfoBlock(entry) {
     linkElement.href = "#" + entry.id;
     const linkNameElement = document.createElement("span");
     linkNameElement.className = "flex-grow-1 text-break";
-    linkNameElement.innerText = entry.name;
+    linkNameElement.textContent = entry.name;
     headerElement.appendChild(linkElement);
     linkElement.appendChild(linkNameElement);
     linkElement.insertAdjacentHTML("beforeend", '<i class="bi bi-link-45deg align-self-center link-primary"></i>');// '<svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" fill="currentColor" class="bi bi-link-45deg ms-1 align-self-center flex-shrink-0" viewBox="0 0 16 16"><path d="M4.715 6.542 3.343 7.914a3 3 0 1 0 4.243 4.243l1.828-1.829A3 3 0 0 0 8.586 5.5L8 6.086a1.002 1.002 0 0 0-.154.199 2 2 0 0 1 .861 3.337L6.88 11.45a2 2 0 1 1-2.83-2.83l.793-.792a4.018 4.018 0 0 1-.128-1.287z"/><path d="M6.586 4.672A3 3 0 0 0 7.414 9.5l.775-.776a2 2 0 0 1-.896-3.346L9.12 3.55a2 2 0 1 1 2.83 2.83l-.793.792c.112.42.155.855.128 1.287l1.372-1.372a3 3 0 1 0-4.243-4.243L6.586 4.672z"/></svg>');
@@ -94,17 +94,18 @@ function createInfoBlock(entry) {
         linkListElement.appendChild(subredditGroupElement);
 
         entry.links.subreddit.forEach(subreddit => {
-            subreddit = "r/" + subreddit;
-            const subredditLinkElement = document.createElement("a");
-            subredditLinkElement.className = "btn btn-primary text-truncate";
-            subredditLinkElement.target = "_blank";
-            subredditLinkElement.rel = "noopener noreferrer";
-            subredditLinkElement.href = "https://reddit.com" + subreddit;
-            subredditLinkElement.innerText = subreddit;
-            subredditGroupElement.appendChild(subredditLinkElement);
+            if (subreddit) {
+                subreddit = "r/" + subreddit;
+                const subredditLinkElement = document.createElement("a");
+                subredditLinkElement.className = "btn btn-primary text-truncate";
+                subredditLinkElement.target = "_blank";
+                subredditLinkElement.rel = "noopener noreferrer";
+                subredditLinkElement.href = "https://reddit.com/" + subreddit;
+                subredditLinkElement.textContent = subreddit;
+                subredditGroupElement.appendChild(subredditLinkElement);
+            }
         });
     };
-
 
     if (entry.links.website.length) {
         const websiteGroupElement = document.createElement("div");
@@ -112,13 +113,15 @@ function createInfoBlock(entry) {
         linkListElement.appendChild(websiteGroupElement);
 
         entry.links.website.forEach(link => {
-            const websiteLinkElement = document.createElement("a");
-            websiteLinkElement.className = "btn btn-primary"
-            websiteLinkElement.target = "_blank";
-            websiteLinkElement.rel = "noopener noreferrer";
-            websiteLinkElement.href = link;
-            websiteLinkElement.innerText = "Website";
-            websiteGroupElement.appendChild(websiteLinkElement);
+            if (link) {
+                const websiteLinkElement = document.createElement("a");
+                websiteLinkElement.className = "btn btn-primary"
+                websiteLinkElement.target = "_blank";
+                websiteLinkElement.rel = "noopener noreferrer";
+                websiteLinkElement.href = link;
+                websiteLinkElement.textContent = "Website";
+                websiteGroupElement.appendChild(websiteLinkElement);
+            }
         });
     }
 
@@ -128,11 +131,13 @@ function createInfoBlock(entry) {
         linkListElement.appendChild(discordGroupElement);
 
         entry.links.discord.forEach(link => {
-            const discordLinkElement = document.createElement("a");
-            discordLinkElement.target = "_blank";
-            discordLinkElement.href = "https://discord.gg/" + link;
-            discordLinkElement.innerText = "Discord";
-            discordGroupElement.appendChild(discordLinkElement);
+            if (link) {
+                const discordLinkElement = document.createElement("a");
+                discordLinkElement.target = "_blank";
+                discordLinkElement.href = "https://discord.gg/" + link;
+                discordLinkElement.textContent = "Discord";
+                discordGroupElement.appendChild(discordLinkElement);
+            }
         });
     }
 
@@ -142,12 +147,14 @@ function createInfoBlock(entry) {
         linkListElement.appendChild(wikiGroupElement);
 
         entry.links.wiki.forEach(link => {
-            const wikiLinkElement = document.createElement("a");
-            wikiLinkElement.target = "_blank";
-            websiteLinkElement.rel = "noopener noreferrer";
-            wikiLinkElement.href = "https://place-wiki.stefanocoding.me/wiki/" + link.replace(/ /g, '_');
-            wikiLinkElement.innerText = "Wiki Article";
-            wikiGroupElement.appendChild(wikiLinkElement);
+            if (link) {
+                const wikiLinkElement = document.createElement("a");
+                wikiLinkElement.target = "_blank";
+                websiteLinkElement.rel = "noopener noreferrer";
+                wikiLinkElement.href = "https://place-wiki.stefanocoding.me/wiki/" + link.replace(/ /g, '_');
+                wikiLinkElement.textContent = "Wiki Article";
+                wikiGroupElement.appendChild(wikiLinkElement);
+            }
         });
     }
 
@@ -162,7 +169,7 @@ function createInfoBlock(entry) {
 
     if (!entry.diff || entry.diff !== "delete") {
         const editElement = document.createElement("a");
-        editElement.innerText = "Edit";
+        editElement.textContent = "Edit";
         editElement.className = "btn btn-sm btn-outline-primary";
         editElement.href = "./?mode=draw&id=" + entry.id;
         editElement.title = "Edit " + entry.name;
