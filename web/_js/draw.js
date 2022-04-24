@@ -341,6 +341,10 @@ function initDraw() {
 		descriptionField.value = "";
 		websiteField.value = "";
 		subredditField.value = "";
+
+		pathWithPeriods = []
+		pathWithPeriods.push([defaultPeriod, []])
+		initPeriodGroups()
 	}
 
 	function back() {
