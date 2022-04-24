@@ -25,15 +25,15 @@ If you don't know GitHub and wanted to submit new entries or request changes to 
 
 To contribute to the map, we require a certain format for artwork region and labels. This can be generated on the [contributing page](https://place-atlas.stefanocoding.me/index.html?mode=draw) on the website. 
 
-#### Reddit Submission
+#### Reddit
 
-1. Follow the instructions on the [contributing page](https://place-atlas.stefanocoding.me/index.html?mode=draw), then click "Post Direct to Reddit".
+1. Follow the instructions on the [contributing page](https://place-atlas.stefanocoding.me/index.html?mode=draw), then post it to Reddit by clicking "Post Direct to Reddit".
 2. Flair your post with the "New Entry" tag.
 3. A moderator will accept your contribution shortly.
 
 <!--
 
-#### GitHub Submission
+#### GitHub
 
 1. Create a fork of our repo.
 2. Enter your data into the `web/_js/atlas.js` file, with the correct format and ID number.
@@ -42,6 +42,15 @@ To contribute to the map, we require a certain format for artwork region and lab
 -->
 
 ### Map Edits
+
+#### Reddit
+
+1. Click "Edit" on a entry and follow the instructions there, then post it to Reddit by clicking "Post Direct to Reddit".
+2. Flair your post with the "New Entry" tag.
+3. A moderator will accept your contribution shortly.
+
+
+#### GitHub
 
 1. Create a fork of our repo.
 2. Enter your data into the `web/atlas.json` file, with the correct format and ID number.
