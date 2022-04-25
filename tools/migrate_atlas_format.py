@@ -1,24 +1,14 @@
-import os
-import json
-import re
+#!/usr/bin/python
 
-'''
+"""
 Migrator script from old atlas format to remastered atlas format.
 - center and path: single -> time-specific
 - website and subreddit: single strings -> links object
 - submitted_by -> contributors
-'''
-# 
+"""
 
-# Migrates the old atlas format (single center/path) to the remastered atlas format (time-boxed centers/paths)
-
-def per_line_entries(entries: list):
-  out = '[\n'
-  for entry in entries:
-    out += json.dumps(entry, ensure_ascii=False) + ',\n'
-  return out[:-2] + '\n]'
-
-file_path = os.path.join('..', 'web', 'atlas.json')
+import re
+import json
 
 END_IMAGE = 166
 INIT_CANVAS_RANGE = (1, END_IMAGE)
@@ -28,78 +18,97 @@ EXPANSION_2_RANGE = (109, END_IMAGE)
 COMMATIZATION =  re.compile(r'(?: *(?:,+ +|,+ |,+)| +)(?:and|&|;)(?: *(?:,+ +|,+ |,+)| +)|, *$| +')
 FS_REGEX = re.compile(r'(?:(?:(?:(?:https?:\/\/)?(?:(?:www|old|new|np)\.)?)?reddit\.com)?\/)?[rR]\/([A-Za-z0-9][A-Za-z0-9_]{2,20})(?:\/[^" ]*)*')
 
-with open(file_path, 'r+', encoding='UTF-8') as file:
-  entries = json.loads(file.read())
+def migrate_atlas_format(entry: dict):
+	new_entry = {
+		"id": "",
+		"name": "",
+		"description": "",
+		"links": {},
+		"center": {},
+		"path": {},
+		"contributors": []
+	}
 
-index = 0
+	center = entry['center']
+	path = entry['path']
 
-for entry in entries:
-  new_entry = {
-    "id": "",
-    "name": "",
-    "description": "",
-    "links": {},
-    "center": {},
-    "path": {},
-    "contributors": []
-  }
+	if isinstance(center, list):
+		
+		# Use the center to figure out which canvas expansion the entry is in.
+		if center[1] > 1000:
+			time_range = EXPANSION_2_RANGE
+		elif center[0] > 1000:
+			time_range = EXPANSION_1_RANGE
+		else:
+			time_range = INIT_CANVAS_RANGE
 
-  center = entry['center']
-  path = entry['path']
+		time_key = '%d-%d, T:0' % time_range
 
-  if isinstance(center, list):
-    
-    # Use the center to figure out which canvas expansion the entry is in.
-    if center[1] > 1000:
-      time_range = EXPANSION_2_RANGE
-    elif center[0] > 1000:
-      time_range = EXPANSION_1_RANGE
-    else:
-      time_range = INIT_CANVAS_RANGE
+		new_entry = {
+		**new_entry,
+		"center": {
+			time_key: center
+		},
+		"path": {
+			time_key: path
+		}
+		}
 
-    time_key = '%d-%d, T:0' % time_range
+		del entry['center']
+		del entry['path']
 
-    new_entry = {
-      **new_entry,
-      "center": {
-        time_key: center
-      },
-      "path": {
-        time_key: path
-      }
-    }
+	if "website" in entry:
+		if isinstance(entry["website"], str) and entry["website"]:
+			new_entry['links']['website'] = [entry['website']]
+		del entry['website']
 
-    del entry['center']
-    del entry['path']
+	if "subreddit" in entry:
+		if isinstance(entry["subreddit"], str) and entry["subreddit"]:
+			new_entry['links']['subreddit'] = list(map(lambda x: FS_REGEX.sub(r"\1", x), COMMATIZATION.split(entry['subreddit'])))
+		del entry['subreddit']
 
-  if "website" in entry:
-    if isinstance(entry["website"], str) and entry["website"]:
-      new_entry['links']['website'] = [entry['website']]
-    del entry['website']
+	if "submitted_by" in entry:
+		new_entry['contributors'].append(entry['submitted_by'])
+		del entry['submitted_by']
+	
+	toreturn = {
+		**new_entry,
+		**entry
+	}
 
-  if "subreddit" in entry:
-    if isinstance(entry["subreddit"], str) and entry["subreddit"]:
-      new_entry['links']['subreddit'] = list(map(lambda x: FS_REGEX.sub(r"\1", x), COMMATIZATION.split(entry['subreddit'])))
-    del entry['subreddit']
+	return toreturn
 
-  if "submitted_by" in entry:
-    new_entry['contributors'].append(entry['submitted_by'])
-    del entry['submitted_by']
-  
-  entries[index] = {
-    **new_entry,
-    **entry
-  }
+def per_line_entries(entries: list):
+	"""
+	Returns a string of all the entries, with every entry in one line.
+	"""
+	out = "[\n"
+	for entry in entries:
+		if entry:
+			out += json.dumps(entry, ensure_ascii=False) + ",\n"
+	out = out[:-2] + "\n]"
+	return out
 
-  index += 1
+if __name__ == '__main__':
 
-  if not (index % 1000):
-    print(f"{index} checked.")
+	def go(path):
 
-print(f"{len(entries)} checked.")
-print("Writing...")
+		print(f"Formatting {path}...")
 
-with open(file_path, 'w', encoding='utf-8', newline='\n') as f2:
-  f2.write(per_line_entries(entries))
+		with open(path, "r+", encoding='UTF-8') as f1:
+			entries = json.loads(f1.read())
 
-print("All done!")
+		for i in range(len(entries)):
+			entry_formatted = migrate_atlas_format(entries[i])
+			entries[i] = entry_formatted
+			if not (i % 1000):
+				print(f"{i} checked.")
+
+		print(f"{len(entries)} checked. Writing...")
+
+		with open(path, "w", encoding='utf-8', newline='\n') as f2:
+			f2.write(per_line_entries(entries))
+
+		print("Writing completed. All done.")
+
+	go("../web/atlas.json")
