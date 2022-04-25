@@ -1,6 +1,6 @@
 # Contributing
 
-This project is open source. You may contribute to the project by submitting a Pull Request on the GitHub repo.
+This project is open source. You may contribute to the project by submitting a Pull Request on the GitHub repo or send your submissions through Reddit. Other than than, you cau use Discord or Reddit for help.
 
 ## Map Contributions
 

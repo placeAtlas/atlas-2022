@@ -6,18 +6,21 @@
 [![Subreddit subscribers](https://img.shields.io/reddit/subreddit-subscribers/placeAtlas2?color=%23FF4500&label=r%2FplaceAtlas2&logo=reddit&logoColor=white)](https://www.reddit.com/r/placeAtlas2/)
 [![Website](https://img.shields.io/static/v1?label=website&message=place-atlas.stefanocoding.me&color=blue)](https://place-atlas.stefanocoding.me/)
 
-# The 2022 Place Atlas
+# The 2022 /r/place Atlas
 
-The /r/place Atlas is a project aiming to catalog all the artworks created during Reddit's 2022 /r/place event.
-This project was created by Roland Rytz and is licensed under the GNU Affero General Public License v3.0.
+The 2022 /r/place Atlas is a project aiming to catalog all the artworks created during Reddit's 2022 /r/place event.
 
----
+This project was established by Roland Rytz for the event in 2017, and further developed by Place Atlas team and contributors. 
 
-*You can check out the website by clicking [here](https://place-atlas.stefanocoding.me/).*
+This project is licensed under the GNU Affero General Public License v3.0.
+
+You can check out the website by clicking [here](https://place-atlas.stefanocoding.me/).
 
 If you don't know GitHub and wanted to submit new entries or request changes to existing ones, please visit [/r/placeAtlas2](https://www.reddit.com/r/placeAtlas2/).
 
-## How To Contribute
+## Contributing
+
+This project is open source. You may contribute to the project by submitting a Pull Request on the GitHub repo or send your submissions through Reddit. Other than than, you cau use Discord or Reddit for help.
 
 ### Map Contributions
 
@@ -48,7 +51,6 @@ To contribute to the map, we require a certain format for artwork region and lab
 1. Click "Edit" on a entry and follow the instructions there, then post it to Reddit by clicking "Post Direct to Reddit".
 2. Flair your post with the "Edit Entry" tag.
 3. A moderator will accept your contribution shortly.
-
 
 #### GitHub
 
