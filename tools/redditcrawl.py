@@ -29,6 +29,7 @@ import time
 import re
 import traceback
 from formatter import format_all
+from migrate_atlas_format import migrate_atlas_format
 
 OUT_FILE = open('temp_atlas.json', 'w', encoding='utf-8')
 READ_IDS_FILE = open('read-ids-temp.txt', 'w')
@@ -147,6 +148,8 @@ for submission in reddit.subreddit('placeAtlas2').new(limit=2000):
 				
 				assert validation_status < 3, \
 					"Submission invalid after validation. This may be caused by not enough points on the path."
+
+				submission_json = migrate_atlas_format(submission_json)
 				
 				OUT_FILE_LINES[len(OUT_FILE_LINES) - 2].replace('\n', ',\n')
 				OUT_FILE_LINES.insert(len(OUT_FILE_LINES) - 1, json.dumps(submission_json, ensure_ascii=False) + '\n')

@@ -6,7 +6,7 @@
 	artwork	of the canvas provided by the community.
 
 	Copyright (c) 2017 Roland Rytz <roland@draemm.li>
-	Copyright (c) 2022 r/placeAtlas2 contributors
+	Copyright (c) 2022 Place Atlas contributors
 
 	Licensed under the GNU Affero General Public License Version 3
 	https://place-atlas.stefanocoding.me/license.txt
@@ -179,6 +179,7 @@ noscript {
 	image-rendering: -webkit-optimize-contrast;
 	image-rendering: pixelated;
 	-ms-interpolation-mode: nearest-neighbor;
+	font-size: 0
 }
 
 #highlightCanvas {
@@ -402,4 +403,18 @@ body:not([data-dev]) .show-only-on-dev {
 
 .period-group[data-status=error] {
 	box-shadow: 0 0 0 .1rem rgba(var(--bs-danger-rgb), .5);
+}
+
+/* #periods .period-visible {
+	margin-bottom: 0;
+} */
+
+#periods #periodsStatus:empty {
+	display: none;
+}
+
+#timeControls.no-time-slider,
+.period-group.no-time-slider input,
+.period-group.no-time-slider label {
+	display: none;
 }

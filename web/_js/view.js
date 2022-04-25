@@ -6,7 +6,7 @@
 	artwork	of the canvas provided by the community.
 
 	Copyright (c) 2017 Roland Rytz <roland@draemm.li>
-	Copyright (c) 2022 r/placeAtlas2 contributors
+	Copyright (c) 2022 Place Atlas contributors
 
 	Licensed under the GNU Affero General Public License Version 3
 	https://place-atlas.stefanocoding.me/license.txt
@@ -401,8 +401,6 @@ function buildObjectsList(filter = null, sort = null) {
 			break;
 		}
 
-
-		// console.log(sortedAtlas[i])
 		const element = createInfoBlock(sortedAtlas[i]);
 
 		element.entry = sortedAtlas[i];

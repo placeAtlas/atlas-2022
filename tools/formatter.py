@@ -462,7 +462,7 @@ if __name__ == '__main__':
 			if not (i % 200):
 				print(f"{i} checked.")
 
-		print(f"{len(entries)} checked.")
+		print(f"{len(entries)} checked. Writing...")
 
 		with open(path, "w", encoding='utf-8', newline='\n') as f2:
 			f2.write(per_line_entries(entries))

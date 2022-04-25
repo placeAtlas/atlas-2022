@@ -6,7 +6,7 @@
 	artwork	of the canvas provided by the community.
 
 	Copyright (c) 2017 Roland Rytz <roland@draemm.li>
-	Copyright (c) 2022 r/placeAtlas2 contributors
+	Copyright (c) 2022 Place Atlas contributors
 
 	Licensed under the GNU Affero General Public License Version 3
 	https://place-atlas.stefanocoding.me/license.txt
@@ -143,7 +143,6 @@ async function init() {
 			const liveResp = await fetch("https://place-atlas.stefanocoding.me/atlas.json");
 			let liveJson = await liveResp.json();
 			liveJson = updateAtlasAll(liveJson)
-			// console.log(liveJson)
 
 			const liveAtlasReduced = liveJson.reduce(function (a, c) {
 				a[c.id] = c;
