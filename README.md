@@ -46,7 +46,7 @@ To contribute to the map, we require a certain format for artwork region and lab
 #### Reddit
 
 1. Click "Edit" on a entry and follow the instructions there, then post it to Reddit by clicking "Post Direct to Reddit".
-2. Flair your post with the "New Entry" tag.
+2. Flair your post with the "Edit Entry" tag.
 3. A moderator will accept your contribution shortly.
 
 
@@ -58,4 +58,4 @@ To contribute to the map, we require a certain format for artwork region and lab
 
 ### Cleaning Contributions
 
-If you spot a duplicate, please PR against the `cleanup` branch. To help find duplicates, append `?mode=overlap` to the url: [`https://place-atlas.stefanocoding.me?mode=overlap`](https://place-atlas.stefanocoding.me?mode=overlap).
+If you spot a duplicate, please PR against the `cleanup` branch. To help find duplicates, [use the Overlap mode](https://place-atlas.stefanocoding.me?mode=overlap).
