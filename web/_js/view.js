@@ -155,12 +155,12 @@ window.addEventListener("resize", function(e){
 
 	if (document.documentElement.clientWidth > 2000 && viewportWidth <= 2000) {
 		entriesListShown = true;
-		wrapper.className = wrapper.className.replace(/ listHidden/g, "");
+		wrapper.classList.remove("listHidden");
 	}
 
 	if (document.documentElement.clientWidth < 2000 && viewportWidth >= 2000) {
 		entriesListShown = false;
-		wrapper.className += " listHidden";
+		wrapper.classList.add("listHidden");
 	}
 	updateHovering(e);
 
@@ -447,7 +447,7 @@ function buildObjectsList(filter = null, sort = null) {
 				objectsContainer.replaceChildren();
 
 				entriesListShown = false;
-				wrapper.className += " listHidden";
+				wrapper.classList.add("listHidden");
 
 				zoom = 4;
 				renderBackground(atlas);
@@ -670,7 +670,7 @@ function updateHovering(e, tapped) {
 					return calcPolygonArea(a.path) - calcPolygonArea(b.path);
 				});
 
-				objectsContainer.replaceChildren()
+				objectsContainer.replaceChildren();
 
 				for (const i in hovered) {
 					const element = createInfoBlock(hovered[i]);
@@ -680,7 +680,7 @@ function updateHovering(e, tapped) {
 					hovered[i].element = element;
 				}
 
-				if(hovered.length > 0){
+				if (hovered.length > 0){
 					closeObjectsListButton.className = "btn btn-secondary shadow";
 				} else {
 					closeObjectsListButton.className = "d-none";

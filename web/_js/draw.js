@@ -287,6 +287,9 @@ function initDraw() {
 		}
 		document.getElementById("exportDirectPost").href = directPostUrl;
 
+		if (entryId == 0) document.getElementById("redditFlair").textContent = "New Entry";
+		else document.getElementById("redditFlair").textContent = "Edit Entry";
+
 		exportModal.show();
 	}
 
@@ -747,7 +750,6 @@ function initPeriodGroups() {
 
 		const startPeriodEl = periodGroupEl.querySelector('.period-start')
 		const endPeriodEl = periodGroupEl.querySelector('.period-end')
-		// const periodVisibilityEl = periodGroupEl.querySelector('.period-visible')
 		const periodDeleteEl = periodGroupEl.querySelector('.period-delete')
 		const periodDuplicateEl = periodGroupEl.querySelector('.period-duplicate')
 		const periodVariationEl = periodGroupEl.querySelector('.period-variation')
@@ -759,7 +761,6 @@ function initPeriodGroups() {
 		startPeriodEl.previousElementSibling.htmlFor = startPeriodEl.id
 		endPeriodEl.id = "periodEnd" + index
 		endPeriodEl.previousElementSibling.htmlFor = endPeriodEl.id
-		// periodVisibilityEl.id = "periodVisibility" + index
 		periodVariationEl.id = "periodVariation" + index
 		periodCopyEl.id = "periodCopy" + index
 
@@ -841,7 +842,6 @@ function initPeriodGroups() {
 			periodGroupEl,
 			startPeriodEl,
 			endPeriodEl,
-			// periodVisibilityEl,
 			periodVariationEl,
 			periodCopyEl
 		})
@@ -861,7 +861,6 @@ function updatePeriodGroups() {
 			periodGroupEl,
 			startPeriodEl,
 			endPeriodEl,
-			// periodVisibilityEl,
 			periodVariationEl,
 			periodCopyEl
 		} = elements

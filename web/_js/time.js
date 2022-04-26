@@ -104,8 +104,8 @@ async function updateBackground(newPeriod = currentPeriod, newVariation = curren
 		timelineSlider.max = variationConfig.versions.length - 1;
 		currentPeriod = variationConfig.default;
 		newPeriod = currentPeriod
-		if (variationConfig.versions.length === 1) timelineSlider.parentElement.classList.add('no-time-slider')
-		else timelineSlider.parentElement.classList.remove('no-time-slider')
+		if (variationConfig.versions.length === 1) document.getElementById("bottomBar").classList.add('no-time-slider');
+		else document.getElementById("bottomBar").classList.remove('no-time-slider');
 	
 	}
 	timelineSlider.value = currentPeriod

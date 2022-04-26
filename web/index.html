@@ -72,7 +72,7 @@
 							"@type": "Person",
 							"name": "Stefano Haagmans",
 							"email": "stefano@stefanocoding.me",
-							"url": "https://stefanocoding.me/",
+							"url": "https://stefanocoding.me",
 							"familyName": "Haagmans",
 							"givenName": "Stefano",
 							"alternateName": "Codixer",
@@ -170,7 +170,7 @@
 				<div id="innerContainer">
 					<canvas id="highlightCanvas" width="2000" height="2000"></canvas>
 
-					<img id="image" width="2000" height="2000" alt="Canvas of /r/place in the state of when the experiment was concluded." />
+					<img id="image" width="2000" height="2000" alt="" />
 				</div>
 			</div>
 			<div class="offcanvas offcanvas-start bg-body" data-bs-scroll="true" data-bs-backdrop="false" tabindex="-1" id="offcanvasList" aria-labelledby="offcanvasListLabel">
@@ -229,7 +229,6 @@
 				<div id="entriesList" class="card-deck ps-2 ms-2 pe-3 me-3 mt-2 pt-2 overflow-auto"></div>
 			</div>
 			<div id="bottomBar" class="d-flex flex-wrap gap-2 p-2">
-
 				<div id="zoomControls" class="btn-group shadow" role="group" aria-label="Zoom controls">
 					<button type="button" class="btn btn-secondary" id="zoomInButton" title="Zoom in">
 						<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-plus-lg" viewBox="0 0 16 16">
@@ -247,19 +246,22 @@
 						</svg>
 					</button>
 				</div>
-				<div class="" id="timeControls">
+				<div id="variantControls">
+					<div class="input-group">
+						<span class="input-group-text">
+							<svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" viewBox="0 0 192 192" aria-hidden="true"><polygon points="154 0 154 38 39 38 39 192 0 192 0 0"></polygon><polygon points="192 38 192 192 77 192 77 153 154 153 154 38"></polygon><rect x="77" y="77" width="38" height="38"></rect></svg>
+						</span>
+						<select class="form-select shadow" name="variants" id="variants" title="Background image variants"></select>
+					</div>
+				</div>
+				<div id="timeControls">
 					<div class="tooltip fade text-nowrap" role="tooltip" id="timeControlsTooltip"><div class="bg-body rounded p-1">Tooltip</div></div>
 					<label for="timeControlsSlider" class="visually-hidden">Time control slider</label>
 					<input type="range" class="slider bg-secondary px-1 rounded shadow" min="1" max="1" value="1" id="timeControlsSlider" aria-describedby="timeControlsTooltip"></input>
 				</div>
-				<div class="flex-grow-1" id="variantControls">
-					<div class="input-group">
-						<span class="input-group-text"></span>
-						<select class="form-select shadow" name="variants" id="variants" title="Background image variants"></select>
-					</div>
-				</div>
-				<div id="author" class="bg-body flex-grow-1 flex-shrink-1 d-flex align-items-center justify-content-center p-2 rounded shadow">
-					<span style="font-size: 0.75rem;">Code owned by <a href="https://github.com/placeAtlas/atlas" target="_blank" rel="noopener noreferrer">Place Atlas</a>. Source on <a href="https://github.com/placeAtlas/atlas" target="_blank" rel="noopener noreferrer">GitHub</a>. Site powered by <a href="https://www.netlify.com" target="_blank" rel="noopener noreferrer">Netlify</a>. Images provided by <a href="https://place.thatguyalex.com/" target="_blank" rel="noopener noreferrer">Alex Tsernoh</a>.</span>
+
+				<div id="author" class="bg-body d-flex align-items-center justify-content-center py-1 px-2 rounded shadow" style="--bs-bg-opacity: .9;">
+					<span style="font-size: 0.75rem;">Code owned by <a href="https://github.com/placeAtlas/atlas" target="_blank" rel="noopener noreferrer">Place Atlas</a>. Source on <a href="https://github.com/placeAtlas/atlas" target="_blank" rel="noopener noreferrer">GitHub</a>. Site powered by <a href="https://www.netlify.com" target="_blank" rel="noopener noreferrer">Netlify</a>.</span>
 				</div>
 			</div>
 			<div class="offcanvas offcanvas-start bg-body" data-bs-scroll="true" data-bs-backdrop="false" tabindex="-1" id="offcanvasDraw" aria-labelledby="offcanvasDrawLabel">
@@ -293,8 +295,8 @@
 						</div>
 					</div>
 					<div id="periods" class="p-2 pt-3 mb-3 bg-secondary bg-opacity-10 rounded">
-						<h5 class="ps-2">Timeline</h5>
-						<p id="periodsStatus"></p>
+						<h5 class="px-2">Timeline</h5>
+						<p id="periodsStatus" class="px-2"></p>
 						<div id="periodGroups"></div>
 						<button type="button" class="btn btn-primary d-block mx-auto" id="periodsAdd">Add Period</button>
 					</div>
@@ -361,7 +363,7 @@
 				</div>
 				<div class="modal-body d-flex flex-column">
 					<p>Use the Post Direct to Reddit button or manually copy the text below and submit it as a new text post to <a href="https://www.reddit.com/r/placeAtlas2/" target="_blank" rel="noopener noreferrer">/r/placeAtlas2</a> on Reddit.</p>
-					<p>Don't forget to flair it with the "New Entry" tag.</p>
+					<p>Don't forget to flair it with the <span class="badge rounded-pill bg-primary"><i class="bi bi-tag"></i> <span id="redditFlair">New Entry</span></span> tag.</p>
 					<p>We will then check it and add it to the atlas.</p>
 					<textarea class="form-control flex-grow-1" cols="40" rows="20" id="exportString" title="Raw JSON string"></textarea>
 				</div>
@@ -412,8 +414,7 @@
 					<label for="period-start" class="form-label">Start Period</label>
 					<input type="range" class="period-start form-range" id="period-start" min="0">
 					<label for="period-end" class="form-label">End Period</label>
-					<input type="range" class="period-end form-range" id="period-end" min="0">
-					<!-- <p class="period-visible"></p> -->
+					<input type="range" class="period-end form-range mb-2" id="period-end" min="0">
 					<div class="d-flex flex-wrap gap-2 mb-2">
 						<button type="button" class="period-copy btn btn-secondary btn-sm flex-fill" id="period-copy">
 							<i class="bi bi-clipboard" aria-hidden="true"></i>
@@ -432,7 +433,6 @@
 							Delete
 						</button>
 					</div>
-
 					<div class="input-group">
 						<span class="input-group-text"></span>
 						<select class="period-variation form-select" title="Select which layer this path is used for"></select>

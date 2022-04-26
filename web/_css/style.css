@@ -178,8 +178,6 @@ noscript {
 	z-index: -1500;
 	image-rendering: -webkit-optimize-contrast;
 	image-rendering: pixelated;
-	-ms-interpolation-mode: nearest-neighbor;
-	font-size: 0
 }
 
 #highlightCanvas {
@@ -189,7 +187,6 @@ noscript {
 	width: 100%;
 	image-rendering: -webkit-optimize-contrast;
 	image-rendering: pixelated;
-	-ms-interpolation-mode: nearest-neighbor;
 }
 
 #objectsList {
@@ -267,9 +264,47 @@ noscript {
 	left: 400px !important;
 }
 
+#author {
+	flex: 1 1 auto;
+}
+
+#variantControls {
+	flex: 1 0 auto;
+}
+
 #timeControls {
 	position: relative;
-	flex-grow: 3;
+	flex: 6 0 300px;
+}
+
+#bottomBar.no-time-slider #timeControls {
+	display: none;
+}
+
+@media (min-width: 800px) {
+	#wrapper.listHidden #bottomBar.no-time-slider {
+		align-items: flex-end;
+	}
+	#wrapper.listHidden #bottomBar.no-time-slider #variantControls {
+		flex: none;
+	}
+	#wrapper.listHidden #bottomBar.no-time-slider #author {
+		flex: none;
+		margin-left: auto;
+	}
+}
+
+@media (min-width: 1300px) {
+	#wrapper:not(.listHidden) #bottomBar.no-time-slider {
+		align-items: flex-end;
+	}
+	#wrapper:not(.listHidden) #bottomBar.no-time-slider #variantControls {
+		flex: none;
+	}
+	#wrapper:not(.listHidden) #bottomBar.no-time-slider #author {
+		flex: none;
+		margin-left: auto;
+	}
 }
 
 #timeControls input {
@@ -286,7 +321,7 @@ noscript {
 }
 
 @supports (backdrop-filter: blur()) or (-webkit-backdrop-filter: blur()) {
-	#timeControlsTooltip div {
+	#timeControlsTooltip div, #author {
 		-webkit-backdrop-filter: saturate(180%) blur(15px);
 		backdrop-filter: saturate(180%) blur(15px);
 		--bs-bg-opacity: .8 !important;
@@ -405,15 +440,10 @@ body:not([data-dev]) .show-only-on-dev {
 	box-shadow: 0 0 0 .1rem rgba(var(--bs-danger-rgb), .5);
 }
 
-/* #periods .period-visible {
-	margin-bottom: 0;
-} */
-
 #periods #periodsStatus:empty {
 	display: none;
 }
 
-#timeControls.no-time-slider,
 .period-group.no-time-slider input,
 .period-group.no-time-slider label {
 	display: none;
