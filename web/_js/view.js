@@ -718,7 +718,7 @@ function highlightEntryFromUrl() {
 	if (entries.length === 1) {
 		const entry = entries[0];
 
-		document.title = entry.name + " on the 2022 /r/place Atlas";
+		document.title = entry.name + " on the 2022 r/place Atlas";
 
 		if ((!entry.diff || entry.diff !== "delete")) {
 			if (document.getElementById("objectEditNav")) {
