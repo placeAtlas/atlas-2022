@@ -259,7 +259,6 @@
 					<label for="timeControlsSlider" class="visually-hidden">Time control slider</label>
 					<input type="range" class="slider bg-secondary px-1 rounded shadow" min="1" max="1" value="1" id="timeControlsSlider" aria-describedby="timeControlsTooltip"></input>
 				</div>
-
 				<div id="author" class="bg-body d-flex align-items-center justify-content-center py-1 px-2 rounded shadow" style="--bs-bg-opacity: .9;">
 					<span style="font-size: 0.75rem;">Code owned by <a href="https://github.com/placeAtlas" target="_blank" rel="noopener noreferrer">Place Atlas</a>. Source on <a href="https://github.com/placeAtlas/atlas" target="_blank" rel="noopener noreferrer">GitHub</a>. Site powered by <a href="https://www.netlify.com" target="_blank" rel="noopener noreferrer">Netlify</a>.</span>
 				</div>
@@ -353,6 +352,7 @@
 				</svg>
 			</button>
 			<div id="objectsList" class="p-2"></div>
+			<span id="objectsListOverflowNotice" class="p-2 me-2 btn-primary rounded text-center d-none">Click the map to lock your selection</span>
 		</div>
 		<div class="modal fade" id="exportModal" tabindex="-1" aria-labelledby="exportModalLabel" aria-hidden="true">
 			<div class="modal-dialog modal-dialog-scrollable modal-xl modal-fullscreen-md-down">

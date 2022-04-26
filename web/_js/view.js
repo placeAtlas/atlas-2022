@@ -29,6 +29,7 @@ const wrapper = document.getElementById("wrapper");
 
 const objectsContainer = document.getElementById("objectsList");
 const closeObjectsListButton = document.getElementById("closeObjectsListButton");
+const objectsListOverflowNotice = document.getElementById("objectsListOverflowNotice");
 
 const filterInput = document.getElementById("searchList");
 
@@ -121,7 +122,7 @@ closeObjectsListButton.addEventListener("click", function(){
 	hovered = [];
 	objectsContainer.replaceChildren();
 	updateLines();
-	closeObjectsListButton.className = "d-none";
+	closeObjectsListButton.classList.add("d-none");
 	fixed = false;
 	render();
 });
@@ -135,7 +136,9 @@ function toggleFixed(e, tapped) {
 	if (!fixed) {
 		updateHovering(e, tapped);
 		render();
+		console.log("fixed");
 	}
+	objectsListOverflowNotice.classList.add("d-none");
 }
 
 window.addEventListener("resize", updateLines);
@@ -515,7 +518,7 @@ function shuffle() {
 
 function resetEntriesList() {
 	entriesOffset = 0;
-	entriesList.innerHTML = "";
+	entriesList.replaceChildren();
 	entriesList.appendChild(moreEntriesButton);
 
 	buildObjectsList(filter = null, sort = null)
@@ -681,9 +684,17 @@ function updateHovering(e, tapped) {
 				}
 
 				if (hovered.length > 0){
-					closeObjectsListButton.className = "btn btn-secondary shadow";
+					closeObjectsListButton.classList.remove("d-none");
+					if ((objectsContainer.scrollHeight > objectsContainer.clientHeight) && !tapped) {
+						objectsListOverflowNotice.classList.remove("d-none");
+					} else {
+						console.log("if else add")
+						objectsListOverflowNotice.classList.add("d-none");
+					}
 				} else {
-					closeObjectsListButton.className = "d-none";
+					closeObjectsListButton.classList.add("d-none");
+					console.log("else add")
+					objectsListOverflowNotice.classList.add("d-none");
 				}
 
 				render();
@@ -753,7 +764,7 @@ function highlightEntryFromUrl() {
 		hovered = [entry];
 		render();
 		hovered[0].element = infoElement;
-		closeObjectsListButton.className = "btn btn-secondary shadow";
+		closeObjectsListButton.classList.remove("d-none");
 		updateLines();
 		fixed = true;
 	}

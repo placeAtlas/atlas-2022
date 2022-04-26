@@ -208,6 +208,15 @@ noscript {
 	right: 300px;
 }
 
+#objectsListOverflowNotice {
+	max-width: 300px;
+	width: 100%;
+	position: absolute;
+	right: 0;
+	bottom: 1rem;
+	box-shadow: 0 .25rem 1rem rgba(17,17,17,.75)!important;
+}
+
 @media (max-width: 976px) {
 	#wrapper:not(.listHidden) > #objectsList {
 		max-width: calc(300px - 3rem);
