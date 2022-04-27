@@ -212,8 +212,8 @@ function updateTooltip(newPeriod, newVariation) {
 
 	// Clamps position of tooltip to prevent from going off screen
 	const timelineSliderRect = timelineSlider.getBoundingClientRect();
-	let min = -timelineSliderRect.left+8;
-	let max = (window.innerWidth-tooltip.offsetWidth)-timelineSliderRect.left-8;
+	let min = -timelineSliderRect.left+12;
+	let max = (window.innerWidth-tooltip.offsetWidth)-timelineSliderRect.left+4;
 	tooltip.style.left = Math.min(Math.max((timelineSlider.offsetWidth)*(timelineSlider.value)/(timelineSlider.max)-tooltip.offsetWidth/2, min), max) + "px";
 }
 

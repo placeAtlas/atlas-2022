@@ -315,12 +315,9 @@ noscript {
 		margin-left: auto;
 	}
 }
-
-#timeControls input {
-    height: 100%;
-	-webkit-appearance: none;
-	appearance: none;
-    width: 100%;
+#timeControls {
+	display: flex;
+	align-items: center;
 }
 
 #timeControlsTooltip {
@@ -343,25 +340,30 @@ noscript {
 	visibility: visible;
 }
 
-.slider::-webkit-slider-thumb {
-	-webkit-appearance: none;
-	appearance: none;
-	width: 1rem;
-	height: 2rem;
-	background: var(--bs-light);
+#timeControlsSlider::-webkit-slider-thumb {
+	width: 0.75rem;
+	height: 1.5rem;
+	margin-top: -0.25rem;
 	border-radius: .25rem;
-	cursor: pointer;
-	box-shadow: 0 .5rem 1rem rgba(17,17,17,.5);
+	outline: 1px solid var(--bs-body-bg);
 }
 
-.slider::-moz-range-thumb {
-	appearance: none;
-	width: 1rem;
-	height: 2rem;
-	background: var(--bs-light);
+#timeControlsSlider::-webkit-slider-runnable-track {
+	height: 1rem;
 	border-radius: .25rem;
-	cursor: pointer;
-	box-shadow: 0 .5rem 1rem rgba(17,17,17,.5);
+}
+
+#timeControlsSlider::-moz-range-thumb {
+	width: 0.75rem;
+	height: 1.5rem;
+	margin-top: -0.25rem;
+	border-radius: .25rem;
+	outline: 1px solid var(--bs-body-bg);
+}
+
+#timeControlsSlider::-moz-range-track {
+	height: 1rem;
+	border-radius: .25rem;
 }
 
 #entriesList .card {
