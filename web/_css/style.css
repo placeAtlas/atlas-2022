@@ -327,6 +327,7 @@ noscript {
 	opacity: 0;
 	position: absolute;
 	bottom: 2.75rem;
+	visibility: hidden;
 }
 
 @supports (backdrop-filter: blur()) or (-webkit-backdrop-filter: blur()) {
@@ -337,8 +338,9 @@ noscript {
 	}
 }
 
-#timeControls:hover #timeControlsTooltip, #timeControlsSlider:focus #timeControlsTooltip {
+#timeControls:hover #timeControlsTooltip, #timeControlsSlider:focus + #timeControlsTooltip {
 	opacity: 1;
+	visibility: visible;
 }
 
 .slider::-webkit-slider-thumb {

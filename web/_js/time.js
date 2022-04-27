@@ -205,13 +205,16 @@ async function updateTime(newPeriod = currentPeriod, newVariation = currentVaria
 
 function updateTooltip(newPeriod, newVariation) {
 	const configObject = variationsConfig[newVariation].versions[newPeriod]
+
+	// If timestap is a number return a UTC formatted date otherwise use exact timestap label
 	if (typeof configObject.timestamp === "number") tooltip.querySelector('div').textContent = new Date(configObject.timestamp * 1000).toUTCString()
-	else tooltip.querySelector('div').textContent = configObject.timestamp
-	if (timelineSlider.max === 1) {
-		tooltip.style.left = (0 - tooltip.offsetWidth/2) + "px"
-	} else {
-		tooltip.style.left = (((timelineSlider.offsetWidth)*(timelineSlider.value)/(timelineSlider.max)) - tooltip.offsetWidth/2) + "px"
-	}
+	else tooltip.querySelector('div').textContent = configObject.timestamp;
+
+	// Clamps position of tooltip to prevent from going off screen
+	const timelineSliderRect = timelineSlider.getBoundingClientRect();
+	let min = -timelineSliderRect.left+8;
+	let max = (window.innerWidth-tooltip.offsetWidth)-timelineSliderRect.left-8;
+	tooltip.style.left = Math.min(Math.max((timelineSlider.offsetWidth)*(timelineSlider.value)/(timelineSlider.max)-tooltip.offsetWidth/2, min), max) + "px";
 }
 
 tooltip.parentElement.addEventListener('mouseenter', () => updateTooltip(parseInt(timelineSlider.value), currentVariation))

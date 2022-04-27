@@ -688,12 +688,10 @@ function updateHovering(e, tapped) {
 					if ((objectsContainer.scrollHeight > objectsContainer.clientHeight) && !tapped) {
 						objectsListOverflowNotice.classList.remove("d-none");
 					} else {
-						console.log("if else add")
 						objectsListOverflowNotice.classList.add("d-none");
 					}
 				} else {
 					closeObjectsListButton.classList.add("d-none");
-					console.log("else add")
 					objectsListOverflowNotice.classList.add("d-none");
 				}
 
