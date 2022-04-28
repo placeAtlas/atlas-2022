@@ -19,6 +19,7 @@ tools/read-ids-temp.txt
 node_modules/
 dist*/
 package.json
+!tools/ci/package.json
 package-lock.json
 yarn.lock
 .parcel-cache/
