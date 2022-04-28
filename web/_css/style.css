@@ -63,7 +63,7 @@ body[data-mode] {
 }
 
 #offcanvasList, #offcanvasDraw {
-	top: 3.75rem;
+	top: 3.70rem;
 }
 
 body[data-mode]:not([data-mode="draw"]) #drawNavButtons, [data-mode="draw"] #defaultNavButtons {
@@ -419,4 +419,10 @@ body:not([data-dev]) .show-only-on-dev {
 	#bottomBar {
 		transition: none !important;
 	}
+}
+
+.navbar-brand img {
+	height: 2rem;
+	width: 2rem;
+	vertical-align: -0.5rem;
 }
