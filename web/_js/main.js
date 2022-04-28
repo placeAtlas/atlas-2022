@@ -37,13 +37,13 @@ let lastPosition = [0, 0];
 
 const viewportSize = [0, 0];
 
-document.getElementById("entriesListDonate").addEventListener("click", function (e) {
-	document.getElementById("donateOverlay").style.display = "flex";
-});
+// document.getElementById("entriesListDonate").addEventListener("click", function(e){
+// 	document.getElementById("donateOverlay").style.display = "flex";
+// });
 
-document.getElementById("closeDonateButton").addEventListener("click", function (e) {
-	document.getElementById("donateOverlay").style.display = "none";
-});
+// document.getElementById("closeDonateButton").addEventListener("click", function(e){
+// 	document.getElementById("donateOverlay").style.display = "none";
+// });
 
 function applyView() {
 
@@ -192,6 +192,8 @@ async function init() {
 	} else {
 		initView();
 	}
+
+	document.getElementById("loading").classList.add("d-none");
 
 	document.getElementById("zoomInButton").addEventListener("click", function (e) {
 

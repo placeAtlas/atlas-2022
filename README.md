@@ -6,9 +6,9 @@
 [![Subreddit subscribers](https://img.shields.io/reddit/subreddit-subscribers/placeAtlas2?color=%23FF4500&label=r%2FplaceAtlas2&logo=reddit&logoColor=white)](https://www.reddit.com/r/placeAtlas2/)
 [![Website](https://img.shields.io/static/v1?label=website&message=place-atlas.stefanocoding.me&color=blue)](https://place-atlas.stefanocoding.me/)
 
-# The 2022 /r/place Atlas
+# The 2022 r/place Atlas
 
-The 2022 /r/place Atlas is a project aiming to catalog all the artworks created during Reddit's 2022 /r/place event.
+The 2022 r/place Atlas is a project aiming to catalog all the artworks created during Reddit's 2022 r/place event.
 
 This project was established by Roland Rytz for the event in 2017, and further developed by Place Atlas team and contributors. 
 
@@ -16,7 +16,7 @@ This project is licensed under the GNU Affero General Public License v3.0.
 
 You can check out the website by clicking [here](https://place-atlas.stefanocoding.me/).
 
-If you don't know GitHub and wanted to submit new entries or request changes to existing ones, please visit [/r/placeAtlas2](https://www.reddit.com/r/placeAtlas2/).
+If you don't know GitHub and wanted to submit new entries or request changes to existing ones, please visit [r/placeAtlas2](https://www.reddit.com/r/placeAtlas2/).
 
 ## Contributing
 

@@ -15,10 +15,10 @@
 
 window.addEventListener("error", function (e) {
 	console.error(e);
-	let errorMessage = "<p class=\"error\">An error has occurred:</p>";
-	errorMessage += "<p class=\"errorBody\">" + e.message + "</p>";
-	errorMessage += "<p class=\"errorBody\">on line " + e.lineno + "</p>";
-	errorMessage += "<p class=\"error\">If this keeps happening, feel free to tell us on <a href=\"https://discord.gg/pJkm23b2nA\">our Discord server</a>.</p>";
+	let errorMessage = "<h4 class=\"mb-3\">An error has occurred:</h4>";
+	errorMessage += "<p class=\"text-danger\">" + e.message + "</p>";
+	errorMessage += "<p class=\"text-danger\">on line " + e.lineno + "</p>";
+	errorMessage += "<p>If this keeps happening, feel free to tell us on <a href=\"https://discord.gg/pJkm23b2nA\">our Discord server</a>.</p>";
 	document.getElementById("loadingContent").innerHTML = errorMessage;
 });
 

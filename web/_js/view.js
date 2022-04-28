@@ -29,6 +29,7 @@ const wrapper = document.getElementById("wrapper");
 
 const objectsContainer = document.getElementById("objectsList");
 const closeObjectsListButton = document.getElementById("closeObjectsListButton");
+const objectsListOverflowNotice = document.getElementById("objectsListOverflowNotice");
 
 const filterInput = document.getElementById("searchList");
 
@@ -42,6 +43,10 @@ const entriesLimit = 50;
 let entriesOffset = 0;
 const moreEntriesButton = document.createElement("button");
 moreEntriesButton.innerHTML = "Show " + entriesLimit + " more";
+moreEntriesButton.type = "button"
+moreEntriesButton.className = "btn btn-primary d-block mb-2 mx-auto"
+
+
 moreEntriesButton.id = "moreEntriesButton";
 moreEntriesButton.onclick = function () {
 	buildObjectsList(null, null);
@@ -56,17 +61,7 @@ let lastPos = [0, 0];
 
 let fixed = false; // Fix hovered items in place, so that clicking on links is possible
 
-if (document.documentElement.clientWidth > 2000) {
-	entriesListShown = true;
-	wrapper.classList.remove('listHidden')
-}
-
-if (document.documentElement.clientWidth < 2000) {
-	entriesListShown = false;
-	wrapper.classList.add('listHidden')
-}
-
-filterInput.addEventListener("input", function (e) {
+filterInput.addEventListener("input", function(e){
 	entriesOffset = 0;
 	entriesList.innerHTML = "";
 	entriesList.appendChild(moreEntriesButton);
@@ -91,25 +86,71 @@ document.getElementById("sort").addEventListener("input", function (e) {
 
 });
 
-hideListButton.addEventListener("click", function (e) {
-	entriesListShown = !entriesListShown;
-	if (entriesListShown) {
-		wrapper.classList.remove('listHidden')
-	} else {
-		wrapper.classList.add('listHidden')
-	}
+var showDraw = document.getElementById('offcanvasDraw')
+showDraw.addEventListener('show.bs.offcanvas', function() {
+	wrapper.classList.remove('listHidden');
+	wrapper.classList.add('listTransitioning');
+	applyView();
+})
+
+var shownDraw = document.getElementById('offcanvasDraw')
+shownDraw.addEventListener('shown.bs.offcanvas', function() {
+	wrapper.classList.remove('listTransitioning');
+	applyView();
+})
+
+var hideDraw = document.getElementById('offcanvasDraw')
+hideDraw.addEventListener('hide.bs.offcanvas', function() {
+	wrapper.classList.add('listHidden');
+	wrapper.classList.add('listTransitioning');
+	applyView();
+})
+
+var hiddenDraw = document.getElementById('offcanvasDraw')
+hiddenDraw.addEventListener('hidden.bs.offcanvas', function() {
+	wrapper.classList.remove('listTransitioning');
+	applyView();
+})
+
+var showList = document.getElementById('offcanvasList')
+showList.addEventListener('show.bs.offcanvas', function(e) {
+	wrapper.classList.remove('listHidden');
+	wrapper.classList.add('listTransitioning');
+	applyView();
+});
+
+var shownList = document.getElementById('offcanvasList')
+shownList.addEventListener('shown.bs.offcanvas', function(e) {
+	entriesListShown = true;
+	wrapper.classList.remove('listTransitioning');
 	updateHovering(e);
 	applyView();
 	render();
 	updateLines();
-	return false;
 });
 
-closeObjectsListButton.addEventListener("click", function (e) {
-	hovered = [];
-	objectsContainer.innerHTML = "";
+var hideList = document.getElementById('offcanvasList')
+hideList.addEventListener('hide.bs.offcanvas', function(e) {
+	wrapper.classList.add('listHidden');
+	wrapper.classList.add('listTransitioning');
+	applyView();
+});
+
+var hiddenList = document.getElementById('offcanvasList')
+hiddenList.addEventListener('hidden.bs.offcanvas', function(e) {
+	entriesListShown = false;
+	wrapper.classList.remove('listTransitioning');
+	updateHovering(e);
+	applyView();
+	render();
 	updateLines();
-	closeObjectsListButton.className = "hidden";
+});
+
+closeObjectsListButton.addEventListener("click", function(){
+	hovered = [];
+	objectsContainer.replaceChildren();
+	updateLines();
+	closeObjectsListButton.classList.add("d-none");
 	fixed = false;
 	render();
 });
@@ -123,7 +164,9 @@ function toggleFixed(e, tapped) {
 	if (!fixed) {
 		updateHovering(e, tapped);
 		render();
+		console.log("fixed");
 	}
+	objectsListOverflowNotice.classList.add("d-none");
 }
 
 window.addEventListener("resize", updateLines);
@@ -136,19 +179,19 @@ objectsContainer.addEventListener("scroll", function (e) {
 	updateLines();
 });
 
-window.addEventListener("resize", function (e) {
+window.addEventListener("resize", function(e){
 	//console.log(document.documentElement.clientWidth, document.documentElement.clientHeight);
 
 	let viewportWidth = document.documentElement.clientWidth;
 
 	if (document.documentElement.clientWidth > 2000 && viewportWidth <= 2000) {
 		entriesListShown = true;
-		wrapper.className = wrapper.className.replace(/ listHidden/g, "");
+		wrapper.classList.remove("listHidden");
 	}
 
 	if (document.documentElement.clientWidth < 2000 && viewportWidth >= 2000) {
 		entriesListShown = false;
-		wrapper.className += " listHidden";
+		wrapper.classList.add("listHidden");
 	}
 	updateHovering(e);
 
@@ -395,7 +438,7 @@ function buildObjectsList(filter = null, sort = null) {
 
 		element.addEventListener("mouseenter", function (e) {
 			if (!fixed && !dragging) {
-				objectsContainer.innerHTML = "";
+				objectsContainer.replaceChildren();
 
 				previousZoomOrigin = [zoomOrigin[0], zoomOrigin[1]];
 				previousScaleZoomOrigin = [scaleZoomOrigin[0], scaleZoomOrigin[1]];
@@ -432,10 +475,10 @@ function buildObjectsList(filter = null, sort = null) {
 				applyView();
 			}
 			if (document.documentElement.clientWidth < 500) {
-				objectsContainer.innerHTML = "";
+				objectsContainer.replaceChildren();
 
 				entriesListShown = false;
-				wrapper.className += " listHidden";
+				wrapper.classList.add("listHidden");
 
 				zoom = 4;
 				renderBackground(atlas);
@@ -503,7 +546,7 @@ function shuffle() {
 
 function resetEntriesList() {
 	entriesOffset = 0;
-	entriesList.innerHTML = "";
+	entriesList.replaceChildren();
 	entriesList.appendChild(moreEntriesButton);
 
 	buildObjectsList(filter = null, sort = null)
@@ -624,7 +667,13 @@ function updateHovering(e, tapped) {
 			, (e.clientY - (container.clientHeight / 2 - innerContainer.clientHeight / 2 + zoomOrigin[1] + container.offsetTop)) / zoom
 		];
 		const coords_p = document.getElementById("coords_p");
-		coords_p.innerText = Math.ceil(pos[0]) + ", " + Math.ceil(pos[1]);
+
+		// Displays coordinates as zero instead of NaN
+		if (isNaN(pos[0]) == true) {
+			coords_p.innerText = "0, 0";
+		} else {
+			coords_p.innerText = Math.ceil(pos[0]) + ", " + Math.ceil(pos[1]);
+		}
 
 		if (pos[0] <= 2200 && pos[0] >= -100 && pos[0] <= 2200 && pos[0] >= -100) {
 			const newHovered = [];
@@ -652,7 +701,7 @@ function updateHovering(e, tapped) {
 					return calcPolygonArea(a.path) - calcPolygonArea(b.path);
 				});
 
-				objectsContainer.innerHTML = "";
+				objectsContainer.replaceChildren();
 
 				for (const i in hovered) {
 					const element = createInfoBlock(hovered[i]);
@@ -662,12 +711,18 @@ function updateHovering(e, tapped) {
 					hovered[i].element = element;
 				}
 
-				if (hovered.length > 0) {
-					closeObjectsListButton.className = "";
+				if (hovered.length > 0){
+					document.getElementById("timeControlsSlider").blur();
+					closeObjectsListButton.classList.remove("d-none");
+					if ((objectsContainer.scrollHeight > objectsContainer.clientHeight) && !tapped) {
+						objectsListOverflowNotice.classList.remove("d-none");
+					} else {
+						objectsListOverflowNotice.classList.add("d-none");
+					}
 				} else {
-					closeObjectsListButton.className = "hidden";
+					closeObjectsListButton.classList.add("d-none");
+					objectsListOverflowNotice.classList.add("d-none");
 				}
-
 
 				render();
 			}
@@ -690,10 +745,27 @@ function highlightEntryFromUrl() {
 	if (entries.length === 1) {
 		const entry = entries[0];
 
-		document.title = entry.name + " on the 2022 /r/place Atlas";
+		document.title = entry.name + " on the 2022 r/place Atlas";
+
+		if ((!entry.diff || entry.diff !== "delete")) {
+			if (document.getElementById("objectEditNav")) {
+				document.getElementById("objectEditNav").href = "./?mode=draw&id=" + id;
+				document.getElementById("objectEditNav").title = "Edit " + entry.name;
+			} else {
+				const objectEditNav = document.createElement("a");
+				objectEditNav.className = "btn btn-outline-primary";
+				objectEditNav.id = "objectEditNav";
+				objectEditNav.innerText = "Edit";
+				objectEditNav.href = "./?mode=draw&id=" + id;
+				objectEditNav.title = "Edit " + entry.name;
+				document.getElementById("showListButton").parentElement.appendChild(objectEditNav);
+			}
+		} else if (entry.diff == "delete" && document.getElementById("objectEditNav")) {
+			document.getElementById("objectEditNav").remove();
+		}
 
 		const infoElement = createInfoBlock(entry);
-		objectsContainer.innerHTML = "";
+		objectsContainer.replaceChildren();
 		objectsContainer.appendChild(infoElement);
 
 		//console.log(entry.center[0]);
@@ -719,7 +791,7 @@ function highlightEntryFromUrl() {
 		hovered = [entry];
 		render();
 		hovered[0].element = infoElement;
-		closeObjectsListButton.className = "";
+		closeObjectsListButton.classList.remove("d-none");
 		updateLines();
 		fixed = true;
 	}
