@@ -44,7 +44,7 @@ function createInfoBlock(entry) {
     linkNameElement.textContent = entry.name;
     headerElement.appendChild(linkElement);
     linkElement.appendChild(linkNameElement);
-    linkElement.insertAdjacentHTML("beforeend", '<i class="bi bi-link-45deg align-self-center link-primary"></i>');// '<svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" fill="currentColor" class="bi bi-link-45deg ms-1 align-self-center flex-shrink-0" viewBox="0 0 16 16"><path d="M4.715 6.542 3.343 7.914a3 3 0 1 0 4.243 4.243l1.828-1.829A3 3 0 0 0 8.586 5.5L8 6.086a1.002 1.002 0 0 0-.154.199 2 2 0 0 1 .861 3.337L6.88 11.45a2 2 0 1 1-2.83-2.83l.793-.792a4.018 4.018 0 0 1-.128-1.287z"/><path d="M6.586 4.672A3 3 0 0 0 7.414 9.5l.775-.776a2 2 0 0 1-.896-3.346L9.12 3.55a2 2 0 1 1 2.83 2.83l-.793.792c.112.42.155.855.128 1.287l1.372-1.372a3 3 0 1 0-4.243-4.243L6.586 4.672z"/></svg>');
+    linkElement.insertAdjacentHTML("beforeend", '<i class="bi bi-link-45deg align-self-center link-primary" aria-hidden="true"></i>');// '<svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" fill="currentColor" class="bi bi-link-45deg ms-1 align-self-center flex-shrink-0" viewBox="0 0 16 16"><path d="M4.715 6.542 3.343 7.914a3 3 0 1 0 4.243 4.243l1.828-1.829A3 3 0 0 0 8.586 5.5L8 6.086a1.002 1.002 0 0 0-.154.199 2 2 0 0 1 .861 3.337L6.88 11.45a2 2 0 1 1-2.83-2.83l.793-.792a4.018 4.018 0 0 1-.128-1.287z"/><path d="M6.586 4.672A3 3 0 0 0 7.414 9.5l.775-.776a2 2 0 0 1-.896-3.346L9.12 3.55a2 2 0 1 1 2.83 2.83l-.793.792c.112.42.155.855.128 1.287l1.372-1.372a3 3 0 1 0-4.243-4.243L6.586 4.672z"/></svg>');
     element.appendChild(headerElement);
     
     const bodyElement = document.createElement("div");
@@ -101,7 +101,7 @@ function createInfoBlock(entry) {
                 subredditLinkElement.target = "_blank";
                 subredditLinkElement.rel = "noopener noreferrer";
                 subredditLinkElement.href = "https://reddit.com/" + subreddit;
-                subredditLinkElement.textContent = subreddit;
+                subredditLinkElement.innerHTML = `<i class="bi bi-reddit" aria-hidden="true"></i> ${subreddit}`;
                 subredditGroupElement.appendChild(subredditLinkElement);
             }
         });
@@ -119,7 +119,7 @@ function createInfoBlock(entry) {
                 websiteLinkElement.target = "_blank";
                 websiteLinkElement.rel = "noopener noreferrer";
                 websiteLinkElement.href = link;
-                websiteLinkElement.textContent = "Website";
+                websiteLinkElement.innerHTML = `<i class="bi bi-globe" aria-hidden="true"></i> Website`;
                 websiteGroupElement.appendChild(websiteLinkElement);
             }
         });
@@ -134,8 +134,9 @@ function createInfoBlock(entry) {
             if (link) {
                 const discordLinkElement = document.createElement("a");
                 discordLinkElement.target = "_blank";
+                wikiLinkElement.rel = "noopener noreferrer";
                 discordLinkElement.href = "https://discord.gg/" + link;
-                discordLinkElement.textContent = "Discord";
+                discordLinkElement.innerHTML = `<i class="bi bi-discord" aria-hidden="true"></i> ${link}`;
                 discordGroupElement.appendChild(discordLinkElement);
             }
         });
@@ -150,9 +151,9 @@ function createInfoBlock(entry) {
             if (link) {
                 const wikiLinkElement = document.createElement("a");
                 wikiLinkElement.target = "_blank";
-                websiteLinkElement.rel = "noopener noreferrer";
+                wikiLinkElement.rel = "noopener noreferrer";
                 wikiLinkElement.href = "https://place-wiki.stefanocoding.me/wiki/" + link.replace(/ /g, '_');
-                wikiLinkElement.textContent = "Wiki Article";
+                wikiLinkElement.innerHTML = `<i class="bi bi-book" aria-hidden="true"></i> Wiki Article`;
                 wikiGroupElement.appendChild(wikiLinkElement);
             }
         });

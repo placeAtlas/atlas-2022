@@ -480,7 +480,7 @@ function initDraw() {
 		}
 		inputButton.className = "btn btn-outline-secondary";
 		inputButton.title = "Remove " + name;
-		inputButton.innerHTML = '<i class="bi bi-trash-fill"></i>';
+		inputButton.innerHTML = '<i class="bi bi-trash-fill" aria-hidden="true"></i>';
 		console.log(array);
 		if (name == "website") {
 			addWebsiteFields(null, array.length, array);
@@ -524,12 +524,12 @@ function initDraw() {
 		if (array.length == index + 1) {
 			inputButton.className = "btn btn-secondary";
 			inputButton.title = "Add website";
-			inputButton.innerHTML = '<i class="bi bi-plus-lg"></i>';
+			inputButton.innerHTML = '<i class="bi bi-plus-lg" aria-hidden="true"></i>';
 			inputButton.addEventListener('click', () => addFieldButton(inputButton, inputGroup, websiteGroupElements, index, "website"));
 		} else {
 			inputButton.className = "btn btn-outline-secondary";
 			inputButton.title = "Remove website";
-			inputButton.innerHTML = '<i class="bi bi-trash-fill"></i>';
+			inputButton.innerHTML = '<i class="bi bi-trash-fill" aria-hidden="true"></i>';
 			inputButton.addEventListener('click', () => removeFieldButton(inputGroup, array, index));
 		}
 		inputGroup.appendChild(inputButton);
@@ -571,12 +571,12 @@ function initDraw() {
 		if (array.length == index + 1) {
 			inputButton.className = "btn btn-secondary";
 			inputButton.title = "Add subreddit";
-			inputButton.innerHTML = '<i class="bi bi-plus-lg"></i>';
+			inputButton.innerHTML = '<i class="bi bi-plus-lg" aria-hidden="true"></i>';
 			inputButton.addEventListener('click', () => addFieldButton(inputButton, inputGroup, subredditGroupElements, index, "subreddit"));
 		} else {
 			inputButton.className = "btn btn-outline-secondary";
 			inputButton.title = "Remove subreddit";
-			inputButton.innerHTML = '<i class="bi bi-trash-fill"></i>';
+			inputButton.innerHTML = '<i class="bi bi-trash-fill" aria-hidden="true"></i>';
 			inputButton.addEventListener('click', () => removeFieldButton(inputGroup, array, index));
 		}
 		inputGroup.appendChild(inputButton);
@@ -611,12 +611,12 @@ function initDraw() {
 		if (array.length == index + 1) {
 			inputButton.className = "btn btn-secondary";
 			inputButton.title = "Add Discord invite";
-			inputButton.innerHTML = '<i class="bi bi-plus-lg"></i>';
+			inputButton.innerHTML = '<i class="bi bi-plus-lg" aria-hidden="true"></i>';
 			inputButton.addEventListener('click', () => addFieldButton(inputButton, inputGroup, discordGroupElements, index, "Discord invite"));
 		} else {
 			inputButton.className = "btn btn-outline-secondary";
 			inputButton.title = "Remove Discord invite";
-			inputButton.innerHTML = '<i class="bi bi-trash-fill"></i>';
+			inputButton.innerHTML = '<i class="bi bi-trash-fill" aria-hidden="true"></i>';
 			inputButton.addEventListener('click', () => removeFieldButton(inputGroup, array, index));
 		}
 		inputGroup.appendChild(inputButton);
@@ -644,12 +644,12 @@ function initDraw() {
 		if (array.length == index + 1) {
 			inputButton.className = "btn btn-secondary";
 			inputButton.title = "Add wiki page";
-			inputButton.innerHTML = '<i class="bi bi-plus-lg"></i>';
+			inputButton.innerHTML = '<i class="bi bi-plus-lg" aria-hidden="true"></i>';
 			inputButton.addEventListener('click', () => addFieldButton(inputButton, inputGroup, wikiGroupElements, index, "wiki page"));
 		} else {
 			inputButton.className = "btn btn-outline-secondary";
 			inputButton.title = "Remove wiki page";
-			inputButton.innerHTML = '<i class="bi bi-trash-fill"></i>';
+			inputButton.innerHTML = '<i class="bi bi-trash-fill" aria-hidden="true"></i>';
 			inputButton.addEventListener('click', () => removeFieldButton(inputGroup, array, index));
 		}
 		inputGroup.appendChild(inputButton);
