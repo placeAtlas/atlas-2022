@@ -24,6 +24,7 @@ for name in glob.glob("web/**.html"):
         urllib.request.urlretrieve(url, "dist-temp/" + new_url)
         file_string = file_string.replace(url, new_url)
         cdns.append((url, new_url, hashlib.md5(url.encode()).hexdigest()))
+    file_string = file_string.replace("crossorigin=\"anonymous\"", "")
     # print(file_string).replace("\?.+$", "")
     name = name.replace('web/', 'dist-temp/')
     with open(name, 'w', encoding='utf-8') as file:
