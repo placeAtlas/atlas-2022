@@ -410,7 +410,7 @@ body:not([data-dev]) .show-only-on-dev {
 	display: none;
 }
 
-@media (prefers-reduced-motion) {
+@media (prefers-reduced-motion: reduce) {
 	body[data-init-done] .listTransitioning #innerContainer,
 	#bottomBar {
 		transition: none !important;
