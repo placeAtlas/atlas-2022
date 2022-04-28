@@ -86,9 +86,7 @@ body[data-mode]:not([data-mode="draw"]) #drawNavButtons, [data-mode="draw"] #def
 	width: calc(100% - 400px);
 	height: 100%;
 	margin-left: 400px;
-
 	touch-action: manipulation;
-
 	overflow: hidden;
 	overflow-x: hidden;
 	overflow-y: hidden;
@@ -159,7 +157,12 @@ noscript {
 	margin-top: 10px;
 }
 
-.listHidden #container {
+#wrapper.listHidden.listTransitioning #container{
+	width: calc(100% - 400px);
+	margin-left: 400px;
+}
+
+.listHidden #container, .listTransitioning #container {
 	width: 100%;
 	margin-left: 0;
 }
@@ -169,6 +172,10 @@ noscript {
 	width: 2000px;
 	position: absolute;
 	z-index: -2000;
+}
+
+body[data-init-done] .listTransitioning #innerContainer {
+	transition: left .3s ease-in-out;
 }
 
 #image {
@@ -321,10 +328,9 @@ noscript {
 }
 
 #timeControlsTooltip {
-	opacity: 0;
-	position: absolute;
 	bottom: 2.75rem;
 	visibility: hidden;
+	transition: visibility .15s linear, opacity .15s linear;
 }
 
 @supports (backdrop-filter: blur()) or (-webkit-backdrop-filter: blur()) {

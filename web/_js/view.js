@@ -87,31 +87,62 @@ document.getElementById("sort").addEventListener("input", function (e) {
 });
 
 var showDraw = document.getElementById('offcanvasDraw')
-showDraw.addEventListener('shown.bs.offcanvas', function() {
+showDraw.addEventListener('show.bs.offcanvas', function() {
+	wrapper.classList.add('listTransitioning');
+	applyView();
+})
+
+var shownDraw = document.getElementById('offcanvasDraw')
+shownDraw.addEventListener('shown.bs.offcanvas', function() {
 	wrapper.classList.remove('listHidden');
+	wrapper.classList.remove('listTransitioning');
 	applyView();
 })
 
 var hideDraw = document.getElementById('offcanvasDraw')
-hideDraw.addEventListener('hidden.bs.offcanvas', function() {
+hideDraw.addEventListener('hide.bs.offcanvas', function() {
+	wrapper.classList.add('listTransitioning');
+	applyView();
+})
+
+var hiddenDraw = document.getElementById('offcanvasDraw')
+hiddenDraw.addEventListener('hidden.bs.offcanvas', function() {
 	wrapper.classList.add('listHidden');
+	wrapper.classList.remove('listTransitioning');
 	applyView();
 })
 
 var showList = document.getElementById('offcanvasList')
-showList.addEventListener('shown.bs.offcanvas', function(e) {
+showList.addEventListener('show.bs.offcanvas', function(e) {
+	wrapper.classList.add('listTransitioning');
+	applyView();
+	console.log("show")
+});
+
+var shownList = document.getElementById('offcanvasList')
+shownList.addEventListener('shown.bs.offcanvas', function(e) {
 	entriesListShown = true;
 	wrapper.classList.remove('listHidden');
+	wrapper.classList.remove('listTransitioning');
 	updateHovering(e);
 	applyView();
 	render();
 	updateLines();
+	console.log("shown")
 });
 
 var hideList = document.getElementById('offcanvasList')
-hideList.addEventListener('hidden.bs.offcanvas', function(e) {
+hideList.addEventListener('hide.bs.offcanvas', function(e) {
+	wrapper.classList.add('listTransitioning');
+	applyView();
+	console.log("hide")
+});
+
+var hiddenList = document.getElementById('offcanvasList')
+hiddenList.addEventListener('hidden.bs.offcanvas', function(e) {
 	entriesListShown = false;
 	wrapper.classList.add('listHidden');
+	wrapper.classList.remove('listTransitioning');
 	updateHovering(e);
 	applyView();
 	render();
@@ -684,6 +715,7 @@ function updateHovering(e, tapped) {
 				}
 
 				if (hovered.length > 0){
+					document.getElementById("timeControlsSlider").blur();
 					closeObjectsListButton.classList.remove("d-none");
 					if ((objectsContainer.scrollHeight > objectsContainer.clientHeight) && !tapped) {
 						objectsListOverflowNotice.classList.remove("d-none");
