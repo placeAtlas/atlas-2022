@@ -13,6 +13,8 @@
 	========================================================================
 */
 
+/* purgecss start ignore */
+
 /* @font-face {
 	DejaVuSans-ExtraLight 2.37 - https://dejavu-fonts.github.io/
 	font-family: 'dejavu';
@@ -33,14 +35,10 @@ svg.icon {
     vertical-align: -.125em;
 }
 
-/* purgecss start ignore */
-
 body[data-mode] {
 	overflow: hidden;
 	background-color: #111;
 }
-
-/* purgecss end ignore */
 
 #wrapper {
 	position: fixed;
@@ -426,3 +424,5 @@ body:not([data-dev]) .show-only-on-dev {
 	width: 2rem;
 	vertical-align: -0.5rem;
 }
+
+/* purgecss end ignore */
