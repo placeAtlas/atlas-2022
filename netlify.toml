@@ -1,0 +1,3 @@
+[build]
+    publish = "dist/"
+    command = "FILE=tools/ci/build-prod.sh; rm -rf dist/; if [ -f $FILE ]; then bash $FILE; else cp -r web/ dist/; fi"

@@ -15,3 +15,10 @@ combined.js
 web/atlas-before-ids-migration.json
 *.pyc
 tools/read-ids-temp.txt
+.venv/
+node_modules/
+dist*/
+package.json
+package-lock.json
+yarn.lock
+.parcel-cache/
