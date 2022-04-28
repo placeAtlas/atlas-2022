@@ -119,7 +119,12 @@ function createInfoBlock(entry) {
                 websiteLinkElement.target = "_blank";
                 websiteLinkElement.rel = "noopener noreferrer";
                 websiteLinkElement.href = link;
-                websiteLinkElement.innerHTML = `<i class="bi bi-globe" aria-hidden="true"></i> Website`;
+                try {
+                    const urlObject = new URL(link)
+                    websiteLinkElement.innerHTML = `<i class="bi bi-globe" aria-hidden="true"></i> ${urlObject.hostname}`
+                } catch (e) {
+                    websiteLinkElement.innerHTML = `<i class="bi bi-globe" aria-hidden="true"></i> Website`;
+                }
                 websiteGroupElement.appendChild(websiteLinkElement);
             }
         });
