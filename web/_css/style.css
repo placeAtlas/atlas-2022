@@ -94,75 +94,16 @@ body[data-mode]:not([data-mode="draw"]) #drawNavButtons, [data-mode="draw"] #def
 
 #loading {
 	position: absolute;
-	background-color: rgba(10, 10, 10, .9);
+	background-color: rgba(17, 17, 17, .9);
 	top: 0;
 	left: 0;
 	right: 0;
 	bottom: 0;
-	z-index: -10;
+	-webkit-backdrop-filter: saturate(180%) blur(10px);
+	backdrop-filter: saturate(180%) blur(10px);
 }
 
-#loading > div {
-	margin: 80px auto;
-	color: #FFF;
-	text-align: center;
-	font-size: 40px;
-}
-
-#loading > div > div:first-child {
-	width: 200px;
-	height: 200px;
-	border-radius: 200px;
-	border: 7px #CCC solid;
-	display: inline-block;
-	border-top-color: #FFAA00;
-	
-	animation-duration: 3s;
-	animation-name: spinner;
-	animation-iteration-count: infinite;
-}
-
-#loading > div > span {
-	font-family: "DejaVu Sans", Helvetica, sans-serif;
-	font-weight: 200;
-}
-
-@keyframes spinner {
-	from {
-		transform: rotateZ(0deg);
-	}
-	
-	to {
-		transform: rotateZ(360deg);
-	}
-}
-
-.error {
-	color: #FFF;
-	font-size: 23px;
-	margin: 15px 0;
-}
-
-.errorBody {
-	color: #CC8888;
-	font-family: monospace;
-	font-size: 20px;
-	cursor: text;
-}
-
-noscript {
-	color: #FFF;
-	font-size: 23px;
-	display: block;
-	margin-top: 10px;
-}
-
-#wrapper.listHidden.listTransitioning #container{
-	width: calc(100% - 400px);
-	margin-left: 400px;
-}
-
-.listHidden #container, .listTransitioning #container {
+.listHidden #container{
 	width: 100%;
 	margin-left: 0;
 }
@@ -274,6 +215,7 @@ body[data-init-done] .listTransitioning #innerContainer {
     bottom: 0;
     left: 0;
     right: 0;
+	transition: left .3s ease-in-out;
 }
 
 #wrapper:not(.listHidden) > #bottomBar {
