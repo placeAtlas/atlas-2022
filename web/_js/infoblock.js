@@ -115,7 +115,7 @@ function createInfoBlock(entry) {
         entry.links.website.forEach(link => {
             if (link) {
                 const websiteLinkElement = document.createElement("a");
-                websiteLinkElement.className = "btn btn-primary"
+                websiteLinkElement.className = "btn btn-primary text-truncate"
                 websiteLinkElement.target = "_blank";
                 websiteLinkElement.rel = "noopener noreferrer";
                 websiteLinkElement.href = link;
@@ -138,8 +138,9 @@ function createInfoBlock(entry) {
         entry.links.discord.forEach(link => {
             if (link) {
                 const discordLinkElement = document.createElement("a");
+                discordLinkElement.className = "btn btn-primary text-truncate"
                 discordLinkElement.target = "_blank";
-                wikiLinkElement.rel = "noopener noreferrer";
+                discordLinkElement.rel = "noopener noreferrer";
                 discordLinkElement.href = "https://discord.gg/" + link;
                 discordLinkElement.innerHTML = `<i class="bi bi-discord" aria-hidden="true"></i> ${link}`;
                 discordGroupElement.appendChild(discordLinkElement);
@@ -155,6 +156,7 @@ function createInfoBlock(entry) {
         entry.links.wiki.forEach(link => {
             if (link) {
                 const wikiLinkElement = document.createElement("a");
+                wikiLinkElement.className = "btn btn-primary text-truncate"
                 wikiLinkElement.target = "_blank";
                 wikiLinkElement.rel = "noopener noreferrer";
                 wikiLinkElement.href = "https://place-wiki.stefanocoding.me/wiki/" + link.replace(/ /g, '_');
