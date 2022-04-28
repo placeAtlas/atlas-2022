@@ -409,3 +409,10 @@ body:not([data-dev]) .show-only-on-dev {
 .period-group.no-time-slider label {
 	display: none;
 }
+
+@media (prefers-reduced-motion) {
+	body[data-init-done] .listTransitioning #innerContainer,
+	#bottomBar {
+		transition: none !important;
+	}
+}
