@@ -33,10 +33,14 @@ svg.icon {
     vertical-align: -.125em;
 }
 
+/* purgecss start ignore */
+
 body[data-mode] {
 	overflow: hidden;
 	background-color: #111;
 }
+
+/* purgecss end ignore */
 
 #wrapper {
 	position: fixed;
