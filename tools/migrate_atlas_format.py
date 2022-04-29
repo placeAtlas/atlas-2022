@@ -24,8 +24,8 @@ def migrate_atlas_format(entry: dict):
 		"name": "",
 		"description": "",
 		"links": {},
-		"center": {},
 		"path": {},
+		"center": {},
 		"contributors": []
 	}
 

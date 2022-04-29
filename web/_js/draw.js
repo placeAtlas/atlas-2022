@@ -252,8 +252,8 @@ function initDraw() {
 			name: nameField.value,
 			description: descriptionField.value,
 			links: {},
-			center: {},
 			path: {},
+			center: {},
 		};
 
 		const pathWithPeriodsTemp = pathWithPeriods.concat()
