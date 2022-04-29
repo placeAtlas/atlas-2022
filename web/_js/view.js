@@ -734,8 +734,6 @@ window.addEventListener("hashchange", highlightEntryFromUrl);
 
 function highlightEntryFromUrl() {
 
-	const objectsContainer = document.getElementById("objectsList");
-
 	const id = window.location.hash.substring(1); //Remove hash prefix
 
 	const entries = atlas.filter(function (e) {

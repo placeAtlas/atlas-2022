@@ -13,7 +13,7 @@
 	========================================================================
 */
 
-function createInfoBlock(entry) {
+function createInfoBlock(entry, isPreview) {
     function createLabel(name, value, parent) {
         const nameElement = document.createElement("span");
         nameElement.className = "fw-bold";
@@ -38,7 +38,8 @@ function createInfoBlock(entry) {
     headerElement.className = "card-header";
     const linkElement = document.createElement("a");
     linkElement.className = "text-decoration-none d-flex justify-content-between text-body";
-    linkElement.href = "#" + entry.id;
+    if (isPreview) linkElement.href = "#";
+    else linkElement.href = "#" + entry.id;
     const linkNameElement = document.createElement("span");
     linkNameElement.className = "flex-grow-1 text-break";
     linkNameElement.textContent = entry.name;
@@ -80,15 +81,17 @@ function createInfoBlock(entry) {
         listElement.appendChild(diffElement);
     }
 
-    const [x, y] = entry.center;
-    listElement.appendChild(createInfoListItem("Position: ", `${Math.floor(x)}, ${Math.floor(y)}`));
-
-    if(entry.path){
-        const area = calcPolygonArea(entry.path);
-        listElement.appendChild(createInfoListItem("Area: ", `${area} pixels`));
+    if (!isPreview) {
+        const [x, y] = entry.center;
+        listElement.appendChild(createInfoListItem("Position: ", `${Math.floor(x)}, ${Math.floor(y)}`));
+    
+        if(entry.path){
+            const area = calcPolygonArea(entry.path);
+            listElement.appendChild(createInfoListItem("Area: ", `${area} pixels`));
+        }
     }
 
-    if (entry.links.subreddit.length) {
+    if (entry.links.subreddit) {
         const subredditGroupElement = document.createElement("div");
         subredditGroupElement.className = "btn-group-vertical";
         linkListElement.appendChild(subredditGroupElement);
@@ -107,7 +110,7 @@ function createInfoBlock(entry) {
         });
     };
 
-    if (entry.links.website.length) {
+    if (entry.links.website) {
         const websiteGroupElement = document.createElement("div");
         websiteGroupElement.className = "btn-group-vertical";
         linkListElement.appendChild(websiteGroupElement);
@@ -130,7 +133,7 @@ function createInfoBlock(entry) {
         });
     }
 
-    if (entry.links.discord.length) {
+    if (entry.links.discord) {
         const discordGroupElement = document.createElement("div");
         discordGroupElement.className = "btn-group-vertical";
         linkListElement.appendChild(discordGroupElement);
@@ -148,7 +151,7 @@ function createInfoBlock(entry) {
         });
     }
 
-    if (entry.links.wiki.length) {
+    if (entry.links.wiki) {
         const wikiGroupElement = document.createElement("div");
         wikiGroupElement.className = "btn-group-vertical";
         linkListElement.appendChild(wikiGroupElement);
@@ -175,7 +178,7 @@ function createInfoBlock(entry) {
     idElementContainer.appendChild(idElement);
     element.appendChild(idElementContainer);
 
-    if (!entry.diff || entry.diff !== "delete") {
+    if (!isPreview && (!entry.diff || entry.diff !== "delete")) {
         const editElement = document.createElement("a");
         editElement.textContent = "Edit";
         editElement.className = "btn btn-sm btn-outline-primary";
@@ -184,13 +187,9 @@ function createInfoBlock(entry) {
         idElementContainer.appendChild(editElement);
     }
 
-    if (!linkListElement.hasChildNodes()) {
-        linkListElement.remove();
-    }
-
-    if (!bodyElement.hasChildNodes()) {
-        bodyElement.remove();
-    }
+    if (!bodyElement.hasChildNodes()) bodyElement.remove();
+    if (!linkListElement.hasChildNodes()) linkListElement.remove();
+    if (!listElement.hasChildNodes()) listElement.remove();
 
 	return element;
 }

@@ -332,18 +332,16 @@
 							</a>
 						</label>
 						<div id="wikiGroup" class="mb-3 d-flex flex-column gap-2"></div>
-						<div id="infoButtons" class="d-flex gap-2">
-							<button type="button" class="btn btn-secondary w-50" id="cancelButton">Back</button>
-							<button type="submit" class="btn btn-primary w-50" id="exportButton">Ok</button>
+						<div id="infoButtons" class="d-flex flex-wrap gap-2">
+							<button type="button" class="btn btn-secondary flex-fill" id="cancelButton">Back</button>
+							<button type="button" class="btn btn-secondary flex-fill" id="previewButton">Preview</button>
+							<button type="submit" class="btn btn-primary flex-fill" id="exportButton">Export</button>
 						</div>
 					</form>
 				</div>
 			</div>
-			<button type="button" id="closeObjectsListButton" class="d-none btn btn-secondary shadow" aria-label="Close">
-				<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-x-lg" viewBox="0 0 16 16">
-					<path fill-rule="evenodd" d="M13.854 2.146a.5.5 0 0 1 0 .708l-11 11a.5.5 0 0 1-.708-.708l11-11a.5.5 0 0 1 .708 0Z"/>
-					<path fill-rule="evenodd" d="M2.146 2.146a.5.5 0 0 0 0 .708l11 11a.5.5 0 0 0 .708-.708l-11-11a.5.5 0 0 0-.708 0Z"/>
-				</svg>
+			<button type="button" id="closeObjectsListButton" class="d-none btn btn-secondary shadow p-0" aria-label="Close">
+				<i class="bi bi-x-lg"></i>
 			</button>
 			<div id="objectsList" class="p-2"></div>
 			<span id="objectsListOverflowNotice" class="p-2 me-2 btn-primary rounded text-center d-none">Click the map to lock your selection</span>

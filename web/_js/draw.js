@@ -16,14 +16,12 @@ const finishButton = document.getElementById("finishButton");
 const resetButton = document.getElementById("resetButton");
 const undoButton = document.getElementById("undoButton");
 const redoButton = document.getElementById("redoButton");
+const previewButton = document.getElementById("previewButton");
 const highlightUnchartedLabel = document.getElementById("highlightUnchartedLabel");
-let entryId = 0
 
-const objectInfoBox = document.getElementById("objectInfo");
-
-var drawControlsBody = document.getElementById("offcanvasDraw-drawControls");
-var objectInfoBody = document.getElementById("offcanvasDraw-objectInfo");
-var objectInfoForm = document.getElementById("objectInfo");
+const drawControlsBody = document.getElementById("offcanvasDraw-drawControls");
+const objectInfoBody = document.getElementById("offcanvasDraw-objectInfo");
+const objectInfoForm = document.getElementById("objectInfo");
 
 const hintText = document.getElementById("hint");
 
@@ -50,6 +48,7 @@ const discordGroup = document.getElementById("discordGroup");
 const wikiGroup = document.getElementById("wikiGroup");
 const exportArea = document.getElementById("exportString");
 
+let entryId = 0;
 let path = [];
 let center = [1000, 1000];
 
@@ -219,6 +218,10 @@ function initDraw() {
 		back();
 	});
 
+	previewButton.addEventListener("click", function (e) {
+		preview();
+	});
+
 	// refocus on button when modal is closed
 	exportModalElement.addEventListener('hidden.bs.modal', function() {
 		document.getElementById("exportButton").focus();
@@ -238,7 +241,7 @@ function initDraw() {
 		render(path);
 	});
 
-	function exportJson() {
+	function generateExportObject() {
 		const exportObject = {
 			id: entryId,
 			name: nameField.value,
@@ -253,28 +256,34 @@ function initDraw() {
 		for (let i = pathWithPeriodsTemp.length - 1; i > 0; i--) {
 			for (let j = 0; j < i; j++) {
 				if (JSON.stringify(pathWithPeriodsTemp[i][1]) === JSON.stringify(pathWithPeriodsTemp[j][1])) {
-					pathWithPeriodsTemp[j][0] = pathWithPeriodsTemp[i][0] + ', ' + pathWithPeriodsTemp[j][0]
-					pathWithPeriodsTemp.splice(i, 1)
-					break
+					pathWithPeriodsTemp[j][0] = pathWithPeriodsTemp[i][0] + ', ' + pathWithPeriodsTemp[j][0];
+					pathWithPeriodsTemp.splice(i, 1);
+					break;
 				}
 			}
 		}
 
 		pathWithPeriodsTemp.forEach(([key, value]) => {
 			// TODO: Compress periods on something like 0-13, 14.
-			exportObject.path[key] = value
-			exportObject.center[key] = calculateCenter(value)
+			exportObject.path[key] = value;
+			exportObject.center[key] = calculateCenter(value);
 		})
 
 		const inputWebsite = websiteGroupElements.map(element => element.value.trim()).filter(element => element);
-		const inputSubreddit = subredditGroupElements.map(element => element.value.trim().replace(/(?:(?:(?:(?:https?:\/\/)?(?:(?:www|old|new|np)\.)?)?reddit\.com)?\/)?[rR]\/([A-Za-z0-9][A-Za-z0-9_]{2,20})(?:\/[^" ]*)*/, '$1')).filter(element => element);
+		const inputSubreddit = subredditGroupElements.map(element => element.value.trim().replace(/(?:(?:(?:(?:https?:\/\/)?(?:(?:www|old|new|np)\.)?)?reddit\.com)?\/)?[rR]\/([A-Za-z0-9][A-Za-z0-9_]{0,20})(?:\/[^" ]*)*/, '$1')).filter(element => element);
 		const inputDiscord = discordGroupElements.map(element => element.value.trim().replace(/(?:https?:\/\/)?(?:www\.)?(?:(?:discord)?\.?gg|discord(?:app?)\.com\/invite)\/([^\s/]+?)(?=\b)/, '$1')).filter(element => element);
 		const inputWiki = wikiGroupElements.map(element => element.value.trim().replace(/ /g, '_')).filter(element => element);
 
-		if (inputWebsite.length) exportObject.links.website = inputWebsite
-		if (inputSubreddit.length) exportObject.links.subreddit = inputSubreddit
-		if (inputDiscord.length) exportObject.links.discord = inputDiscord
-		if (inputWiki.length) exportObject.links.wiki = inputWiki
+		if (inputWebsite.length) exportObject.links.website = inputWebsite;
+		if (inputSubreddit.length) exportObject.links.subreddit = inputSubreddit;
+		if (inputDiscord.length) exportObject.links.discord = inputDiscord;
+		if (inputWiki.length) exportObject.links.wiki = inputWiki;
+
+		return exportObject;
+	}
+
+	function exportJson() {
+		const exportObject = generateExportObject()
 
 		let jsonString = JSON.stringify(exportObject, null, "\t");
 		jsonString = jsonString.split("\n");
@@ -291,6 +300,13 @@ function initDraw() {
 		else document.getElementById("redditFlair").textContent = "Edit Entry";
 
 		exportModal.show();
+	}
+
+	function preview() {
+		let infoElement = createInfoBlock(generateExportObject(), true);
+		objectsContainer.replaceChildren();
+		objectsContainer.appendChild(infoElement);
+		closeObjectsListButton.classList.remove("d-none");
 	}
 
 	function undo() {
@@ -310,7 +326,7 @@ function initDraw() {
 	}
 
 	function finish() {
-		if (objectInfoBox.style.display === "block") return
+		if (objectInfoForm.style.display === "block") return
 		updatePath()
 		drawing = false;
 		disableDrawingOverride = true;
