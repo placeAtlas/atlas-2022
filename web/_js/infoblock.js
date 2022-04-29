@@ -129,7 +129,7 @@ function createInfoBlock(entry, isPreview) {
                 websiteLinkElement.href = link;
                 try {
                     const urlObject = new URL(link)
-                    websiteLinkElement.innerHTML = `<i class="bi bi-globe" aria-hidden="true"></i> ${urlObject.hostname.replace("www.", "")}`
+                    websiteLinkElement.innerHTML = `<i class="bi bi-globe" aria-hidden="true"></i> ${urlObject.hostname.replace(/^www./, "")}`;
                 } catch (e) {
                     websiteLinkElement.innerHTML = `<i class="bi bi-globe" aria-hidden="true"></i> Website`;
                 }

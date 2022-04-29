@@ -16,7 +16,6 @@ const finishButton = document.getElementById("finishButton");
 const resetButton = document.getElementById("resetButton");
 const undoButton = document.getElementById("undoButton");
 const redoButton = document.getElementById("redoButton");
-const previewButton = document.getElementById("previewButton");
 const highlightUnchartedLabel = document.getElementById("highlightUnchartedLabel");
 
 const drawControlsBody = document.getElementById("offcanvasDraw-drawControls");
@@ -223,25 +222,22 @@ function initDraw() {
 		back();
 	});
 
-	previewButton.addEventListener("click", function() {
-		preview();
-	});
-
-	// refocus on button when modal is closed
+	// Refocus on button when modal is closed
 	exportModalElement.addEventListener('hidden.bs.modal', function() {
-		document.getElementById("exportButton").focus();
-	});
-
-	exportModalElement.addEventListener('shown.bs.modal', function() {
-		document.getElementById("exportButton").focus();
+		exportButton.focus();
 	});
 
 	objectInfoForm.addEventListener('submit', function(e) {
 		e.preventDefault()
-		exportJson()
+		// Allows for html form validation with preview button
+		if (e.submitter.value == "preview") {
+			preview()
+		} else {
+			exportJson()
+		}
 	});
 
-	document.getElementById("highlightUncharted").addEventListener("click", function(e){
+	document.getElementById("highlightUncharted").addEventListener("click", function(){
 		highlightUncharted = this.checked;
 		render(path);
 	});
@@ -331,12 +327,11 @@ function initDraw() {
 	}
 
 	function finish() {
-		if (objectInfoForm.style.display === "block") return
 		updatePath()
 		drawing = false;
 		disableDrawingOverride = true;
-		objectInfoBody.removeAttribute("style");
-		drawControlsBody.style.display = "none";
+		objectInfoBody.classList.remove("d-none");
+		drawControlsBody.classList.add("d-none");
 		[...document.querySelectorAll("#objectInfo textarea")].forEach(el => {
 			if (el.value) el.style.height = (el.scrollHeight) + "px"
 		})
@@ -357,8 +352,8 @@ function initDraw() {
 			undoHistory = [];
 			drawing = true;
 			disableDrawingOverride = false;
-			objectInfoBody.style.display = "none";
-			drawControlsBody.removeAttribute("style");
+			objectInfoBody.classList.add("d-none");
+			drawControlsBody.classList.remove("d-none");
 	
 			// Blanks input values
 			nameField.value = "";
@@ -394,8 +389,11 @@ function initDraw() {
 		drawing = true;
 		disableDrawingOverride = false;
 		updatePath()
-		objectInfoBody.style.display = "none";
-		drawControlsBody.removeAttribute("style");
+		objectInfoBody.classList.add("d-none");
+		drawControlsBody.classList.remove("d-none");
+		// Clears preview
+		objectsContainer.replaceChildren();
+		closeObjectsListButton.classList.add("d-none");
 	}
 
 	function renderBackground() {
@@ -762,7 +760,7 @@ function calculateCenter(path) {
 function initPeriodGroups() {
 
 	periodGroupElements = []
-	periodGroups.textContent = ''
+	periodGroups.replaceChildren();
 
 	pathWithPeriods.forEach(([period, path], index) => {
 		const periodGroupEl = periodGroupTemplate.cloneNode(true)

@@ -267,7 +267,7 @@
 					</div>
 					<button type="button" class="btn-close text-reset" data-bs-dismiss="offcanvas" aria-label="Close"></button>
 				</header>
-				<div class="offcanvas-body" id="offcanvasDraw-drawControls">
+				<div id="offcanvasDraw-drawControls" class="offcanvas-body">
 					<div id="drawControls" class="d-flex flex-column gap-2 p-3 pb-2 mb-3 bg-secondary bg-opacity-10 rounded">
 						<h5>Draw</h5>
 						<div class="d-flex gap-2">
@@ -309,11 +309,11 @@
 						</div>
 					</div>
 				</div>
-				<div class="offcanvas-body" id="offcanvasDraw-objectInfo" style="display: none;">
+				<div id="offcanvasDraw-objectInfo" class="offcanvas-body d-none">
 					<form id="objectInfo" class="d-flex flex-column p-3 bg-secondary bg-opacity-10 rounded">
 						<div class="mb-3">
 							<label for="nameField" class="form-label">Title</label>
-							<input type="text" id="nameField" class="form-control" placeholder="A short title" required>
+							<input type="text" id="nameField" class="form-control" placeholder="A short title" pattern="(.|\s)*\S(.|\s)*" title="Cannot be blank" required>
 						</div>
 						<div class="mb-3">
 							<label for="descriptionField" class="form-label">Description</label>
@@ -332,10 +332,10 @@
 							</a>
 						</label>
 						<div id="wikiGroup" class="mb-3 d-flex flex-column gap-2"></div>
-						<div id="infoButtons" class="d-flex flex-wrap gap-2">
-							<button type="button" class="btn btn-secondary flex-fill" id="cancelButton">Back</button>
-							<button type="button" class="btn btn-secondary flex-fill" id="previewButton">Preview</button>
+						<div id="infoButtons" class="d-flex flex-wrap flex-row-reverse gap-2">
 							<button type="submit" class="btn btn-primary flex-fill" id="exportButton">Export</button>
+							<button type="submit" class="btn btn-secondary flex-fill" id="previewButton" value="preview">Preview</button>
+							<button type="button" class="btn btn-secondary flex-fill" id="cancelButton">Back</button>
 						</div>
 					</form>
 				</div>
@@ -358,7 +358,7 @@
 					<p>Use the Post Direct to Reddit button or manually copy the text below and submit it as a new text post to <a href="https://www.reddit.com/r/placeAtlas2/" target="_blank" rel="noopener noreferrer">r/placeAtlas2</a> on Reddit.</p>
 					<p>Don't forget to flair it with the <span class="badge rounded-pill bg-primary"><i class="bi bi-tag" aria-hidden="true"></i> <span id="redditFlair">New Entry</span></span> tag.</p>
 					<p>We will then check it and add it to the atlas.</p>
-					<textarea class="form-control flex-grow-1" cols="40" rows="20" id="exportString" title="Raw JSON string"></textarea>
+					<textarea class="form-control flex-grow-1" cols="40" rows="20" id="exportString" title="Raw JSON string" readonly></textarea>
 				</div>
 				<div class="modal-footer">
 					<button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Done</button>

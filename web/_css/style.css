@@ -200,6 +200,10 @@ body[data-init-done] .listTransitioning #innerContainer {
 	}
 }
 
+#objectInfo textarea {
+	resize: none;
+}
+
 #objectDescription p {
 	margin-bottom: 0.5rem;
 }
@@ -294,10 +298,12 @@ body[data-init-done] #timeControlsTooltip[data-force-visible] {
 }
 
 #timeControlsSlider::-webkit-slider-thumb {
+	-webkit-appearance: none;
+	appearance: none;
 	width: 0.75rem;
 	height: 1.5rem;
 	margin-top: -0.25rem;
-	border-radius: .25rem;
+	border-radius: .25rem !important;
 	outline: 1px solid var(--bs-body-bg);
 }
 
@@ -310,7 +316,7 @@ body[data-init-done] #timeControlsTooltip[data-force-visible] {
 	width: 0.75rem;
 	height: 1.5rem;
 	margin-top: -0.25rem;
-	border-radius: .25rem;
+	border-radius: .25rem !important;
 	outline: 1px solid var(--bs-body-bg);
 }
 
