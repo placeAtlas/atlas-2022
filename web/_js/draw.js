@@ -1066,8 +1066,8 @@ function getErrors() {
 		if (path.length < 3) invalidPaths[i] = path.length
 	})
 
-	console.info('conflicts', conflicts)
-	console.info('invalid paths', invalidPaths)
+	// console.info('conflicts', conflicts)
+	// console.info('invalid paths', invalidPaths)
 
 	return [conflicts, invalidPaths, [...new Set([...Object.keys(conflicts).flat(), ...Object.keys(invalidPaths).flat()])]]
 }
