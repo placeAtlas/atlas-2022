@@ -996,7 +996,7 @@ function updateErrors() {
 	}
 
 	const [conflicts, invalidPaths, allErrors] = getErrors()
-	console.log(conflicts, invalidPaths, allErrors)
+	// console.log(conflicts, invalidPaths, allErrors)
 
 	periodGroupElements.forEach((el, index) => {
 		const { periodStatusEl, periodGroupEl } = el
