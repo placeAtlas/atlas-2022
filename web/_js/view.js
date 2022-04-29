@@ -733,65 +733,78 @@ window.addEventListener("hashchange", highlightEntryFromUrl);
 
 function highlightEntryFromUrl() {
 
-	const id = window.location.hash.substring(1); //Remove hash prefix
+	const hash = window.location.hash.substring(1); //Remove hash prefix
+	const [id, period] = hash.split('/')
 
-	const entries = atlas.filter(function (e) {
-		return e.id === id;
-	});
+	if (period) {
+		const [ , targetPeriod, targetVariation] = parsePeriod(period)
+		updateTime(targetPeriod, targetVariation, true)
+	} else {
+		updateTime(defaultPeriod, defaultVariation, true)
+	}
 
-	if (entries.length === 1) {
-		const entry = entries[0];
+	if (id) {
 
-		document.title = entry.name + " on the 2022 r/place Atlas";
-
-		if ((!entry.diff || entry.diff !== "delete")) {
-			if (document.getElementById("objectEditNav")) {
-				document.getElementById("objectEditNav").href = "./?mode=draw&id=" + id;
-				document.getElementById("objectEditNav").title = "Edit " + entry.name;
-			} else {
-				const objectEditNav = document.createElement("a");
-				objectEditNav.className = "btn btn-outline-primary";
-				objectEditNav.id = "objectEditNav";
-				objectEditNav.innerText = "Edit";
-				objectEditNav.href = "./?mode=draw&id=" + id;
-				objectEditNav.title = "Edit " + entry.name;
-				document.getElementById("showListButton").parentElement.appendChild(objectEditNav);
+		const entries = atlas.filter(function (e) {
+			return e.id === id;
+		});
+	
+		if (entries.length === 1) {
+			const entry = entries[0];
+	
+			document.title = entry.name + " on the 2022 r/place Atlas";
+	
+			if ((!entry.diff || entry.diff !== "delete")) {
+				if (document.getElementById("objectEditNav")) {
+					document.getElementById("objectEditNav").href = "./?mode=draw&id=" + id;
+					document.getElementById("objectEditNav").title = "Edit " + entry.name;
+				} else {
+					const objectEditNav = document.createElement("a");
+					objectEditNav.className = "btn btn-outline-primary";
+					objectEditNav.id = "objectEditNav";
+					objectEditNav.innerText = "Edit";
+					objectEditNav.href = "./?mode=draw&id=" + id;
+					objectEditNav.title = "Edit " + entry.name;
+					document.getElementById("showListButton").parentElement.appendChild(objectEditNav);
+				}
+			} else if (entry.diff == "delete" && document.getElementById("objectEditNav")) {
+				document.getElementById("objectEditNav").remove();
 			}
-		} else if (entry.diff == "delete" && document.getElementById("objectEditNav")) {
-			document.getElementById("objectEditNav").remove();
+	
+			const infoElement = createInfoBlock(entry);
+			objectsContainer.replaceChildren();
+			objectsContainer.appendChild(infoElement);
+	
+			//console.log(entry.center[0]);
+			//console.log(entry.center[1]);
+	
+			zoom = 4;
+			renderBackground(atlas);
+			applyView();
+	
+			zoomOrigin = [
+				innerContainer.clientWidth / 2 - entry.center[0] * zoom// + container.offsetLeft
+				, innerContainer.clientHeight / 2 - entry.center[1] * zoom// + container.offsetTop
+			];
+	
+			scaleZoomOrigin = [
+				2000 / 2 - entry.center[0]// + container.offsetLeft
+				, 2000 / 2 - entry.center[1]// + container.offsetTop
+			];
+	
+			//console.log(zoomOrigin);
+	
+			applyView();
+			hovered = [entry];
+			render();
+			hovered[0].element = infoElement;
+			closeObjectsListButton.classList.remove("d-none");
+			updateLines();
+			fixed = true;
 		}
 
-		const infoElement = createInfoBlock(entry);
-		objectsContainer.replaceChildren();
-		objectsContainer.appendChild(infoElement);
-
-		//console.log(entry.center[0]);
-		//console.log(entry.center[1]);
-
-		zoom = 4;
-		renderBackground(atlas);
-		applyView();
-
-		zoomOrigin = [
-			innerContainer.clientWidth / 2 - entry.center[0] * zoom// + container.offsetLeft
-			, innerContainer.clientHeight / 2 - entry.center[1] * zoom// + container.offsetTop
-		];
-
-		scaleZoomOrigin = [
-			2000 / 2 - entry.center[0]// + container.offsetLeft
-			, 2000 / 2 - entry.center[1]// + container.offsetTop
-		];
-
-		//console.log(zoomOrigin);
-
-		applyView();
-		hovered = [entry];
-		render();
-		hovered[0].element = infoElement;
-		closeObjectsListButton.classList.remove("d-none");
-		updateLines();
-		fixed = true;
 	}
+
 }
 
 function initView() {
@@ -815,10 +828,6 @@ function initView() {
 	applyView();
 	render();
 	updateLines();
-
-	if (window.location.hash) { // both "/" and just "/#" will be an empty hash string
-		highlightEntryFromUrl();
-	}
 
 }
 
@@ -900,4 +909,8 @@ function initViewGlobal() {
 			}
 		}
 	});
+
+	if (window.location.hash) { // both "/" and just "/#" will be an empty hash string
+		highlightEntryFromUrl();
+	}
 }

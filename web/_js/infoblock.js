@@ -36,10 +36,15 @@ function createInfoBlock(entry, isPreview) {
 
     const headerElement = document.createElement("h4");
     headerElement.className = "card-header";
+
     const linkElement = document.createElement("a");
     linkElement.className = "text-decoration-none d-flex justify-content-between text-body";
     if (isPreview) linkElement.href = "#";
-    else linkElement.href = "#" + entry.id;
+    else {
+        let targetPeriod = formatPeriod(currentPeriod, currentPeriod, currentVariation)
+        linkElement.href = "#" + entry.id
+        if (targetPeriod !== defaultPeriod) linkElement.href +=  "/" + targetPeriod
+    };
     const linkNameElement = document.createElement("span");
     linkNameElement.className = "flex-grow-1 text-break";
     linkNameElement.textContent = entry.name;
@@ -182,7 +187,7 @@ function createInfoBlock(entry, isPreview) {
         const editElement = document.createElement("a");
         editElement.textContent = "Edit";
         editElement.className = "btn btn-sm btn-outline-primary";
-        editElement.href = "./?mode=draw&id=" + entry.id;
+        editElement.href = "./?mode=draw&id=" + entry.id
         editElement.title = "Edit " + entry.name;
         idElementContainer.appendChild(editElement);
     }

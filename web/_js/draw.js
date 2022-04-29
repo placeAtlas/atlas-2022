@@ -972,14 +972,6 @@ function updatePeriodGroups() {
 
 }
 
-function formatPeriod(start, end, variation) {
-	let periodString
-	if (start === end) periodString = start
-	else periodString = start + "-" + end
-	if (variation !== "default") periodString = variationsConfig[variation].code + ":" + periodString
-	return periodString
-}
-
 function updatePath(newPath) {
 	if (newPath) path = newPath
 	if (path.length > 3) center = calculateCenter(path)

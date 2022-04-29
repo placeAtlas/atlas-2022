@@ -90,20 +90,6 @@ async function init() {
 
 	atlasAll = updateAtlasAll(atlas);
 
-	await updateTime(currentPeriod, currentVariation)
-
-	//console.log(document.documentElement.clientWidth, document.documentElement.clientHeight);
-
-	zoomOrigin = [0, 0];
-	applyView();
-
-	let initialPinchDistance = 0;
-	let initialPinchZoom = 0;
-	let initialPinchZoomOrigin = [0, 0];
-
-	let desiredZoom;
-	let zoomAnimationFrame;
-
 	let mode = "view";
 
 	const args = window.location.search;
@@ -124,6 +110,20 @@ async function init() {
 			window.history.replaceState({}, '', newLocation)
 		}
 	}
+
+	await updateTime(currentPeriod, currentVariation)
+
+	//console.log(document.documentElement.clientWidth, document.documentElement.clientHeight);
+
+	zoomOrigin = [0, 0];
+	applyView();
+
+	let initialPinchDistance = 0;
+	let initialPinchZoom = 0;
+	let initialPinchZoomOrigin = [0, 0];
+
+	let desiredZoom;
+	let zoomAnimationFrame;
 
 	document.body.dataset.mode = mode
 

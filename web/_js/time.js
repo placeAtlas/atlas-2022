@@ -60,6 +60,7 @@ let tooltipDelayHide = setTimeout(null, 0)
 
 let currentVariation = "default"
 const defaultPeriod = variationsConfig[currentVariation].default
+const defaultVariation = currentVariation
 let currentPeriod = defaultPeriod
 window.currentPeriod = currentPeriod
 window.currentVariation = currentVariation
@@ -152,7 +153,7 @@ async function updateBackground(newPeriod = currentPeriod, newVariation = curren
 	}
 }
 
-async function updateTime(newPeriod = currentPeriod, newVariation = currentVariation) {
+async function updateTime(newPeriod = currentPeriod, newVariation = currentVariation, forcePeriod = false) {
 	document.body.dataset.canvasLoading = ""
 
 	currentPeriod = newPeriod
@@ -160,8 +161,10 @@ async function updateTime(newPeriod = currentPeriod, newVariation = currentVaria
 	if (currentVariation !== newVariation) {
 		currentVariation = newVariation
 		timelineSlider.max = variationConfig.versions.length - 1;
-		currentPeriod = variationConfig.default;
-		newPeriod = currentPeriod
+		if (!forcePeriod) {
+			currentPeriod = variationConfig.default;
+			newPeriod = currentPeriod
+		}
 		if (variationConfig.versions.length === 1) document.getElementById("bottomBar").classList.add('no-time-slider');
 		else document.getElementById("bottomBar").classList.remove('no-time-slider');
 	}
@@ -234,7 +237,7 @@ function isOnPeriod(start, end, variation, currentPeriod, currentVariation) {
 }
 
 function parsePeriod(periodString) {
-	let variation = "default"
+	let variation = defaultVariation
 	periodString = periodString + ""
 	if (periodString.split(':').length > 1) {
 		const split = periodString.split(':')
@@ -244,8 +247,23 @@ function parsePeriod(periodString) {
 	if (periodString.search('-') + 1) {
 		const [start, end] = periodString.split('-').map(i => parseInt(i))
 		return [start, end, variation]
+	} else if (codeReference[periodString]) {
+		variation = codeReference[periodString]
+		const defaultPeriod = variationsConfig[variation].default
+		return [defaultPeriod, defaultPeriod, variation]
 	} else {
 		const periodNew = parseInt(periodString)
 		return [periodNew, periodNew, variation]
 	}
+}
+
+function formatPeriod(start, end, variation) {
+	let periodString
+	if (start === end) periodString = start
+	else periodString = start + "-" + end
+	if (variation !== "default") {
+		if (start === variationsConfig[variation].default) return variationsConfig[variation].code
+		else return variationsConfig[variation].code + ":" + periodString
+	}
+	return periodString
 }
