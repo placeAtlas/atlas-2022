@@ -792,13 +792,14 @@ function initPeriodGroups() {
 		periodVariationEl.addEventListener('input', event => {
 			const newVariation = event.target.value
 			const newVariationConfig = variationsConfig[newVariation]
-			startPeriodEl.value = newVariationConfig.default
 			startPeriodEl.max = newVariationConfig.versions.length - 1
-			endPeriodEl.value = newVariationConfig.default
+			startPeriodEl.value = newVariationConfig.default
 			endPeriodEl.max = newVariationConfig.versions.length - 1
+			endPeriodEl.value = newVariationConfig.default
 			periodVariationEl.previousElementSibling.innerHTML = newVariationConfig.icon;
 			if (startPeriodEl.max == 0) periodGroupEl.classList.add('no-time-slider')
 			else periodGroupEl.classList.remove('no-time-slider')
+			pathWithPeriods[index][0] = `${newVariationConfig.code}:${newVariationConfig.default}`
 			updateTime(newVariationConfig.default, newVariation)
 		})
 
