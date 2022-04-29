@@ -783,8 +783,10 @@ function initPeriodGroups() {
 		periodCopyEl.id = "periodCopy" + index
 		periodStatusEl.id = "periodStatus" + index
 
-		startPeriodEl.max = variationsConfig[variation].versions.length - 1
-		endPeriodEl.max = variationsConfig[variation].versions.length - 1
+		startPeriodEl.min = variationsConfig[variation].drawablePeriods[0]
+		endPeriodEl.min = variationsConfig[variation].drawablePeriods[0]
+		startPeriodEl.max = variationsConfig[variation].drawablePeriods[1]
+		endPeriodEl.max = variationsConfig[variation].drawablePeriods[1]
 		startPeriodEl.value = start
 		endPeriodEl.value = end
 		if (startPeriodEl.max == 0) periodGroupEl.classList.add('no-time-slider')
@@ -810,9 +812,11 @@ function initPeriodGroups() {
 		periodVariationEl.addEventListener('input', event => {
 			const newVariation = event.target.value
 			const newVariationConfig = variationsConfig[newVariation]
-			startPeriodEl.max = newVariationConfig.versions.length - 1
+			startPeriodEl.min = newVariationConfig.drawablePeriods[0]
+			endPeriodEl.min = newVariationConfig.drawablePeriods[0]
+			startPeriodEl.max = newVariationConfig.drawablePeriods[1]
+			endPeriodEl.max = newVariationConfig.drawablePeriods[1]
 			startPeriodEl.value = newVariationConfig.default
-			endPeriodEl.max = newVariationConfig.versions.length - 1
 			endPeriodEl.value = newVariationConfig.default
 			periodVariationEl.previousElementSibling.innerHTML = newVariationConfig.icon;
 			if (startPeriodEl.max == 0) periodGroupEl.classList.add('no-time-slider')
