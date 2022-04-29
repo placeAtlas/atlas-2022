@@ -82,7 +82,7 @@ timelineSlider.addEventListener("input", (event) => {
 })
 
 variantsEl.addEventListener("input", (event) => {
-	updateTime(currentPeriod, event.target.value)
+	updateTime(-1, event.target.value)
 })
 
 const dispatchTimeUpdateEvent = (period = timelineSlider.value, atlas = atlas) => {
@@ -100,21 +100,10 @@ async function updateBackground(newPeriod = currentPeriod, newVariation = curren
 	abortController = new AbortController()
 	currentUpdateIndex++
 	const myUpdateIndex = currentUpdateIndex
-	currentPeriod = newPeriod
 	const variationConfig = variationsConfig[newVariation]
-	if (currentVariation !== newVariation) {
-		currentVariation = newVariation
-		timelineSlider.max = variationConfig.versions.length - 1;
-		currentPeriod = variationConfig.default;
-		newPeriod = currentPeriod
-		if (variationConfig.versions.length === 1) document.getElementById("bottomBar").classList.add('no-time-slider');
-		else document.getElementById("bottomBar").classList.remove('no-time-slider');
-	
-	}
-	timelineSlider.value = currentPeriod
 
 	variantsEl.value = currentVariation
-	variantsEl.previousElementSibling.innerHTML = variationsConfig[newVariation].icon;
+	variantsEl.previousElementSibling.innerHTML = variationConfig.icon;
 	
 	const configObject = variationConfig.versions[currentPeriod];
 	if (typeof configObject.url === "string") {
@@ -161,16 +150,25 @@ async function updateBackground(newPeriod = currentPeriod, newVariation = curren
 		const blob = await new Promise(resolve => canvas.toBlob(resolve))
 		image.src = URL.createObjectURL(blob)
 	}
-
-	return [configObject, newPeriod, newVariation]
 }
 
 async function updateTime(newPeriod = currentPeriod, newVariation = currentVariation) {
-	updateTooltip(newPeriod, newVariation)
 	document.body.dataset.canvasLoading = ""
 
-	let configObject
-	[configObject, newPeriod, newVariation] = await updateBackground(newPeriod, newVariation)
+	currentPeriod = newPeriod
+	const variationConfig = variationsConfig[newVariation]
+	if (currentVariation !== newVariation) {
+		currentVariation = newVariation
+		timelineSlider.max = variationConfig.versions.length - 1;
+		currentPeriod = variationConfig.default;
+		newPeriod = currentPeriod
+		if (variationConfig.versions.length === 1) document.getElementById("bottomBar").classList.add('no-time-slider');
+		else document.getElementById("bottomBar").classList.remove('no-time-slider');
+	}
+	timelineSlider.value = currentPeriod
+	updateTooltip(newPeriod, newVariation)
+
+	await updateBackground(newPeriod, newVariation)
 
 	atlas = []
 	for (const atlasIndex in atlasAll) {
