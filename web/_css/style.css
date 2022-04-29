@@ -285,7 +285,10 @@ body[data-init-done] .listTransitioning #innerContainer {
 	}
 }
 
-#timeControls:hover #timeControlsTooltip, #timeControlsSlider:focus + #timeControlsTooltip {
+#timeControls:hover #timeControlsTooltip, 
+#timeControlsSlider:focus + #timeControlsTooltip,
+body[data-canvas-loading][data-init-done] #timeControlsTooltip,
+body[data-init-done] #timeControlsTooltip[data-force-visible] {
 	opacity: 1;
 	visibility: visible;
 }
