@@ -292,8 +292,8 @@
 					</div>
 					<div id="periods" class="p-2 pt-3 mb-3 bg-secondary bg-opacity-10 rounded">
 						<h5 class="px-2">Timeline</h5>
-						<p id="periodsStatus" class="px-2"></p>
-						<div id="periodGroups"></div>
+						<p id="periodsStatus" class="px-2 mb-2"></p>
+						<div id="periodGroups" class="pt-1"></div>
 						<button type="button" class="btn btn-primary d-block mx-auto" id="periodsAdd">Add Period</button>
 					</div>
 					<div id="hint">
@@ -404,7 +404,7 @@
 		<template id="period-group">
 			<div class="period-group card mb-2">
 				<div class="card-body">
-					<div class="alert alert-danger period-status small" role="alert"></div>
+					<div class="period-status alert alert-danger small py-2" role="alert"></div>
 					<label for="period-start" class="form-label">Start Period</label>
 					<input type="range" class="period-start form-range" id="period-start" min="0">
 					<label for="period-end" class="form-label">End Period</label>

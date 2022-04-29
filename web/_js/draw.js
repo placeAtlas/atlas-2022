@@ -198,27 +198,32 @@ function initDraw() {
 		}
 	});
 
-	finishButton.addEventListener("click", function (e) {
+	finishButton.addEventListener("click", function() {
 		finish();
 	});
 
-	undoButton.addEventListener("click", function (e) {
+	undoButton.addEventListener("click", function() {
 		undo();
 	});
 
-	redoButton.addEventListener("click", function (e) {
+	redoButton.addEventListener("click", function() {
 		redo();
 	});
 
-	resetButton.addEventListener("click", function (e) {
+	resetButton.addEventListener("click", function() {
 		reset();
 	});
 
-	cancelButton.addEventListener("click", function (e) {
+	resetButton.addEventListener("blur", function() {
+		resetButton.textContent = "Reset";
+		resetButton.className = "btn btn-secondary";
+	});
+
+	cancelButton.addEventListener("click", function() {
 		back();
 	});
 
-	previewButton.addEventListener("click", function (e) {
+	previewButton.addEventListener("click", function() {
 		preview();
 	});
 
@@ -391,8 +396,6 @@ function initDraw() {
 		updatePath()
 		objectInfoBody.style.display = "none";
 		drawControlsBody.removeAttribute("style");
-		resetButton.textContent = "Reset";
-		resetButton.className = "btn btn-secondary";
 	}
 
 	function renderBackground() {
