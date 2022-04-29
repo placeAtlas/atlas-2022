@@ -61,7 +61,7 @@ body[data-mode] {
 }
 
 #offcanvasList, #offcanvasDraw {
-	top: 3.70rem;
+	top: 3.7rem;
 }
 
 body[data-mode]:not([data-mode="draw"]) #drawNavButtons, [data-mode="draw"] #defaultNavButtons {
@@ -164,7 +164,7 @@ body[data-init-done] .listTransitioning #innerContainer {
 	position: absolute;
 	right: 0;
 	bottom: 1rem;
-	box-shadow: 0 .25rem 1rem rgba(17,17,17,.75)!important;
+	box-shadow: 0 .25rem 1rem rgba(17,17,17,.75) !important;
 }
 
 @media (max-width: 976px) {
@@ -416,16 +416,9 @@ body:not([data-dev]) .show-only-on-dev {
 }
 
 @media (prefers-reduced-motion: reduce) {
-	body[data-init-done] .listTransitioning #innerContainer,
-	#bottomBar {
+	body[data-init-done] .listTransitioning #innerContainer, #bottomBar {
 		transition: none !important;
 	}
-}
-
-.navbar-brand img {
-	height: 2rem;
-	width: 2rem;
-	vertical-align: -0.5rem;
 }
 
 /* purgecss end ignore */
