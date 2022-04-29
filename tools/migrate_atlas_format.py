@@ -42,7 +42,7 @@ def migrate_atlas_format(entry: dict):
 		else:
 			time_range = INIT_CANVAS_RANGE
 
-		time_key = '%d-%d, T:0' % time_range
+		time_key = '%d-%d, T' % time_range
 
 		new_entry = {
 		**new_entry,
