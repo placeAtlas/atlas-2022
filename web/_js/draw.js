@@ -755,6 +755,7 @@ function initPeriodGroups() {
 		const periodDuplicateEl = periodGroupEl.querySelector('.period-duplicate')
 		const periodVariationEl = periodGroupEl.querySelector('.period-variation')
 		const periodCopyEl = periodGroupEl.querySelector('.period-copy')
+		const periodStatusEl = periodGroupEl.querySelector('.period-status')
 
 		const [start, end, variation] = parsePeriod(period)
 
@@ -764,6 +765,7 @@ function initPeriodGroups() {
 		endPeriodEl.previousElementSibling.htmlFor = endPeriodEl.id
 		periodVariationEl.id = "periodVariation" + index
 		periodCopyEl.id = "periodCopy" + index
+		periodStatusEl.id = "periodStatus" + index
 
 		startPeriodEl.max = variationsConfig[variation].versions.length - 1
 		endPeriodEl.max = variationsConfig[variation].versions.length - 1
@@ -845,7 +847,8 @@ function initPeriodGroups() {
 			startPeriodEl,
 			endPeriodEl,
 			periodVariationEl,
-			periodCopyEl
+			periodCopyEl,
+			periodStatusEl
 		})
 	})
 
@@ -864,7 +867,8 @@ function updatePeriodGroups() {
 			startPeriodEl,
 			endPeriodEl,
 			periodVariationEl,
-			periodCopyEl
+			periodCopyEl,
+			periodStatusEl
 		} = elements
 
 		if (periodGroupEl.dataset.active === "true") lastActivePathIndex = index
@@ -969,17 +973,26 @@ function updateErrors() {
 	}
 
 	const [conflicts, invalidPaths, allErrors] = getErrors()
+	console.log(conflicts, invalidPaths, allErrors)
+
+	periodGroupElements.forEach((el, index) => {
+		const { periodStatusEl, periodGroupEl } = el
+		periodStatusEl.textContent = ""
+		periodStatusEl.classList.add("d-none")
+		if (conflicts[index] !== undefined) {
+			periodStatusEl.textContent += `Period conflicts with path${conflicts[index].length === 1 ? "" : "s"} ${conflicts[index].join(", ")}.\n`
+		}
+		if (invalidPaths[index] !== undefined) {
+			periodStatusEl.textContent += `Insufficient paths. Got ${invalidPaths[index]}, need at least 3.\n`
+		}
+		if (periodStatusEl.textContent !== "") {
+			periodStatusEl.classList.remove("d-none")
+			periodGroupEl.dataset.status = "error"
+		}
+	})
 
 	if (allErrors.length > 0) {
 		periodsStatus.textContent = `Problems detected. Please check the groups indicated by red.`
-		if (conflicts.length > 0) {
-			periodsStatus.textContent += `\nConflicts on ${conflicts.join(', ')}.`
-			currentActivePathIndex = undefined
-		}
-		if (invalidPaths.length > 0) periodsStatus.textContent += `\nInsufficient paths on ${invalidPaths.join(', ')}.`
-		allErrors.forEach(index => {
-			periodGroupElements[index].periodGroupEl.dataset.status = "error"
-		})
 		finishButton.disabled = true
 	} else {
 		periodsStatus.textContent = ``
@@ -995,6 +1008,7 @@ function updateErrors() {
 function getConflicts() {
 
 	let conflicts = new Set()
+	const conflictsNew = {}
 
 	for (let i = pathWithPeriods.length - 1; i > 0; i--) {
 		const [start1, end1, period1] = parsePeriod(pathWithPeriods[i][0])
@@ -1007,30 +1021,32 @@ function getConflicts() {
 				(start1 <= start2 && start2 <= end1) ||
 				(start1 <= end2 && end2 <= end1)
 			) {
-				conflicts.add(i)
-				conflicts.add(j)
+				if (!conflictsNew[i]) conflictsNew[i] = [] 
+				if (!conflictsNew[j]) conflictsNew[j] = []
+				conflictsNew[i].push(j)
+				conflictsNew[j].push(i)
 			}
 		}
 	}
 
 	conflicts = [...conflicts]
 
-	return conflicts
+	return conflictsNew
 
 }
 
 function getErrors() {
 	const conflicts = getConflicts()
-	const invalidPaths = []
+	const invalidPaths = {}
 
 	pathWithPeriods.forEach(([period, path], i) => {
-		if (path.length < 3) invalidPaths.push(i)
+		if (path.length < 3) invalidPaths[i] = path.length
 	})
 
-	// console.info('conflicts', conflicts)
-	// console.info('invalid paths', invalidPaths)
+	console.info('conflicts', conflicts)
+	console.info('invalid paths', invalidPaths)
 
-	return [conflicts, invalidPaths, [...new Set([...conflicts, ...invalidPaths])]]
+	return [conflicts, invalidPaths, [...new Set([...Object.keys(conflicts).flat(), ...Object.keys(invalidPaths).flat()])]]
 }
 
 // function compressPeriod(periodsString) {
