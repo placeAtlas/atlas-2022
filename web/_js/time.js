@@ -156,8 +156,13 @@ async function updateBackground(newPeriod = currentPeriod, newVariation = curren
 async function updateTime(newPeriod = currentPeriod, newVariation = currentVariation, forcePeriod = false) {
 	document.body.dataset.canvasLoading = ""
 
-	currentPeriod = newPeriod
+	if (!variationsConfig[newVariation]) newVariation = defaultVariation
 	const variationConfig = variationsConfig[newVariation]
+
+	if (newPeriod < 0) newPeriod = 0
+	else if (newPeriod > variationConfig.versions.length - 1) newPeriod = variationConfig.versions.length - 1
+
+	currentPeriod = newPeriod
 	if (currentVariation !== newVariation) {
 		currentVariation = newVariation
 		timelineSlider.max = variationConfig.versions.length - 1;
@@ -245,7 +250,7 @@ function parsePeriod(periodString) {
 		periodString = split[1]
 	}
 	if (periodString.search('-') + 1) {
-		const [start, end] = periodString.split('-').map(i => parseInt(i))
+		let [start, end] = periodString.split('-').map(i => parseInt(i))
 		return [start, end, variation]
 	} else if (codeReference[periodString]) {
 		variation = codeReference[periodString]
@@ -259,11 +264,11 @@ function parsePeriod(periodString) {
 
 function formatPeriod(start, end, variation) {
 	let periodString
-	if (start === end) periodString = start
-	else periodString = start + "-" + end
-	if (variation !== "default") {
-		if (start === variationsConfig[variation].default) return variationsConfig[variation].code
-		else return variationsConfig[variation].code + ":" + periodString
+	if (start === end) {
+		if (start === variationsConfig[variation].default) periodString = ""
+		else periodString = start
 	}
+	else periodString = start + "-" + end
+	if (variation !== "default") return variationsConfig[variation].code + ":" + periodString
 	return periodString
 }

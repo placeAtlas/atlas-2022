@@ -43,7 +43,7 @@ function createInfoBlock(entry, isPreview) {
     else {
         let targetPeriod = formatPeriod(currentPeriod, currentPeriod, currentVariation)
         linkElement.href = "#" + entry.id
-        if (targetPeriod !== defaultPeriod) linkElement.href +=  "/" + targetPeriod
+        if (targetPeriod) linkElement.href += "/" + targetPeriod
     };
     const linkNameElement = document.createElement("span");
     linkNameElement.className = "flex-grow-1 text-break";
