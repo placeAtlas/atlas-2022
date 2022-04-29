@@ -54,6 +54,7 @@ const image = document.getElementById("image");
 let abortController = new AbortController()
 let currentUpdateIndex = 0
 let updateTimeout = setTimeout(null, 0)
+let tooltipDelayHide = setTimeout(null, 0)
 
 let currentVariation = "default"
 const defaultPeriod = variationsConfig[currentVariation].default
@@ -163,7 +164,8 @@ async function updateBackground(newPeriod = currentPeriod, newVariation = curren
 }
 
 async function updateTime(newPeriod = currentPeriod, newVariation = currentVariation) {
-	document.body.dataset.canvasLoading = true
+	updateTooltip(newPeriod, newVariation)
+	document.body.dataset.canvasLoading = ""
 
 	let configObject
 	[configObject, newPeriod, newVariation] = await updateBackground(newPeriod, newVariation)
@@ -199,8 +201,14 @@ async function updateTime(newPeriod = currentPeriod, newVariation = currentVaria
 		})
 	}
 
-	dispatchTimeUpdateEvent(newPeriod, atlas)
-	document.body.dataset.canvasLoading = false
+	dispatchTimeUpdateEvent(newPeriod, atlas)	
+	delete document.body.dataset.canvasLoading
+	tooltip.dataset.forceVisible = ""
+	clearTimeout(tooltipDelayHide)
+	tooltipDelayHide = setTimeout(() => {
+		delete tooltip.dataset.forceVisible
+	}, 1000)
+
 }
 
 function updateTooltip(newPeriod, newVariation) {
