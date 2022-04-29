@@ -164,7 +164,6 @@ function toggleFixed(e, tapped) {
 	if (!fixed) {
 		updateHovering(e, tapped);
 		render();
-		console.log("fixed");
 	}
 	objectsListOverflowNotice.classList.add("d-none");
 }

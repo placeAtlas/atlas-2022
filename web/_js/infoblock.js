@@ -91,7 +91,7 @@ function createInfoBlock(entry, isPreview) {
         }
     }
 
-    if (entry.links.subreddit) {
+    if (!(entry.links.subreddit === undefined || entry.links.subreddit.length == 0)) {
         const subredditGroupElement = document.createElement("div");
         subredditGroupElement.className = "btn-group-vertical";
         linkListElement.appendChild(subredditGroupElement);
@@ -110,7 +110,7 @@ function createInfoBlock(entry, isPreview) {
         });
     };
 
-    if (entry.links.website) {
+    if (!(entry.links.website === undefined || entry.links.website.length == 0)) {
         const websiteGroupElement = document.createElement("div");
         websiteGroupElement.className = "btn-group-vertical";
         linkListElement.appendChild(websiteGroupElement);
@@ -124,7 +124,7 @@ function createInfoBlock(entry, isPreview) {
                 websiteLinkElement.href = link;
                 try {
                     const urlObject = new URL(link)
-                    websiteLinkElement.innerHTML = `<i class="bi bi-globe" aria-hidden="true"></i> ${urlObject.hostname}`
+                    websiteLinkElement.innerHTML = `<i class="bi bi-globe" aria-hidden="true"></i> ${urlObject.hostname.replace("www.", "")}`
                 } catch (e) {
                     websiteLinkElement.innerHTML = `<i class="bi bi-globe" aria-hidden="true"></i> Website`;
                 }
@@ -133,7 +133,7 @@ function createInfoBlock(entry, isPreview) {
         });
     }
 
-    if (entry.links.discord) {
+    if (!(entry.links.discord === undefined || entry.links.discord.length == 0)) {
         const discordGroupElement = document.createElement("div");
         discordGroupElement.className = "btn-group-vertical";
         linkListElement.appendChild(discordGroupElement);
@@ -151,7 +151,7 @@ function createInfoBlock(entry, isPreview) {
         });
     }
 
-    if (entry.links.wiki) {
+    if (!(entry.links.wiki === undefined || entry.links.wiki.length == 0)) {
         const wikiGroupElement = document.createElement("div");
         wikiGroupElement.className = "btn-group-vertical";
         linkListElement.appendChild(wikiGroupElement);
