@@ -263,12 +263,16 @@ function parsePeriod(periodString) {
 }
 
 function formatPeriod(start, end, variation) {
-	let periodString
+	let periodString, variationString
+	variationString = variationsConfig[variation].code
 	if (start === end) {
-		if (start === variationsConfig[variation].default) periodString = ""
+		if (start === variationsConfig[variation].default && variation !== defaultVariation) {
+			periodString = ""
+		} 
 		else periodString = start
 	}
 	else periodString = start + "-" + end
-	if (variation !== "default") return variationsConfig[variation].code + ":" + periodString
+	if (periodString && variationString) return variationsConfig[variation].code + ":" + periodString
+	if (variationString) return variationString
 	return periodString
 }
