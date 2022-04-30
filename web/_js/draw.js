@@ -803,7 +803,7 @@ function initPeriodGroups() {
 		})
 		periodDeleteEl.addEventListener('click', () => {
 			if (pathWithPeriods.length === 1) return
-			pathWithPeriods = pathWithPeriods.filter((_, i) => i !== index)
+			pathWithPeriods.splice(index, 1)
 			initPeriodGroups()
 		})
 		periodDuplicateEl.addEventListener('click', () => {
