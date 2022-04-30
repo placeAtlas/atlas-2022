@@ -252,7 +252,7 @@ function initDraw() {
 			center: {},
 		};
 
-		const pathWithPeriodsTemp = pathWithPeriods.concat()
+		const pathWithPeriodsTemp = JSON.parse(JSON.stringify(pathWithPeriods))
 
 		for (let i = pathWithPeriodsTemp.length - 1; i > 0; i--) {
 			for (let j = 0; j < i; j++) {
