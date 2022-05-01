@@ -515,8 +515,7 @@ async function init() {
 
 }
 
-function updateAtlasAll(atlas) {
-	if (!atlas) atlas = atlasAll
+function updateAtlasAll(atlas = atlasAll) {
 	for (const atlasIndex in atlas) {
 		if (Array.isArray(atlas[atlasIndex].path)) {
 			const currentPath = atlas[atlasIndex].path
