@@ -47,6 +47,9 @@ const discordGroup = document.getElementById("discordGroup");
 const wikiGroup = document.getElementById("wikiGroup");
 const exportArea = document.getElementById("exportString");
 
+const subredditPattern = /^(?:(?:(?:(?:(?:https?:\/\/)?(?:(?:www|old|new|np)\.)?)?reddit\.com)?\/)?[rR]\/)?([A-Za-z0-9][A-Za-z0-9_]{2,20})(?:\/[^" ]*)*$/
+const discordPattern = /(?:https?:\/\/)?(?:www\.)?(?:(?:discord)?\.?gg|discord(?:app?)\.com\/invite)\/([^\s/]+?)(?=\b)/
+
 let entryId = 0;
 let path = [];
 let center = [1000, 1000];
@@ -271,8 +274,8 @@ function initDraw() {
 		})
 
 		const inputWebsite = websiteGroupElements.map(element => element.value.trim()).filter(element => element);
-		const inputSubreddit = subredditGroupElements.map(element => element.value.trim().replace(/(?:(?:(?:(?:https?:\/\/)?(?:(?:www|old|new|np)\.)?)?reddit\.com)?\/)?[rR]\/([A-Za-z0-9][A-Za-z0-9_]{0,20})(?:\/[^" ]*)*/, '$1')).filter(element => element);
-		const inputDiscord = discordGroupElements.map(element => element.value.trim().replace(/(?:https?:\/\/)?(?:www\.)?(?:(?:discord)?\.?gg|discord(?:app?)\.com\/invite)\/([^\s/]+?)(?=\b)/, '$1')).filter(element => element);
+		const inputSubreddit = subredditGroupElements.map(element => element.value.trim().match(subredditPattern)?.[1]).filter(element => element);
+		const inputDiscord = discordGroupElements.map(element => element.value.trim().match(discordPattern)?.[1]).filter(element => element);
 		const inputWiki = wikiGroupElements.map(element => element.value.trim().replace(/ /g, '_')).filter(element => element);
 
 		if (inputWebsite.length) exportObject.links.website = inputWebsite;
@@ -568,7 +571,7 @@ function initDraw() {
 		inputField.className = "form-control";
 		inputField.id = "subredditField" + index;
 		inputField.placeholder = "r/example";
-		inputField.pattern = "^r\/\\w+$";
+		inputField.pattern = "^r\/[A-Za-z0-9][A-Za-z0-9_]{2,20}$";
 		inputField.title = "Subbredit in format of r/example";
 		inputField.maxLength = "23";
 		inputField.spellcheck = false;
