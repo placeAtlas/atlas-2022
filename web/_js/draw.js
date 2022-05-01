@@ -792,7 +792,7 @@ function initPeriodGroups() {
 		endPeriodEl.value = end
 		if (startPeriodEl.max == 0) periodGroupEl.classList.add('no-time-slider')
 		else periodGroupEl.classList.remove('no-time-slider')
-		if (pathWithPeriods.length === 1) periodDeleteEl.classList.add("disabled")
+		if (pathWithPeriods.length === 1) periodDeleteEl.disabled = ""
 
 		startPeriodEl.addEventListener('input', event => {
 			timelineSlider.value = parseInt(event.target.value)
