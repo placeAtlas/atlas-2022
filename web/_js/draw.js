@@ -48,7 +48,7 @@ const wikiGroup = document.getElementById("wikiGroup");
 const exportArea = document.getElementById("exportString");
 
 const subredditPattern = /^(?:(?:(?:(?:(?:https?:\/\/)?(?:(?:www|old|new|np)\.)?)?reddit\.com)?\/)?[rR]\/)?([A-Za-z0-9][A-Za-z0-9_]{2,20})(?:\/[^" ]*)*$/
-const discordPattern = /(?:https?:\/\/)?(?:www\.)?(?:(?:discord)?\.?gg|discord(?:app?)\.com\/invite)\/([^\s/]+?)(?=\b)/
+const discordPattern = /^(?:(?:https?:\/\/)?(?:www\.)?(?:(?:discord)?\.?gg|discord(?:app)?\.com\/invite)\/)?([^\s/]+?)(?=\b)$/
 
 let entryId = 0;
 let path = [];
@@ -599,6 +599,16 @@ function initDraw() {
 			inputButton.innerHTML = '<i class="bi bi-trash-fill" aria-hidden="true"></i>';
 			inputButton.addEventListener('click', () => removeFieldButton(inputGroup, array, index));
 		}
+
+		inputField.addEventListener('paste', (event) => {
+			let paste = (event.clipboardData || window.clipboardData).getData('text')
+			paste = paste.trim().match(subredditPattern)?.[1]
+			if (paste) {
+				event.target.value = "r/" + paste
+				event.preventDefault()
+			}
+		})
+
 		inputGroup.appendChild(inputButton);
 	}
 
@@ -639,6 +649,16 @@ function initDraw() {
 			inputButton.innerHTML = '<i class="bi bi-trash-fill" aria-hidden="true"></i>';
 			inputButton.addEventListener('click', () => removeFieldButton(inputGroup, array, index));
 		}
+
+		inputField.addEventListener('paste', (event) => {
+			let paste = (event.clipboardData || window.clipboardData).getData('text')
+			paste = paste.trim().match(discordPattern)?.[1]
+			if (paste) {
+				event.target.value = paste
+				event.preventDefault()
+			}
+		})
+
 		inputGroup.appendChild(inputButton);
 	}
 
