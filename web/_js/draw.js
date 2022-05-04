@@ -233,7 +233,7 @@ function initDraw() {
 	objectInfoForm.addEventListener('submit', function(e) {
 		e.preventDefault()
 		// Allows for html form validation with preview button
-		if (e.submitter.value == "preview") {
+		if (e.submitter && e.submitter.value == "Preview") {
 			preview()
 		} else {
 			exportJson()
