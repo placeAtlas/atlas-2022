@@ -305,6 +305,7 @@ function initDraw() {
         exportModal.show();
     }
 
+
     function preview() {
         let infoElement = createInfoBlock(generateExportObject(), true);
         objectsContainer.replaceChildren();
