@@ -65,7 +65,8 @@ for (const variation in variationsConfig) {
 }
 
 const timelineSlider = document.getElementById("timeControlsSlider");
-const tooltip = document.getElementById("timeControlsTooltip")
+const timelineList = document.getElementById("timeControlsList");
+const tooltip = document.getElementById("timeControlsTooltip");
 const image = document.getElementById("image");
 let abortController = new AbortController()
 let currentUpdateIndex = 0
@@ -82,6 +83,7 @@ window.currentVariation = currentVariation
 // SETUP
 timelineSlider.max = variationsConfig[currentVariation].versions.length - 1;
 timelineSlider.value = currentPeriod;
+timelineList.children[0].value = defaultPeriod;
 
 timelineSlider.addEventListener("input", (event) => {
 	updateTooltip(parseInt(event.target.value), currentVariation)

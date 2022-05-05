@@ -253,7 +253,10 @@
 				</div>
 				<div id="timeControls" class="bg-body px-2 py-1 border rounded shadow">
 					<label for="timeControlsSlider" class="visually-hidden">Time control slider</label>
-					<input type="range" class="form-range" min="0" max="1" value="1" id="timeControlsSlider" aria-describedby="timeControlsTooltip"></input>
+					<input type="range" class="form-range" min="0" max="1" value="1" id="timeControlsSlider" list="timeControlsList" aria-describedby="timeControlsTooltip"></input>
+					<datalist id="timeControlsList">
+						<option value=""></option>
+					</datalist>
 					<div class="tooltip border rounded text-nowrap" role="tooltip" id="timeControlsTooltip"><div class="bg-body rounded p-1">Tooltip</div></div>
 				</div>
 				<div id="author" class="bg-body d-flex align-items-center justify-content-center py-1 px-2 rounded shadow" style="--bs-bg-opacity: .9;">

@@ -144,8 +144,8 @@ body[data-init-done] .listTransitioning #innerContainer {
 	width: 100%;
 	position: absolute;
 	right: 0;
-	top: 3.75rem;
-	max-height: calc(100% - 3.75rem);
+	top: 3.7rem;
+	max-height: calc(100% - 3.7rem);
 	overflow-y: auto;
 	z-index: 0;
 }
