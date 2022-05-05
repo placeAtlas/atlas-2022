@@ -791,7 +791,9 @@ function initPeriodGroups() {
 		periodGroupEl.id = "periodGroup" + index
 
 		const startPeriodEl = periodGroupEl.querySelector('.period-start')
+		const startPeriodListEl = periodGroupEl.querySelector('#periodStartList')
 		const endPeriodEl = periodGroupEl.querySelector('.period-end')
+		const endPeriodListEl = periodGroupEl.querySelector('#periodEndList')
 		const periodDeleteEl = periodGroupEl.querySelector('.period-delete')
 		const periodDuplicateEl = periodGroupEl.querySelector('.period-duplicate')
 		const periodVariationEl = periodGroupEl.querySelector('.period-variation')
@@ -802,8 +804,12 @@ function initPeriodGroups() {
 
 		startPeriodEl.id = "periodStart" + index
 		startPeriodEl.previousElementSibling.htmlFor = startPeriodEl.id
+		startPeriodListEl.id = "periodStartList" + index
+		startPeriodEl.setAttribute("list", startPeriodListEl.id)
 		endPeriodEl.id = "periodEnd" + index
 		endPeriodEl.previousElementSibling.htmlFor = endPeriodEl.id
+		endPeriodListEl.id = "periodEndList" + index
+		endPeriodEl.setAttribute("list", endPeriodListEl.id)
 		periodVariationEl.id = "periodVariation" + index
 		periodCopyEl.id = "periodCopy" + index
 		periodStatusEl.id = "periodStatus" + index
@@ -814,15 +820,21 @@ function initPeriodGroups() {
 		endPeriodEl.max = variationsConfig[variation].drawablePeriods[1]
 		startPeriodEl.value = start
 		endPeriodEl.value = end
+		// Adds tick marks to assit in preventing overlap
+		startPeriodListEl.innerHTML = '<option value="' + (end - 1) + '"></option>'
+		endPeriodListEl.innerHTML = '<option value="' + (start + 1) + '"></option>'
+
 		if (startPeriodEl.max == 0) periodGroupEl.classList.add('no-time-slider')
 		else periodGroupEl.classList.remove('no-time-slider')
 		if (pathWithPeriods.length === 1) periodDeleteEl.disabled = true;
 
 		startPeriodEl.addEventListener('input', event => {
+			endPeriodListEl.innerHTML = '<option value="' + (parseInt(event.target.value) + 1) + '"></option>'
 			timelineSlider.value = parseInt(event.target.value)
 			updateTime(parseInt(event.target.value), variation)
 		})
 		endPeriodEl.addEventListener('input', event => {
+			startPeriodListEl.innerHTML = '<option value="' + (parseInt(event.target.value) - 1) + '"></option>'
 			timelineSlider.value = parseInt(event.target.value)
 			updateTime(parseInt(event.target.value), variation)
 		})

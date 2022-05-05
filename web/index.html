@@ -406,9 +406,11 @@
 				<div class="card-body">
 					<div class="period-status alert alert-danger small py-2" role="alert"></div>
 					<label for="period-start" class="form-label">Start Period</label>
-					<input type="range" class="period-start form-range" id="period-start" min="0">
+					<input type="range" class="period-start form-range" id="period-start" min="0" list="periodStartList">
+					<datalist id="periodStartList"></datalist>
 					<label for="period-end" class="form-label">End Period</label>
-					<input type="range" class="period-end form-range mb-2" id="period-end" min="0">
+					<input type="range" class="period-end form-range mb-2" id="period-end" min="0" list="periodEndList">
+					<datalist id="periodEndList"></datalist>
 					<div class="d-flex flex-wrap gap-2 mb-2">
 						<button type="button" class="period-copy btn btn-secondary btn-sm flex-fill" id="period-copy">
 							<i class="bi bi-clipboard" aria-hidden="true"></i>
