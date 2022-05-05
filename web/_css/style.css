@@ -50,18 +50,21 @@ body[data-mode] {
 
 .navbar {
 	z-index: 1100 !important;
+	padding-left: env(safe-area-inset-left);
+	padding-right: env(safe-area-inset-left);
+}
+
+.offcanvas {
+	top: 3.7rem;
+	padding-left: env(safe-area-inset-left);
 }
 
 @supports (backdrop-filter: blur()) or (-webkit-backdrop-filter: blur()) {
-	.navbar, #offcanvasList, #offcanvasDraw {
+	.navbar, .offcanvas {
 		-webkit-backdrop-filter: saturate(180%) blur(15px);
 		backdrop-filter: saturate(180%) blur(15px);
 		--bs-bg-opacity: .9 !important;
 	}
-}
-
-#offcanvasList, #offcanvasDraw {
-	top: 3.7rem;
 }
 
 body[data-mode]:not([data-mode="draw"]) #drawNavButtons, [data-mode="draw"] #defaultNavButtons {
@@ -143,7 +146,7 @@ body[data-init-done] .listTransitioning #innerContainer {
 	max-width: 300px;
 	width: 100%;
 	position: absolute;
-	right: 0;
+	right: env(safe-area-inset-right, 0);
 	top: 3.7rem;
 	max-height: calc(100% - 3.7rem);
 	overflow-y: auto;
@@ -155,14 +158,14 @@ body[data-init-done] .listTransitioning #innerContainer {
 	width: 40px;
 	position: absolute;
 	top: 4.25rem;
-	right: 300px;
+	right: calc(300px + env(safe-area-inset-right, 0));
 }
 
 #objectsListOverflowNotice {
 	max-width: 300px;
 	width: 100%;
 	position: absolute;
-	right: 0;
+	right: env(safe-area-inset-right, 0);
 	bottom: 1rem;
 	box-shadow: 0 .25rem 1rem rgba(17,17,17,.75) !important;
 }
@@ -172,7 +175,7 @@ body[data-init-done] .listTransitioning #innerContainer {
 		max-width: calc(300px - 3rem);
 	}
 	#wrapper:not(.listHidden) > #closeObjectsListButton {
-		right: calc(300px - 3rem);
+		right: calc(300px - 3rem + env(safe-area-inset-right, 0));
 	}
 }
 
@@ -222,9 +225,12 @@ body[data-init-done] .listTransitioning #innerContainer {
     left: 0;
     right: 0;
 	transition: left .3s ease-in-out;
+	margin-left: env(safe-area-inset-right);
+	margin-right: env(safe-area-inset-right);
 }
 
 #wrapper:not(.listHidden) > #bottomBar {
+	margin-left: 0;
 	left: 400px !important;
 }
 
