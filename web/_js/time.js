@@ -266,7 +266,8 @@ function parsePeriod(periodString) {
 		periodString = split[1]
 	}
 	if (periodString.search('-') + 1) {
-		let [start, end] = periodString.split('-').map(i => parseInt(i)).sort()
+		let [start, end] = periodString.split('-').map(i => parseInt(i))
+		if (start > end) [start, end] = [end, start]
 		return [start, end, variation]
 	} else if (codeReference[periodString]) {
 		variation = codeReference[periodString]
