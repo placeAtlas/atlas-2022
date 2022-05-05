@@ -213,10 +213,10 @@
 					</div>
 					<div id="entriesListControls" class="d-flex flex-column gap-2 p-3 bg-secondary bg-opacity-10 rounded">
 						<span id="atlasSize"></span>
-						<input autofocus class="form-control" id="searchList" type="search" placeholder="Search…" autocomplete="off" spellcheck="false" aria-describedby="atlasSize">
-						<div class="d-flex align-items-center gap-2">
-							<label for="sort">Sort:</label>
-							<select class="form-select" id="sort" title="Sort entries">
+						<div class="input-group">
+							<input autofocus class="form-control" id="searchList" type="search" placeholder="Search…" autocomplete="off" spellcheck="false" aria-describedby="atlasSize">
+							<label for="sort" class="visually-hidden">Sort entries</label>
+							<select class="form-select" id="sort">
 								<option selected value="shuffle">Random</option>
 								<option value="relevant" id="relevantOption" disabled>Relevant</option>
 								<option value="alphaAsc" label="↓ Alphabetical">Descending Alphabetical</option>
@@ -241,7 +241,6 @@
 					<button type="button" class="btn btn-secondary" id="zoomOutButton" title="Zoom out">
 						<i class="bi bi-dash-lg" aria-hidden="true"></i>
 					</button>
-					
 				</div>
 				<div id="variantControls">
 					<div class="input-group">
@@ -260,7 +259,7 @@
 					</datalist>
 				</div>
 				<div id="author" class="bg-body d-flex align-items-center justify-content-center py-1 px-2 rounded shadow" style="--bs-bg-opacity: .9;">
-					<span style="font-size: 0.75rem;">Code owned by <a href="https://github.com/placeAtlas" target="_blank" rel="noopener noreferrer">Place Atlas</a>. Source on <a href="https://github.com/placeAtlas/atlas" target="_blank" rel="noopener noreferrer">GitHub</a>. Site powered by <a href="https://www.netlify.com" target="_blank" rel="noopener noreferrer">Netlify</a>.</span>
+					<span style="font-size: 0.7rem;">Code by <a href="https://github.com/placeAtlas" target="_blank" rel="noopener noreferrer">Place Atlas</a>. Source on <a href="https://github.com/placeAtlas/atlas" target="_blank" rel="noopener noreferrer">GitHub</a>. Site powered by <a href="https://www.netlify.com" target="_blank" rel="noopener noreferrer">Netlify</a>.</span>
 				</div>
 			</div>
 			<div class="offcanvas offcanvas-start bg-body" data-bs-scroll="true" data-bs-backdrop="false" tabindex="-1" id="offcanvasDraw" aria-labelledby="offcanvasDrawLabel">
