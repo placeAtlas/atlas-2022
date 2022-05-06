@@ -169,7 +169,7 @@ function initDraw() {
 		if (!dragging && drawing && path.length > 0) {
 
 			const coords = getCanvasCoords(e.clientX, e.clientY);
-			render(path.concat([coords]));
+			render([...path, coords]);
 		}
 
 	});
@@ -204,16 +204,22 @@ function initDraw() {
 		finish();
 	});
 
-	undoButton.addEventListener("click", function() {
+	undoButton.addEventListener("click", function(e) {
 		undo();
+		const coords = getCanvasCoords(e.clientX, e.clientY);
+		render([...path, coords]);
 	});
 
-	redoButton.addEventListener("click", function() {
+	redoButton.addEventListener("click", function(e) {
 		redo();
+		const coords = getCanvasCoords(e.clientX, e.clientY);
+		render([...path, coords]);
 	});
 
-	resetButton.addEventListener("click", function() {
+	resetButton.addEventListener("click", function(e) {
 		reset();
+		const coords = getCanvasCoords(e.clientX, e.clientY);
+		render([...path, coords]);
 	});
 
 	resetButton.addEventListener("blur", function() {
