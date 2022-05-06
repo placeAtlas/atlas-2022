@@ -1028,7 +1028,8 @@ function updateErrors() {
 		periodsStatus.textContent = "No paths available on this period!"
 	}
 
-	const [conflicts, invalidPaths, allErrors] = getErrors()
+	const {conflicts, insufficientPaths} = getErrors()
+	let errorCount = 0
 	// console.log(conflicts, invalidPaths, allErrors)
 
 	periodGroupElements.forEach((el, index) => {
@@ -1038,16 +1039,17 @@ function updateErrors() {
 		if (conflicts[index] !== undefined) {
 			periodStatusEl.textContent += `Period conflicts with path${conflicts[index].length === 1 ? "" : "s"} ${conflicts[index].join(", ")}.\n`
 		}
-		if (invalidPaths[index] !== undefined) {
-			periodStatusEl.textContent += `Insufficient paths. Got ${invalidPaths[index]}, need at least 3.\n`
+		if (insufficientPaths[index] !== undefined) {
+			periodStatusEl.textContent += `Insufficient paths. Got ${insufficientPaths[index]}, need at least 3.\n`
 		}
 		if (periodStatusEl.textContent !== "") {
 			periodStatusEl.classList.remove("d-none")
 			periodGroupEl.dataset.status = "error"
+			errorCount += 1
 		}
 	})
 
-	if (allErrors.length > 0) {
+	if (errorCount > 0) {
 		periodsStatus.textContent = `Problems detected. Please check the groups indicated by red.`
 		finishButton.disabled = true
 	} else {
@@ -1063,8 +1065,7 @@ function updateErrors() {
 
 function getConflicts() {
 
-	let conflicts = new Set()
-	const conflictsNew = {}
+	const conflicts = {}
 
 	for (let i = pathWithPeriods.length - 1; i > 0; i--) {
 		const [start1, end1, period1] = parsePeriod(pathWithPeriods[i][0])
@@ -1077,32 +1078,33 @@ function getConflicts() {
 				(start1 <= start2 && start2 <= end1) ||
 				(start1 <= end2 && end2 <= end1)
 			) {
-				if (!conflictsNew[i]) conflictsNew[i] = [] 
-				if (!conflictsNew[j]) conflictsNew[j] = []
-				conflictsNew[i].push(j)
-				conflictsNew[j].push(i)
+				if (!conflicts[i]) conflicts[i] = [] 
+				if (!conflicts[j]) conflicts[j] = []
+				conflicts[i].push(j)
+				conflicts[j].push(i)
 			}
 		}
 	}
 
-	conflicts = [...conflicts]
-
-	return conflictsNew
+	return conflicts
 
 }
 
 function getErrors() {
 	const conflicts = getConflicts()
-	const invalidPaths = {}
+	const insufficientPaths = {}
 
 	pathWithPeriods.forEach(([period, path], i) => {
-		if (path.length < 3) invalidPaths[i] = path.length
+		if (path.length < 3) insufficientPaths[i] = path.length
 	})
 
 	// console.info('conflicts', conflicts)
 	// console.info('invalid paths', invalidPaths)
 
-	return [conflicts, invalidPaths, [...new Set([...Object.keys(conflicts).flat(), ...Object.keys(invalidPaths).flat()])]]
+	return {
+		conflicts, 
+		insufficientPaths, 
+	}
 }
 
 // function compressPeriod(periodsString) {
