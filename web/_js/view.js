@@ -151,6 +151,7 @@ closeObjectsListButton.addEventListener("click", function () {
 	objectsContainer.replaceChildren()
 	updateLines()
 	closeObjectsListButton.classList.add("d-none")
+	objectsListOverflowNotice.classList.add("d-none")
 	fixed = false
 	render()
 })
@@ -204,11 +205,12 @@ window.addEventListener("resize", function (e) {
 
 function updateLines() {
 
+	// Line border
 	linesCanvas.width = linesCanvas.clientWidth
 	linesCanvas.height = linesCanvas.clientHeight
 	linesContext.lineCap = "round"
 	linesContext.lineWidth = Math.max(Math.min(zoom * 1.5, 16 * 1.5), 6)
-	linesContext.strokeStyle = "#000000"
+	linesContext.strokeStyle = "#222"
 
 	for (let i = 0; i < hovered.length; i++) {
 		const element = hovered[i].element
@@ -216,20 +218,27 @@ function updateLines() {
 		if (element.getBoundingClientRect().left != 0) {
 
 			linesContext.beginPath()
-			//linesContext.moveTo(element.offsetLeft + element.clientWidth - 10, element.offsetTop + 20)
-			linesContext.moveTo(
-				element.getBoundingClientRect().left + document.documentElement.scrollLeft + element.clientWidth / 2
-				, element.getBoundingClientRect().top + document.documentElement.scrollTop + 20
-			)
+			// Align line based on which side the card is on
+			if ((element.getBoundingClientRect().left + element.clientWidth / 2) < (document.documentElement.clientWidth / 2)) {
+				linesContext.moveTo(
+					element.getBoundingClientRect().left + document.documentElement.scrollLeft + element.clientWidth - 5
+					, element.getBoundingClientRect().top + document.documentElement.scrollTop + 20
+				)
+			} else {
+				linesContext.moveTo(
+					element.getBoundingClientRect().left + document.documentElement.scrollLeft + 5
+					, element.getBoundingClientRect().top + document.documentElement.scrollTop + 20
+				)
+			}
 			linesContext.lineTo(
 				~~(hovered[i].center[0] * zoom) + innerContainer.offsetLeft
 				, ~~(hovered[i].center[1] * zoom) + innerContainer.offsetTop
 			)
 			linesContext.stroke()
-
 		}
 	}
 
+	// Line body
 	linesContext.lineWidth = Math.max(Math.min(zoom, 16), 4)
 	linesContext.strokeStyle = "#FFFFFF"
 
@@ -239,10 +248,18 @@ function updateLines() {
 		if (element.getBoundingClientRect().left != 0) {
 
 			linesContext.beginPath()
-			linesContext.moveTo(
-				element.getBoundingClientRect().left + document.documentElement.scrollLeft + element.clientWidth / 2
-				, element.getBoundingClientRect().top + document.documentElement.scrollTop + 20
-			)
+			// Align line based on which side the card is on
+			if ((element.getBoundingClientRect().left + element.clientWidth / 2) < (document.documentElement.clientWidth / 2)) {
+				linesContext.moveTo(
+					element.getBoundingClientRect().left + document.documentElement.scrollLeft + element.clientWidth - 5
+					, element.getBoundingClientRect().top + document.documentElement.scrollTop + 20
+				)
+			} else {
+				linesContext.moveTo(
+					element.getBoundingClientRect().left + document.documentElement.scrollLeft + 5
+					, element.getBoundingClientRect().top + document.documentElement.scrollTop + 20
+				)
+			}
 			linesContext.lineTo(
 				~~(hovered[i].center[0] * zoom) + innerContainer.offsetLeft
 				, ~~(hovered[i].center[1] * zoom) + innerContainer.offsetTop
@@ -669,9 +686,9 @@ function updateHovering(e, tapped) {
 
 		// Displays coordinates as zero instead of NaN
 		if (isNaN(pos[0]) == true) {
-			coords_p.innerText = "0, 0"
+			coords_p.textContent = "0, 0"
 		} else {
-			coords_p.innerText = Math.ceil(pos[0]) + ", " + Math.ceil(pos[1])
+			coords_p.textContent = Math.ceil(pos[0]) + ", " + Math.ceil(pos[1])
 		}
 
 		if (pos[0] <= 2200 && pos[0] >= -100 && pos[0] <= 2200 && pos[0] >= -100) {
@@ -843,8 +860,12 @@ function initExplore() {
 				, (e.clientY - (container.clientHeight / 2 - innerContainer.clientHeight / 2 + zoomOrigin[1] + container.offsetTop)) / zoom
 			]
 			const coords_p = document.getElementById("coords_p")
-			coords_p.innerText = Math.ceil(pos[0]) + ", " + Math.ceil(pos[1])
-
+			// Displays coordinates as zero instead of NaN
+			if (isNaN(pos[0]) == true) {
+				coords_p.textContent = "0, 0"
+			} else {
+				coords_p.textContent = Math.ceil(pos[0]) + ", " + Math.ceil(pos[1])
+			}
 		}
 	}
 

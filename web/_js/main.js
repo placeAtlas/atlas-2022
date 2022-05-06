@@ -37,14 +37,6 @@ let lastPosition = [0, 0]
 
 const viewportSize = [0, 0]
 
-// document.getElementById("entriesListDonate").addEventListener("click", function(e){
-// 	document.getElementById("donateOverlay").style.display = "flex"
-// })
-
-// document.getElementById("closeDonateButton").addEventListener("click", function(e){
-// 	document.getElementById("donateOverlay").style.display = "none"
-// })
-
 function applyView() {
 
 	//console.log(zoomOrigin, scaleZoomOrigin)
@@ -416,6 +408,8 @@ async function init() {
 
 	function mousemove(x, y) {
 		if (dragging) {
+			container.style.cursor = "move"
+
 			const deltaX = x - lastPosition[0]
 			const deltaY = y - lastPosition[1]
 			lastPosition = [x, y]
@@ -479,6 +473,11 @@ async function init() {
 	}
 
 	window.addEventListener("mouseup", function (e) {
+		if (hovered.length > 0) {
+			container.style.cursor = "pointer"
+		} else {
+			container.style.cursor = "default"
+		}
 		if (dragging) {
 			e.preventDefault()
 		}

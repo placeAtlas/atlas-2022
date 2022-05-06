@@ -388,7 +388,7 @@ body:not([data-dev]) .show-only-on-dev {
 	transition: box-shadow 0.15s ease-in-out;
 }
 
-@media (prefers-reduced-motion:reduce) {
+@media (prefers-reduced-motion: reduce) {
     .period-group {
         transition: none;
     }

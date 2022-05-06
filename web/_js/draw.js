@@ -481,9 +481,9 @@ function initDraw() {
 
 			// Displays coordinates as zero instead of NaN
 			if (isNaN(pos[0]) == true) {
-				coords_p.innerText = "0, 0"
+				coords_p.textContent = "0, 0"
 			} else {
-				coords_p.innerText = Math.ceil(pos[0]) + ", " + Math.ceil(pos[1])
+				coords_p.textContent = Math.ceil(pos[0]) + ", " + Math.ceil(pos[1])
 			}
 		}
 	}
