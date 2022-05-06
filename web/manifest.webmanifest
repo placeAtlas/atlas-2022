@@ -3,7 +3,7 @@
 	"display": "minimal-ui",
 	"scope": "/",
 	"start_url": "/",
-	"name": "r/place atlas",
+	"name": "r/place Atlas",
 	"short_name": "placeAtlas2",
 	"description": "The atlas for the r/place event from 2022",
 	"icons": [

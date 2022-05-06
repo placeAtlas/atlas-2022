@@ -32,7 +32,7 @@ html, body {
 
 svg.icon {
 	display: inline-block;
-    vertical-align: -.125em;
+	vertical-align: -.125em;
 }
 
 body[data-mode] {
@@ -235,12 +235,13 @@ body[data-init-done] .listTransitioning #innerContainer {
 
 #bottomBar {
 	position: absolute;
-    bottom: 0;
-    left: 0;
-    right: 0;
-	transition: left .3s ease-in-out, margin-left .3s ease-in-out;
-	margin-left: env(safe-area-inset-right);
-	margin-right: env(safe-area-inset-right);
+	bottom: 0;
+	left: 0;
+	right: 0;
+	transition: left .3s ease-in-out, padding-left .3s linear;
+	padding-left: max(0.5rem, env(safe-area-inset-left)) !important;
+	padding-right: max(0.5rem, env(safe-area-inset-right)) !important;
+	padding-bottom: max(0.5rem, env(safe-area-inset-bottom)) !important;
 }
 
 @media (prefers-reduced-motion: reduce) {
@@ -250,7 +251,7 @@ body[data-init-done] .listTransitioning #innerContainer {
 }
 
 #wrapper:not(.listHidden) > #bottomBar {
-	margin-left: 0;
+	padding-left: 0.5rem !important;
 	left: 400px !important;
 }
 
@@ -389,9 +390,9 @@ body:not([data-dev]) .show-only-on-dev {
 }
 
 @media (prefers-reduced-motion: reduce) {
-    .period-group {
-        transition: none;
-    }
+	.period-group {
+		transition: none;
+	}
 }
 
 .period-group[data-active=true] {
