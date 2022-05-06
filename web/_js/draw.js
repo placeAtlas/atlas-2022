@@ -323,7 +323,7 @@ function initDraw() {
 		if (path.length > 0 && drawing) {
 			undoHistory.push(path.pop())
 			redoButton.disabled = false
-			updatePath()
+			updatePath(path, undoHistory)
 		}
 	}
 
@@ -331,7 +331,7 @@ function initDraw() {
 		if (undoHistory.length > 0 && drawing) {
 			path.push(undoHistory.pop())
 			undoButton.disabled = false
-			updatePath()
+			updatePath(path, undoHistory)
 		}
 	}
 
@@ -1013,12 +1013,13 @@ function updatePeriodGroups() {
 
 }
 
-function updatePath(newPath) {
-	if (newPath) path = newPath
+function updatePath(newPath, newUndoHistory) {
+	path = newPath || path
 	if (path.length > 3) center = calculateCenter(path)
 	render(path)
 	undoButton.disabled = path.length == 0; // Maybe make it undo the cancel action in the future
-	undoHistory = []
+	undoHistory = newUndoHistory || []
+	redoButton.disabled = (!undoHistory.length)
 
 	updateErrors()
 }
