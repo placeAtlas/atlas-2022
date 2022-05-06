@@ -254,6 +254,7 @@ tooltip.parentElement.addEventListener('mouseenter', () => updateTooltip(parseIn
 window.addEventListener('resize', () => updateTooltip(parseInt(timelineSlider.value), currentVariation))
 
 function isOnPeriod(start, end, variation, currentPeriod, currentVariation) {
+	if (start > end) [start, end] = [end, start]
 	return currentPeriod >= start && currentPeriod <= end && variation === currentVariation
 }
 
