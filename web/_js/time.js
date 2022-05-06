@@ -64,10 +64,10 @@ for (const variation in variationsConfig) {
 	variantsEl.appendChild(optionEl)
 }
 
-const timelineSlider = document.getElementById("timeControlsSlider");
-const timelineList = document.getElementById("timeControlsList");
-const tooltip = document.getElementById("timeControlsTooltip");
-const image = document.getElementById("image");
+const timelineSlider = document.getElementById("timeControlsSlider")
+const timelineList = document.getElementById("timeControlsList")
+const tooltip = document.getElementById("timeControlsTooltip")
+const image = document.getElementById("image")
 let abortController = new AbortController()
 let currentUpdateIndex = 0
 let updateTimeout = setTimeout(null, 0)
@@ -81,9 +81,9 @@ window.currentPeriod = currentPeriod
 window.currentVariation = currentVariation
 
 // SETUP
-timelineSlider.max = variationsConfig[currentVariation].versions.length - 1;
-timelineSlider.value = currentPeriod;
-timelineList.children[0].value = defaultPeriod;
+timelineSlider.max = variationsConfig[currentVariation].versions.length - 1
+timelineSlider.value = currentPeriod
+timelineList.children[0].value = defaultPeriod
 
 timelineSlider.addEventListener("input", (event) => {
 	updateTooltip(parseInt(event.target.value), currentVariation)
@@ -108,8 +108,8 @@ const dispatchTimeUpdateEvent = (period = timelineSlider.value, atlas = atlas) =
 			period: period,
 			atlas: atlas
 		}
-	});
-	document.dispatchEvent(timeUpdateEvent);
+	})
+	document.dispatchEvent(timeUpdateEvent)
 }
 
 async function updateBackground(newPeriod = currentPeriod, newVariation = currentVariation) {
@@ -120,14 +120,14 @@ async function updateBackground(newPeriod = currentPeriod, newVariation = curren
 	const variationConfig = variationsConfig[newVariation]
 
 	variantsEl.value = currentVariation
-	variantsEl.previousElementSibling.innerHTML = variationConfig.icon;
-	
-	const configObject = variationConfig.versions[currentPeriod];
+	variantsEl.previousElementSibling.innerHTML = variationConfig.icon
+
+	const configObject = variationConfig.versions[currentPeriod]
 	if (typeof configObject.url === "string") {
 		if (imageCache[configObject.url] === undefined) {
 			const fetchResult = await fetch(configObject.url, {
 				signal: abortController.signal
-			});
+			})
 			if (currentUpdateIndex !== myUpdateIndex) {
 				return [configObject, newPeriod, newVariation]
 			}
@@ -144,7 +144,7 @@ async function updateBackground(newPeriod = currentPeriod, newVariation = curren
 			if (imageCache[url] === undefined) {
 				const fetchResult = await fetch(url, {
 					signal: abortController.signal
-				});
+				})
 				if (currentUpdateIndex !== myUpdateIndex) {
 					return
 				}
@@ -181,13 +181,13 @@ async function updateTime(newPeriod = currentPeriod, newVariation = currentVaria
 	currentPeriod = newPeriod
 	if (currentVariation !== newVariation) {
 		currentVariation = newVariation
-		timelineSlider.max = variationConfig.versions.length - 1;
+		timelineSlider.max = variationConfig.versions.length - 1
 		if (!forcePeriod) {
-			currentPeriod = variationConfig.default;
+			currentPeriod = variationConfig.default
 			newPeriod = currentPeriod
 		}
-		if (variationConfig.versions.length === 1) document.getElementById("bottomBar").classList.add('no-time-slider');
-		else document.getElementById("bottomBar").classList.remove('no-time-slider');
+		if (variationConfig.versions.length === 1) document.getElementById("bottomBar").classList.add('no-time-slider')
+		else document.getElementById("bottomBar").classList.remove('no-time-slider')
 	}
 	timelineSlider.value = currentPeriod
 	updateTooltip(newPeriod, newVariation)
@@ -225,7 +225,7 @@ async function updateTime(newPeriod = currentPeriod, newVariation = currentVaria
 		})
 	}
 
-	dispatchTimeUpdateEvent(newPeriod, atlas)	
+	dispatchTimeUpdateEvent(newPeriod, atlas)
 	delete document.body.dataset.canvasLoading
 	tooltip.dataset.forceVisible = ""
 	clearTimeout(tooltipDelayHide)
@@ -240,13 +240,13 @@ function updateTooltip(newPeriod, newVariation) {
 
 	// If timestap is a number return a UTC formatted date otherwise use exact timestap label
 	if (typeof configObject.timestamp === "number") tooltip.querySelector('div').textContent = new Date(configObject.timestamp * 1000).toUTCString()
-	else tooltip.querySelector('div').textContent = configObject.timestamp;
+	else tooltip.querySelector('div').textContent = configObject.timestamp
 
 	// Clamps position of tooltip to prevent from going off screen
-	const timelineSliderRect = timelineSlider.getBoundingClientRect();
-	let min = -timelineSliderRect.left+12;
-	let max = (window.innerWidth-tooltip.offsetWidth)-timelineSliderRect.left+4;
-	tooltip.style.left = Math.min(Math.max((timelineSlider.offsetWidth)*(timelineSlider.value)/(timelineSlider.max)-tooltip.offsetWidth/2, min), max) + "px";
+	const timelineSliderRect = timelineSlider.getBoundingClientRect()
+	let min = -timelineSliderRect.left + 12
+	let max = (window.innerWidth - tooltip.offsetWidth) - timelineSliderRect.left + 4
+	tooltip.style.left = Math.min(Math.max((timelineSlider.offsetWidth) * (timelineSlider.value) / (timelineSlider.max) - tooltip.offsetWidth / 2, min), max) + "px"
 }
 
 tooltip.parentElement.addEventListener('mouseenter', () => updateTooltip(parseInt(timelineSlider.value), currentVariation))
@@ -287,7 +287,7 @@ function formatPeriod(start, end, variation) {
 	if (start === end) {
 		if (start === variationsConfig[variation].default && variation !== defaultVariation) {
 			periodString = ""
-		} 
+		}
 		else periodString = start
 	}
 	else periodString = start + "-" + end

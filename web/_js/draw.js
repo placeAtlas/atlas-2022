@@ -12,60 +12,60 @@
 	https://place-atlas.stefanocoding.me/license.txt
 	========================================================================
 */
-const finishButton = document.getElementById("finishButton");
-const resetButton = document.getElementById("resetButton");
-const undoButton = document.getElementById("undoButton");
-const redoButton = document.getElementById("redoButton");
-const highlightUnchartedLabel = document.getElementById("highlightUnchartedLabel");
+const finishButton = document.getElementById("finishButton")
+const resetButton = document.getElementById("resetButton")
+const undoButton = document.getElementById("undoButton")
+const redoButton = document.getElementById("redoButton")
+const highlightUnchartedLabel = document.getElementById("highlightUnchartedLabel")
 
-const drawControlsBody = document.getElementById("offcanvasDraw-drawControls");
-const objectInfoBody = document.getElementById("offcanvasDraw-objectInfo");
-const objectInfoForm = document.getElementById("objectInfo");
+const drawControlsBody = document.getElementById("offcanvasDraw-drawControls")
+const objectInfoBody = document.getElementById("offcanvasDraw-objectInfo")
+const objectInfoForm = document.getElementById("objectInfo")
 
-const hintText = document.getElementById("hint");
+const hintText = document.getElementById("hint")
 
-const periodsStatus = document.getElementById('periodsStatus');
-const periodGroups = document.getElementById('periodGroups');
-const periodGroupTemplate = document.getElementById('period-group').content.firstElementChild.cloneNode(true);
-const periodsAdd = document.getElementById('periodsAdd');
+const periodsStatus = document.getElementById('periodsStatus')
+const periodGroups = document.getElementById('periodGroups')
+const periodGroupTemplate = document.getElementById('period-group').content.firstElementChild.cloneNode(true)
+const periodsAdd = document.getElementById('periodsAdd')
 
-const exportButton = document.getElementById("exportButton");
-const cancelButton = document.getElementById("cancelButton");
+const exportButton = document.getElementById("exportButton")
+const cancelButton = document.getElementById("cancelButton")
 
-const exportModal = new bootstrap.Modal(document.getElementById("exportModal"));
-const exportModalElement = document.getElementById("exportModal");
+const exportModal = new bootstrap.Modal(document.getElementById("exportModal"))
+const exportModalElement = document.getElementById("exportModal")
 
-const exportOverlay = document.getElementById("exportOverlay");
-const exportCloseButton = document.getElementById("exportCloseButton");
-const exportBackButton = document.getElementById("exportBackButton");
+const exportOverlay = document.getElementById("exportOverlay")
+const exportCloseButton = document.getElementById("exportCloseButton")
+const exportBackButton = document.getElementById("exportBackButton")
 
-const nameField = document.getElementById("nameField");
-const descriptionField = document.getElementById("descriptionField");
-const websiteGroup = document.getElementById("websiteGroup");
-const subredditGroup = document.getElementById("subredditGroup");
-const discordGroup = document.getElementById("discordGroup");
-const wikiGroup = document.getElementById("wikiGroup");
-const exportArea = document.getElementById("exportString");
+const nameField = document.getElementById("nameField")
+const descriptionField = document.getElementById("descriptionField")
+const websiteGroup = document.getElementById("websiteGroup")
+const subredditGroup = document.getElementById("subredditGroup")
+const discordGroup = document.getElementById("discordGroup")
+const wikiGroup = document.getElementById("wikiGroup")
+const exportArea = document.getElementById("exportString")
 
 const subredditPattern = /^(?:(?:(?:(?:(?:https?:\/\/)?(?:(?:www|old|new|np)\.)?)?reddit\.com)?\/)?[rR]\/)?([A-Za-z0-9][A-Za-z0-9_]{2,20})(?:\/[^" ]*)*$/
 const discordPattern = /^(?:(?:https?:\/\/)?(?:www\.)?(?:(?:discord)?\.?gg|discord(?:app)?\.com\/invite)\/)?([^\s/]+?)(?=\b)$/
 
-let entryId = 0;
-let path = [];
-let center = [1000, 1000];
+let entryId = 0
+let path = []
+let center = [1000, 1000]
 
-let websiteGroupElements = [];
-let subredditGroupElements = [];
-let discordGroupElements = [];
-let wikiGroupElements = [];
+let websiteGroupElements = []
+let subredditGroupElements = []
+let discordGroupElements = []
+let wikiGroupElements = []
 
-let pathWithPeriods = [];
-let periodGroupElements = [];
+let pathWithPeriods = []
+let periodGroupElements = []
 
-let disableDrawingOverride = false;
-let drawing = true;
+let disableDrawingOverride = false
+let drawing = true
 
-let undoHistory = [];
+let undoHistory = []
 
 const periodClipboard = {
 	"index": null,
@@ -74,7 +74,7 @@ const periodClipboard = {
 
 	;[...document.querySelectorAll("#objectInfo textarea")].forEach(el => {
 		el.addEventListener("input", function () {
-			this.style.height = "auto";
+			this.style.height = "auto"
 			this.style.height = (this.scrollHeight) + "px"
 		})
 	})
@@ -84,13 +84,13 @@ function initDraw() {
 
 	wrapper.classList.remove('listHidden')
 
-	var backButton = document.getElementById("showListButton");
-	backButton.insertAdjacentHTML("afterend", '<button class="btn btn-outline-primary" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasDraw" aria-controls="offcanvasDraw">Menu</button><a id="drawBackButton" class="btn btn-outline-primary" href="./">Exit Draw Mode</a>');
-	backButton.remove();
+	var backButton = document.getElementById("showListButton")
+	backButton.insertAdjacentHTML("afterend", '<button class="btn btn-outline-primary" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasDraw" aria-controls="offcanvasDraw">Menu</button><a id="drawBackButton" class="btn btn-outline-primary" href="./">Exit Draw Mode</a>')
+	backButton.remove()
 
-	var myOffcanvas = document.getElementById("offcanvasDraw");
-	var bsOffcanvas = new bootstrap.Offcanvas(myOffcanvas);
-	bsOffcanvas.show();
+	var myOffcanvas = document.getElementById("offcanvasDraw")
+	var bsOffcanvas = new bootstrap.Offcanvas(myOffcanvas)
+	bsOffcanvas.show()
 
 	window.render = render
 	window.renderBackground = renderBackground
@@ -100,46 +100,46 @@ function initDraw() {
 	// let endPeriodField = document.getElementById('endPeriodField')
 	// let periodVisbilityInfo = document.getElementById('periodVisbilityInfo')
 
-	let rShiftPressed = false;
-	let lShiftPressed = false;
-	let shiftPressed = false;
+	let rShiftPressed = false
+	let lShiftPressed = false
+	let shiftPressed = false
 
-	let highlightUncharted = true;
+	let highlightUncharted = true
 
-	renderBackground();
-	applyView();
+	renderBackground()
+	applyView()
 
-	container.style.cursor = "crosshair";
+	container.style.cursor = "crosshair"
 
-	render(path);
+	render(path)
 
 	container.addEventListener("mousedown", function (e) {
 		lastPos = [
 			e.clientX,
 			e.clientY
-		];
-	});
+		]
+	})
 
 	function getCanvasCoords(x, y) {
-		x = x - container.offsetLeft;
-		y = y - container.offsetTop;
+		x = x - container.offsetLeft
+		y = y - container.offsetTop
 
 		const pos = [
 			~~((x - (container.clientWidth / 2 - innerContainer.clientWidth / 2 + zoomOrigin[0])) / zoom) + 0.5,
 			~~((y - (container.clientHeight / 2 - innerContainer.clientHeight / 2 + zoomOrigin[1])) / zoom) + 0.5
-		];
+		]
 
 		if (shiftPressed && path.length > 0) {
-			const previous = path[path.length - 1];
+			const previous = path[path.length - 1]
 
 			if (Math.abs(pos[1] - previous[1]) > Math.abs(pos[0] - previous[0])) {
-				pos[0] = previous[0];
+				pos[0] = previous[0]
 			} else {
-				pos[1] = previous[1];
+				pos[1] = previous[1]
 			}
 		}
 
-		return pos;
+		return pos
 	}
 
 	container.addEventListener("mouseup", function (e) {
@@ -147,96 +147,96 @@ function initDraw() {
 
 		if (Math.abs(lastPos[0] - e.clientX) + Math.abs(lastPos[1] - e.clientY) <= 4 && drawing) {
 
-			const coords = getCanvasCoords(e.clientX, e.clientY);
+			const coords = getCanvasCoords(e.clientX, e.clientY)
 
-			path.push(coords);
-			render(path);
+			path.push(coords)
+			render(path)
 
-			undoHistory = [];
-			redoButton.disabled = true;
-			undoButton.disabled = false;
+			undoHistory = []
+			redoButton.disabled = true
+			undoButton.disabled = false
 
 			if (path.length >= 3) {
-				finishButton.disabled = false;
+				finishButton.disabled = false
 			}
 
 			updatePath()
 		}
-	});
+	})
 
 	window.addEventListener("mousemove", function (e) {
 
 		if (!dragging && drawing && path.length > 0) {
 
-			const coords = getCanvasCoords(e.clientX, e.clientY);
-			render([...path, coords]);
+			const coords = getCanvasCoords(e.clientX, e.clientY)
+			render([...path, coords])
 		}
 
-	});
+	})
 
-	window.addEventListener("keyup", function(e){
-		if (e.key == "z" && e.ctrlKey){
-			undo();
+	window.addEventListener("keyup", function (e) {
+		if (e.key == "z" && e.ctrlKey) {
+			undo()
 		} else if (e.key == "y" && e.ctrlKey) {
-			redo();
-		} else if (e.key === "Shift" ){
-			if(e.code === "ShiftRight"){
-				rShiftPressed = false;
+			redo()
+		} else if (e.key === "Shift") {
+			if (e.code === "ShiftRight") {
+				rShiftPressed = false
 			} else if (e.code === "ShiftLeft") {
-				lShiftPressed = false;
+				lShiftPressed = false
 			}
-			shiftPressed = rShiftPressed || lShiftPressed;
+			shiftPressed = rShiftPressed || lShiftPressed
 		}
-	});
+	})
 
-	window.addEventListener("keydown", function(e) {
+	window.addEventListener("keydown", function (e) {
 		if (e.key === "Shift") {
 			if (e.code === "ShiftRight") {
-				rShiftPressed = true;
+				rShiftPressed = true
 			} else if (e.code === "ShiftLeft") {
-				lShiftPressed = true;
+				lShiftPressed = true
 			}
-			shiftPressed = rShiftPressed || lShiftPressed;
+			shiftPressed = rShiftPressed || lShiftPressed
 		}
-	});
+	})
 
-	finishButton.addEventListener("click", function() {
-		finish();
-	});
+	finishButton.addEventListener("click", function () {
+		finish()
+	})
 
-	undoButton.addEventListener("click", function(e) {
-		undo();
-		const coords = getCanvasCoords(e.clientX, e.clientY);
-		render([...path, coords]);
-	});
+	undoButton.addEventListener("click", function (e) {
+		undo()
+		const coords = getCanvasCoords(e.clientX, e.clientY)
+		render([...path, coords])
+	})
 
-	redoButton.addEventListener("click", function(e) {
-		redo();
-		const coords = getCanvasCoords(e.clientX, e.clientY);
-		render([...path, coords]);
-	});
+	redoButton.addEventListener("click", function (e) {
+		redo()
+		const coords = getCanvasCoords(e.clientX, e.clientY)
+		render([...path, coords])
+	})
 
-	resetButton.addEventListener("click", function(e) {
-		reset();
-		const coords = getCanvasCoords(e.clientX, e.clientY);
-		render([...path, coords]);
-	});
+	resetButton.addEventListener("click", function (e) {
+		reset()
+		const coords = getCanvasCoords(e.clientX, e.clientY)
+		render([...path, coords])
+	})
 
-	resetButton.addEventListener("blur", function() {
-		resetButton.textContent = "Reset";
-		resetButton.className = "btn btn-secondary";
-	});
+	resetButton.addEventListener("blur", function () {
+		resetButton.textContent = "Reset"
+		resetButton.className = "btn btn-secondary"
+	})
 
-	cancelButton.addEventListener("click", function() {
-		back();
-	});
+	cancelButton.addEventListener("click", function () {
+		back()
+	})
 
 	// Refocus on button when modal is closed
-	exportModalElement.addEventListener('hidden.bs.modal', function() {
-		exportButton.focus();
-	});
+	exportModalElement.addEventListener('hidden.bs.modal', function () {
+		exportButton.focus()
+	})
 
-	objectInfoForm.addEventListener('submit', function(e) {
+	objectInfoForm.addEventListener('submit', function (e) {
 		e.preventDefault()
 		// Allows for html form validation with preview button
 		if (e.submitter && e.submitter.value == "Preview") {
@@ -244,12 +244,12 @@ function initDraw() {
 		} else {
 			exportJson()
 		}
-	});
+	})
 
-	document.getElementById("highlightUncharted").addEventListener("click", function(){
-		highlightUncharted = this.checked;
-		render(path);
-	});
+	document.getElementById("highlightUncharted").addEventListener("click", function () {
+		highlightUncharted = this.checked
+		render(path)
+	})
 
 	function generateExportObject() {
 		const exportObject = {
@@ -259,89 +259,89 @@ function initDraw() {
 			links: {},
 			path: {},
 			center: {},
-		};
+		}
 
 		const pathWithPeriodsTemp = JSON.parse(JSON.stringify(pathWithPeriods))
 
 		for (let i = pathWithPeriodsTemp.length - 1; i > 0; i--) {
 			for (let j = 0; j < i; j++) {
 				if (JSON.stringify(pathWithPeriodsTemp[i][1]) === JSON.stringify(pathWithPeriodsTemp[j][1])) {
-					pathWithPeriodsTemp[j][0] = pathWithPeriodsTemp[i][0] + ', ' + pathWithPeriodsTemp[j][0];
-					pathWithPeriodsTemp.splice(i, 1);
-					break;
+					pathWithPeriodsTemp[j][0] = pathWithPeriodsTemp[i][0] + ', ' + pathWithPeriodsTemp[j][0]
+					pathWithPeriodsTemp.splice(i, 1)
+					break
 				}
 			}
 		}
 
 		pathWithPeriodsTemp.forEach(([key, value]) => {
 			// TODO: Compress periods on something like 0-13, 14.
-			exportObject.path[key] = value;
-			exportObject.center[key] = calculateCenter(value);
+			exportObject.path[key] = value
+			exportObject.center[key] = calculateCenter(value)
 		})
 
-		const inputWebsite = websiteGroupElements.map(element => element.value.trim()).filter(element => element);
-		const inputSubreddit = subredditGroupElements.map(element => element.value.trim().match(subredditPattern)?.[1]).filter(element => element);
-		const inputDiscord = discordGroupElements.map(element => element.value.trim().match(discordPattern)?.[1]).filter(element => element);
-		const inputWiki = wikiGroupElements.map(element => element.value.trim().replace(/ /g, '_')).filter(element => element);
+		const inputWebsite = websiteGroupElements.map(element => element.value.trim()).filter(element => element)
+		const inputSubreddit = subredditGroupElements.map(element => element.value.trim().match(subredditPattern)?.[1]).filter(element => element)
+		const inputDiscord = discordGroupElements.map(element => element.value.trim().match(discordPattern)?.[1]).filter(element => element)
+		const inputWiki = wikiGroupElements.map(element => element.value.trim().replace(/ /g, '_')).filter(element => element)
 
-		if (inputWebsite.length) exportObject.links.website = inputWebsite;
-		if (inputSubreddit.length) exportObject.links.subreddit = inputSubreddit;
-		if (inputDiscord.length) exportObject.links.discord = inputDiscord;
-		if (inputWiki.length) exportObject.links.wiki = inputWiki;
+		if (inputWebsite.length) exportObject.links.website = inputWebsite
+		if (inputSubreddit.length) exportObject.links.subreddit = inputSubreddit
+		if (inputDiscord.length) exportObject.links.discord = inputDiscord
+		if (inputWiki.length) exportObject.links.wiki = inputWiki
 
-		return exportObject;
+		return exportObject
 	}
 
 	function exportJson() {
 		const exportObject = generateExportObject()
 
-		let jsonString = JSON.stringify(exportObject, null, "\t");
-		jsonString = jsonString.split("\n");
-		jsonString = jsonString.join("\n    ");
-		jsonString = "    " + jsonString;
-		exportArea.value = jsonString;
-		let directPostUrl = "https://www.reddit.com/r/placeAtlas2/submit?selftext=true&title=New%20Submission&text=" + encodeURIComponent(exportArea.value);
+		let jsonString = JSON.stringify(exportObject, null, "\t")
+		jsonString = jsonString.split("\n")
+		jsonString = jsonString.join("\n    ")
+		jsonString = "    " + jsonString
+		exportArea.value = jsonString
+		let directPostUrl = "https://www.reddit.com/r/placeAtlas2/submit?selftext=true&title=New%20Submission&text=" + encodeURIComponent(exportArea.value)
 		if (jsonString.length > 7493) {
-			directPostUrl = "https://www.reddit.com/r/placeAtlas2/submit?selftext=true&title=New%20Submission&text=" + encodeURIComponent("    " + JSON.stringify(exportObject));
+			directPostUrl = "https://www.reddit.com/r/placeAtlas2/submit?selftext=true&title=New%20Submission&text=" + encodeURIComponent("    " + JSON.stringify(exportObject))
 		}
-		document.getElementById("exportDirectPost").href = directPostUrl;
+		document.getElementById("exportDirectPost").href = directPostUrl
 
-		if (entryId == 0) document.getElementById("redditFlair").textContent = "New Entry";
-		else document.getElementById("redditFlair").textContent = "Edit Entry";
+		if (entryId == 0) document.getElementById("redditFlair").textContent = "New Entry"
+		else document.getElementById("redditFlair").textContent = "Edit Entry"
 
-		exportModal.show();
+		exportModal.show()
 	}
 
 	function preview() {
-		let infoElement = createInfoBlock(generateExportObject(), true);
-		objectsContainer.replaceChildren();
-		objectsContainer.appendChild(infoElement);
-		closeObjectsListButton.classList.remove("d-none");
+		let infoElement = createInfoBlock(generateExportObject(), true)
+		objectsContainer.replaceChildren()
+		objectsContainer.appendChild(infoElement)
+		closeObjectsListButton.classList.remove("d-none")
 	}
 
 	function undo() {
 		if (path.length > 0 && drawing) {
-			undoHistory.push(path.pop());
-			redoButton.disabled = false;
+			undoHistory.push(path.pop())
+			redoButton.disabled = false
 			updatePath()
 		}
 	}
 
 	function redo() {
 		if (undoHistory.length > 0 && drawing) {
-			path.push(undoHistory.pop());
-			undoButton.disabled = false;
+			path.push(undoHistory.pop())
+			undoButton.disabled = false
 			updatePath()
 		}
 	}
 
 	function finish() {
 		updatePath()
-		drawing = false;
-		disableDrawingOverride = true;
-		objectInfoBody.classList.remove("d-none");
-		drawControlsBody.classList.add("d-none");
-		[...document.querySelectorAll("#objectInfo textarea")].forEach(el => {
+		drawing = false
+		disableDrawingOverride = true
+		objectInfoBody.classList.remove("d-none")
+		drawControlsBody.classList.add("d-none")
+		;[...document.querySelectorAll("#objectInfo textarea")].forEach(el => {
 			if (el.value) el.style.height = (el.scrollHeight) + "px"
 		})
 		// if (isOnPeriod()) {
@@ -354,81 +354,81 @@ function initDraw() {
 	function reset() {
 		// Requires button to be pressed twice to confirm reset
 		if (resetButton.textContent == "Confirm Reset") {
-			resetButton.textContent = "Reset";
-			resetButton.className = "btn btn-secondary";
+			resetButton.textContent = "Reset"
+			resetButton.className = "btn btn-secondary"
 
 			updatePath([])
-			undoHistory = [];
-			drawing = true;
-			disableDrawingOverride = false;
-			objectInfoBody.classList.add("d-none");
-			drawControlsBody.classList.remove("d-none");
-	
+			undoHistory = []
+			drawing = true
+			disableDrawingOverride = false
+			objectInfoBody.classList.add("d-none")
+			drawControlsBody.classList.remove("d-none")
+
 			// Blanks input values
-			nameField.value = "";
-			descriptionField.value = "";
-	
+			nameField.value = ""
+			descriptionField.value = ""
+
 			// Clears input array
-			websiteGroupElements = [];
-			subredditGroupElements = [];
-			discordGroupElements = [];
-			wikiGroupElements = [];
-	
+			websiteGroupElements = []
+			subredditGroupElements = []
+			discordGroupElements = []
+			wikiGroupElements = []
+
 			// Rebuilds multi-input list
-			websiteGroup.replaceChildren();
-			subredditGroup.replaceChildren();
-			discordGroup.replaceChildren();
-			wikiGroup.replaceChildren();
-			addWebsiteFields("", 0, [0]);
-			addSubredditFields("", 0, [0]);
-			addDiscordFields("", 0, [0]);
-			addWikiFields("", 0, [0]);
+			websiteGroup.replaceChildren()
+			subredditGroup.replaceChildren()
+			discordGroup.replaceChildren()
+			wikiGroup.replaceChildren()
+			addWebsiteFields("", 0, [0])
+			addSubredditFields("", 0, [0])
+			addDiscordFields("", 0, [0])
+			addWikiFields("", 0, [0])
 
 			// Resets periods
 			pathWithPeriods = []
 			pathWithPeriods.push([defaultPeriod, []])
 			initPeriodGroups()
 		} else {
-			resetButton.textContent = "Confirm Reset";
-			resetButton.className = "btn btn-danger";
+			resetButton.textContent = "Confirm Reset"
+			resetButton.className = "btn btn-danger"
 		}
-	} 
+	}
 
 	function back() {
-		drawing = true;
-		disableDrawingOverride = false;
+		drawing = true
+		disableDrawingOverride = false
 		updatePath()
-		objectInfoBody.classList.add("d-none");
-		drawControlsBody.classList.remove("d-none");
+		objectInfoBody.classList.add("d-none")
+		drawControlsBody.classList.remove("d-none")
 		// Clears preview
-		objectsContainer.replaceChildren();
-		closeObjectsListButton.classList.add("d-none");
+		objectsContainer.replaceChildren()
+		closeObjectsListButton.classList.add("d-none")
 	}
 
 	function renderBackground() {
 
-		backgroundContext.clearRect(0, 0, canvas.width, canvas.height);
+		backgroundContext.clearRect(0, 0, canvas.width, canvas.height)
 
-		backgroundContext.fillStyle = "rgba(0, 0, 0, 1)";
-		//backgroundContext.fillRect(0, 0, canvas.width, canvas.height);
+		backgroundContext.fillStyle = "rgba(0, 0, 0, 1)"
+		//backgroundContext.fillRect(0, 0, canvas.width, canvas.height)
 
 		for (let i = 0; i < atlas.length; i++) {
 
-			const path = atlas[i].path;
+			const path = atlas[i].path
 
-			backgroundContext.beginPath();
+			backgroundContext.beginPath()
 
 			if (path[0]) {
-				backgroundContext.moveTo(path[0][0], path[0][1]);
+				backgroundContext.moveTo(path[0][0], path[0][1])
 			}
 
 			for (let p = 1; p < path.length; p++) {
-				backgroundContext.lineTo(path[p][0], path[p][1]);
+				backgroundContext.lineTo(path[p][0], path[p][1])
 			}
 
-			backgroundContext.closePath();
+			backgroundContext.closePath()
 
-			backgroundContext.fill();
+			backgroundContext.fill()
 		}
 	}
 
@@ -436,37 +436,37 @@ function initDraw() {
 
 		if (!Array.isArray(path)) return
 
-		context.globalCompositeOperation = "source-over";
-		context.clearRect(0, 0, canvas.width, canvas.height);
+		context.globalCompositeOperation = "source-over"
+		context.clearRect(0, 0, canvas.width, canvas.height)
 
 		if (highlightUncharted) {
-			context.drawImage(backgroundCanvas, 0, 0);
-			context.fillStyle = "rgba(0, 0, 0, 0.4)";
+			context.drawImage(backgroundCanvas, 0, 0)
+			context.fillStyle = "rgba(0, 0, 0, 0.4)"
 		} else {
-			context.fillStyle = "rgba(0, 0, 0, 0.6)";
+			context.fillStyle = "rgba(0, 0, 0, 0.6)"
 		}
 
-		context.fillRect(0, 0, canvas.width, canvas.height);
+		context.fillRect(0, 0, canvas.width, canvas.height)
 
-		context.beginPath();
+		context.beginPath()
 
 		if (path[0]) {
-			context.moveTo(path[0][0], path[0][1]);
+			context.moveTo(path[0][0], path[0][1])
 		}
 
 		for (let i = 1; i < path.length; i++) {
-			context.lineTo(path[i][0], path[i][1]);
+			context.lineTo(path[i][0], path[i][1])
 		}
 
-		context.closePath();
+		context.closePath()
 
-		context.strokeStyle = "rgba(255, 255, 255, 1)";
-		context.stroke();
+		context.strokeStyle = "rgba(255, 255, 255, 1)"
+		context.stroke()
 
-		context.globalCompositeOperation = "destination-out";
+		context.globalCompositeOperation = "destination-out"
 
-		context.fillStyle = "rgba(0, 0, 0, 1)";
-		context.fill();
+		context.fillStyle = "rgba(0, 0, 0, 1)"
+		context.fill()
 
 	}
 
@@ -475,15 +475,15 @@ function initDraw() {
 			const pos = [
 				(e.clientX - (container.clientWidth / 2 - innerContainer.clientWidth / 2 + zoomOrigin[0] + container.offsetLeft)) / zoom
 				, (e.clientY - (container.clientHeight / 2 - innerContainer.clientHeight / 2 + zoomOrigin[1] + container.offsetTop)) / zoom
-			];
+			]
 
-			const coords_p = document.getElementById("coords_p");
+			const coords_p = document.getElementById("coords_p")
 
 			// Displays coordinates as zero instead of NaN
 			if (isNaN(pos[0]) == true) {
-				coords_p.innerText = "0, 0";
+				coords_p.innerText = "0, 0"
 			} else {
-				coords_p.innerText = Math.ceil(pos[0]) + ", " + Math.ceil(pos[1]);
+				coords_p.innerText = Math.ceil(pos[0]) + ", " + Math.ceil(pos[1])
 			}
 		}
 	}
@@ -498,113 +498,113 @@ function initDraw() {
 
 
 	function addFieldButton(inputButton, inputGroup, array, index, name) {
-		console.log("add button fired");
+		console.log("add button fired")
 		if (inputButton.title == "Remove " + name) {
-			console.log("add (now remove) button fired");
-			removeFieldButton(inputGroup, array, index);
-			return;
+			console.log("add (now remove) button fired")
+			removeFieldButton(inputGroup, array, index)
+			return
 		}
-		inputButton.className = "btn btn-outline-secondary";
-		inputButton.title = "Remove " + name;
-		inputButton.innerHTML = '<i class="bi bi-trash-fill" aria-hidden="true"></i>';
-		console.log(array);
+		inputButton.className = "btn btn-outline-secondary"
+		inputButton.title = "Remove " + name
+		inputButton.innerHTML = '<i class="bi bi-trash-fill" aria-hidden="true"></i>'
+		console.log(array)
 		if (name == "website") {
-			addWebsiteFields(null, array.length, array);
+			addWebsiteFields(null, array.length, array)
 		} else if (name == "subreddit") {
-			addSubredditFields(null, array.length, array);
+			addSubredditFields(null, array.length, array)
 		} else if (name == "Discord invite") {
-			addDiscordFields(null, array.length, array);
+			addDiscordFields(null, array.length, array)
 		} else if (name == "wiki page") {
-			addWikiFields(null, array.length, array);
+			addWikiFields(null, array.length, array)
 		}
 	}
 
 	function removeFieldButton(inputGroup, array, index) {
-		console.log("remove button fired");
-		delete array[index];
-		inputGroup.remove();
-		console.log(array);
+		console.log("remove button fired")
+		delete array[index]
+		inputGroup.remove()
+		console.log(array)
 	}
 
 	function addWebsiteFields(link, index, array) {
-		const inputGroup = document.createElement("div");
-		inputGroup.className = "input-group";
-		websiteGroup.appendChild(inputGroup);
+		const inputGroup = document.createElement("div")
+		inputGroup.className = "input-group"
+		websiteGroup.appendChild(inputGroup)
 
-		const inputField = document.createElement("input");
-		inputField.type = "url";
-		inputField.name = "url";
-		inputField.className = "form-control";
-		inputField.id = "websiteField" + index;
-		inputField.placeholder = "https://example.com";
-		inputField.pattern = "https?://.*";
-		inputField.title = "Website URL using the http:// or https:// protocol";
-		inputField.setAttribute("aria-labelledby", "websiteLabel");
+		const inputField = document.createElement("input")
+		inputField.type = "url"
+		inputField.name = "url"
+		inputField.className = "form-control"
+		inputField.id = "websiteField" + index
+		inputField.placeholder = "https://example.com"
+		inputField.pattern = "https?://.*"
+		inputField.title = "Website URL using the http:// or https:// protocol"
+		inputField.setAttribute("aria-labelledby", "websiteLabel")
 		inputField.value = link
-		inputGroup.appendChild(inputField);
-		websiteGroupElements.push(inputField);
+		inputGroup.appendChild(inputField)
+		websiteGroupElements.push(inputField)
 
-		const inputButton = document.createElement("button");
-		inputButton.type = "button";
+		const inputButton = document.createElement("button")
+		inputButton.type = "button"
 		// If button is the last in the array give it the add button
 		if (array.length == index + 1) {
-			inputButton.className = "btn btn-secondary";
-			inputButton.title = "Add website";
-			inputButton.innerHTML = '<i class="bi bi-plus-lg" aria-hidden="true"></i>';
-			inputButton.addEventListener('click', () => addFieldButton(inputButton, inputGroup, websiteGroupElements, index, "website"));
+			inputButton.className = "btn btn-secondary"
+			inputButton.title = "Add website"
+			inputButton.innerHTML = '<i class="bi bi-plus-lg" aria-hidden="true"></i>'
+			inputButton.addEventListener('click', () => addFieldButton(inputButton, inputGroup, websiteGroupElements, index, "website"))
 		} else {
-			inputButton.className = "btn btn-outline-secondary";
-			inputButton.title = "Remove website";
-			inputButton.innerHTML = '<i class="bi bi-trash-fill" aria-hidden="true"></i>';
-			inputButton.addEventListener('click', () => removeFieldButton(inputGroup, array, index));
+			inputButton.className = "btn btn-outline-secondary"
+			inputButton.title = "Remove website"
+			inputButton.innerHTML = '<i class="bi bi-trash-fill" aria-hidden="true"></i>'
+			inputButton.addEventListener('click', () => removeFieldButton(inputGroup, array, index))
 		}
-		inputGroup.appendChild(inputButton);
+		inputGroup.appendChild(inputButton)
 	}
 
 	function addSubredditFields(link, index, array) {
-		const inputGroup = document.createElement("div");
-		inputGroup.className = "input-group";
-		subredditGroup.appendChild(inputGroup);
+		const inputGroup = document.createElement("div")
+		inputGroup.className = "input-group"
+		subredditGroup.appendChild(inputGroup)
 
-		const inputAddon = document.createElement("span");
-		inputAddon.className = "input-group-text";
-		inputAddon.id = "subredditField" + index + "-addon";
-		inputAddon.textContent = "reddit.com/";
-		inputGroup.appendChild(inputAddon);
+		const inputAddon = document.createElement("span")
+		inputAddon.className = "input-group-text"
+		inputAddon.id = "subredditField" + index + "-addon"
+		inputAddon.textContent = "reddit.com/"
+		inputGroup.appendChild(inputAddon)
 
-		const inputField = document.createElement("input");
-		inputField.type = "text";
-		inputField.className = "form-control";
-		inputField.id = "subredditField" + index;
-		inputField.placeholder = "r/example";
-		inputField.pattern = "^r\/[A-Za-z0-9][A-Za-z0-9_]{2,20}$";
-		inputField.title = "Subbredit in format of r/example";
-		inputField.minLength = "4";
-		inputField.maxLength = "23";
-		inputField.spellcheck = false;
-		inputField.setAttribute("aria-labelledby", "subredditLabel");
-		inputField.setAttribute("aria-describedby", "subredditField" + index + "-addon");
+		const inputField = document.createElement("input")
+		inputField.type = "text"
+		inputField.className = "form-control"
+		inputField.id = "subredditField" + index
+		inputField.placeholder = "r/example"
+		inputField.pattern = "^r\/[A-Za-z0-9][A-Za-z0-9_]{2,20}$"
+		inputField.title = "Subbredit in format of r/example"
+		inputField.minLength = "4"
+		inputField.maxLength = "23"
+		inputField.spellcheck = false
+		inputField.setAttribute("aria-labelledby", "subredditLabel")
+		inputField.setAttribute("aria-describedby", "subredditField" + index + "-addon")
 		if (link) {
-			inputField.value = "r/" + link 
+			inputField.value = "r/" + link
 		} else {
-			inputField.value = "";
+			inputField.value = ""
 		}
-		inputGroup.appendChild(inputField);
-		subredditGroupElements.push(inputField);
+		inputGroup.appendChild(inputField)
+		subredditGroupElements.push(inputField)
 
-		const inputButton = document.createElement("button");
-		inputButton.type = "button";
+		const inputButton = document.createElement("button")
+		inputButton.type = "button"
 		// If button is the last in the array give it the add button
 		if (array.length == index + 1) {
-			inputButton.className = "btn btn-secondary";
-			inputButton.title = "Add subreddit";
-			inputButton.innerHTML = '<i class="bi bi-plus-lg" aria-hidden="true"></i>';
-			inputButton.addEventListener('click', () => addFieldButton(inputButton, inputGroup, subredditGroupElements, index, "subreddit"));
+			inputButton.className = "btn btn-secondary"
+			inputButton.title = "Add subreddit"
+			inputButton.innerHTML = '<i class="bi bi-plus-lg" aria-hidden="true"></i>'
+			inputButton.addEventListener('click', () => addFieldButton(inputButton, inputGroup, subredditGroupElements, index, "subreddit"))
 		} else {
-			inputButton.className = "btn btn-outline-secondary";
-			inputButton.title = "Remove subreddit";
-			inputButton.innerHTML = '<i class="bi bi-trash-fill" aria-hidden="true"></i>';
-			inputButton.addEventListener('click', () => removeFieldButton(inputGroup, array, index));
+			inputButton.className = "btn btn-outline-secondary"
+			inputButton.title = "Remove subreddit"
+			inputButton.innerHTML = '<i class="bi bi-trash-fill" aria-hidden="true"></i>'
+			inputButton.addEventListener('click', () => removeFieldButton(inputGroup, array, index))
 		}
 
 		inputField.addEventListener('paste', (event) => {
@@ -616,45 +616,45 @@ function initDraw() {
 			}
 		})
 
-		inputGroup.appendChild(inputButton);
+		inputGroup.appendChild(inputButton)
 	}
 
 	function addDiscordFields(link, index, array) {
-		const inputGroup = document.createElement("div");
-		inputGroup.className = "input-group";
-		discordGroup.appendChild(inputGroup);
+		const inputGroup = document.createElement("div")
+		inputGroup.className = "input-group"
+		discordGroup.appendChild(inputGroup)
 
-		const inputAddon = document.createElement("span");
-		inputAddon.className = "input-group-text";
-		inputAddon.id = "discordField" + index + "-addon";
-		inputAddon.textContent = "discord.gg/";
-		inputGroup.appendChild(inputAddon);
+		const inputAddon = document.createElement("span")
+		inputAddon.className = "input-group-text"
+		inputAddon.id = "discordField" + index + "-addon"
+		inputAddon.textContent = "discord.gg/"
+		inputGroup.appendChild(inputAddon)
 
-		const inputField = document.createElement("input");
-		inputField.type = "text";
-		inputField.className = "form-control";
-		inputField.id = "discordField" + index;
-		inputField.placeholder = "pJkm23b2nA";
-		inputField.spellcheck = false;
-		inputField.setAttribute("aria-labelledby", "discordLabel");
-		inputField.setAttribute("aria-describedby", "discordField" + index + "-addon");
+		const inputField = document.createElement("input")
+		inputField.type = "text"
+		inputField.className = "form-control"
+		inputField.id = "discordField" + index
+		inputField.placeholder = "pJkm23b2nA"
+		inputField.spellcheck = false
+		inputField.setAttribute("aria-labelledby", "discordLabel")
+		inputField.setAttribute("aria-describedby", "discordField" + index + "-addon")
 		inputField.value = link
-		inputGroup.appendChild(inputField);
-		discordGroupElements.push(inputField);
+		inputGroup.appendChild(inputField)
+		discordGroupElements.push(inputField)
 
-		const inputButton = document.createElement("button");
-		inputButton.type = "button";
+		const inputButton = document.createElement("button")
+		inputButton.type = "button"
 		// If button is the last in the array give it the add button
 		if (array.length == index + 1) {
-			inputButton.className = "btn btn-secondary";
-			inputButton.title = "Add Discord invite";
-			inputButton.innerHTML = '<i class="bi bi-plus-lg" aria-hidden="true"></i>';
-			inputButton.addEventListener('click', () => addFieldButton(inputButton, inputGroup, discordGroupElements, index, "Discord invite"));
+			inputButton.className = "btn btn-secondary"
+			inputButton.title = "Add Discord invite"
+			inputButton.innerHTML = '<i class="bi bi-plus-lg" aria-hidden="true"></i>'
+			inputButton.addEventListener('click', () => addFieldButton(inputButton, inputGroup, discordGroupElements, index, "Discord invite"))
 		} else {
-			inputButton.className = "btn btn-outline-secondary";
-			inputButton.title = "Remove Discord invite";
-			inputButton.innerHTML = '<i class="bi bi-trash-fill" aria-hidden="true"></i>';
-			inputButton.addEventListener('click', () => removeFieldButton(inputGroup, array, index));
+			inputButton.className = "btn btn-outline-secondary"
+			inputButton.title = "Remove Discord invite"
+			inputButton.innerHTML = '<i class="bi bi-trash-fill" aria-hidden="true"></i>'
+			inputButton.addEventListener('click', () => removeFieldButton(inputGroup, array, index))
 		}
 
 		inputField.addEventListener('paste', (event) => {
@@ -666,40 +666,40 @@ function initDraw() {
 			}
 		})
 
-		inputGroup.appendChild(inputButton);
+		inputGroup.appendChild(inputButton)
 	}
 
 	function addWikiFields(link, index, array) {
-		const inputGroup = document.createElement("div");
-		inputGroup.className = "input-group";
-		wikiGroup.appendChild(inputGroup);
+		const inputGroup = document.createElement("div")
+		inputGroup.className = "input-group"
+		wikiGroup.appendChild(inputGroup)
 
-		const inputField = document.createElement("input");
-		inputField.type = "text";
-		inputField.className = "form-control";
-		inputField.id = "wikiField" + index;
-		inputField.placeholder = "Page title";
-		inputField.spellcheck = false;
-		inputField.setAttribute("aria-labelledby", "wikiLabel");
+		const inputField = document.createElement("input")
+		inputField.type = "text"
+		inputField.className = "form-control"
+		inputField.id = "wikiField" + index
+		inputField.placeholder = "Page title"
+		inputField.spellcheck = false
+		inputField.setAttribute("aria-labelledby", "wikiLabel")
 		inputField.value = link
-		inputGroup.appendChild(inputField);
-		wikiGroupElements.push(inputField);
+		inputGroup.appendChild(inputField)
+		wikiGroupElements.push(inputField)
 
-		const inputButton = document.createElement("button");
-		inputButton.type = "button";
+		const inputButton = document.createElement("button")
+		inputButton.type = "button"
 		// If button is the last in the array give it the add button
 		if (array.length == index + 1) {
-			inputButton.className = "btn btn-secondary";
-			inputButton.title = "Add wiki page";
-			inputButton.innerHTML = '<i class="bi bi-plus-lg" aria-hidden="true"></i>';
-			inputButton.addEventListener('click', () => addFieldButton(inputButton, inputGroup, wikiGroupElements, index, "wiki page"));
+			inputButton.className = "btn btn-secondary"
+			inputButton.title = "Add wiki page"
+			inputButton.innerHTML = '<i class="bi bi-plus-lg" aria-hidden="true"></i>'
+			inputButton.addEventListener('click', () => addFieldButton(inputButton, inputGroup, wikiGroupElements, index, "wiki page"))
 		} else {
-			inputButton.className = "btn btn-outline-secondary";
-			inputButton.title = "Remove wiki page";
-			inputButton.innerHTML = '<i class="bi bi-trash-fill" aria-hidden="true"></i>';
-			inputButton.addEventListener('click', () => removeFieldButton(inputGroup, array, index));
+			inputButton.className = "btn btn-outline-secondary"
+			inputButton.title = "Remove wiki page"
+			inputButton.innerHTML = '<i class="bi bi-trash-fill" aria-hidden="true"></i>'
+			inputButton.addEventListener('click', () => removeFieldButton(inputGroup, array, index))
 		}
-		inputGroup.appendChild(inputButton);
+		inputGroup.appendChild(inputButton)
 	}
 
 	if (params.has('id')) {
@@ -709,34 +709,34 @@ function initDraw() {
 
 		if (entry.links.website.length) {
 			entry.links.website.forEach((link, index, array) => {
-				addWebsiteFields(link, index, array);
-			});
+				addWebsiteFields(link, index, array)
+			})
 		} else {
-			addWebsiteFields("", -1, entry.links.website);
+			addWebsiteFields("", -1, entry.links.website)
 		}
 		if (entry.links.subreddit.length) {
 			entry.links.subreddit.forEach((link, index, array) => {
-				addSubredditFields(link, index, array);
-			});
+				addSubredditFields(link, index, array)
+			})
 		} else {
-			addSubredditFields("", -1, entry.links.subreddit);
+			addSubredditFields("", -1, entry.links.subreddit)
 		}
 		if (entry.links.discord.length) {
 			entry.links.discord.forEach((link, index, array) => {
-				addDiscordFields(link, index, array);
-			});
+				addDiscordFields(link, index, array)
+			})
 		} else {
-			addDiscordFields("", -1, entry.links.discord);
+			addDiscordFields("", -1, entry.links.discord)
 		}
 		if (entry.links.wiki.length) {
 			entry.links.wiki.forEach((link, index, array) => {
-				addWikiFields(link, index, array);
-			});
+				addWikiFields(link, index, array)
+			})
 		} else {
-			addWikiFields("", -1, entry.links.wiki);
+			addWikiFields("", -1, entry.links.wiki)
 		}
-		redoButton.disabled = true;
-		undoButton.disabled = false;
+		redoButton.disabled = true
+		undoButton.disabled = false
 		entryId = params.get('id')
 
 		Object.entries(entry.path).forEach(([period, path]) => {
@@ -746,29 +746,29 @@ function initDraw() {
 		})
 
 	} else {
-		document.getElementById("offcanvasDrawLabel").textContent = "New Entry";
+		document.getElementById("offcanvasDrawLabel").textContent = "New Entry"
 		pathWithPeriods.push([defaultPeriod, []])
-		addWebsiteFields("", 0, [0]);
-		addSubredditFields("", 0, [0]);
-		addDiscordFields("", 0, [0]);
-		addWikiFields("", 0, [0]);
+		addWebsiteFields("", 0, [0])
+		addSubredditFields("", 0, [0])
+		addDiscordFields("", 0, [0])
+		addWikiFields("", 0, [0])
 	}
 
 	initPeriodGroups()
 
-	zoom = 4;
+	zoom = 4
 
 	zoomOrigin = [
 		innerContainer.clientWidth / 2 - center[0] * zoom,// + container.offsetLeft
 		innerContainer.clientHeight / 2 - center[1] * zoom// + container.offsetTop
-	];
+	]
 
 	scaleZoomOrigin = [
 		2000 / 2 - center[0],// + container.offsetLeft
 		2000 / 2 - center[1]// + container.offsetTop
-	];
+	]
 
-	applyView();
+	applyView()
 
 	document.addEventListener('timeupdate', (event) => {
 		renderBackground()
@@ -790,7 +790,7 @@ function calculateCenter(path) {
 function initPeriodGroups() {
 
 	periodGroupElements = []
-	periodGroups.replaceChildren();
+	periodGroups.replaceChildren()
 
 	pathWithPeriods.forEach(([period, path], index) => {
 		const periodGroupEl = periodGroupTemplate.cloneNode(true)
@@ -832,7 +832,7 @@ function initPeriodGroups() {
 
 		if (startPeriodEl.max == 0) periodGroupEl.classList.add('no-time-slider')
 		else periodGroupEl.classList.remove('no-time-slider')
-		if (pathWithPeriods.length === 1) periodDeleteEl.disabled = true;
+		if (pathWithPeriods.length === 1) periodDeleteEl.disabled = true
 
 		startPeriodEl.addEventListener('input', event => {
 			endPeriodListEl.innerHTML = '<option value="' + (parseInt(event.target.value) + 1) + '"></option>'
@@ -862,7 +862,7 @@ function initPeriodGroups() {
 			endPeriodEl.max = newVariationConfig.drawablePeriods[1]
 			startPeriodEl.value = newVariationConfig.default
 			endPeriodEl.value = newVariationConfig.default
-			periodVariationEl.previousElementSibling.innerHTML = newVariationConfig.icon;
+			periodVariationEl.previousElementSibling.innerHTML = newVariationConfig.icon
 			if (startPeriodEl.max == 0) periodGroupEl.classList.add('no-time-slider')
 			else periodGroupEl.classList.remove('no-time-slider')
 			pathWithPeriods[index][0] = `${newVariationConfig.code}:${newVariationConfig.default}`
@@ -872,20 +872,20 @@ function initPeriodGroups() {
 		periodCopyEl.addEventListener("click", event => {
 			const index = parseInt(event.target.id.split('periodCopy')[1])
 			if (event.target.textContent === " Copy") {
-				event.target.className = "period-copy btn btn-primary btn-sm flex-fill";
+				event.target.className = "period-copy btn btn-primary btn-sm flex-fill"
 				event.target.innerHTML = '<i class="bi bi-clipboard-x" aria-hidden="true"></i> End'
 				periodClipboard.index = index
 				periodClipboard.path = [...pathWithPeriods[index][1]]
-				startPeriodEl.disabled = true;
-				endPeriodEl.disabled = true;
+				startPeriodEl.disabled = true
+				endPeriodEl.disabled = true
 				updatePeriodGroups()
 			} else if (event.target.textContent === " End") {
-				event.target.className = "period-copy btn btn-secondary btn-sm flex-fill";
+				event.target.className = "period-copy btn btn-secondary btn-sm flex-fill"
 				event.target.innerHTML = '<i class="bi bi-clipboard" aria-hidden="true"></i> Copy'
 				periodClipboard.index = null
 				periodClipboard.path = null
-				startPeriodEl.disabled = false;
-				endPeriodEl.disabled = false;
+				startPeriodEl.disabled = false
+				endPeriodEl.disabled = false
 				updatePeriodGroups()
 			} else if (event.target.textContent === " Paste") {
 				pathWithPeriods[index][1] = [...periodClipboard.path]
@@ -904,8 +904,8 @@ function initPeriodGroups() {
 		}
 
 		periodVariationEl.value = variation
-		periodVariationEl.previousElementSibling.innerHTML = variationsConfig[variation].icon;
-		
+		periodVariationEl.previousElementSibling.innerHTML = variationsConfig[variation].icon
+
 		periodGroupElements.push({
 			periodGroupEl,
 			startPeriodEl,
@@ -968,7 +968,7 @@ function updatePeriodGroups() {
 					periodCopyEl.disabled = false
 				}
 			} else {
-				periodCopyEl.className = "period-copy btn btn-primary btn-sm flex-fill";
+				periodCopyEl.className = "period-copy btn btn-primary btn-sm flex-fill"
 				periodCopyEl.innerHTML = '<i class="bi bi-clipboard-x" aria-hidden="true"></i> End'
 			}
 		} else {
@@ -1028,7 +1028,7 @@ function updateErrors() {
 		periodsStatus.textContent = "No paths available on this period!"
 	}
 
-	const {conflicts, insufficientPaths} = getErrors()
+	const { conflicts, insufficientPaths } = getErrors()
 	let errorCount = 0
 	// console.log(conflicts, invalidPaths, allErrors)
 
@@ -1078,7 +1078,7 @@ function getConflicts() {
 				(start1 <= start2 && start2 <= end1) ||
 				(start1 <= end2 && end2 <= end1)
 			) {
-				if (!conflicts[i]) conflicts[i] = [] 
+				if (!conflicts[i]) conflicts[i] = []
 				if (!conflicts[j]) conflicts[j] = []
 				conflicts[i].push(j)
 				conflicts[j].push(i)
@@ -1102,8 +1102,8 @@ function getErrors() {
 	// console.info('invalid paths', invalidPaths)
 
 	return {
-		conflicts, 
-		insufficientPaths, 
+		conflicts,
+		insufficientPaths,
 	}
 }
 

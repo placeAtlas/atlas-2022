@@ -15,89 +15,89 @@
 
 const prodDomain = "place-atlas.stefanocoding.me"
 
-const innerContainer = document.getElementById("innerContainer");
-const container = document.getElementById("container");
-const canvas = document.getElementById("highlightCanvas");
-const context = canvas.getContext("2d");
+const innerContainer = document.getElementById("innerContainer")
+const container = document.getElementById("container")
+const canvas = document.getElementById("highlightCanvas")
+const context = canvas.getContext("2d")
 
-let zoom = 1;
+let zoom = 1
 
 if (window.devicePixelRatio) {
-	zoom = 1 / window.devicePixelRatio;
+	zoom = 1 / window.devicePixelRatio
 }
 
-const maxZoom = 128;
-const minZoom = 0.1;
+const maxZoom = 128
+const minZoom = 0.1
 
-let zoomOrigin = [0, 0];
-let scaleZoomOrigin = [0, 0];
+let zoomOrigin = [0, 0]
+let scaleZoomOrigin = [0, 0]
 
-let dragging = false;
-let lastPosition = [0, 0];
+let dragging = false
+let lastPosition = [0, 0]
 
-const viewportSize = [0, 0];
+const viewportSize = [0, 0]
 
 // document.getElementById("entriesListDonate").addEventListener("click", function(e){
-// 	document.getElementById("donateOverlay").style.display = "flex";
-// });
+// 	document.getElementById("donateOverlay").style.display = "flex"
+// })
 
 // document.getElementById("closeDonateButton").addEventListener("click", function(e){
-// 	document.getElementById("donateOverlay").style.display = "none";
-// });
+// 	document.getElementById("donateOverlay").style.display = "none"
+// })
 
 function applyView() {
 
-	//console.log(zoomOrigin, scaleZoomOrigin);
-	//console.log(scaleZoomOrigin[0]);
+	//console.log(zoomOrigin, scaleZoomOrigin)
+	//console.log(scaleZoomOrigin[0])
 
-	scaleZoomOrigin[0] = Math.max(-1000, Math.min(1000, scaleZoomOrigin[0]));
-	scaleZoomOrigin[1] = Math.max(-1000, Math.min(1000, scaleZoomOrigin[1]));
+	scaleZoomOrigin[0] = Math.max(-1000, Math.min(1000, scaleZoomOrigin[0]))
+	scaleZoomOrigin[1] = Math.max(-1000, Math.min(1000, scaleZoomOrigin[1]))
 
-	zoomOrigin = [scaleZoomOrigin[0] * zoom, scaleZoomOrigin[1] * zoom];
+	zoomOrigin = [scaleZoomOrigin[0] * zoom, scaleZoomOrigin[1] * zoom]
 
-	innerContainer.style.height = (~~(zoom * 2000)) + "px";
-	innerContainer.style.width = (~~(zoom * 2000)) + "px";
+	innerContainer.style.height = (~~(zoom * 2000)) + "px"
+	innerContainer.style.width = (~~(zoom * 2000)) + "px"
 
-	innerContainer.style.left = ~~(container.clientWidth / 2 - innerContainer.clientWidth / 2 + zoomOrigin[0] + container.offsetLeft) + "px";
-	innerContainer.style.top = ~~(container.clientHeight / 2 - innerContainer.clientHeight / 2 + zoomOrigin[1] + container.offsetTop) + "px";
+	innerContainer.style.left = ~~(container.clientWidth / 2 - innerContainer.clientWidth / 2 + zoomOrigin[0] + container.offsetLeft) + "px"
+	innerContainer.style.top = ~~(container.clientHeight / 2 - innerContainer.clientHeight / 2 + zoomOrigin[1] + container.offsetTop) + "px"
 
 }
 
-let atlas = null;
+let atlas = null
 window.atlas = atlas
 let atlasAll = null
 window.atlasAll = atlasAll
 
 if (document.location.host !== prodDomain) document.body.dataset.dev = ""
 
-init();
+init()
 
 async function init() {
 	// For Reviewing Reddit Changes
-	//let resp = await fetch("../tools/temp_atlas.json");
-	const resp = await fetch("./atlas.json");
-	atlas = await resp.json();
+	//let resp = await fetch("../tools/temp_atlas.json")
+	const resp = await fetch("./atlas.json")
+	atlas = await resp.json()
 	atlas.sort(function (a, b) {
 		if (a.center[1] < b.center[1]) {
-			return -1;
+			return -1
 		}
 		if (a.center[1] > b.center[1]) {
-			return 1;
+			return 1
 		}
 		// a must be equal to b
-		return 0;
-	});
+		return 0
+	})
 
-	atlasAll = updateAtlasAll(atlas);
+	atlasAll = updateAtlasAll(atlas)
 
-	let mode = "view";
+	let mode = "view"
 
-	const args = window.location.search;
+	const args = window.location.search
 	const params = new URLSearchParams(args)
 	if (args) {
 		mode = params.get("mode")
 		if (!mode) {
-			mode = "view";
+			mode = "view"
 		}
 
 		// Backwards compatibility for old links using "search" id arg
@@ -112,26 +112,26 @@ async function init() {
 	}
 
 	const hash = window.location.hash.substring(1)
-	const [ , period] = hash.split('/')
+	const [, period] = hash.split('/')
 
 	if (period) {
-		const [ , targetPeriod, targetVariation] = parsePeriod(period)
+		const [, targetPeriod, targetVariation] = parsePeriod(period)
 		await updateTime(targetPeriod, targetVariation)
 	} else {
 		await updateTime(currentPeriod, currentVariation)
 	}
 
-	//console.log(document.documentElement.clientWidth, document.documentElement.clientHeight);
+	//console.log(document.documentElement.clientWidth, document.documentElement.clientHeight)
 
-	zoomOrigin = [0, 0];
-	applyView();
+	zoomOrigin = [0, 0]
+	applyView()
 
-	let initialPinchDistance = 0;
-	let initialPinchZoom = 0;
-	let initialPinchZoomOrigin = [0, 0];
+	let initialPinchDistance = 0
+	let initialPinchZoom = 0
+	let initialPinchZoomOrigin = [0, 0]
 
-	let desiredZoom;
-	let zoomAnimationFrame;
+	let desiredZoom
+	let zoomAnimationFrame
 
 	document.body.dataset.mode = mode
 
@@ -139,38 +139,38 @@ async function init() {
 	if (mode !== "draw") initViewGlobal()
 
 	if (mode === "draw") {
-		initDraw();
+		initDraw()
 	} else if (mode === "about") {
-		window.location = "./about.html";
+		window.location = "./about.html"
 	} else if (mode === "overlap") {
 		if (initOverlap) {
-			initOverlap();
+			initOverlap()
 		}
 	} else if (mode.startsWith("diff")) {
 		try {
-			const liveResp = await fetch("https://place-atlas.stefanocoding.me/atlas.json");
-			let liveJson = await liveResp.json();
+			const liveResp = await fetch("https://place-atlas.stefanocoding.me/atlas.json")
+			let liveJson = await liveResp.json()
 			liveJson = updateAtlasAll(liveJson)
 
 			const liveAtlasReduced = liveJson.reduce(function (a, c) {
-				a[c.id] = c;
-				return a;
-			}, {});
+				a[c.id] = c
+				return a
+			}, {})
 			// Mark added/edited entries
 			atlasAll = atlasAll.map(function (entry) {
 				if (liveAtlasReduced[entry.id] === undefined) {
-					entry.diff = "add";
+					entry.diff = "add"
 				} else if (JSON.stringify(entry) !== JSON.stringify(liveAtlasReduced[entry.id])) {
-					entry.diff = "edit";
+					entry.diff = "edit"
 				}
-				return entry;
-			});
+				return entry
+			})
 
 			// Mark removed entries
 			const atlasReduced = atlasAll.reduce(function (a, c) {
-				a[c.id] = c;
-				return a;
-			}, {});
+				a[c.id] = c
+				return a
+			}, {})
 			const removedEntries = liveJson.filter(entry =>
 				atlasReduced[entry.id] === undefined
 			).map(entry => {
@@ -182,132 +182,132 @@ async function init() {
 			if (mode.includes("only")) {
 				atlasAll = atlasAll.filter(function (entry) {
 					return typeof entry.diff == "string"
-				});
+				})
 			}
 
 		} catch (error) {
-			console.warn("Diff mode failed to load, reverting to normal view.", error);
+			console.warn("Diff mode failed to load, reverting to normal view.", error)
 		} finally {
 			await updateTime()
 			if (initOverlap && mode.includes("overlap")) {
-				initOverlap();
+				initOverlap()
 			} else {
-				initView();
+				initView()
 			}
 		}
 	} else if (mode === "explore") {
-		initExplore();
+		initExplore()
 	} else {
-		initView();
+		initView()
 	}
 
-	document.getElementById("loading").classList.add("d-none");
+	document.getElementById("loading").classList.add("d-none")
 
 	document.getElementById("zoomInButton").addEventListener("click", function (e) {
 
 		/*if(zoomAnimationFrame){
-			window.cancelAnimationFrame(zoomAnimationFrame);
+			window.cancelAnimationFrame(zoomAnimationFrame)
 		}*/
 
-		const x = container.clientWidth / 2;
-		const y = container.clientHeight / 2;
+		const x = container.clientWidth / 2
+		const y = container.clientHeight / 2
 
 		initialPinchZoomOrigin = [
 			scaleZoomOrigin[0],
 			scaleZoomOrigin[1]
-		];
+		]
 
-		initialPinchZoom = zoom;
+		initialPinchZoom = zoom
 
-		lastPosition = [x, y];
-		zoom = zoom * 2;
-		zoom = Math.max(minZoom, Math.min(maxZoom, zoom));
+		lastPosition = [x, y]
+		zoom = zoom * 2
+		zoom = Math.max(minZoom, Math.min(maxZoom, zoom))
 
-		applyZoom(x, y, zoom);
+		applyZoom(x, y, zoom)
 
-	});
+	})
 
 	document.getElementById("zoomOutButton").addEventListener("click", function (e) {
 
 		/*if(zoomAnimationFrame){
-			window.cancelAnimationFrame(zoomAnimationFrame);
+			window.cancelAnimationFrame(zoomAnimationFrame)
 		}*/
 
-		const x = container.clientWidth / 2;
-		const y = container.clientHeight / 2;
+		const x = container.clientWidth / 2
+		const y = container.clientHeight / 2
 
 		initialPinchZoomOrigin = [
 			scaleZoomOrigin[0],
 			scaleZoomOrigin[1]
-		];
+		]
 
-		initialPinchZoom = zoom;
+		initialPinchZoom = zoom
 
-		lastPosition = [x, y];
-		zoom = zoom / 2;
-		zoom = Math.max(minZoom, Math.min(maxZoom, zoom));
+		lastPosition = [x, y]
+		zoom = zoom / 2
+		zoom = Math.max(minZoom, Math.min(maxZoom, zoom))
 
-		applyZoom(x, y, zoom);
-	});
+		applyZoom(x, y, zoom)
+	})
 
 	document.getElementById("zoomResetButton").addEventListener("click", function (e) {
-		zoom = 1;
-		zoomOrigin = [0, 0];
-		scaleZoomOrigin = [0, 0];
-		updateLines();
-		applyView();
-	});
+		zoom = 1
+		zoomOrigin = [0, 0]
+		scaleZoomOrigin = [0, 0]
+		updateLines()
+		applyView()
+	})
 
 	container.addEventListener("dblclick", function (e) {
 		/*if(zoomAnimationFrame){
-			window.cancelAnimationFrame(zoomAnimationFrame);
+			window.cancelAnimationFrame(zoomAnimationFrame)
 		}*/
 
-		const x = e.clientX - container.offsetLeft;
-		const y = e.clientY - container.offsetTop;
+		const x = e.clientX - container.offsetLeft
+		const y = e.clientY - container.offsetTop
 
 		initialPinchZoomOrigin = [
 			scaleZoomOrigin[0],
 			scaleZoomOrigin[1]
-		];
+		]
 
-		initialPinchZoom = zoom;
+		initialPinchZoom = zoom
 
-		lastPosition = [x, y];
+		lastPosition = [x, y]
 
 		if (e.ctrlKey) {
 
-			zoom = zoom / 2;
+			zoom = zoom / 2
 
 		} else {
 
-			zoom = zoom * 2;
+			zoom = zoom * 2
 		}
 
-		zoom = Math.max(minZoom, Math.min(maxZoom, zoom));
-		applyZoom(x, y, zoom);
+		zoom = Math.max(minZoom, Math.min(maxZoom, zoom))
+		applyZoom(x, y, zoom)
 
-		e.preventDefault();
-	});
+		e.preventDefault()
+	})
 
 
 	container.addEventListener("wheel", function (e) {
 
 		/*if(zoomAnimationFrame){
-			window.cancelAnimationFrame(zoomAnimationFrame);
+			window.cancelAnimationFrame(zoomAnimationFrame)
 		}*/
 
-		const x = e.clientX - container.offsetLeft;
-		const y = e.clientY - container.offsetTop;
+		const x = e.clientX - container.offsetLeft
+		const y = e.clientY - container.offsetTop
 
 		initialPinchZoomOrigin = [
 			scaleZoomOrigin[0],
 			scaleZoomOrigin[1]
-		];
+		]
 
-		initialPinchZoom = zoom;
+		initialPinchZoom = zoom
 
-		lastPosition = [x, y];
+		lastPosition = [x, y]
 
 		// Check if we are zooming by pixels
 		// https://developer.mozilla.org/en-US/docs/Web/API/WheelEvent/deltaMode
@@ -315,146 +315,146 @@ async function init() {
 			// Scale the pixel delta by the current zoom factor
 			// We want to zoom faster when closer, and slower when further
 			// This creates a smoother experience
-			zoom -= e.deltaY * (0.001 * zoom);
+			zoom -= e.deltaY * (0.001 * zoom)
 		} else {
 			if (e.deltaY > 0) {
 
-				zoom = zoom / 2;
+				zoom = zoom / 2
 
 			} else if (e.deltaY < 0) {
 
-				zoom = zoom * 2;
+				zoom = zoom * 2
 			}
 		}
 
-		zoom = Math.max(minZoom, Math.min(maxZoom, zoom));
-		applyZoom(x, y, zoom);
+		zoom = Math.max(minZoom, Math.min(maxZoom, zoom))
+		applyZoom(x, y, zoom)
 
-		e.preventDefault();
-	}, { passive: true });
+		e.preventDefault()
+	}, { passive: true })
 
 	/*function setDesiredZoom(x, y, target){
-		zoom = (zoom*2 + target)/3;
-		//console.log(zoom);
+		zoom = (zoom*2 + target)/3
+		//console.log(zoom)
 		if(Math.abs(1 - zoom/target) <= 0.01){
-			zoom = target;
+			zoom = target
 		}
-		applyZoom(x, y, zoom);
+		applyZoom(x, y, zoom)
 		if(zoom != target){
 			zoomAnimationFrame = window.requestAnimationFrame(function(){
-				setDesiredZoom(x, y, target);
-			});
+				setDesiredZoom(x, y, target)
+			})
 		}
 	}*/
 
 	container.addEventListener("mousedown", function (e) {
-		mousedown(e.clientX, e.clientY);
-		e.preventDefault();
-	});
+		mousedown(e.clientX, e.clientY)
+		e.preventDefault()
+	})
 
 	container.addEventListener("touchstart", function (e) {
 
 		if (e.touches.length == 2) {
-			e.preventDefault();
+			e.preventDefault()
 		}
 
-		touchstart(e);
+		touchstart(e)
 
-	}, { passive: true });
+	}, { passive: true })
 
 	function mousedown(x, y) {
-		lastPosition = [x, y];
-		dragging = true;
+		lastPosition = [x, y]
+		dragging = true
 	}
 
 	function touchstart(e) {
 
 		if (e.touches.length == 1) {
 
-			mousedown(e.touches[0].clientX, e.touches[0].clientY);
+			mousedown(e.touches[0].clientX, e.touches[0].clientY)
 
 		} else if (e.touches.length == 2) {
 
 			initialPinchDistance = Math.sqrt(
 				Math.pow(e.touches[0].clientX - e.touches[1].clientX, 2)
 				+ Math.pow(e.touches[0].clientY - e.touches[1].clientY, 2)
-			);
+			)
 
-			initialPinchZoom = zoom;
+			initialPinchZoom = zoom
 			initialPinchZoomOrigin = [
 				scaleZoomOrigin[0],
 				scaleZoomOrigin[1]
-			];
+			]
 
 			mousedown(
 				(e.touches[0].clientX + e.touches[1].clientX) / 2,
 				(e.touches[0].clientY + e.touches[1].clientY) / 2
-			);
+			)
 
 		}
 
 	}
 
 	window.addEventListener("mousemove", function (e) {
-		updateLines();
-		mousemove(e.clientX, e.clientY);
+		updateLines()
+		mousemove(e.clientX, e.clientY)
 		if (dragging) {
-			e.preventDefault();
+			e.preventDefault()
 		}
-	});
+	})
 	window.addEventListener("touchmove", function (e) {
 
 		if (e.touches.length == 2 || e.scale > 1) {
-			e.preventDefault();
+			e.preventDefault()
 		}
 
-		touchmove(e);
+		touchmove(e)
 
 	},
 		{ passive: false }
-	);
+	)
 
 	function mousemove(x, y) {
 		if (dragging) {
-			const deltaX = x - lastPosition[0];
-			const deltaY = y - lastPosition[1];
-			lastPosition = [x, y];
+			const deltaX = x - lastPosition[0]
+			const deltaY = y - lastPosition[1]
+			lastPosition = [x, y]
 
-			zoomOrigin[0] += deltaX;
-			zoomOrigin[1] += deltaY;
+			zoomOrigin[0] += deltaX
+			zoomOrigin[1] += deltaY
 
-			scaleZoomOrigin[0] += deltaX / zoom;
-			scaleZoomOrigin[1] += deltaY / zoom;
+			scaleZoomOrigin[0] += deltaX / zoom
+			scaleZoomOrigin[1] += deltaY / zoom
 
-			previousZoomOrigin = [zoomOrigin[0], zoomOrigin[1]];
-			previousScaleZoomOrigin = [scaleZoomOrigin[0], scaleZoomOrigin[1]];
+			previousZoomOrigin = [zoomOrigin[0], zoomOrigin[1]]
+			previousScaleZoomOrigin = [scaleZoomOrigin[0], scaleZoomOrigin[1]]
 
-			updateLines();
-			applyView();
+			updateLines()
+			applyView()
 		}
 	}
 
 	function touchmove(e) {
 
-		updateLines();
+		updateLines()
 
 		if (e.touches.length == 1) {
 
-			mousemove(e.touches[0].clientX, e.touches[0].clientY);
+			mousemove(e.touches[0].clientX, e.touches[0].clientY)
 
 		} else if (e.touches.length == 2) {
 
 			const newPinchDistance = Math.sqrt(
 				Math.pow(e.touches[0].clientX - e.touches[1].clientX, 2)
 				+ Math.pow(e.touches[0].clientY - e.touches[1].clientY, 2)
-			);
+			)
 
-			zoom = initialPinchZoom * newPinchDistance / initialPinchDistance;
+			zoom = initialPinchZoom * newPinchDistance / initialPinchDistance
 
-			const x = (e.touches[0].clientX + e.touches[1].clientX) / 2 - container.offsetLeft;
-			const y = (e.touches[0].clientY + e.touches[1].clientY) / 2 - container.offsetTop;
+			const x = (e.touches[0].clientX + e.touches[1].clientX) / 2 - container.offsetLeft
+			const y = (e.touches[0].clientY + e.touches[1].clientY) / 2 - container.offsetTop
 
-			applyZoom(x, y, zoom);
+			applyZoom(x, y, zoom)
 
 		}
 
@@ -462,33 +462,33 @@ async function init() {
 
 	function applyZoom(x, y, zoom) {
 
-		const deltaX = x - lastPosition[0];
-		const deltaY = y - lastPosition[1];
+		const deltaX = x - lastPosition[0]
+		const deltaY = y - lastPosition[1]
 
-		const pinchTranslateX = (x - container.clientWidth / 2 - deltaX);
-		const pinchTranslateY = (y - container.clientHeight / 2 - deltaY);
+		const pinchTranslateX = (x - container.clientWidth / 2 - deltaX)
+		const pinchTranslateY = (y - container.clientHeight / 2 - deltaY)
 
-		scaleZoomOrigin[0] = initialPinchZoomOrigin[0] + deltaX / zoom + pinchTranslateX / zoom - pinchTranslateX / initialPinchZoom;
-		scaleZoomOrigin[1] = initialPinchZoomOrigin[1] + deltaY / zoom + pinchTranslateY / zoom - pinchTranslateY / initialPinchZoom;
+		scaleZoomOrigin[0] = initialPinchZoomOrigin[0] + deltaX / zoom + pinchTranslateX / zoom - pinchTranslateX / initialPinchZoom
+		scaleZoomOrigin[1] = initialPinchZoomOrigin[1] + deltaY / zoom + pinchTranslateY / zoom - pinchTranslateY / initialPinchZoom
 
-		zoomOrigin[0] = scaleZoomOrigin[0] * zoom;
-		zoomOrigin[1] = scaleZoomOrigin[1] * zoom;
+		zoomOrigin[0] = scaleZoomOrigin[0] * zoom
+		zoomOrigin[1] = scaleZoomOrigin[1] * zoom
 
-		applyView();
-		updateLines();
+		applyView()
+		updateLines()
 	}
 
 	window.addEventListener("mouseup", function (e) {
 		if (dragging) {
-			e.preventDefault();
+			e.preventDefault()
 		}
-		mouseup(e.clientX, e.clientY);
-	});
-	window.addEventListener("touchend", touchend);
+		mouseup(e.clientX, e.clientY)
+	})
+	window.addEventListener("touchend", touchend)
 
 	function mouseup(x, y) {
 		if (dragging) {
-			dragging = false;
+			dragging = false
 		}
 	}
 
@@ -496,20 +496,20 @@ async function init() {
 
 		if (e.touches.length == 0) {
 
-			mouseup();
+			mouseup()
 
 		} else if (e.touches.length == 1) {
-			initialPinchZoom = zoom;
-			lastPosition = [e.touches[0].clientX, e.touches[0].clientY];
+			initialPinchZoom = zoom
+			lastPosition = [e.touches[0].clientX, e.touches[0].clientY]
 		}
 
 	}
 
 	window.addEventListener("resize", function () {
-		//console.log(document.documentElement.clientWidth, document.documentElement.clientHeight);
+		//console.log(document.documentElement.clientWidth, document.documentElement.clientHeight)
 
-		applyView();
-	});
+		applyView()
+	})
 
 	document.body.dataset.initDone = ''
 

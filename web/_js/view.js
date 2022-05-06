@@ -13,308 +13,308 @@
 	========================================================================
 */
 
-const linesCanvas = document.getElementById("linesCanvas");
-const linesContext = linesCanvas.getContext("2d");
-let hovered = [];
+const linesCanvas = document.getElementById("linesCanvas")
+const linesContext = linesCanvas.getContext("2d")
+let hovered = []
 
-let previousZoomOrigin = [0, 0];
-let previousScaleZoomOrigin = [0, 0];
+let previousZoomOrigin = [0, 0]
+let previousScaleZoomOrigin = [0, 0]
 
-const backgroundCanvas = document.createElement("canvas");
-backgroundCanvas.width = 2000;
-backgroundCanvas.height = 2000;
-const backgroundContext = backgroundCanvas.getContext("2d");
+const backgroundCanvas = document.createElement("canvas")
+backgroundCanvas.width = 2000
+backgroundCanvas.height = 2000
+const backgroundContext = backgroundCanvas.getContext("2d")
 
-const wrapper = document.getElementById("wrapper");
+const wrapper = document.getElementById("wrapper")
 
-const objectsContainer = document.getElementById("objectsList");
-const closeObjectsListButton = document.getElementById("closeObjectsListButton");
-const objectsListOverflowNotice = document.getElementById("objectsListOverflowNotice");
+const objectsContainer = document.getElementById("objectsList")
+const closeObjectsListButton = document.getElementById("closeObjectsListButton")
+const objectsListOverflowNotice = document.getElementById("objectsListOverflowNotice")
 
-const filterInput = document.getElementById("searchList");
+const filterInput = document.getElementById("searchList")
 
-const entriesList = document.getElementById("entriesList");
-const hideListButton = document.getElementById("hideListButton");
-let entriesListShown = false;
+const entriesList = document.getElementById("entriesList")
+const hideListButton = document.getElementById("hideListButton")
+let entriesListShown = false
 
-let sortedAtlas;
+let sortedAtlas
 
-const entriesLimit = 50;
-let entriesOffset = 0;
-const moreEntriesButton = document.createElement("button");
-moreEntriesButton.innerHTML = "Show " + entriesLimit + " more";
+const entriesLimit = 50
+let entriesOffset = 0
+const moreEntriesButton = document.createElement("button")
+moreEntriesButton.innerHTML = "Show " + entriesLimit + " more"
 moreEntriesButton.type = "button"
 moreEntriesButton.className = "btn btn-primary d-block mb-2 mx-auto"
 
 
-moreEntriesButton.id = "moreEntriesButton";
+moreEntriesButton.id = "moreEntriesButton"
 moreEntriesButton.onclick = function () {
-	buildObjectsList(null, null);
-	renderBackground();
-	render();
-};
+	buildObjectsList(null, null)
+	renderBackground()
+	render()
+}
 
-let defaultSort = "shuffle";
-document.getElementById("sort").value = defaultSort;
+let defaultSort = "shuffle"
+document.getElementById("sort").value = defaultSort
 
-let lastPos = [0, 0];
+let lastPos = [0, 0]
 
 let fixed = false; // Fix hovered items in place, so that clicking on links is possible
 
-filterInput.addEventListener("input", function(e){
-	entriesOffset = 0;
-	entriesList.innerHTML = "";
-	entriesList.appendChild(moreEntriesButton);
+filterInput.addEventListener("input", function (e) {
+	entriesOffset = 0
+	entriesList.innerHTML = ""
+	entriesList.appendChild(moreEntriesButton)
 
 	if (this.value === "") {
-		document.getElementById("relevantOption").disabled = true;
-		sortedAtlas = atlas.concat();
-		buildObjectsList(null, null);
+		document.getElementById("relevantOption").disabled = true
+		sortedAtlas = atlas.concat()
+		buildObjectsList(null, null)
 	} else {
-		document.getElementById("relevantOption").disabled = false;
-		buildObjectsList(this.value.toLowerCase(), "relevant");
+		document.getElementById("relevantOption").disabled = false
+		buildObjectsList(this.value.toLowerCase(), "relevant")
 	}
 
-});
+})
 
 document.getElementById("sort").addEventListener("input", function (e) {
 	if (this.value != "relevant") {
-		defaultSort = this.value;
+		defaultSort = this.value
 	}
 
-	resetEntriesList(filterInput.value.toLowerCase(), this.value);
+	resetEntriesList(filterInput.value.toLowerCase(), this.value)
 
-});
+})
 
 var showDraw = document.getElementById('offcanvasDraw')
-showDraw.addEventListener('show.bs.offcanvas', function() {
-	wrapper.classList.remove('listHidden');
-	wrapper.classList.add('listTransitioning');
-	applyView();
+showDraw.addEventListener('show.bs.offcanvas', function () {
+	wrapper.classList.remove('listHidden')
+	wrapper.classList.add('listTransitioning')
+	applyView()
 })
 
 var shownDraw = document.getElementById('offcanvasDraw')
-shownDraw.addEventListener('shown.bs.offcanvas', function() {
-	wrapper.classList.remove('listTransitioning');
-	applyView();
+shownDraw.addEventListener('shown.bs.offcanvas', function () {
+	wrapper.classList.remove('listTransitioning')
+	applyView()
 })
 
 var hideDraw = document.getElementById('offcanvasDraw')
-hideDraw.addEventListener('hide.bs.offcanvas', function() {
-	wrapper.classList.add('listHidden');
-	wrapper.classList.add('listTransitioning');
-	applyView();
+hideDraw.addEventListener('hide.bs.offcanvas', function () {
+	wrapper.classList.add('listHidden')
+	wrapper.classList.add('listTransitioning')
+	applyView()
 })
 
 var hiddenDraw = document.getElementById('offcanvasDraw')
-hiddenDraw.addEventListener('hidden.bs.offcanvas', function() {
-	wrapper.classList.remove('listTransitioning');
-	applyView();
+hiddenDraw.addEventListener('hidden.bs.offcanvas', function () {
+	wrapper.classList.remove('listTransitioning')
+	applyView()
 })
 
 var showList = document.getElementById('offcanvasList')
-showList.addEventListener('show.bs.offcanvas', function(e) {
-	wrapper.classList.remove('listHidden');
-	wrapper.classList.add('listTransitioning');
-	applyView();
-});
+showList.addEventListener('show.bs.offcanvas', function (e) {
+	wrapper.classList.remove('listHidden')
+	wrapper.classList.add('listTransitioning')
+	applyView()
+})
 
 var shownList = document.getElementById('offcanvasList')
-shownList.addEventListener('shown.bs.offcanvas', function(e) {
-	entriesListShown = true;
-	wrapper.classList.remove('listTransitioning');
-	updateHovering(e);
-	applyView();
-	render();
-	updateLines();
-});
+shownList.addEventListener('shown.bs.offcanvas', function (e) {
+	entriesListShown = true
+	wrapper.classList.remove('listTransitioning')
+	updateHovering(e)
+	applyView()
+	render()
+	updateLines()
+})
 
 var hideList = document.getElementById('offcanvasList')
-hideList.addEventListener('hide.bs.offcanvas', function(e) {
-	wrapper.classList.add('listHidden');
-	wrapper.classList.add('listTransitioning');
-	applyView();
-});
+hideList.addEventListener('hide.bs.offcanvas', function (e) {
+	wrapper.classList.add('listHidden')
+	wrapper.classList.add('listTransitioning')
+	applyView()
+})
 
 var hiddenList = document.getElementById('offcanvasList')
-hiddenList.addEventListener('hidden.bs.offcanvas', function(e) {
-	entriesListShown = false;
-	wrapper.classList.remove('listTransitioning');
-	updateHovering(e);
-	applyView();
-	render();
-	updateLines();
-});
+hiddenList.addEventListener('hidden.bs.offcanvas', function (e) {
+	entriesListShown = false
+	wrapper.classList.remove('listTransitioning')
+	updateHovering(e)
+	applyView()
+	render()
+	updateLines()
+})
 
-closeObjectsListButton.addEventListener("click", function(){
-	hovered = [];
-	objectsContainer.replaceChildren();
-	updateLines();
-	closeObjectsListButton.classList.add("d-none");
-	fixed = false;
-	render();
-});
+closeObjectsListButton.addEventListener("click", function () {
+	hovered = []
+	objectsContainer.replaceChildren()
+	updateLines()
+	closeObjectsListButton.classList.add("d-none")
+	fixed = false
+	render()
+})
 
 
 function toggleFixed(e, tapped) {
 	if (!fixed && hovered.length == 0) {
-		return 0;
+		return 0
 	}
-	fixed = !fixed;
+	fixed = !fixed
 	if (!fixed) {
-		updateHovering(e, tapped);
-		render();
+		updateHovering(e, tapped)
+		render()
 	}
-	objectsListOverflowNotice.classList.add("d-none");
+	objectsListOverflowNotice.classList.add("d-none")
 }
 
-window.addEventListener("resize", updateLines);
-window.addEventListener("mousemove", updateLines);
-window.addEventListener("dblClick", updateLines);
-window.addEventListener("wheel", updateLines);
+window.addEventListener("resize", updateLines)
+window.addEventListener("mousemove", updateLines)
+window.addEventListener("dblClick", updateLines)
+window.addEventListener("wheel", updateLines)
 
 
 objectsContainer.addEventListener("scroll", function (e) {
-	updateLines();
-});
+	updateLines()
+})
 
-window.addEventListener("resize", function(e){
-	//console.log(document.documentElement.clientWidth, document.documentElement.clientHeight);
+window.addEventListener("resize", function (e) {
+	//console.log(document.documentElement.clientWidth, document.documentElement.clientHeight)
 
-	let viewportWidth = document.documentElement.clientWidth;
+	let viewportWidth = document.documentElement.clientWidth
 
 	if (document.documentElement.clientWidth > 2000 && viewportWidth <= 2000) {
-		entriesListShown = true;
-		wrapper.classList.remove("listHidden");
+		entriesListShown = true
+		wrapper.classList.remove("listHidden")
 	}
 
 	if (document.documentElement.clientWidth < 2000 && viewportWidth >= 2000) {
-		entriesListShown = false;
-		wrapper.classList.add("listHidden");
+		entriesListShown = false
+		wrapper.classList.add("listHidden")
 	}
-	updateHovering(e);
+	updateHovering(e)
 
-	viewportWidth = document.documentElement.clientWidth;
+	viewportWidth = document.documentElement.clientWidth
 
-	applyView();
-	render();
-	updateLines();
+	applyView()
+	render()
+	updateLines()
 
-});
+})
 
 function updateLines() {
 
-	linesCanvas.width = linesCanvas.clientWidth;
-	linesCanvas.height = linesCanvas.clientHeight;
-	linesContext.lineCap = "round";
-	linesContext.lineWidth = Math.max(Math.min(zoom * 1.5, 16 * 1.5), 6);
-	linesContext.strokeStyle = "#000000";
+	linesCanvas.width = linesCanvas.clientWidth
+	linesCanvas.height = linesCanvas.clientHeight
+	linesContext.lineCap = "round"
+	linesContext.lineWidth = Math.max(Math.min(zoom * 1.5, 16 * 1.5), 6)
+	linesContext.strokeStyle = "#000000"
 
 	for (let i = 0; i < hovered.length; i++) {
-		const element = hovered[i].element;
+		const element = hovered[i].element
 
 		if (element.getBoundingClientRect().left != 0) {
 
-			linesContext.beginPath();
-			//linesContext.moveTo(element.offsetLeft + element.clientWidth - 10, element.offsetTop + 20);
+			linesContext.beginPath()
+			//linesContext.moveTo(element.offsetLeft + element.clientWidth - 10, element.offsetTop + 20)
 			linesContext.moveTo(
 				element.getBoundingClientRect().left + document.documentElement.scrollLeft + element.clientWidth / 2
 				, element.getBoundingClientRect().top + document.documentElement.scrollTop + 20
-			);
+			)
 			linesContext.lineTo(
 				~~(hovered[i].center[0] * zoom) + innerContainer.offsetLeft
 				, ~~(hovered[i].center[1] * zoom) + innerContainer.offsetTop
-			);
-			linesContext.stroke();
+			)
+			linesContext.stroke()
 
 		}
 	}
 
-	linesContext.lineWidth = Math.max(Math.min(zoom, 16), 4);
-	linesContext.strokeStyle = "#FFFFFF";
+	linesContext.lineWidth = Math.max(Math.min(zoom, 16), 4)
+	linesContext.strokeStyle = "#FFFFFF"
 
 	for (let i = 0; i < hovered.length; i++) {
-		const element = hovered[i].element;
+		const element = hovered[i].element
 
 		if (element.getBoundingClientRect().left != 0) {
 
-			linesContext.beginPath();
+			linesContext.beginPath()
 			linesContext.moveTo(
 				element.getBoundingClientRect().left + document.documentElement.scrollLeft + element.clientWidth / 2
 				, element.getBoundingClientRect().top + document.documentElement.scrollTop + 20
-			);
+			)
 			linesContext.lineTo(
 				~~(hovered[i].center[0] * zoom) + innerContainer.offsetLeft
 				, ~~(hovered[i].center[1] * zoom) + innerContainer.offsetTop
-			);
-			linesContext.stroke();
+			)
+			linesContext.stroke()
 		}
 	}
 }
 
 function renderBackground(atlas) {
 
-	backgroundContext.clearRect(0, 0, canvas.width, canvas.height);
+	backgroundContext.clearRect(0, 0, canvas.width, canvas.height)
 
-	//backgroundCanvas.width = 1000 * zoom;
-	//backgroundCanvas.height = 1000 * zoom;
+	//backgroundCanvas.width = 1000 * zoom
+	//backgroundCanvas.height = 1000 * zoom
 
-	//backgroundContext.lineWidth = zoom;
+	//backgroundContext.lineWidth = zoom
 
-	backgroundContext.fillStyle = "rgba(0, 0, 0, 0.6)";
-	backgroundContext.fillRect(0, 0, backgroundCanvas.width, backgroundCanvas.height);
+	backgroundContext.fillStyle = "rgba(0, 0, 0, 0.6)"
+	backgroundContext.fillRect(0, 0, backgroundCanvas.width, backgroundCanvas.height)
 
 	for (let i = 0; i < atlas.length; i++) {
 
-		const path = atlas[i].path;
+		const path = atlas[i].path
 
-		backgroundContext.beginPath();
+		backgroundContext.beginPath()
 
 		if (path[0]) {
-			//backgroundContext.moveTo(path[0][0]*zoom, path[0][1]*zoom);
-			backgroundContext.moveTo(path[0][0], path[0][1]);
+			//backgroundContext.moveTo(path[0][0]*zoom, path[0][1]*zoom)
+			backgroundContext.moveTo(path[0][0], path[0][1])
 		}
 
 		for (let p = 1; p < path.length; p++) {
-			//backgroundContext.lineTo(path[p][0]*zoom, path[p][1]*zoom);
-			backgroundContext.lineTo(path[p][0], path[p][1]);
+			//backgroundContext.lineTo(path[p][0]*zoom, path[p][1]*zoom)
+			backgroundContext.lineTo(path[p][0], path[p][1])
 		}
 
-		backgroundContext.closePath();
+		backgroundContext.closePath()
 
-		let bgStrokeStyle;
+		let bgStrokeStyle
 		switch (atlas[i].diff) {
 			case "add":
-				bgStrokeStyle = "rgba(0, 255, 0, 1)";
-				backgroundContext.lineWidth = 2;
-				break;
+				bgStrokeStyle = "rgba(0, 255, 0, 1)"
+				backgroundContext.lineWidth = 2
+				break
 			case "edit":
-				bgStrokeStyle = "rgba(255, 255, 0, 1)";
-				backgroundContext.lineWidth = 2;
-				break;
+				bgStrokeStyle = "rgba(255, 255, 0, 1)"
+				backgroundContext.lineWidth = 2
+				break
 			case "delete":
-				bgStrokeStyle = "rgba(255, 0, 0, 1)";
-				backgroundContext.lineWidth = 2;
-				break;
+				bgStrokeStyle = "rgba(255, 0, 0, 1)"
+				backgroundContext.lineWidth = 2
+				break
 			default:
-				bgStrokeStyle = "rgba(255, 255, 255, 0.8)";
-				break;
+				bgStrokeStyle = "rgba(255, 255, 255, 0.8)"
+				break
 		}
-		backgroundContext.strokeStyle = bgStrokeStyle;
-		backgroundContext.stroke();
-		backgroundContext.lineWidth = 1;
+		backgroundContext.strokeStyle = bgStrokeStyle
+		backgroundContext.stroke()
+		backgroundContext.lineWidth = 1
 	}
 }
 
 function buildObjectsList(filter = null, sort = null) {
 
 	if (entriesList.contains(moreEntriesButton)) {
-		entriesList.removeChild(moreEntriesButton);
+		entriesList.removeChild(moreEntriesButton)
 	}
 
 	if (!sortedAtlas) {
-		sortedAtlas = atlas.concat();
-		document.getElementById("atlasSize").innerHTML = "The Atlas contains " + sortedAtlas.length + " entries.";
+		sortedAtlas = atlas.concat()
+		document.getElementById("atlasSize").innerHTML = "The Atlas contains " + sortedAtlas.length + " entries."
 	}
 
 	if (filter) {
@@ -324,125 +324,125 @@ function buildObjectsList(filter = null, sort = null) {
 				|| value.description.toLowerCase().indexOf(filter) !== -1
 				|| value.subreddit && value.subreddit.toLowerCase().indexOf(filter) !== -1
 				|| value.id === filter
-			);
-		});
-		document.getElementById("atlasSize").innerHTML = "Found " + sortedAtlas.length + " entries.";
+			)
+		})
+		document.getElementById("atlasSize").innerHTML = "Found " + sortedAtlas.length + " entries."
 	} else {
-		document.getElementById("atlasSize").innerHTML = "The Atlas contains " + sortedAtlas.length + " entries.";
+		document.getElementById("atlasSize").innerHTML = "The Atlas contains " + sortedAtlas.length + " entries."
 	}
 
 	if (sort === null) {
-		sort = defaultSort;
+		sort = defaultSort
 	}
 
-	renderBackground(sortedAtlas);
-	render();
+	renderBackground(sortedAtlas)
+	render()
 
-	document.getElementById("sort").value = sort;
+	document.getElementById("sort").value = sort
 
-	//console.log(sort);
+	//console.log(sort)
 
-	let sortFunction;
+	let sortFunction
 
-	//console.log(sort);
+	//console.log(sort)
 
 	switch (sort) {
 		case "shuffle":
-			sortFunction = null;
+			sortFunction = null
 			if (entriesOffset == 0) {
-				shuffle();
+				shuffle()
 			}
-			break;
+			break
 		case "alphaAsc":
 			sortFunction = function (a, b) {
-				return a.name.toLowerCase().localeCompare(b.name.toLowerCase());
+				return a.name.toLowerCase().localeCompare(b.name.toLowerCase())
 			}
-			break;
+			break
 		case "alphaDesc":
 			sortFunction = function (a, b) {
-				return b.name.toLowerCase().localeCompare(a.name.toLowerCase());
+				return b.name.toLowerCase().localeCompare(a.name.toLowerCase())
 			}
-			break;
+			break
 		case "newest":
 			sortFunction = function (a, b) {
 				if (a.id > b.id) {
-					return -1;
+					return -1
 				}
 				if (a.id < b.id) {
-					return 1;
+					return 1
 				}
 				// a must be equal to b
-				return 0;
+				return 0
 			}
-			break;
+			break
 		case "oldest":
 			sortFunction = function (a, b) {
 				if (a.id < b.id) {
-					return -1;
+					return -1
 				}
 				if (a.id > b.id) {
-					return 1;
+					return 1
 				}
 				// a must be equal to b
-				return 0;
+				return 0
 			}
-			break;
+			break
 		case "area":
 			sortFunction = function (a, b) {
-				return calcPolygonArea(b.path) - calcPolygonArea(a.path);
+				return calcPolygonArea(b.path) - calcPolygonArea(a.path)
 			}
-			break;
+			break
 		case "relevant":
 			sortFunction = function (a, b) {
 				if (a.name.toLowerCase().indexOf(filter) !== -1 && b.name.toLowerCase().indexOf(filter) !== -1) {
 					if (a.name.toLowerCase().indexOf(filter) < b.name.toLowerCase().indexOf(filter)) {
-						return -1;
+						return -1
 					}
 					else if (a.name.toLowerCase().indexOf(filter) > b.name.toLowerCase().indexOf(filter)) {
-						return 1;
+						return 1
 					} else {
-						return a.name.toLowerCase().localeCompare(b.name.toLowerCase());
+						return a.name.toLowerCase().localeCompare(b.name.toLowerCase())
 					}
 				} else if (a.name.toLowerCase().indexOf(filter) !== -1) {
-					return -1;
+					return -1
 				} else if (b.name.toLowerCase().indexOf(filter) !== -1) {
-					return 1;
+					return 1
 				} else {
 					if (a.description.toLowerCase().indexOf(filter) < b.description.toLowerCase().indexOf(filter)) {
-						return -1;
+						return -1
 					}
 					else if (a.description.toLowerCase().indexOf(filter) > b.description.toLowerCase().indexOf(filter)) {
-						return 1;
+						return 1
 					} else {
-						return a.name.toLowerCase().localeCompare(b.name.toLowerCase());
+						return a.name.toLowerCase().localeCompare(b.name.toLowerCase())
 					}
 				}
 			}
-			break;
+			break
 	}
 
 	if (sortFunction) {
-		sortedAtlas.sort(sortFunction);
+		sortedAtlas.sort(sortFunction)
 	}
 
 	for (let i = entriesOffset; i < entriesOffset + entriesLimit; i++) {
 
 		if (i >= sortedAtlas.length) {
-			break;
+			break
 		}
 
-		const element = createInfoBlock(sortedAtlas[i]);
+		const element = createInfoBlock(sortedAtlas[i])
 
-		element.entry = sortedAtlas[i];
+		element.entry = sortedAtlas[i]
 
 		element.addEventListener("mouseenter", function (e) {
 			if (!fixed && !dragging) {
-				objectsContainer.replaceChildren();
+				objectsContainer.replaceChildren()
 
-				previousZoomOrigin = [zoomOrigin[0], zoomOrigin[1]];
-				previousScaleZoomOrigin = [scaleZoomOrigin[0], scaleZoomOrigin[1]];
+				previousZoomOrigin = [zoomOrigin[0], zoomOrigin[1]]
+				previousScaleZoomOrigin = [scaleZoomOrigin[0], scaleZoomOrigin[1]]
 
-				applyView();
+				applyView()
 
 				zoomOrigin = [
 					innerContainer.clientWidth / 2 - this.entry.center[0] * zoom// + container.offsetLeft
@@ -454,35 +454,35 @@ function buildObjectsList(filter = null, sort = null) {
 					, 2000 / 2 - this.entry.center[1]
 				]
 
-				//console.log(zoomOrigin);
+				//console.log(zoomOrigin)
 
 
-				applyView();
-				hovered = [this.entry];
-				render();
-				hovered[0].element = this;
-				updateLines();
+				applyView()
+				hovered = [this.entry]
+				render()
+				hovered[0].element = this
+				updateLines()
 			}
 
-		});
+		})
 
 		element.addEventListener("click", function (e) {
-			toggleFixed(e);
+			toggleFixed(e)
 			if (fixed) {
-				previousZoomOrigin = [zoomOrigin[0], zoomOrigin[1]];
-				previousScaleZoomOrigin = [scaleZoomOrigin[0], scaleZoomOrigin[1]];
-				applyView();
+				previousZoomOrigin = [zoomOrigin[0], zoomOrigin[1]]
+				previousScaleZoomOrigin = [scaleZoomOrigin[0], scaleZoomOrigin[1]]
+				applyView()
 			}
 			if (document.documentElement.clientWidth < 500) {
-				objectsContainer.replaceChildren();
+				objectsContainer.replaceChildren()
 
-				entriesListShown = false;
-				wrapper.classList.add("listHidden");
+				entriesListShown = false
+				wrapper.classList.add("listHidden")
 
-				zoom = 4;
-				renderBackground(atlas);
-				applyView();
-				updateHovering(e);
+				zoom = 4
+				renderBackground(atlas)
+				applyView()
+				updateHovering(e)
 
 				zoomOrigin = [
 					innerContainer.clientWidth / 2 - this.entry.center[0] * zoom// + container.offsetLeft
@@ -494,59 +494,59 @@ function buildObjectsList(filter = null, sort = null) {
 					, 2000 / 2 - this.entry.center[1]
 				]
 
-				previousZoomOrigin = [zoomOrigin[0], zoomOrigin[1]];
-				previousScaleZoomOrigin = [scaleZoomOrigin[0], scaleZoomOrigin[1]];
+				previousZoomOrigin = [zoomOrigin[0], zoomOrigin[1]]
+				previousScaleZoomOrigin = [scaleZoomOrigin[0], scaleZoomOrigin[1]]
 
-				fixed = true;
+				fixed = true
 
-				hovered = [this.entry];
-				hovered[0].element = this;
+				hovered = [this.entry]
+				hovered[0].element = this
 
-				applyView();
-				render();
-				updateLines();
+				applyView()
+				render()
+				updateLines()
 
 			}
 
-		});
+		})
 
 		element.addEventListener("mouseleave", function (e) {
 			if (!fixed && !dragging) {
-				zoomOrigin = [previousScaleZoomOrigin[0] * zoom, previousScaleZoomOrigin[1] * zoom];
-				scaleZoomOrigin = [previousScaleZoomOrigin[0], previousScaleZoomOrigin[1]];
-				applyView();
-				hovered = [];
-				updateLines();
-				render();
+				zoomOrigin = [previousScaleZoomOrigin[0] * zoom, previousScaleZoomOrigin[1] * zoom]
+				scaleZoomOrigin = [previousScaleZoomOrigin[0], previousScaleZoomOrigin[1]]
+				applyView()
+				hovered = []
+				updateLines()
+				render()
 			}
-		});
+		})
 
-		entriesList.appendChild(element);
+		entriesList.appendChild(element)
 
 	}
 
-	entriesOffset += entriesLimit;
+	entriesOffset += entriesLimit
 
 	if (sortedAtlas.length > entriesOffset) {
-		moreEntriesButton.innerHTML = "Show " + Math.min(entriesLimit, sortedAtlas.length - entriesOffset) + " more";
-		entriesList.appendChild(moreEntriesButton);
+		moreEntriesButton.innerHTML = "Show " + Math.min(entriesLimit, sortedAtlas.length - entriesOffset) + " more"
+		entriesList.appendChild(moreEntriesButton)
 	}
 }
 
 function shuffle() {
-	//console.log("shuffled atlas");
+	//console.log("shuffled atlas")
 	for (let i = sortedAtlas.length - 1; i > 0; i--) {
-		const j = Math.floor(Math.random() * (i + 1));
-		const temp = sortedAtlas[i];
-		sortedAtlas[i] = sortedAtlas[j];
-		sortedAtlas[j] = temp;
+		const j = Math.floor(Math.random() * (i + 1))
+		const temp = sortedAtlas[i]
+		sortedAtlas[i] = sortedAtlas[j]
+		sortedAtlas[j] = temp
 	}
 }
 
 function resetEntriesList() {
-	entriesOffset = 0;
-	entriesList.replaceChildren();
-	entriesList.appendChild(moreEntriesButton);
+	entriesOffset = 0
+	entriesList.replaceChildren()
+	entriesList.appendChild(moreEntriesButton)
 
 	buildObjectsList(filter = null, sort = null)
 
@@ -554,106 +554,106 @@ function resetEntriesList() {
 
 async function render() {
 
-	context.clearRect(0, 0, canvas.width, canvas.height);
+	context.clearRect(0, 0, canvas.width, canvas.height)
 
-	//canvas.width = 1000*zoom;
-	//canvas.height = 1000*zoom;
+	//canvas.width = 1000*zoom
+	//canvas.height = 1000*zoom
 
-	context.globalCompositeOperation = "source-over";
-	context.clearRect(0, 0, canvas.width, canvas.height);
+	context.globalCompositeOperation = "source-over"
+	context.clearRect(0, 0, canvas.width, canvas.height)
 
 	if (hovered.length > 0) {
-		container.style.cursor = "pointer";
+		container.style.cursor = "pointer"
 	} else {
-		container.style.cursor = "default";
+		container.style.cursor = "default"
 	}
 
 
 	for (let i = 0; i < hovered.length; i++) {
 
 
-		const path = hovered[i].path;
+		const path = hovered[i].path
 
-		context.beginPath();
+		context.beginPath()
 
 		if (path[0]) {
-			//context.moveTo(path[0][0]*zoom, path[0][1]*zoom);
-			context.moveTo(path[0][0], path[0][1]);
+			//context.moveTo(path[0][0]*zoom, path[0][1]*zoom)
+			context.moveTo(path[0][0], path[0][1])
 		}
 
 		for (let p = 1; p < path.length; p++) {
-			//context.lineTo(path[p][0]*zoom, path[p][1]*zoom);
-			context.lineTo(path[p][0], path[p][1]);
+			//context.lineTo(path[p][0]*zoom, path[p][1]*zoom)
+			context.lineTo(path[p][0], path[p][1])
 		}
 
-		context.closePath();
+		context.closePath()
 
-		context.globalCompositeOperation = "source-over";
+		context.globalCompositeOperation = "source-over"
 
-		context.fillStyle = "rgba(0, 0, 0, 1)";
-		context.fill();
+		context.fillStyle = "rgba(0, 0, 0, 1)"
+		context.fill()
 	}
 
-	context.globalCompositeOperation = "source-out";
-	context.drawImage(backgroundCanvas, 0, 0);
+	context.globalCompositeOperation = "source-out"
+	context.drawImage(backgroundCanvas, 0, 0)
 
 	if (hovered.length === 1 && hovered[0].path.length && hovered[0].overrideImage) {
-		const undisputableHovered = hovered[0];
+		const undisputableHovered = hovered[0]
 		// Find the left-topmost point of all the paths
-		const entryPosition = getPositionOfEntry(undisputableHovered);
+		const entryPosition = getPositionOfEntry(undisputableHovered)
 		if (entryPosition) {
-			const [startX, startY] = entryPosition;
-			const overrideImage = new Image();
+			const [startX, startY] = entryPosition
+			const overrideImage = new Image()
 			const loadingPromise = new Promise((res, rej) => {
-				overrideImage.onerror = rej;
-				overrideImage.onload = res;
-			});
-			overrideImage.src = "imageOverrides/" + undisputableHovered.overrideImage;
+				overrideImage.onerror = rej
+				overrideImage.onload = res
+			})
+			overrideImage.src = "imageOverrides/" + undisputableHovered.overrideImage
 			try {
-				await loadingPromise;
-				context.globalCompositeOperation = "source-over";
-				context.drawImage(overrideImage, startX, startY);
+				await loadingPromise
+				context.globalCompositeOperation = "source-over"
+				context.drawImage(overrideImage, startX, startY)
 			} catch (ex) {
-				console.error("Cannot override image.", ex);
+				console.error("Cannot override image.", ex)
 			}
 		}
 	}
 
 	for (let i = 0; i < hovered.length; i++) {
 
-		const path = hovered[i].path;
+		const path = hovered[i].path
 
-		context.beginPath();
+		context.beginPath()
 
 		if (path[0]) {
-			//context.moveTo(path[0][0]*zoom, path[0][1]*zoom);
-			context.moveTo(path[0][0], path[0][1]);
+			//context.moveTo(path[0][0]*zoom, path[0][1]*zoom)
+			context.moveTo(path[0][0], path[0][1])
 		}
 
 		for (let p = 1; p < path.length; p++) {
-			//context.lineTo(path[p][0]*zoom, path[p][1]*zoom);
-			context.lineTo(path[p][0], path[p][1]);
+			//context.lineTo(path[p][0]*zoom, path[p][1]*zoom)
+			context.lineTo(path[p][0], path[p][1])
 		}
 
-		context.closePath();
+		context.closePath()
 
-		context.globalCompositeOperation = "source-over";
+		context.globalCompositeOperation = "source-over"
 
-		let hoverStrokeStyle;
+		let hoverStrokeStyle
 		switch (hovered[i].diff) {
 			case "add":
-				hoverStrokeStyle = "rgba(0, 155, 0, 1)";
-				break;
+				hoverStrokeStyle = "rgba(0, 155, 0, 1)"
+				break
 			case "edit":
-				hoverStrokeStyle = "rgba(155, 155, 0, 1)";
-				break;
+				hoverStrokeStyle = "rgba(155, 155, 0, 1)"
+				break
 			default:
-				hoverStrokeStyle = "rgba(0, 0, 0, 1)";
-				break;
+				hoverStrokeStyle = "rgba(0, 0, 0, 1)"
+				break
 		}
-		context.strokeStyle = hoverStrokeStyle;
-		//context.lineWidth = zoom;
-		context.stroke();
+		context.strokeStyle = hoverStrokeStyle
+		//context.lineWidth = zoom
+		context.stroke()
 	}
 
 }
@@ -664,72 +664,72 @@ function updateHovering(e, tapped) {
 		const pos = [
 			(e.clientX - (container.clientWidth / 2 - innerContainer.clientWidth / 2 + zoomOrigin[0] + container.offsetLeft)) / zoom
 			, (e.clientY - (container.clientHeight / 2 - innerContainer.clientHeight / 2 + zoomOrigin[1] + container.offsetTop)) / zoom
-		];
-		const coords_p = document.getElementById("coords_p");
+		]
+		const coords_p = document.getElementById("coords_p")
 
 		// Displays coordinates as zero instead of NaN
 		if (isNaN(pos[0]) == true) {
-			coords_p.innerText = "0, 0";
+			coords_p.innerText = "0, 0"
 		} else {
-			coords_p.innerText = Math.ceil(pos[0]) + ", " + Math.ceil(pos[1]);
+			coords_p.innerText = Math.ceil(pos[0]) + ", " + Math.ceil(pos[1])
 		}
 
 		if (pos[0] <= 2200 && pos[0] >= -100 && pos[0] <= 2200 && pos[0] >= -100) {
-			const newHovered = [];
+			const newHovered = []
 			for (let i = 0; i < atlas.length; i++) {
 				if (pointIsInPolygon(pos, atlas[i].path)) {
-					newHovered.push(atlas[i]);
+					newHovered.push(atlas[i])
 				}
 			}
 
-			let changed = false;
+			let changed = false
 
 			if (hovered.length == newHovered.length) {
 				for (let i = 0; i < hovered.length; i++) {
 					if (hovered[i].id != newHovered[i].id) {
-						changed = true;
-						break;
+						changed = true
+						break
 					}
 				}
 			} else {
-				changed = true;
+				changed = true
 			}
 
 			if (changed) {
 				hovered = newHovered.sort(function (a, b) {
-					return calcPolygonArea(a.path) - calcPolygonArea(b.path);
-				});
+					return calcPolygonArea(a.path) - calcPolygonArea(b.path)
+				})
 
-				objectsContainer.replaceChildren();
+				objectsContainer.replaceChildren()
 
 				for (const i in hovered) {
-					const element = createInfoBlock(hovered[i]);
+					const element = createInfoBlock(hovered[i])
 
-					objectsContainer.appendChild(element);
+					objectsContainer.appendChild(element)
 
-					hovered[i].element = element;
+					hovered[i].element = element
 				}
 
-				if (hovered.length > 0){
-					document.getElementById("timeControlsSlider").blur();
-					closeObjectsListButton.classList.remove("d-none");
+				if (hovered.length > 0) {
+					document.getElementById("timeControlsSlider").blur()
+					closeObjectsListButton.classList.remove("d-none")
 					if ((objectsContainer.scrollHeight > objectsContainer.clientHeight) && !tapped) {
-						objectsListOverflowNotice.classList.remove("d-none");
+						objectsListOverflowNotice.classList.remove("d-none")
 					} else {
-						objectsListOverflowNotice.classList.add("d-none");
+						objectsListOverflowNotice.classList.add("d-none")
 					}
 				} else {
-					closeObjectsListButton.classList.add("d-none");
-					objectsListOverflowNotice.classList.add("d-none");
+					closeObjectsListButton.classList.add("d-none")
+					objectsListOverflowNotice.classList.add("d-none")
 				}
 
-				render();
+				render()
 			}
 		}
 	}
 }
 
-window.addEventListener("hashchange", highlightEntryFromUrl);
+window.addEventListener("hashchange", highlightEntryFromUrl)
 
 function highlightEntryFromUrl() {
 
@@ -737,7 +737,7 @@ function highlightEntryFromUrl() {
 	const [id, period] = hash.split('/')
 
 	if (period) {
-		const [ , targetPeriod, targetVariation] = parsePeriod(period)
+		const [, targetPeriod, targetVariation] = parsePeriod(period)
 		updateTime(targetPeriod, targetVariation, true)
 	} else {
 		updateTime(defaultPeriod, defaultVariation, true)
@@ -746,61 +746,61 @@ function highlightEntryFromUrl() {
 	if (id) {
 
 		const entries = atlas.filter(function (e) {
-			return e.id === id;
-		});
-	
+			return e.id === id
+		})
+
 		if (entries.length === 1) {
-			const entry = entries[0];
-	
-			document.title = entry.name + " on the 2022 r/place Atlas";
-	
+			const entry = entries[0]
+
+			document.title = entry.name + " on the 2022 r/place Atlas"
+
 			if ((!entry.diff || entry.diff !== "delete")) {
 				if (document.getElementById("objectEditNav")) {
-					document.getElementById("objectEditNav").href = "./?mode=draw&id=" + id;
-					document.getElementById("objectEditNav").title = "Edit " + entry.name;
+					document.getElementById("objectEditNav").href = "./?mode=draw&id=" + id
+					document.getElementById("objectEditNav").title = "Edit " + entry.name
 				} else {
-					const objectEditNav = document.createElement("a");
-					objectEditNav.className = "btn btn-outline-primary";
-					objectEditNav.id = "objectEditNav";
-					objectEditNav.innerText = "Edit";
-					objectEditNav.href = "./?mode=draw&id=" + id;
-					objectEditNav.title = "Edit " + entry.name;
-					document.getElementById("showListButton").parentElement.appendChild(objectEditNav);
+					const objectEditNav = document.createElement("a")
+					objectEditNav.className = "btn btn-outline-primary"
+					objectEditNav.id = "objectEditNav"
+					objectEditNav.innerText = "Edit"
+					objectEditNav.href = "./?mode=draw&id=" + id
+					objectEditNav.title = "Edit " + entry.name
+					document.getElementById("showListButton").parentElement.appendChild(objectEditNav)
 				}
 			} else if (entry.diff == "delete" && document.getElementById("objectEditNav")) {
-				document.getElementById("objectEditNav").remove();
+				document.getElementById("objectEditNav").remove()
 			}
-	
-			const infoElement = createInfoBlock(entry);
-			objectsContainer.replaceChildren();
-			objectsContainer.appendChild(infoElement);
-	
-			//console.log(entry.center[0]);
-			//console.log(entry.center[1]);
-	
-			zoom = 4;
-			renderBackground(atlas);
-			applyView();
-	
+
+			const infoElement = createInfoBlock(entry)
+			objectsContainer.replaceChildren()
+			objectsContainer.appendChild(infoElement)
+
+			//console.log(entry.center[0])
+			//console.log(entry.center[1])
+
+			zoom = 4
+			renderBackground(atlas)
+			applyView()
+
 			zoomOrigin = [
 				innerContainer.clientWidth / 2 - entry.center[0] * zoom// + container.offsetLeft
 				, innerContainer.clientHeight / 2 - entry.center[1] * zoom// + container.offsetTop
-			];
-	
+			]
+
 			scaleZoomOrigin = [
 				2000 / 2 - entry.center[0]// + container.offsetLeft
 				, 2000 / 2 - entry.center[1]// + container.offsetTop
-			];
-	
-			//console.log(zoomOrigin);
-	
-			applyView();
-			hovered = [entry];
-			render();
-			hovered[0].element = infoElement;
-			closeObjectsListButton.classList.remove("d-none");
-			updateLines();
-			fixed = true;
+			]
+
+			//console.log(zoomOrigin)
+
+			applyView()
+			hovered = [entry]
+			render()
+			hovered[0].element = infoElement
+			closeObjectsListButton.classList.remove("d-none")
+			updateLines()
+			fixed = true
 		}
 
 	}
@@ -809,9 +809,9 @@ function highlightEntryFromUrl() {
 
 function initView() {
 
-	buildObjectsList(null, null);
-	renderBackground(atlas);
-	render();
+	buildObjectsList(null, null)
+	renderBackground(atlas)
+	render()
 
 	document.addEventListener('timeupdate', (event) => {
 		sortedAtlas = atlas.concat()
@@ -820,14 +820,14 @@ function initView() {
 
 	// parse linked atlas entry id from link hash
 	/*if (window.location.hash.substring(3)){
-		zoom = 4;
-		applyView();
-		highlightEntryFromUrl();
+		zoom = 4
+		applyView()
+		highlightEntryFromUrl()
 	}*/
 
-	applyView();
-	render();
-	updateLines();
+	applyView()
+	render()
+	updateLines()
 
 }
 
@@ -841,16 +841,16 @@ function initExplore() {
 			const pos = [
 				(e.clientX - (container.clientWidth / 2 - innerContainer.clientWidth / 2 + zoomOrigin[0] + container.offsetLeft)) / zoom
 				, (e.clientY - (container.clientHeight / 2 - innerContainer.clientHeight / 2 + zoomOrigin[1] + container.offsetTop)) / zoom
-			];
-			const coords_p = document.getElementById("coords_p");
-			coords_p.innerText = Math.ceil(pos[0]) + ", " + Math.ceil(pos[1]);
+			]
+			const coords_p = document.getElementById("coords_p")
+			coords_p.innerText = Math.ceil(pos[0]) + ", " + Math.ceil(pos[1])
 
 		}
 	}
 
-	renderBackground(atlas);
+	renderBackground(atlas)
 
-	applyView();
+	applyView()
 
 }
 
@@ -858,12 +858,12 @@ function initGlobal() {
 	container.addEventListener("mousemove", function (e) {
 		if (e.sourceCapabilities) {
 			if (!e.sourceCapabilities.firesTouchEvents) {
-				updateHovering(e);
+				updateHovering(e)
 			}
 		} else {
-			updateHovering(e);
+			updateHovering(e)
 		}
-	});
+	})
 }
 
 function initViewGlobal() {
@@ -871,46 +871,46 @@ function initViewGlobal() {
 		lastPos = [
 			e.clientX
 			, e.clientY
-		];
-	});
+		]
+	})
 
 	container.addEventListener("touchstart", function (e) {
 		if (e.touches.length == 1) {
 			lastPos = [
 				e.touches[0].clientX
 				, e.touches[0].clientY
-			];
+			]
 		}
-	}, { passive: true });
+	}, { passive: true })
 
 	container.addEventListener("mouseup", function (e) {
 		if (Math.abs(lastPos[0] - e.clientX) + Math.abs(lastPos[1] - e.clientY) <= 4) {
-			toggleFixed(e);
+			toggleFixed(e)
 		}
-	});
+	})
 
 	container.addEventListener("touchend", function (e) {
 		e.preventDefault()
 
-		//console.log(e);
-		//console.log(e.changedTouches[0].clientX);
+		//console.log(e)
+		//console.log(e.changedTouches[0].clientX)
 		if (e.changedTouches.length == 1) {
-			e = e.changedTouches[0];
-			//console.log(lastPos[0] - e.clientX);
+			e = e.changedTouches[0]
+			//console.log(lastPos[0] - e.clientX)
 			if (Math.abs(lastPos[0] - e.clientX) + Math.abs(lastPos[1] - e.clientY) <= 4) {
-				//console.log("Foo!!");
-				dragging = false;
-				fixed = false;
+				//console.log("Foo!!")
+				dragging = false
+				fixed = false
 				setTimeout(
 					function () {
-						updateHovering(e, true);
+						updateHovering(e, true)
 					}
-					, 10);
+					, 10)
 			}
 		}
-	});
+	})
 
 	if (window.location.hash) { // both "/" and just "/#" will be an empty hash string
-		highlightEntryFromUrl();
+		highlightEntryFromUrl()
 	}
 }
