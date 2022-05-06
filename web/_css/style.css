@@ -92,8 +92,6 @@ body[data-mode]:not([data-mode="draw"]) #drawNavButtons, [data-mode="draw"] #def
 	margin-left: 400px;
 	touch-action: manipulation;
 	overflow: hidden;
-	overflow-x: hidden;
-	overflow-y: hidden;
 }
 
 #loading {
@@ -123,6 +121,12 @@ body[data-init-done] .listTransitioning #innerContainer {
 	transition: left .3s ease-in-out;
 }
 
+@media (prefers-reduced-motion: reduce) {
+	body[data-init-done] .listTransitioning #innerContainer {
+		transition: none;
+	}
+}
+
 #image {
 	position: absolute;
 	height: 100%;
@@ -139,6 +143,10 @@ body[data-init-done] .listTransitioning #innerContainer {
 	width: 100%;
 	image-rendering: -webkit-optimize-contrast;
 	image-rendering: pixelated;
+}
+
+#atlasSize:empty {
+	display: none;
 }
 
 #searchList {
@@ -230,9 +238,15 @@ body[data-init-done] .listTransitioning #innerContainer {
     bottom: 0;
     left: 0;
     right: 0;
-	transition: left .3s ease-in-out;
+	transition: left .3s ease-in-out, margin-left .3s ease-in-out;
 	margin-left: env(safe-area-inset-right);
 	margin-right: env(safe-area-inset-right);
+}
+
+@media (prefers-reduced-motion: reduce) {
+	#bottomBar {
+		transition: none;
+	}
 }
 
 #wrapper:not(.listHidden) > #bottomBar {
@@ -282,6 +296,7 @@ body[data-init-done] .listTransitioning #innerContainer {
 		margin-left: auto;
 	}
 }
+
 #timeControls {
 	display: flex;
 	align-items: center;
@@ -309,13 +324,18 @@ body[data-init-done] #timeControlsTooltip[data-force-visible] {
 	visibility: visible;
 }
 
+#timeControlsSlider {
+	-webkit-appearance: none;
+	appearance: none;
+}
+
 #timeControlsSlider::-webkit-slider-thumb {
 	-webkit-appearance: none;
 	appearance: none;
 	width: 0.75rem;
 	height: 1.5rem;
 	margin-top: -0.25rem;
-	border-radius: .25rem !important;
+	border-radius: .25rem;
 	outline: 1px solid var(--bs-body-bg);
 }
 
@@ -328,7 +348,7 @@ body[data-init-done] #timeControlsTooltip[data-force-visible] {
 	width: 0.75rem;
 	height: 1.5rem;
 	margin-top: -0.25rem;
-	border-radius: .25rem !important;
+	border-radius: .25rem;
 	outline: 1px solid var(--bs-body-bg);
 }
 
@@ -342,50 +362,14 @@ body[data-init-done] #timeControlsTooltip[data-force-visible] {
 	transition: box-shadow 0.15s ease-in-out;
 }
 
+@media (prefers-reduced-motion: reduce) {
+	#entriesList .card {
+		transition: none;
+	}
+}
+
 #entriesList .card:hover {
 	box-shadow: 0 0 0 .15rem rgba(var(--bs-primary-rgb), .75) !important;
-}
-
-#entriesListNav {
-	margin: 10px 0;
-	display: flex;
-	flex-shrink: 0;
-	justify-content: center;
-}
-
-#entriesListNav > * {
-	display: block;
-	cursor: pointer;
-	width: 120px;
-	height: 30px;
-	margin-right: 10px;
-}
-
-#entriesListNav > .small {
-	width: 30px;
-	padding: 2px;
-	flex-shrink: 0;
-}
-
-#entriesListNav > .small > img,
-#entriesListNav > .small > svg {
-	height: 22px;
-	width: 22px;
-}
-
-#entriesListNav > .small:last-child {
-	margin-right: 0;
-}
-
-#entriesListNav > a:hover {
-	text-decoration: none;
-	background-image: linear-gradient(to bottom, #999, #777);
-}
-
-#entriesListNav > .small:hover {
-	background-image: none;
-	background: transparent;
-	border-color: transparent;
 }
 
 [data-mode="explore"] #entriesListControls {
@@ -402,6 +386,12 @@ body:not([data-dev]) .show-only-on-dev {
 
 .period-group {
 	transition: box-shadow 0.15s ease-in-out;
+}
+
+@media (prefers-reduced-motion:reduce) {
+    .period-group {
+        transition: none;
+    }
 }
 
 .period-group[data-active=true] {
@@ -431,12 +421,6 @@ body:not([data-dev]) .show-only-on-dev {
 .period-group.no-time-slider input,
 .period-group.no-time-slider label {
 	display: none;
-}
-
-@media (prefers-reduced-motion: reduce) {
-	body[data-init-done] .listTransitioning #innerContainer, #bottomBar {
-		transition: none !important;
-	}
 }
 
 /* purgecss end ignore */
