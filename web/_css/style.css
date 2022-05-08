@@ -238,10 +238,13 @@ body[data-init-done] .listTransitioning #innerContainer {
 	bottom: 0;
 	left: 0;
 	right: 0;
-	transition: left .3s ease-in-out, padding-left .3s linear;
 	padding-left: max(0.5rem, env(safe-area-inset-left)) !important;
 	padding-right: max(0.5rem, env(safe-area-inset-right)) !important;
 	padding-bottom: max(0.5rem, env(safe-area-inset-bottom)) !important;
+}
+
+#wrapper.listTransitioning #bottomBar {
+    transition: left .3s ease-in-out, padding-left .3s linear;
 }
 
 @media (prefers-reduced-motion: reduce) {
@@ -369,7 +372,7 @@ body[data-init-done] #timeControlsTooltip[data-force-visible] {
 	}
 }
 
-#entriesList .card:hover {
+#entriesList:not(.disableHover) .card:hover {
 	box-shadow: 0 0 0 .15rem rgba(var(--bs-primary-rgb), .75) !important;
 }
 

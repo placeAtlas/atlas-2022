@@ -32,12 +32,8 @@ const periodsAdd = document.getElementById('periodsAdd')
 const exportButton = document.getElementById("exportButton")
 const cancelButton = document.getElementById("cancelButton")
 
-const exportModal = new bootstrap.Modal(document.getElementById("exportModal"))
 const exportModalElement = document.getElementById("exportModal")
-
-const exportOverlay = document.getElementById("exportOverlay")
-const exportCloseButton = document.getElementById("exportCloseButton")
-const exportBackButton = document.getElementById("exportBackButton")
+const exportModal = new bootstrap.Modal(exportModalElement)
 
 const nameField = document.getElementById("nameField")
 const descriptionField = document.getElementById("descriptionField")
@@ -63,7 +59,7 @@ let pathWithPeriods = []
 let periodGroupElements = []
 
 let disableDrawingOverride = false
-let drawing = true
+let drawing = false
 
 let undoHistory = []
 
@@ -81,16 +77,13 @@ const periodClipboard = {
 
 window.initDraw = initDraw
 function initDraw() {
+	// Adds exit draw button and removes list button
+	showListButton.insertAdjacentHTML("afterend", '<button class="btn btn-outline-primary" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasDraw" aria-controls="offcanvasDraw">Menu</button><a id="drawBackButton" class="btn btn-outline-primary" href="./">Exit Draw Mode</a>')
+	showListButton.remove()
 
+	// Opens draw menu
 	wrapper.classList.remove('listHidden')
-
-	var backButton = document.getElementById("showListButton")
-	backButton.insertAdjacentHTML("afterend", '<button class="btn btn-outline-primary" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasDraw" aria-controls="offcanvasDraw">Menu</button><a id="drawBackButton" class="btn btn-outline-primary" href="./">Exit Draw Mode</a>')
-	backButton.remove()
-
-	var myOffcanvas = document.getElementById("offcanvasDraw")
-	var bsOffcanvas = new bootstrap.Offcanvas(myOffcanvas)
-	bsOffcanvas.show()
+	bsOffcanvasDraw.show()
 
 	window.render = render
 	window.renderBackground = renderBackground
@@ -143,7 +136,6 @@ function initDraw() {
 	}
 
 	container.addEventListener("mouseup", function (e) {
-
 
 		if (Math.abs(lastPos[0] - e.clientX) + Math.abs(lastPos[1] - e.clientY) <= 4 && drawing) {
 
@@ -339,6 +331,7 @@ function initDraw() {
 		updatePath()
 		drawing = false
 		disableDrawingOverride = true
+		container.style.cursor = "default"
 		objectInfoBody.classList.remove("d-none")
 		drawControlsBody.classList.add("d-none")
 		;[...document.querySelectorAll("#objectInfo textarea")].forEach(el => {
@@ -397,6 +390,7 @@ function initDraw() {
 	function back() {
 		drawing = true
 		disableDrawingOverride = false
+		container.style.cursor = "crosshair"
 		updatePath()
 		objectInfoBody.classList.add("d-none")
 		drawControlsBody.classList.remove("d-none")
@@ -498,16 +492,13 @@ function initDraw() {
 
 
 	function addFieldButton(inputButton, inputGroup, array, index, name) {
-		console.log("add button fired")
 		if (inputButton.title == "Remove " + name) {
-			console.log("add (now remove) button fired")
 			removeFieldButton(inputGroup, array, index)
 			return
 		}
 		inputButton.className = "btn btn-outline-secondary"
 		inputButton.title = "Remove " + name
 		inputButton.innerHTML = '<i class="bi bi-trash-fill" aria-hidden="true"></i>'
-		console.log(array)
 		if (name == "website") {
 			addWebsiteFields(null, array.length, array)
 		} else if (name == "subreddit") {
@@ -520,10 +511,8 @@ function initDraw() {
 	}
 
 	function removeFieldButton(inputGroup, array, index) {
-		console.log("remove button fired")
 		delete array[index]
 		inputGroup.remove()
-		console.log(array)
 	}
 
 	function addWebsiteFields(link, index, array) {
@@ -703,7 +692,9 @@ function initDraw() {
 	}
 
 	if (params.has('id')) {
-		const entry = getEntry(params.get('id'))
+		entryId = params.get('id')
+		const entry = getEntry(entryId)
+
 		nameField.value = entry.name
 		descriptionField.value = entry.description
 
@@ -737,7 +728,6 @@ function initDraw() {
 		}
 		redoButton.disabled = true
 		undoButton.disabled = false
-		entryId = params.get('id')
 
 		Object.entries(entry.path).forEach(([period, path]) => {
 			period.split(", ").forEach(period => {

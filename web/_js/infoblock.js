@@ -41,7 +41,7 @@ function createInfoBlock(entry, isPreview) {
 	linkElement.className = "text-decoration-none d-flex justify-content-between text-body"
 	if (isPreview) linkElement.href = "#"
 	else {
-		let targetPeriod = formatPeriod(currentPeriod, currentPeriod, currentVariation)
+		const targetPeriod = formatPeriod(currentPeriod, currentPeriod, currentVariation)
 		linkElement.href = "#" + entry.id
 		if (targetPeriod && targetPeriod != defaultPeriod) linkElement.href += "/" + targetPeriod
 	}
@@ -50,7 +50,7 @@ function createInfoBlock(entry, isPreview) {
 	linkNameElement.textContent = entry.name
 	headerElement.appendChild(linkElement)
 	linkElement.appendChild(linkNameElement)
-	linkElement.insertAdjacentHTML("beforeend", '<i class="bi bi-link-45deg align-self-center link-primary" aria-hidden="true"></i>');// '<svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" fill="currentColor" class="bi bi-link-45deg ms-1 align-self-center flex-shrink-0" viewBox="0 0 16 16"><path d="M4.715 6.542 3.343 7.914a3 3 0 1 0 4.243 4.243l1.828-1.829A3 3 0 0 0 8.586 5.5L8 6.086a1.002 1.002 0 0 0-.154.199 2 2 0 0 1 .861 3.337L6.88 11.45a2 2 0 1 1-2.83-2.83l.793-.792a4.018 4.018 0 0 1-.128-1.287z"/><path d="M6.586 4.672A3 3 0 0 0 7.414 9.5l.775-.776a2 2 0 0 1-.896-3.346L9.12 3.55a2 2 0 1 1 2.83 2.83l-.793.792c.112.42.155.855.128 1.287l1.372-1.372a3 3 0 1 0-4.243-4.243L6.586 4.672z"/></svg>')
+	linkElement.insertAdjacentHTML("beforeend", '<i class="bi bi-link-45deg align-self-center link-primary" aria-hidden="true"></i>')
 	element.appendChild(headerElement)
 
 	const bodyElement = document.createElement("div")
@@ -60,6 +60,7 @@ function createInfoBlock(entry, isPreview) {
 	if (entry.description) {
 		const descElement = document.createElement("div")
 		descElement.id = "objectDescription"
+		// Formats single line break as  br and two line breaks as a new paragraph
 		let formattedDesc = entry.description.replace(/\n{2}/g, '</p><p>')
 		formattedDesc = formattedDesc.replace(/\n/g, '<br>')
 		descElement.innerHTML = '<p>' + formattedDesc + '</p>'
@@ -75,7 +76,7 @@ function createInfoBlock(entry, isPreview) {
 	element.appendChild(listElement)
 
 	if (entry.diff) {
-		let diffElement = createInfoListItem("Diff: ", entry.diff)
+		const diffElement = createInfoListItem("Diff: ", entry.diff)
 		if (entry.diff == "add") {
 			diffElement.className = "list-group-item list-group-item-success"
 		} else if (entry.diff == "edit") {
@@ -86,6 +87,7 @@ function createInfoBlock(entry, isPreview) {
 		listElement.appendChild(diffElement)
 	}
 
+	// Enetry data submitted to preview does not include center or path
 	if (!isPreview) {
 		const [x, y] = entry.center
 		listElement.appendChild(createInfoListItem("Position: ", `${Math.floor(x)}, ${Math.floor(y)}`))
@@ -174,15 +176,16 @@ function createInfoBlock(entry, isPreview) {
 		})
 	}
 
+	// Adds id footer
 	const idElement = document.createElement("div")
 	idElement.className = "py-1"
 	createLabel("ID: ", entry.id, idElement)
-
 	const idElementContainer = document.createElement("div")
 	idElementContainer.className = "card-footer d-flex justify-content-between align-items-center"
 	idElementContainer.appendChild(idElement)
 	element.appendChild(idElementContainer)
 
+	// Adds edit button only if element is not deleted
 	if (!isPreview && (!entry.diff || entry.diff !== "delete")) {
 		const editElement = document.createElement("a")
 		editElement.textContent = "Edit"
@@ -192,6 +195,7 @@ function createInfoBlock(entry, isPreview) {
 		idElementContainer.appendChild(editElement)
 	}
 
+	// Removes empty elements
 	if (!bodyElement.hasChildNodes()) bodyElement.remove()
 	if (!linkListElement.hasChildNodes()) linkListElement.remove()
 	if (!listElement.hasChildNodes()) listElement.remove()

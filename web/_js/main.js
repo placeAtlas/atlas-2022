@@ -475,6 +475,8 @@ async function init() {
 	window.addEventListener("mouseup", function (e) {
 		if (hovered.length > 0) {
 			container.style.cursor = "pointer"
+		} else if (drawing == true) {
+			container.style.cursor = "crosshair"
 		} else {
 			container.style.cursor = "default"
 		}

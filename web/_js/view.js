@@ -27,6 +27,13 @@ const backgroundContext = backgroundCanvas.getContext("2d")
 
 const wrapper = document.getElementById("wrapper")
 
+const showListButton = document.getElementById("showListButton")
+const offcanvasList = document.getElementById("offcanvasList")
+const bsOffcanvasList = new bootstrap.Offcanvas(offcanvasList)
+
+const offcanvasDraw = document.getElementById("offcanvasDraw")
+const bsOffcanvasDraw = new bootstrap.Offcanvas(offcanvasDraw)
+
 const objectsContainer = document.getElementById("objectsList")
 const closeObjectsListButton = document.getElementById("closeObjectsListButton")
 const objectsListOverflowNotice = document.getElementById("objectsListOverflowNotice")
@@ -34,7 +41,7 @@ const objectsListOverflowNotice = document.getElementById("objectsListOverflowNo
 const filterInput = document.getElementById("searchList")
 
 const entriesList = document.getElementById("entriesList")
-const hideListButton = document.getElementById("hideListButton")
+
 let entriesListShown = false
 
 let sortedAtlas
@@ -61,9 +68,9 @@ let lastPos = [0, 0]
 
 let fixed = false; // Fix hovered items in place, so that clicking on links is possible
 
-filterInput.addEventListener("input", function (e) {
+filterInput.addEventListener("input", function () {
 	entriesOffset = 0
-	entriesList.innerHTML = ""
+	entriesList.replaceChildren()
 	entriesList.appendChild(moreEntriesButton)
 
 	if (this.value === "") {
@@ -77,50 +84,42 @@ filterInput.addEventListener("input", function (e) {
 
 })
 
-document.getElementById("sort").addEventListener("input", function (e) {
+document.getElementById("sort").addEventListener("input", function () {
 	if (this.value != "relevant") {
 		defaultSort = this.value
 	}
-
 	resetEntriesList(filterInput.value.toLowerCase(), this.value)
-
 })
 
-var showDraw = document.getElementById('offcanvasDraw')
-showDraw.addEventListener('show.bs.offcanvas', function () {
+offcanvasDraw.addEventListener('show.bs.offcanvas', function () {
 	wrapper.classList.remove('listHidden')
 	wrapper.classList.add('listTransitioning')
 	applyView()
 })
 
-var shownDraw = document.getElementById('offcanvasDraw')
-shownDraw.addEventListener('shown.bs.offcanvas', function () {
+offcanvasDraw.addEventListener('shown.bs.offcanvas', function () {
 	wrapper.classList.remove('listTransitioning')
 	applyView()
 })
 
-var hideDraw = document.getElementById('offcanvasDraw')
-hideDraw.addEventListener('hide.bs.offcanvas', function () {
+offcanvasDraw.addEventListener('hide.bs.offcanvas', function () {
 	wrapper.classList.add('listHidden')
 	wrapper.classList.add('listTransitioning')
 	applyView()
 })
 
-var hiddenDraw = document.getElementById('offcanvasDraw')
-hiddenDraw.addEventListener('hidden.bs.offcanvas', function () {
+offcanvasDraw.addEventListener('hidden.bs.offcanvas', function () {
 	wrapper.classList.remove('listTransitioning')
 	applyView()
 })
 
-var showList = document.getElementById('offcanvasList')
-showList.addEventListener('show.bs.offcanvas', function (e) {
+offcanvasList.addEventListener('show.bs.offcanvas', function (e) {
 	wrapper.classList.remove('listHidden')
 	wrapper.classList.add('listTransitioning')
 	applyView()
 })
 
-var shownList = document.getElementById('offcanvasList')
-shownList.addEventListener('shown.bs.offcanvas', function (e) {
+offcanvasList.addEventListener('shown.bs.offcanvas', function (e) {
 	entriesListShown = true
 	wrapper.classList.remove('listTransitioning')
 	updateHovering(e)
@@ -129,15 +128,13 @@ shownList.addEventListener('shown.bs.offcanvas', function (e) {
 	updateLines()
 })
 
-var hideList = document.getElementById('offcanvasList')
-hideList.addEventListener('hide.bs.offcanvas', function (e) {
+offcanvasList.addEventListener('hide.bs.offcanvas', function () {
 	wrapper.classList.add('listHidden')
 	wrapper.classList.add('listTransitioning')
 	applyView()
 })
 
-var hiddenList = document.getElementById('offcanvasList')
-hiddenList.addEventListener('hidden.bs.offcanvas', function (e) {
+offcanvasList.addEventListener('hidden.bs.offcanvas', function (e) {
 	entriesListShown = false
 	wrapper.classList.remove('listTransitioning')
 	updateHovering(e)
@@ -147,11 +144,12 @@ hiddenList.addEventListener('hidden.bs.offcanvas', function (e) {
 })
 
 closeObjectsListButton.addEventListener("click", function () {
+	closeObjectsListButton.classList.add("d-none")
+	objectsListOverflowNotice.classList.add("d-none")
+	entriesList.classList.remove("disableHover")
 	hovered = []
 	objectsContainer.replaceChildren()
 	updateLines()
-	closeObjectsListButton.classList.add("d-none")
-	objectsListOverflowNotice.classList.add("d-none")
 	fixed = false
 	render()
 })
@@ -159,6 +157,7 @@ closeObjectsListButton.addEventListener("click", function () {
 
 function toggleFixed(e, tapped) {
 	if (!fixed && hovered.length == 0) {
+		entriesList.classList.remove("disableHover")
 		return 0
 	}
 	fixed = !fixed
@@ -166,6 +165,7 @@ function toggleFixed(e, tapped) {
 		updateHovering(e, tapped)
 		render()
 	}
+	entriesList.classList.add("disableHover")
 	objectsListOverflowNotice.classList.add("d-none")
 }
 
@@ -174,14 +174,14 @@ window.addEventListener("mousemove", updateLines)
 window.addEventListener("dblClick", updateLines)
 window.addEventListener("wheel", updateLines)
 
-
-objectsContainer.addEventListener("scroll", function (e) {
+objectsContainer.addEventListener("scroll", function () {
 	updateLines()
 })
 
 window.addEventListener("resize", function (e) {
 	//console.log(document.documentElement.clientWidth, document.documentElement.clientHeight)
 
+	// Legacy code
 	let viewportWidth = document.documentElement.clientWidth
 
 	if (document.documentElement.clientWidth > 2000 && viewportWidth <= 2000) {
@@ -490,10 +490,13 @@ function buildObjectsList(filter = null, sort = null) {
 				previousScaleZoomOrigin = [scaleZoomOrigin[0], scaleZoomOrigin[1]]
 				applyView()
 			}
-			if (document.documentElement.clientWidth < 500) {
+			// Legacy code
+			/*if (document.documentElement.clientWidth < 500) {
 				objectsContainer.replaceChildren()
 
 				entriesListShown = false
+				
+				bsOffcanvasList.hide()
 				wrapper.classList.add("listHidden")
 
 				zoom = 4
@@ -523,11 +526,10 @@ function buildObjectsList(filter = null, sort = null) {
 				render()
 				updateLines()
 
-			}
-
+			}*/
 		})
 
-		element.addEventListener("mouseleave", function (e) {
+		element.addEventListener("mouseleave", function () {
 			if (!fixed && !dragging) {
 				zoomOrigin = [previousScaleZoomOrigin[0] * zoom, previousScaleZoomOrigin[1] * zoom]
 				scaleZoomOrigin = [previousScaleZoomOrigin[0], previousScaleZoomOrigin[1]]
@@ -738,8 +740,8 @@ function updateHovering(e, tapped) {
 				} else {
 					closeObjectsListButton.classList.add("d-none")
 					objectsListOverflowNotice.classList.add("d-none")
+					entriesList.classList.remove("disableHover")
 				}
-
 				render()
 			}
 		}
@@ -782,7 +784,7 @@ function highlightEntryFromUrl() {
 					objectEditNav.innerText = "Edit"
 					objectEditNav.href = "./?mode=draw&id=" + id
 					objectEditNav.title = "Edit " + entry.name
-					document.getElementById("showListButton").parentElement.appendChild(objectEditNav)
+					showListButton.parentElement.appendChild(objectEditNav)
 				}
 			} else if (entry.diff == "delete" && document.getElementById("objectEditNav")) {
 				document.getElementById("objectEditNav").remove()
@@ -811,11 +813,13 @@ function highlightEntryFromUrl() {
 
 			//console.log(zoomOrigin)
 
+			closeObjectsListButton.classList.remove("d-none")
+			entriesList.classList.add("disableHover")
+
 			applyView()
 			hovered = [entry]
 			render()
 			hovered[0].element = infoElement
-			closeObjectsListButton.classList.remove("d-none")
 			updateLines()
 			fixed = true
 		}
