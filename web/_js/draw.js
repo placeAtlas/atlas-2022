@@ -1052,6 +1052,10 @@ function updateErrors() {
 			else periodGroupEl.dataset.status = ""
 		})
 	}
+
+	if (Object.keys(conflicts).length === 0) drawing = true
+	else drawing = false
+
 }
 
 function getConflicts() {
