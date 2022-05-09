@@ -738,6 +738,8 @@ function initDraw() {
 	} else {
 		document.getElementById("offcanvasDrawLabel").textContent = "New Entry"
 		pathWithPeriods.push([defaultPeriod, []])
+
+		// Builds multi-input list
 		addWebsiteFields("", 0, [0])
 		addSubredditFields("", 0, [0])
 		addDiscordFields("", 0, [0])
@@ -760,7 +762,7 @@ function initDraw() {
 
 	applyView()
 
-	document.addEventListener('timeupdate', (event) => {
+	document.addEventListener('timeupdate', () => {
 		renderBackground()
 		updatePeriodGroups()
 	})
@@ -1000,7 +1002,6 @@ function updatePeriodGroups() {
 	}
 
 	drawing = disableDrawingOverride ? false : currentActivePathIndex !== undefined
-
 }
 
 function updatePath(newPath, newUndoHistory) {
@@ -1044,7 +1045,7 @@ function updateErrors() {
 		periodsStatus.textContent = `Problems detected. Please check the groups indicated by red.`
 		finishButton.disabled = true
 	} else {
-		periodsStatus.textContent = ``
+		periodsStatus.textContent = ""
 		finishButton.disabled = false
 		periodGroupElements.forEach((elements, index) => {
 			const { periodGroupEl } = elements
@@ -1053,9 +1054,16 @@ function updateErrors() {
 		})
 	}
 
-	if (Object.keys(conflicts).length === 0) drawing = true
-	else drawing = false
-
+	// Disable drawing during conflict
+	if (Object.keys(conflicts).length === 0) {
+		drawing = true
+		disableDrawingOverride = false
+		container.style.cursor = "crosshair"
+	} else {
+		drawing = false
+		disableDrawingOverride = true
+		container.style.cursor = "default"
+	}
 }
 
 function getConflicts() {
