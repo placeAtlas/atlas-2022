@@ -243,6 +243,10 @@ body[data-init-done] .listTransitioning #innerContainer {
 	padding-bottom: max(0.5rem, env(safe-area-inset-bottom)) !important;
 }
 
+#bottomBar:hover {
+	z-index: 1;
+}
+
 #wrapper.listTransitioning #bottomBar {
     transition: left .3s ease-in-out, padding-left .3s linear;
 }
@@ -392,12 +396,6 @@ body:not([data-dev]) .show-only-on-dev {
 	transition: box-shadow 0.15s ease-in-out;
 }
 
-@media (prefers-reduced-motion: reduce) {
-	.period-group {
-		transition: none;
-	}
-}
-
 .period-group[data-active=true] {
 	box-shadow: 0 0 0 .15rem rgba(var(--bs-primary-rgb), .75);
 }
@@ -411,11 +409,30 @@ body:not([data-dev]) .show-only-on-dev {
 }
 
 .period-group[data-active=true][data-status=error] {
-	box-shadow: 0 0 0 .15rem rgba(var(--bs-danger-rgb), .75);
+	animation: 1s infinite alternate periodGroupActiveError;
 }
 
 .period-group[data-status=error] {
-	box-shadow: 0 0 0 .1rem rgba(var(--bs-danger-rgb), .5);
+	box-shadow: 0 0 0 .1rem rgba(var(--bs-danger-rgb), .25);
+}
+
+@media (prefers-reduced-motion: reduce) {
+	.period-group {
+		transition: none;
+	}
+	.period-group[data-active=true][data-status=error] {
+		box-shadow: 0 0 0 .15rem rgba(var(--bs-danger-rgb), 1);
+		animation: none;
+	}
+}
+
+@keyframes periodGroupActiveError {
+	from {
+		box-shadow: 0 0 0 .15rem rgba(var(--bs-danger-rgb), 1);
+	}
+	to {
+		box-shadow: 0 0 0 .15rem rgba(var(--bs-danger-rgb), .5);
+	}
 }
 
 #periods #periodsStatus:empty {

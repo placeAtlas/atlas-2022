@@ -186,8 +186,8 @@ async function updateTime(newPeriod = currentPeriod, newVariation = currentVaria
 			currentPeriod = variationConfig.default
 			newPeriod = currentPeriod
 		}
-		if (variationConfig.versions.length === 1) document.getElementById("bottomBar").classList.add('no-time-slider')
-		else document.getElementById("bottomBar").classList.remove('no-time-slider')
+		if (variationConfig.versions.length === 1) bottomBar.classList.add('no-time-slider')
+		else bottomBar.classList.remove('no-time-slider')
 	}
 	timelineSlider.value = currentPeriod
 	updateTooltip(newPeriod, newVariation)

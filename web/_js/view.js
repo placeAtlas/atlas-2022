@@ -26,6 +26,7 @@ backgroundCanvas.height = 2000
 const backgroundContext = backgroundCanvas.getContext("2d")
 
 const wrapper = document.getElementById("wrapper")
+const bottomBar = document.getElementById("bottomBar")
 
 const showListButton = document.getElementById("showListButton")
 const offcanvasList = document.getElementById("offcanvasList")
@@ -143,7 +144,13 @@ offcanvasList.addEventListener('hidden.bs.offcanvas', function (e) {
 	updateLines()
 })
 
-closeObjectsListButton.addEventListener("click", function () {
+closeObjectsListButton.addEventListener("click", clearObjectsList)
+
+bottomBar.addEventListener("mouseover", function () {
+	if (!fixed) clearObjectsList()
+})
+
+function clearObjectsList() {
 	closeObjectsListButton.classList.add("d-none")
 	objectsListOverflowNotice.classList.add("d-none")
 	entriesList.classList.remove("disableHover")
@@ -152,8 +159,7 @@ closeObjectsListButton.addEventListener("click", function () {
 	updateLines()
 	fixed = false
 	render()
-})
-
+}
 
 function toggleFixed(e, tapped) {
 	if (!fixed && hovered.length == 0) {
