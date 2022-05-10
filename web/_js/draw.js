@@ -843,7 +843,11 @@ function initPeriodGroups() {
 		startPeriodEl.max = variationsConfig[variation].drawablePeriods[1]
 		endPeriodEl.max = variationsConfig[variation].drawablePeriods[1]
 		startPeriodEl.value = start
+		if (startPeriodEl.value == startPeriodEl.min) startPeriodLeftEl.disabled = true
+		if (startPeriodEl.value == startPeriodEl.max) startPeriodRightEl.disabled = true
 		endPeriodEl.value = end
+		if (endPeriodEl.value == endPeriodEl.min) endPeriodLeftEl.disabled = true
+		if (endPeriodEl.value == endPeriodEl.max) endPeriodRightEl.disabled = true
 
 		// Adds tick marks to assit in preventing overlap
 		startPeriodListEl.innerHTML = '<option value="' + (end - 1) + '"></option>'
@@ -880,7 +884,7 @@ function initPeriodGroups() {
 			timelineSlider.value = parseInt(value)
 			updateTime(parseInt(value), variation)
 			
-			// Set disabled states
+			// Set start incremental button disabled states
 			if (startPeriodEl.value == startPeriodEl.min) {
 				startPeriodLeftEl.disabled = true
 				startPeriodRightEl.disabled = false
@@ -916,7 +920,7 @@ function initPeriodGroups() {
 			timelineSlider.value = parseInt(value)
 			updateTime(parseInt(value), variation)
 
-			// Set disabled states
+			// Set end incremental button disabled states
 			if (endPeriodEl.value == endPeriodEl.min) {
 				endPeriodLeftEl.disabled = true
 				endPeriodRightEl.disabled = false
@@ -961,16 +965,12 @@ function initPeriodGroups() {
 				event.target.innerHTML = '<i class="bi bi-clipboard-x" aria-hidden="true"></i> End'
 				periodClipboard.index = index
 				periodClipboard.path = [...pathWithPeriods[index][1]]
-				startPeriodEl.disabled = true
-				endPeriodEl.disabled = true
 				updatePeriodGroups()
 			} else if (event.target.textContent === " End") {
 				event.target.className = "period-copy btn btn-secondary btn-sm flex-fill"
 				event.target.innerHTML = '<i class="bi bi-clipboard" aria-hidden="true"></i> Copy'
 				periodClipboard.index = null
 				periodClipboard.path = null
-				startPeriodEl.disabled = false
-				endPeriodEl.disabled = false
 				updatePeriodGroups()
 			} else if (event.target.textContent === " Paste") {
 				pathWithPeriods[index][1] = [...periodClipboard.path]
@@ -994,9 +994,16 @@ function initPeriodGroups() {
 		periodGroupElements.push({
 			periodGroupEl,
 			startPeriodEl,
+			startPeriodLeftEl,
+			startPeriodRightEl,
+			startPeriodViewEl,
 			endPeriodEl,
+			endPeriodLeftEl,
+			endPeriodRightEl,
+			endPeriodViewEl,
 			periodVariationEl,
 			periodCopyEl,
+			periodDeleteEl,
 			periodStatusEl
 		})
 	})
@@ -1014,10 +1021,14 @@ function updatePeriodGroups() {
 		const {
 			periodGroupEl,
 			startPeriodEl,
+			startPeriodLeftEl,
+			startPeriodRightEl,
 			endPeriodEl,
+			endPeriodLeftEl,
+			endPeriodRightEl,
 			periodVariationEl,
 			periodCopyEl,
-			periodStatusEl
+			periodDeleteEl
 		} = elements
 
 		if (periodGroupEl.dataset.active === "true") lastActivePathIndex = index
@@ -1046,19 +1057,60 @@ function updatePeriodGroups() {
 			if (index !== periodClipboard.index) {
 				periodCopyEl.innerHTML = '<i class="bi bi-clipboard-plus" aria-hidden="true"></i> Paste'
 				if (JSON.stringify(pathWithPeriods[index][1]) === JSON.stringify(periodClipboard.path)) {
+					// If contents are identical prevent pasting
 					periodCopyEl.innerHTML = '<i class="bi bi-clipboard-check" aria-hidden="true"></i> Paste'
 					periodCopyEl.disabled = true
 				} else {
+					// Ready to paste
 					periodCopyEl.innerHTML = '<i class="bi bi-clipboard-plus" aria-hidden="true"></i> Paste'
 					periodCopyEl.disabled = false
 				}
 			} else {
+				// Stop paste
 				periodCopyEl.className = "period-copy btn btn-primary btn-sm flex-fill"
 				periodCopyEl.innerHTML = '<i class="bi bi-clipboard-x" aria-hidden="true"></i> End'
+				periodDeleteEl.disabled = true
+				startPeriodEl.disabled = true
+				startPeriodLeftEl.disabled = true
+				startPeriodRightEl.disabled = true
+				endPeriodEl.disabled = true
+				endPeriodLeftEl.disabled = true
+				endPeriodRightEl.disabled = true
 			}
 		} else {
+			// Default state
 			periodCopyEl.innerHTML = '<i class="bi bi-clipboard" aria-hidden="true"></i> Copy'
 			periodCopyEl.disabled = false
+			startPeriodEl.disabled = false
+			endPeriodEl.disabled = false
+
+			// If one period disable delete
+			if (pathWithPeriods.length === 1) periodDeleteEl.disabled = true
+			else periodDeleteEl.disabled = false
+
+			// Set start incremental button disabled states
+			if (startPeriodEl.value == startPeriodEl.min) {
+				startPeriodLeftEl.disabled = true
+				startPeriodRightEl.disabled = false
+			} else if (startPeriodEl.value == startPeriodEl.max) {
+				startPeriodLeftEl.disabled = false
+				startPeriodRightEl.disabled = true
+			} else {
+				startPeriodLeftEl.disabled = false
+				startPeriodRightEl.disabled = false
+			}
+
+			// Set end incremental button disabled states
+			if (endPeriodEl.value == endPeriodEl.min) {
+				endPeriodLeftEl.disabled = true
+				endPeriodRightEl.disabled = false
+			} else if (endPeriodEl.value == endPeriodEl.max) {
+				endPeriodLeftEl.disabled = false
+				endPeriodRightEl.disabled = true
+			} else {
+				endPeriodLeftEl.disabled = false
+				endPeriodRightEl.disabled = false
+			}
 		}
 	})
 
@@ -1118,7 +1170,7 @@ function updateErrors() {
 	// console.log(conflicts, invalidPaths, allErrors)
 
 	periodGroupElements.forEach((el, index) => {
-		const { periodStatusEl, periodGroupEl } = el
+		const { periodStatusEl, startPeriodViewEl, endPeriodViewEl, periodGroupEl } = el
 		periodStatusEl.textContent = ""
 		periodStatusEl.classList.add("d-none")
 		if (conflicts[index] !== undefined) {
@@ -1126,6 +1178,11 @@ function updateErrors() {
 		}
 		if (insufficientPaths[index] !== undefined) {
 			periodStatusEl.textContent += `Insufficient paths. Got ${insufficientPaths[index]}, need at least 3.\n`
+			startPeriodViewEl.disabled = true
+			endPeriodViewEl.disabled = true
+		} else {
+			startPeriodViewEl.disabled = false
+			endPeriodViewEl.disabled = false
 		}
 		if (periodStatusEl.textContent !== "") {
 			periodStatusEl.classList.remove("d-none")
