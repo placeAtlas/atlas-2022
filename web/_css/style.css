@@ -243,7 +243,7 @@ body[data-init-done] .listTransitioning #innerContainer {
 	padding-bottom: max(0.5rem, env(safe-area-inset-bottom)) !important;
 }
 
-#bottomBar:hover {
+#bottomBar:hover, #bottomBar:focus-within {
 	z-index: 1;
 }
 
@@ -440,8 +440,8 @@ body:not([data-dev]) .show-only-on-dev {
 }
 
 .period-group.no-time-slider input,
-.period-group.no-time-slider label {
-	display: none;
+.period-group.no-time-slider .period-input-controls {
+	display: none !important;
 }
 
 /* purgecss end ignore */

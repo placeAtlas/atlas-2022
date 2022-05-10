@@ -409,10 +409,24 @@
 			<div class="period-group card mb-2">
 				<div class="card-body">
 					<div class="period-status alert alert-danger small py-2" role="alert"></div>
-					<label for="period-start" class="form-label">Start Period</label>
+					<div class="period-input-controls d-flex align-items-center mb-2">
+						<label for="period-start">Start Period</label>
+						<div class="btn-group btn-group-sm ms-auto" role="group" aria-label="Start period controls">
+							<button type="button" class="btn btn-secondary" id="periodStartLeft" aria-label="Left"><i class="bi bi-caret-left-fill" aria-hidden="true"></i></button>
+							<button type="button" class="btn btn-secondary" id="periodStartRight" aria-label="Right"><i class="bi bi-caret-right-fill" aria-hidden="true"></i></button>
+						</div>
+						<button type="button" class="btn btn-secondary btn-sm ms-2" id="periodStartView">View</button>
+					</div>
 					<input type="range" class="period-start form-range" id="period-start" min="0" list="periodStartList">
 					<datalist id="periodStartList"></datalist>
-					<label for="period-end" class="form-label">End Period</label>
+					<div class="period-input-controls d-flex align-items-center mb-2">
+						<label for="period-end">End Period</label>
+						<div class="btn-group btn-group-sm ms-auto" role="group" aria-label="End period controls">
+							<button type="button" class="btn btn-secondary" id="periodEndLeft" aria-label="Left"><i class="bi bi-caret-left-fill" aria-hidden="true"></i></button>
+							<button type="button" class="btn btn-secondary" id="periodEndRight" aria-label="Right"><i class="bi bi-caret-right-fill" aria-hidden="true"></i></button>
+						</div>
+						<button type="button" class="btn btn-secondary btn-sm ms-2" id="periodEndView">View</button>
+					</div>
 					<input type="range" class="period-end form-range mb-2" id="period-end" min="0" list="periodEndList">
 					<datalist id="periodEndList"></datalist>
 					<div class="d-flex flex-wrap gap-2 mb-2">

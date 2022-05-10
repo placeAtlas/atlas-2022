@@ -156,14 +156,17 @@ function initDraw() {
 		}
 	})
 
-	window.addEventListener("mousemove", function (e) {
-
+	container.addEventListener("mousemove", function (e) {
 		if (!dragging && drawing && path.length > 0) {
-
 			const coords = getCanvasCoords(e.clientX, e.clientY)
 			render([...path, coords])
 		}
+	})
 
+	container.addEventListener("mouseout", function () {
+		if (!dragging && drawing && path.length > 0) {
+			render(path)
+		}
 	})
 
 	window.addEventListener("keyup", function (e) {
@@ -785,57 +788,147 @@ function initPeriodGroups() {
 	periodGroups.replaceChildren()
 
 	pathWithPeriods.forEach(([period, path], index) => {
+		// Set element variables
 		const periodGroupEl = periodGroupTemplate.cloneNode(true)
 		periodGroupEl.id = "periodGroup" + index
 
 		const startPeriodEl = periodGroupEl.querySelector('.period-start')
 		const startPeriodListEl = periodGroupEl.querySelector('#periodStartList')
+		const startPeriodLabelEl = startPeriodEl.previousElementSibling.querySelector('label')
+		const startPeriodLeftEl = periodGroupEl.querySelector('#periodStartLeft')
+		const startPeriodRightEl = periodGroupEl.querySelector('#periodStartRight')
+		const startPeriodViewEl = periodGroupEl.querySelector('#periodStartView')
+
 		const endPeriodEl = periodGroupEl.querySelector('.period-end')
 		const endPeriodListEl = periodGroupEl.querySelector('#periodEndList')
-		const periodDeleteEl = periodGroupEl.querySelector('.period-delete')
-		const periodDuplicateEl = periodGroupEl.querySelector('.period-duplicate')
-		const periodVariationEl = periodGroupEl.querySelector('.period-variation')
+		const endPeriodLabelEl = endPeriodEl.previousElementSibling.querySelector('label')
+		const endPeriodLeftEl = periodGroupEl.querySelector('#periodEndLeft')
+		const endPeriodRightEl = periodGroupEl.querySelector('#periodEndRight')
+		const endPeriodViewEl = periodGroupEl.querySelector('#periodEndView')
+
 		const periodCopyEl = periodGroupEl.querySelector('.period-copy')
+		const periodDuplicateEl = periodGroupEl.querySelector('.period-duplicate')
+		const periodDeleteEl = periodGroupEl.querySelector('.period-delete')
+		
+		const periodVariationEl = periodGroupEl.querySelector('.period-variation')
 		const periodStatusEl = periodGroupEl.querySelector('.period-status')
 
 		const [start, end, variation] = parsePeriod(period)
 
+		// Set index
 		startPeriodEl.id = "periodStart" + index
-		startPeriodEl.previousElementSibling.htmlFor = startPeriodEl.id
-		startPeriodListEl.id = "periodStartList" + index
+		startPeriodLabelEl.htmlFor = startPeriodEl.id
+		startPeriodListEl.id += index
 		startPeriodEl.setAttribute("list", startPeriodListEl.id)
+		startPeriodLeftEl.id += index
+		startPeriodRightEl.id += index
+		startPeriodViewEl.id += index
+
 		endPeriodEl.id = "periodEnd" + index
-		endPeriodEl.previousElementSibling.htmlFor = endPeriodEl.id
-		endPeriodListEl.id = "periodEndList" + index
+		endPeriodLabelEl.htmlFor = endPeriodEl.id
+		endPeriodListEl.id += index
 		endPeriodEl.setAttribute("list", endPeriodListEl.id)
-		periodVariationEl.id = "periodVariation" + index
+		endPeriodLeftEl.id += index
+		endPeriodRightEl.id += index
+		endPeriodViewEl.id += index
+
 		periodCopyEl.id = "periodCopy" + index
+		periodVariationEl.id = "periodVariation" + index
+
 		periodStatusEl.id = "periodStatus" + index
 
+		// Set ranges
 		startPeriodEl.min = variationsConfig[variation].drawablePeriods[0]
 		endPeriodEl.min = variationsConfig[variation].drawablePeriods[0]
 		startPeriodEl.max = variationsConfig[variation].drawablePeriods[1]
 		endPeriodEl.max = variationsConfig[variation].drawablePeriods[1]
 		startPeriodEl.value = start
 		endPeriodEl.value = end
+
 		// Adds tick marks to assit in preventing overlap
 		startPeriodListEl.innerHTML = '<option value="' + (end - 1) + '"></option>'
 		endPeriodListEl.innerHTML = '<option value="' + (start + 1) + '"></option>'
 
+		// Removes slider controls if no timeline range exists
 		if (startPeriodEl.max == 0) periodGroupEl.classList.add('no-time-slider')
 		else periodGroupEl.classList.remove('no-time-slider')
+
+		// If one period disable delete
 		if (pathWithPeriods.length === 1) periodDeleteEl.disabled = true
 
-		startPeriodEl.addEventListener('input', event => {
-			endPeriodListEl.innerHTML = '<option value="' + (parseInt(event.target.value) + 1) + '"></option>'
-			timelineSlider.value = parseInt(event.target.value)
-			updateTime(parseInt(event.target.value), variation)
+		startPeriodEl.addEventListener('input', e => startPeriodUpdate(e.target.value))
+		startPeriodLeftEl.addEventListener('click', () => {
+			startPeriodEl.value = parseInt(startPeriodEl.value) - 1
+			startPeriodUpdate(startPeriodEl.value)
 		})
-		endPeriodEl.addEventListener('input', event => {
-			startPeriodListEl.innerHTML = '<option value="' + (parseInt(event.target.value) - 1) + '"></option>'
-			timelineSlider.value = parseInt(event.target.value)
-			updateTime(parseInt(event.target.value), variation)
+		startPeriodRightEl.addEventListener('click', () => {
+			startPeriodEl.value = parseInt(startPeriodEl.value) + 1
+			startPeriodUpdate(startPeriodEl.value)
 		})
+		startPeriodViewEl.addEventListener('click', () => {
+			updateTime(parseInt(startPeriodEl.value), variation)
+			
+			// Set zoom view
+			let activeCenter = calculateCenter(pathWithPeriods[index][1])
+			zoomOrigin = [innerContainer.clientWidth / 2 - activeCenter[0] * zoom, innerContainer.clientHeight / 2 - activeCenter[1] * zoom]
+			scaleZoomOrigin = [2000 / 2 - activeCenter[0], 2000 / 2 - activeCenter[1]]
+			applyView()
+		})
+
+		function startPeriodUpdate(value) {
+			endPeriodListEl.innerHTML = '<option value="' + (parseInt(value) + 1) + '"></option>'
+			timelineSlider.value = parseInt(value)
+			updateTime(parseInt(value), variation)
+			
+			// Set disabled states
+			if (startPeriodEl.value == startPeriodEl.min) {
+				startPeriodLeftEl.disabled = true
+				startPeriodRightEl.disabled = false
+			} else if (startPeriodEl.value == startPeriodEl.max) {
+				startPeriodLeftEl.disabled = false
+				startPeriodRightEl.disabled = true
+			} else {
+				startPeriodLeftEl.disabled = false
+				startPeriodRightEl.disabled = false
+			}
+		}
+
+		endPeriodEl.addEventListener('input', e => endPeriodUpdate(e.target.value))
+		endPeriodLeftEl.addEventListener('click', () => {
+			endPeriodEl.value = parseInt(endPeriodEl.value) - 1
+			endPeriodUpdate(endPeriodEl.value)
+		})
+		endPeriodRightEl.addEventListener('click', () => {
+			endPeriodEl.value = parseInt(endPeriodEl.value) + 1
+			endPeriodUpdate(endPeriodEl.value)
+		})
+		endPeriodViewEl.addEventListener('click', () => {
+			updateTime(parseInt(endPeriodEl.value), variation)
+
+			// Set zoom view
+			let activeCenter = calculateCenter(pathWithPeriods[index][1])
+			zoomOrigin = [innerContainer.clientWidth / 2 - activeCenter[0] * zoom, innerContainer.clientHeight / 2 - activeCenter[1] * zoom]
+			scaleZoomOrigin = [2000 / 2 - activeCenter[0], 2000 / 2 - activeCenter[1]]
+			applyView()
+		})
+		function endPeriodUpdate(value) {
+			startPeriodListEl.innerHTML = '<option value="' + (parseInt(value) + 1) + '"></option>'
+			timelineSlider.value = parseInt(value)
+			updateTime(parseInt(value), variation)
+
+			// Set disabled states
+			if (endPeriodEl.value == endPeriodEl.min) {
+				endPeriodLeftEl.disabled = true
+				endPeriodRightEl.disabled = false
+			} else if (endPeriodEl.value == endPeriodEl.max) {
+				endPeriodLeftEl.disabled = false
+				endPeriodRightEl.disabled = true
+			} else {
+				endPeriodLeftEl.disabled = false
+				endPeriodRightEl.disabled = false
+			}
+		}
+
 		periodDeleteEl.addEventListener('click', () => {
 			if (pathWithPeriods.length === 1) return
 			pathWithPeriods.splice(index, 1)
