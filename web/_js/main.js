@@ -321,8 +321,6 @@ async function init() {
 
 		zoom = Math.max(minZoom, Math.min(maxZoom, zoom))
 		applyZoom(x, y, zoom)
-
-		e.preventDefault()
 	}, { passive: true })
 
 	/*function setDesiredZoom(x, y, target){
