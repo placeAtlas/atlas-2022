@@ -134,8 +134,16 @@ async function updateBackground(newPeriod = currentPeriod, newVariation = curren
 	const variationConfig = variationsConfig[newVariation]
 
 	variantsEl.value = currentVariation
-	variantsEl.previousElementSibling.innerHTML = variationConfig.icon
-
+	if (variationConfig.icon) {
+		variantsEl.previousElementSibling.innerHTML = variationConfig.icon
+		variantsEl.previousElementSibling.classList.remove('d-none')
+		variantsEl.parentElement.classList.add('input-group')
+	} else {
+		variantsEl.previousElementSibling.innerHTML = ""
+		variantsEl.previousElementSibling.classList.add('d-none')
+		variantsEl.parentElement.classList.remove('input-group')
+	}
+	
 	const configObject = variationConfig.versions[currentPeriod]
 	if (typeof configObject.url === "string") {
 		if (imageCache[configObject.url] === undefined) {
