@@ -13,24 +13,25 @@
 	========================================================================
 */
 
-function createInfoBlock(entry, isPreview) {
-	function createLabel(name, value, parent) {
-		const nameElement = document.createElement("span")
-		nameElement.className = "fw-bold"
-		nameElement.textContent = name
-		const valueElement = document.createElement("span")
-		valueElement.textContent = value
-		parent.appendChild(nameElement)
-		parent.appendChild(valueElement)
-		return parent
-	}
-	function createInfoListItem(name, value) {
-		const entryInfoListElement = document.createElement("li")
-		entryInfoListElement.className = "list-group-item"
-		createLabel(name, value, entryInfoListElement)
-		return entryInfoListElement
-	}
+function createLabel(name, value, parent) {
+	const nameElement = document.createElement("span")
+	nameElement.className = "fw-bold"
+	nameElement.textContent = name
+	const valueElement = document.createElement("span")
+	valueElement.textContent = value
+	parent.appendChild(nameElement)
+	parent.appendChild(valueElement)
+	return parent
+}
 
+function createInfoListItem(name, value) {
+	const entryInfoListElement = document.createElement("li")
+	entryInfoListElement.className = "list-group-item"
+	createLabel(name, value, entryInfoListElement)
+	return entryInfoListElement
+}
+
+function createInfoBlock(entry, isPreview) {
 	const element = document.createElement("div")
 	element.className = "card mb-2 overflow-hidden shadow"
 
