@@ -3,6 +3,7 @@
 import re
 import json
 import math
+import traceback
 
 from calculate_center import polylabel
 
@@ -40,13 +41,14 @@ VALIDATE_REGEX = {
 
 CL_REGEX = r'\[(.+?)\]\((.+?)\)'
 CWTS_REGEX = {
-	"url": r'^(?:(?:https?:\/\/)?(?:(?:www|old|new|np)\.)?)?reddit\.com\/r\/([A-Za-z0-9][A-Za-z0-9_]{2,20})(?:\/)$',
+	"url": r'^(?:(?:https?:\/\/)?(?:(?:www|old|new|np)\.)?)?reddit\.com\/r\/([A-Za-z0-9][A-Za-z0-9_]{2,20})(?:\/)?$',
 	"subreddit": r'^\/*[rR]\/([A-Za-z0-9][A-Za-z0-9_]{2,20})\/?$'
 }
 CSTW_REGEX = {
 	"website": r'^https?://[^\s/$.?#].[^\s]*$',
 	"user": r'^\/*u\/([A-Za-z0-9][A-Za-z0-9_]{2,20})$'
 }
+CWTD_REGEX = r'^(?:(?:https?:\/\/)?(?:www\.)?(?:(?:discord)?\.?gg|discord(?:app)?\.com\/invite)\/)?([^\s/]+?)$'
 
 # r/... to /r/...
 SUBREDDIT_TEMPLATE = r"/r/\1"
@@ -57,6 +59,7 @@ def format_subreddit(entry: dict):
 	Fix formatting of the value on "subreddit".
 	"""
 
+	# OLD FORMAT
 	if "subreddit" in entry and entry["subreddit"]:
 
 		subredditLink = entry["subreddit"]
@@ -71,6 +74,7 @@ def format_subreddit(entry: dict):
 
 		entry["subreddit"] = subredditLink
 
+	# NEW FORMAT
 	if "links" in entry and "subreddit" in entry["links"]:
 
 		for i in range(len(entry["links"]["subreddit"])):
@@ -89,6 +93,7 @@ def collapse_links(entry: dict):
 	Collapses Markdown links.
 	"""
 
+	# OLD FORMAT
 	if "website" in entry and entry['website']:
 
 		website = entry["website"]
@@ -100,6 +105,7 @@ def collapse_links(entry: dict):
 
 		entry["website"] = website
 
+	# NEW FORMAT
 	elif "links" in entry and "website" in entry["links"]:
 
 		for i in range(len(entry["links"]["website"])):
@@ -113,6 +119,7 @@ def collapse_links(entry: dict):
 
 			entry["links"]["website"][i] = website
 
+	# OLD FORMAT
 	if "subreddit" in entry and entry['subreddit']:
 
 		subreddit = entry["subreddit"]
@@ -124,6 +131,7 @@ def collapse_links(entry: dict):
 
 		entry["subreddit"] = subreddit
 
+	# NEW FORMAT
 	elif "links" in entry and "subreddit" in entry["links"]:
 
 		for i in range(len(entry["links"]["subreddit"])):
@@ -178,6 +186,7 @@ def remove_duplicate_points(entry: dict):
 	if not "path" in entry:
 		return entry
 
+	# OLD FORMAT
 	if isinstance(entry['path'], list):
 		path: list = entry['path']
 		previous: list = path[0]
@@ -186,6 +195,8 @@ def remove_duplicate_points(entry: dict):
 			if current == previous:
 				path.pop(i)
 			previous = current
+
+	# NEW FORMAT
 	else:
 		for key in entry['path']:
 			path: list = entry['path'][key]
@@ -216,10 +227,13 @@ def fix_no_protocol_urls(entry: dict):
 	Fixes URLs with no protocol by adding "https://" protocol.
 	"""
 
+	# NEW FORMAT
 	if "links" in entry and "website" in entry['links']:
 		for i in range(len(entry["links"]["website"])):
 			if entry["links"]["website"][i] and not entry["links"]["website"][i].startswith("http"):
 				entry["links"]["website"][i] = "https://" + entry["website"]
+
+	# OLD FORMAT
 	elif "website" in entry and entry['website']:
 		if not entry["website"].startswith("http"):
 			entry["website"] = "https://" + entry["website"]
@@ -231,27 +245,29 @@ def convert_website_to_subreddit(entry: dict):
 	Converts the subreddit link on "website" to "subreddit" if possible.
 	"""
 
+	# NEW FORMAT
 	if "links" in entry and "website" in entry["links"]:
 		for i in range(len(entry["links"]["website"])):
 			if re.match(CWTS_REGEX["url"], entry["links"]["website"][i]):
 				new_subreddit = re.sub(CWTS_REGEX["url"], r"\1", entry["links"]["website"][i])
+				if not "subreddit" in entry["links"]:
+					entry["links"]["subreddit"] = []
 				if new_subreddit in entry["links"]["subreddit"]:
 					entry["links"]["website"][i] = ""
-				elif not "subreddit" in entry["links"] or len(entry["subreddit"]) == 0:
-					if not "subreddit" in entry["links"]:
-						entry["links"]["subreddit"] = []
+				elif not "subreddit" in entry["links"] or len(entry["links"]["subreddit"]) == 0:
 					entry["links"]["subreddit"].append(new_subreddit)
 					entry["links"]["website"][i] = ""
 			elif re.match(CWTS_REGEX["subreddit"], entry["links"]["website"][i]):
 				new_subreddit = re.sub(CWTS_REGEX["subreddit"], r"\1", entry["links"]["website"][i])
+				if not "subreddit" in entry["links"]:
+					entry["links"]["subreddit"] = []
 				if new_subreddit in entry["links"]["subreddit"]:
 					entry["links"]["website"][i] = ""
-				elif not "subreddit" in entry["links"] or len(entry["subreddit"]) == 0:
-					if not "subreddit" in entry["links"]:
-						entry["links"]["subreddit"] = []
+				elif not "subreddit" in entry["links"] or len(entry["links"]["subreddit"]) == 0:
 					entry["links"]["subreddit"].append(new_subreddit)
 					entry["links"]["website"][i] = ""
 
+	# OLD FORMAT
 	elif "website" in entry and entry['website']:
 		if re.match(CWTS_REGEX["url"], entry["website"]):
 			new_subreddit = re.sub(CWTS_REGEX["url"], SUBREDDIT_TEMPLATE, entry["website"])
@@ -270,11 +286,32 @@ def convert_website_to_subreddit(entry: dict):
 
 	return entry
 
+def convert_website_to_discord(entry: dict):
+	"""
+	Converts the Discord link on "website" to "discord" if possible.
+	"""
+
+	# NEW FORMAT
+	if "links" in entry and "website" in entry["links"]:
+		for i in range(len(entry["links"]["website"])):
+			if re.match(CWTD_REGEX, entry["links"]["website"][i]):
+				new_discord = re.match(CWTD_REGEX, entry["links"]["website"][i])[1]
+				if not "discord" in entry["links"]:
+					entry["links"]["discord"] = []
+				if new_discord in entry["links"]["discord"]:
+					entry["links"]["website"][i] = ""
+				elif not "discord" in entry["links"] or len(entry["links"]["discord"]) == 0:
+					entry["links"]["discord"].append(new_discord)
+					entry["links"]["website"][i] = ""
+
+	return entry
+
 def convert_subreddit_to_website(entry: dict):
 	"""
 	Converts the links on "subreddit" to a "website" if needed. This also supports Reddit users (/u/reddit). 
 	"""
 
+	# NEW FORMAT
 	if "links" in entry and "subreddit" in entry["links"]:
 		for i in range(len(entry["links"]["subreddit"])):
 			if re.match(CSTW_REGEX["website"], entry["links"]["subreddit"][i]):
@@ -293,6 +330,7 @@ def convert_subreddit_to_website(entry: dict):
 					entry["website"].append("https://www.reddit.com/user/" + username)
 					entry["links"]["subreddit"][i] = ""
 
+	# OLD FORMAT
 	elif "subreddit" in entry and entry['subreddit']:
 		if re.match(CSTW_REGEX["website"], entry["subreddit"]):
 			if (entry["website"].lower() == entry["subreddit"].lower()):
@@ -323,10 +361,13 @@ def update_center(entry: dict):
 	if 'path' not in entry:
 		return entry
 
+	# OLD FORMAT
 	if isinstance(entry['path'], list):
 		path = entry['path']
 		if len(path) > 1:
 			entry['center'] = calculate_center(path)
+
+	# NEW FORMAT
 	else:
 		for key in entry['path']:
 			path = entry['path'][key]
@@ -341,10 +382,17 @@ def remove_empty_and_similar(entry: dict):
 	"""
 
 	if "links" in entry:
-
-		for key in entry["links"]:
+		
+		keys = list(entry["links"])
+		for key in keys:
 			small = list(map(lambda x: x.lower(), entry["links"][key]))
 			entry["links"][key] = [x for x in entry["links"][key] if x and x.lower() in small]
+			if len(entry["links"][key]) == 0: del entry["links"][key]
+
+	if "contributors" in entry:
+
+		if len(entry["contributors"]) == 0:
+			del entry["contributors"]
 
 	return entry
 
@@ -367,6 +415,7 @@ def validate(entry: dict):
 		entry['id'] = '[MISSING_ID]'
 
 	if "path" in entry:
+		# OLD FORMAT
 		if isinstance(entry['path'], list):
 			if len(entry["path"]) == 0:
 				print(f"Entry {entry['id']} has no points!")
@@ -374,6 +423,8 @@ def validate(entry: dict):
 			elif len(entry["path"]) < 3:
 				print(f"Entry {entry['id']} only has {len(entry['path'])} point(s)!")
 				return_status = 3
+
+		# NEW FORMAT
 		else:
 			for key in entry['path']:
 				path = entry['path'][key]
@@ -426,6 +477,8 @@ def format_all(entry: dict, silent=False):
 	entry = collapse_links(entry)
 	print_("Converting website links to subreddit (if possible)...")
 	entry = convert_website_to_subreddit(entry)
+	print_("Converting website links to Discord...")
+	entry = convert_website_to_discord(entry)
 	print_("Converting subreddit links to website (if needed)...")
 	entry = convert_subreddit_to_website(entry)
 	print_("Fixing links without protocol...")
@@ -434,8 +487,10 @@ def format_all(entry: dict, silent=False):
 	entry = remove_extras(entry)
 	print_("Removing duplicate points...")
 	entry = remove_duplicate_points(entry)
+	# This is the part where it goes slow. Comment when you needed it fast.
 	print_("Updating center...")
 	entry = update_center(entry)
+	# End of slow part.
 	print_("Remove empty items...")
 	entry = remove_empty_and_similar(entry)
 	print_("Validating...")
@@ -453,12 +508,16 @@ if __name__ == '__main__':
 			entries = json.loads(f1.read())
 
 		for i in range(len(entries)):
-			entry_formatted, validation_status = format_all(entries[i], True)
-			if validation_status > 2:
-				print(f"Entry {entry_formatted['id']} will be removed! {json.dumps(entry_formatted)}")
-				entries[i] = None
-			else:
-				entries[i] = entry_formatted
+			try:
+				entry_formatted, validation_status = format_all(entries[i], True)
+				if validation_status > 2:
+					print(f"Entry {entry_formatted['id']} will be removed! {json.dumps(entry_formatted)}")
+					entries[i] = None
+				else:
+					entries[i] = entry_formatted
+			except Exception:
+				print(f"Exception occured when formatting ID {entries[i]['id']}")
+				print(traceback.format_exc())
 			if not (i % 200):
 				print(f"{i} checked.")
 
