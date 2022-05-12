@@ -59,22 +59,6 @@ def format_subreddit(entry: dict):
 	Fix formatting of the value on "subreddit".
 	"""
 
-	# OLD FORMAT
-	if "subreddit" in entry and entry["subreddit"]:
-
-		subredditLink = entry["subreddit"]
-
-		subredditLink = re.sub(FS_REGEX["commatization"], ', ', subredditLink)
-		subredditLink = re.sub(FS_REGEX["pattern3"], SUBREDDIT_TEMPLATE, subredditLink)
-		subredditLink = re.sub(FS_REGEX["pattern1"], SUBREDDIT_TEMPLATE, subredditLink)
-		subredditLink = re.sub(FS_REGEX["pattern2"], SUBREDDIT_TEMPLATE, subredditLink)
-		subredditLink = re.sub(FS_REGEX["pattern3user"], USER_TEMPLATE, subredditLink)
-		subredditLink = re.sub(FS_REGEX["pattern1user"], USER_TEMPLATE, subredditLink)
-		subredditLink = re.sub(FS_REGEX["pattern2user"], USER_TEMPLATE, subredditLink)
-
-		entry["subreddit"] = subredditLink
-
-	# NEW FORMAT
 	if "links" in entry and "subreddit" in entry["links"]:
 
 		for i in range(len(entry["links"]["subreddit"])):
@@ -93,20 +77,7 @@ def collapse_links(entry: dict):
 	Collapses Markdown links.
 	"""
 
-	# OLD FORMAT
-	if "website" in entry and entry['website']:
-
-		website = entry["website"]
-
-		if re.search(CL_REGEX, website):
-			match = re.search(CL_REGEX, website)
-			if match.group(1) == match.group(2):
-				website = match.group(2)
-
-		entry["website"] = website
-
-	# NEW FORMAT
-	elif "links" in entry and "website" in entry["links"]:
+	if "links" in entry and "website" in entry["links"]:
 
 		for i in range(len(entry["links"]["website"])):
 
@@ -119,20 +90,7 @@ def collapse_links(entry: dict):
 
 			entry["links"]["website"][i] = website
 
-	# OLD FORMAT
-	if "subreddit" in entry and entry['subreddit']:
-
-		subreddit = entry["subreddit"]
-
-		if re.search(CL_REGEX, subreddit):
-			match = re.search(CL_REGEX, subreddit)
-			if match.group(1) == match.group(2):
-				subreddit = match.group(2)
-
-		entry["subreddit"] = subreddit
-
-	# NEW FORMAT
-	elif "links" in entry and "subreddit" in entry["links"]:
+	if "links" in entry and "subreddit" in entry["links"]:
 
 		for i in range(len(entry["links"]["subreddit"])):
 
@@ -154,8 +112,6 @@ def remove_extras(entry: dict):
 	"""
 
 	if "subreddit" in entry and entry["subreddit"]:
-		# if not entry["subreddit"].startswith('/r/'):
-		# 	entry["subreddit"] = re.sub(r'^(.*)(?=\/r\/)', r'', entry["subreddit"])
 		entry["subreddit"] = re.sub(r'[.,]+$', r'', entry["subreddit"])
 
 	for key in entry:
@@ -186,26 +142,14 @@ def remove_duplicate_points(entry: dict):
 	if not "path" in entry:
 		return entry
 
-	# OLD FORMAT
-	if isinstance(entry['path'], list):
-		path: list = entry['path']
+	for key in entry['path']:
+		path: list = entry['path'][key]
 		previous: list = path[0]
 		for i in range(len(path)-1, -1, -1):
 			current: list = path[i]
 			if current == previous:
 				path.pop(i)
 			previous = current
-
-	# NEW FORMAT
-	else:
-		for key in entry['path']:
-			path: list = entry['path'][key]
-			previous: list = path[0]
-			for i in range(len(path)-1, -1, -1):
-				current: list = path[i]
-				if current == previous:
-					path.pop(i)
-				previous = current
 
 	return entry
 
@@ -227,16 +171,10 @@ def fix_no_protocol_urls(entry: dict):
 	Fixes URLs with no protocol by adding "https://" protocol.
 	"""
 
-	# NEW FORMAT
 	if "links" in entry and "website" in entry['links']:
 		for i in range(len(entry["links"]["website"])):
 			if entry["links"]["website"][i] and not entry["links"]["website"][i].startswith("http"):
 				entry["links"]["website"][i] = "https://" + entry["website"]
-
-	# OLD FORMAT
-	elif "website" in entry and entry['website']:
-		if not entry["website"].startswith("http"):
-			entry["website"] = "https://" + entry["website"]
 
 	return entry
 
@@ -245,7 +183,6 @@ def convert_website_to_subreddit(entry: dict):
 	Converts the subreddit link on "website" to "subreddit" if possible.
 	"""
 
-	# NEW FORMAT
 	if "links" in entry and "website" in entry["links"]:
 		for i in range(len(entry["links"]["website"])):
 			if re.match(CWTS_REGEX["url"], entry["links"]["website"][i]):
@@ -267,23 +204,6 @@ def convert_website_to_subreddit(entry: dict):
 					entry["links"]["subreddit"].append(new_subreddit)
 					entry["links"]["website"][i] = ""
 
-	# OLD FORMAT
-	elif "website" in entry and entry['website']:
-		if re.match(CWTS_REGEX["url"], entry["website"]):
-			new_subreddit = re.sub(CWTS_REGEX["url"], SUBREDDIT_TEMPLATE, entry["website"])
-			if (new_subreddit.lower() == entry["subreddit"].lower()):
-				entry["website"] = ""
-			elif not "subreddit" in entry or entry['subreddit'] == "":
-				entry["subreddit"] = new_subreddit
-				entry["website"] = ""
-		elif re.match(CWTS_REGEX["subreddit"], entry["website"]):
-			new_subreddit = re.sub(CWTS_REGEX["subreddit"], SUBREDDIT_TEMPLATE, entry["website"])
-			if (new_subreddit.lower() == entry["subreddit"].lower()):
-				entry["website"] = ""
-			elif not "subreddit" in entry or entry['subreddit'] == "":
-				entry["subreddit"] = new_subreddit
-				entry["website"] = ""
-
 	return entry
 
 def convert_website_to_discord(entry: dict):
@@ -291,7 +211,6 @@ def convert_website_to_discord(entry: dict):
 	Converts the Discord link on "website" to "discord" if possible.
 	"""
 
-	# NEW FORMAT
 	if "links" in entry and "website" in entry["links"]:
 		for i in range(len(entry["links"]["website"])):
 			if re.match(CWTD_REGEX, entry["links"]["website"][i]):
@@ -311,7 +230,6 @@ def convert_subreddit_to_website(entry: dict):
 	Converts the links on "subreddit" to a "website" if needed. This also supports Reddit users (/u/reddit). 
 	"""
 
-	# NEW FORMAT
 	if "links" in entry and "subreddit" in entry["links"]:
 		for i in range(len(entry["links"]["subreddit"])):
 			if re.match(CSTW_REGEX["website"], entry["links"]["subreddit"][i]):
@@ -330,20 +248,6 @@ def convert_subreddit_to_website(entry: dict):
 					entry["website"].append("https://www.reddit.com/user/" + username)
 					entry["links"]["subreddit"][i] = ""
 
-	# OLD FORMAT
-	elif "subreddit" in entry and entry['subreddit']:
-		if re.match(CSTW_REGEX["website"], entry["subreddit"]):
-			if (entry["website"].lower() == entry["subreddit"].lower()):
-				entry["subreddit"] = ""
-			elif not "website" in entry or entry['website'] == "":
-				entry["website"] = entry["subreddit"]
-				entry["subreddit"] = ""
-		elif re.match(CSTW_REGEX["user"], entry["subreddit"]):
-			if not "website" in entry or entry['website'] == "":
-				username = re.match(CSTW_REGEX["user"], entry["subreddit"]).group(1)
-				entry["website"] = "https://www.reddit.com/user/" + username
-				entry["subreddit"] = ""
-
 	return entry
 
 def calculate_center(path: list):
@@ -361,18 +265,10 @@ def update_center(entry: dict):
 	if 'path' not in entry:
 		return entry
 
-	# OLD FORMAT
-	if isinstance(entry['path'], list):
-		path = entry['path']
+	for key in entry['path']:
+		path = entry['path'][key]
 		if len(path) > 1:
-			entry['center'] = calculate_center(path)
-
-	# NEW FORMAT
-	else:
-		for key in entry['path']:
-			path = entry['path'][key]
-			if len(path) > 1:
-				entry['center'][key] = calculate_center(path)
+			entry['center'][key] = calculate_center(path)
 	
 	return entry
 
@@ -415,25 +311,14 @@ def validate(entry: dict):
 		entry['id'] = '[MISSING_ID]'
 
 	if "path" in entry:
-		# OLD FORMAT
-		if isinstance(entry['path'], list):
-			if len(entry["path"]) == 0:
-				print(f"Entry {entry['id']} has no points!")
+		for key in entry['path']:
+			path = entry['path'][key]
+			if len(path) == 0:
+				print(f"Period {key} of entry {entry['id']} has no points!")
 				return_status = 3
-			elif len(entry["path"]) < 3:
-				print(f"Entry {entry['id']} only has {len(entry['path'])} point(s)!")
+			elif len(path) < 3:
+				print(f"Period {key} of entry {entry['id']} only has {len(entry['path'])} point(s)!")
 				return_status = 3
-
-		# NEW FORMAT
-		else:
-			for key in entry['path']:
-				path = entry['path'][key]
-				if len(path) == 0:
-					print(f"Period {key} of entry {entry['id']} has no points!")
-					return_status = 3
-				elif len(path) < 3:
-					print(f"Period {key} of entry {entry['id']} only has {len(entry['path'])} point(s)!")
-					return_status = 3
 	else:
 		print(f"Entry {entry['id']} has no path at all!")
 		return_status = 3
