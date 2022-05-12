@@ -250,28 +250,6 @@ def convert_subreddit_to_website(entry: dict):
 
 	return entry
 
-def calculate_center(path: list):
-	"""
-	Caluclates the center of a polygon
-	"""
-	result = polylabel(path)
-	return [math.floor(result[0]) + 0.5, math.floor(result[1]) + 0.5]
-
-def update_center(entry: dict):
-	"""
-	checks if the center of a entry is up to date, and updates it if it's either missing or outdated.
-	"""
-	
-	if 'path' not in entry:
-		return entry
-
-	for key in entry['path']:
-		path = entry['path'][key]
-		if len(path) > 1:
-			entry['center'][key] = calculate_center(path)
-	
-	return entry
-
 def remove_empty_and_similar(entry: dict):
 	"""
 	Removes empty items on lists, usually from the past formattings.
@@ -372,10 +350,6 @@ def format_all(entry: dict, silent=False):
 	entry = remove_extras(entry)
 	print_("Removing duplicate points...")
 	entry = remove_duplicate_points(entry)
-	# This is the part where it goes slow. Comment when you needed it fast.
-	print_("Updating center...")
-	entry = update_center(entry)
-	# End of slow part.
 	print_("Remove empty items...")
 	entry = remove_empty_and_similar(entry)
 	print_("Validating...")
