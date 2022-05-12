@@ -126,7 +126,9 @@ for submission in reddit.subreddit('placeAtlas2').new(limit=2000):
 
 				submission_json = migrate_atlas_format(submission_json)
 				
-				OUT_FILE_LINES[len(OUT_FILE_LINES) - 2].replace('\n', ',\n')
+				add_comma_line = len(OUT_FILE_LINES) - 2
+				if len(OUT_FILE_LINES[add_comma_line]) > 2:
+					OUT_FILE_LINES[add_comma_line] = OUT_FILE_LINES[add_comma_line].replace('\n', ',\n')
 				OUT_FILE_LINES.insert(len(OUT_FILE_LINES) - 1, json.dumps(submission_json, ensure_ascii=False) + '\n')
 				READ_IDS_FILE.write(submission.id + '\n')
 				successcount += 1

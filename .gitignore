@@ -6,6 +6,7 @@ praw
 # Temporary files
 temp_atlas.json
 manual_atlas.json
+manual_atlas.txt
 temp.json
 temp.js
 allCharacters.txt
