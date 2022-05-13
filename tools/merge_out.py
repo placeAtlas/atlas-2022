@@ -1,5 +1,10 @@
+import praw
 import json
-from formatter import per_line_entries
+import time
+import re
+import os
+import traceback
+from formatter import format_all, per_line_entries
 
 out_ids = []
 out_dupe_ids = []
@@ -35,6 +40,11 @@ for entry in out_json:
 		if 'edit' in entry: 
 			out_edited_added_ids.append(entry['edit'])
 			del entry['edit']
+		if 'submitted_by' in atlas_json[index]:
+			atlas_json[index]['contributors'] = [ atlas_json[index]['submitted_by'] ]
+		elif not 'contributors' in atlas_json[index]:
+			atlas_json[index]['contributors'] = []
+		entry['contributors'] = atlas_json[index]['contributors'] + list(set(entry['contributors']) - set(atlas_json[index]['contributors']))
 		atlas_json[index] = entry
 	else:
 		print(f"Added {entry['id']}.")

@@ -4,7 +4,7 @@
 Migrator script from old atlas format to remastered atlas format.
 - center and path: single -> time-specific
 - website and subreddit: single strings -> links object
-- submitted_by removed
+- submitted_by -> contributors
 """
 
 import re
@@ -25,7 +25,8 @@ def migrate_atlas_format(entry: dict):
 		"description": "",
 		"links": {},
 		"path": {},
-		"center": {}
+		"center": {},
+		"contributors": []
 	}
 
 	center = entry['center']
@@ -65,6 +66,10 @@ def migrate_atlas_format(entry: dict):
 		if isinstance(entry["subreddit"], str) and entry["subreddit"]:
 			new_entry['links']['subreddit'] = list(map(lambda x: FS_REGEX.sub(r"\1", x), COMMATIZATION.split(entry['subreddit'])))
 		del entry['subreddit']
+
+	if "submitted_by" in entry:
+		new_entry['contributors'].append(entry['submitted_by'])
+		del entry['submitted_by']
 	
 	toreturn = {
 		**new_entry,
