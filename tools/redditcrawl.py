@@ -63,6 +63,17 @@ with open('../data/read-ids.txt', 'r') as edit_ids_file:
 	for id in [x.strip() for x in edit_ids_file.readlines()]:
 		existing_ids.append(id)
 
+# with open('../web/atlas.json', 'r') as atlas_file:
+# 	atlas_raw: list = json.loads(atlas_file)
+# 	atlas = {}
+# 	atlas_ids = []
+# 	for index in atlas_raw:
+# 		entry = atlas_raw[index]
+# 		id = entry['id']
+# 		del entry['id']
+# 		atlas[id] = entry
+# 		atlas_ids.append(id)
+
 def set_flair(submission, flair):
 	if has_write_access and submission.link_flair_text != flair:
 		flair_choices = submission.flair.choices()
@@ -109,12 +120,26 @@ for submission in reddit.subreddit('placeAtlas2').new(limit=2000):
 					assert submission_json["id"] != 0, "Edit invalid because ID is tampered, it must not be 0!"
 
 					submission_json_dummy = {"id": submission_json["id"], "edit": submission.id}
+					submission_json["contributors"] = []
+
+					try:
+						if not submission.author.name in submission_json:
+							submission_json["contributors"].append(submission.author.name)
+					except AttributeError:
+						pass
 
 				else:
 
 					assert submission_json["id"] == 0, "Edit invalid because ID is tampered, it must be 0!"
 					
 					submission_json_dummy = {"id": submission.id}
+					submission_json["contributors"] = []
+
+					try:
+						if not submission.author.name in submission_json:
+							submission_json["contributors"].append(submission.author.name)
+					except AttributeError:
+						pass
 
 				for key in submission_json:
 					if not key in submission_json_dummy:

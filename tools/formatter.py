@@ -2,7 +2,10 @@
 
 import re
 import json
+import math
 import traceback
+
+from calculate_center import polylabel
 
 """
 Examples:
@@ -259,6 +262,11 @@ def remove_empty_and_similar(entry: dict):
 			small = list(map(lambda x: x.lower(), entry["links"][key]))
 			entry["links"][key] = [x for x in entry["links"][key] if x and x.lower() in small]
 			if len(entry["links"][key]) == 0: del entry["links"][key]
+
+	if "contributors" in entry:
+
+		if len(entry["contributors"]) == 0:
+			del entry["contributors"]
 
 	return entry
 
