@@ -1,0 +1,30 @@
+{
+  "devDependencies": {
+    "@fullhuman/postcss-purgecss": "^4.1.3",
+    "@parcel/packager-raw-url": "^2.5.0",
+    "@parcel/transformer-jsonld": "^2.5.0",
+    "@parcel/transformer-webmanifest": "^2.5.0",
+    "parcel-namer-rewrite": "^2.0.0-rc.2",
+    "parcel": "^2.5.0",
+    "postcss": "^8.4.12"
+  },
+  "parcel-namer-rewrite": {
+    "rules": {
+      "^(icon-.+)\\.(svg|png|gif|jpg|jpeg)": "_img/pwa/$1.$2",
+      "(.*)\\.(svg|png|gif|jpg|jpeg)": "_img/$1.$2",
+      "(.*)\\.(css|woff2?)": "_css/$1{.hash}.$2",
+      "(.*)\\.(js)": "_js/$1{.hash}.$2"
+    }
+  },
+  "browserslist": [
+    ">= 0.5%", 
+    "last 2 major versions", 
+    "not dead", 
+    "Chrome >= 60", 
+    "Firefox >= 60", 
+    "Firefox ESR", 
+    "iOS >= 12",
+    "Safari >= 12", 
+    "not Explorer <= 11"
+  ]
+}

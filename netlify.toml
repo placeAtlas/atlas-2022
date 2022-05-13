@@ -1,10 +1,6 @@
-[[headers]]
-  for = "/*"
-  [headers.values]
-    Access-Control-Allow-Origin = "*"
+[build]
+	publish = "dist/"
+	command = "FILE=tools/ci/build-prod.sh; rm -rf dist/; if [ -f $FILE ]; then bash $FILE; else cp -r web/ dist/; fi"
 
-[[headers]]
-  for = "/_img/place/*.png"
-  [headers.values]
-    # 28 days
-    cache-control = "public, max-age=604800"
+[build.environment]
+	PYTHON_VERSION = "3.8"

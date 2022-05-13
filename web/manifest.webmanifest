@@ -1,36 +1,35 @@
 {
-    "theme_color": "#923b15",
-    "background_color": "#111111",
-    "display": "minimal-ui",
-    "scope": "/",
-    "start_url": "/",
-    "name": "r/place atlas",
-    "short_name": "r/placeAtlas2",
-    "description": "The atlas for the r/place event from 2022",
-    "icons": [
-        {
-            "src": "_img/pwa/icon-192x192.png",
-            "sizes": "196x196",
-            "type": "image/png",
-            "purpose": "any"
-        },
-        {
-            "src": "_img/pwa/icon-maskable-192x192.png",
-            "sizes": "196x196",
-            "type": "image/png",
-            "purpose": "maskable"
-        },
-        {
-            "src": "_img/pwa/icon-512x512.png",
-            "sizes": "512x512",
-            "type": "image/png",
-            "purpose": "any"
-        },
-        {
-            "src": "_img/pwa/icon-maskable-512x512.png",
-            "sizes": "512x512",
-            "type": "image/png",
-            "purpose": "maskable"
-        }
-    ]
+	"background_color": "#111111",
+	"display": "minimal-ui",
+	"scope": "/",
+	"start_url": "/",
+	"name": "r/place Atlas",
+	"short_name": "placeAtlas2",
+	"description": "The atlas for the r/place event from 2022",
+	"icons": [
+		{
+			"src": "_img/pwa/logo-round-192x192.png",
+			"sizes": "192x192",
+			"type": "image/png",
+			"purpose": "any"
+		},
+		{
+			"src": "_img/pwa/logo-maskable-192x192.png",
+			"sizes": "192x192",
+			"type": "image/png",
+			"purpose": "maskable"
+		},
+		{
+			"src": "_img/pwa/logo-round-512x512.png",
+			"sizes": "512x512",
+			"type": "image/png",
+			"purpose": "any"
+		},
+		{
+			"src": "_img/pwa/logo-maskable-512x512.png",
+			"sizes": "512x512",
+			"type": "image/png",
+			"purpose": "maskable"
+		}
+	]
 }

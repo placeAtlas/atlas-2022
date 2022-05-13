@@ -1,12 +1,12 @@
 <!--
 	========================================================================
-	The 2022 /r/place Atlas
+	The 2022 r/place Atlas
 
-	An Atlas of Reddit's 2022 /r/place, with information to each
+	An atlas of Reddit's 2022 r/place, with information to each
 	artwork	of the canvas provided by the community.
 
 	Copyright (c) 2017 Roland Rytz <roland@draemm.li>
-	Copyright (c) 2022 r/placeAtlas2 contributors
+	Copyright (c) 2022 Place Atlas contributors
 
 	Licensed under the GNU Affero General Public License Version 3
 	https://place-atlas.stefanocoding.me/license.txt
@@ -17,87 +17,129 @@
 <html lang="en">
 	<head>
 		<meta charset="UTF-8">
-		<title>The 2022 /r/place Atlas</title>
-		<meta name="description" content="An Atlas of Reddit's /r/place, with information to each artwork of the canvas.">
-		<meta name="author" content="Roland Rytz">
-		<meta name="application-name" content="2022 /r/place Atlas">
+		<title>About - The 2022 r/place Atlas</title>
+		<meta name="description" content="This is an atlas aiming to chart all the artworks created during the r/place April Fools event on Reddit in 2022. It is made with information to each artwork of the canvas provided by the community.">
+		<meta name="author" content="Place Atlas contributors (original by Roland Rytz)">
+		<meta name="application-name" content="2022 r/place Atlas">
 		<meta name="robots" content="index, follow">
 		
-		<meta name="viewport" content="width=device-width, height=device-height, initial-scale=1">
-		<meta name="color-scheme" content="dark">
+		<meta property="og:title" content="About - The 2022 r/place Atlas">
+		<meta property="og:type" content="website">
+		<meta property="og:url" content="https://place-atlas.stefanocoding.me/">
+		<meta property="og:image" content="https://place-atlas.stefanocoding.me/_img/logo.png">
+		<meta property="og:image:type" content="image/png">
+		<meta property="og:image:width" content="512">
+		<meta property="og:image:height" content="512">
+		<meta property="og:image:alt" content="The r/place Atlas logo">
+		<meta property="og:description" content="This is an atlas aiming to chart all the artworks created during the r/place April Fools event on Reddit in 2022. It is made with information to each artwork of the canvas provided by the community.">
 		
+		<meta name="viewport" content="width=device-width, height=device-height, initial-scale=1, viewport-fit=cover">
+		<meta name="color-scheme" content="light dark">
+		
+		<link rel="apple-touch-icon" href="_img/apple-touch-icon.png" sizes="180x180">
 		<link rel="icon alternate" href="_img/favicon.png" type="image/png" class="js-site-favicon">
 		<link rel="icon" href="_img/favicon.svg" type="image/svg+xml" class="js-site-favicon">
     
-		<link href="./_css/style.css" rel="stylesheet" type="text/css" media="all">
-		<script type="text/javascript" src="./_js/favicon.js" defer></script>
-    
+		<link rel="stylesheet" href="./_css/style.css">
+		<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-dark-5@1.1.3/dist/css/bootstrap-dark.min.css">
+		<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.8.1/font/bootstrap-icons.css">
+		
+		<script src="./_js/favicon.js" defer></script>
 	</head>
 	<body>
-		<div id="wrapper">
-			<header class="aboutHeader">
-				<a href="./">
-					<img id="logo" src="./_img/logo.svg" height="50" width="50" alt="">
-					<h1>The 2022 /r/place Atlas</h1>
+		<nav class="navbar navbar-expand-md fixed-top bg-body border-bottom">
+			<div class="container">
+				<a class="navbar-brand text-body d-flex align-items-center" href="./">
+					<picture>
+						<source srcset="./_img/favicon-dark.svg" media="(prefers-color-scheme: dark)">
+						<img class="d-block me-2" height="32" width="32" src="./_img/favicon.svg" alt="">
+					</picture>
+					The 2022 r/place Atlas
 				</a>
-				<!--nav>
-					<a id="viewLink" href="./" class="current">View</a>
-					<a id="drawLink" href="./?mode=draw">Draw</a>
-					<a id="aboutLink" href="./about.html">About</a>
-				</nav-->
-			</header>
-			
-			<div id="author" style="right:25px">
-				Code by <a href="https://draemm.li/various/place-atlas/" target="_blank" rel="author">Roland Rytz</a>. Source on <a target="_blank" href="https://github.com/RolandR/place-atlas">GitHub</a> (<a target="_blank" href="https://github.com/Codixer/place-atlas">2022 Version Github</a>).
-			</div>
-			
-			
-			<div id="aboutContainer">
-				<div id="about">
-					<a id="aboutBackButton" class="button" href="./">&lt; Back to the Atlas</a>
-					<a href="https://www.netlify.com" id="netlifyBadges">
-						<img src="https://www.netlify.com/img/global/badges/netlify-color-bg.svg" alt="Deploys by Netlify" />
-						<img src="https://api.netlify.com/api/v1/badges/1e7291ce-0680-45ed-9843-47a32a992bbb/deploy-status" alt="Deploys by Netlify" />
-					</a>
-					<h2 id="abouth2">The 2022 /r/place Atlas</h2>
-					<p>This is an Atlas aiming to chart all the artworks created during the <a href="https://www.reddit.com/r/place/">/r/place</a> April Fools event on <a href="https://www.reddit.com/" target="_blank">Reddit</a> in 2022.</p>
-					<p>The original code was developed by <a href="https://draemm.li/various/place-atlas/" target="_blank" rel="author">Roland Rytz</a> (<a href="mailto:roland.rytz@gmail.com" target="_blank">mail</a>, <a href="https://reddit.com/user/draemmli/" target="_blank">reddit</a>) and is available under the free <a href="https://www.gnu.org/licenses/agpl-3.0.en.html" target="_blank">AGPL license</a> on <a target="_blank" href="https://github.com/RolandR/place-atlas">GitHub</a>.</p>
-					<br>
-					<p>The currently maintained version of the website is managed by <a href="/" target="_blank" rel="author">Stefano Haagmans</a> and is obtainable under the same license within a <a target="_blank" href="https://github.com/placeAtlas/atlas">GitHub fork</a>. Images are provided by <a target="_blank" href="https://place.thatguyalex.com/">Alex Tsernoh</a>.</p>
-					<p>Maintaining and updating the website takes work, but I enjoy doing it for free and giving this to people. But if you would like to support me, or the people who helped me with contributions to this project. You're free to support us though <a target="_blank" href="https://paypal.me/placeAtlas/5">PayPal</a>, <a target="_blank" href="https://www.patreon.com/placeAtlas">Patreon</a>, or <a target="_blank" href="https://ko-fi.com/placeatlas">Ko-Fi</a>.</p>
-					<p>To maintain the same tradition, I will also be offering stickers to anyone donating more then 20$ (Due to the size increase). But, you're not forced to do anything! This only shows appreciation to us and the people who've worked on this project</p>
-					<br>
-					<p>Roland Rytz worked on the Atlas full-time (and more!) for over two weeks during the 2017 r/place event.</p>
-					<p>If you'd like to support Roland, you can do so by <a target="_blank" href="https://paypal.me/draemmli">PayPal</a>.</p>
-					<p>If you donate more than 10(€/$/CHF/mBTC), He'll (hopefully) send you a nice sticker of the 2017 Place canvas!</p>
-					
-					<h2>How to contribute</h2>
-					<p>The /r/Place Atlas project relies on user contributions.</p>
-					<p>To contribute a label for an artwork, please read <a href="https://www.reddit.com/r/placeAtlas2/comments/tu203o/how_to_contribute/" target="_blank">this post on Reddit</a> to learn how to submit a new entry.</p>
-					<p>Alternatively, contributions can be made directly on <a href="https://github.com/placeAtlas/atlas/blob/master/CONTRIBUTING.md">GitHub</a>.</p>
-					<p>The <a href="https://reddit.com/r/placeAtlas2/" target="_blank">/r/placeAtlas2</a> subreddit is also the place to submit all bug reports, feature requests or questions.</p>
-					
-
-					<h2>r/placeAtlas2 (Current) Contributors and Maintainers</h2>
-					<div id="contributors">
-						<a href="https://reddit.com/user/TCOOfficiall" target="_blank">TCOOfficiall (current maintainer)</a> ·
-						<a href="https://reddit.com/user/prosto_sanja" target="_blank">prosto_sanja (images)</a> <a href="https://place.thatguyalex.com/" target="_blank">(website)</a> ·
-						<a href="https://reddit.com/user/electric-blue" target="_blank">electric-blue</a> ·
-						<a href="https://reddit.com/user/m654zy" target="_blank">m654zy</a> ·
-						<a href="https://reddit.com/user/xXLInkster17Xx" target="_blank">xXLInkster17Xx</a>
-					</div>
-					<p>The 2022 Atlas would not have been possible without the help of our reddit contributors. This section will be updated with all of the contributor's usernames.</p>
-					<p>Thank you to everyone who submitted new entries, amended existing ones, reported bugs and just supported the project in general.</p>
-					
-					<h2 id="contacth2">Contact?</h2>
-					<p>If you're press, a influencer or anything media connected, or you would like to use the atlas in one. Please contact us beforehand through:</p>
-					<p> - <a href="mailto:press@stefanocoding.me" target="_blank">press@stefanocoding.me</a></p>
-					<br>
-					<p>If you need to contact me regarding anything else, you can reach me through:</p>
-					<p> - <a href="mailto:stefano@stefanocoding.me" target="_blank">stefano@stefanocoding.me</a></p>
-					</div>
+				<button class="navbar-toggler text-body collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
+					<i class="bi bi-list" aria-hidden="true"></i>
+				</button>
+				<div class="navbar-collapse collapse" id="navbarCollapse">
+					<ul class="navbar-nav ms-auto pt-2 pt-md-0">
+						<li class="nav-item">
+							<a class="nav-link" href="./">Atlas Map</a>
+						</li>
+						<li class="nav-item">
+							<a class="nav-link" href="https://place-wiki.stefanocoding.me/">Wiki</a>
+						</li>
+						<li class="nav-item">
+							<a class="nav-link active" href="#" aria-current="page">About</a>
+						</li>
+					</ul>
 				</div>
 			</div>
-		</div>
+		</nav>
+		<main class="pt-5">
+			<div class="container py-4">
+				<div class="row g-5">
+					<div class="col-md-7 col-xl-8">
+						<h1 class="display-5 fw-bold mb-4">The 2022 r/place Atlas</h1>
+						<p>This is an atlas aiming to chart all the artworks created during the <a href="https://www.reddit.com/r/place/">r/place</a> April Fools event on Reddit in 2022. It is made with information to each artwork of the canvas provided by the community.</p>
+						<p>The original code was developed by <a href="https://draemm.li/various/place-atlas/">Roland Rytz</a> (<a href="mailto:roland.rytz@gmail.com">mail</a>, <a href="https://reddit.com/user/draemmli/">reddit</a>) and is available under the free <a href="https://www.gnu.org/licenses/agpl-3.0.en.html">AGPL license</a> on <a href="https://github.com/RolandR/place-atlas">GitHub</a>.</p>
+						<hr>
+						<p>The currently maintained version of the website is managed by Stefano Haagmans and is obtainable under the same license within a <a href="https://github.com/placeAtlas/atlas">GitHub fork</a>. Images are provided by <a href="https://place.thatguyalex.com/">Alex Tsernoh</a>.</p>
+						<p>Maintaining and updating the website takes work, but I enjoy doing it for free and giving this to people. But if you would like to support me, or the people who helped me with contributions to this project. You're free to support us though <a href="https://paypal.me/placeAtlas/5">PayPal</a>, <a href="https://www.patreon.com/placeAtlas">Patreon</a>, or <a href="https://ko-fi.com/placeatlas">Ko-Fi</a>.</p>
+						<p>To maintain the same tradition, I will also be offering stickers to anyone donating more then 20$ (Due to the size increase). But, you're not forced to do anything! This only shows appreciation to us and the people who've worked on this project</p>
+						<p>Roland Rytz worked on the Atlas full-time (and more!) for over two weeks during the 2017 r/place event. If you'd like to support Roland, you can do so by <a href="https://paypal.me/draemmli">PayPal</a>. If you donate more than 10(€/$/CHF/mBTC), He'll (hopefully) send you a nice sticker of the 2017 Place canvas!</p>
+						<h2>Contributing</h2>
+						<p>The Atlas relies on user contributions.</p>
+						<p>To contribute a label for an artwork, please read <a href="https://www.reddit.com/r/placeAtlas2/comments/tu203o/how_to_contribute/">this post on Reddit</a> to learn how to submit a new entry. Alternatively, contributions can be made directly on <a href="https://github.com/placeAtlas/atlas/blob/master/CONTRIBUTING.md">GitHub</a>.</p>
+						<p>The <a href="https://reddit.com/r/placeAtlas2/">r/placeAtlas2</a> subreddit is also the place to submit all bug reports, feature requests or questions.</p>
+						
+						<h2>Contributors and Maintainers</h2>
+						<ul>
+							<li>Current maintainer: <a href="https://reddit.com/user/TCOOfficiall">TCOOfficiall</a></li>
+							<li>Images: <a href="https://reddit.com/user/prosto_sanja">prosto_sanja</a> (<a href="https://place.thatguyalex.com/">website</a>)</li>
+							<li>Contributor: <a href="https://reddit.com/user/electric-blue">electric-blue</a></li>
+							<li>Contributor: <a href="https://reddit.com/user/m654zy">m654zy</a></li>
+							<li>Contributor: <a href="https://reddit.com/user/xXLInkster17Xx">xXLInkster17Xx</a></li>
+						</ul>
+						<p>The 2022 Atlas would not have been possible without the help of our Reddit contributors. This section will be updated with all of the contributor's usernames.</p>
+						<p>Thank you to everyone who submitted new entries, amended existing ones, reported bugs and just supported the project in general.</p>
+					</div>
+					<div class="col-md-5 col-xl-4">
+						<div class="position-sticky" style="top: 5rem;">
+						  <div class="p-4 mb-3 bg-secondary bg-opacity-10 rounded">
+							<h4>Contact?</h4>
+								<p>If you're press, a influencer or anything media connected, or you would like to use the atlas in one. Please contact us beforehand through:</p>
+								<ul>
+									<li><a href="mailto:press@stefanocoding.me">press@stefanocoding.me</a></li>
+								</ul>
+								<p>If you need to contact me regarding anything else, you can reach me through:</p>
+								<ul>
+									<li><a href="mailto:stefano@stefanocoding.me">stefano@stefanocoding.me</a></li>
+								</ul>
+						  </div>
+						  <div class="p-4">
+							<h4>Sponsor this project</h4>
+							<p>Current 2022 Atlas Maintainers:</p>
+							<ul class="mb-0">
+								<li><a href="https://paypal.me/placeAtlas/5">PayPal</a></li>
+								<li><a href="https://www.patreon.com/placeAtlas">Patreon</a></li>
+								<li><a href="https://ko-fi.com/placeatlas">Ko-Fi</a></li>
+							</ul>
+						  </div>
+						  <div class="p-4">
+							<h4>Deployment</h4>
+							<p>Site powered by Netlify.</p>
+							<a class="d-flex flex-wrap justify-content-left gap-2" href="https://www.netlify.com" target="_blank" rel="noopener">
+								<img src="https://www.netlify.com/img/global/badges/netlify-color-bg.svg" alt="Deploys by Netlify" />
+								<img src="https://api.netlify.com/api/v1/badges/1e7291ce-0680-45ed-9843-47a32a992bbb/deploy-status" type="image/svg+xml" alt="Netlify status" />
+							</a>
+						  </div>
+						</div>
+					</div>
+				</div>
+				<footer class="pt-3 mt-4 text-muted border-top">
+					Original by <a href="https://draemm.li/various/place-atlas/" target="_blank" rel="noopener noreferrer author">Roland Rytz</a> (<a href="https://github.com/RolandR/place-atlas">source</a>). Maintained by <a href="https://github.com/placeAtlas/atlas/contributors">Place Atlas contributors</a> (<a href="https://github.com/placeAtlas/atlas">source</a>).
+				</footer>
+			</div>
+		</main>
+		<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" crossorigin="anonymous"></script>
 	</body>
 </html>

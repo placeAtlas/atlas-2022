@@ -1,17 +1,54 @@
+# Secrets
 **/**/credentials
 credentials
 praw
+
+# Temporary files
 temp_atlas.json
 manual_atlas.json
+manual_atlas.txt
 temp.json
 temp.js
+allCharacters.txt
+combined.js
+
+# Excluded files
 users.html
 oldusers.html
 web/_js/minified.js
-allCharacters.txt
-combined.js
 *.DS_Store
 .vscode/
 web/atlas-before-ids-migration.json
-*.pyc
 tools/read-ids-temp.txt
+
+# Build files
+node_modules/
+/package.json
+/package-lock.json
+/yarn.lock
+dist*/
+
+# Cache folders
+*.pyc
+.cache
+.parcel-cache
+
+# Logs
+logs
+*.log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+lerna-debug.log*
+.pnpm-debug.log*
+pip-log.txt
+pip-delete-this-directory.txt
+
+# Enviroment folders
+.env
+.venv
+env/
+venv/
+ENV/
+env.bak/
+venv.bak/

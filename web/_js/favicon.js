@@ -4,11 +4,11 @@ function updateFavicon(colorScheme) {
 	const faviconFallback = document.head.querySelector('.js-site-favicon[type="image/png"]')
 	if (favicon && faviconFallback) {
 		if (colorScheme || colorScheme == 'dark') {
-			favicon.href = '_img/favicon-dark.svg';
-			faviconFallback.href = '_img/favicon-dark.png';
+			favicon.href = '_img/favicon-dark.svg'
+			faviconFallback.href = '_img/favicon-dark.png'
 		} else {
-			favicon.href = '_img/favicon.svg';
-			faviconFallback.href = '_img/favicon.png';
+			favicon.href = '_img/favicon.svg'
+			faviconFallback.href = '_img/favicon.png'
 		}
 	}
 }
