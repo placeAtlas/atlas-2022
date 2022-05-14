@@ -284,11 +284,17 @@ def extend_entries_to_whiteout(entry: dict):
 	"""
 	END_NORMAL_IMAGE = "164"
 	END_WHITEOUT_IMAGE = "166"
+
+	NORMAL_IMAGE_SUFFIX = "-" + END_NORMAL_IMAGE
+	WHITEOUT_IMAGE_SUFFIX = "-" + END_WHITEOUT_IMAGE
 	for outer_key in ["path", "center"]:
 		image_keys: List[str] = list(entry[outer_key].keys())
 		for image_key in image_keys:
-			if END_NORMAL_IMAGE in image_key:
-				new_key = image_key.replace(END_NORMAL_IMAGE, END_WHITEOUT_IMAGE)
+			new_key = None
+			if NORMAL_IMAGE_SUFFIX in image_key:
+				new_key = image_key.replace(NORMAL_IMAGE_SUFFIX, WHITEOUT_IMAGE_SUFFIX)
+			elif image_key == END_NORMAL_IMAGE:
+				new_key = END_NORMAL_IMAGE + WHITEOUT_IMAGE_SUFFIX
 				entry[outer_key][new_key] = entry[outer_key][image_key]
 				del(entry[outer_key][image_key])
 
