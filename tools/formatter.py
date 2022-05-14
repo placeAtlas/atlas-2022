@@ -3,6 +3,7 @@
 import re
 import json
 import traceback
+from typing import List
 
 """
 Examples:
@@ -99,7 +100,7 @@ def collapse_links(entry: dict):
 					subreddit = match.group(2)
 
 			entry["links"]["subreddit"][i] = subreddit
-	
+
 
 	return entry
 
@@ -112,7 +113,7 @@ def remove_extras(entry: dict):
 		entry["subreddit"] = re.sub(r'[.,]+$', r'', entry["subreddit"])
 
 	for key in entry:
-		if not entry[key] or not isinstance(entry[key], str): 
+		if not entry[key] or not isinstance(entry[key], str):
 			continue
 		# Leading and trailing spaces
 		entry[key] = entry[key].strip()
@@ -157,7 +158,7 @@ def fix_r_caps(entry: dict):
 
 	if not "description" in entry or not entry['description']:
 		return entry
-	
+
 	entry["description"] = re.sub(r'([^\w]|^)\/R\/', '\1/r/', entry["description"])
 	entry["description"] = re.sub(r'([^\w]|^)R\/', '\1r/', entry["description"])
 
@@ -224,7 +225,7 @@ def convert_website_to_discord(entry: dict):
 
 def convert_subreddit_to_website(entry: dict):
 	"""
-	Converts the links on "subreddit" to a "website" if needed. This also supports Reddit users (/u/reddit). 
+	Converts the links on "subreddit" to a "website" if needed. This also supports Reddit users (/u/reddit).
 	"""
 
 	if "links" in entry and "subreddit" in entry["links"]:
@@ -253,7 +254,7 @@ def remove_empty_and_similar(entry: dict):
 	"""
 
 	if "links" in entry:
-		
+
 		keys = list(entry["links"])
 		for key in keys:
 			small = list(map(lambda x: x.lower(), entry["links"][key]))
@@ -262,6 +263,42 @@ def remove_empty_and_similar(entry: dict):
 
 	return entry
 
+def sort_image_keys(entry: dict):
+	"""
+	Alphabetizes comma-separated path and center keys.
+	"""
+	for outer_key in ["path", "center"]:
+		image_keys: List[str] = list(entry[outer_key].keys())
+		for image_key in image_keys:
+			key_split = image_key.split(", ")
+			new_key = ", ".join(sorted(key_split))
+			if new_key != image_key:
+				entry[outer_key][new_key] = entry[outer_key][image_key]
+				del(entry[outer_key][image_key])
+
+	return entry
+
+def extend_entries_to_whiteout(entry: dict):
+	"""
+	If an entry ends on the final non-whiteout image, extends the image to the last whiteout image where entries cans still be made out.
+	"""
+	END_NORMAL_IMAGE = "164"
+	END_WHITEOUT_IMAGE = "166"
+
+	NORMAL_IMAGE_SUFFIX = "-" + END_NORMAL_IMAGE
+	WHITEOUT_IMAGE_SUFFIX = "-" + END_WHITEOUT_IMAGE
+	for outer_key in ["path", "center"]:
+		image_keys: List[str] = list(entry[outer_key].keys())
+		for image_key in image_keys:
+			new_key = None
+			if NORMAL_IMAGE_SUFFIX in image_key:
+				new_key = image_key.replace(NORMAL_IMAGE_SUFFIX, WHITEOUT_IMAGE_SUFFIX)
+			elif image_key == END_NORMAL_IMAGE:
+				new_key = END_NORMAL_IMAGE + WHITEOUT_IMAGE_SUFFIX
+				entry[outer_key][new_key] = entry[outer_key][image_key]
+				del(entry[outer_key][image_key])
+
+	return entry
 
 def validate(entry: dict):
 	"""
@@ -273,7 +310,7 @@ def validate(entry: dict):
 	2: Warnings that may effect user experience when interacting with the entry
 	3: Errors that make the entry inaccessible or broken.
 	"""
-	
+
 	return_status = 0
 	if (not "id" in entry or (not entry['id'] and not entry['id'] == 0)):
 		print(f"Wait, no id here! How did this happened? {entry}")
@@ -344,6 +381,10 @@ def format_all(entry: dict, silent=False):
 	entry = remove_duplicate_points(entry)
 	print_("Remove empty items...")
 	entry = remove_empty_and_similar(entry)
+	print_("Sorting image keys...")
+	entry = sort_image_keys(entry)
+	print_("Extending entries to whiteout...")
+	entry = extend_entries_to_whiteout(entry)
 	print_("Validating...")
 	status_code = validate(entry)
 	print_("Completed!")
