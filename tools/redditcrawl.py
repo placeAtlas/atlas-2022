@@ -28,7 +28,7 @@ import json
 import time
 import re
 import traceback
-from formatter import format_all
+from formatter import format_all_crawl, validate
 from migrate_atlas_format import migrate_atlas_format
 
 OUT_FILE = open('temp_atlas.json', 'w', encoding='utf-8')
@@ -119,7 +119,8 @@ for submission in reddit.subreddit('placeAtlas2').new(limit=2000):
 				for key in submission_json:
 					if not key in submission_json_dummy:
 						submission_json_dummy[key] = submission_json[key];
-				(submission_json, validation_status) = format_all(submission_json_dummy, True)
+				submission_json = format_all_crawl(submission_json_dummy, True)
+				validation_status = validate(submission_json)
 				
 				assert validation_status < 3, \
 					"Submission invalid after validation. This may be caused by not enough points on the path."
