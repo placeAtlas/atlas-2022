@@ -325,6 +325,24 @@ def extend_entries_to_whiteout(entry: dict):
 
 	return entry
 
+def floor_points(entry: dict):
+	"""
+	Floors points on path and center, removing the decimal count.
+	"""
+
+	for period in entry["path"]:
+		for points in entry["path"][period]:
+			points[0] = math.floor(points[0])
+			points[1] = math.floor(points[1])
+
+	for period in entry["center"]:
+		points = entry["center"][period]
+		points[0] = math.floor(points[0])
+		points[1] = math.floor(points[1])
+
+	return entry
+
+
 def validate(entry: dict):
 	"""
 	Validates the entry. Catch errors and tell warnings related to the entry.
@@ -410,6 +428,8 @@ def format_all(entry: dict, silent=False):
 	entry = sort_image_keys(entry)
 	print_("Extending entries to whiteout...")
 	entry = extend_entries_to_whiteout(entry)
+	print_("Flooring points...")
+	entry = floor_points(entry)
 
 	# This is the slow part. Use it when necessary by uncommenting.
 	# print_("Updating center...")
