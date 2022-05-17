@@ -5,6 +5,12 @@ import json
 import traceback
 from typing import List
 
+END_NORMAL_IMAGE = "164"
+END_WHITEOUT_IMAGE = "166"
+
+NORMAL_IMAGE_SUFFIX = "-" + END_NORMAL_IMAGE
+WHITEOUT_IMAGE_SUFFIX = "-" + END_WHITEOUT_IMAGE
+
 """
 Examples:
 1. - /r/place
@@ -282,11 +288,6 @@ def extend_entries_to_whiteout(entry: dict):
 	"""
 	If an entry ends on the final non-whiteout image, extends the image to the last whiteout image where entries cans still be made out.
 	"""
-	END_NORMAL_IMAGE = "164"
-	END_WHITEOUT_IMAGE = "166"
-
-	NORMAL_IMAGE_SUFFIX = "-" + END_NORMAL_IMAGE
-	WHITEOUT_IMAGE_SUFFIX = "-" + END_WHITEOUT_IMAGE
 	for outer_key in ["path", "center"]:
 		image_keys: List[str] = list(entry[outer_key].keys())
 		for image_key in image_keys:
