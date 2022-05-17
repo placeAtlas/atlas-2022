@@ -1,9 +1,11 @@
 #!/usr/bin/python
 
+import math
 import re
 import json
 import traceback
 from typing import List
+from calculate_center import polylabel
 
 END_NORMAL_IMAGE = "164"
 END_WHITEOUT_IMAGE = "166"
@@ -254,6 +256,28 @@ def convert_subreddit_to_website(entry: dict):
 
 	return entry
 
+def calculate_center(path: list):
+	"""
+	Caluclates the center of a polygon
+	"""
+	result = polylabel(path)
+	return [math.floor(result[0]), math.floor(result[1])]
+
+def update_center(entry: dict):
+	"""
+	checks if the center of a entry is up to date, and updates it if it's either missing or outdated.
+	"""
+	
+	if 'path' not in entry:
+		return entry
+
+	for key in entry['path']:
+		path = entry['path'][key]
+		if len(path) > 1:
+			entry['center'][key] = calculate_center(path)
+	
+	return entry
+
 def remove_empty_and_similar(entry: dict):
 	"""
 	Removes empty items on lists, usually from the past formattings.
@@ -386,6 +410,12 @@ def format_all(entry: dict, silent=False):
 	entry = sort_image_keys(entry)
 	print_("Extending entries to whiteout...")
 	entry = extend_entries_to_whiteout(entry)
+
+	# This is the slow part. Use it when necessary by uncommenting.
+	# print_("Updating center...")
+	# entry = update_center(entry)
+	# End of slow part.
+
 	print_("Validating...")
 	status_code = validate(entry)
 	print_("Completed!")
