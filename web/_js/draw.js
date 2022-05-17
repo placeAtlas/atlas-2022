@@ -270,8 +270,8 @@ function initDraw() {
 
 		pathWithPeriodsTemp.forEach(([key, value]) => {
 			// TODO: Compress periods on something like 0-13, 14.
-			exportObject.path[key] = value
-			exportObject.center[key] = calculateCenter(value)
+			exportObject.path[key] = value.map(point => point.map(int => int + 0.5))
+			exportObject.center[key] = calculateCenter(value).map(int => int + 0.5)
 		})
 
 		const inputWebsite = websiteGroupElements.map(element => element.value.trim()).filter(element => element)

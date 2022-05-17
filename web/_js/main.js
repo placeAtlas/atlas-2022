@@ -516,39 +516,24 @@ async function init() {
 
 function updateAtlasAll(atlas = atlasAll) {
 	for (const atlasIndex in atlas) {
-		if (Array.isArray(atlas[atlasIndex].path)) {
-			const currentPath = atlas[atlasIndex].path
-			atlas[atlasIndex].path = {}
-			atlas[atlasIndex].path[defaultPeriod] = currentPath
+		const currentLinks = atlas[atlasIndex].links
+		atlas[atlasIndex].links = {
+			website: [],
+			subreddit: [],
+			discord: [],
+			wiki: [],
+			...currentLinks
 		}
-		if (Array.isArray(atlas[atlasIndex].center)) {
-			const currentCenter = atlas[atlasIndex].center
-			atlas[atlasIndex].center = {}
-			atlas[atlasIndex].center[defaultPeriod] = currentCenter
+		const currentPath = atlas[atlasIndex].path
+		const currentCenter = atlas[atlasIndex].center
+		for (const key in currentPath) {
+			currentPath[key] = currentPath[key].map(point => point.map(int => int + 0.5))
 		}
-		if (atlas[atlasIndex].links) {
-			const currentLinks = atlas[atlasIndex].links
-			atlas[atlasIndex].links = {
-				website: [],
-				subreddit: [],
-				discord: [],
-				wiki: [],
-				...currentLinks
-			}
-		} else {
-			atlas[atlasIndex].links = {
-				website: [],
-				subreddit: [],
-				discord: [],
-				wiki: []
-			}
-
-			if (atlas[atlasIndex].website) atlas[atlasIndex].links.website = [atlas[atlasIndex].website]
-			if (atlas[atlasIndex].subreddit) atlas[atlasIndex].links.subreddit = atlas[atlasIndex].subreddit.split(',').map(subreddit => subreddit.trim().replace(/^\/r\//, ''))
-
-			delete atlas[atlasIndex].website
-			delete atlas[atlasIndex].subreddit
+		for (const key in currentCenter) {
+			currentCenter[key] = currentCenter[key].map(int => int + 0.5)
 		}
+		atlas[atlasIndex].path = currentPath
+		atlas[atlasIndex].center = currentCenter
 	}
 	return atlas
 }
