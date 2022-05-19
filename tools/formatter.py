@@ -2,8 +2,15 @@
 
 import re
 import json
+import math
 import traceback
 from typing import List
+
+END_NORMAL_IMAGE = "164"
+END_WHITEOUT_IMAGE = "166"
+
+NORMAL_IMAGE_SUFFIX = "-" + END_NORMAL_IMAGE
+WHITEOUT_IMAGE_SUFFIX = "-" + END_WHITEOUT_IMAGE
 
 """
 Examples:
@@ -282,11 +289,6 @@ def extend_entries_to_whiteout(entry: dict):
 	"""
 	If an entry ends on the final non-whiteout image, extends the image to the last whiteout image where entries cans still be made out.
 	"""
-	END_NORMAL_IMAGE = "164"
-	END_WHITEOUT_IMAGE = "166"
-
-	NORMAL_IMAGE_SUFFIX = "-" + END_NORMAL_IMAGE
-	WHITEOUT_IMAGE_SUFFIX = "-" + END_WHITEOUT_IMAGE
 	for outer_key in ["path", "center"]:
 		image_keys: List[str] = list(entry[outer_key].keys())
 		for image_key in image_keys:
@@ -299,6 +301,24 @@ def extend_entries_to_whiteout(entry: dict):
 				del(entry[outer_key][image_key])
 
 	return entry
+
+def floor_points(entry: dict):
+	"""
+	Floors points on path and center, removing the decimal count.
+	"""
+
+	for period in entry["path"]:
+		for points in entry["path"][period]:
+			points[0] = math.floor(points[0])
+			points[1] = math.floor(points[1])
+
+	for period in entry["center"]:
+		points = entry["center"][period]
+		points[0] = math.floor(points[0])
+		points[1] = math.floor(points[1])
+
+	return entry
+
 
 def validate(entry: dict):
 	"""
@@ -385,6 +405,9 @@ def format_all(entry: dict, silent=False):
 	entry = sort_image_keys(entry)
 	print_("Extending entries to whiteout...")
 	entry = extend_entries_to_whiteout(entry)
+	print_("Flooring points...")
+	entry = floor_points(entry)
+
 	print_("Validating...")
 	status_code = validate(entry)
 	print_("Completed!")
