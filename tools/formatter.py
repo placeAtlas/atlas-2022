@@ -179,7 +179,7 @@ def fix_no_protocol_urls(entry: dict):
 	if "links" in entry and "website" in entry['links']:
 		for i in range(len(entry["links"]["website"])):
 			if entry["links"]["website"][i] and not entry["links"]["website"][i].startswith("http"):
-				entry["links"]["website"][i] = "https://" + entry["website"]
+				entry["links"]["website"][i] = "https://" + entry["links"]["website"][i]
 
 	return entry
 
