@@ -370,17 +370,11 @@ def per_line_entries(entries: list):
 def format_all(entry: dict, silent=False):
 	"""
 	Format using all the available formatters.
-	Outputs a tuple containing the entry and the validation status code.
-
-	Status code key:
-	0: All valid, no problems
-	1: Informational logs that may be ignored
-	2: Warnings that may effect user experience when interacting with the entry
-	3: Errors that make the entry inaccessible or broken.
 	"""
 	def print_(*args, **kwargs):
 		if not silent:
 			print(*args, **kwargs)
+
 	print_("Fixing r/ capitalization...")
 	entry = fix_r_caps(entry)
 	print_("Fix formatting of subreddit...")
@@ -403,15 +397,26 @@ def format_all(entry: dict, silent=False):
 	entry = remove_empty_and_similar(entry)
 	print_("Sorting image keys...")
 	entry = sort_image_keys(entry)
-	print_("Extending entries to whiteout...")
-	entry = extend_entries_to_whiteout(entry)
 	print_("Flooring points...")
 	entry = floor_points(entry)
 
-	print_("Validating...")
-	status_code = validate(entry)
 	print_("Completed!")
-	return ( entry, status_code )
+	return entry
+
+def format_all_crawl(entry: dict, silent=False):
+	"""
+	Format using all the available formatters.
+	"""
+	def print_(*args, **kwargs):
+		if not silent:
+			print(*args, **kwargs)
+			
+	format_all(entry, silent)
+	print_("Extending entries to whiteout...")
+	entry = extend_entries_to_whiteout(entry)
+
+	print_("Completed!")
+	return entry
 
 if __name__ == '__main__':
 
@@ -424,7 +429,8 @@ if __name__ == '__main__':
 
 		for i in range(len(entries)):
 			try:
-				entry_formatted, validation_status = format_all(entries[i], True)
+				entry_formatted = format_all(entries[i], True)
+				validation_status = validate(entries[i])
 				if validation_status > 2:
 					print(f"Entry {entry_formatted['id']} will be removed! {json.dumps(entry_formatted)}")
 					entries[i] = None
