@@ -386,35 +386,36 @@ def format_all(entry: dict, silent=False):
 	print_("Completed!")
 	return entry
 
+
+def go(path):
+
+	print(f"Formatting {path}...")
+
+	with open(path, "r+", encoding='UTF-8') as f1:
+		entries = json.loads(f1.read())
+
+	for i in range(len(entries)):
+		try:
+			entry_formatted = format_all(entries[i], True)
+			validation_status = validate(entries[i])
+			if validation_status > 2:
+				print(f"Entry {entry_formatted['id']} will be removed! {json.dumps(entry_formatted)}")
+				entries[i] = None
+			else:
+				entries[i] = entry_formatted
+		except Exception:
+			print(f"Exception occured when formatting ID {entries[i]['id']}")
+			print(traceback.format_exc())
+		if not (i % 200):
+			print(f"{i} checked.")
+
+	print(f"{len(entries)} checked. Writing...")
+
+	with open(path, "w", encoding='utf-8', newline='\n') as f2:
+		f2.write(per_line_entries(entries))
+
+	print("Writing completed. All done.")
+
 if __name__ == '__main__':
-
-	def go(path):
-
-		print(f"Formatting {path}...")
-
-		with open(path, "r+", encoding='UTF-8') as f1:
-			entries = json.loads(f1.read())
-
-		for i in range(len(entries)):
-			try:
-				entry_formatted = format_all(entries[i], True)
-				validation_status = validate(entries[i])
-				if validation_status > 2:
-					print(f"Entry {entry_formatted['id']} will be removed! {json.dumps(entry_formatted)}")
-					entries[i] = None
-				else:
-					entries[i] = entry_formatted
-			except Exception:
-				print(f"Exception occured when formatting ID {entries[i]['id']}")
-				print(traceback.format_exc())
-			if not (i % 200):
-				print(f"{i} checked.")
-
-		print(f"{len(entries)} checked. Writing...")
-
-		with open(path, "w", encoding='utf-8', newline='\n') as f2:
-			f2.write(per_line_entries(entries))
-
-		print("Writing completed. All done.")
 
 	go("../web/atlas.json")

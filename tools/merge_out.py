@@ -1,11 +1,14 @@
 import json
 import os
+import formatter
 import scale_back
-from formatter import per_line_entries
 
 from scale_back import ScaleConfig
 
 merge_source_file = 'temp_atlas.json'
+
+formatter.go(merge_source_file)
+
 base_image_path = os.path.join('..', 'web', '_img', 'canvas', 'place30')
 ScaleConfig.image1 = os.path.join(base_image_path, '159.png')
 scale_back.swap_source_dest('164', '165', os.path.join(base_image_path, '163_159.png'))
@@ -57,7 +60,7 @@ for entry in out_json:
 
 print('Writing...')
 with open('../web/atlas.json', 'w', encoding='utf-8') as atlas_file:
-	atlas_file.write(per_line_entries(atlas_json))
+	atlas_file.write(formatter.per_line_entries(atlas_json))
 
 with open('../data/read-ids.txt', 'a', encoding='utf-8') as read_ids_file:
 	with open('read-ids-temp.txt', 'r', encoding='utf-8') as read_ids_temp_file:
