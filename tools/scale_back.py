@@ -40,32 +40,40 @@ web\_img\canvas\place30\159.png
 web\_img\canvas\place30\165_159.png
 """
 
-type = input("Type (shrink/expand): ")
-source = input("Source: ")
-destination = input("Destination: ")
-threshold = int(input("Threshold (%): "))
-image1 = input("Reference canvas layer 1: ")
-image2 = input("Reference canvas layer 2: ")
-canvas_ref = Image.new('RGBA', (2000,2000))
+class ScaleConfig:
+	type = 'expand'
+	source = ''
+	destination = ''
+	threshold = 20
+	image1 = ''
+	image2 = ''
 
-with Image.open(image1).convert('RGBA') as image1:
-	if image2:
-		with Image.open(image2).convert('RGBA') as image2:
-			canvas_ref.paste(image1, (0, 0), image1)
-			canvas_ref.paste(image2, (0, 0), image2)
-			canvas_ref
-	else:
-		canvas_ref.paste(image1, (0, 0), image1)
-
-# uncomment when you need to see the source canvas
-# canvas_ref.show()
+def swap_source_dest(source, destination, image2):
+	ScaleConfig.source = source
+	ScaleConfig.destination = destination
+	ScaleConfig.image2 = image2
 
 def remove_white(entry: dict):
+
+	canvas_ref = Image.new('RGBA', (2000,2000))
+
+	with Image.open(ScaleConfig.image1).convert('RGBA') as image1:
+		if ScaleConfig.image2:
+			with Image.open(ScaleConfig.image2).convert('RGBA') as image2:
+				canvas_ref.paste(image1, (0, 0), image1)
+				canvas_ref.paste(image2, (0, 0), image2)
+				canvas_ref
+		else:
+			canvas_ref.paste(image1, (0, 0), image1)
+
+	# uncomment when you need to see the source canvas
+	# canvas_ref.show()
+
 	# print(entry['path'])
 
 	for (period, polygonList) in entry['path'].items():
 
-		if not f"-{source}" in period: continue
+		if not f"-{ScaleConfig.source}" in period: continue
 
 		# Get bounding rectangle and have a list of tuples for polygon
 
@@ -97,7 +105,7 @@ def remove_white(entry: dict):
 			mask = numpy.array(maskIm)
 		newImArray = numpy.empty(imArray.shape,dtype='uint8')
 
-		
+
 		newImArray[:,:,:3] = imArray[:,:,:3]
 		newImArray[:,:,3] = mask*255
 
@@ -118,16 +126,16 @@ def remove_white(entry: dict):
 			for pixel in x:
 				if pixel[3] == 0: continue
 				all_pixel_count += 1
-				if (pixel[1] == 255 and pixel[2] == 255): continue 
+				if (pixel[1] == 255 and pixel[2] == 255): continue
 				colored_pixel_count += 1
 
 		if all_pixel_count == 0: break
-		
+
 		colorness = (100 * colored_pixel_count)/all_pixel_count
 
-		if (type == "shrink" and colorness < threshold) or (type == "expand" and colorness > threshold):
+		if (ScaleConfig.type == "shrink" and colorness < ScaleConfig.threshold) or (ScaleConfig.type == "expand" and colorness > ScaleConfig.threshold):
 			print(f"[{entry['id']} {period}] {colored_pixel_count}/{all_pixel_count} ({colorness}%)")
-			new_period = period.replace(f'-{source}', f'-{destination}')
+			new_period = period.replace(f'-{ScaleConfig.source}', f'-{ScaleConfig.destination}')
 			entry['path'][new_period] = entry['path'][period]
 			del entry['path'][period]
 			entry['center'][new_period] = entry['center'][period]
@@ -135,7 +143,7 @@ def remove_white(entry: dict):
 			break
 			# newIm = Image.fromarray(newImArray, "RGBA")
 			# newIm.show()
-		
+
 		break
 
 	return entry
@@ -155,36 +163,43 @@ def format_all(entry: dict, silent=False):
 	def print_(*args, **kwargs):
 		if not silent:
 			print(*args, **kwargs)
-	
+
 	entry = remove_white(entry)
 	print_("Completed!")
 	return entry
 
+def go(path):
+
+	print(f"Scaling whiteout for {path}...")
+
+	with open(path, "r+", encoding='UTF-8') as f1:
+		entries = json.loads(f1.read())
+
+	for i in range(len(entries)):
+		try:
+			entry_formatted = format_all(entries[i], True)
+			entries[i] = entry_formatted
+		except Exception:
+			print(f"Exception occured when formatting ID {entries[i]['id']}")
+			print(traceback.format_exc())
+		if not (i % 50):
+			print(f"{i} checked.")
+			gc.collect()
+
+	print(f"{len(entries)} checked. Writing...")
+
+	with open(path, "w", encoding='utf-8', newline='\n') as f2:
+		f2.write(per_line_entries(entries))
+
+	print("Writing completed. All done.")
+
 if __name__ == '__main__':
 
-	def go(path):
-
-		print(f"Formatting {path}...")
-
-		with open(path, "r+", encoding='UTF-8') as f1:
-			entries = json.loads(f1.read())
-
-		for i in range(len(entries)):
-			try:
-				entry_formatted = format_all(entries[i], True)
-				entries[i] = entry_formatted
-			except Exception:
-				print(f"Exception occured when formatting ID {entries[i]['id']}")
-				print(traceback.format_exc())
-			if not (i % 50):
-				print(f"{i} checked.")
-				gc.collect()
-
-		print(f"{len(entries)} checked. Writing...")
-
-		with open(path, "w", encoding='utf-8', newline='\n') as f2:
-			f2.write(per_line_entries(entries))
-
-		print("Writing completed. All done.")
+	ScaleConfig.type = input("Type (shrink/expand): ")
+	ScaleConfig.source = input("Source: ")
+	ScaleConfig.destination = input("Destination: ")
+	ScaleConfig.threshold = int(input("Threshold (%): "))
+	ScaleConfig.image1 = input("Reference canvas layer 1: ")
+	ScaleConfig.image2 = input("Reference canvas layer 2: ")
 
 	go("web/atlas.json")

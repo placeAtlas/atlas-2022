@@ -285,23 +285,6 @@ def sort_image_keys(entry: dict):
 
 	return entry
 
-def extend_entries_to_whiteout(entry: dict):
-	"""
-	If an entry ends on the final non-whiteout image, extends the image to the last whiteout image where entries cans still be made out.
-	"""
-	for outer_key in ["path", "center"]:
-		image_keys: List[str] = list(entry[outer_key].keys())
-		for image_key in image_keys:
-			new_key = None
-			if NORMAL_IMAGE_SUFFIX in image_key:
-				new_key = image_key.replace(NORMAL_IMAGE_SUFFIX, WHITEOUT_IMAGE_SUFFIX)
-			elif image_key == END_NORMAL_IMAGE:
-				new_key = END_NORMAL_IMAGE + WHITEOUT_IMAGE_SUFFIX
-				entry[outer_key][new_key] = entry[outer_key][image_key]
-				del(entry[outer_key][image_key])
-
-	return entry
-
 def floor_points(entry: dict):
 	"""
 	Floors points on path and center, removing the decimal count.
@@ -399,21 +382,6 @@ def format_all(entry: dict, silent=False):
 	entry = sort_image_keys(entry)
 	print_("Flooring points...")
 	entry = floor_points(entry)
-
-	print_("Completed!")
-	return entry
-
-def format_all_crawl(entry: dict, silent=False):
-	"""
-	Format using all the available formatters.
-	"""
-	def print_(*args, **kwargs):
-		if not silent:
-			print(*args, **kwargs)
-			
-	format_all(entry, silent)
-	print_("Extending entries to whiteout...")
-	entry = extend_entries_to_whiteout(entry)
 
 	print_("Completed!")
 	return entry

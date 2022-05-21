@@ -28,7 +28,7 @@ import json
 import time
 import re
 import traceback
-from formatter import format_all_crawl, validate
+from formatter import format_all, validate
 from migrate_atlas_format import migrate_atlas_format
 
 OUT_FILE = open('temp_atlas.json', 'w', encoding='utf-8')
@@ -45,7 +45,7 @@ with open('credentials', 'r') as file:
 	password = credentials[3].strip() if len(credentials) > 3 else ""
 
 reddit = praw.Reddit(
-	client_id=client_id, 
+	client_id=client_id,
 	client_secret=client_secret,
 	username=username,
 	password=password,
@@ -86,7 +86,7 @@ for submission in reddit.subreddit('placeAtlas2').new(limit=2000):
 			break
 		else:
 			continue
-	
+
 	if submission.link_flair_text == "New Entry" or submission.link_flair_text == "Edit Entry":
 
 		try:
@@ -113,20 +113,20 @@ for submission in reddit.subreddit('placeAtlas2').new(limit=2000):
 				else:
 
 					assert submission_json["id"] == 0, "Edit invalid because ID is tampered, it must be 0!"
-					
+
 					submission_json_dummy = {"id": submission.id}
 
 				for key in submission_json:
 					if not key in submission_json_dummy:
 						submission_json_dummy[key] = submission_json[key];
-				submission_json = format_all_crawl(submission_json_dummy, True)
+				submission_json = format_all(submission_json_dummy, True)
 				validation_status = validate(submission_json)
-				
+
 				assert validation_status < 3, \
 					"Submission invalid after validation. This may be caused by not enough points on the path."
 
 				submission_json = migrate_atlas_format(submission_json)
-				
+
 				add_comma_line = len(OUT_FILE_LINES) - 2
 				if len(OUT_FILE_LINES[add_comma_line]) > 2:
 					OUT_FILE_LINES[add_comma_line] = OUT_FILE_LINES[add_comma_line].replace('\n', ',\n')
