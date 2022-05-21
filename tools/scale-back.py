@@ -35,7 +35,7 @@ web\_img\canvas\place30\163_159.png
 expand
 166
 167
-80
+20
 web\_img\canvas\place30\159.png
 web\_img\canvas\place30\165_159.png
 """
