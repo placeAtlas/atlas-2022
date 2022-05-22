@@ -2,8 +2,15 @@
 
 import re
 import json
+import math
 import traceback
 from typing import List
+
+END_NORMAL_IMAGE = "164"
+END_WHITEOUT_IMAGE = "166"
+
+NORMAL_IMAGE_SUFFIX = "-" + END_NORMAL_IMAGE
+WHITEOUT_IMAGE_SUFFIX = "-" + END_WHITEOUT_IMAGE
 
 """
 Examples:
@@ -172,7 +179,7 @@ def fix_no_protocol_urls(entry: dict):
 	if "links" in entry and "website" in entry['links']:
 		for i in range(len(entry["links"]["website"])):
 			if entry["links"]["website"][i] and not entry["links"]["website"][i].startswith("http"):
-				entry["links"]["website"][i] = "https://" + entry["website"]
+				entry["links"]["website"][i] = "https://" + entry["links"]["website"][i]
 
 	return entry
 
@@ -278,27 +285,23 @@ def sort_image_keys(entry: dict):
 
 	return entry
 
-def extend_entries_to_whiteout(entry: dict):
+def floor_points(entry: dict):
 	"""
-	If an entry ends on the final non-whiteout image, extends the image to the last whiteout image where entries cans still be made out.
+	Floors points on path and center, removing the decimal count.
 	"""
-	END_NORMAL_IMAGE = "164"
-	END_WHITEOUT_IMAGE = "166"
 
-	NORMAL_IMAGE_SUFFIX = "-" + END_NORMAL_IMAGE
-	WHITEOUT_IMAGE_SUFFIX = "-" + END_WHITEOUT_IMAGE
-	for outer_key in ["path", "center"]:
-		image_keys: List[str] = list(entry[outer_key].keys())
-		for image_key in image_keys:
-			new_key = None
-			if NORMAL_IMAGE_SUFFIX in image_key:
-				new_key = image_key.replace(NORMAL_IMAGE_SUFFIX, WHITEOUT_IMAGE_SUFFIX)
-			elif image_key == END_NORMAL_IMAGE:
-				new_key = END_NORMAL_IMAGE + WHITEOUT_IMAGE_SUFFIX
-				entry[outer_key][new_key] = entry[outer_key][image_key]
-				del(entry[outer_key][image_key])
+	for period in entry["path"]:
+		for points in entry["path"][period]:
+			points[0] = math.floor(points[0])
+			points[1] = math.floor(points[1])
+
+	for period in entry["center"]:
+		points = entry["center"][period]
+		points[0] = math.floor(points[0])
+		points[1] = math.floor(points[1])
 
 	return entry
+
 
 def validate(entry: dict):
 	"""
@@ -350,17 +353,11 @@ def per_line_entries(entries: list):
 def format_all(entry: dict, silent=False):
 	"""
 	Format using all the available formatters.
-	Outputs a tuple containing the entry and the validation status code.
-
-	Status code key:
-	0: All valid, no problems
-	1: Informational logs that may be ignored
-	2: Warnings that may effect user experience when interacting with the entry
-	3: Errors that make the entry inaccessible or broken.
 	"""
 	def print_(*args, **kwargs):
 		if not silent:
 			print(*args, **kwargs)
+
 	print_("Fixing r/ capitalization...")
 	entry = fix_r_caps(entry)
 	print_("Fix formatting of subreddit...")
@@ -383,41 +380,42 @@ def format_all(entry: dict, silent=False):
 	entry = remove_empty_and_similar(entry)
 	print_("Sorting image keys...")
 	entry = sort_image_keys(entry)
-	print_("Extending entries to whiteout...")
-	entry = extend_entries_to_whiteout(entry)
-	print_("Validating...")
-	status_code = validate(entry)
+	print_("Flooring points...")
+	entry = floor_points(entry)
+
 	print_("Completed!")
-	return ( entry, status_code )
+	return entry
+
+
+def go(path):
+
+	print(f"Formatting {path}...")
+
+	with open(path, "r+", encoding='UTF-8') as f1:
+		entries = json.loads(f1.read())
+
+	for i in range(len(entries)):
+		try:
+			entry_formatted = format_all(entries[i], True)
+			validation_status = validate(entries[i])
+			if validation_status > 2:
+				print(f"Entry {entry_formatted['id']} will be removed! {json.dumps(entry_formatted)}")
+				entries[i] = None
+			else:
+				entries[i] = entry_formatted
+		except Exception:
+			print(f"Exception occured when formatting ID {entries[i]['id']}")
+			print(traceback.format_exc())
+		if not (i % 200):
+			print(f"{i} checked.")
+
+	print(f"{len(entries)} checked. Writing...")
+
+	with open(path, "w", encoding='utf-8', newline='\n') as f2:
+		f2.write(per_line_entries(entries))
+
+	print("Writing completed. All done.")
 
 if __name__ == '__main__':
-
-	def go(path):
-
-		print(f"Formatting {path}...")
-
-		with open(path, "r+", encoding='UTF-8') as f1:
-			entries = json.loads(f1.read())
-
-		for i in range(len(entries)):
-			try:
-				entry_formatted, validation_status = format_all(entries[i], True)
-				if validation_status > 2:
-					print(f"Entry {entry_formatted['id']} will be removed! {json.dumps(entry_formatted)}")
-					entries[i] = None
-				else:
-					entries[i] = entry_formatted
-			except Exception:
-				print(f"Exception occured when formatting ID {entries[i]['id']}")
-				print(traceback.format_exc())
-			if not (i % 200):
-				print(f"{i} checked.")
-
-		print(f"{len(entries)} checked. Writing...")
-
-		with open(path, "w", encoding='utf-8', newline='\n') as f2:
-			f2.write(per_line_entries(entries))
-
-		print("Writing completed. All done.")
 
 	go("../web/atlas.json")

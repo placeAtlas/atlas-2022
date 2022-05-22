@@ -1,11 +1,28 @@
 import json
-from formatter import per_line_entries
+import os
+import formatter
+import scale_back
+
+from scale_back import ScaleConfig
+
+merge_source_file = 'temp_atlas.json'
+
+formatter.go(merge_source_file)
+
+base_image_path = os.path.join('..', 'web', '_img', 'canvas', 'place30')
+ScaleConfig.image1 = os.path.join(base_image_path, '159.png')
+scale_back.swap_source_dest('164', '165', os.path.join(base_image_path, '163_159.png'))
+scale_back.go(merge_source_file)
+scale_back.swap_source_dest('165', '166', os.path.join(base_image_path, '164_159.png'))
+scale_back.go(merge_source_file)
+scale_back.swap_source_dest('166', '167', os.path.join(base_image_path, '165_159.png'))
+scale_back.go(merge_source_file)
 
 out_ids = set()
 out_dupe_ids = set()
 atlas_ids = {}
 
-with open('temp_atlas.json', 'r', encoding='utf-8') as out_file:
+with open(merge_source_file, 'r', encoding='utf-8') as out_file:
 	out_json = json.loads(out_file.read())
 
 with open('../web/atlas.json', 'r', encoding='utf-8') as atlas_file:
@@ -43,7 +60,7 @@ for entry in out_json:
 
 print('Writing...')
 with open('../web/atlas.json', 'w', encoding='utf-8') as atlas_file:
-	atlas_file.write(per_line_entries(atlas_json))
+	atlas_file.write(formatter.per_line_entries(atlas_json))
 
 with open('../data/read-ids.txt', 'a', encoding='utf-8') as read_ids_file:
 	with open('read-ids-temp.txt', 'r', encoding='utf-8') as read_ids_temp_file:
