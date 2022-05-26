@@ -7,23 +7,23 @@ from scale_back import ScaleConfig
 
 merge_source_file = 'temp_atlas.json'
 
-formatter.go(merge_source_file)
+with open(merge_source_file, 'r', encoding='UTF-8') as f1:
+	out_json = json.loads(f1.read())
+
+formatter.format_all_entries(out_json)
 
 base_image_path = os.path.join('..', 'web', '_img', 'canvas', 'place30')
 ScaleConfig.image1 = os.path.join(base_image_path, '159.png')
 scale_back.swap_source_dest('164', '165', os.path.join(base_image_path, '163_159.png'))
-scale_back.go(merge_source_file)
+scale_back.scale_back_entries(out_json)
 scale_back.swap_source_dest('165', '166', os.path.join(base_image_path, '164_159.png'))
-scale_back.go(merge_source_file)
+scale_back.scale_back_entries(out_json)
 scale_back.swap_source_dest('166', '167', os.path.join(base_image_path, '165_159.png'))
-scale_back.go(merge_source_file)
+scale_back.scale_back_entries(out_json)
 
 out_ids = set()
 out_dupe_ids = set()
 atlas_ids = {}
-
-with open(merge_source_file, 'r', encoding='utf-8') as out_file:
-	out_json = json.loads(out_file.read())
 
 with open('../web/atlas.json', 'r', encoding='utf-8') as atlas_file:
 	atlas_json = json.loads(atlas_file.read())

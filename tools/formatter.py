@@ -386,14 +386,7 @@ def format_all(entry: dict, silent=False):
 	print_("Completed!")
 	return entry
 
-
-def go(path):
-
-	print(f"Formatting {path}...")
-
-	with open(path, "r+", encoding='UTF-8') as f1:
-		entries = json.loads(f1.read())
-
+def format_all_entries(entries):
 	for i in range(len(entries)):
 		try:
 			entry_formatted = format_all(entries[i], True)
@@ -408,6 +401,15 @@ def go(path):
 			print(traceback.format_exc())
 		if not (i % 200):
 			print(f"{i} checked.")
+
+def go(path):
+
+	print(f"Formatting {path}...")
+
+	with open(path, "r+", encoding='UTF-8') as f1:
+		entries = json.loads(f1.read())
+
+	format_all_entries(entries)
 
 	print(f"{len(entries)} checked. Writing...")
 
