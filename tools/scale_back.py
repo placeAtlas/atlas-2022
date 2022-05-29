@@ -168,13 +168,7 @@ def format_all(entry: dict, silent=False):
 	print_("Completed!")
 	return entry
 
-def go(path):
-
-	print(f"Scaling whiteout for {path}...")
-
-	with open(path, "r+", encoding='UTF-8') as f1:
-		entries = json.loads(f1.read())
-
+def scale_back_entries(entries):
 	for i in range(len(entries)):
 		try:
 			entry_formatted = format_all(entries[i], True)
@@ -185,6 +179,15 @@ def go(path):
 		if not (i % 50):
 			print(f"{i} checked.")
 			gc.collect()
+
+def go(path):
+
+	print(f"Scaling whiteout for {path}...")
+
+	with open(path, "r+", encoding='UTF-8') as f1:
+		entries = json.loads(f1.read())
+
+	scale_back_entries(entries)
 
 	print(f"{len(entries)} checked. Writing...")
 
