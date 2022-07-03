@@ -43,8 +43,12 @@ function createInfoBlock(entry, isPreview) {
 	if (isPreview) linkElement.href = "#"
 	else {
 		const targetPeriod = formatPeriod(currentPeriod, currentPeriod, currentVariation)
-		linkElement.href = "#" + entry.id
-		if (targetPeriod && targetPeriod != defaultPeriod) linkElement.href += "/" + targetPeriod
+		let hash = entry.id
+		if (targetPeriod && targetPeriod != defaultPeriod) hash += "/" + targetPeriod
+		linkElement.href = "#" + hash
+		linkElement.addEventListener('click', () => {
+			if (location.hash === "#" + hash) highlightEntryFromUrl(hash)
+		})
 	}
 	const linkNameElement = document.createElement("span")
 	linkNameElement.className = "flex-grow-1 text-break"

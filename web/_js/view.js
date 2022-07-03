@@ -754,11 +754,10 @@ function updateHovering(e, tapped) {
 	}
 }
 
-window.addEventListener("hashchange", highlightEntryFromUrl)
+window.addEventListener("hashchange", () => highlightEntryFromUrl())
 
-function highlightEntryFromUrl() {
+function highlightEntryFromUrl(hash = window.location.hash.substring(1)) {
 
-	const hash = window.location.hash.substring(1); //Remove hash prefix
 	const [id, period] = hash.split('/')
 
 	if (period) {
