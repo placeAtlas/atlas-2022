@@ -444,4 +444,14 @@ body:not([data-dev]) .show-only-on-dev {
 	display: none !important;
 }
 
+/* about.html */
+
+#credits a {
+	text-decoration: none;
+}
+
+#credits a:hover {
+	text-decoration: underline;
+}
+
 /* purgecss end ignore */
