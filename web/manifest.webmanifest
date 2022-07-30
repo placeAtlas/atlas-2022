@@ -1,34 +1,51 @@
 {
-    "background_color": "#111111",
-    "display": "minimal-ui",
+    "background_color": "#ff8800",
+    "display": "standalone",
     "scope": "/",
     "start_url": "/",
-    "name": "r/place Atlas",
-    "short_name": "placeAtlas2",
-    "description": "The atlas for the r/place event from 2022",
+    "name": "The r/place Atlas",
+    "short_name": "r/placeAtlas2",
+    "description": "The atlas for the r/place event of 2022 hosted on Reddit.",
     "icons": [{
-            "src": "/_img/logo-round-192x192.png",
+            "src": "./_img/pwa/logo-round-192x192.png",
             "sizes": "192x192",
             "type": "image/png",
             "purpose": "any"
         },
         {
-            "src": "/_img/logo-maskable-192x192.png",
+            "src": "./_img/pwa/logo-maskable-192x192.png",
             "sizes": "192x192",
             "type": "image/png",
             "purpose": "maskable"
         },
         {
-            "src": "/_img/logo-round-512x512.png",
+            "src": "./_img/pwa/logo-round-512x512.png",
             "sizes": "512x512",
             "type": "image/png",
             "purpose": "any"
         },
         {
-            "src": "/_img/logo-maskable-512x512.png",
+            "src": "./_img/pwa/logo-maskable-512x512.png",
             "sizes": "512x512",
             "type": "image/png",
             "purpose": "maskable"
         }
-    ]
+    ],
+    "screenshots": [{
+            "src": "./_img/pwa/screenshot-1.png",
+            "sizes": "750x1334",
+            "type": "image/png"
+        },
+        {
+            "src": "./_img/pwa/screenshot-2.png",
+            "sizes": "1280x800",
+            "type": "image/png"
+        },
+        {
+            "src": "./_img/pwa/screenshot-3.png",
+            "sizes": "750x1334",
+            "type": "image/png"
+        }
+    ],
+    "theme_color": "#ff8800"
 }

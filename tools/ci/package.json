@@ -4,8 +4,9 @@
     "@parcel/packager-raw-url": "^2.5.0",
     "@parcel/transformer-jsonld": "^2.5.0",
     "@parcel/transformer-webmanifest": "^2.5.0",
-    "parcel-namer-rewrite": "^2.0.0-rc.2",
     "parcel": "^2.5.0",
+    "parcel-namer-rewrite": "^2.0.0-rc.2",
+    "parcel-resolver-ignore": "^2.1.3",
     "postcss": "^8.4.12"
   },
   "parcel-namer-rewrite": {
@@ -16,15 +17,18 @@
       "(.*)\\.(js)": "_js/$1{.hash}.$2"
     }
   },
+  "parcelIgnore": [
+    "pwabuilder-sw-register.js"
+  ],
   "browserslist": [
-    ">= 0.5%", 
-    "last 2 major versions", 
-    "not dead", 
-    "Chrome >= 60", 
-    "Firefox >= 60", 
-    "Firefox ESR", 
+    ">= 0.5%",
+    "last 2 major versions",
+    "not dead",
+    "Chrome >= 60",
+    "Firefox >= 60",
+    "Firefox ESR",
     "iOS >= 12",
-    "Safari >= 12", 
+    "Safari >= 12",
     "not Explorer <= 11"
   ]
 }
