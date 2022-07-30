@@ -6,7 +6,6 @@ if (process.env.NODE_ENV === "production") {
   plugins.push(
     purgecss({
       content: [
-        './dist-temp/*.js',
         './dist-temp/*.html', 
         './dist-temp/**/*.html', 
         './dist-temp/**/*.js',
