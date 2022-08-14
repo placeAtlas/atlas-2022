@@ -8,7 +8,6 @@ if (process.env.NODE_ENV === "production") {
       content: [
         './dist-temp/*.html', 
         './dist-temp/**/*.html', 
-        './dist-temp/*.js', 
         './dist-temp/**/*.js',
         './dist-temp/*.svg', 
         './dist-temp/**/*.svg'

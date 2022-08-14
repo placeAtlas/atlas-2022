@@ -23,3 +23,5 @@ cp web/atlas.json dist/
 cp web/*.txt dist/
 cp web/_headers dist/
 cp web/favicon.ico dist/
+cp web/pwabuilder-sw-register.js dist/
+cp web/pwabuilder-sw.js dist/
