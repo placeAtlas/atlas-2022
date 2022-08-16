@@ -244,17 +244,12 @@ let currentUpdateIndex = 0
 let updateTimeout = setTimeout(null, 0)
 let tooltipDelayHide = setTimeout(null, 0)
 
-let currentVariation = "default"
-const defaultPeriod = variationsConfig[currentVariation].default
-const defaultVariation = currentVariation
-let currentPeriod = defaultPeriod
+const defaultVariation = "default"
+const defaultPeriod = variationsConfig[defaultVariation].default
+let currentVariation = null
+let currentPeriod = null
 window.currentPeriod = currentPeriod
 window.currentVariation = currentVariation
-
-// SETUP
-timelineSlider.max = variationsConfig[currentVariation].versions.length - 1
-timelineSlider.value = currentPeriod
-timelineList.children[0].value = defaultPeriod
 
 timelineSlider.addEventListener("input", (e) => timelineParser(e.target.value))
 
@@ -361,20 +356,24 @@ async function updateBackground(newPeriod = currentPeriod, newVariation = curren
 	}
 }
 
-async function updateTime(newPeriod = currentPeriod, newVariation = currentVariation, forcePeriod = false) {
+async function updateTime(newPeriod = currentPeriod, newVariation = currentVariation, forceLoad = false) {
 	document.body.dataset.canvasLoading = ""
+
+	const oldPeriod = currentPeriod
+	const oldVariation = currentVariation
 
 	if (!variationsConfig[newVariation]) newVariation = defaultVariation
 	const variationConfig = variationsConfig[newVariation]
 
-	if (newPeriod < 0) newPeriod = 0
+	if (newPeriod < -1) newPeriod = 0
 	else if (newPeriod > variationConfig.versions.length - 1) newPeriod = variationConfig.versions.length - 1
 
 	currentPeriod = newPeriod
-	if (currentVariation !== newVariation) {
-		currentVariation = newVariation
+	currentVariation = newVariation
+
+	if (oldVariation !== newVariation) {
 		timelineSlider.max = variationConfig.versions.length - 1
-		if (!forcePeriod) {
+		if (currentPeriod === -1) {
 			currentPeriod = variationConfig.default
 			newPeriod = currentPeriod
 		}
@@ -384,37 +383,39 @@ async function updateTime(newPeriod = currentPeriod, newVariation = currentVaria
 	timelineSlider.value = currentPeriod
 	updateTooltip(newPeriod, newVariation)
 
-	await updateBackground(newPeriod, newVariation)
+	if (forceLoad || oldPeriod !== newPeriod || oldVariation !== newVariation) {
+		await updateBackground(newPeriod, newVariation)
 
-	atlas = []
-	for (const atlasIndex in atlasAll) {
-		let chosenIndex
-
-		const validPeriods2 = Object.keys(atlasAll[atlasIndex].path)
-
-		for (const i in validPeriods2) {
-			const validPeriods = validPeriods2[i].split(', ')
-			for (const j in validPeriods) {
-				const [start, end, variation] = parsePeriod(validPeriods[j])
-				if (isOnPeriod(start, end, variation, newPeriod, newVariation)) {
-					chosenIndex = i
-					break
+		atlas = []
+		for (const atlasIndex in atlasAll) {
+			let chosenIndex
+	
+			const validPeriods2 = Object.keys(atlasAll[atlasIndex].path)
+	
+			for (const i in validPeriods2) {
+				const validPeriods = validPeriods2[i].split(', ')
+				for (const j in validPeriods) {
+					const [start, end, variation] = parsePeriod(validPeriods[j])
+					if (isOnPeriod(start, end, variation, newPeriod, newVariation)) {
+						chosenIndex = i
+						break
+					}
 				}
+				if (chosenIndex !== undefined) break
 			}
-			if (chosenIndex !== undefined) break
+	
+			if (chosenIndex === undefined) continue
+			const pathChosen = Object.values(atlasAll[atlasIndex].path)[chosenIndex]
+			const centerChosen = Object.values(atlasAll[atlasIndex].center)[chosenIndex]
+	
+			if (pathChosen === undefined) continue
+	
+			atlas.push({
+				...atlasAll[atlasIndex],
+				path: pathChosen,
+				center: centerChosen,
+			})
 		}
-
-		if (chosenIndex === undefined) continue
-		const pathChosen = Object.values(atlasAll[atlasIndex].path)[chosenIndex]
-		const centerChosen = Object.values(atlasAll[atlasIndex].center)[chosenIndex]
-
-		if (pathChosen === undefined) continue
-
-		atlas.push({
-			...atlasAll[atlasIndex],
-			path: pathChosen,
-			center: centerChosen,
-		})
 	}
 
 	dispatchTimeUpdateEvent(newPeriod, atlas)

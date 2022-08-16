@@ -756,15 +756,15 @@ function updateHovering(e, tapped) {
 
 window.addEventListener("hashchange", () => highlightEntryFromUrl())
 
-function highlightEntryFromUrl(hash = window.location.hash.substring(1)) {
+async function highlightEntryFromUrl(hash = window.location.hash.substring(1)) {
 
 	const [id, period] = hash.split('/')
 
 	if (period) {
 		const [, targetPeriod, targetVariation] = parsePeriod(period)
-		updateTime(targetPeriod, targetVariation, true)
+		await updateTime(targetPeriod, targetVariation)
 	} else {
-		updateTime(defaultPeriod, defaultVariation, true)
+		await updateTime(defaultPeriod, defaultVariation)
 	}
 
 	if (id) {

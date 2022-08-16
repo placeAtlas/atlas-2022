@@ -110,7 +110,7 @@ async function init() {
 		const [, targetPeriod, targetVariation] = parsePeriod(period)
 		await updateTime(targetPeriod, targetVariation)
 	} else {
-		await updateTime(currentPeriod, currentVariation)
+		await updateTime(defaultPeriod, defaultVariation)
 	}
 
 	//console.log(document.documentElement.clientWidth, document.documentElement.clientHeight)
@@ -180,7 +180,7 @@ async function init() {
 		} catch (error) {
 			console.warn("Diff mode failed to load, reverting to normal view.", error)
 		} finally {
-			await updateTime()
+			await updateTime(currentPeriod, currentVariation, true)
 			if (initOverlap && mode.includes("overlap")) {
 				initOverlap()
 			} else {
