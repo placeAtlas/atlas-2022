@@ -1,4 +1,7 @@
 [![Entry count](https://img.shields.io/badge/dynamic/json?color=blue&label=entries&query=%24.length&url=https%3A%2F%2Fgithub.com%2FplaceAtlas%2Fatlas%2Fblob%2Fmaster%2Fweb%2Fatlas.json%3Fraw%3Dtrue)](https://place-atlas.stefanocoding.me/)
+<!-- ALL-CONTRIBUTORS-BADGE:START - Do not remove or modify this section -->
+[![All Contributors](https://img.shields.io/badge/all_contributors-1-orange.svg?style=flat-square)](#contributors-)
+<!-- ALL-CONTRIBUTORS-BADGE:END -->
 ![Commit activity](https://img.shields.io/github/commit-activity/w/placeAtlas/atlas)
 [![Netlify](https://img.shields.io/netlify/1e7291ce-0680-45ed-9843-47a32a992bbb?logo=netlify&logoColor=white)](https://app.netlify.com/sites/place-atlas/deploys)
 [![License](https://img.shields.io/github/license/placeAtlas/atlas)](https://github.com/placeAtlas/atlas/blob/master/LICENSE)  
@@ -61,3 +64,27 @@ To contribute to the map, we require a certain format for artwork region and lab
 ### Cleaning Contributions
 
 If you spot a duplicate, please PR against the `cleanup` branch. To help find duplicates, [use the Overlap mode](https://place-atlas.stefanocoding.me?mode=overlap).
+## Contributors ✨
+
+Thanks goes to these wonderful people ([emoji key](https://allcontributors.org/docs/en/emoji-key)):
+
+<!-- ALL-CONTRIBUTORS-LIST:START - Do not remove or modify this section -->
+<!-- prettier-ignore-start -->
+<!-- markdownlint-disable -->
+<table>
+  <tbody>
+    <tr>
+      <td align="center"><a href="https://stefanocoding.me"><img src="https://avatars.githubusercontent.com/u/25939526?v=4?s=100" width="100px;" alt="Stefano"/><br /><sub><b>Stefano</b></sub></a><br /><a href="#infra-Codixer" title="Infrastructure (Hosting, Build-Tools, etc)">🚇</a></td>
+    </tr>
+  </tbody>
+  <tfoot>
+    
+  </tfoot>
+</table>
+
+<!-- markdownlint-restore -->
+<!-- prettier-ignore-end -->
+
+<!-- ALL-CONTRIBUTORS-LIST:END -->
+
+This project follows the [all-contributors](https://github.com/all-contributors/all-contributors) specification. Contributions of any kind welcome!
