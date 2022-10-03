@@ -74,7 +74,7 @@ Thanks goes to these wonderful people ([emoji key](https://allcontributors.org/d
 <table>
   <tbody>
     <tr>
-      <td align="center"><a href="https://stefanocoding.me"><img src="https://avatars.githubusercontent.com/u/25939526?v=4?s=100" width="100px;" alt="Stefano"/><br /><sub><b>Stefano</b></sub></a><br /><a href="#infra-Codixer" title="Infrastructure (Hosting, Build-Tools, etc)">🚇</a></td>
+      <td align="center"><a href="https://stefanocoding.me"><img src="https://avatars.githubusercontent.com/u/25939526?v=4?s=100" width="100px;" alt="Stefano"/><br /><sub><b>Stefano</b></sub></a><br /><a href="#business-Codixer" title="Business development">💼</a> <a href="https://github.com/placeAtlas/atlas/commits?author=Codixer" title="Code">💻</a> <a href="#content-Codixer" title="Content">🖋</a> <a href="#data-Codixer" title="Data">🔣</a> <a href="#design-Codixer" title="Design">🎨</a> <a href="#fundingFinding-Codixer" title="Funding Finding">🔍</a> <a href="#infra-Codixer" title="Infrastructure (Hosting, Build-Tools, etc)">🚇</a> <a href="#maintenance-Codixer" title="Maintenance">🚧</a> <a href="#projectManagement-Codixer" title="Project Management">📆</a> <a href="#question-Codixer" title="Answering Questions">💬</a> <a href="#security-Codixer" title="Security">🛡️</a></td>
     </tr>
   </tbody>
   <tfoot>

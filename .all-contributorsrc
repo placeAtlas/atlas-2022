@@ -12,7 +12,17 @@
       "avatar_url": "https://avatars.githubusercontent.com/u/25939526?v=4",
       "profile": "https://stefanocoding.me",
       "contributions": [
-        "infra"
+        "business",
+        "code",
+        "content",
+        "data",
+        "design",
+        "fundingFinding",
+        "infra",
+        "maintenance",
+        "projectManagement",
+        "question",
+        "security"
       ]
     }
   ],
