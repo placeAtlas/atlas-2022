@@ -24,6 +24,71 @@
         "question",
         "security"
       ]
+    },
+    {
+      "login": "imskyyc",
+      "name": "imskyyc",
+      "avatar_url": "https://avatars.githubusercontent.com/u/48039776?v=4",
+      "profile": "https://www.imskyyc.xyz/",
+      "contributions": [
+        "financial",
+        "ideas"
+      ]
+    },
+    {
+      "login": "ab-gh",
+      "name": "ash",
+      "avatar_url": "https://avatars.githubusercontent.com/u/18347932?v=4",
+      "profile": "https://github.com/ab-gh",
+      "contributions": [
+        "business",
+        "content",
+        "data",
+        "projectManagement",
+        "review"
+      ]
+    },
+    {
+      "login": "Aeywoo",
+      "name": "Aeywoo",
+      "avatar_url": "https://avatars.githubusercontent.com/u/65846594?v=4",
+      "profile": "https://linktr.ee/aeywoo",
+      "contributions": [
+        "business",
+        "bug",
+        "blog",
+        "content",
+        "maintenance",
+        "research"
+      ]
+    },
+    {
+      "login": "AnonymousRandomPerson",
+      "name": "Cheng Hann Gan",
+      "avatar_url": "https://avatars.githubusercontent.com/u/6516839?v=4",
+      "profile": "https://www.linkedin.com/in/chenghanngan/",
+      "contributions": [
+        "data",
+        "content",
+        "research"
+      ]
+    },
+    {
+      "login": "mxdanger",
+      "name": "mxdanger",
+      "avatar_url": "https://avatars.githubusercontent.com/u/32040254?v=4",
+      "profile": "https://github.com/mxdanger",
+      "contributions": [
+        "code",
+        "a11y",
+        "bug",
+        "design",
+        "ideas",
+        "infra",
+        "maintenance",
+        "tool",
+        "userTesting"
+      ]
     }
   ],
   "contributorsPerLine": 7,
