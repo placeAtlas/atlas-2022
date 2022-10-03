@@ -1,0 +1,25 @@
+{
+  "files": [
+    "README.md"
+  ],
+  "imageSize": 100,
+  "commit": false,
+  "commitConvention": "angular",
+  "contributors": [
+    {
+      "login": "Codixer",
+      "name": "Stefano",
+      "avatar_url": "https://avatars.githubusercontent.com/u/25939526?v=4",
+      "profile": "https://stefanocoding.me",
+      "contributions": [
+        "infra"
+      ]
+    }
+  ],
+  "contributorsPerLine": 7,
+  "skipCi": true,
+  "repoType": "github",
+  "repoHost": "https://github.com",
+  "projectName": "atlas",
+  "projectOwner": "placeAtlas"
+}
