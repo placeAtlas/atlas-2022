@@ -61,3 +61,14 @@ To contribute to the map, we require a certain format for artwork region and lab
 ### Cleaning Contributions
 
 If you spot a duplicate, please PR against the `cleanup` branch. To help find duplicates, [use the Overlap mode](https://place-atlas.stefanocoding.me?mode=overlap).
+
+## Contributors
+
+<!-- ALL-CONTRIBUTORS-LIST:START - Do not remove or modify this section -->
+<!-- prettier-ignore-start -->
+<!-- markdownlint-disable -->
+
+<!-- markdownlint-restore -->
+<!-- prettier-ignore-end -->
+
+<!-- ALL-CONTRIBUTORS-LIST:END -->
