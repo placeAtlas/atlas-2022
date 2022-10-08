@@ -89,6 +89,15 @@
         "tool",
         "userTesting"
       ]
+    },
+    {
+      "login": "artillect",
+      "name": "Riley",
+      "avatar_url": "https://avatars.githubusercontent.com/u/8906201?v=4",
+      "profile": "http://youtube.com/c/Artillect0",
+      "contributions": [
+        "data"
+      ]
     }
   ],
   "contributorsPerLine": 7,
