@@ -6,7 +6,7 @@
 [![Subreddit subscribers](https://img.shields.io/reddit/subreddit-subscribers/placeAtlas2?color=%23FF4500&label=r%2FplaceAtlas2&logo=reddit&logoColor=white)](https://www.reddit.com/r/placeAtlas2/)
 [![Website](https://img.shields.io/static/v1?label=website&message=place-atlas.stefanocoding.me&color=blue)](https://place-atlas.stefanocoding.me/)
 <!-- ALL-CONTRIBUTORS-BADGE:START - Do not remove or modify this section -->
-[![All Contributors](https://img.shields.io/badge/all_contributors-6-orange.svg?style=flat-square)](#contributors-)
+[![All Contributors](https://img.shields.io/badge/all_contributors-7-orange.svg?style=flat-square)](#contributors-)
 <!-- ALL-CONTRIBUTORS-BADGE:END -->
 # The 2022 r/place Atlas
 
@@ -79,11 +79,9 @@ Thanks goes to these wonderful people ([emoji key](https://allcontributors.org/d
       <td align="center"><a href="https://linktr.ee/aeywoo"><img src="https://avatars.githubusercontent.com/u/65846594?v=4?s=100" width="100px;" alt="Aeywoo"/><br /><sub><b>Aeywoo</b></sub></a><br /><a href="#business-Aeywoo" title="Business development">💼</a> <a href="https://github.com/placeAtlas/atlas/issues?q=author%3AAeywoo" title="Bug reports">🐛</a> <a href="#blog-Aeywoo" title="Blogposts">📝</a> <a href="#content-Aeywoo" title="Content">🖋</a> <a href="#maintenance-Aeywoo" title="Maintenance">🚧</a> <a href="#research-Aeywoo" title="Research">🔬</a></td>
       <td align="center"><a href="https://www.linkedin.com/in/chenghanngan/"><img src="https://avatars.githubusercontent.com/u/6516839?v=4?s=100" width="100px;" alt="Cheng Hann Gan"/><br /><sub><b>Cheng Hann Gan</b></sub></a><br /><a href="#data-AnonymousRandomPerson" title="Data">🔣</a> <a href="#content-AnonymousRandomPerson" title="Content">🖋</a> <a href="#research-AnonymousRandomPerson" title="Research">🔬</a></td>
       <td align="center"><a href="https://github.com/mxdanger"><img src="https://avatars.githubusercontent.com/u/32040254?v=4?s=100" width="100px;" alt="mxdanger"/><br /><sub><b>mxdanger</b></sub></a><br /><a href="https://github.com/placeAtlas/atlas/commits?author=mxdanger" title="Code">💻</a> <a href="#a11y-mxdanger" title="Accessibility">️️️️♿️</a> <a href="https://github.com/placeAtlas/atlas/issues?q=author%3Amxdanger" title="Bug reports">🐛</a> <a href="#design-mxdanger" title="Design">🎨</a> <a href="#ideas-mxdanger" title="Ideas, Planning, & Feedback">🤔</a> <a href="#infra-mxdanger" title="Infrastructure (Hosting, Build-Tools, etc)">🚇</a> <a href="#maintenance-mxdanger" title="Maintenance">🚧</a> <a href="#tool-mxdanger" title="Tools">🔧</a> <a href="#userTesting-mxdanger" title="User Testing">📓</a></td>
+      <td align="center"><a href="http://youtube.com/c/Artillect0"><img src="https://avatars.githubusercontent.com/u/8906201?v=4?s=100" width="100px;" alt="Riley"/><br /><sub><b>Riley</b></sub></a><br /><a href="#data-artillect" title="Data">🔣</a></td>
     </tr>
   </tbody>
-  <tfoot>
-    
-  </tfoot>
 </table>
 
 <!-- markdownlint-restore -->
