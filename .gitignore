@@ -23,7 +23,6 @@ tools/read-ids-temp.txt
 
 # Build files
 node_modules/
-/package.json
 /package-lock.json
 /yarn.lock
 dist*/
