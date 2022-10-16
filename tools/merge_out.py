@@ -63,7 +63,8 @@ with open('../web/atlas.json', 'w', encoding='utf-8') as atlas_file:
 	atlas_file.write(formatter.per_line_entries(atlas_json))
 
 with open('../data/read-ids.txt', 'a', encoding='utf-8') as read_ids_file:
-	with open('read-ids-temp.txt', 'r', encoding='utf-8') as read_ids_temp_file:
+	with open('read-ids-temp.txt', 'r+', encoding='utf-8') as read_ids_temp_file:
 		read_ids_file.writelines(read_ids_temp_file.readlines())
+		read_ids_temp_file.truncate(0)
 
 print('All done.')
