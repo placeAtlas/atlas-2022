@@ -62,7 +62,6 @@ def remove_white(entry: dict):
 			with Image.open(ScaleConfig.image2).convert('RGBA') as image2:
 				canvas_ref.paste(image1, (0, 0), image1)
 				canvas_ref.paste(image2, (0, 0), image2)
-				canvas_ref
 		else:
 			canvas_ref.paste(image1, (0, 0), image1)
 
@@ -126,7 +125,7 @@ def remove_white(entry: dict):
 			for pixel in x:
 				if pixel[3] == 0: continue
 				all_pixel_count += 1
-				if (pixel[1] == 255 and pixel[2] == 255): continue
+				if (pixel[0] == 255 and pixel[1] == 255 and pixel[2] == 255): continue
 				colored_pixel_count += 1
 
 		if all_pixel_count == 0: break
