@@ -111,11 +111,11 @@ with open('temp_atlas.json', 'w', encoding='utf-8') as OUT_FILE, open('read-ids-
 
 						assert submission_json["id"] == 0, "Edit invalid because ID is tampered, it must be 0!"
 
-						submission_json_dummy = {"id": submission.id}
+						submission_json_dummy = {"id": f'zzz{submission.id}'}
 
 					for key in submission_json:
 						if not key in submission_json_dummy:
-							submission_json_dummy[key] = submission_json[key];
+							submission_json_dummy[key] = submission_json[key]
 					submission_json = format_all(submission_json_dummy, True)
 					validation_status = validate(submission_json)
 
