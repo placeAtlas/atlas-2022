@@ -569,8 +569,8 @@ function initDraw() {
 		inputField.className = "form-control"
 		inputField.id = "subredditField" + index
 		inputField.placeholder = "r/example"
-		inputField.pattern = "^r\/[A-Za-z0-9][A-Za-z0-9_]{2,20}$"
-		inputField.title = "Subbredit in format of r/example"
+		inputField.pattern = "^r\/[A-Za-z0-9][A-Za-z0-9_]{1,20}$"
+		inputField.title = "Subreddit in format of r/example"
 		inputField.minLength = "4"
 		inputField.maxLength = "23"
 		inputField.spellcheck = false
