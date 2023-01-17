@@ -16,7 +16,7 @@ EXPANSION_1_RANGE = (56, END_IMAGE)
 EXPANSION_2_RANGE = (109, END_IMAGE)
 
 COMMATIZATION = re.compile(r'[,;& ]+(?:and)?[,;& ]*?')
-FS_REGEX = re.compile(r'(?:(?:(?:(?:https?:\/\/)?(?:(?:www|old|new|np)\.)?)?reddit\.com)?\/)?[rR]\/([A-Za-z0-9][A-Za-z0-9_]{2,20})(?:\/[^" ]*)*')
+FS_REGEX = re.compile(r'(?:(?:(?:(?:https?:\/\/)?(?:(?:www|old|new|np)\.)?)?reddit\.com)?\/)?[rR]\/([A-Za-z0-9][A-Za-z0-9_]{1,20})(?:\/[^" ]*)*')
 
 def migrate_atlas_format(entry: dict):
 	new_entry = {
