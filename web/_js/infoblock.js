@@ -44,7 +44,7 @@ function createInfoBlock(entry, isPreview) {
 	else {
 		const targetPeriod = formatPeriod(currentPeriod, currentPeriod, currentVariation)
 		linkElement.href = "#" + entry.id
-		if (targetPeriod && targetPeriod != defaultPeriod) linkElement.href += "/" + targetPeriod
+		if (targetPeriod && targetPeriod !== defaultPeriod) linkElement.href += "/" + targetPeriod
 	}
 	const linkNameElement = document.createElement("span")
 	linkNameElement.className = "flex-grow-1 text-break"
@@ -78,11 +78,11 @@ function createInfoBlock(entry, isPreview) {
 
 	if (entry.diff) {
 		const diffElement = createInfoListItem("Diff: ", entry.diff)
-		if (entry.diff == "add") {
+		if (entry.diff === "add") {
 			diffElement.className = "list-group-item list-group-item-success"
-		} else if (entry.diff == "edit") {
+		} else if (entry.diff === "edit") {
 			diffElement.className = "list-group-item list-group-item-warning"
-		} else if (entry.diff == "delete") {
+		} else if (entry.diff === "delete") {
 			diffElement.className = "list-group-item list-group-item-danger"
 		}
 		listElement.appendChild(diffElement)
@@ -99,7 +99,7 @@ function createInfoBlock(entry, isPreview) {
 		}
 	}
 
-	if (!(entry.links.subreddit === undefined || entry.links.subreddit.length == 0)) {
+	if (!(entry.links.subreddit === undefined || entry.links.subreddit.length === 0)) {
 		const subredditGroupElement = document.createElement("div")
 		subredditGroupElement.className = "btn-group-vertical"
 		linkListElement.appendChild(subredditGroupElement)
@@ -118,7 +118,7 @@ function createInfoBlock(entry, isPreview) {
 		})
 	}
 
-	if (!(entry.links.website === undefined || entry.links.website.length == 0)) {
+	if (!(entry.links.website === undefined || entry.links.website.length === 0)) {
 		const websiteGroupElement = document.createElement("div")
 		websiteGroupElement.className = "btn-group-vertical"
 		linkListElement.appendChild(websiteGroupElement)
@@ -141,7 +141,7 @@ function createInfoBlock(entry, isPreview) {
 		})
 	}
 
-	if (!(entry.links.discord === undefined || entry.links.discord.length == 0)) {
+	if (!(entry.links.discord === undefined || entry.links.discord.length === 0)) {
 		const discordGroupElement = document.createElement("div")
 		discordGroupElement.className = "btn-group-vertical"
 		linkListElement.appendChild(discordGroupElement)
@@ -159,7 +159,7 @@ function createInfoBlock(entry, isPreview) {
 		})
 	}
 
-	if (!(entry.links.wiki === undefined || entry.links.wiki.length == 0)) {
+	if (!(entry.links.wiki === undefined || entry.links.wiki.length === 0)) {
 		const wikiGroupElement = document.createElement("div")
 		wikiGroupElement.className = "btn-group-vertical"
 		linkListElement.appendChild(wikiGroupElement)

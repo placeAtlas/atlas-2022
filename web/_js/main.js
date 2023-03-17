@@ -173,7 +173,7 @@ async function init() {
 
 			if (mode.includes("only")) {
 				atlasAll = atlasAll.filter(function (entry) {
-					return typeof entry.diff == "string"
+					return typeof entry.diff === "string"
 				})
 			}
 
@@ -344,7 +344,7 @@ async function init() {
 
 	container.addEventListener("touchstart", function (e) {
 
-		if (e.touches.length == 2) {
+		if (e.touches.length === 2) {
 			e.preventDefault()
 		}
 
@@ -359,11 +359,11 @@ async function init() {
 
 	function touchstart(e) {
 
-		if (e.touches.length == 1) {
+		if (e.touches.length === 1) {
 
 			mousedown(e.touches[0].clientX, e.touches[0].clientY)
 
-		} else if (e.touches.length == 2) {
+		} else if (e.touches.length === 2) {
 
 			initialPinchDistance = Math.sqrt(
 				Math.pow(e.touches[0].clientX - e.touches[1].clientX, 2)
@@ -394,7 +394,7 @@ async function init() {
 	})
 	window.addEventListener("touchmove", function (e) {
 
-		if (e.touches.length == 2 || e.scale > 1) {
+		if (e.touches.length === 2 || e.scale > 1) {
 			e.preventDefault()
 		}
 
@@ -430,11 +430,11 @@ async function init() {
 
 		updateLines()
 
-		if (e.touches.length == 1) {
+		if (e.touches.length === 1) {
 
 			mousemove(e.touches[0].clientX, e.touches[0].clientY)
 
-		} else if (e.touches.length == 2) {
+		} else if (e.touches.length === 2) {
 
 			const newPinchDistance = Math.sqrt(
 				Math.pow(e.touches[0].clientX - e.touches[1].clientX, 2)
@@ -473,7 +473,7 @@ async function init() {
 	window.addEventListener("mouseup", function (e) {
 		if (hovered.length > 0) {
 			container.style.cursor = "pointer"
-		} else if (drawing == true) {
+		} else if (drawing === true) {
 			container.style.cursor = "crosshair"
 		} else {
 			container.style.cursor = "default"
@@ -493,11 +493,11 @@ async function init() {
 
 	function touchend(e) {
 
-		if (e.touches.length == 0) {
+		if (e.touches.length === 0) {
 
 			mouseup()
 
-		} else if (e.touches.length == 1) {
+		} else if (e.touches.length === 1) {
 			initialPinchZoom = zoom
 			lastPosition = [e.touches[0].clientX, e.touches[0].clientY]
 		}

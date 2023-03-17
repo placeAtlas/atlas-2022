@@ -37,7 +37,7 @@ const areaMap = new Map()
 // Modified from https://stackoverflow.com/a/33670691 
 function calcPolygonArea(vertices) {
 	const hit = areaMap.get(vertices)
-	if (hit != null) {
+	if (hit !== null) {
 		return hit
 	}
 
@@ -45,8 +45,8 @@ function calcPolygonArea(vertices) {
 
 	for (let i = 0, l = vertices.length; i < l; i++) {
 		const addX = vertices[i][0]
-		const addY = vertices[i == vertices.length - 1 ? 0 : i + 1][1]
-		const subX = vertices[i == vertices.length - 1 ? 0 : i + 1][0]
+		const addY = vertices[i === vertices.length - 1 ? 0 : i + 1][1]
+		const subX = vertices[i === vertices.length - 1 ? 0 : i + 1][0]
 		const subY = vertices[i][1]
 
 		total += (addX * addY * 0.5)

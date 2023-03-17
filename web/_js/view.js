@@ -86,7 +86,7 @@ filterInput.addEventListener("input", function () {
 })
 
 document.getElementById("sort").addEventListener("input", function () {
-	if (this.value != "relevant") {
+	if (this.value !== "relevant") {
 		defaultSort = this.value
 	}
 	resetEntriesList(filterInput.value.toLowerCase(), this.value)
@@ -162,7 +162,7 @@ function clearObjectsList() {
 }
 
 function toggleFixed(e, tapped) {
-	if (!fixed && hovered.length == 0) {
+	if (!fixed && hovered.length === 0) {
 		entriesList.classList.remove("disableHover")
 		return 0
 	}
@@ -221,7 +221,7 @@ function updateLines() {
 	for (let i = 0; i < hovered.length; i++) {
 		const element = hovered[i].element
 
-		if (element.getBoundingClientRect().left != 0) {
+		if (element.getBoundingClientRect().left !== 0) {
 
 			linesContext.beginPath()
 			// Align line based on which side the card is on
@@ -251,7 +251,7 @@ function updateLines() {
 	for (let i = 0; i < hovered.length; i++) {
 		const element = hovered[i].element
 
-		if (element.getBoundingClientRect().left != 0) {
+		if (element.getBoundingClientRect().left !== 0) {
 
 			linesContext.beginPath()
 			// Align line based on which side the card is on
@@ -372,7 +372,7 @@ function buildObjectsList(filter = null, sort = null) {
 	switch (sort) {
 		case "shuffle":
 			sortFunction = null
-			if (entriesOffset == 0) {
+			if (entriesOffset === 0) {
 				shuffle()
 			}
 			break
@@ -693,7 +693,7 @@ function updateHovering(e, tapped) {
 		const coords_p = document.getElementById("coords_p")
 
 		// Displays coordinates as zero instead of NaN
-		if (isNaN(pos[0]) == true) {
+		if (isNaN(pos[0]) === true) {
 			coords_p.textContent = "0, 0"
 		} else {
 			coords_p.textContent = Math.ceil(pos[0]) + ", " + Math.ceil(pos[1])
@@ -709,9 +709,9 @@ function updateHovering(e, tapped) {
 
 			let changed = false
 
-			if (hovered.length == newHovered.length) {
+			if (hovered.length === newHovered.length) {
 				for (let i = 0; i < hovered.length; i++) {
-					if (hovered[i].id != newHovered[i].id) {
+					if (hovered[i].id !== newHovered[i].id) {
 						changed = true
 						break
 					}
@@ -792,7 +792,7 @@ function highlightEntryFromUrl() {
 					objectEditNav.title = "Edit " + entry.name
 					showListButton.parentElement.appendChild(objectEditNav)
 				}
-			} else if (entry.diff == "delete" && document.getElementById("objectEditNav")) {
+			} else if (entry.diff === "delete" && document.getElementById("objectEditNav")) {
 				document.getElementById("objectEditNav").remove()
 			}
 
@@ -871,7 +871,7 @@ function initExplore() {
 			]
 			const coords_p = document.getElementById("coords_p")
 			// Displays coordinates as zero instead of NaN
-			if (isNaN(pos[0]) == true) {
+			if (isNaN(pos[0]) === true) {
 				coords_p.textContent = "0, 0"
 			} else {
 				coords_p.textContent = Math.ceil(pos[0]) + ", " + Math.ceil(pos[1])
@@ -906,7 +906,7 @@ function initViewGlobal() {
 	})
 
 	container.addEventListener("touchstart", function (e) {
-		if (e.touches.length == 1) {
+		if (e.touches.length === 1) {
 			lastPos = [
 				e.touches[0].clientX
 				, e.touches[0].clientY
@@ -925,7 +925,7 @@ function initViewGlobal() {
 
 		//console.log(e)
 		//console.log(e.changedTouches[0].clientX)
-		if (e.changedTouches.length == 1) {
+		if (e.changedTouches.length === 1) {
 			e = e.changedTouches[0]
 			//console.log(lastPos[0] - e.clientX)
 			if (Math.abs(lastPos[0] - e.clientX) + Math.abs(lastPos[1] - e.clientY) <= 4) {

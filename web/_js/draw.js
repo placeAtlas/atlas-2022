@@ -170,9 +170,9 @@ function initDraw() {
 	})
 
 	window.addEventListener("keyup", function (e) {
-		if (e.key == "z" && e.ctrlKey) {
+		if (e.key === "z" && e.ctrlKey) {
 			undo()
-		} else if (e.key == "y" && e.ctrlKey) {
+		} else if (e.key === "y" && e.ctrlKey) {
 			redo()
 		} else if (e.key === "Shift") {
 			if (e.code === "ShiftRight") {
@@ -234,7 +234,7 @@ function initDraw() {
 	objectInfoForm.addEventListener('submit', function (e) {
 		e.preventDefault()
 		// Allows for html form validation with preview button
-		if (e.submitter && e.submitter.value == "Preview") {
+		if (e.submitter && e.submitter.value === "Preview") {
 			preview()
 		} else {
 			exportJson()
@@ -301,7 +301,7 @@ function initDraw() {
 		}
 		document.getElementById("exportDirectPost").href = directPostUrl
 
-		if (entryId == 0) document.getElementById("redditFlair").textContent = "New Entry"
+		if (entryId === 0) document.getElementById("redditFlair").textContent = "New Entry"
 		else document.getElementById("redditFlair").textContent = "Edit Entry"
 
 		exportModal.show()
@@ -349,7 +349,7 @@ function initDraw() {
 
 	function reset() {
 		// Requires button to be pressed twice to confirm reset
-		if (resetButton.textContent == "Confirm Reset") {
+		if (resetButton.textContent = "Confirm Reset") {
 			resetButton.textContent = "Reset"
 			resetButton.className = "btn btn-secondary"
 
@@ -477,7 +477,7 @@ function initDraw() {
 			const coords_p = document.getElementById("coords_p")
 
 			// Displays coordinates as zero instead of NaN
-			if (isNaN(pos[0]) == true) {
+			if (isNaN(pos[0]) === true) {
 				coords_p.textContent = "0, 0"
 			} else {
 				coords_p.textContent = Math.ceil(pos[0]) + ", " + Math.ceil(pos[1])
@@ -495,20 +495,20 @@ function initDraw() {
 
 
 	function addFieldButton(inputButton, inputGroup, array, index, name) {
-		if (inputButton.title == "Remove " + name) {
+		if (inputButton.title === "Remove " + name) {
 			removeFieldButton(inputGroup, array, index)
 			return
 		}
 		inputButton.className = "btn btn-outline-secondary"
 		inputButton.title = "Remove " + name
 		inputButton.innerHTML = '<i class="bi bi-trash-fill" aria-hidden="true"></i>'
-		if (name == "website") {
+		if (name === "website") {
 			addWebsiteFields(null, array.length, array)
-		} else if (name == "subreddit") {
+		} else if (name === "subreddit") {
 			addSubredditFields(null, array.length, array)
-		} else if (name == "Discord invite") {
+		} else if (name === "Discord invite") {
 			addDiscordFields(null, array.length, array)
-		} else if (name == "wiki page") {
+		} else if (name === "wiki page") {
 			addWikiFields(null, array.length, array)
 		}
 	}
@@ -539,7 +539,7 @@ function initDraw() {
 		const inputButton = document.createElement("button")
 		inputButton.type = "button"
 		// If button is the last in the array give it the add button
-		if (array.length == index + 1) {
+		if (array.length === index + 1) {
 			inputButton.className = "btn btn-secondary"
 			inputButton.title = "Add website"
 			inputButton.innerHTML = '<i class="bi bi-plus-lg" aria-hidden="true"></i>'
@@ -587,7 +587,7 @@ function initDraw() {
 		const inputButton = document.createElement("button")
 		inputButton.type = "button"
 		// If button is the last in the array give it the add button
-		if (array.length == index + 1) {
+		if (array.length === index + 1) {
 			inputButton.className = "btn btn-secondary"
 			inputButton.title = "Add subreddit"
 			inputButton.innerHTML = '<i class="bi bi-plus-lg" aria-hidden="true"></i>'
@@ -637,7 +637,7 @@ function initDraw() {
 		const inputButton = document.createElement("button")
 		inputButton.type = "button"
 		// If button is the last in the array give it the add button
-		if (array.length == index + 1) {
+		if (array.length === index + 1) {
 			inputButton.className = "btn btn-secondary"
 			inputButton.title = "Add Discord invite"
 			inputButton.innerHTML = '<i class="bi bi-plus-lg" aria-hidden="true"></i>'
@@ -680,7 +680,7 @@ function initDraw() {
 		const inputButton = document.createElement("button")
 		inputButton.type = "button"
 		// If button is the last in the array give it the add button
-		if (array.length == index + 1) {
+		if (array.length === index + 1) {
 			inputButton.className = "btn btn-secondary"
 			inputButton.title = "Add wiki page"
 			inputButton.innerHTML = '<i class="bi bi-plus-lg" aria-hidden="true"></i>'
@@ -845,18 +845,18 @@ function initPeriodGroups() {
 		startPeriodEl.max = variationsConfig[variation].drawablePeriods[1]
 		endPeriodEl.max = variationsConfig[variation].drawablePeriods[1]
 		startPeriodEl.value = start
-		if (startPeriodEl.value == startPeriodEl.min) startPeriodLeftEl.disabled = true
-		if (startPeriodEl.value == startPeriodEl.max) startPeriodRightEl.disabled = true
+		if (startPeriodEl.value === startPeriodEl.min) startPeriodLeftEl.disabled = true
+		if (startPeriodEl.value === startPeriodEl.max) startPeriodRightEl.disabled = true
 		endPeriodEl.value = end
-		if (endPeriodEl.value == endPeriodEl.min) endPeriodLeftEl.disabled = true
-		if (endPeriodEl.value == endPeriodEl.max) endPeriodRightEl.disabled = true
+		if (endPeriodEl.value === endPeriodEl.min) endPeriodLeftEl.disabled = true
+		if (endPeriodEl.value === endPeriodEl.max) endPeriodRightEl.disabled = true
 
 		// Adds tick marks to assit in preventing overlap
 		startPeriodListEl.innerHTML = '<option value="' + (end - 1) + '"></option>'
 		endPeriodListEl.innerHTML = '<option value="' + (start + 1) + '"></option>'
 
 		// Removes slider controls if no timeline range exists
-		if (startPeriodEl.max == 0) periodGroupEl.classList.add('no-time-slider')
+		if (startPeriodEl.max === 0) periodGroupEl.classList.add('no-time-slider')
 		else periodGroupEl.classList.remove('no-time-slider')
 
 		// If one period disable delete
@@ -897,16 +897,16 @@ function initPeriodGroups() {
 			endPeriodListEl.innerHTML = '<option value="' + (parseInt(value) + 1) + '"></option>'
 			
 			// Update time only when value changes
-			if (startPeriodEl.value != timelineSlider.value) {
+			if (startPeriodEl.value !== timelineSlider.value) {
 				timelineSlider.value = value
 				updateTime(parseInt(value), variation)
 			}
 
 			// Set start incremental button disabled states
-			if (startPeriodEl.value == startPeriodEl.min) {
+			if (startPeriodEl.value === startPeriodEl.min) {
 				startPeriodLeftEl.disabled = true
 				startPeriodRightEl.disabled = false
-			} else if (startPeriodEl.value == startPeriodEl.max) {
+			} else if (startPeriodEl.value === startPeriodEl.max) {
 				startPeriodLeftEl.disabled = false
 				startPeriodRightEl.disabled = true
 			} else {
@@ -963,16 +963,16 @@ function initPeriodGroups() {
 			startPeriodListEl.innerHTML = '<option value="' + (parseInt(value) + 1) + '"></option>'
 
 			// Update time only when value changes
-			if (endPeriodEl.value != timelineSlider.value) {
+			if (endPeriodEl.value !== timelineSlider.value) {
 				timelineSlider.value = value
 				updateTime(parseInt(value), variation)
 			}
 
 			// Set end incremental button disabled states
-			if (endPeriodEl.value == endPeriodEl.min) {
+			if (endPeriodEl.value === endPeriodEl.min) {
 				endPeriodLeftEl.disabled = true
 				endPeriodRightEl.disabled = false
-			} else if (endPeriodEl.value == endPeriodEl.max) {
+			} else if (endPeriodEl.value === endPeriodEl.max) {
 				endPeriodLeftEl.disabled = false
 				endPeriodRightEl.disabled = true
 			} else {
@@ -1014,7 +1014,7 @@ function initPeriodGroups() {
 			startPeriodEl.value = newVariationConfig.default
 			endPeriodEl.value = newVariationConfig.default
 			periodVariationEl.previousElementSibling.innerHTML = newVariationConfig.icon
-			if (startPeriodEl.max == 0) periodGroupEl.classList.add('no-time-slider')
+			if (startPeriodEl.max === 0) periodGroupEl.classList.add('no-time-slider')
 			else periodGroupEl.classList.remove('no-time-slider')
 			pathWithPeriods[index][0] = `${newVariationConfig.code}:${newVariationConfig.default}`
 			updateTime(newVariationConfig.default, newVariation)
@@ -1154,10 +1154,10 @@ function updatePeriodGroups() {
 			else periodDeleteEl.disabled = false
 
 			// Set start incremental button disabled states
-			if (startPeriodEl.value == startPeriodEl.min) {
+			if (startPeriodEl.value === startPeriodEl.min) {
 				startPeriodLeftEl.disabled = true
 				startPeriodRightEl.disabled = false
-			} else if (startPeriodEl.value == startPeriodEl.max) {
+			} else if (startPeriodEl.value === startPeriodEl.max) {
 				startPeriodLeftEl.disabled = false
 				startPeriodRightEl.disabled = true
 			} else {
@@ -1177,10 +1177,10 @@ function updatePeriodGroups() {
 			}
 
 			// Set end incremental button disabled states
-			if (endPeriodEl.value == endPeriodEl.min) {
+			if (endPeriodEl.value === endPeriodEl.min) {
 				endPeriodLeftEl.disabled = true
 				endPeriodRightEl.disabled = false
-			} else if (endPeriodEl.value == endPeriodEl.max) {
+			} else if (endPeriodEl.value === endPeriodEl.max) {
 				endPeriodLeftEl.disabled = false
 				endPeriodRightEl.disabled = true
 			} else {
@@ -1240,7 +1240,7 @@ function updatePath(newPath, newUndoHistory) {
 	path = newPath || path
 	if (path.length > 3) center = calculateCenter(path)
 	render(path)
-	undoButton.disabled = path.length == 0; // Maybe make it undo the cancel action in the future
+	undoButton.disabled = path.length === 0; // Maybe make it undo the cancel action in the future
 	undoHistory = newUndoHistory || []
 	redoButton.disabled = (!undoHistory.length)
 

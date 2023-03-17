@@ -69,7 +69,7 @@ function initOverlap() {
 		let blank = 0
 
 		for (let i = 0; i < pixels.length; i += 4) {
-			if (pixels[i] == 255) {
+			if (pixels[i] === 255) {
 				blank++
 			}
 		}

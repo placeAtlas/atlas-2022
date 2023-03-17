@@ -279,7 +279,7 @@ function timelineParser(value) {
 	updateTimeout = setTimeout(() => {
 		updateTime(parseInt(timelineSlider.value), currentVariation)
 		setTimeout(() => {
-			if (timelineSlider.value != currentPeriod && abortController.signal.aborted) {
+			if (timelineSlider.value !== currentPeriod && abortController.signal.aborted) {
 				updateTime(parseInt(timelineSlider.value), currentVariation)
 			}
 		}, 50)

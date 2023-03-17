@@ -162,9 +162,9 @@ ctx.font = "10px sans"
 
 let a = 0
 for (let i = 0; i <= counts.length; i++) {
-	if (i % skip == 0) {
+	if (i % skip === 0) {
 		let y = 0
-		if (a % 2 == 0) {
+		if (a % 2 === 0) {
 			y = ~~(el.height - 30) + 0.5
 		} else {
 			y = ~~(el.height - 45) + 0.5
@@ -193,7 +193,7 @@ ctx.fillStyle = "#FF0000"
 ctx.strokeStyle = "#CC0000"
 
 for (let i = 0; i < counts.length; i++) {
-	if (i % 2 == 0) {
+	if (i % 2 === 0) {
 		ctx.fillStyle = "#FF0000"
 	} else {
 		ctx.fillStyle = "#DD0000"
