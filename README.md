@@ -10,13 +10,11 @@
 
 The 2022 r/place Atlas is a project aiming to catalog all the artworks created during Reddit's 2022 r/place event.
 
-This project was established by Roland Rytz for the event in 2017, and further developed by Place Atlas team and contributors. 
+This project was established by Roland Rytz for the event in 2017, and further developed and maintained by Place Atlas team and contributors. 
 
-This project is licensed under the GNU Affero General Public License v3.0.
+This project is licensed under the [GNU Affero General Public License v3.0](LICENSE).
 
-You can check out the website by clicking [here](https://place-atlas.stefanocoding.me/).
-
-If you don't know GitHub and wanted to submit new entries or request changes to existing ones, please visit [r/placeAtlas2](https://www.reddit.com/r/placeAtlas2/).
+You can check out the website by visiting [place-atlas.stefanocoding.me](https://place-atlas.stefanocoding.me/). If you want to keep distance from GitHub, you may visit [r/placeAtlas2](https://www.reddit.com/r/placeAtlas2/).
 
 ## Contributing
 
