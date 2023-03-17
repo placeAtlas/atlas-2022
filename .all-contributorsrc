@@ -99,5 +99,6 @@
   "repoType": "github",
   "repoHost": "https://github.com",
   "projectName": "atlas",
-  "projectOwner": "placeAtlas"
+  "projectOwner": "placeAtlas",
+  "badgeTemplate": "[![All Contributors](https://img.shields.io/badge/all_contributors-<%= contributors.length %>-orange.svg?style=flat)](#contributors)"
 }
