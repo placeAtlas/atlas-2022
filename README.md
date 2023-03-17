@@ -20,7 +20,11 @@ If you don't know GitHub and wanted to submit new entries or request changes to 
 
 ## Contributing
 
-This project is open source. You may contribute to the project by submitting a Pull Request on the GitHub repo or send your submissions through Reddit. Other than than, you cau use Discord or Reddit for help.
+This project is open source, and contributions are welcome. In fact, the Atlas relies on user contributions.
+
+Please read [CONTRIBUTING.md](CONTRIBUTING.md) to learn how to submit a new entry, edit existing entries, or contribute to the development of the codebase.
+
+[The r/placeAlas2 subreddit](https://reddit.com/r/placeAtlas2/) and [the Discord server](https://discord.gg/pJkm23b2nA) is also the place to submit all bug reports, feature requests, or questions.
 
 ## Contributors
 
