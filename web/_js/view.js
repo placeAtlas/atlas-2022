@@ -768,69 +768,76 @@ function highlightEntryFromUrl() {
 		updateTime(defaultPeriod, defaultVariation, true)
 	}
 
-	if (id) {
+	if (!id) return
 
-		const entries = atlas.filter(function (e) {
-			return e.id === id
-		})
+	const entries = atlas.filter(function (e) {
+		return e.id === id
+	})
 
-		if (entries.length === 1) {
-			const entry = entries[0]
+	if (entries.length !== 1) return 
+		
+	const entry = entries[0]
 
-			document.title = entry.name + " on the 2022 r/place Atlas"
+	let boundingBox = [2000, 0, 2000, 0]
+	entry.path?.forEach(([x, y]) => {
+		boundingBox[0] = Math.min(boundingBox[0], x)
+		boundingBox[1] = Math.max(boundingBox[1], x)
+		boundingBox[2] = Math.min(boundingBox[2], y)
+		boundingBox[3] = Math.max(boundingBox[3], y)
+	})
+	const boundingBoxSize = [boundingBox[1] - boundingBox[0], boundingBox[3] - boundingBox[2]]
+	const clientSize = [
+		Math.max(document.documentElement.clientWidth || 0, window.innerWidth || 0),
+		Math.max(document.documentElement.clientHeight || 0, window.innerHeight || 0)
+	]
+	zoom = Math.min(clientSize[0] / boundingBoxSize[0], clientSize[1] / boundingBoxSize[1])
+	zoom = Math.min(4, zoom/2)
 
-			if ((!entry.diff || entry.diff !== "delete")) {
-				if (document.getElementById("objectEditNav")) {
-					document.getElementById("objectEditNav").href = "./?mode=draw&id=" + id
-					document.getElementById("objectEditNav").title = "Edit " + entry.name
-				} else {
-					const objectEditNav = document.createElement("a")
-					objectEditNav.className = "btn btn-outline-primary"
-					objectEditNav.id = "objectEditNav"
-					objectEditNav.innerText = "Edit"
-					objectEditNav.href = "./?mode=draw&id=" + id
-					objectEditNav.title = "Edit " + entry.name
-					showListButton.parentElement.appendChild(objectEditNav)
-				}
-			} else if (entry.diff === "delete" && document.getElementById("objectEditNav")) {
-				document.getElementById("objectEditNav").remove()
-			}
+	document.title = entry.name + " on the 2022 r/place Atlas"
 
-			const infoElement = createInfoBlock(entry)
-			objectsContainer.replaceChildren()
-			objectsContainer.appendChild(infoElement)
-
-			//console.log(entry.center[0])
-			//console.log(entry.center[1])
-
-			zoom = 4
-			renderBackground(atlas)
-			applyView()
-
-			zoomOrigin = [
-				innerContainer.clientWidth / 2 - entry.center[0] * zoom// + container.offsetLeft
-				, innerContainer.clientHeight / 2 - entry.center[1] * zoom// + container.offsetTop
-			]
-
-			scaleZoomOrigin = [
-				2000 / 2 - entry.center[0]// + container.offsetLeft
-				, 2000 / 2 - entry.center[1]// + container.offsetTop
-			]
-
-			//console.log(zoomOrigin)
-
-			closeObjectsListButton.classList.remove("d-none")
-			entriesList.classList.add("disableHover")
-
-			applyView()
-			hovered = [entry]
-			render()
-			hovered[0].element = infoElement
-			updateLines()
-			fixed = true
+	if ((!entry.diff || entry.diff !== "delete")) {
+		if (document.getElementById("objectEditNav")) {
+			document.getElementById("objectEditNav").href = "./?mode=draw&id=" + id
+			document.getElementById("objectEditNav").title = "Edit " + entry.name
+		} else {
+			const objectEditNav = document.createElement("a")
+			objectEditNav.className = "btn btn-outline-primary"
+			objectEditNav.id = "objectEditNav"
+			objectEditNav.innerText = "Edit"
+			objectEditNav.href = "./?mode=draw&id=" + id
+			objectEditNav.title = "Edit " + entry.name
+			showListButton.parentElement.appendChild(objectEditNav)
 		}
-
+	} else if (entry.diff === "delete" && document.getElementById("objectEditNav")) {
+		document.getElementById("objectEditNav").remove()
 	}
+
+	const infoElement = createInfoBlock(entry)
+	objectsContainer.replaceChildren()
+	objectsContainer.appendChild(infoElement)
+
+	renderBackground(atlas)
+	applyView()
+
+	zoomOrigin = [
+		innerContainer.clientWidth / 2 - entry.center[0] * zoom// + container.offsetLeft
+		, innerContainer.clientHeight / 2 - entry.center[1] * zoom// + container.offsetTop
+	]
+
+	scaleZoomOrigin = [
+		2000 / 2 - entry.center[0]// + container.offsetLeft
+		, 2000 / 2 - entry.center[1]// + container.offsetTop
+	]
+
+	closeObjectsListButton.classList.remove("d-none")
+	entriesList.classList.add("disableHover")
+
+	applyView()
+	hovered = [entry]
+	render()
+	hovered[0].element = infoElement
+	updateLines()
+	fixed = true
 
 }
 
