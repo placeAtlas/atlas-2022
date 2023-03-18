@@ -195,7 +195,7 @@ async function init() {
 
 	document.getElementById("loading").classList.add("d-none")
 
-	document.getElementById("zoomInButton").addEventListener("click", function (e) {
+	document.getElementById("zoomInButton").addEventListener("click", function () {
 
 		/*if(zoomAnimationFrame){
 			window.cancelAnimationFrame(zoomAnimationFrame)
@@ -219,7 +219,7 @@ async function init() {
 
 	})
 
-	document.getElementById("zoomOutButton").addEventListener("click", function (e) {
+	document.getElementById("zoomOutButton").addEventListener("click", function () {
 
 		/*if(zoomAnimationFrame){
 			window.cancelAnimationFrame(zoomAnimationFrame)
@@ -242,7 +242,7 @@ async function init() {
 		applyZoom(x, y, zoom)
 	})
 
-	document.getElementById("zoomResetButton").addEventListener("click", function (e) {
+	document.getElementById("zoomResetButton").addEventListener("click", function () {
 		zoom = 1
 		zoomOrigin = [0, 0]
 		scaleZoomOrigin = [0, 0]

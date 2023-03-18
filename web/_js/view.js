@@ -114,13 +114,13 @@ offcanvasDraw.addEventListener('hidden.bs.offcanvas', function () {
 	applyView()
 })
 
-offcanvasList.addEventListener('show.bs.offcanvas', function (e) {
+offcanvasList.addEventListener('show.bs.offcanvas', function () {
 	wrapper.classList.remove('listHidden')
 	wrapper.classList.add('listTransitioning')
 	applyView()
 })
 
-offcanvasList.addEventListener('shown.bs.offcanvas', function (e) {
+offcanvasList.addEventListener('shown.bs.offcanvas', function () {
 	entriesListShown = true
 	wrapper.classList.remove('listTransitioning')
 	updateHovering(e)
@@ -458,7 +458,7 @@ function buildObjectsList(filter = null, sort = null) {
 
 		element.entry = sortedAtlas[i]
 
-		element.addEventListener("mouseenter", function (e) {
+		element.addEventListener("mouseenter", function () {
 			if (!fixed && !dragging) {
 				objectsContainer.replaceChildren()
 
@@ -840,7 +840,7 @@ function initView() {
 	renderBackground(atlas)
 	render()
 
-	document.addEventListener('timeupdate', (event) => {
+	document.addEventListener('timeupdate', () => {
 		sortedAtlas = atlas.concat()
 		resetEntriesList(null, null)
 	})
