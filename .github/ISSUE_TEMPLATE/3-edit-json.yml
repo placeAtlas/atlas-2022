@@ -1,5 +1,5 @@
-name: Update Atlas data
-description: Edit an existing entry on this repository
+name: Entry edit submission
+description: Edit an existing entry after using the website
 labels: ["entry update"]
 body:
   - type: markdown
