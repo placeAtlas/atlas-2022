@@ -747,7 +747,7 @@ function initDraw() {
 
 	} else {
 		document.getElementById("offcanvasDrawLabel").textContent = "New Entry"
-		pathWithPeriods.push([defaultPeriod, []])
+		pathWithPeriods.push([formatPeriod(currentPeriod, currentPeriod, currentVariation), []])
 
 		// Builds multi-input list
 		addWebsiteFields("", 0, [0])
@@ -778,7 +778,7 @@ function initDraw() {
 	})
 
 	periodsAdd.addEventListener('click', () => {
-		pathWithPeriods.push([defaultPeriod, []])
+		pathWithPeriods.push([formatPeriod(currentPeriod, currentPeriod, currentVariation), []])
 		initPeriodGroups()
 	})
 
