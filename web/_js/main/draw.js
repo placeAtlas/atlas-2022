@@ -760,8 +760,8 @@ function initDraw() {
 	]
 
 	scaleZoomOrigin = [
-		2000 / 2 - center[0],// + container.offsetLeft
-		2000 / 2 - center[1]// + container.offsetTop
+		canvasCenter.x - center[0],// + container.offsetLeft
+		canvasCenter.y - center[1]// + container.offsetTop
 	]
 
 	applyView()
@@ -896,7 +896,7 @@ function initPeriodGroups() {
 			// Set zoom view
 			periodCenter = calculateCenter(path)
 			zoomOrigin = [innerContainer.clientWidth / 2 - periodCenter[0] * zoom, innerContainer.clientHeight / 2 - periodCenter[1] * zoom]
-			scaleZoomOrigin = [2000 / 2 - periodCenter[0], 2000 / 2 - periodCenter[1]]
+			scaleZoomOrigin = [canvasCenter.x - periodCenter[0], canvasCenter.y - periodCenter[1]]
 			applyView()
 		})
 
@@ -963,7 +963,7 @@ function initPeriodGroups() {
 			// Set zoom view
 			periodCenter = calculateCenter(path)
 			zoomOrigin = [innerContainer.clientWidth / 2 - periodCenter[0] * zoom, innerContainer.clientHeight / 2 - periodCenter[1] * zoom]
-			scaleZoomOrigin = [2000 / 2 - periodCenter[0], 2000 / 2 - periodCenter[1]]
+			scaleZoomOrigin = [canvasCenter.x - periodCenter[0], canvasCenter.y - periodCenter[1]]
 			applyView()
 		})
 		function endPeriodUpdate(value) {

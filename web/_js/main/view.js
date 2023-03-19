@@ -21,8 +21,8 @@ let previousZoomOrigin = [0, 0]
 let previousScaleZoomOrigin = [0, 0]
 
 const backgroundCanvas = document.createElement("canvas")
-backgroundCanvas.width = 2000
-backgroundCanvas.height = 2000
+backgroundCanvas.width = canvasSize.x
+backgroundCanvas.height = canvasSize.y
 const backgroundContext = backgroundCanvas.getContext("2d")
 
 const wrapper = document.getElementById("wrapper")
@@ -166,7 +166,7 @@ function clearObjectsList() {
 	fixed = false
 	render()
 	objectEditNav.remove()
-	document.title = "The 2022 r/place Atlas"
+	document.title = pageTitle
 }
 
 function toggleFixed(e, tapped) {
@@ -197,17 +197,6 @@ window.addEventListener("resize", function (e) {
 
 	// Legacy code
 	let viewportWidth = document.documentElement.clientWidth
-
-	if (document.documentElement.clientWidth > 2000 && viewportWidth <= 2000) {
-		entriesListShown = true
-		wrapper.classList.remove("listHidden")
-	}
-
-	if (document.documentElement.clientWidth < 2000 && viewportWidth >= 2000) {
-		entriesListShown = false
-		wrapper.classList.add("listHidden")
-	}
-	updateHovering(e)
 
 	viewportWidth = document.documentElement.clientWidth
 
@@ -481,8 +470,8 @@ function buildObjectsList(filter = null, sort = null) {
 				]
 
 				scaleZoomOrigin = [
-					2000 / 2 - this.entry.center[0]
-					, 2000 / 2 - this.entry.center[1]
+					canvasCenter.x - this.entry.center[0]
+					, canvasCenter.y - this.entry.center[1]
 				]
 
 				//console.log(zoomOrigin)
@@ -788,7 +777,7 @@ function highlightEntryFromUrl() {
 		
 	const entry = entries[0]
 
-	let boundingBox = [2000, 0, 2000, 0]
+	let boundingBox = [canvasSize.x, 0, canvasSize.y, 0]
 	entry.path?.forEach(([x, y]) => {
 		boundingBox[0] = Math.min(boundingBox[0], x)
 		boundingBox[1] = Math.max(boundingBox[1], x)
@@ -803,7 +792,7 @@ function highlightEntryFromUrl() {
 	zoom = Math.min(clientSize[0] / boundingBoxSize[0], clientSize[1] / boundingBoxSize[1])
 	zoom = Math.min(4, zoom/2)
 
-	document.title = entry.name + " on The 2022 r/place Atlas"
+	document.title = entry.name + " on " + pageTitle
 
 	if ((!entry.diff || entry.diff !== "delete")) {
 		objectEditNav.href = "./?mode=draw&id=" + id
@@ -828,8 +817,8 @@ function highlightEntryFromUrl() {
 	]
 
 	scaleZoomOrigin = [
-		2000 / 2 - entry.center[0]// + container.offsetLeft
-		, 2000 / 2 - entry.center[1]// + container.offsetTop
+		canvasCenter.x - entry.center[0] // + container.offsetLeft
+		, canvasCenter.y - entry.center[1] // + container.offsetTop
 	]
 
 	closeObjectsListButton.classList.remove("d-none")
