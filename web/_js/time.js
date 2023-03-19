@@ -290,10 +290,12 @@ variantsEl.addEventListener("input", (event) => {
 	updateTime(-1, event.target.value)
 })
 
-const dispatchTimeUpdateEvent = (period = timelineSlider.value, atlas = atlas) => {
+const dispatchTimeUpdateEvent = (period = currentPeriod, variation = currentVariation, atlas = atlas) => {
 	const timeUpdateEvent = new CustomEvent('timeupdate', {
 		detail: {
 			period: period,
+			variation: variation,
+			periodString: formatPeriod(period, period, variation),
 			atlas: atlas
 		}
 	})
@@ -421,7 +423,7 @@ async function updateTime(newPeriod = currentPeriod, newVariation = currentVaria
 		})
 	}
 
-	dispatchTimeUpdateEvent(newPeriod, atlas)
+	dispatchTimeUpdateEvent(newPeriod, newVariation, atlas)
 	delete document.body.dataset.canvasLoading
 	tooltip.dataset.forceVisible = ""
 	clearTimeout(tooltipDelayHide)
@@ -477,6 +479,10 @@ function parsePeriod(periodString) {
 }
 
 function formatPeriod(start, end, variation) {
+	start ??= currentPeriod
+	end ??= currentPeriod
+	variation ??= currentVariation
+
 	let periodString, variationString
 	variationString = variationsConfig[variation].code
 	if (start > end) [start, end] = [end, start]
@@ -490,4 +496,16 @@ function formatPeriod(start, end, variation) {
 	if (periodString && variationString) return variationsConfig[variation].code + ":" + periodString
 	if (variationString) return variationString
 	return periodString
+}
+
+function formatHash(id, start, end, variation) {
+	start ??= currentPeriod
+	end ??= currentPeriod
+	variation ??= currentVariation
+	
+	const result = [id]
+	const targetPeriod = formatPeriod(start, end, variation)
+	if (targetPeriod && targetPeriod !== defaultPeriod) result.push(targetPeriod)
+	if (!result.some(el => el || el === 0)) return ''
+	return '#' + result.join('/')
 }

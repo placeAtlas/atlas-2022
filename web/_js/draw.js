@@ -68,17 +68,23 @@ const periodClipboard = {
 	"path": null
 }
 
-	;[...document.querySelectorAll("#objectInfo textarea")].forEach(el => {
-		el.addEventListener("input", function () {
-			this.style.height = "auto"
-			this.style.height = (this.scrollHeight) + "px"
-		})
+const drawBackButton = document.createElement("a")
+drawBackButton.className = "btn btn-outline-primary"
+drawBackButton.id = "drawBackButton"
+drawBackButton.textContent = "Exit Draw Mode"
+
+;[...document.querySelectorAll("#objectInfo textarea")].forEach(el => {
+	el.addEventListener("input", function () {
+		this.style.height = "auto"
+		this.style.height = (this.scrollHeight) + "px"
 	})
+})
 
 window.initDraw = initDraw
 function initDraw() {
 	// Adds exit draw button and removes list button
-	showListButton.insertAdjacentHTML("afterend", '<button class="btn btn-outline-primary" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasDraw" aria-controls="offcanvasDraw">Menu</button><a id="drawBackButton" class="btn btn-outline-primary" href="./">Exit Draw Mode</a>')
+	showListButton.insertAdjacentHTML("afterend", '<button class="btn btn-outline-primary" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasDraw" aria-controls="offcanvasDraw">Menu</button>')
+	showListButton.parentElement.appendChild(drawBackButton)
 	showListButton.remove()
 
 	// Opens draw menu
@@ -694,6 +700,7 @@ function initDraw() {
 		inputGroup.appendChild(inputButton)
 	}
 
+	let entryId
 	if (params.has('id')) {
 		entryId = params.get('id')
 		const entry = getEntry(entryId)
@@ -773,6 +780,12 @@ function initDraw() {
 	periodsAdd.addEventListener('click', () => {
 		pathWithPeriods.push([defaultPeriod, []])
 		initPeriodGroups()
+	})
+
+	drawBackButton.href = "./" + formatHash(entryId, currentPeriod, currentPeriod, currentVariation)
+
+	document.addEventListener('timeupdate', (event) => {
+		drawBackButton.href = "./" + formatHash(entryId, event.detail.period, event.detail.period, event.detail.variation)
 	})
 
 }

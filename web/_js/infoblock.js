@@ -46,11 +46,7 @@ function createInfoBlock(entry, isPreview) {
 	const linkElement = document.createElement("a")
 	linkElement.className = "text-decoration-none d-flex justify-content-between text-body"
 	if (isPreview) linkElement.href = "#"
-	else {
-		const targetPeriod = formatPeriod(currentPeriod, currentPeriod, currentVariation)
-		linkElement.href = "#" + entry.id
-		if (targetPeriod && targetPeriod !== defaultPeriod) linkElement.href += "/" + targetPeriod
-	}
+	else linkElement.href = formatHash(entry.id)
 	const linkNameElement = document.createElement("span")
 	linkNameElement.className = "flex-grow-1 text-break"
 	linkNameElement.textContent = entry.name
@@ -184,7 +180,7 @@ function createInfoBlock(entry, isPreview) {
 		const editElement = document.createElement("a")
 		editElement.textContent = "Edit"
 		editElement.className = "btn btn-sm btn-outline-primary"
-		editElement.href = "./?mode=draw&id=" + entry.id
+		editElement.href = "./?mode=draw&id=" + entry.id + formatHash(undefined)
 		editElement.title = "Edit " + entry.name
 		idElementContainer.appendChild(editElement)
 	}

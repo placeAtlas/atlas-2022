@@ -903,6 +903,12 @@ function initGlobal() {
 			updateHovering(e)
 		}
 	})
+
+	document.addEventListener('timeupdate', (event) => {
+		let hashData = window.location.hash.substring(1).split('/')
+		const targetHash = formatHash(hashData[0], event.detail.period, event.detail.period, event.detail.variation)
+		if (location.hash !== targetHash) history.replaceState({}, "", targetHash)
+	})
 }
 
 function initViewGlobal() {
@@ -952,4 +958,8 @@ function initViewGlobal() {
 	if (window.location.hash) { // both "/" and just "/#" will be an empty hash string
 		highlightEntryFromUrl()
 	}
+
+	document.addEventListener('timeupdate', (event) => {
+		drawButton.href = "./?mode=draw" + formatHash(undefined, event.detail.period, event.detail.period, event.detail.variation)
+	})
 }
