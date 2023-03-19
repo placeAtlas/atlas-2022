@@ -49,7 +49,7 @@ const drawButton = document.getElementById("drawLink")
 const objectEditNav = document.createElement("a")
 objectEditNav.className = "btn btn-outline-primary"
 objectEditNav.id = "objectEditNav"
-objectEditNav.innerText = "Edit"
+objectEditNav.textContent = "Edit"
 
 let sortedAtlas
 
@@ -768,13 +768,15 @@ function highlightEntryFromUrl() {
 
 	const hash = window.location.hash.substring(1); //Remove hash prefix
 	const [id, period] = hash.split('/')
+	let targetPeriod, targetVariation
 
 	if (period) {
-		const [, targetPeriod, targetVariation] = parsePeriod(period)
-		updateTime(targetPeriod, targetVariation, true)
+		[, targetPeriod, targetVariation] = parsePeriod(period)
 	} else {
-		updateTime(defaultPeriod, defaultVariation, true)
+		targetPeriod = defaultPeriod
+		targetVariation = defaultVariation
 	}
+	updateTime(targetPeriod, targetVariation, true)
 
 	if (!id) return
 
@@ -801,7 +803,7 @@ function highlightEntryFromUrl() {
 	zoom = Math.min(clientSize[0] / boundingBoxSize[0], clientSize[1] / boundingBoxSize[1])
 	zoom = Math.min(4, zoom/2)
 
-	document.title = entry.name + " on the 2022 r/place Atlas"
+	document.title = entry.name + " on The 2022 r/place Atlas"
 
 	if ((!entry.diff || entry.diff !== "delete")) {
 		objectEditNav.href = "./?mode=draw&id=" + id
