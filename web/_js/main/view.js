@@ -334,9 +334,9 @@ function buildObjectsList(filter = null, sort = null) {
 	if (filter) {
 		sortedAtlas = atlas.filter(entry => {
 			return (
-				entry.name.toLowerCase().some(filter)
-				|| entry.description.toLowerCase().some(filter)
-				|| Object.values(entry.links).flat().toLowerCase().some(filter)
+				entry.name.toLowerCase().includes(filter.toLowerCase())
+				|| entry.description.toLowerCase().includes(filter.toLowerCase())
+				|| Object.values(entry.links).flat().some(str => str.toLowerCase().includes(filter))
 				|| entry.id === filter
 			)
 		})
@@ -368,54 +368,30 @@ function buildObjectsList(filter = null, sort = null) {
 			}
 			break
 		case "alphaAsc":
-			sortFunction = function (a, b) {
-				return a.name.toLowerCase().localeCompare(b.name.toLowerCase())
-			}
+			sortFunction = (a, b) => a.name.toLowerCase().localeCompare(b.name.toLowerCase())
 			break
 		case "alphaDesc":
-			sortFunction = function (a, b) {
-				return b.name.toLowerCase().localeCompare(a.name.toLowerCase())
-			}
+			sortFunction = (a, b) => b.name.toLowerCase().localeCompare(a.name.toLowerCase())
 			break
 		case "newest":
-			sortFunction = function (a, b) {
-				return b.id.length - a.id.length || b.id.localeCompare(a.id)
-			}
+			sortFunction = (a, b) => b.id.length - a.id.length || b.id.localeCompare(a.id)
 			break
 		case "oldest":
-			sortFunction = function (a, b) {
-				return a.id.length - b.id.length || a.id.localeCompare(b.id)
-			}
+			sortFunction = (a, b) => a.id.length - b.id.length || a.id.localeCompare(b.id)
 			break
 		case "area":
-			sortFunction = function (a, b) {
-				return calcPolygonArea(b.path) - calcPolygonArea(a.path)
-			}
+			sortFunction = (a, b) => calcPolygonArea(b.path) - calcPolygonArea(a.path)
 			break
 		case "relevant":
-			sortFunction = function (a, b) {
-				if (a.name.toLowerCase().indexOf(filter) !== -1 && b.name.toLowerCase().indexOf(filter) !== -1) {
-					if (a.name.toLowerCase().indexOf(filter) < b.name.toLowerCase().indexOf(filter)) {
-						return -1
-					}
-					else if (a.name.toLowerCase().indexOf(filter) > b.name.toLowerCase().indexOf(filter)) {
-						return 1
-					} else {
-						return a.name.toLowerCase().localeCompare(b.name.toLowerCase())
-					}
-				} else if (a.name.toLowerCase().indexOf(filter) !== -1) {
+			sortFunction = (a, b) => {
+				if (a.name.toLowerCase().includes(filter) && b.name.toLowerCase().includes(filter)) {
+					return a.name.toLowerCase().indexOf(filter) - b.name.toLowerCase().indexOf(filter) || a.name.toLowerCase().localeCompare(b.name.toLowerCase())
+				} else if (a.name.toLowerCase().includes(filter)) {
 					return -1
-				} else if (b.name.toLowerCase().indexOf(filter) !== -1) {
+				} else if (b.name.toLowerCase().includes(filter)) {
 					return 1
 				} else {
-					if (a.description.toLowerCase().indexOf(filter) < b.description.toLowerCase().indexOf(filter)) {
-						return -1
-					}
-					else if (a.description.toLowerCase().indexOf(filter) > b.description.toLowerCase().indexOf(filter)) {
-						return 1
-					} else {
-						return a.name.toLowerCase().localeCompare(b.name.toLowerCase())
-					}
+					return a.description.toLowerCase().indexOf(filter) - b.description.toLowerCase().indexOf(filter) || a.name.toLowerCase().localeCompare(b.name.toLowerCase())
 				}
 			}
 			break
