@@ -193,12 +193,6 @@ objectsContainer.addEventListener("scroll", function () {
 })
 
 window.addEventListener("resize", function (e) {
-	//console.log(document.documentElement.clientWidth, document.documentElement.clientHeight)
-
-	// Legacy code
-	let viewportWidth = document.documentElement.clientWidth
-
-	viewportWidth = document.documentElement.clientWidth
 
 	applyView()
 	render()
@@ -338,12 +332,12 @@ function buildObjectsList(filter = null, sort = null) {
 	}
 
 	if (filter) {
-		sortedAtlas = atlas.filter(function (value) {
+		sortedAtlas = atlas.filter(entry => {
 			return (
-				value.name.toLowerCase().indexOf(filter) !== -1
-				|| value.description.toLowerCase().indexOf(filter) !== -1
-				|| value.subreddit && value.subreddit.toLowerCase().indexOf(filter) !== -1
-				|| value.id === filter
+				entry.name.toLowerCase().some(filter)
+				|| entry.description.toLowerCase().some(filter)
+				|| Object.values(entry.links).flat().toLowerCase().some(filter)
+				|| entry.id === filter
 			)
 		})
 		document.getElementById("atlasSize").innerHTML = "Found " + sortedAtlas.length + " entries."
@@ -493,43 +487,6 @@ function buildObjectsList(filter = null, sort = null) {
 				previousScaleZoomOrigin = [scaleZoomOrigin[0], scaleZoomOrigin[1]]
 				applyView()
 			}
-			// Legacy code
-			/*if (document.documentElement.clientWidth < 500) {
-				objectsContainer.replaceChildren()
-
-				entriesListShown = false
-				
-				bsOffcanvasList.hide()
-				wrapper.classList.add("listHidden")
-
-				zoom = 4
-				renderBackground(atlas)
-				applyView()
-				updateHovering(e)
-
-				zoomOrigin = [
-					innerContainer.clientWidth / 2 - this.entry.center[0] * zoom// + container.offsetLeft,
-					innerContainer.clientHeight / 2 - this.entry.center[1] * zoom// + container.offsetTop
-				]
-
-				scaleZoomOrigin = [
-					2000 / 2 - this.entry.center[0],
-					2000 / 2 - this.entry.center[1]
-				]
-
-				previousZoomOrigin = [zoomOrigin[0], zoomOrigin[1]]
-				previousScaleZoomOrigin = [scaleZoomOrigin[0], scaleZoomOrigin[1]]
-
-				fixed = true
-
-				hovered = [this.entry]
-				hovered[0].element = this
-
-				applyView()
-				render()
-				updateLines()
-
-			}*/
 		})
 
 		element.addEventListener("mouseleave", function () {
@@ -682,73 +639,73 @@ async function render() {
 
 function updateHovering(e, tapped) {
 
-	if (!dragging && (!fixed || tapped)) {
-		const pos = [
-			(e.clientX - (container.clientWidth / 2 - innerContainer.clientWidth / 2 + zoomOrigin[0] + container.offsetLeft)) / zoom,
-			(e.clientY - (container.clientHeight / 2 - innerContainer.clientHeight / 2 + zoomOrigin[1] + container.offsetTop)) / zoom
-		]
-		const coords_p = document.getElementById("coords_p")
+	if (dragging || (fixed && !tapped)) return
 
-		// Displays coordinates as zero instead of NaN
-		if (isNaN(pos[0]) === true) {
-			coords_p.textContent = "0, 0"
-		} else {
-			coords_p.textContent = Math.ceil(pos[0]) + ", " + Math.ceil(pos[1])
-		}
+	const pos = [
+		(e.clientX - (container.clientWidth / 2 - innerContainer.clientWidth / 2 + zoomOrigin[0] + container.offsetLeft)) / zoom,
+		(e.clientY - (container.clientHeight / 2 - innerContainer.clientHeight / 2 + zoomOrigin[1] + container.offsetTop)) / zoom
+	]
+	const coords_p = document.getElementById("coords_p")
 
-		if (pos[0] <= 2200 && pos[0] >= -100 && pos[0] <= 2200 && pos[0] >= -100) {
-			const newHovered = []
-			for (let i = 0; i < atlas.length; i++) {
-				if (pointIsInPolygon(pos, atlas[i].path)) {
-					newHovered.push(atlas[i])
-				}
-			}
+	// Displays coordinates as zero instead of NaN
+	if (isNaN(pos[0]) === true) {
+		coords_p.textContent = "0, 0"
+	} else {
+		coords_p.textContent = Math.ceil(pos[0]) + ", " + Math.ceil(pos[1])
+	}
 
-			let changed = false
+	if (!(pos[0] <= 2200 && pos[0] >= -100 && pos[0] <= 2200 && pos[0] >= -100)) return
 
-			if (hovered.length === newHovered.length) {
-				for (let i = 0; i < hovered.length; i++) {
-					if (hovered[i].id !== newHovered[i].id) {
-						changed = true
-						break
-					}
-				}
-			} else {
-				changed = true
-			}
-
-			if (changed) {
-				hovered = newHovered.sort(function (a, b) {
-					return calcPolygonArea(a.path) - calcPolygonArea(b.path)
-				})
-
-				objectsContainer.replaceChildren()
-
-				for (const i in hovered) {
-					const element = createInfoBlock(hovered[i])
-
-					objectsContainer.appendChild(element)
-
-					hovered[i].element = element
-				}
-
-				if (hovered.length > 0) {
-					document.getElementById("timeControlsSlider").blur()
-					closeObjectsListButton.classList.remove("d-none")
-					if ((objectsContainer.scrollHeight > objectsContainer.clientHeight) && !tapped) {
-						objectsListOverflowNotice.classList.remove("d-none")
-					} else {
-						objectsListOverflowNotice.classList.add("d-none")
-					}
-				} else {
-					closeObjectsListButton.classList.add("d-none")
-					objectsListOverflowNotice.classList.add("d-none")
-					entriesList.classList.remove("disableHover")
-				}
-				render()
-			}
+	const newHovered = []
+	for (let i = 0; i < atlas.length; i++) {
+		if (pointIsInPolygon(pos, atlas[i].path)) {
+			newHovered.push(atlas[i])
 		}
 	}
+
+	let changed = false
+
+	if (hovered.length === newHovered.length) {
+		for (let i = 0; i < hovered.length; i++) {
+			if (hovered[i].id !== newHovered[i].id) {
+				changed = true
+				break
+			}
+		}
+	} else {
+		changed = true
+	}
+
+	if (!changed) return
+
+	hovered = newHovered.sort(function (a, b) {
+		return calcPolygonArea(a.path) - calcPolygonArea(b.path)
+	})
+
+	objectsContainer.replaceChildren()
+
+	for (const i in hovered) {
+		const element = createInfoBlock(hovered[i])
+
+		objectsContainer.appendChild(element)
+
+		hovered[i].element = element
+	}
+
+	if (hovered.length > 0) {
+		document.getElementById("timeControlsSlider").blur()
+		closeObjectsListButton.classList.remove("d-none")
+		if ((objectsContainer.scrollHeight > objectsContainer.clientHeight) && !tapped) {
+			objectsListOverflowNotice.classList.remove("d-none")
+		} else {
+			objectsListOverflowNotice.classList.add("d-none")
+		}
+	} else {
+		closeObjectsListButton.classList.add("d-none")
+		objectsListOverflowNotice.classList.add("d-none")
+		entriesList.classList.remove("disableHover")
+	}
+	render()
 }
 
 window.addEventListener("hashchange", highlightEntryFromUrl)
@@ -930,18 +887,19 @@ function initViewGlobal() {
 
 		//console.log(e)
 		//console.log(e.changedTouches[0].clientX)
-		if (e.changedTouches.length === 1) {
-			e = e.changedTouches[0]
-			//console.log(lastPos[0] - e.clientX)
-			if (Math.abs(lastPos[0] - e.clientX) + Math.abs(lastPos[1] - e.clientY) <= 4) {
-				//console.log("Foo!!")
-				dragging = false
-				fixed = false
-				setTimeout(function () {
-					updateHovering(e, true)
-				}, 10)
-			}
-		}
+		if (e.changedTouches.length !== 1) return
+
+		e = e.changedTouches[0]
+		//console.log(lastPos[0] - e.clientX)
+
+		if (Math.abs(lastPos[0] - e.clientX) + Math.abs(lastPos[1] - e.clientY) > 4)
+
+		//console.log("Foo!!")
+		dragging = false
+		fixed = false
+		setTimeout(function () {
+			updateHovering(e, true)
+		}, 10)
 	})
 
 	if (window.location.hash) { // both "/" and just "/#" will be an empty hash string

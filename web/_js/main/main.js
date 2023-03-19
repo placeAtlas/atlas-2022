@@ -234,7 +234,7 @@ async function init() {
 		initialPinchZoom = zoom
 
 		lastPosition = [x, y]
-		zoom = zoom / 2
+		zoom /= 2
 		zoom = Math.max(minZoom, Math.min(maxZoom, zoom))
 
 		applyZoom(x, y, zoom)
@@ -265,14 +265,8 @@ async function init() {
 
 		lastPosition = [x, y]
 
-		if (e.ctrlKey) {
-
-			zoom = zoom / 2
-
-		} else {
-
-			zoom = zoom * 2
-		}
+		if (e.ctrlKey) zoom /= 2
+		else zoom *= 2
 
 		zoom = Math.max(minZoom, Math.min(maxZoom, zoom))
 		applyZoom(x, y, zoom)

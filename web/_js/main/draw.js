@@ -48,7 +48,6 @@ const discordPattern = /^(?:(?:https?:\/\/)?(?:www\.)?(?:(?:discord)?\.?gg|disco
 
 let entryId = 0
 let path = []
-let center = [1000, 1000]
 
 let websiteGroupElements = []
 let subredditGroupElements = []
@@ -131,8 +130,8 @@ function initDraw() {
 	})
 
 	function getCanvasCoords(x, y) {
-		x = x - container.offsetLeft
-		y = y - container.offsetTop
+		x -= container.offsetLeft
+		y -= container.offsetTop
 
 		const pos = [
 			~~((x - (container.clientWidth / 2 - innerContainer.clientWidth / 2 + zoomOrigin[0])) / zoom) + 0.5,
@@ -755,13 +754,13 @@ function initDraw() {
 	zoom = 4
 
 	zoomOrigin = [
-		innerContainer.clientWidth / 2 - center[0] * zoom,// + container.offsetLeft
-		innerContainer.clientHeight / 2 - center[1] * zoom// + container.offsetTop
+		innerContainer.clientWidth / 2 - canvasCenter.x * zoom,// + container.offsetLeft
+		innerContainer.clientHeight / 2 - canvasCenter.y * zoom// + container.offsetTop
 	]
 
 	scaleZoomOrigin = [
-		canvasCenter.x - center[0],// + container.offsetLeft
-		canvasCenter.y - center[1]// + container.offsetTop
+		0, // + container.offsetLeft
+		0  // + container.offsetTop
 	]
 
 	applyView()
@@ -872,6 +871,7 @@ function initPeriodGroups() {
 		startPeriodEl.addEventListener('input', () => {
 			if (path.length >= 3) {
 				periodCenter = calculateCenter(path)
+				// @instance-only
 				if ((periodCenter[1] > 1000) && (startPeriodEl.valueAsNumber <= variationsConfig[variation].expansions[1])) {
 					// Second expansion
 					startPeriodEl.value = variationsConfig[variation].expansions[1];
@@ -919,6 +919,7 @@ function initPeriodGroups() {
 			} else {
 				if (path.length >= 3) {
 					periodCenter = calculateCenter(path)
+					// @instance-only
 					if ((periodCenter[1] > 1000) && (startPeriodEl.valueAsNumber <= variationsConfig[variation].expansions[1])) {
 						// Second expansion
 						startPeriodLeftEl.disabled = true
@@ -939,6 +940,7 @@ function initPeriodGroups() {
 		endPeriodEl.addEventListener('input', () => {
 			if (path.length >= 3) {
 				periodCenter = calculateCenter(path)
+				// @instance-only
 				if ((periodCenter[1] > 1000) && (endPeriodEl.valueAsNumber <= variationsConfig[variation].expansions[1])) {
 					// Second expansion
 					endPeriodEl.value = variationsConfig[variation].expansions[1];
@@ -985,6 +987,7 @@ function initPeriodGroups() {
 			} else {
 				if (path.length >= 3) {
 					periodCenter = calculateCenter(path)
+					// @instance-only
 					if (periodCenter && (periodCenter[1] > 1000) && (endPeriodEl.valueAsNumber <= variationsConfig[variation].expansions[1])) {
 						// Second expansion
 						endPeriodLeftEl.disabled = true
@@ -1161,6 +1164,7 @@ function updatePeriodGroups() {
 			else periodDeleteEl.disabled = false
 
 			// Set start incremental button disabled states
+			// @instance-only
 			if (startPeriodEl.value === startPeriodEl.min) {
 				startPeriodLeftEl.disabled = true
 				startPeriodRightEl.disabled = false
@@ -1184,6 +1188,7 @@ function updatePeriodGroups() {
 			}
 
 			// Set end incremental button disabled states
+			// @instance-only
 			if (endPeriodEl.value === endPeriodEl.min) {
 				endPeriodLeftEl.disabled = true
 				endPeriodRightEl.disabled = false

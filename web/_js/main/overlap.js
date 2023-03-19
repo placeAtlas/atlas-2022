@@ -17,7 +17,7 @@ function initOverlap() {
 
 	window.renderBackground = renderBackground
 
-	const hovered = []
+	// const hovered = []
 
 	buildObjectsList(null, null)
 	renderBackground(atlas)

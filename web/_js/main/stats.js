@@ -245,30 +245,10 @@ for (let i = 0; i < topCount; i++) {
 
 console.info(outstring)
 
-atlas.sort(function (a, b) {
-	if (a.center[0] < b.center[0]) {
-		return -1
-	}
-	if (a.center[0] > b.center[0]) {
-		return 1
-	}
-	// a must be equal to b
-	return 0
-})
-
+atlas.sort((a, b) => a.center[0] - b.center[0])
 console.info("Median x: " + atlas[~~(atlas.length / 2)].center[0])
 
-atlas.sort(function (a, b) {
-	if (a.center[1] < b.center[1]) {
-		return -1
-	}
-	if (a.center[1] > b.center[1]) {
-		return 1
-	}
-	// a must be equal to b
-	return 0
-})
-
+atlas.sort((a, b) => a.center[1] - b.center[1])
 console.info("Median y: " + atlas[~~(atlas.length / 2)].center[1])
 
 

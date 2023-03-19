@@ -1,3 +1,16 @@
+// This script only applies to this instance of the Atlas.
+// Please also check code indicated with "@instance-only" outside this file.
+// TODO: Avoid having instance-only code inside the main scripts to make updating easier.
+
+const prodDomain = "place-atlas.stefanocoding.me"
+window.prodDomain = prodDomain
+
+const instanceId = "2022"
+window.instanceId = instanceId
+
+const pageTitle = "The 2022 r/place Atlas"
+window.pageTitle = pageTitle
+
 const canvasSize = {
 	x: 2000,
 	y: 2000
@@ -10,21 +23,17 @@ const canvasCenter = {
 }
 window.canvasCenter = canvasCenter
 
-const prodDomain = "place-atlas.stefanocoding.me"
-window.prodDomain = prodDomain
-
-const instanceId = "2022"
-window.instanceId = instanceId
-
-const pageTitle = "The 2022 r/place Atlas"
-window.pageTitle = pageTitle
-
 const variationsConfig = {
 	default: {
 		name: "r/place",
 		code: "",
 		default: 164,
 		drawablePeriods: [1, 164],
+		drawableRegions: [
+			[[1, 55], [0, 0, 1000, 1000]],
+			[[56, 108], [0, 0, 2000, 1000]],
+			[[109, 164], [0, 0, 2000, 2000]]
+		],
 		expansions: [56, 109],
 		versions: [
 			{ "timestamp": 1648818000, "url": ["./_img/canvas/place30ex/start.png"] },
