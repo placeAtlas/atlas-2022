@@ -45,6 +45,12 @@ const entriesList = document.getElementById("entriesList")
 
 let entriesListShown = false
 
+const drawButton = document.getElementById("drawLink")
+const objectEditNav = document.createElement("a")
+objectEditNav.className = "btn btn-outline-primary"
+objectEditNav.id = "objectEditNav"
+objectEditNav.innerText = "Edit"
+
 let sortedAtlas
 
 const entriesLimit = 50
@@ -796,20 +802,13 @@ function highlightEntryFromUrl() {
 	document.title = entry.name + " on the 2022 r/place Atlas"
 
 	if ((!entry.diff || entry.diff !== "delete")) {
-		if (document.getElementById("objectEditNav")) {
-			document.getElementById("objectEditNav").href = "./?mode=draw&id=" + id
-			document.getElementById("objectEditNav").title = "Edit " + entry.name
-		} else {
-			const objectEditNav = document.createElement("a")
-			objectEditNav.className = "btn btn-outline-primary"
-			objectEditNav.id = "objectEditNav"
-			objectEditNav.innerText = "Edit"
-			objectEditNav.href = "./?mode=draw&id=" + id
-			objectEditNav.title = "Edit " + entry.name
+		objectEditNav.href = "./?mode=draw&id=" + id
+		objectEditNav.title = "Edit " + entry.name
+		if (!objectEditNav.isConnected) {
 			showListButton.parentElement.appendChild(objectEditNav)
 		}
 	} else if (entry.diff === "delete" && document.getElementById("objectEditNav")) {
-		document.getElementById("objectEditNav").remove()
+		objectEditNav.remove()
 	}
 
 	const infoElement = createInfoBlock(entry)

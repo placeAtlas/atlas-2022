@@ -13,6 +13,11 @@
 	========================================================================
 */
 
+const baseLinkElement = document.createElement("a")
+baseLinkElement.className = "btn btn-primary text-truncate"
+baseLinkElement.target = "_blank"
+baseLinkElement.rel = "noopener noreferrer"
+
 function createLabel(name, value, parent) {
 	const nameElement = document.createElement("span")
 	nameElement.className = "fw-bold"
@@ -107,10 +112,7 @@ function createInfoBlock(entry, isPreview) {
 		entry.links.subreddit.forEach(subreddit => {
 			if (subreddit) {
 				subreddit = "r/" + subreddit
-				const subredditLinkElement = document.createElement("a")
-				subredditLinkElement.className = "btn btn-primary text-truncate"
-				subredditLinkElement.target = "_blank"
-				subredditLinkElement.rel = "noopener noreferrer"
+				const subredditLinkElement = baseLinkElement.cloneNode()
 				subredditLinkElement.href = "https://reddit.com/" + subreddit
 				subredditLinkElement.innerHTML = `<i class="bi bi-reddit" aria-hidden="true"></i> ${subreddit}`
 				subredditGroupElement.appendChild(subredditLinkElement)
@@ -125,10 +127,7 @@ function createInfoBlock(entry, isPreview) {
 
 		entry.links.website.forEach(link => {
 			if (link) {
-				const websiteLinkElement = document.createElement("a")
-				websiteLinkElement.className = "btn btn-primary text-truncate"
-				websiteLinkElement.target = "_blank"
-				websiteLinkElement.rel = "noopener noreferrer"
+				const websiteLinkElement = baseLinkElement.cloneNode()
 				websiteLinkElement.href = link
 				try {
 					const urlObject = new URL(link)
@@ -148,10 +147,7 @@ function createInfoBlock(entry, isPreview) {
 
 		entry.links.discord.forEach(link => {
 			if (link) {
-				const discordLinkElement = document.createElement("a")
-				discordLinkElement.className = "btn btn-primary text-truncate"
-				discordLinkElement.target = "_blank"
-				discordLinkElement.rel = "noopener noreferrer"
+				const discordLinkElement = baseLinkElement.cloneNode()
 				discordLinkElement.href = "https://discord.gg/" + link
 				discordLinkElement.innerHTML = `<i class="bi bi-discord" aria-hidden="true"></i> ${link}`
 				discordGroupElement.appendChild(discordLinkElement)
@@ -166,10 +162,7 @@ function createInfoBlock(entry, isPreview) {
 
 		entry.links.wiki.forEach(link => {
 			if (link) {
-				const wikiLinkElement = document.createElement("a")
-				wikiLinkElement.className = "btn btn-primary text-truncate"
-				wikiLinkElement.target = "_blank"
-				wikiLinkElement.rel = "noopener noreferrer"
+				const wikiLinkElement = baseLinkElement.cloneNode()
 				wikiLinkElement.href = "https://place-wiki.stefanocoding.me/wiki/" + link.replace(/ /g, '_')
 				wikiLinkElement.innerHTML = `<i class="bi bi-book" aria-hidden="true"></i> Wiki Article`
 				wikiGroupElement.appendChild(wikiLinkElement)
