@@ -224,18 +224,18 @@ function updateLines() {
 			// Align line based on which side the card is on
 			if ((element.getBoundingClientRect().left + element.clientWidth / 2) < (document.documentElement.clientWidth / 2)) {
 				linesContext.moveTo(
-					element.getBoundingClientRect().left + document.documentElement.scrollLeft + element.clientWidth - 5
-					, element.getBoundingClientRect().top + document.documentElement.scrollTop + 20
+					element.getBoundingClientRect().left + document.documentElement.scrollLeft + element.clientWidth - 5,
+					element.getBoundingClientRect().top + document.documentElement.scrollTop + 20
 				)
 			} else {
 				linesContext.moveTo(
-					element.getBoundingClientRect().left + document.documentElement.scrollLeft + 5
-					, element.getBoundingClientRect().top + document.documentElement.scrollTop + 20
+					element.getBoundingClientRect().left + document.documentElement.scrollLeft + 5,
+					element.getBoundingClientRect().top + document.documentElement.scrollTop + 20
 				)
 			}
 			linesContext.lineTo(
-				~~(hovered[i].center[0] * zoom) + innerContainer.offsetLeft
-				, ~~(hovered[i].center[1] * zoom) + innerContainer.offsetTop
+				~~(hovered[i].center[0] * zoom) + innerContainer.offsetLeft,
+				~~(hovered[i].center[1] * zoom) + innerContainer.offsetTop
 			)
 			linesContext.stroke()
 		}
@@ -254,18 +254,18 @@ function updateLines() {
 			// Align line based on which side the card is on
 			if ((element.getBoundingClientRect().left + element.clientWidth / 2) < (document.documentElement.clientWidth / 2)) {
 				linesContext.moveTo(
-					element.getBoundingClientRect().left + document.documentElement.scrollLeft + element.clientWidth - 5
-					, element.getBoundingClientRect().top + document.documentElement.scrollTop + 20
+					element.getBoundingClientRect().left + document.documentElement.scrollLeft + element.clientWidth - 5,
+					element.getBoundingClientRect().top + document.documentElement.scrollTop + 20
 				)
 			} else {
 				linesContext.moveTo(
-					element.getBoundingClientRect().left + document.documentElement.scrollLeft + 5
-					, element.getBoundingClientRect().top + document.documentElement.scrollTop + 20
+					element.getBoundingClientRect().left + document.documentElement.scrollLeft + 5,
+					element.getBoundingClientRect().top + document.documentElement.scrollTop + 20
 				)
 			}
 			linesContext.lineTo(
-				~~(hovered[i].center[0] * zoom) + innerContainer.offsetLeft
-				, ~~(hovered[i].center[1] * zoom) + innerContainer.offsetTop
+				~~(hovered[i].center[0] * zoom) + innerContainer.offsetLeft,
+				~~(hovered[i].center[1] * zoom) + innerContainer.offsetTop
 			)
 			linesContext.stroke()
 		}
@@ -465,13 +465,13 @@ function buildObjectsList(filter = null, sort = null) {
 				applyView()
 
 				zoomOrigin = [
-					innerContainer.clientWidth / 2 - this.entry.center[0] * zoom// + container.offsetLeft
-					, innerContainer.clientHeight / 2 - this.entry.center[1] * zoom// + container.offsetTop
+					innerContainer.clientWidth / 2 - this.entry.center[0] * zoom, // + container.offsetLeft
+					innerContainer.clientHeight / 2 - this.entry.center[1] * zoom // + container.offsetTop
 				]
 
 				scaleZoomOrigin = [
-					canvasCenter.x - this.entry.center[0]
-					, canvasCenter.y - this.entry.center[1]
+					canvasCenter.x - this.entry.center[0],
+					canvasCenter.y - this.entry.center[1]
 				]
 
 				//console.log(zoomOrigin)
@@ -508,13 +508,13 @@ function buildObjectsList(filter = null, sort = null) {
 				updateHovering(e)
 
 				zoomOrigin = [
-					innerContainer.clientWidth / 2 - this.entry.center[0] * zoom// + container.offsetLeft
-					, innerContainer.clientHeight / 2 - this.entry.center[1] * zoom// + container.offsetTop
+					innerContainer.clientWidth / 2 - this.entry.center[0] * zoom// + container.offsetLeft,
+					innerContainer.clientHeight / 2 - this.entry.center[1] * zoom// + container.offsetTop
 				]
 
 				scaleZoomOrigin = [
-					2000 / 2 - this.entry.center[0]
-					, 2000 / 2 - this.entry.center[1]
+					2000 / 2 - this.entry.center[0],
+					2000 / 2 - this.entry.center[1]
 				]
 
 				previousZoomOrigin = [zoomOrigin[0], zoomOrigin[1]]
@@ -684,8 +684,8 @@ function updateHovering(e, tapped) {
 
 	if (!dragging && (!fixed || tapped)) {
 		const pos = [
-			(e.clientX - (container.clientWidth / 2 - innerContainer.clientWidth / 2 + zoomOrigin[0] + container.offsetLeft)) / zoom
-			, (e.clientY - (container.clientHeight / 2 - innerContainer.clientHeight / 2 + zoomOrigin[1] + container.offsetTop)) / zoom
+			(e.clientX - (container.clientWidth / 2 - innerContainer.clientWidth / 2 + zoomOrigin[0] + container.offsetLeft)) / zoom,
+			(e.clientY - (container.clientHeight / 2 - innerContainer.clientHeight / 2 + zoomOrigin[1] + container.offsetTop)) / zoom
 		]
 		const coords_p = document.getElementById("coords_p")
 
@@ -812,13 +812,13 @@ function highlightEntryFromUrl() {
 	applyView()
 
 	zoomOrigin = [
-		innerContainer.clientWidth / 2 - entry.center[0] * zoom// + container.offsetLeft
-		, innerContainer.clientHeight / 2 - entry.center[1] * zoom// + container.offsetTop
+		innerContainer.clientWidth / 2 - entry.center[0] * zoom, // + container.offsetLeft
+		innerContainer.clientHeight / 2 - entry.center[1] * zoom // + container.offsetTop
 	]
 
 	scaleZoomOrigin = [
-		canvasCenter.x - entry.center[0] // + container.offsetLeft
-		, canvasCenter.y - entry.center[1] // + container.offsetTop
+		canvasCenter.x - entry.center[0], // + container.offsetLeft
+		canvasCenter.y - entry.center[1]  // + container.offsetTop
 	]
 
 	closeObjectsListButton.classList.remove("d-none")
@@ -865,8 +865,8 @@ function initExplore() {
 	function updateHovering(e, tapped) {
 		if (!dragging && (!fixed || tapped)) {
 			const pos = [
-				(e.clientX - (container.clientWidth / 2 - innerContainer.clientWidth / 2 + zoomOrigin[0] + container.offsetLeft)) / zoom
-				, (e.clientY - (container.clientHeight / 2 - innerContainer.clientHeight / 2 + zoomOrigin[1] + container.offsetTop)) / zoom
+				(e.clientX - (container.clientWidth / 2 - innerContainer.clientWidth / 2 + zoomOrigin[0] + container.offsetLeft)) / zoom,
+				(e.clientY - (container.clientHeight / 2 - innerContainer.clientHeight / 2 + zoomOrigin[1] + container.offsetTop)) / zoom
 			]
 			const coords_p = document.getElementById("coords_p")
 			// Displays coordinates as zero instead of NaN
@@ -905,16 +905,16 @@ function initGlobal() {
 function initViewGlobal() {
 	container.addEventListener("mousedown", function (e) {
 		lastPos = [
-			e.clientX
-			, e.clientY
+			e.clientX,
+			e.clientY
 		]
 	})
 
 	container.addEventListener("touchstart", function (e) {
 		if (e.touches.length === 1) {
 			lastPos = [
-				e.touches[0].clientX
-				, e.touches[0].clientY
+				e.touches[0].clientX,
+				e.touches[0].clientY
 			]
 		}
 	}, { passive: true })
@@ -937,11 +937,9 @@ function initViewGlobal() {
 				//console.log("Foo!!")
 				dragging = false
 				fixed = false
-				setTimeout(
-					function () {
-						updateHovering(e, true)
-					}
-					, 10)
+				setTimeout(function () {
+					updateHovering(e, true)
+				}, 10)
 			}
 		}
 	})

@@ -122,12 +122,12 @@ let linesDistance = 1
 for (let i = 0; i <= Math.ceil((mostCounts / linesDistance) / 5) * 5; i++) {
 	ctx.beginPath()
 	ctx.moveTo(
-		50
-		, ~~(el.height - 50 - i * (linesDistance / mostCounts) * (el.height - 100)) + 0.5
+		50,
+		~~(el.height - 50 - i * (linesDistance / mostCounts) * (el.height - 100)) + 0.5
 	)
 	ctx.lineTo(
-		el.width - 25
-		, ~~(el.height - 50 - i * (linesDistance / mostCounts) * (el.height - 100)) + 0.5
+		el.width - 25,
+		~~(el.height - 50 - i * (linesDistance / mostCounts) * (el.height - 100)) + 0.5
 	)
 	ctx.stroke()
 }
@@ -138,19 +138,19 @@ linesDistance = 5
 for (let i = 0; i <= Math.ceil(mostCounts / linesDistance); i++) {
 	ctx.beginPath()
 	ctx.moveTo(
-		50
-		, ~~(el.height - 50 - i * (linesDistance / mostCounts) * (el.height - 100)) + 0.5
+		50,
+		~~(el.height - 50 - i * (linesDistance / mostCounts) * (el.height - 100)) + 0.5
 	)
 	ctx.lineTo(
-		el.width - 25
-		, ~~(el.height - 50 - i * (linesDistance / mostCounts) * (el.height - 100)) + 0.5
+		el.width - 25,
+		~~(el.height - 50 - i * (linesDistance / mostCounts) * (el.height - 100)) + 0.5
 	)
 	ctx.stroke()
 
 	ctx.fillText(
-		i * linesDistance
-		, 40
-		, ~~(el.height - 50 - i * (linesDistance / mostCounts) * (el.height - 100)) + 0.5
+		i * linesDistance,
+		40,
+		~~(el.height - 50 - i * (linesDistance / mostCounts) * (el.height - 100)) + 0.5
 	)
 }
 
@@ -172,19 +172,19 @@ for (let i = 0; i <= counts.length; i++) {
 		a++
 		ctx.beginPath()
 		ctx.moveTo(
-			~~(((i) / steps) * (el.width - 125) + 75) + 0.5
-			, ~~(el.height - 50) + 0.5
+			~~(((i) / steps) * (el.width - 125) + 75) + 0.5,
+			~~(el.height - 50) + 0.5
 		)
 		ctx.lineTo(
-			~~(((i) / steps) * (el.width - 125) + 75) + 0.5
-			, y
+			~~(((i) / steps) * (el.width - 125) + 75) + 0.5,
+			y
 		)
 		ctx.stroke()
 
 		ctx.fillText(
-			(i) * (max / steps)
-			, ~~(((i) / steps) * (el.width - 125) + 75) - 0.5
-			, y + 5
+			(i) * (max / steps),
+			~~(((i) / steps) * (el.width - 125) + 75) - 0.5,
+			y + 5
 		)
 	}
 }
@@ -200,10 +200,10 @@ for (let i = 0; i < counts.length; i++) {
 	}
 
 	ctx.fillRect(
-		~~((i / steps) * (el.width - 125) + 75)
-		, el.height - 50
-		, Math.ceil(1 / steps * (el.width - 125))
-		, ~~(-(counts[i] / mostCounts) * (el.height - 100))
+		~~((i / steps) * (el.width - 125) + 75),
+		el.height - 50,
+		Math.ceil(1 / steps * (el.width - 125)),
+		~~(-(counts[i] / mostCounts) * (el.height - 100))
 	)
 
 	/*ctx.beginPath()
