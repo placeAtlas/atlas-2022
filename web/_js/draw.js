@@ -73,6 +73,17 @@ drawBackButton.className = "btn btn-outline-primary"
 drawBackButton.id = "drawBackButton"
 drawBackButton.textContent = "Exit Draw Mode"
 
+const baseInputAddon = document.createElement("span")
+baseInputAddon.className = "input-group-text"
+
+const baseInputGroup = document.createElement("div")
+baseInputGroup.className = "input-group"
+
+const baseInputField = document.createElement("input")
+baseInputField.className = "form-control"
+baseInputField.spellcheck = false
+baseInputField.type = "text"
+
 ;[...document.querySelectorAll("#objectInfo textarea")].forEach(el => {
 	el.addEventListener("input", function () {
 		this.style.height = "auto"
@@ -525,14 +536,11 @@ function initDraw() {
 	}
 
 	function addWebsiteFields(link, index, array) {
-		const inputGroup = document.createElement("div")
-		inputGroup.className = "input-group"
+		const inputGroup = baseInputGroup.cloneNode()
 		websiteGroup.appendChild(inputGroup)
 
-		const inputField = document.createElement("input")
+		const inputField = baseInputField.cloneNode()
 		inputField.type = "url"
-		inputField.name = "url"
-		inputField.className = "form-control"
 		inputField.id = "websiteField" + index
 		inputField.placeholder = "https://example.com"
 		inputField.pattern = "https?://.*"
@@ -560,26 +568,21 @@ function initDraw() {
 	}
 
 	function addSubredditFields(link, index, array) {
-		const inputGroup = document.createElement("div")
-		inputGroup.className = "input-group"
+		const inputGroup = baseInputGroup.cloneNode()
 		subredditGroup.appendChild(inputGroup)
 
-		const inputAddon = document.createElement("span")
-		inputAddon.className = "input-group-text"
+		const inputAddon = baseInputAddon.cloneNode()
 		inputAddon.id = "subredditField" + index + "-addon"
 		inputAddon.textContent = "reddit.com/"
 		inputGroup.appendChild(inputAddon)
 
-		const inputField = document.createElement("input")
-		inputField.type = "text"
-		inputField.className = "form-control"
+		const inputField = baseInputField.cloneNode()
 		inputField.id = "subredditField" + index
 		inputField.placeholder = "r/example"
 		inputField.pattern = "^r\/[A-Za-z0-9][A-Za-z0-9_]{1,20}$"
 		inputField.title = "Subreddit in format of r/example"
 		inputField.minLength = "4"
 		inputField.maxLength = "23"
-		inputField.spellcheck = false
 		inputField.setAttribute("aria-labelledby", "subredditLabel")
 		inputField.setAttribute("aria-describedby", "subredditField" + index + "-addon")
 		if (link) {
@@ -618,22 +621,17 @@ function initDraw() {
 	}
 
 	function addDiscordFields(link, index, array) {
-		const inputGroup = document.createElement("div")
-		inputGroup.className = "input-group"
+		const inputGroup = baseInputGroup.cloneNode()
 		discordGroup.appendChild(inputGroup)
 
-		const inputAddon = document.createElement("span")
-		inputAddon.className = "input-group-text"
+		const inputAddon = baseInputAddon.cloneNode()
 		inputAddon.id = "discordField" + index + "-addon"
 		inputAddon.textContent = "discord.gg/"
 		inputGroup.appendChild(inputAddon)
 
-		const inputField = document.createElement("input")
-		inputField.type = "text"
-		inputField.className = "form-control"
+		const inputField = baseInputField.cloneNode()
 		inputField.id = "discordField" + index
 		inputField.placeholder = "pJkm23b2nA"
-		inputField.spellcheck = false
 		inputField.setAttribute("aria-labelledby", "discordLabel")
 		inputField.setAttribute("aria-describedby", "discordField" + index + "-addon")
 		inputField.value = link
@@ -668,16 +666,12 @@ function initDraw() {
 	}
 
 	function addWikiFields(link, index, array) {
-		const inputGroup = document.createElement("div")
-		inputGroup.className = "input-group"
+		const inputGroup = baseInputGroup.cloneNode()
 		wikiGroup.appendChild(inputGroup)
 
-		const inputField = document.createElement("input")
-		inputField.type = "text"
-		inputField.className = "form-control"
+		const inputField = baseInputField.cloneNode()
 		inputField.id = "wikiField" + index
 		inputField.placeholder = "Page title"
-		inputField.spellcheck = false
 		inputField.setAttribute("aria-labelledby", "wikiLabel")
 		inputField.value = link
 		inputGroup.appendChild(inputField)

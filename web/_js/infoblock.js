@@ -18,6 +18,9 @@ baseLinkElement.className = "btn btn-primary text-truncate"
 baseLinkElement.target = "_blank"
 baseLinkElement.rel = "noopener noreferrer"
 
+const baseGroupElement = document.createElement("div")
+baseGroupElement.className = "btn-group-vertical"
+
 function createLabel(name, value, parent) {
 	const nameElement = document.createElement("span")
 	nameElement.className = "fw-bold"
@@ -101,8 +104,7 @@ function createInfoBlock(entry, isPreview) {
 	}
 
 	if (!(entry.links.subreddit === undefined || entry.links.subreddit.length === 0)) {
-		const subredditGroupElement = document.createElement("div")
-		subredditGroupElement.className = "btn-group-vertical"
+		const subredditGroupElement = baseGroupElement.cloneNode()
 		linkListElement.appendChild(subredditGroupElement)
 
 		entry.links.subreddit.forEach(subreddit => {
@@ -117,8 +119,7 @@ function createInfoBlock(entry, isPreview) {
 	}
 
 	if (!(entry.links.website === undefined || entry.links.website.length === 0)) {
-		const websiteGroupElement = document.createElement("div")
-		websiteGroupElement.className = "btn-group-vertical"
+		const websiteGroupElement = baseGroupElement.cloneNode()
 		linkListElement.appendChild(websiteGroupElement)
 
 		entry.links.website.forEach(link => {
@@ -137,8 +138,7 @@ function createInfoBlock(entry, isPreview) {
 	}
 
 	if (!(entry.links.discord === undefined || entry.links.discord.length === 0)) {
-		const discordGroupElement = document.createElement("div")
-		discordGroupElement.className = "btn-group-vertical"
+		const discordGroupElement = baseGroupElement.cloneNode()
 		linkListElement.appendChild(discordGroupElement)
 
 		entry.links.discord.forEach(link => {
@@ -152,8 +152,7 @@ function createInfoBlock(entry, isPreview) {
 	}
 
 	if (!(entry.links.wiki === undefined || entry.links.wiki.length === 0)) {
-		const wikiGroupElement = document.createElement("div")
-		wikiGroupElement.className = "btn-group-vertical"
+		const wikiGroupElement = baseGroupElement.cloneNode()
 		linkListElement.appendChild(wikiGroupElement)
 
 		entry.links.wiki.forEach(link => {
