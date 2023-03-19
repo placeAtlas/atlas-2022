@@ -126,7 +126,7 @@ offcanvasList.addEventListener('show.bs.offcanvas', function () {
 	applyView()
 })
 
-offcanvasList.addEventListener('shown.bs.offcanvas', function () {
+offcanvasList.addEventListener('shown.bs.offcanvas', function (e) {
 	entriesListShown = true
 	wrapper.classList.remove('listTransitioning')
 	updateHovering(e)
@@ -165,6 +165,8 @@ function clearObjectsList() {
 	updateLines()
 	fixed = false
 	render()
+	objectEditNav.remove()
+	document.title = "The 2022 r/place Atlas"
 }
 
 function toggleFixed(e, tapped) {
