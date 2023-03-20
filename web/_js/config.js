@@ -8,6 +8,9 @@ window.prodDomain = prodDomain
 const instanceId = "2022"
 window.instanceId = instanceId
 
+const instanceSubreddit = "placeAtlas2"
+window.instanceSubreddit = instanceSubreddit
+
 const pageTitle = "The 2022 r/place Atlas"
 window.pageTitle = pageTitle
 

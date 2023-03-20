@@ -31,6 +31,8 @@ const periodsAdd = document.getElementById('periodsAdd')
 
 const exportButton = document.getElementById("exportButton")
 const cancelButton = document.getElementById("cancelButton")
+const exportDirectPostButton = document.getElementById("exportDirectPost")
+let exportDirectPostTooltip = null
 
 const exportModalElement = document.getElementById("exportModal")
 const exportModal = new bootstrap.Modal(exportModalElement)
@@ -306,18 +308,38 @@ function initDraw() {
 	function exportJson() {
 		const exportObject = generateExportObject()
 
-		let jsonString = JSON.stringify(exportObject, null, "\t")
-		jsonString = jsonString.split("\n")
-		jsonString = jsonString.join("\n    ")
-		jsonString = "    " + jsonString
-		exportArea.value = jsonString
-		let directPostUrl = "https://www.reddit.com/r/placeAtlas2/submit?selftext=true&title=New%20Submission&text=" + encodeURIComponent(exportArea.value)
-		if (jsonString.length > 7493) {
-			directPostUrl = "https://www.reddit.com/r/placeAtlas2/submit?selftext=true&title=New%20Submission&text=" + encodeURIComponent("    " + JSON.stringify(exportObject))
-		}
-		document.getElementById("exportDirectPost").href = directPostUrl
+		let prettyJsonString = JSON.stringify(exportObject, null, "\t")
+		prettyJsonString = "    " + prettyJsonString.split("\n").join("\n    ")
+		exportArea.value = prettyJsonString
+		let directPostJsonString = prettyJsonString
+		
+		let directPostUrl = `https://www.reddit.com/r/${instanceSubreddit}/submit?selftext=true&title=`
+		if (exportObject.id === 0) directPostUrl += `✨%20${encodeURIComponent(exportObject.name)}&text=`
+		else directPostUrl += `✏%20${encodeURIComponent(exportObject.name)}&text=`
+		directPostUrl += "&text="
 
-		if (entryId === 0) document.getElementById("redditFlair").textContent = "New Entry"
+		if (directPostJsonString.length + directPostJsonString > 7579) {
+			directPostJsonString = encodeURIComponent("    " + JSON.stringify(exportObject))
+		}
+		if (exportArea.value > 40000) {
+			exportArea.value = "    " + JSON.stringify(exportObject)
+		}
+		directPostUrl += directPostJsonString
+
+		if (directPostUrl.length > 7579) {
+			// exportDirectPostButton.classList.add("disabled")
+			// exportDirectPostButton.ariaDisabled = true
+			exportDirectPostButton.dataset.bsToggle = "tooltip"
+			exportDirectPostButton.dataset.bsTitle = "This may not work due to the length of the entry. If needed, please copy manually."
+			if (!exportDirectPostTooltip) exportDirectPostTooltip = new bootstrap.Tooltip(exportDirectPostButton)
+		} else {
+			// exportDirectPostButton.classList.remove("disabled")
+			// exportDirectPostButton.ariaDisabled = false
+			exportDirectPostButton.dataset.bsTitle = ""
+		}
+		exportDirectPostButton.href = directPostUrl
+
+		if (exportObject.id === 0) document.getElementById("redditFlair").textContent = "New Entry"
 		else document.getElementById("redditFlair").textContent = "Edit Entry"
 
 		exportModal.show()
