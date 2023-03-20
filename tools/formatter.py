@@ -243,14 +243,14 @@ def convert_subreddit_to_website(entry: dict):
 				elif not "website" in entry["links"] or len(entry["website"]) == 0:
 					if not "website" in entry["links"]:
 						entry["links"]["website"] = []
-					entry["website"].append(entry["links"]["subreddit"][i])
+					entry["links"]["website"].append(entry["links"]["subreddit"][i])
 					entry["links"]["subreddit"][i] = ""
 			elif re.match(CSTW_REGEX["user"], entry["links"]["subreddit"][i]):
 				if not "website" in entry["links"] or len(entry["website"]) == 0:
 					username = re.match(CSTW_REGEX["user"], entry["links"]["subreddit"][i]).group(1)
 					if not "website" in entry["links"]:
 						entry["links"]["website"] = []
-					entry["website"].append("https://www.reddit.com/user/" + username)
+					entry["links"]["website"].append("https://www.reddit.com/user/" + username)
 					entry["links"]["subreddit"][i] = ""
 
 	return entry
