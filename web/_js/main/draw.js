@@ -50,6 +50,7 @@ const discordPattern = /^(?:(?:https?:\/\/)?(?:www\.)?(?:(?:discord)?\.?gg|disco
 
 let entryId = 0
 let path = []
+let center = [canvasCenter.x, canvasCenter.y]
 
 let websiteGroupElements = []
 let subredditGroupElements = []
@@ -781,8 +782,8 @@ function initDraw() {
 	]
 
 	scaleZoomOrigin = [
-		0, // + container.offsetLeft
-		0  // + container.offsetTop
+		canvasCenter.x - center[0],// + container.offsetLeft
+		canvasCenter.y - center[1]// + container.offsetTop
 	]
 
 	applyView()
