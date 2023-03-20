@@ -1,5 +1,5 @@
 # Script to retroactively fix flairs
-# Only touches things flaired "New entry" that either fail JSON parsing or are already in the atlas
+# Only touches things flaired "New entry" that either fail JSON parsing or are already in the Atlas
 # Otherwise, it leaves them untouched
 
 import praw

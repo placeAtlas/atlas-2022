@@ -41,7 +41,7 @@ As an alternative, you can also submit an issue on GitHub using [this form](http
 
 Edits are also welcome on this repository through GitHub. You may use GitHub for bulk or large-scale changes, such as removing duplicates.
 
-`web/atlas.json` is where the atlas data is located, in which you can edit on GitHub. Below is an example of an entry. The example has been expanded, but please save it in the way so each line is an entry which is minified.
+`web/atlas.json` is where the Atlas data is located, in which you can edit on GitHub. Below is an example of an entry. The example has been expanded, but please save it in the way so each line is an entry which is minified.
 
 ```json5
 {
@@ -76,7 +76,7 @@ To help find duplicates, [use the Overlap mode](https://place-atlas.stefanocodin
 
 ## Development
 
-Other than contributing to the atlas data, code contributions are also accepted. Here are some information regarding some aspects on the repository.
+Other than contributing to the Atlas data, code contributions are also accepted. Here are some information regarding some aspects on the repository.
 
 ### Web interface
 
