@@ -10,7 +10,7 @@
 
 The 2022 r/place Atlas is a project aiming to chart all the artworks created during the r/place April Fools event on Reddit in 2022. It is made with information to each artwork of the canvas provided by the community.
 
-This project was established by Roland Rytz for the event in 2017, and further developed and maintained by Place Atlas team and contributors. 
+This project was established by Roland Rytz for the event in 2017, and further developed and maintained by the Place Atlas team and contributors. 
 
 This project is licensed under the [GNU Affero General Public License v3.0](LICENSE).
 
