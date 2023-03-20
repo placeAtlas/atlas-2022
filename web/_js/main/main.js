@@ -16,7 +16,13 @@
 const innerContainer = document.getElementById("innerContainer")
 const container = document.getElementById("container")
 const canvas = document.getElementById("highlightCanvas")
+const canvasImage = document.getElementById('image')
 const context = canvas.getContext("2d")
+
+canvas.width = canvasSize.x
+canvas.height = canvasSize.y
+canvasImage.width = canvasSize.x
+canvasImage.height = canvasSize.y
 
 let zoom = 1
 
