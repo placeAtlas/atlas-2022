@@ -16,10 +16,10 @@ Auth setup
 
 Running Script
 1. Input the next ID to use
-2. Manually resolve errors in manual_atlas.json
+2. Manually resolve errors in temp-atlas-manual.json
 3   a. Use merge_out.py, or...
-    b.  a. Copy temp_atlas.json entries into web/_js/atlas.js (mind the edits!)
-        b. Copy read-ids-temp.txt IDs into data/read-ids.txt
+    b.  a. Copy temp-atlas.json entries into web/_js/atlas.js (mind the edits!)
+        b. Copy temp-read-ids.txt IDs into data/read-ids.txt
 5. Create a pull request
 """
 
@@ -30,7 +30,7 @@ import re
 import traceback
 from formatter import format_all, validate
 
-with open('temp_atlas.json', 'w', encoding='utf-8') as OUT_FILE, open('read-ids-temp.txt', 'w') as READ_IDS_FILE, open('manual_atlas.txt', 'w', encoding='utf-8') as FAIL_FILE:
+with open('temp-atlas.json', 'w', encoding='utf-8') as OUT_FILE, open('temp-read-ids.txt', 'w') as READ_IDS_FILE, open('temp-atlas-manual.txt', 'w', encoding='utf-8') as FAIL_FILE:
 
 	OUT_FILE_LINES = ['[\n', ']\n']
 
@@ -148,4 +148,4 @@ with open('temp_atlas.json', 'w', encoding='utf-8') as OUT_FILE, open('read-ids-
 
 	OUT_FILE.writelines(OUT_FILE_LINES)
 
-print(f"\n\nTotal all flairs: {total_all_flairs}\nSuccess: {successcount}/{totalcount}\nFail: {failcount}/{totalcount}\nPlease check manual_atlas.txt for failed entries to manually resolve.")
+print(f"\n\nTotal all flairs: {total_all_flairs}\nSuccess: {successcount}/{totalcount}\nFail: {failcount}/{totalcount}\nPlease check temp-atlas-manual.txt for failed entries to manually resolve.")

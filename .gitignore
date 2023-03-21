@@ -4,9 +4,9 @@ credentials
 praw
 
 # Temporary files
-temp_atlas.json
-manual_atlas.json
-manual_atlas.txt
+temp-atlas.json
+temp-atlas-manual.json
+temp-atlas-manual.txt
 temp.json
 temp.js
 allCharacters.txt
@@ -19,7 +19,7 @@ web/_js/minified.js
 *.DS_Store
 .vscode/
 web/atlas-before-ids-migration.json
-tools/read-ids-temp.txt
+tools/temp-read-ids.txt
 
 # Build files
 node_modules/

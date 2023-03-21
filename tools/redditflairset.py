@@ -64,8 +64,8 @@ processed_count = 0
 
 	Running Script
 	1. Input the next ID to use
-	2. Manually resolve errors in manual_atlas.json
-	3. Copy temp_atlas.json entries into web/_js/atlas.js
+	2. Manually resolve errors in temp-atlas-manual.json
+	3. Copy temp-atlas.json entries into web/_js/atlas.js
 	4. Pull Request
 
 	"""

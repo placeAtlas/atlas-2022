@@ -5,7 +5,7 @@ import scale_back
 
 from scale_back import ScaleConfig
 
-merge_source_file = 'temp_atlas.json'
+merge_source_file = 'temp-atlas.json'
 
 with open(merge_source_file, 'r', encoding='UTF-8') as f1:
 	out_json = json.loads(f1.read())
@@ -63,7 +63,7 @@ with open('../web/atlas.json', 'w', encoding='utf-8') as atlas_file:
 	atlas_file.write(formatter.per_line_entries(atlas_json))
 
 with open('../data/read-ids.txt', 'a', encoding='utf-8') as read_ids_file:
-	with open('read-ids-temp.txt', 'r+', encoding='utf-8') as read_ids_temp_file:
+	with open('temp-read-ids.txt', 'r+', encoding='utf-8') as read_ids_temp_file:
 		read_ids_file.writelines(read_ids_temp_file.readlines())
 		read_ids_temp_file.truncate(0)
 
