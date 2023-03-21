@@ -44,13 +44,13 @@ def migrate_atlas_format(entry: dict):
 		time_key = '%d-%d, T' % time_range
 
 		new_entry = {
-		**new_entry,
-		"center": {
-			time_key: center
-		},
-		"path": {
-			time_key: path
-		}
+			**new_entry,
+			"center": {
+				time_key: center
+			},
+			"path": {
+				time_key: path
+			}
 		}
 
 		del entry['center']
