@@ -43,6 +43,8 @@ window.currentPeriod = currentPeriod
 window.currentVariation = currentVariation
 
 // SETUP
+if (variationsConfig[currentVariation].versions.length === 1) bottomBar.classList.add('no-time-slider')
+
 timelineSlider.max = variationsConfig[currentVariation].versions.length - 1
 timelineSlider.value = currentPeriod
 timelineList.children[0].value = defaultPeriod
