@@ -7,10 +7,11 @@ on:
     paths:
       - web/atlas.json
 jobs:
-  Validate-JSON:
+  validate:
+    name: Validate JSON
     runs-on: ubuntu-latest
     steps:
-      - name: Check out repository code
+      - name: Checkout code
         uses: actions/checkout@v3
       - name: Validate JSON
         run: |
