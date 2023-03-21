@@ -817,7 +817,7 @@ function initGlobal() {
 	document.addEventListener('timeupdate', (event) => {
 		let hashData = window.location.hash.substring(1).split('/')
 		const targetHash = formatHash(hashData[0], event.detail.period, event.detail.period, event.detail.variation)
-		if (location.hash !== targetHash) history.replaceState({}, "", targetHash)
+		if (location.hash !== targetHash) history.replaceState({}, "", `./${targetHash}`)
 	})
 }
 
