@@ -315,8 +315,8 @@ function initDraw() {
 		let directPostJsonString = prettyJsonString
 		
 		let directPostUrl = `https://www.reddit.com/r/${instanceSubreddit}/submit?selftext=true&title=`
-		if (exportObject.id === 0) directPostUrl += `✨%20${encodeURIComponent(exportObject.name)}&text=`
-		else directPostUrl += `✏%20${encodeURIComponent(exportObject.name)}&text=`
+		if (exportObject.id === 0) directPostUrl += `✨%20${encodeURIComponent(exportObject.name)}`
+		else directPostUrl += `✏%20${encodeURIComponent(exportObject.name)}`
 		directPostUrl += "&text="
 
 		if (directPostJsonString.length + directPostJsonString > 7579) {
