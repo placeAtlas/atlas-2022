@@ -18,12 +18,13 @@ When you're happy with the shape you've drawn, press <kbd>Finish</kbd>. You will
 
 - Name: A short, descriptive name.
 - Description: A short description that will also be understood by somebody not familiar with the topic. Usually, the first sentence on Wikipedia is a good example.
-- Website: If you're describing a project, the project's main website would be suitable here.
-- Subreddit: The subreddit that's either most relevant to the topic, or that was responsible for creating the artwork. Format it like `r/subreddit`.
-- Discord: The invite code to the Discord server that's either most relevant to the topic, or that was responsible for creating the artwork. Write the invite code, that the invite link without the `discord.gg/` part.
-- Wiki: The page title of [The r/place Wiki](https://place-wiki.stefanocoding.me/) that's related to the artwork.
+- Links: Some links that's either most relevant to the topic, or that was responsible for creating the artwork.
+	- Website: If you're describing a project, the project's main website would be suitable here.
+	- Subreddit: Format it like `r/subreddit`.
+	- Discord: Write the invite code, that the invite link without the `discord.gg/` part.
+	- Wiki: The page title of [The r/place Wiki](https://place-wiki.stefanocoding.me/).
 
-All fields but the name are optional. A country flag doesn't necessarily need a description, for example.
+All fields but the name are optional. For example, a country flag doesn't necessarily need a description.
 
 Once you've entered all the information, you'll be presented with a pop-up window containing some [JSON](https://en.wikipedia.org/wiki/JSON)-formatted data. You can press the <kbd>Press Direct to Reddit</kbd> button, or copy the entire JSON text and [create a new text post on the subreddit](https://www.reddit.com/r/placeAtlas2/submit). Remember to flair your post with "New Entry".
 
