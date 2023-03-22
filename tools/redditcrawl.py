@@ -1,23 +1,23 @@
 """
-Auth setup
+Setting up authentication:
 1. Head to https://www.reddit.com/prefs/apps
-2. Click "create another app"
-3. Give it a name and description
-4. Select "script"
-5. Redirect to http://localhost:8080
+2. Click "are you a developer? create an app..." on the button
+3. Enter the name and description
+4. Select "script" for the type
+5. Enter "redirect uri" as "http://localhost:8080"
 6. Create file "credentials" with the format below
-┌─────────────────────────────────────────────────────┐
-│ [ID]        <-  Under "personal use script"         │
-│ [Secret]                                            │
-│ [Username]  <-  Must be a mod, don't do this if you │
-│ [Password]  <-  don't know what you are doing.      │
-└─────────────────────────────────────────────────────┘
-7. Run Script
+┌──────────────────────────────────────────────────────────────────────────────┐
+│ [id]        <-  Under "personal use script"                                  │
+│ [secret]                                                                     │
+│ [username]  <-  For flair access, must be a mod, Don't do this...            │
+│ [password]  <-  ...if you don't know what you are doing.                     │
+└──────────────────────────────────────────────────────────────────────────────┘
 
-Running Script
-1. Input the next ID to use
-2. Manually resolve errors in temp-atlas-manual.json
-3   a. Use merge_out.py, or...
+Running:
+1. Run the script
+2. Input the next ID to use
+3. Manually resolve errors in temp-atlas-manual.json
+4   a. Use merge_out.py, or...
     b.  a. Copy temp-atlas.json entries into web/_js/atlas.js (mind the edits!)
         b. Copy temp-read-ids.txt IDs into data/read-ids.txt
 5. Create a pull request
@@ -28,7 +28,7 @@ import json
 import time
 import re
 import traceback
-from formatter import format_all, validate
+from aformatter import format_all, validate
 
 with open('temp-atlas.json', 'w', encoding='utf-8') as OUT_FILE, open('temp-read-ids.txt', 'w') as READ_IDS_FILE, open('temp-atlas-manual.txt', 'w', encoding='utf-8') as FAIL_FILE:
 

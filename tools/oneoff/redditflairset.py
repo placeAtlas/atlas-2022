@@ -1,6 +1,25 @@
-# Script to retroactively fix flairs
-# Only touches things flaired "New entry" that either fail JSON parsing or are already in the Atlas
-# Otherwise, it leaves them untouched
+"""
+Script to retroactively fix flairs
+Only touches things flaired "New entry" that either fail JSON parsing or are already in the Atlas
+Otherwise, it leaves them untouched
+
+Setting up authentication:
+1. Head to https://www.reddit.com/prefs/apps
+2. Click "are you a developer? create an app..." on the button
+3. Enter the name and description
+4. Select "script" for the type
+5. Enter "redirect uri" as "http://localhost:8080"
+6. Create file "credentials" with the format below
+┌──────────────────────────────────────────────────────────────────────────────┐
+│ [id]        <-  Under "personal use script"                                  │
+│ [secret]                                                                     │
+│ [username]  <-  For flair access, must be a mod, Don't do this...            │
+│ [password]  <-  ...if you don't know what you are doing.                     │
+└──────────────────────────────────────────────────────────────────────────────┘
+
+Running:
+1. Run the script
+"""
 
 import praw
 import json
@@ -42,7 +61,7 @@ def set_flair(submission, flair):
 total_all_flairs = 0
 rejected_count = 0
 processed_count = 0
-#for submission in reddit.subreddit('placeAtlas2').new(limit=1000):
+for submission in reddit.subreddit('placeAtlas2').new(limit=1000):
 #for submission in reddit.subreddit('placeAtlas2').search('flair:"New Entry"',limit=1000,syntax='lucene', sort="top"):
 #for submission in reddit.subreddit('placeAtlas2').search('flair:"New Entry"',limit=1000,syntax='lucene', sort="comments"):
 #for submission in reddit.subreddit('placeAtlas2').search('flair:"New Entry"',limit=1000,syntax='lucene', sort="hot"):
