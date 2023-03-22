@@ -1,17 +1,9 @@
-/*
-	========================================================================
-	The 2022 r/place Atlas
-
-	An atlas of Reddit's 2022 r/place, with information to each
-	artwork	of the canvas provided by the community.
-
-	Copyright (c) 2017 Roland Rytz <roland@draemm.li>
-	Copyright (c) 2022 Place Atlas contributors
-
-	Licensed under the GNU Affero General Public License Version 3
-	https://place-atlas.stefanocoding.me/license.txt
-	========================================================================
-*/
+/*!
+ * The 2022 r/place Atlas
+ * Copyright (c) 2017 Roland Rytz <roland@draemm.li>
+ * Copyright (c) 2022 Place Atlas contributors
+ * Licensed under AGPL-3.0 (https://place-atlas.stefanocoding.me/license.txt)
+ */
 
 window.addEventListener("error", function (e) {
 	console.error(e)
