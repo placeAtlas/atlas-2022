@@ -14,6 +14,4 @@ jobs:
       - name: Checkout code
         uses: actions/checkout@v3
       - name: Validate JSON
-        run: |
-          chmod +x ${{ github.workspace }}/tools/validate_json.py
-          python3 ${{ github.workspace }}/tools/validate_json.py ${{ github.workspace }}/web/atlas.json
+        run: python3 tools/ci/validate_json.py web/atlas.json
