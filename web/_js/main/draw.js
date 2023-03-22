@@ -48,7 +48,7 @@ const exportArea = document.getElementById("exportString")
 const subredditPattern = /^(?:(?:(?:(?:(?:https?:\/\/)?(?:(?:www|old|new|np)\.)?)?reddit\.com)?\/)?[rR]\/)?([A-Za-z0-9][A-Za-z0-9_]{1,20})(?:\/[^" ]*)*$/
 const discordPattern = /^(?:(?:https?:\/\/)?(?:www\.)?(?:(?:discord)?\.?gg|discord(?:app)?\.com\/invite)\/)?([^\s/]+?)(?=\b)$/
 
-let entryId = 0
+let entryId = undefined
 let path = []
 let center = [canvasCenter.x, canvasCenter.y]
 
@@ -267,7 +267,7 @@ function initDraw() {
 
 	function generateExportObject() {
 		const exportObject = {
-			id: entryId,
+			id: entryId ?? 0,
 			name: nameField.value,
 			description: descriptionField.value,
 			links: {},
@@ -716,8 +716,7 @@ function initDraw() {
 		inputGroup.appendChild(inputButton)
 	}
 
-	let entryId
-	if (params.has('id')) {
+	if (params.has('id') && getEntry(params.get('id'))) {
 		entryId = params.get('id')
 		const entry = getEntry(entryId)
 
