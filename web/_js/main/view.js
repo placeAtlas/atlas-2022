@@ -652,7 +652,13 @@ window.addEventListener("hashchange", highlightEntryFromUrl)
 function highlightEntryFromUrl() {
 
 	const hash = window.location.hash.substring(1); //Remove hash prefix
-	const [id, period] = hash.split('/')
+	let [id, period] = hash.split('/')
+
+	// Handle zzz and 0.. prefix
+	let newId = id.replace(/^zzz([a-z0-9]{7})$/g, "$1").replace(/^0+/, '')
+	if (id !== newId) history.replaceState({}, "", `./#${[newId, period].filter(e => e).join('/')}`)
+	id = newId
+
 	let targetPeriod, targetVariation
 
 	if (period) {
