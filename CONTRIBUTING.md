@@ -4,7 +4,7 @@ This project is open source, and contributions are welcome. In fact, the Atlas r
 
 You may contribute to the project by submitting a Pull Request on the GitHub repo or sending your submissions through [Reddit](https://www.reddit.com/r/placeAtlas2). Other than than, you cau use [Discord](https://discord.gg/pJkm23b2nA) or [Reddit](https://www.reddit.com/r/placeAtlas2) for help.
 
-## New Atlas Entries
+## New Atlas entries
 
 > **Warning**: **WE ONLY ACCEPT NEW ENTRIES ON REDDIT!**
 
@@ -16,25 +16,25 @@ Multiple periods can be added to represent the changing state of the artwork on 
 
 When you're happy with the shape you've drawn, press <kbd>Finish</kbd>. You will now be able to enter some information about the highlighted region:
 
-- Name: A short, descriptive name.
-- Description: A short description that will also be understood by somebody not familiar with the topic. Usually, the first sentence on Wikipedia is a good example.
-- Links: Some links that's either most relevant to the topic, or that was responsible for creating the artwork.
-	- Website: If you're describing a project, the project's main website would be suitable here.
-	- Subreddit: Format it like `r/subreddit`.
-	- Discord: Write the invite code, that the invite link without the `discord.gg/` part.
-	- Wiki: The page title of [The r/place Wiki](https://place-wiki.stefanocoding.me/).
+- **Name**: A short, descriptive name.
+- **Description**: A short description that will also be understood by somebody not familiar with the topic. Usually, the first sentence on Wikipedia is a good example.
+- **Links**: Some links that's either most relevant to the topic, or that was responsible for creating the artwork.
+	- **Website**: If you're describing a project, the project's main website would be suitable here.
+	- **Subreddit**: Format it like `r/subreddit`.
+	- **Discord**: Write the invite code, that the invite link without the `discord.gg/` part.
+	- **Wiki**: The page title of [The r/place Wiki](https://place-wiki.stefanocoding.me/).
 
 All fields but the name are optional. For example, a country flag doesn't necessarily need a description.
 
-Once you've entered all the information, you'll be presented with a pop-up window containing some [JSON](https://en.wikipedia.org/wiki/JSON)-formatted data. You can press the <kbd>Press Direct to Reddit</kbd> button, or copy the entire JSON text and [create a new text post on the subreddit](https://www.reddit.com/r/placeAtlas2/submit). Remember to flair your post with "New Entry".
+Once you've entered all the information, you'll be presented with a pop-up window containing some [JSON](https://en.wikipedia.org/wiki/JSON)-formatted data. You can press the <kbd>Post Direct to Reddit</kbd> button, or copy the entire JSON text and [create a new text post on the subreddit](https://www.reddit.com/r/placeAtlas2/submit). Remember to flair your post with <kbd>New Entry</kvd>.
 
-## Edits To Atlas Data
+## Edits to Atlas entries
 
 Other than adding new ones, you can edit existing atlas entries.
 
 ### Using the web interface
 
-You can use the website to edit single entries easily. On the website, click <kbd>Edit</kbd> on an entry box. Afterwards, you can follow the same instructions as [when creating a new entry](#new-atlas-entries). Upon submitting, please label it as "Edit Entry" instead.
+You can use the website to edit single entries easily. On the website, click <kbd>Edit</kbd> on an entry box. Afterwards, you can follow the same instructions as [when creating a new entry](#new-atlas-entries). Upon submitting, please label it as <kbd>Edit Entry</kbd> instead.
 
 As an alternative, you can also submit an issue on GitHub using [this form](https://github.com/placeAtlas/atlas/issues/new?assignees=&labels=entry+update&template=edit-entry.yml).
 
