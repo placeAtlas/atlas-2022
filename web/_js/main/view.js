@@ -411,21 +411,8 @@ function buildObjectsList(filter = null, sort = null) {
 				previousScaleZoomOrigin = [scaleZoomOrigin[0], scaleZoomOrigin[1]]
 
 				applyView()
+				setView(this.entry.center[0], this.entry.center[1], setZoomByPath(entry.path))
 
-				zoomOrigin = [
-					innerContainer.clientWidth / 2 - this.entry.center[0] * zoom, // + container.offsetLeft
-					innerContainer.clientHeight / 2 - this.entry.center[1] * zoom // + container.offsetTop
-				]
-
-				scaleZoomOrigin = [
-					canvasCenter.x - this.entry.center[0],
-					canvasCenter.y - this.entry.center[1]
-				]
-
-				//console.log(zoomOrigin)
-
-
-				applyView()
 				hovered = [this.entry]
 				render()
 				hovered[0].element = this
@@ -445,9 +432,7 @@ function buildObjectsList(filter = null, sort = null) {
 
 		element.addEventListener("mouseleave", function () {
 			if (!fixed && !dragging) {
-				zoomOrigin = [previousScaleZoomOrigin[0] * zoom, previousScaleZoomOrigin[1] * zoom]
-				scaleZoomOrigin = [previousScaleZoomOrigin[0], previousScaleZoomOrigin[1]]
-				applyView()
+				setView(previousScaleZoomOrigin[0], previousScaleZoomOrigin[1])
 				hovered = []
 				updateLines()
 				render()
@@ -688,21 +673,6 @@ function highlightEntryFromUrl() {
 		
 	const entry = entries[0]
 
-	let boundingBox = [canvasSize.x, 0, canvasSize.y, 0]
-	entry.path?.forEach(([x, y]) => {
-		boundingBox[0] = Math.min(boundingBox[0], x)
-		boundingBox[1] = Math.max(boundingBox[1], x)
-		boundingBox[2] = Math.min(boundingBox[2], y)
-		boundingBox[3] = Math.max(boundingBox[3], y)
-	})
-	const boundingBoxSize = [boundingBox[1] - boundingBox[0], boundingBox[3] - boundingBox[2]]
-	const clientSize = [
-		Math.max(document.documentElement.clientWidth || 0, window.innerWidth || 0),
-		Math.max(document.documentElement.clientHeight || 0, window.innerHeight || 0)
-	]
-	zoom = Math.min(clientSize[0] / boundingBoxSize[0], clientSize[1] / boundingBoxSize[1])
-	zoom = Math.min(4, zoom/2)
-
 	document.title = entry.name + " on " + pageTitle
 
 	if ((!entry.diff || entry.diff !== "delete")) {
@@ -721,26 +691,35 @@ function highlightEntryFromUrl() {
 
 	renderBackground(atlas)
 	applyView()
-
-	zoomOrigin = [
-		innerContainer.clientWidth / 2 - entry.center[0] * zoom, // + container.offsetLeft
-		innerContainer.clientHeight / 2 - entry.center[1] * zoom // + container.offsetTop
-	]
-
-	scaleZoomOrigin = [
-		canvasCenter.x - entry.center[0], // + container.offsetLeft
-		canvasCenter.y - entry.center[1]  // + container.offsetTop
-	]
+	setView(entry.center[0], entry.center[1], setZoomByPath(entry.path))
 
 	closeObjectsListButton.classList.remove("d-none")
 	entriesList.classList.add("disableHover")
 
-	applyView()
 	hovered = [entry]
 	render()
 	hovered[0].element = infoElement
 	updateLines()
 	fixed = true
+
+}
+
+function setZoomByPath(path) {
+
+	let boundingBox = [canvasSize.x, 0, canvasSize.y, 0]
+	path?.forEach(([x, y]) => {
+		boundingBox[0] = Math.min(boundingBox[0], x)
+		boundingBox[1] = Math.max(boundingBox[1], x)
+		boundingBox[2] = Math.min(boundingBox[2], y)
+		boundingBox[3] = Math.max(boundingBox[3], y)
+	})
+	const boundingBoxSize = [boundingBox[1] - boundingBox[0], boundingBox[3] - boundingBox[2]]
+	const clientSize = [
+		Math.max(document.documentElement.clientWidth || 0, window.innerWidth || 0),
+		Math.max(document.documentElement.clientHeight || 0, window.innerHeight || 0)
+	]
+	zoom = Math.min(clientSize[0] / boundingBoxSize[0], clientSize[1] / boundingBoxSize[1])
+	zoom = Math.min(4, zoom/2)
 
 }
 

@@ -41,7 +41,14 @@ function createInfoBlock(entry, isPreview) {
 	const linkElement = document.createElement("a")
 	linkElement.className = "text-decoration-none d-flex justify-content-between text-body"
 	if (isPreview) linkElement.href = "#"
-	else linkElement.href = formatHash(entry.id)
+	else {
+		linkElement.href = formatHash(entry.id)
+		linkElement.addEventListener('click', e => {
+			e.preventDefault()
+			location.hash = formatHash(entry.id)
+			window.dispatchEvent(new HashChangeEvent("hashchange"))
+		})
+	}
 	const linkNameElement = document.createElement("span")
 	linkNameElement.className = "flex-grow-1 text-break"
 	linkNameElement.textContent = entry.name
@@ -84,9 +91,9 @@ function createInfoBlock(entry, isPreview) {
 		listElement.appendChild(diffElement)
 	}
 
-	// Enetry data submitted to preview does not include center or path
+	// Entry data submitted to preview does not include center or path
 	if (!isPreview) {
-		const [x, y] = entry.center
+		const [x, y] = entry?.center
 		listElement.appendChild(createInfoListItem("Position: ", `${Math.floor(x)}, ${Math.floor(y)}`))
 
 		if (entry.path) {
@@ -95,7 +102,7 @@ function createInfoBlock(entry, isPreview) {
 		}
 	}
 
-	if (!(entry.links.subreddit === undefined || entry.links.subreddit.length === 0)) {
+	if (entry.links.subreddit?.length) {
 		const subredditGroupElement = baseGroupElement.cloneNode()
 		linkListElement.appendChild(subredditGroupElement)
 
@@ -110,7 +117,7 @@ function createInfoBlock(entry, isPreview) {
 		})
 	}
 
-	if (!(entry.links.website === undefined || entry.links.website.length === 0)) {
+	if (entry.links.website?.length) {
 		const websiteGroupElement = baseGroupElement.cloneNode()
 		linkListElement.appendChild(websiteGroupElement)
 
@@ -129,7 +136,7 @@ function createInfoBlock(entry, isPreview) {
 		})
 	}
 
-	if (!(entry.links.discord === undefined || entry.links.discord.length === 0)) {
+	if (entry.links.discord?.length) {
 		const discordGroupElement = baseGroupElement.cloneNode()
 		linkListElement.appendChild(discordGroupElement)
 
@@ -143,7 +150,7 @@ function createInfoBlock(entry, isPreview) {
 		})
 	}
 
-	if (!(entry.links.wiki === undefined || entry.links.wiki.length === 0)) {
+	if (entry.links.wiki?.length) {
 		const wikiGroupElement = baseGroupElement.cloneNode()
 		linkListElement.appendChild(wikiGroupElement)
 

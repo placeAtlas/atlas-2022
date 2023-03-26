@@ -768,17 +768,7 @@ function initDraw() {
 
 	zoom = 4
 
-	zoomOrigin = [
-		innerContainer.clientWidth / 2 - canvasCenter.x * zoom,// + container.offsetLeft
-		innerContainer.clientHeight / 2 - canvasCenter.y * zoom// + container.offsetTop
-	]
-
-	scaleZoomOrigin = [
-		canvasCenter.x - center[0],// + container.offsetLeft
-		canvasCenter.y - center[1]// + container.offsetTop
-	]
-
-	applyView()
+	setView(center[0], center[1])
 
 	document.addEventListener('timeupdate', () => {
 		renderBackground()
@@ -910,9 +900,7 @@ function initPeriodGroups() {
 			
 			// Set zoom view
 			periodCenter = calculateCenter(path)
-			zoomOrigin = [innerContainer.clientWidth / 2 - periodCenter[0] * zoom, innerContainer.clientHeight / 2 - periodCenter[1] * zoom]
-			scaleZoomOrigin = [canvasCenter.x - periodCenter[0], canvasCenter.y - periodCenter[1]]
-			applyView()
+			setView(periodCenter[0], periodCenter[1], setZoomByPath(path))
 		})
 
 		function startPeriodUpdate(value) {
@@ -979,9 +967,7 @@ function initPeriodGroups() {
 
 			// Set zoom view
 			periodCenter = calculateCenter(path)
-			zoomOrigin = [innerContainer.clientWidth / 2 - periodCenter[0] * zoom, innerContainer.clientHeight / 2 - periodCenter[1] * zoom]
-			scaleZoomOrigin = [canvasCenter.x - periodCenter[0], canvasCenter.y - periodCenter[1]]
-			applyView()
+			setView(periodCenter[0], periodCenter[1], setZoomByPath(path))
 		})
 		function endPeriodUpdate(value) {
 			startPeriodListEl.innerHTML = '<option value="' + (parseInt(value) + 1) + '"></option>'

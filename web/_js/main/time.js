@@ -148,8 +148,11 @@ async function updateBackground(newPeriod = currentPeriod, newVariation = curren
 	}
 }
 
-async function updateTime(newPeriod = currentPeriod, newVariation = currentVariation, forcePeriod = false) {
+async function updateTime(newPeriod = currentPeriod, newVariation = currentVariation, forceLoad = false) {
 	document.body.dataset.canvasLoading = ""
+
+	const oldPeriod = currentPeriod
+	const oldVariation = currentVariation
 
 	if (!variationsConfig[newVariation]) newVariation = defaultVariation
 	const variationConfig = variationsConfig[newVariation]
@@ -158,10 +161,11 @@ async function updateTime(newPeriod = currentPeriod, newVariation = currentVaria
 	else if (newPeriod > variationConfig.versions.length - 1) newPeriod = variationConfig.versions.length - 1
 
 	currentPeriod = newPeriod
-	if (currentVariation !== newVariation) {
-		currentVariation = newVariation
+	currentVariation = newVariation
+
+	if (oldVariation !== newVariation) {
 		timelineSlider.max = variationConfig.versions.length - 1
-		if (!forcePeriod) {
+		if (!forceLoad) {
 			currentPeriod = variationConfig.default
 			newPeriod = currentPeriod
 		}
@@ -214,8 +218,8 @@ async function updateTime(newPeriod = currentPeriod, newVariation = currentVaria
 
 }
 
-function updateTooltip(newPeriod, newVariation) {
-	const configObject = variationsConfig[newVariation].versions[newPeriod]
+function updateTooltip(period, variation) {
+	const configObject = variationsConfig[variation].versions[period]
 
 	// If timestap is a number return a UTC formatted date otherwise use exact timestap label
 	if (typeof configObject.timestamp === "number") tooltip.querySelector('div').textContent = new Date(configObject.timestamp * 1000).toUTCString()

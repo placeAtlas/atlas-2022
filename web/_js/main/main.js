@@ -33,13 +33,14 @@ let lastPosition = [0, 0]
 
 const viewportSize = [0, 0]
 
+// TODO Probably merge both functions
 function applyView() {
 
 	//console.log(zoomOrigin, scaleZoomOrigin)
 	//console.log(scaleZoomOrigin[0])
 
-	scaleZoomOrigin[0] = Math.max(-1000, Math.min(1000, scaleZoomOrigin[0]))
-	scaleZoomOrigin[1] = Math.max(-1000, Math.min(1000, scaleZoomOrigin[1]))
+	scaleZoomOrigin[0] = Math.max(-canvasCenter.x, Math.min(canvasCenter.x, scaleZoomOrigin[0]))
+	scaleZoomOrigin[1] = Math.max(-canvasCenter.y, Math.min(canvasCenter.y, scaleZoomOrigin[1]))
 
 	zoomOrigin = [scaleZoomOrigin[0] * zoom, scaleZoomOrigin[1] * zoom]
 
@@ -48,6 +49,17 @@ function applyView() {
 
 	innerContainer.style.left = ~~(container.clientWidth / 2 - innerContainer.clientWidth / 2 + zoomOrigin[0] + container.offsetLeft) + "px"
 	innerContainer.style.top = ~~(container.clientHeight / 2 - innerContainer.clientHeight / 2 + zoomOrigin[1] + container.offsetTop) + "px"
+
+}
+
+function setView(x, y, zoomN = zoom) {
+	
+	zoom = zoomN
+	scaleZoomOrigin = [
+		canvasCenter.x - x, 
+		canvasCenter.y - y
+	]
+	applyView()
 
 }
 
