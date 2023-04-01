@@ -1,7 +1,5 @@
 // This is the "Offline copy of assets" service worker
 
-const QUEUE_NAME = "bgSyncQueue";
-
 importScripts('https://cdn.jsdelivr.net/npm/workbox-sw@6.5.4/build/workbox-sw.js');
 
 self.addEventListener("message", (event) => {
@@ -11,14 +9,13 @@ self.addEventListener("message", (event) => {
 });
 
 workbox.routing.registerRoute(
-    ({ url }) => !url.pathname.startsWith('/_img/canvas/'),
+    ({ url }) => {!url.pathname.startsWith('/_img/canvas/')},
     new workbox.strategies.NetworkFirst({
         cacheName: "main",
         plugins: [
             new workbox.backgroundSync.BackgroundSyncPlugin(
-                QUEUE_NAME, {
-                    maxRetentionTime: 24 * 60 
-                    // Retry for max of 24 Hours (specified in minutes)
+                "main-queue", {
+                    maxRetentionTime: 24 * 60 // 24 hours (in minutes)
                 }
             )
         ]
@@ -30,10 +27,11 @@ workbox.routing.registerRoute(
     new workbox.strategies.CacheFirst({
         cacheName: "canvas",
         plugins: [
-            new workbox.expiration.ExpirationPlugin({
-                maxAgeSeconds: 7 * 24 * 60 
-                // Expire on 7 days (specified in minutes)
-            })
+            new workbox.backgroundSync.BackgroundSyncPlugin(
+                "canvas-queue", {
+                    maxRetentionTime: 4 * 7 * 24 * 60 // 4 weeks (in minutes)
+                }
+            )
         ]
     })
 );
