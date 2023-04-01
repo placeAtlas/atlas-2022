@@ -6,6 +6,7 @@
  */
 
 const codeReference = {}
+let canvasUrl = ""
 
 const variantsEl = document.getElementById("variants")
 
@@ -101,28 +102,31 @@ async function updateBackground(newPeriod = currentPeriod, newVariation = curren
 	}
 
 	const configObject = variationConfig.versions[currentPeriod]
+	let layerUrls = []
 	if (typeof configObject.url === "string") {
-		image.src = configObject.url
+		layerUrls.push(configObject.url)
 	} else {
-		const canvas = document.createElement('canvas')
-		const context = canvas.getContext('2d')
-		context.canvas.width = canvasSize.x
-		context.canvas.height = canvasSize.y
-		for await (const url of configObject.url) {
-			const imageLayer = new Image()
-			await new Promise(resolve => {
-				imageLayer.onload = () => {
-					context.drawImage(imageLayer, 0, 0)
-					resolve()
-				}
-				imageLayer.src = url
-			})
-		}
-
-		if (currentUpdateIndex !== myUpdateIndex) return [configObject, newPeriod, newVariation]
-		const blob = await new Promise(resolve => canvas.toBlob(resolve))
-		image.src = URL.createObjectURL(blob)
+		layerUrls.push(...configObject.url)
 	}
+	const canvas = document.createElement('canvas')
+	const context = canvas.getContext('2d')
+	context.canvas.width = canvasSize.x
+	context.canvas.height = canvasSize.y
+	for await (const url of layerUrls) {
+		const imageLayer = new Image()
+		await new Promise(resolve => {
+			imageLayer.onload = () => {
+				context.drawImage(imageLayer, 0, 0)
+				resolve()
+			}
+			imageLayer.src = url
+		})
+	}
+
+	if (currentUpdateIndex !== myUpdateIndex) return [configObject, newPeriod, newVariation]
+	const blob = await new Promise(resolve => canvas.toBlob(resolve))
+	canvasUrl = URL.createObjectURL(blob)
+	image.src = canvasUrl
 }
 
 async function updateTime(newPeriod = currentPeriod, newVariation = currentVariation, forceLoad = false) {
@@ -270,4 +274,14 @@ function formatHash(id, start, end, variation) {
 	if (targetPeriod && targetPeriod !== defaultPeriod) result.push(targetPeriod)
 	if (!result.some(el => el || el === 0)) return ''
 	return '#' + result.join('/')
+}
+
+function downloadCanvas() {
+	const linkEl = document.createElement("a")
+	linkEl.download = "canvas.png"
+	linkEl.href = canvasUrl
+	linkEl.classList.add("d-none")
+	document.body.appendChild(linkEl)
+	linkEl.click()
+	document.body.removeChild(linkEl)
 }
