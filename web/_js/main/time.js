@@ -6,7 +6,6 @@
  */
 
 const codeReference = {}
-const imageCache = {}
 
 const variantsEl = document.getElementById("variants")
 
@@ -103,34 +102,12 @@ async function updateBackground(newPeriod = currentPeriod, newVariation = curren
 
 	const configObject = variationConfig.versions[currentPeriod]
 	if (typeof configObject.url === "string") {
-		if (imageCache[configObject.url] === undefined) {
-			const fetchResult = await fetch(configObject.url, {
-				signal: abortController.signal
-			})
-			if (currentUpdateIndex !== myUpdateIndex) {
-				return [configObject, newPeriod, newVariation]
-			}
-			const imageBlob = await fetchResult.blob()
-			imageCache[configObject.url] = URL.createObjectURL(imageBlob)
-		}
-		image.src = imageCache[configObject.url]
+		image.src = configObject.url
 	} else {
 		const canvas = document.createElement('canvas')
 		const context = canvas.getContext('2d')
 		context.canvas.width = canvasSize.x
 		context.canvas.height = canvasSize.y
-		await Promise.all(configObject.url.map(async url => {
-			if (imageCache[url] === undefined) {
-				const fetchResult = await fetch(url, {
-					signal: abortController.signal
-				})
-				if (currentUpdateIndex !== myUpdateIndex) {
-					return
-				}
-				const imageBlob = await fetchResult.blob()
-				imageCache[url] = URL.createObjectURL(imageBlob)
-			}
-		}))
 		for await (const url of configObject.url) {
 			const imageLayer = new Image()
 			await new Promise(resolve => {
@@ -138,7 +115,7 @@ async function updateBackground(newPeriod = currentPeriod, newVariation = curren
 					context.drawImage(imageLayer, 0, 0)
 					resolve()
 				}
-				imageLayer.src = imageCache[url]
+				imageLayer.src = url
 			})
 		}
 
