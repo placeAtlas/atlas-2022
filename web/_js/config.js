@@ -244,3 +244,16 @@ const variationsConfig = {
 	// }
 }
 window.variationsConfig = variationsConfig
+
+console.info(`%cThe 2022 r/place Atlas
+%cCopyright (c) 2017 Roland Rytz <roland@draemm.li>
+Copyright (c) 2022 Place Atlas contributors
+Licensed under AGPL-3.0 (https://place-atlas.stefanocoding.me/license.txt)
+
+https://place-atlas.stefanocoding.me/
+https://discord.gg/pJkm23b2nA
+https://reddit.com/r/placeatlas2
+https://github.com/placeAtlas/atlas
+
+To get the image of the canvas, use downloadCanvas().
+`, 'font-size: 150%; line-height: 150%', '')
