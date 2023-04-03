@@ -1,0 +1,21 @@
+name: Entry edit submission
+description: Edit an existing entry after using the website
+labels: ["entry update"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Make sure you have prepared your JSON data that you get after editing. If you haven't, [CONTRIBUTING.md](https://github.com/placeAtlas/atlas/blob/master/CONTRIBUTING.md) has a guide for editing an existing entry.
+  - type: textarea
+    id: description
+    attributes:
+      label: Summary of changes
+      description: A summary of what is being updated/changed.
+  - type: textarea
+    id: json
+    attributes:
+      label: Entry data
+      description: Upon editing, please copy the exported JSON-formatted data. This will be automatically formatted into code, so no need for backticks.
+      render: json
+    validations:
+      required: true

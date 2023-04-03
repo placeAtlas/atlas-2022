@@ -1,29 +1,21 @@
 # Secrets
-**/**/credentials
 credentials
 praw
 
 # Temporary files
-temp_atlas.json
-manual_atlas.json
-manual_atlas.txt
-temp.json
-temp.js
+temp-atlas.json
+temp-atlas-manual.*
+temp.*
+temp-read-ids.txt
 allCharacters.txt
 combined.js
 
 # Excluded files
-users.html
-oldusers.html
-web/_js/minified.js
 *.DS_Store
 .vscode/
-web/atlas-before-ids-migration.json
-tools/read-ids-temp.txt
 
 # Build files
 node_modules/
-/package-lock.json
 /yarn.lock
 dist*/
 

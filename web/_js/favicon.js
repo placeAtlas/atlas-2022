@@ -3,7 +3,7 @@ function updateFavicon(colorScheme) {
 	const favicon = document.head.querySelector('.js-site-favicon[type="image/svg+xml"]')
 	const faviconFallback = document.head.querySelector('.js-site-favicon[type="image/png"]')
 	if (favicon && faviconFallback) {
-		if (colorScheme || colorScheme == 'dark') {
+		if (colorScheme || colorScheme === 'dark') {
 			favicon.href = '_img/favicon-dark.svg'
 			faviconFallback.href = '_img/favicon-dark.png'
 		} else {

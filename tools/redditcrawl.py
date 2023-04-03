@@ -1,25 +1,25 @@
 """
-Auth setup
+Setting up authentication:
 1. Head to https://www.reddit.com/prefs/apps
-2. Click "create another app"
-3. Give it a name and description
-4. Select "script"
-5. Redirect to http://localhost:8080
+2. Click "are you a developer? create an app..." on the button
+3. Enter the name and description
+4. Select "script" for the type
+5. Enter "redirect uri" as "http://localhost:8080"
 6. Create file "credentials" with the format below
-┌─────────────────────────────────────────────────────┐
-│ [ID]        <-  Under "personal use script"         │
-│ [Secret]                                            │
-│ [Username]  <-  Must be a mod, don't do this if you │
-│ [Password]  <-  don't know what you are doing.      │
-└─────────────────────────────────────────────────────┘
-7. Run Script
+┌──────────────────────────────────────────────────────────────────────────────┐
+│ [id]        <-  Under "personal use script"                                  │
+│ [secret]                                                                     │
+│ [username]  <-  For flair access, must be a mod, Don't do this...            │
+│ [password]  <-  ...if you don't know what you are doing.                     │
+└──────────────────────────────────────────────────────────────────────────────┘
 
-Running Script
-1. Input the next ID to use
-2. Manually resolve errors in manual_atlas.json
-3   a. Use merge_out.py, or...
-    b.  a. Copy temp_atlas.json entries into web/_js/atlas.js (mind the edits!)
-        b. Copy read-ids-temp.txt IDs into data/read-ids.txt
+Running:
+1. Run the script
+2. Input the next ID to use
+3. Manually resolve errors in temp-atlas-manual.json
+4   a. Use merge_out.py, or...
+    b.  a. Copy temp-atlas.json entries into web/_js/atlas.js (mind the edits!)
+        b. Copy temp-read-ids.txt IDs into data/read-ids.txt
 5. Create a pull request
 """
 
@@ -28,9 +28,9 @@ import json
 import time
 import re
 import traceback
-from formatter import format_all, validate
+from aformatter import format_all, validate
 
-with open('temp_atlas.json', 'w', encoding='utf-8') as OUT_FILE, open('read-ids-temp.txt', 'w') as READ_IDS_FILE, open('manual_atlas.txt', 'w', encoding='utf-8') as FAIL_FILE:
+with open('temp-atlas.json', 'w', encoding='utf-8') as OUT_FILE, open('temp-read-ids.txt', 'w') as READ_IDS_FILE, open('temp-atlas-manual.txt', 'w', encoding='utf-8') as FAIL_FILE:
 
 	OUT_FILE_LINES = ['[\n', ']\n']
 
@@ -111,7 +111,7 @@ with open('temp_atlas.json', 'w', encoding='utf-8') as OUT_FILE, open('read-ids-
 
 						assert submission_json["id"] == 0, "Edit invalid because ID is tampered, it must be 0!"
 
-						submission_json_dummy = {"id": f'zzz{submission.id}'}
+						submission_json_dummy = {"id": submission.id}
 
 					for key in submission_json:
 						if not key in submission_json_dummy:
@@ -148,4 +148,4 @@ with open('temp_atlas.json', 'w', encoding='utf-8') as OUT_FILE, open('read-ids-
 
 	OUT_FILE.writelines(OUT_FILE_LINES)
 
-print(f"\n\nTotal all flairs: {total_all_flairs}\nSuccess: {successcount}/{totalcount}\nFail: {failcount}/{totalcount}\nPlease check manual_atlas.txt for failed entries to manually resolve.")
+print(f"\n\nTotal all flairs: {total_all_flairs}\nSuccess: {successcount}/{totalcount}\nFail: {failcount}/{totalcount}\nPlease check temp-atlas-manual.txt for failed entries to manually resolve.")

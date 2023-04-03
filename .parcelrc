@@ -1,0 +1,5 @@
+{
+	"extends": "@parcel/config-default",
+	"resolvers": ["parcel-resolver-ignore", "..."],
+	"namers": ["parcel-namer-rewrite", "..."]
+}
