@@ -12,15 +12,13 @@
 	},
 	"parcel-namer-rewrite": {
 		"rules": {
-			"^(icon-.+)\\.(svg|png|gif|jpg|jpeg)": "_img/pwa/$1.$2",
-			"^(screenshot-.+)\\.(svg|png|gif|jpg|jpeg)": "_img/pwa/$1.$2",
-			"(.*)\\.(svg|png|gif|jpg|jpeg)": "_img/$1.$2",
 			"(.*)\\.(css|woff2?)": "_css/$1{.hash}.$2",
 			"(.*)\\.(js)": "_js/$1{.hash}.$2"
 		}
 	},
 	"parcelIgnore": [
-		"sw.js"
+		"sw.js",
+		"_img/.+"
 	],
 	"browserslist": [
 		">= 0.5%",
