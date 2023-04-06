@@ -400,8 +400,7 @@ function buildObjectsList(filter = null, sort = null) {
 		}
 
 		const element = createInfoBlock(sortedAtlas[i])
-
-		element.entry = sortedAtlas[i]
+		const entry = sortedAtlas[i]
 
 		element.addEventListener("mouseenter", function () {
 			if (!fixed && !dragging) {
@@ -411,9 +410,9 @@ function buildObjectsList(filter = null, sort = null) {
 				previousScaleZoomOrigin = [scaleZoomOrigin[0], scaleZoomOrigin[1]]
 
 				applyView()
-				setView(this.entry.center[0], this.entry.center[1], setZoomByPath(entry.path))
+				setView(entry.center[0], entry.center[1], setZoomByPath(entry.path))
 
-				hovered = [this.entry]
+				hovered = [entry]
 				render()
 				hovered[0].element = this
 				updateLines()
