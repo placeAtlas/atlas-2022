@@ -245,6 +245,12 @@ const variationsConfig = {
 }
 window.variationsConfig = variationsConfig
 
+let defaultVariation = 'default'
+window.defaultVariation = defaultVariation
+
+let defaultPeriod = variationsConfig[defaultVariation].default
+window.defaultPeriod = defaultPeriod
+
 const useNumericalId = false
 window.useNumericalId = useNumericalId
 

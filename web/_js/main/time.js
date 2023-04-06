@@ -27,12 +27,10 @@ let currentUpdateIndex = 0
 let updateTimeout = setTimeout(null, 0)
 let tooltipDelayHide = setTimeout(null, 0)
 
-let currentVariation = "default"
-const defaultPeriod = variationsConfig[currentVariation].default
-const defaultVariation = currentVariation
+let currentVariation = defaultVariation
 let currentPeriod = defaultPeriod
-window.currentPeriod = currentPeriod
 window.currentVariation = currentVariation
+window.currentPeriod = currentPeriod
 
 // SETUP
 if (variationsConfig[currentVariation].versions.length === 1) bottomBar.classList.add('no-time-slider')
