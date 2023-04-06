@@ -245,6 +245,9 @@ const variationsConfig = {
 }
 window.variationsConfig = variationsConfig
 
+const useNumericalId = false
+window.useNumericalId = useNumericalId
+
 console.info(`%cThe 2022 r/place Atlas
 %cCopyright (c) 2017 Roland Rytz <roland@draemm.li>
 Copyright (c) 2022 Place Atlas contributors

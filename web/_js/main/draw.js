@@ -268,6 +268,10 @@ function initDraw() {
 			center: {},
 		}
 
+		if (useNumericalId) {
+			if (!isNaN(Number(exportObject.id))) exportObject.id = Number(exportObject.id)
+		}
+
 		const pathWithPeriodsTemp = JSON.parse(JSON.stringify(pathWithPeriods))
 
 		for (let i = pathWithPeriodsTemp.length - 1; i > 0; i--) {
@@ -518,7 +522,7 @@ function initDraw() {
 	}
 
 	const getEntry = id => {
-		const entries = atlasAll.filter(entry => entry.id === id)
+		const entries = atlasAll.filter(entry => entry.id.toString() === id.toString())
 		if (entries.length === 1) return entries[0]
 		return {}
 	}
