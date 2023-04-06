@@ -207,7 +207,14 @@ function updateTooltip(period, variation) {
 	const configObject = variationsConfig[variation].versions[period]
 
 	// If timestap is a number return a UTC formatted date otherwise use exact timestap label
-	if (typeof configObject.timestamp === "number") tooltip.querySelector('div').textContent = new Date(configObject.timestamp * 1000).toUTCString()
+	if (Array.isArray(configObject.timestamp)) {
+		tooltip.querySelector('div').textContent = ""
+		configObject.timestamp.forEach(timestamp => {
+			if (tooltip.querySelector('div').textContent) tooltip.querySelector('div').innerHTML += "<br />"
+			if (typeof timestamp === "number") tooltip.querySelector('div').innerHTML += new Date(timestamp * 1000).toUTCString()
+			else tooltip.querySelector('div').innerHTML += timestamp
+		})
+	} else if (typeof configObject.timestamp === "number") tooltip.querySelector('div').textContent = new Date(configObject.timestamp * 1000).toUTCString()
 	else tooltip.querySelector('div').textContent = configObject.timestamp
 
 	// Clamps position of tooltip to prevent from going off screen
