@@ -101,6 +101,8 @@ async function updateBackground(newPeriod = currentPeriod, newVariation = curren
 
 	const configObject = variationConfig.versions[currentPeriod]
 	let layerUrls = []
+	let layers = []
+
 	if (typeof configObject.url === "string") {
 		layerUrls.push(configObject.url)
 	} else {
@@ -108,17 +110,21 @@ async function updateBackground(newPeriod = currentPeriod, newVariation = curren
 	}
 	const canvas = document.createElement('canvas')
 	const context = canvas.getContext('2d')
-	context.canvas.width = canvasSize.x
-	context.canvas.height = canvasSize.y
 	for await (const url of layerUrls) {
 		const imageLayer = new Image()
 		await new Promise(resolve => {
 			imageLayer.onload = () => {
-				context.drawImage(imageLayer, 0, 0)
+				context.canvas.width = Math.max(imageLayer.width, context.canvas.width)
+				context.canvas.height = Math.max(imageLayer.height, context.canvas.height)
+				layers.push(imageLayer)
 				resolve()
 			}
 			imageLayer.src = url
 		})
+	}
+
+	for (const imageLayer of layers) {
+		context.drawImage(imageLayer, 0, 0)
 	}
 
 	if (currentUpdateIndex !== myUpdateIndex) return [configObject, newPeriod, newVariation]
