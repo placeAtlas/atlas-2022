@@ -16,7 +16,6 @@ combined.js
 
 # Build files
 node_modules/
-/yarn.lock
 dist*/
 
 # Cache folders
