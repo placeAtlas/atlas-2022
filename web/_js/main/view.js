@@ -118,7 +118,7 @@ offcanvasList.addEventListener('show.bs.offcanvas', function () {
 	applyView()
 })
 
-offcanvasList.addEventListener('shown.bs.offcanvas', function (e) {
+offcanvasList.addEventListener('shown.bs.offcanvas', e => {
 	entriesListShown = true
 	wrapper.classList.remove('listTransitioning')
 	updateHovering(e)
@@ -133,7 +133,7 @@ offcanvasList.addEventListener('hide.bs.offcanvas', function () {
 	applyView()
 })
 
-offcanvasList.addEventListener('hidden.bs.offcanvas', function (e) {
+offcanvasList.addEventListener('hidden.bs.offcanvas', e => {
 	entriesListShown = false
 	wrapper.classList.remove('listTransitioning')
 	updateHovering(e)
@@ -184,7 +184,7 @@ objectsContainer.addEventListener("scroll", function () {
 	updateLines()
 })
 
-window.addEventListener("resize", function (e) {
+window.addEventListener("resize", e => {
 
 	applyView()
 	render()
@@ -260,7 +260,7 @@ function updateLines() {
 
 function renderBackground(atlas) {
 
-	backgroundContext.clearRect(0, 0, canvas.width, canvas.height)
+	backgroundContext.clearRect(0, 0, highlightCanvas.width, highlightCanvas.height)
 
 	//backgroundCanvas.width = 1000 * zoom
 	//backgroundCanvas.height = 1000 * zoom
@@ -420,7 +420,7 @@ function buildObjectsList(filter = null, sort = null) {
 
 		})
 
-		element.addEventListener("click", function (e) {
+		element.addEventListener("click", e => {
 			toggleFixed(e)
 			if (fixed) {
 				previousZoomOrigin = [zoomOrigin[0], zoomOrigin[1]]
@@ -471,13 +471,13 @@ function resetEntriesList() {
 
 async function render() {
 
-	context.clearRect(0, 0, canvas.width, canvas.height)
+	highlightContext.clearRect(0, 0, highlightCanvas.width, highlightCanvas.height)
 
 	//canvas.width = 1000*zoom
 	//canvas.height = 1000*zoom
 
-	context.globalCompositeOperation = "source-over"
-	context.clearRect(0, 0, canvas.width, canvas.height)
+	highlightContext.globalCompositeOperation = "source-over"
+	highlightContext.clearRect(0, 0, highlightCanvas.width, highlightCanvas.height)
 
 	if (hovered.length > 0) {
 		container.style.cursor = "pointer"
@@ -491,28 +491,28 @@ async function render() {
 
 		const path = hovered[i].path
 
-		context.beginPath()
+		highlightContext.beginPath()
 
 		if (path[0]) {
 			//context.moveTo(path[0][0]*zoom, path[0][1]*zoom)
-			context.moveTo(path[0][0], path[0][1])
+			highlightContext.moveTo(path[0][0], path[0][1])
 		}
 
 		for (let p = 1; p < path.length; p++) {
 			//context.lineTo(path[p][0]*zoom, path[p][1]*zoom)
-			context.lineTo(path[p][0], path[p][1])
+			highlightContext.lineTo(path[p][0], path[p][1])
 		}
 
-		context.closePath()
+		highlightContext.closePath()
 
-		context.globalCompositeOperation = "source-over"
+		highlightContext.globalCompositeOperation = "source-over"
 
-		context.fillStyle = "rgba(0, 0, 0, 1)"
-		context.fill()
+		highlightContext.fillStyle = "rgba(0, 0, 0, 1)"
+		highlightContext.fill()
 	}
 
-	context.globalCompositeOperation = "source-out"
-	context.drawImage(backgroundCanvas, 0, 0)
+	highlightContext.globalCompositeOperation = "source-out"
+	highlightContext.drawImage(backgroundCanvas, 0, 0)
 
 	if (hovered.length === 1 && hovered[0].path.length && hovered[0].overrideImage) {
 		const undisputableHovered = hovered[0]
@@ -528,8 +528,8 @@ async function render() {
 			overrideImage.src = "imageOverrides/" + undisputableHovered.overrideImage
 			try {
 				await loadingPromise
-				context.globalCompositeOperation = "source-over"
-				context.drawImage(overrideImage, startX, startY)
+				highlightContext.globalCompositeOperation = "source-over"
+				highlightContext.drawImage(overrideImage, startX, startY)
 			} catch (ex) {
 				console.error("Cannot override image.", ex)
 			}
@@ -540,21 +540,21 @@ async function render() {
 
 		const path = hovered[i].path
 
-		context.beginPath()
+		highlightContext.beginPath()
 
 		if (path[0]) {
 			//context.moveTo(path[0][0]*zoom, path[0][1]*zoom)
-			context.moveTo(path[0][0], path[0][1])
+			highlightContext.moveTo(path[0][0], path[0][1])
 		}
 
 		for (let p = 1; p < path.length; p++) {
 			//context.lineTo(path[p][0]*zoom, path[p][1]*zoom)
-			context.lineTo(path[p][0], path[p][1])
+			highlightContext.lineTo(path[p][0], path[p][1])
 		}
 
-		context.closePath()
+		highlightContext.closePath()
 
-		context.globalCompositeOperation = "source-over"
+		highlightContext.globalCompositeOperation = "source-over"
 
 		let hoverStrokeStyle
 		switch (hovered[i].diff) {
@@ -568,9 +568,9 @@ async function render() {
 				hoverStrokeStyle = "rgba(0, 0, 0, 1)"
 				break
 		}
-		context.strokeStyle = hoverStrokeStyle
+		highlightContext.strokeStyle = hoverStrokeStyle
 		//context.lineWidth = zoom
-		context.stroke()
+		highlightContext.stroke()
 	}
 
 }
@@ -670,7 +670,7 @@ function highlightEntryFromUrl() {
 
 	if (!id) return
 
-	const entries = atlas.filter(function (e) {
+	const entries = atlas.filter(e => {
 		return e.id === id
 	})
 
@@ -758,18 +758,17 @@ function initExplore() {
 	window.render = function () { }
 
 	function updateHovering(e, tapped) {
-		if (!dragging && (!fixed || tapped)) {
-			const pos = [
-				(e.clientX - (container.clientWidth / 2 - innerContainer.clientWidth / 2 + zoomOrigin[0] + container.offsetLeft)) / zoom,
-				(e.clientY - (container.clientHeight / 2 - innerContainer.clientHeight / 2 + zoomOrigin[1] + container.offsetTop)) / zoom
-			]
-			const coords_p = document.getElementById("coords_p")
-			// Displays coordinates as zero instead of NaN
-			if (isNaN(pos[0]) === true) {
-				coords_p.textContent = "0, 0"
-			} else {
-				coords_p.textContent = Math.ceil(pos[0]) + ", " + Math.ceil(pos[1])
-			}
+		if (dragging || (fixed && !tapped)) return
+		const pos = [
+			(e.clientX - (container.clientWidth / 2 - innerContainer.clientWidth / 2 + zoomOrigin[0] + container.offsetLeft)) / zoom,
+			(e.clientY - (container.clientHeight / 2 - innerContainer.clientHeight / 2 + zoomOrigin[1] + container.offsetTop)) / zoom
+		]
+		const coordsEl = document.getElementById("coords_p")
+		// Displays coordinates as zero instead of NaN
+		if (isNaN(pos[0])) {
+			coordsEl.textContent = "0, 0"
+		} else {
+			coordsEl.textContent = Math.ceil(pos[0]) + ", " + Math.ceil(pos[1])
 		}
 	}
 
@@ -780,7 +779,7 @@ function initExplore() {
 }
 
 function initGlobal() {
-	container.addEventListener("mousemove", function (e) {
+	container.addEventListener("mousemove", e => {
 		if (e.sourceCapabilities) {
 			if (!e.sourceCapabilities.firesTouchEvents) {
 				updateHovering(e)
@@ -790,7 +789,7 @@ function initGlobal() {
 		}
 	})
 
-	document.addEventListener('timeupdate', (event) => {
+	document.addEventListener('timeupdate', event => {
 		let hashData = window.location.hash.substring(1).split('/')
 		const targetHash = formatHash(hashData[0], event.detail.period, event.detail.period, event.detail.variation)
 		if (location.hash !== targetHash) history.replaceState({}, "", `./${targetHash}`)
@@ -798,14 +797,14 @@ function initGlobal() {
 }
 
 function initViewGlobal() {
-	container.addEventListener("mousedown", function (e) {
+	container.addEventListener("mousedown", e => {
 		lastPos = [
 			e.clientX,
 			e.clientY
 		]
 	})
 
-	container.addEventListener("touchstart", function (e) {
+	container.addEventListener("touchstart", e => {
 		if (e.touches.length === 1) {
 			lastPos = [
 				e.touches[0].clientX,
@@ -814,13 +813,13 @@ function initViewGlobal() {
 		}
 	}, { passive: true })
 
-	container.addEventListener("mouseup", function (e) {
+	container.addEventListener("mouseup", e => {
 		if (Math.abs(lastPos[0] - e.clientX) + Math.abs(lastPos[1] - e.clientY) <= 4) {
 			toggleFixed(e)
 		}
 	})
 
-	container.addEventListener("touchend", function (e) {
+	container.addEventListener("touchend", e => {
 		e.preventDefault()
 
 		//console.log(e)
@@ -842,7 +841,7 @@ function initViewGlobal() {
 		highlightEntryFromUrl()
 	}
 
-	document.addEventListener('timeupdate', (event) => {
+	document.addEventListener('timeupdate', event => {
 		drawButton.href = "./?mode=draw" + formatHash(undefined, event.detail.period, event.detail.period, event.detail.variation)
 	})
 }

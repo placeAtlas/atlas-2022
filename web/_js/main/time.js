@@ -39,9 +39,9 @@ timelineSlider.max = variationsConfig[currentVariation].versions.length - 1
 timelineSlider.value = currentPeriod
 timelineList.children[0].value = defaultPeriod
 
-timelineSlider.addEventListener("input", (e) => timelineParser(e.target.value))
+timelineSlider.addEventListener("input", e => timelineParser(e.target.value))
 
-timelineSlider.addEventListener("wheel", function (e) {
+timelineSlider.addEventListener("wheel", e => {
 	if (e.deltaY < 0) {
 		this.valueAsNumber += 1;
 		timelineParser(this.value)
@@ -65,7 +65,7 @@ function timelineParser(value) {
 	}, 25)
 }
 
-variantsEl.addEventListener("input", (event) => {
+variantsEl.addEventListener("input", event => {
 	updateTime(-1, event.target.value)
 })
 

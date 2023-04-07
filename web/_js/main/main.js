@@ -7,14 +7,14 @@
 
 const innerContainer = document.getElementById("innerContainer")
 const container = document.getElementById("container")
-const canvas = document.getElementById("highlightCanvas")
-const canvasImage = document.getElementById('image')
-const context = canvas.getContext("2d")
+const highlightCanvas = document.getElementById("highlightCanvas")
+const imageCanvas = document.getElementById('image')
+const highlightContext = highlightCanvas.getContext("2d")
 
-canvas.width = canvasSize.x
-canvas.height = canvasSize.y
-canvasImage.width = canvasSize.x
-canvasImage.height = canvasSize.y
+highlightCanvas.width = canvasSize.x
+highlightCanvas.height = canvasSize.y
+imageCanvas.width = canvasSize.x
+imageCanvas.height = canvasSize.y
 
 let zoom = 1
 
@@ -95,13 +95,10 @@ async function init() {
 	const args = window.location.search
 	const params = new URLSearchParams(args)
 	if (args) {
-		mode = params.get("mode")
-		if (!mode) {
-			mode = "view"
-		}
+		mode = params.get("mode") || "view"
 
 		// Backwards compatibility for old links using "search" id arg
-		if (params.has('id') && params.get('mode') !== 'draw') {
+		if (params.has('id') && mode !== 'draw') {
 			const id = params.get('id')
 			params.delete('id')
 			const newLocation = new URL(window.location)
@@ -146,6 +143,8 @@ async function init() {
 		if (initOverlap) {
 			initOverlap()
 		}
+	} else if (mode === "explore") {
+		initExplore()
 	} else if (mode.startsWith("diff")) {
 		try {
 			const liveResp = await fetch(`https://${prodDomain}/atlas.json`)
@@ -195,8 +194,6 @@ async function init() {
 				initView()
 			}
 		}
-	} else if (mode === "explore") {
-		initExplore()
 	} else {
 		initView()
 	}
@@ -220,7 +217,7 @@ async function init() {
 		initialPinchZoom = zoom
 
 		lastPosition = [x, y]
-		zoom = zoom * 2
+		zoom *= 2
 		zoom = Math.max(minZoom, Math.min(maxZoom, zoom))
 
 		applyZoom(x, y, zoom)
@@ -258,7 +255,7 @@ async function init() {
 		applyView()
 	})
 
-	container.addEventListener("dblclick", function (e) {
+	container.addEventListener("dblclick", e => {
 		/*if(zoomAnimationFrame){
 			window.cancelAnimationFrame(zoomAnimationFrame)
 		}*/
@@ -285,7 +282,7 @@ async function init() {
 	})
 
 
-	container.addEventListener("wheel", function (e) {
+	container.addEventListener("wheel", e => {
 
 		/*if(zoomAnimationFrame){
 			window.cancelAnimationFrame(zoomAnimationFrame)
@@ -311,14 +308,8 @@ async function init() {
 			// This creates a smoother experience
 			zoom -= e.deltaY * (0.001 * zoom)
 		} else {
-			if (e.deltaY > 0) {
-
-				zoom = zoom / 2
-
-			} else if (e.deltaY < 0) {
-
-				zoom = zoom * 2
-			}
+			if (e.deltaY > 0) zoom /= 2
+			else if (e.deltaY < 0) zoom *= 2
 		}
 
 		zoom = Math.max(minZoom, Math.min(maxZoom, zoom))
@@ -339,12 +330,12 @@ async function init() {
 		}
 	}*/
 
-	container.addEventListener("mousedown", function (e) {
+	container.addEventListener("mousedown", e => {
 		mousedown(e.clientX, e.clientY)
 		e.preventDefault()
 	})
 
-	container.addEventListener("touchstart", function (e) {
+	container.addEventListener("touchstart", e => {
 
 		if (e.touches.length === 2) {
 			e.preventDefault()
@@ -387,14 +378,14 @@ async function init() {
 
 	}
 
-	window.addEventListener("mousemove", function (e) {
+	window.addEventListener("mousemove", e => {
 		updateLines()
 		mousemove(e.clientX, e.clientY)
 		if (dragging) {
 			e.preventDefault()
 		}
 	})
-	window.addEventListener("touchmove", function (e) {
+	window.addEventListener("touchmove", e => {
 
 		if (e.touches.length === 2 || e.scale > 1) {
 			e.preventDefault()
@@ -472,7 +463,7 @@ async function init() {
 		updateLines()
 	}
 
-	window.addEventListener("mouseup", function (e) {
+	window.addEventListener("mouseup", e => {
 		if (hovered.length > 0) {
 			container.style.cursor = "pointer"
 		} else if (drawing === true) {

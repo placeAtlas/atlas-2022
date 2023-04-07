@@ -15,7 +15,7 @@ function initOverlap() {
 	renderBackground(atlas)
 	render()
 
-	document.addEventListener('timeupdate', (event) => {
+	document.addEventListener('timeupdate', () => {
 		sortedAtlas = atlas.concat()
 		resetEntriesList(null, null)
 		renderBackground(sortedAtlas)
@@ -32,14 +32,14 @@ function initOverlap() {
 
 	function renderBackground(atlas) {
 
-		backgroundContext.clearRect(0, 0, canvas.width, canvas.height)
+		backgroundContext.clearRect(0, 0, highlightCanvas.width, highlightCanvas.height)
 
 		backgroundContext.fillStyle = "rgba(255, 255, 255, 1)"
-		backgroundContext.fillRect(0, 0, canvas.width, canvas.height)
+		backgroundContext.fillRect(0, 0, highlightCanvas.width, highlightCanvas.height)
 
-		for (let i = 0; i < atlas.length; i++) {
+		for (const entry of atlas) {
 
-			const path = atlas[i].path
+			const path = entry.path
 
 			backgroundContext.beginPath()
 
