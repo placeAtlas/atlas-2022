@@ -118,7 +118,7 @@ function initDraw() {
 
 	render(path)
 
-	container.addEventListener("mousedown", function (e) {
+	container.addEventListener("mousedown", e => {
 		lastPos = [
 			e.clientX,
 			e.clientY
@@ -147,7 +147,7 @@ function initDraw() {
 		return pos
 	}
 
-	container.addEventListener("mouseup", function (e) {
+	container.addEventListener("mouseup", e => {
 
 		if (Math.abs(lastPos[0] - e.clientX) + Math.abs(lastPos[1] - e.clientY) <= 4 && drawing) {
 
@@ -168,7 +168,7 @@ function initDraw() {
 		}
 	})
 
-	container.addEventListener("mousemove", function (e) {
+	container.addEventListener("mousemove", e => {
 		if (!dragging && drawing && path.length > 0) {
 			const coords = getCanvasCoords(e.clientX, e.clientY)
 			render([...path, coords])
@@ -181,7 +181,7 @@ function initDraw() {
 		}
 	})
 
-	window.addEventListener("keyup", function (e) {
+	window.addEventListener("keyup", e => {
 		if (e.key === "z" && e.ctrlKey) {
 			undo()
 		} else if (e.key === "y" && e.ctrlKey) {
@@ -196,7 +196,7 @@ function initDraw() {
 		}
 	})
 
-	window.addEventListener("keydown", function (e) {
+	window.addEventListener("keydown", e => {
 		if (e.key === "Shift") {
 			if (e.code === "ShiftRight") {
 				rShiftPressed = true
@@ -211,19 +211,19 @@ function initDraw() {
 		finish()
 	})
 
-	undoButton.addEventListener("click", function (e) {
+	undoButton.addEventListener("click", e => {
 		undo()
 		const coords = getCanvasCoords(e.clientX, e.clientY)
 		render([...path, coords])
 	})
 
-	redoButton.addEventListener("click", function (e) {
+	redoButton.addEventListener("click", e => {
 		redo()
 		const coords = getCanvasCoords(e.clientX, e.clientY)
 		render([...path, coords])
 	})
 
-	resetButton.addEventListener("click", function (e) {
+	resetButton.addEventListener("click", e => {
 		reset()
 		const coords = getCanvasCoords(e.clientX, e.clientY)
 		render([...path, coords])
@@ -243,7 +243,7 @@ function initDraw() {
 		exportButton.focus()
 	})
 
-	objectInfoForm.addEventListener('submit', function (e) {
+	objectInfoForm.addEventListener('submit', e => {
 		e.preventDefault()
 		// Allows for html form validation with preview button
 		if (e.submitter && e.submitter.value === "Preview") {
@@ -266,6 +266,10 @@ function initDraw() {
 			links: {},
 			path: {},
 			center: {},
+		}
+
+		if (useNumericalId) {
+			if (!isNaN(Number(exportObject.id))) exportObject.id = Number(exportObject.id)
 		}
 
 		const pathWithPeriodsTemp = JSON.parse(JSON.stringify(pathWithPeriods))
@@ -347,19 +351,17 @@ function initDraw() {
 	}
 
 	function undo() {
-		if (path.length > 0 && drawing) {
-			undoHistory.push(path.pop())
-			redoButton.disabled = false
-			updatePath(path, undoHistory)
-		}
+		if (path.length == 0 || !drawing) return
+		undoHistory.push(path.pop())
+		redoButton.disabled = false
+		updatePath(path, undoHistory)
 	}
 
 	function redo() {
-		if (undoHistory.length > 0 && drawing) {
-			path.push(undoHistory.pop())
-			undoButton.disabled = false
-			updatePath(path, undoHistory)
-		}
+		if (undoHistory.length == 0 || !drawing) return
+		path.push(undoHistory.pop())
+		undoButton.disabled = false
+		updatePath(path, undoHistory)
 	}
 
 	function finish() {
@@ -436,7 +438,7 @@ function initDraw() {
 
 	function renderBackground() {
 
-		backgroundContext.clearRect(0, 0, canvas.width, canvas.height)
+		backgroundContext.clearRect(0, 0, highlightCanvas.width, highlightCanvas.height)
 
 		backgroundContext.fillStyle = "rgba(0, 0, 0, 1)"
 		//backgroundContext.fillRect(0, 0, canvas.width, canvas.height)
@@ -465,60 +467,59 @@ function initDraw() {
 
 		if (!Array.isArray(path)) return
 
-		context.globalCompositeOperation = "source-over"
-		context.clearRect(0, 0, canvas.width, canvas.height)
+		highlightContext.globalCompositeOperation = "source-over"
+		highlightContext.clearRect(0, 0, highlightCanvas.width, highlightCanvas.height)
 
 		if (highlightUncharted) {
-			context.drawImage(backgroundCanvas, 0, 0)
-			context.fillStyle = "rgba(0, 0, 0, 0.4)"
+			highlightContext.drawImage(backgroundCanvas, 0, 0)
+			highlightContext.fillStyle = "rgba(0, 0, 0, 0.4)"
 		} else {
-			context.fillStyle = "rgba(0, 0, 0, 0.6)"
+			highlightContext.fillStyle = "rgba(0, 0, 0, 0.6)"
 		}
 
-		context.fillRect(0, 0, canvas.width, canvas.height)
+		highlightContext.fillRect(0, 0, highlightCanvas.width, highlightCanvas.height)
 
-		context.beginPath()
+		highlightContext.beginPath()
 
 		if (path[0]) {
-			context.moveTo(path[0][0], path[0][1])
+			highlightContext.moveTo(path[0][0], path[0][1])
 		}
 
 		for (let i = 1; i < path.length; i++) {
-			context.lineTo(path[i][0], path[i][1])
+			highlightContext.lineTo(path[i][0], path[i][1])
 		}
 
-		context.closePath()
+		highlightContext.closePath()
 
-		context.strokeStyle = "rgba(255, 255, 255, 1)"
-		context.stroke()
+		highlightContext.strokeStyle = "rgba(255, 255, 255, 1)"
+		highlightContext.stroke()
 
-		context.globalCompositeOperation = "destination-out"
+		highlightContext.globalCompositeOperation = "destination-out"
 
-		context.fillStyle = "rgba(0, 0, 0, 1)"
-		context.fill()
+		highlightContext.fillStyle = "rgba(0, 0, 0, 1)"
+		highlightContext.fill()
 
 	}
 
 	function updateHovering(e, tapped) {
-		if (!dragging && (!fixed || tapped)) {
-			const pos = [
-				(e.clientX - (container.clientWidth / 2 - innerContainer.clientWidth / 2 + zoomOrigin[0] + container.offsetLeft)) / zoom,
-				(e.clientY - (container.clientHeight / 2 - innerContainer.clientHeight / 2 + zoomOrigin[1] + container.offsetTop)) / zoom
-			]
+		if (dragging || (fixed && !tapped)) return
+		const pos = [
+			(e.clientX - (container.clientWidth / 2 - innerContainer.clientWidth / 2 + zoomOrigin[0] + container.offsetLeft)) / zoom,
+			(e.clientY - (container.clientHeight / 2 - innerContainer.clientHeight / 2 + zoomOrigin[1] + container.offsetTop)) / zoom
+		]
 
-			const coords_p = document.getElementById("coords_p")
+		const coordsEl = document.getElementById("coords_p")
 
-			// Displays coordinates as zero instead of NaN
-			if (isNaN(pos[0]) === true) {
-				coords_p.textContent = "0, 0"
-			} else {
-				coords_p.textContent = Math.ceil(pos[0]) + ", " + Math.ceil(pos[1])
-			}
+		// Displays coordinates as zero instead of NaN
+		if (isNaN(pos[0])) {
+			coordsEl.textContent = "0, 0"
+		} else {
+			coordsEl.textContent = Math.ceil(pos[0]) + ", " + Math.ceil(pos[1])
 		}
 	}
 
 	const getEntry = id => {
-		const entries = atlasAll.filter(entry => entry.id === id)
+		const entries = atlasAll.filter(entry => entry.id.toString() === id.toString())
 		if (entries.length === 1) return entries[0]
 		return {}
 	}
@@ -597,7 +598,7 @@ function initDraw() {
 		inputField.pattern = "^r\/[A-Za-z0-9][A-Za-z0-9_]{1,20}$"
 		inputField.title = "Subreddit in format of r/example"
 		inputField.minLength = "4"
-		inputField.maxLength = "23"
+		inputField.maxLength = "22"
 		inputField.setAttribute("aria-labelledby", "subredditLabel")
 		inputField.setAttribute("aria-describedby", "subredditField" + index + "-addon")
 		if (link) {
@@ -623,7 +624,7 @@ function initDraw() {
 			inputButton.addEventListener('click', () => removeFieldButton(inputGroup, array, index))
 		}
 
-		inputField.addEventListener('paste', (event) => {
+		inputField.addEventListener('paste', event => {
 			let paste = (event.clipboardData || window.clipboardData).getData('text')
 			paste = paste.trim().match(subredditPattern)?.[1]
 			if (paste) {
@@ -668,7 +669,7 @@ function initDraw() {
 			inputButton.addEventListener('click', () => removeFieldButton(inputGroup, array, index))
 		}
 
-		inputField.addEventListener('paste', (event) => {
+		inputField.addEventListener('paste', event => {
 			let paste = (event.clipboardData || window.clipboardData).getData('text')
 			paste = paste.trim().match(discordPattern)?.[1]
 			if (paste) {
@@ -782,7 +783,7 @@ function initDraw() {
 
 	drawBackButton.href = "./" + formatHash(entryId, currentPeriod, currentPeriod, currentVariation)
 
-	document.addEventListener('timeupdate', (event) => {
+	document.addEventListener('timeupdate', event => {
 		drawBackButton.href = "./" + formatHash(entryId, event.detail.period, event.detail.period, event.detail.variation)
 	})
 
@@ -870,7 +871,7 @@ function initPeriodGroups() {
 		if (startPeriodEl.max === 0) periodGroupEl.classList.add('no-time-slider')
 		else periodGroupEl.classList.remove('no-time-slider')
 
-		// If one period disable delete
+		// Disable delete if only one period
 		if (pathWithPeriods.length === 1) periodDeleteEl.disabled = true
 
 		startPeriodEl.addEventListener('input', () => {
@@ -1160,7 +1161,7 @@ function updatePeriodGroups() {
 			startPeriodEl.disabled = false
 			endPeriodEl.disabled = false
 
-			// If one period disable delete
+			// Disable delete if only one period
 			if (pathWithPeriods.length === 1) periodDeleteEl.disabled = true
 			else periodDeleteEl.disabled = false
 
@@ -1331,8 +1332,8 @@ function getConflicts() {
 				(start1 <= start2 && start2 <= end1) ||
 				(start1 <= end2 && end2 <= end1)
 			) {
-				if (!conflicts[i]) conflicts[i] = []
-				if (!conflicts[j]) conflicts[j] = []
+				conflicts[i] ||= []
+				conflicts[j] ||= []
 				conflicts[i].push(j)
 				conflicts[j].push(i)
 			}

@@ -8,9 +8,9 @@
 let areasSum = 0
 const areas = []
 
-for (let q = 0; q < atlas.length; q++) {
+for (const entry of atlas) {
 
-	const path = atlas[q].path
+	const path = entry.path
 
 	let area = 0,
 		i,
@@ -30,31 +30,13 @@ for (let q = 0; q < atlas.length; q++) {
 	areasSum += area
 	areas.push(area)
 
-	atlas[q].area = area
+	entry.area = area
 
 }
 
-areas.sort(function (a, b) {
-	if (a < b) {
-		return -1
-	}
-	if (a > b) {
-		return 1
-	}
-	// a must be equal to b
-	return 0
-})
+areas.sort((a, b) => a - b)
 
-atlas.sort(function (a, b) {
-	if (a.area < b.area) {
-		return -1
-	}
-	if (a.area > b.area) {
-		return 1
-	}
-	// a must be equal to b
-	return 0
-})
+atlas.sort((a, b) => a.area - b.area)
 
 const el = document.createElement("canvas")
 el.style.position = "absolute"
@@ -68,10 +50,8 @@ const max = 1500
 
 let largerThanMax = 0
 
-for (const i in areas) {
-	if (areas[i] > max) {
-		largerThanMax++
-	}
+for (const area of areas) {
+	if (area > max) largerThanMax++
 }
 
 console.info("There are " + largerThanMax + " entries larger than " + max + ", accounting for " + (largerThanMax / areas.length * 100) + "% of all entries.")
@@ -88,9 +68,7 @@ for (const i in areas) {
 	if (areas[i] > (bracket + 1) * (max / steps)) {
 		mostCounts = Math.max(mostCounts, counts[bracket])
 		bracket++
-		if (bracket >= steps) {
-			break
-		}
+		if (bracket >= steps) break
 		counts[bracket] = 0
 		brackets[bracket] = (bracket + 1) * (max / steps)
 	}
@@ -185,11 +163,8 @@ ctx.fillStyle = "#FF0000"
 ctx.strokeStyle = "#CC0000"
 
 for (let i = 0; i < counts.length; i++) {
-	if (i % 2 === 0) {
-		ctx.fillStyle = "#FF0000"
-	} else {
-		ctx.fillStyle = "#DD0000"
-	}
+	if (i % 2) ctx.fillStyle = "#DD0000"
+	else ctx.fillStyle = "#FF0000"
 
 	ctx.fillRect(
 		~~((i / steps) * (el.width - 125) + 75),

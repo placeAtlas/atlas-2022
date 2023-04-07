@@ -27,12 +27,10 @@ let currentUpdateIndex = 0
 let updateTimeout = setTimeout(null, 0)
 let tooltipDelayHide = setTimeout(null, 0)
 
-let currentVariation = "default"
-const defaultPeriod = variationsConfig[currentVariation].default
-const defaultVariation = currentVariation
+let currentVariation = defaultVariation
 let currentPeriod = defaultPeriod
-window.currentPeriod = currentPeriod
 window.currentVariation = currentVariation
+window.currentPeriod = currentPeriod
 
 // SETUP
 if (variationsConfig[currentVariation].versions.length === 1) bottomBar.classList.add('no-time-slider')
@@ -41,9 +39,9 @@ timelineSlider.max = variationsConfig[currentVariation].versions.length - 1
 timelineSlider.value = currentPeriod
 timelineList.children[0].value = defaultPeriod
 
-timelineSlider.addEventListener("input", (e) => timelineParser(e.target.value))
+timelineSlider.addEventListener("input", e => timelineParser(e.target.value))
 
-timelineSlider.addEventListener("wheel", function (e) {
+timelineSlider.addEventListener("wheel", e => {
 	if (e.deltaY < 0) {
 		this.valueAsNumber += 1;
 		timelineParser(this.value)
@@ -67,7 +65,7 @@ function timelineParser(value) {
 	}, 25)
 }
 
-variantsEl.addEventListener("input", (event) => {
+variantsEl.addEventListener("input", event => {
 	updateTime(-1, event.target.value)
 })
 
@@ -103,6 +101,8 @@ async function updateBackground(newPeriod = currentPeriod, newVariation = curren
 
 	const configObject = variationConfig.versions[currentPeriod]
 	let layerUrls = []
+	let layers = []
+
 	if (typeof configObject.url === "string") {
 		layerUrls.push(configObject.url)
 	} else {
@@ -110,17 +110,21 @@ async function updateBackground(newPeriod = currentPeriod, newVariation = curren
 	}
 	const canvas = document.createElement('canvas')
 	const context = canvas.getContext('2d')
-	context.canvas.width = canvasSize.x
-	context.canvas.height = canvasSize.y
 	for await (const url of layerUrls) {
 		const imageLayer = new Image()
 		await new Promise(resolve => {
 			imageLayer.onload = () => {
-				context.drawImage(imageLayer, 0, 0)
+				context.canvas.width = Math.max(imageLayer.width, context.canvas.width)
+				context.canvas.height = Math.max(imageLayer.height, context.canvas.height)
+				layers.push(imageLayer)
 				resolve()
 			}
 			imageLayer.src = url
 		})
+	}
+
+	for (const imageLayer of layers) {
+		context.drawImage(imageLayer, 0, 0)
 	}
 
 	if (currentUpdateIndex !== myUpdateIndex) return [configObject, newPeriod, newVariation]
@@ -205,8 +209,15 @@ async function updateTime(newPeriod = currentPeriod, newVariation = currentVaria
 function updateTooltip(period, variation) {
 	const configObject = variationsConfig[variation].versions[period]
 
-	// If timestap is a number return a UTC formatted date otherwise use exact timestap label
-	if (typeof configObject.timestamp === "number") tooltip.querySelector('div').textContent = new Date(configObject.timestamp * 1000).toUTCString()
+	// If timestamp is a number return a UTC formatted date, otherwise use exact timestamp label
+	if (Array.isArray(configObject.timestamp)) {
+		tooltip.querySelector('div').textContent = ""
+		configObject.timestamp.forEach(timestamp => {
+			if (tooltip.querySelector('div').textContent) tooltip.querySelector('div').innerHTML += "<br />"
+			if (typeof timestamp === "number") tooltip.querySelector('div').innerHTML += new Date(timestamp * 1000).toUTCString()
+			else tooltip.querySelector('div').innerHTML += timestamp
+		})
+	} else if (typeof configObject.timestamp === "number") tooltip.querySelector('div').textContent = new Date(configObject.timestamp * 1000).toUTCString()
 	else tooltip.querySelector('div').textContent = configObject.timestamp
 
 	// Clamps position of tooltip to prevent from going off screen
