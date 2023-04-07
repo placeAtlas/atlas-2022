@@ -206,7 +206,7 @@ async function updateTime(newPeriod = currentPeriod, newVariation = currentVaria
 function updateTooltip(period, variation) {
 	const configObject = variationsConfig[variation].versions[period]
 
-	// If timestap is a number return a UTC formatted date otherwise use exact timestap label
+	// If timestamp is a number return a UTC formatted date, otherwise use exact timestamp label
 	if (Array.isArray(configObject.timestamp)) {
 		tooltip.querySelector('div').textContent = ""
 		configObject.timestamp.forEach(timestamp => {
