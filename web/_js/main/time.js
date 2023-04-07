@@ -42,14 +42,10 @@ timelineList.children[0].value = defaultPeriod
 timelineSlider.addEventListener("input", e => timelineParser(e.target.value))
 
 timelineSlider.addEventListener("wheel", e => {
-	if (e.deltaY < 0) {
-		this.valueAsNumber += 1;
-		timelineParser(this.value)
-	} else {
-		this.value -= 1;
-		timelineParser(this.value)
-	}
-	e.stopPropagation();
+	if (e.deltaY < 0) e.target.valueAsNumber += 1
+	else e.target.value -= 1
+	timelineParser(e.target.value)
+	e.stopPropagation()
 }, { passive: true })
 
 function timelineParser(value) {
