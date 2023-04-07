@@ -317,12 +317,12 @@ function initDraw() {
 		directPostUrl += "&text="
 
 		if (directPostJsonString.length + directPostJsonString > 7579) {
-			directPostJsonString = encodeURIComponent("    " + JSON.stringify(exportObject))
+			directPostJsonString = "    " + JSON.stringify(exportObject)
 		}
 		if (exportArea.value > 40000) {
 			exportArea.value = "    " + JSON.stringify(exportObject)
 		}
-		directPostUrl += directPostJsonString
+		directPostUrl += encodeURIComponent(directPostJsonString)
 
 		if (directPostUrl.length > 7579) {
 			// exportDirectPostButton.classList.add("disabled")

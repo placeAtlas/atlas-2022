@@ -134,6 +134,9 @@ async function updateBackground(newPeriod = currentPeriod, newVariation = curren
 }
 
 async function updateTime(newPeriod = currentPeriod, newVariation = currentVariation, forceLoad = false) {
+	if (newPeriod === currentPeriod && !forceLoad) {
+		return;
+	}
 	document.body.dataset.canvasLoading = ""
 
 	const oldPeriod = currentPeriod

@@ -26,10 +26,10 @@ function getPositionOfEntry(entry) {
 
 const areaMap = new Map()
 
-// Modified from https://stackoverflow.com/a/33670691 
+// Modified from https://stackoverflow.com/a/33670691
 function calcPolygonArea(vertices) {
 	const hit = areaMap.get(vertices)
-	if (hit !== null) {
+	if (hit) {
 		return hit
 	}
 
