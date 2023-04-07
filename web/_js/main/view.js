@@ -655,9 +655,13 @@ function highlightEntryFromUrl() {
 	let [id, period] = hash.split('/')
 
 	// Handle zzz and 0.. prefix
-	let newId = id.replace(/^zzz([a-z0-9]{7})$/g, "$1").replace(/^0+/, '')
-	if (id !== newId) history.replaceState({}, "", `./#${[newId, period].filter(e => e).join('/')}`)
-	id = newId
+	let newId = id.replace(/^zzz([a-z0-9]{8,})$/g, "$1").replace(/^0+/, '')
+	if (id !== newId) {
+		id = newId
+		const newLocation = new URL(window.location)
+		newLocation.hash = '#' + [newId, period].join('/')
+		history.replaceState({}, "", newLocation)
+	}
 
 	let targetPeriod, targetVariation
 
@@ -790,8 +794,9 @@ function initGlobal() {
 
 	document.addEventListener('timeupdate', event => {
 		let hashData = window.location.hash.substring(1).split('/')
-		const targetHash = formatHash(hashData[0], event.detail.period, event.detail.period, event.detail.variation)
-		if (location.hash !== targetHash) history.replaceState({}, "", `./${targetHash}`)
+		const newLocation = new URL(window.location)
+		newLocation.hash = formatHash(hashData[0], event.detail.period, event.detail.period, event.detail.variation)
+		if (location.hash !== newLocation.hash) history.replaceState({}, "", newLocation)
 	})
 }
 
