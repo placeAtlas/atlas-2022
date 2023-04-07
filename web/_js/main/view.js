@@ -9,6 +9,9 @@ const linesCanvas = document.getElementById("linesCanvas")
 const linesContext = linesCanvas.getContext("2d")
 let hovered = []
 
+let previousScaleZoomOrigin
+let previousZoom
+
 const backgroundCanvas = document.createElement("canvas")
 backgroundCanvas.width = canvasSize.x
 backgroundCanvas.height = canvasSize.y
@@ -400,36 +403,40 @@ function buildObjectsList(filter = null, sort = null) {
 		const entry = sortedAtlas[i]
 
 		element.addEventListener("mouseenter", function () {
-			if (!fixed && !dragging) {
-				objectsContainer.replaceChildren()
+			if (fixed || dragging) return
+			objectsContainer.replaceChildren()
 
-				previousZoomOrigin = [zoomOrigin[0], zoomOrigin[1]]
-				previousScaleZoomOrigin = [scaleZoomOrigin[0], scaleZoomOrigin[1]]
+			previousScaleZoomOrigin ??= [...scaleZoomOrigin]
+			previousZoom ??= zoom
+			setView(entry.center[0], entry.center[1], setZoomByPath(entry.path))
 
-				applyView()
-				setView(entry.center[0], entry.center[1], setZoomByPath(entry.path))
-
-				hovered = [entry]
-				render()
-				hovered[0].element = this
-				updateLines()
-			}
+			hovered = [entry]
+			render()
+			hovered[0].element = this
+			updateLines()
 
 		})
 
 		element.addEventListener("click", e => {
 			toggleFixed(e)
-			if (fixed) {
-				applyView()
-			}
+			if (!fixed) return
+			previousScaleZoomOrigin ??= [...scaleZoomOrigin]
+			previousZoom ??= zoom
+			applyView()
 		})
 
 		element.addEventListener("mouseleave", function () {
-			if (!fixed && !dragging) {
-				hovered = []
-				updateLines()
-				render()
-			}
+			if (fixed || dragging) return
+
+			scaleZoomOrigin = [...previousScaleZoomOrigin]
+			zoom = previousZoom
+			previousScaleZoomOrigin = undefined
+			previousZoom = undefined
+			applyView()
+
+			hovered = []
+			updateLines()
+			render()
 		})
 
 		entriesList.appendChild(element)
