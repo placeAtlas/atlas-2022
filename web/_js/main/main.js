@@ -116,9 +116,9 @@ async function init() {
 
 	if (period) {
 		const [, targetPeriod, targetVariation] = parsePeriod(period)
-		await updateTime(targetPeriod, targetVariation)
+		await updateTime(targetPeriod, targetVariation, true)
 	} else {
-		await updateTime(currentPeriod, currentVariation)
+		await updateTime(currentPeriod, currentVariation, true)
 	}
 
 	//console.log(document.documentElement.clientWidth, document.documentElement.clientHeight)
@@ -419,9 +419,6 @@ async function init() {
 
 			scaleZoomOrigin[0] += deltaX / zoom
 			scaleZoomOrigin[1] += deltaY / zoom
-
-			previousZoomOrigin = [zoomOrigin[0], zoomOrigin[1]]
-			previousScaleZoomOrigin = [scaleZoomOrigin[0], scaleZoomOrigin[1]]
 
 			updateLines()
 			applyView()

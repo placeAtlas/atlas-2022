@@ -10,7 +10,7 @@ merge_source_file = 'temp-atlas.json'
 with open(merge_source_file, 'r', encoding='UTF-8') as f1:
 	out_json = json.loads(f1.read())
 
-format_all_entries.format_all_entries(out_json)
+format_all_entries(out_json)
 
 base_image_path = os.path.join('..', 'web', '_img', 'canvas', 'place30')
 ScaleConfig.image1 = os.path.join(base_image_path, '159.png')
