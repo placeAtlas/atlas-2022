@@ -2,7 +2,7 @@
 
 This project is open source, and contributions are welcome. In fact, the Atlas relies on user contributions.
 
-You may contribute to the project by submitting a Pull Request on the GitHub repo or sending your submissions through [Reddit](https://www.reddit.com/r/placeAtlas2). Other than than, you cau use [Discord](https://discord.gg/pJkm23b2nA) or [Reddit](https://www.reddit.com/r/placeAtlas2) for help.
+You may contribute to the project by submitting a Pull Request on the GitHub repo or sending your submissions through [Reddit](https://www.reddit.com/r/placeAtlas2). Other than that, you can get help from [Discord](https://discord.gg/pJkm23b2nA) or [Reddit](https://www.reddit.com/r/placeAtlas2).
 
 ## New Atlas entries
 
@@ -26,7 +26,9 @@ When you're happy with the shape you've drawn, press <kbd>Finish</kbd>. You will
 
 All fields but the name are optional. For example, a country flag doesn't necessarily need a description.
 
-Once you've entered all the information, you'll be presented with a pop-up window containing some [JSON](https://en.wikipedia.org/wiki/JSON)-formatted data. You can press the <kbd>Post Direct to Reddit</kbd> button, or copy the entire JSON text and [create a new text post on the subreddit](https://www.reddit.com/r/placeAtlas2/submit). Remember to flair your post with <kbd>New Entry</kvd>.
+Once you've entered all the information, you'll be presented with a pop-up window containing some [JSON](https://en.wikipedia.org/wiki/JSON)-formatted data. You can press the <kbd>Post Direct to Reddit</kbd> button and just press the send button on Reddit, or copy the entire JSON text and [create a new text post on the subreddit](https://www.reddit.com/r/placeAtlas2/submit). You don't need to add any other text; just directly send the data. 
+
+Remember to flair your post with <kbd>New Entry</kbd>. On New Reddit, click the <kbd>Flair</kbd> button on the bottom part, and select <kbd>New Entry</kbd>. On Old Reddit, click the <kbd>select</kbd> button on the "choose a flair" section instead.
 
 ## Edits to Atlas entries
 
@@ -34,7 +36,7 @@ Other than adding new ones, you can edit existing atlas entries.
 
 ### Using the web interface
 
-You can use the website to edit single entries easily. On the website, click <kbd>Edit</kbd> on an entry box. Afterwards, you can follow the same instructions as [when creating a new entry](#new-atlas-entries). Upon submitting, please label it as <kbd>Edit Entry</kbd> instead.
+You can use the website to edit single entries easily. On the website, click <kbd>Edit</kbd> on an entry box. Afterwards, you are now on the drawing mode, editing the entry, in which you can follow the same instructions as [when creating a new entry](#new-atlas-entries). Upon submitting, please flair it as <kbd>Edit Entry</kbd> instead.
 
 As an alternative, you can also submit an issue on GitHub using [this form](https://github.com/placeAtlas/atlas/issues/new?assignees=&labels=entry+update&template=edit-entry.yml).
 
@@ -43,6 +45,15 @@ As an alternative, you can also submit an issue on GitHub using [this form](http
 Edits are also welcome on this repository through GitHub. You may use GitHub for bulk or large-scale changes, such as removing duplicates.
 
 `web/atlas.json` is where the Atlas data is located, in which you can edit on GitHub. Below is an example of an entry. The example has been expanded, but please save it in the way so each line is an entry which is minified.
+
+Upon creating a fork of this repository and pushing the changes, create a Pull Request against the `cleanup` branch. A member will merge the pull request if it is adequate.
+
+To help find duplicates, [use the Overlap mode](https://place-atlas.stefanocoding.me?mode=overlap).
+
+
+### Example
+
+Hereforth is an example of the structured data.
 
 ```json5
 {
@@ -56,13 +67,10 @@ Edits are also welcome on this repository through GitHub. You may use GitHub for
 		"wiki": ["An_Entry", "An_Entry_2"]
 	},
 	"path": {
-		// 109-166: Default canvas variation (r/place), period 109 to 166.
-		// T:0-1: "The Final Clean" canvas variation, period 0 (The Final Clean) to 1 (Unofficial Corrections).
 		"109-166, T:0-1": [
 			[1527, 1712],
 			[1625, 1712],
-			[1625, 1682],
-			// ...
+			[1625, 1682]
 		]
 	},
 	"center": {
@@ -71,9 +79,9 @@ Edits are also welcome on this repository through GitHub. You may use GitHub for
 }
 ```
 
-Upon creating a fork of this repository and pushing the changes, create a Pull Request against the `cleanup` branch. A member will merge the pull request if it is adequate.
-
-To help find duplicates, [use the Overlap mode](https://place-atlas.stefanocoding.me?mode=overlap).
+`109-166, T:0-1` has this meaning.
+  - `109-166`: Default canvas variation (r/place), period [109](https://place-atlas.stefanocoding.me/#/109) to [166](https://place-atlas.stefanocoding.me/#/166).
+  - `T:0-1`: "The Final Clean" canvas variation, period [0](https://place-atlas.stefanocoding.me/#/T:0) (The Final Clean) to [1](https://place-atlas.stefanocoding.me/#/T:1) (Unofficial Corrections).
 
 ## Development
 
