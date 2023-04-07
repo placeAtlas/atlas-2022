@@ -398,22 +398,21 @@ async function init() {
 	)
 
 	function mousemove(x, y) {
-		if (dragging) {
-			container.style.cursor = "move"
+		if (!dragging) return
+		container.style.cursor = "move"
 
-			const deltaX = x - lastPosition[0]
-			const deltaY = y - lastPosition[1]
-			lastPosition = [x, y]
+		const deltaX = x - lastPosition[0]
+		const deltaY = y - lastPosition[1]
+		lastPosition = [x, y]
 
-			zoomOrigin[0] += deltaX
-			zoomOrigin[1] += deltaY
+		zoomOrigin[0] += deltaX
+		zoomOrigin[1] += deltaY
 
-			scaleZoomOrigin[0] += deltaX / zoom
-			scaleZoomOrigin[1] += deltaY / zoom
+		scaleZoomOrigin[0] += deltaX / zoom
+		scaleZoomOrigin[1] += deltaY / zoom
 
-			updateLines()
-			applyView()
-		}
+		updateLines()
+		applyView()
 	}
 
 	function touchmove(e) {
