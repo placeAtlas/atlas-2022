@@ -52,13 +52,22 @@ moreEntriesButton.innerHTML = "Show " + entriesLimit + " more"
 moreEntriesButton.type = "button"
 moreEntriesButton.className = "btn btn-primary d-block mb-2 mx-auto"
 
-
 moreEntriesButton.id = "moreEntriesButton"
-moreEntriesButton.onclick = function () {
+moreEntriesButton.addEventListener('click', () => {
 	buildObjectsList(null, null)
 	renderBackground(atlas)
 	render()
-}
+})
+
+const moreEntriesObserver = new IntersectionObserver((entries, observer) => {
+	for (const entry of entries) {
+		if (!entry.isIntersecting) continue
+		moreEntriesButton.click()
+		break
+	}
+})
+
+moreEntriesObserver.observe(moreEntriesButton)
 
 let defaultSort = "shuffle"
 document.getElementById("sort").value = defaultSort
