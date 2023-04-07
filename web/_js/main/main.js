@@ -498,6 +498,7 @@ async function init() {
 		if (e.touches.length === 0) {
 
 			mouseup()
+			setTimeout(() => updateLines(), 0)
 
 		} else if (e.touches.length === 1) {
 			initialPinchZoom = zoom

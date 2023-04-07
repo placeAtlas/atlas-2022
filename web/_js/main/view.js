@@ -835,9 +835,7 @@ function initViewGlobal() {
 		//console.log("Foo!!")
 		dragging = false
 		fixed = false
-		setTimeout(function () {
-			updateHovering(e, true)
-		}, 10)
+		setTimeout(() => updateHovering(e, true), 0)
 	})
 
 	if (window.location.hash) { // both "/" and just "/#" will be an empty hash string
