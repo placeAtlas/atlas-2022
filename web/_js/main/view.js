@@ -9,9 +9,6 @@ const linesCanvas = document.getElementById("linesCanvas")
 const linesContext = linesCanvas.getContext("2d")
 let hovered = []
 
-let previousZoomOrigin = [0, 0]
-let previousScaleZoomOrigin = [0, 0]
-
 const backgroundCanvas = document.createElement("canvas")
 backgroundCanvas.width = canvasSize.x
 backgroundCanvas.height = canvasSize.y
@@ -411,7 +408,7 @@ function buildObjectsList(filter = null, sort = null) {
 				previousScaleZoomOrigin = [scaleZoomOrigin[0], scaleZoomOrigin[1]]
 
 				applyView()
-				setView(this.entry.center[0], this.entry.center[1], setZoomByPath(entry.path))
+				setView(this.entry.center[0], this.entry.center[1], setZoomByPath(this.entry.path))
 
 				hovered = [this.entry]
 				render()
@@ -424,15 +421,12 @@ function buildObjectsList(filter = null, sort = null) {
 		element.addEventListener("click", function (e) {
 			toggleFixed(e)
 			if (fixed) {
-				previousZoomOrigin = [zoomOrigin[0], zoomOrigin[1]]
-				previousScaleZoomOrigin = [scaleZoomOrigin[0], scaleZoomOrigin[1]]
 				applyView()
 			}
 		})
 
 		element.addEventListener("mouseleave", function () {
 			if (!fixed && !dragging) {
-				setView(previousScaleZoomOrigin[0], previousScaleZoomOrigin[1])
 				hovered = []
 				updateLines()
 				render()
@@ -706,8 +700,6 @@ function highlightEntryFromUrl() {
 	render()
 	hovered[0].element = infoElement
 	updateLines()
-	fixed = true
-
 }
 
 function setZoomByPath(path) {
@@ -734,7 +726,7 @@ function initView() {
 	buildObjectsList(null, null)
 	renderBackground(atlas)
 	render()
-
+	
 	document.addEventListener('timeupdate', () => {
 		sortedAtlas = atlas.concat()
 		resetEntriesList(null, null)
