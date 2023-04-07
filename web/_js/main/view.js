@@ -56,7 +56,7 @@ moreEntriesButton.className = "btn btn-primary d-block mb-2 mx-auto"
 moreEntriesButton.id = "moreEntriesButton"
 moreEntriesButton.onclick = function () {
 	buildObjectsList(null, null)
-	renderBackground()
+	renderBackground(atlas)
 	render()
 }
 
