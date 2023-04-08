@@ -671,7 +671,7 @@ function highlightEntryFromUrl() {
 	let targetPeriod, targetVariation
 
 	if (period) {
-		[, targetPeriod, targetVariation] = parsePeriod(period)
+		[targetPeriod, , targetVariation] = parsePeriod(period)
 	} else {
 		targetPeriod = defaultPeriod
 		targetVariation = defaultVariation
