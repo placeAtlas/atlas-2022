@@ -99,29 +99,29 @@ document.getElementById("sort").addEventListener("input", function () {
 	resetEntriesList(filterInput.value.toLowerCase(), this.value)
 })
 
-offcanvasDraw.addEventListener('show.bs.offcanvas', function () {
+offcanvasDraw.addEventListener('show.bs.offcanvas', () => {
 	wrapper.classList.remove('listHidden')
 	wrapper.classList.add('listTransitioning')
 	applyView()
 })
 
-offcanvasDraw.addEventListener('shown.bs.offcanvas', function () {
+offcanvasDraw.addEventListener('shown.bs.offcanvas', () => {
 	wrapper.classList.remove('listTransitioning')
 	applyView()
 })
 
-offcanvasDraw.addEventListener('hide.bs.offcanvas', function () {
+offcanvasDraw.addEventListener('hide.bs.offcanvas', () => {
 	wrapper.classList.add('listHidden')
 	wrapper.classList.add('listTransitioning')
 	applyView()
 })
 
-offcanvasDraw.addEventListener('hidden.bs.offcanvas', function () {
+offcanvasDraw.addEventListener('hidden.bs.offcanvas', () => {
 	wrapper.classList.remove('listTransitioning')
 	applyView()
 })
 
-offcanvasList.addEventListener('show.bs.offcanvas', function () {
+offcanvasList.addEventListener('show.bs.offcanvas', () => {
 	wrapper.classList.remove('listHidden')
 	wrapper.classList.add('listTransitioning')
 	applyView()
@@ -136,7 +136,7 @@ offcanvasList.addEventListener('shown.bs.offcanvas', e => {
 	updateLines()
 })
 
-offcanvasList.addEventListener('hide.bs.offcanvas', function () {
+offcanvasList.addEventListener('hide.bs.offcanvas', () => {
 	wrapper.classList.add('listHidden')
 	wrapper.classList.add('listTransitioning')
 	applyView()
@@ -153,7 +153,7 @@ offcanvasList.addEventListener('hidden.bs.offcanvas', e => {
 
 closeObjectsListButton.addEventListener("click", clearObjectsList)
 
-bottomBar.addEventListener("mouseover", function () {
+bottomBar.addEventListener("mouseover", () => {
 	if (!fixed) clearObjectsList()
 })
 
@@ -189,11 +189,11 @@ window.addEventListener("mousemove", updateLines)
 window.addEventListener("dblClick", updateLines)
 window.addEventListener("wheel", updateLines)
 
-objectsContainer.addEventListener("scroll", function () {
+objectsContainer.addEventListener("scroll", () => {
 	updateLines()
 })
 
-window.addEventListener("resize", e => {
+window.addEventListener("resize", () => {
 
 	applyView()
 	render()
@@ -434,7 +434,7 @@ function buildObjectsList(filter = null, sort = null) {
 			applyView()
 		})
 
-		element.addEventListener("mouseleave", function () {
+		element.addEventListener("mouseleave", () => {
 			if (fixed || dragging) return
 
 			scaleZoomOrigin = [...previousScaleZoomOrigin]
@@ -767,7 +767,7 @@ function initView() {
 function initExplore() {
 
 	window.updateHovering = updateHovering
-	window.render = function () { }
+	window.render = () => { }
 
 	function updateHovering(e, tapped) {
 		if (dragging || (fixed && !tapped)) return
