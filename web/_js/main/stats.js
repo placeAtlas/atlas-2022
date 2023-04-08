@@ -48,11 +48,7 @@ el.height = 500
 const steps = 150
 const max = 1500
 
-let largerThanMax = 0
-
-for (const area of areas) {
-	if (area > max) largerThanMax++
-}
+let largerThanMax = areas.reduce((total, area) => total + (area > max), 0)
 
 console.info("There are " + largerThanMax + " entries larger than " + max + ", accounting for " + (largerThanMax / areas.length * 100) + "% of all entries.")
 console.info("The largest entry has an area of " + areas[areas.length - 1] + " pixels.")
@@ -64,8 +60,8 @@ let bracket = 0
 
 let mostCounts = 0
 
-for (const i in areas) {
-	if (areas[i] > (bracket + 1) * (max / steps)) {
+for (const area of areas) {
+	if (area > (bracket + 1) * (max / steps)) {
 		mostCounts = Math.max(mostCounts, counts[bracket])
 		bracket++
 		if (bracket >= steps) break

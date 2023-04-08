@@ -107,13 +107,12 @@ function createInfoBlock(entry, isPreview) {
 		linkListElement.appendChild(subredditGroupElement)
 
 		entry.links.subreddit.forEach(subreddit => {
-			if (subreddit) {
-				subreddit = "r/" + subreddit
-				const subredditLinkElement = baseLinkElement.cloneNode()
-				subredditLinkElement.href = "https://reddit.com/" + subreddit
-				subredditLinkElement.innerHTML = `<i class="bi bi-reddit" aria-hidden="true"></i> ${subreddit}`
-				subredditGroupElement.appendChild(subredditLinkElement)
-			}
+			if (!subreddit) return
+			subreddit = "r/" + subreddit
+			const subredditLinkElement = baseLinkElement.cloneNode()
+			subredditLinkElement.href = "https://reddit.com/" + subreddit
+			subredditLinkElement.innerHTML = `<i class="bi bi-reddit" aria-hidden="true"></i> ${subreddit}`
+			subredditGroupElement.appendChild(subredditLinkElement)
 		})
 	}
 
@@ -122,17 +121,16 @@ function createInfoBlock(entry, isPreview) {
 		linkListElement.appendChild(websiteGroupElement)
 
 		entry.links.website.forEach(link => {
-			if (link) {
-				const websiteLinkElement = baseLinkElement.cloneNode()
-				websiteLinkElement.href = link
-				try {
-					const urlObject = new URL(link)
-					websiteLinkElement.innerHTML = `<i class="bi bi-globe" aria-hidden="true"></i> ${urlObject.hostname.replace(/^www./, "")}`
-				} catch (e) {
-					websiteLinkElement.innerHTML = `<i class="bi bi-globe" aria-hidden="true"></i> Website`
-				}
-				websiteGroupElement.appendChild(websiteLinkElement)
+			if (!link) return
+			const websiteLinkElement = baseLinkElement.cloneNode()
+			websiteLinkElement.href = link
+			try {
+				const urlObject = new URL(link)
+				websiteLinkElement.innerHTML = `<i class="bi bi-globe" aria-hidden="true"></i> ${urlObject.hostname.replace(/^www./, "")}`
+			} catch (e) {
+				websiteLinkElement.innerHTML = `<i class="bi bi-globe" aria-hidden="true"></i> Website`
 			}
+			websiteGroupElement.appendChild(websiteLinkElement)
 		})
 	}
 
@@ -141,12 +139,11 @@ function createInfoBlock(entry, isPreview) {
 		linkListElement.appendChild(discordGroupElement)
 
 		entry.links.discord.forEach(link => {
-			if (link) {
-				const discordLinkElement = baseLinkElement.cloneNode()
-				discordLinkElement.href = "https://discord.gg/" + link
-				discordLinkElement.innerHTML = `<i class="bi bi-discord" aria-hidden="true"></i> ${link}`
-				discordGroupElement.appendChild(discordLinkElement)
-			}
+			if (!link) return
+			const discordLinkElement = baseLinkElement.cloneNode()
+			discordLinkElement.href = "https://discord.gg/" + link
+			discordLinkElement.innerHTML = `<i class="bi bi-discord" aria-hidden="true"></i> ${link}`
+			discordGroupElement.appendChild(discordLinkElement)
 		})
 	}
 
@@ -155,12 +152,11 @@ function createInfoBlock(entry, isPreview) {
 		linkListElement.appendChild(wikiGroupElement)
 
 		entry.links.wiki.forEach(link => {
-			if (link) {
-				const wikiLinkElement = baseLinkElement.cloneNode()
-				wikiLinkElement.href = "https://place-wiki.stefanocoding.me/wiki/" + link.replace(/ /g, '_')
-				wikiLinkElement.innerHTML = `<i class="bi bi-book" aria-hidden="true"></i> Wiki Article`
-				wikiGroupElement.appendChild(wikiLinkElement)
-			}
+			if (!link) return
+			const wikiLinkElement = baseLinkElement.cloneNode()
+			wikiLinkElement.href = "https://place-wiki.stefanocoding.me/wiki/" + link.replace(/ /g, '_')
+			wikiLinkElement.innerHTML = `<i class="bi bi-book" aria-hidden="true"></i> Wiki Article`
+			wikiGroupElement.appendChild(wikiLinkElement)
 		})
 	}
 

@@ -321,14 +321,13 @@ function renderBackground(atlas) {
 	}
 }
 
-function buildObjectsList(filter = null, sort = null) {
+function buildObjectsList(filter, sort = defaultSort) {
 
 	if (entriesList.contains(moreEntriesButton)) {
 		entriesList.removeChild(moreEntriesButton)
 	}
 
 	atlasDisplay ||= atlas.slice()
-	document.getElementById("atlasSize").innerHTML = "The Atlas contains " + atlasDisplay.length + " entries."
 
 	if (filter) {
 		atlasDisplay = atlas.filter(entry => {
@@ -344,9 +343,7 @@ function buildObjectsList(filter = null, sort = null) {
 		document.getElementById("atlasSize").innerHTML = "The Atlas contains " + atlasDisplay.length + " entries."
 	}
 
-	if (sort === null) {
-		sort = defaultSort
-	}
+	sort ||= defaultSort
 
 	renderBackground(atlasDisplay)
 	render()
@@ -402,9 +399,7 @@ function buildObjectsList(filter = null, sort = null) {
 
 	for (let i = entriesOffset; i < entriesOffset + entriesLimit; i++) {
 
-		if (i >= atlasDisplay.length) {
-			break
-		}
+		if (i >= atlasDisplay.length) break
 
 		const element = createInfoBlock(atlasDisplay[i])
 		const entry = atlasDisplay[i]
@@ -628,15 +623,15 @@ function updateHovering(e, tapped) {
 
 	objectsContainer.replaceChildren()
 
-	for (const i in hovered) {
-		const element = createInfoBlock(hovered[i])
+	for (const entry of hovered) {
+		const element = createInfoBlock(entry)
 
 		objectsContainer.appendChild(element)
 
-		hovered[i].element = element
+		entry.element = element
 	}
 
-	if (hovered.length > 0) {
+	if (hovered.length) {
 		document.getElementById("timeControlsSlider").blur()
 		closeObjectsListButton.classList.remove("d-none")
 		if ((objectsContainer.scrollHeight > objectsContainer.clientHeight) && !tapped) {

@@ -505,25 +505,25 @@ async function init() {
 }
 
 function updateAtlasAll(atlas = atlasAll) {
-	for (const atlasIndex in atlas) {
-		const currentLinks = atlas[atlasIndex].links
-		atlas[atlasIndex].links = {
+	for (const entry of atlas) {
+		const currentLinks = entry.links
+		entry.links = {
 			website: [],
 			subreddit: [],
 			discord: [],
 			wiki: [],
 			...currentLinks
 		}
-		const currentPath = atlas[atlasIndex].path
-		const currentCenter = atlas[atlasIndex].center
+		const currentPath = entry.path
+		const currentCenter = entry.center
 		for (const key in currentPath) {
 			currentPath[key] = currentPath[key].map(point => point.map(int => int + 0.5))
 		}
 		for (const key in currentCenter) {
 			currentCenter[key] = currentCenter[key].map(int => int + 0.5)
 		}
-		atlas[atlasIndex].path = currentPath
-		atlas[atlasIndex].center = currentCenter
+		entry.path = currentPath
+		entry.center = currentCenter
 	}
 	return atlas
 }
