@@ -43,7 +43,7 @@ objectEditNav.className = "btn btn-outline-primary"
 objectEditNav.id = "objectEditNav"
 objectEditNav.textContent = "Edit"
 
-let sortedAtlas
+let atlasDisplay
 
 const entriesLimit = 50
 let entriesOffset = 0
@@ -83,7 +83,7 @@ filterInput.addEventListener("input", function () {
 
 	if (this.value === "") {
 		document.getElementById("relevantOption").disabled = true
-		sortedAtlas = atlas.concat()
+		atlasDisplay = atlas.slice(0)
 		buildObjectsList(null, null)
 	} else {
 		document.getElementById("relevantOption").disabled = false
@@ -327,13 +327,11 @@ function buildObjectsList(filter = null, sort = null) {
 		entriesList.removeChild(moreEntriesButton)
 	}
 
-	if (!sortedAtlas) {
-		sortedAtlas = atlas.concat()
-		document.getElementById("atlasSize").innerHTML = "The Atlas contains " + sortedAtlas.length + " entries."
-	}
+	atlasDisplay ||= atlas.slice()
+	document.getElementById("atlasSize").innerHTML = "The Atlas contains " + atlasDisplay.length + " entries."
 
 	if (filter) {
-		sortedAtlas = atlas.filter(entry => {
+		atlasDisplay = atlas.filter(entry => {
 			return (
 				entry.name.toLowerCase().includes(filter.toLowerCase())
 				|| entry.description.toLowerCase().includes(filter.toLowerCase())
@@ -341,16 +339,16 @@ function buildObjectsList(filter = null, sort = null) {
 				|| entry.id === filter
 			)
 		})
-		document.getElementById("atlasSize").innerHTML = "Found " + sortedAtlas.length + " entries."
+		document.getElementById("atlasSize").innerHTML = "Found " + atlasDisplay.length + " entries."
 	} else {
-		document.getElementById("atlasSize").innerHTML = "The Atlas contains " + sortedAtlas.length + " entries."
+		document.getElementById("atlasSize").innerHTML = "The Atlas contains " + atlasDisplay.length + " entries."
 	}
 
 	if (sort === null) {
 		sort = defaultSort
 	}
 
-	renderBackground(sortedAtlas)
+	renderBackground(atlasDisplay)
 	render()
 
 	document.getElementById("sort").value = sort
@@ -399,17 +397,17 @@ function buildObjectsList(filter = null, sort = null) {
 	}
 
 	if (sortFunction) {
-		sortedAtlas.sort(sortFunction)
+		atlasDisplay.sort(sortFunction)
 	}
 
 	for (let i = entriesOffset; i < entriesOffset + entriesLimit; i++) {
 
-		if (i >= sortedAtlas.length) {
+		if (i >= atlasDisplay.length) {
 			break
 		}
 
-		const element = createInfoBlock(sortedAtlas[i])
-		const entry = sortedAtlas[i]
+		const element = createInfoBlock(atlasDisplay[i])
+		const entry = atlasDisplay[i]
 
 		element.addEventListener("mouseenter", function () {
 			if (fixed || dragging) return
@@ -454,19 +452,19 @@ function buildObjectsList(filter = null, sort = null) {
 
 	entriesOffset += entriesLimit
 
-	if (sortedAtlas.length > entriesOffset) {
-		moreEntriesButton.innerHTML = "Show " + Math.min(entriesLimit, sortedAtlas.length - entriesOffset) + " more"
+	if (atlasDisplay.length > entriesOffset) {
+		moreEntriesButton.innerHTML = "Show " + Math.min(entriesLimit, atlasDisplay.length - entriesOffset) + " more"
 		entriesList.appendChild(moreEntriesButton)
 	}
 }
 
 function shuffle() {
 	//console.log("shuffled atlas")
-	for (let i = sortedAtlas.length - 1; i > 0; i--) {
+	for (let i = atlasDisplay.length - 1; i > 0; i--) {
 		const j = Math.floor(Math.random() * (i + 1))
-		const temp = sortedAtlas[i]
-		sortedAtlas[i] = sortedAtlas[j]
-		sortedAtlas[j] = temp
+		const temp = atlasDisplay[i]
+		atlasDisplay[i] = atlasDisplay[j]
+		atlasDisplay[j] = temp
 	}
 }
 
@@ -593,22 +591,20 @@ function updateHovering(e, tapped) {
 		(e.clientX - (container.clientWidth / 2 - innerContainer.clientWidth / 2 + zoomOrigin[0] + container.offsetLeft)) / zoom,
 		(e.clientY - (container.clientHeight / 2 - innerContainer.clientHeight / 2 + zoomOrigin[1] + container.offsetTop)) / zoom
 	]
-	const coords_p = document.getElementById("coords_p")
+	const coordsEl = document.getElementById("coords_p")
 
 	// Displays coordinates as zero instead of NaN
-	if (isNaN(pos[0]) === true) {
-		coords_p.textContent = "0, 0"
+	if (isNaN(pos[0])) {
+		coordsEl.textContent = "0, 0"
 	} else {
-		coords_p.textContent = Math.ceil(pos[0]) + ", " + Math.ceil(pos[1])
+		coordsEl.textContent = Math.ceil(pos[0]) + ", " + Math.ceil(pos[1])
 	}
 
 	if (!(pos[0] <= 2200 && pos[0] >= -100 && pos[0] <= 2200 && pos[0] >= -100)) return
 
 	const newHovered = []
-	for (let i = 0; i < atlas.length; i++) {
-		if (pointIsInPolygon(pos, atlas[i].path)) {
-			newHovered.push(atlas[i])
-		}
+	for (const entry of atlasDisplay) {
+		if (pointIsInPolygon(pos, entry.path)) newHovered.push(entry)
 	}
 
 	let changed = false
@@ -747,7 +743,7 @@ function initView() {
 	render()
 	
 	document.addEventListener('timeupdate', () => {
-		sortedAtlas = atlas.concat()
+		atlasDisplay = atlas.slice()
 		resetEntriesList(null, null)
 	})
 
