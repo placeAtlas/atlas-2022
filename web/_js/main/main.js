@@ -73,18 +73,21 @@ if (document.location.host !== prodDomain) document.body.dataset.dev = ""
 init()
 
 async function init() {
+
+	const args = window.location.search
+	const params = new URLSearchParams(args)
+
 	// For Reviewing Reddit Changes
-	//let resp = await fetch("../tools/temp-atlas.json")
-	const resp = await fetch("./atlas.json")
-	atlas = await resp.json()
+	// const atlasRef = '../tools/temp-atlas.json'
+	const atlasRef = params.get('ref') || './atlas.json'
+	const atlasResp = await fetch(atlasRef)
+	atlas = await atlasResp.json()
 	atlas.sort((a, b) => a.center[1] - b.center[1])
 
 	atlasAll = updateAtlasAll(atlas)
 
 	let mode = "view"
 
-	const args = window.location.search
-	const params = new URLSearchParams(args)
 	if (args) {
 		mode = params.get("mode") || "view"
 
@@ -138,11 +141,12 @@ async function init() {
 		initExplore()
 	} else if (mode.startsWith("diff")) {
 		try {
-			const liveResp = await fetch(`https://${prodDomain}/atlas.json`)
-			let liveJson = await liveResp.json()
-			liveJson = updateAtlasAll(liveJson)
+			const liveAtlasRef = params.get('liveref') || `https://${prodDomain}/atlas.json`
+			const liveAtlasResp = await fetch(liveAtlasRef)
+			let liveAtlas = await liveAtlasResp.json()
+			liveAtlas = updateAtlasAll(liveAtlas)
 
-			const liveAtlasReduced = liveJson.reduce(function (a, c) {
+			const liveAtlasReduced = liveAtlas.reduce(function (a, c) {
 				a[c.id] = c
 				return a
 			}, {})
@@ -161,7 +165,7 @@ async function init() {
 				a[c.id] = c
 				return a
 			}, {})
-			const removedEntries = liveJson.filter(entry =>
+			const removedEntries = liveAtlas.filter(entry =>
 				atlasReduced[entry.id] === undefined
 			).map(entry => {
 				entry.diff = "delete"
