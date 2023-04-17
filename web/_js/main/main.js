@@ -79,7 +79,7 @@ async function init() {
 
 	// For Reviewing Reddit Changes
 	// const atlasRef = '../tools/temp-atlas.json'
-	const atlasRef = params.get('ref') || './atlas.json'
+	const atlasRef = params.get('atlas') || './atlas.json'
 	const atlasResp = await fetch(atlasRef)
 	atlas = await atlasResp.json()
 	atlas.sort((a, b) => a.center[1] - b.center[1])
@@ -141,7 +141,7 @@ async function init() {
 		initExplore()
 	} else if (mode.startsWith("diff")) {
 		try {
-			const liveAtlasRef = params.get('liveref') || `https://${prodDomain}/atlas.json`
+			const liveAtlasRef = params.get('liveatlas') || `https://${prodDomain}/atlas.json`
 			const liveAtlasResp = await fetch(liveAtlasRef)
 			let liveAtlas = await liveAtlasResp.json()
 			liveAtlas = updateAtlasAll(liveAtlas)
