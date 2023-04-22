@@ -111,7 +111,7 @@ function initDraw() {
 
 	let highlightUncharted = true
 
-	renderBackground()
+	renderBackground(atlas)
 	applyView()
 
 	container.style.cursor = "crosshair"
@@ -772,7 +772,7 @@ function initDraw() {
 	setView(center[0], center[1])
 
 	document.addEventListener('timeupdate', () => {
-		renderBackground()
+		renderBackground(atlas)
 		updatePeriodGroups()
 	})
 

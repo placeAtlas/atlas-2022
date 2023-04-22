@@ -119,22 +119,21 @@ body[data-init-done] .listTransitioning #innerContainer {
 	}
 }
 
-#image {
+#innerContainer > * {
 	position: absolute;
 	height: 100%;
 	width: 100%;
-	z-index: -1500;
 	image-rendering: -webkit-optimize-contrast;
 	image-rendering: pixelated;
+	user-select: none;
+}
+
+#image {
+	z-index: -1500;
 }
 
 #highlightCanvas {
 	z-index: -1200;
-	position: absolute;
-	height: 100%;
-	width: 100%;
-	image-rendering: -webkit-optimize-contrast;
-	image-rendering: pixelated;
 }
 
 #atlasSize:empty {
