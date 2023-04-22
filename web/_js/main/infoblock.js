@@ -102,7 +102,7 @@ function createInfoBlock(entry, isPreview) {
 		}
 	}
 
-	if (entry.links.subreddit?.length) {
+	if (entry.links?.subreddit?.length) {
 		const subredditGroupElement = baseGroupElement.cloneNode()
 		linkListElement.appendChild(subredditGroupElement)
 
@@ -116,7 +116,7 @@ function createInfoBlock(entry, isPreview) {
 		})
 	}
 
-	if (entry.links.website?.length) {
+	if (entry.links?.website?.length) {
 		const websiteGroupElement = baseGroupElement.cloneNode()
 		linkListElement.appendChild(websiteGroupElement)
 
@@ -134,7 +134,7 @@ function createInfoBlock(entry, isPreview) {
 		})
 	}
 
-	if (entry.links.discord?.length) {
+	if (entry.links?.discord?.length) {
 		const discordGroupElement = baseGroupElement.cloneNode()
 		linkListElement.appendChild(discordGroupElement)
 
@@ -147,7 +147,7 @@ function createInfoBlock(entry, isPreview) {
 		})
 	}
 
-	if (entry.links.wiki?.length) {
+	if (entry.links?.wiki?.length) {
 		const wikiGroupElement = baseGroupElement.cloneNode()
 		linkListElement.appendChild(wikiGroupElement)
 
