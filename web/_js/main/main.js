@@ -73,27 +73,21 @@ if (document.location.host !== prodDomain) document.body.dataset.dev = ""
 init()
 
 async function init() {
+
+	const args = window.location.search
+	const params = new URLSearchParams(args)
+
 	// For Reviewing Reddit Changes
-	//let resp = await fetch("../tools/temp-atlas.json")
-	const resp = await fetch("./atlas.json")
-	atlas = await resp.json()
-	atlas.sort(function (a, b) {
-		if (a.center[1] < b.center[1]) {
-			return -1
-		}
-		if (a.center[1] > b.center[1]) {
-			return 1
-		}
-		// a must be equal to b
-		return 0
-	})
+	// const atlasRef = '../tools/temp-atlas.json'
+	const atlasRef = params.get('atlas') || './atlas.json'
+	const atlasResp = await fetch(atlasRef)
+	atlas = await atlasResp.json()
+	atlas.sort((a, b) => a.center[1] - b.center[1])
 
 	atlasAll = updateAtlasAll(atlas)
 
 	let mode = "view"
 
-	const args = window.location.search
-	const params = new URLSearchParams(args)
 	if (args) {
 		mode = params.get("mode") || "view"
 
@@ -147,11 +141,12 @@ async function init() {
 		initExplore()
 	} else if (mode.startsWith("diff")) {
 		try {
-			const liveResp = await fetch(`https://${prodDomain}/atlas.json`)
-			let liveJson = await liveResp.json()
-			liveJson = updateAtlasAll(liveJson)
+			const liveAtlasRef = params.get('liveatlas') || `https://${prodDomain}/atlas.json`
+			const liveAtlasResp = await fetch(liveAtlasRef)
+			let liveAtlas = await liveAtlasResp.json()
+			liveAtlas = updateAtlasAll(liveAtlas)
 
-			const liveAtlasReduced = liveJson.reduce(function (a, c) {
+			const liveAtlasReduced = liveAtlas.reduce(function (a, c) {
 				a[c.id] = c
 				return a
 			}, {})
@@ -170,7 +165,7 @@ async function init() {
 				a[c.id] = c
 				return a
 			}, {})
-			const removedEntries = liveJson.filter(entry =>
+			const removedEntries = liveAtlas.filter(entry =>
 				atlasReduced[entry.id] === undefined
 			).map(entry => {
 				entry.diff = "delete"
@@ -505,25 +500,25 @@ async function init() {
 }
 
 function updateAtlasAll(atlas = atlasAll) {
-	for (const atlasIndex in atlas) {
-		const currentLinks = atlas[atlasIndex].links
-		atlas[atlasIndex].links = {
+	for (const entry of atlas) {
+		const currentLinks = entry.links
+		entry.links = {
 			website: [],
 			subreddit: [],
 			discord: [],
 			wiki: [],
 			...currentLinks
 		}
-		const currentPath = atlas[atlasIndex].path
-		const currentCenter = atlas[atlasIndex].center
+		const currentPath = entry.path
+		const currentCenter = entry.center
 		for (const key in currentPath) {
 			currentPath[key] = currentPath[key].map(point => point.map(int => int + 0.5))
 		}
 		for (const key in currentCenter) {
 			currentCenter[key] = currentCenter[key].map(int => int + 0.5)
 		}
-		atlas[atlasIndex].path = currentPath
-		atlas[atlasIndex].center = currentCenter
+		entry.path = currentPath
+		entry.center = currentCenter
 	}
 	return atlas
 }

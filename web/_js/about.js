@@ -11,8 +11,7 @@ fetch('all-authors.txt')
 	.then(text => text.trim().split('\n').sort())
 	.then(contributors => {
 		document.querySelector('#reddit-contributors-count').textContent = contributors.length
-		for (const index in contributors) {
-			contributor = contributors[index]
+		for (const contributor of contributors) {
 			const userEl = document.createElement('a')
 			userEl.href = 'https://reddit.com/user/' + contributor
 			userEl.textContent = contributor

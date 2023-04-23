@@ -43,7 +43,7 @@ objectEditNav.className = "btn btn-outline-primary"
 objectEditNav.id = "objectEditNav"
 objectEditNav.textContent = "Edit"
 
-let sortedAtlas
+let atlasDisplay
 
 const entriesLimit = 50
 let entriesOffset = 0
@@ -52,13 +52,22 @@ moreEntriesButton.innerHTML = "Show " + entriesLimit + " more"
 moreEntriesButton.type = "button"
 moreEntriesButton.className = "btn btn-primary d-block mb-2 mx-auto"
 
-
 moreEntriesButton.id = "moreEntriesButton"
-moreEntriesButton.onclick = function () {
+moreEntriesButton.addEventListener('click', () => {
 	buildObjectsList(null, null)
-	renderBackground()
+	renderBackground(atlas)
 	render()
-}
+})
+
+const moreEntriesObserver = new IntersectionObserver((entries, observer) => {
+	for (const entry of entries) {
+		if (!entry.isIntersecting) continue
+		moreEntriesButton.click()
+		break
+	}
+})
+
+moreEntriesObserver.observe(moreEntriesButton)
 
 let defaultSort = "shuffle"
 document.getElementById("sort").value = defaultSort
@@ -74,7 +83,7 @@ filterInput.addEventListener("input", function () {
 
 	if (this.value === "") {
 		document.getElementById("relevantOption").disabled = true
-		sortedAtlas = atlas.concat()
+		atlasDisplay = atlas.slice(0)
 		buildObjectsList(null, null)
 	} else {
 		document.getElementById("relevantOption").disabled = false
@@ -90,29 +99,29 @@ document.getElementById("sort").addEventListener("input", function () {
 	resetEntriesList(filterInput.value.toLowerCase(), this.value)
 })
 
-offcanvasDraw.addEventListener('show.bs.offcanvas', function () {
+offcanvasDraw.addEventListener('show.bs.offcanvas', () => {
 	wrapper.classList.remove('listHidden')
 	wrapper.classList.add('listTransitioning')
 	applyView()
 })
 
-offcanvasDraw.addEventListener('shown.bs.offcanvas', function () {
+offcanvasDraw.addEventListener('shown.bs.offcanvas', () => {
 	wrapper.classList.remove('listTransitioning')
 	applyView()
 })
 
-offcanvasDraw.addEventListener('hide.bs.offcanvas', function () {
+offcanvasDraw.addEventListener('hide.bs.offcanvas', () => {
 	wrapper.classList.add('listHidden')
 	wrapper.classList.add('listTransitioning')
 	applyView()
 })
 
-offcanvasDraw.addEventListener('hidden.bs.offcanvas', function () {
+offcanvasDraw.addEventListener('hidden.bs.offcanvas', () => {
 	wrapper.classList.remove('listTransitioning')
 	applyView()
 })
 
-offcanvasList.addEventListener('show.bs.offcanvas', function () {
+offcanvasList.addEventListener('show.bs.offcanvas', () => {
 	wrapper.classList.remove('listHidden')
 	wrapper.classList.add('listTransitioning')
 	applyView()
@@ -127,7 +136,7 @@ offcanvasList.addEventListener('shown.bs.offcanvas', e => {
 	updateLines()
 })
 
-offcanvasList.addEventListener('hide.bs.offcanvas', function () {
+offcanvasList.addEventListener('hide.bs.offcanvas', () => {
 	wrapper.classList.add('listHidden')
 	wrapper.classList.add('listTransitioning')
 	applyView()
@@ -144,7 +153,7 @@ offcanvasList.addEventListener('hidden.bs.offcanvas', e => {
 
 closeObjectsListButton.addEventListener("click", clearObjectsList)
 
-bottomBar.addEventListener("mouseover", function () {
+bottomBar.addEventListener("mouseover", () => {
 	if (!fixed) clearObjectsList()
 })
 
@@ -180,11 +189,11 @@ window.addEventListener("mousemove", updateLines)
 window.addEventListener("dblClick", updateLines)
 window.addEventListener("wheel", updateLines)
 
-objectsContainer.addEventListener("scroll", function () {
+objectsContainer.addEventListener("scroll", () => {
 	updateLines()
 })
 
-window.addEventListener("resize", e => {
+window.addEventListener("resize", () => {
 
 	applyView()
 	render()
@@ -312,36 +321,31 @@ function renderBackground(atlas) {
 	}
 }
 
-function buildObjectsList(filter = null, sort = null) {
+function buildObjectsList(filter, sort = defaultSort) {
 
 	if (entriesList.contains(moreEntriesButton)) {
 		entriesList.removeChild(moreEntriesButton)
 	}
 
-	if (!sortedAtlas) {
-		sortedAtlas = atlas.concat()
-		document.getElementById("atlasSize").innerHTML = "The Atlas contains " + sortedAtlas.length + " entries."
-	}
+	atlasDisplay ||= atlas.slice()
 
 	if (filter) {
-		sortedAtlas = atlas.filter(entry => {
+		atlasDisplay = atlas.filter(entry => {
 			return (
 				entry.name.toLowerCase().includes(filter.toLowerCase())
-				|| entry.description.toLowerCase().includes(filter.toLowerCase())
+				|| entry.description?.toLowerCase().includes(filter.toLowerCase())
 				|| Object.values(entry.links).flat().some(str => str.toLowerCase().includes(filter))
 				|| entry.id === filter
 			)
 		})
-		document.getElementById("atlasSize").innerHTML = "Found " + sortedAtlas.length + " entries."
+		document.getElementById("atlasSize").innerHTML = "Found " + atlasDisplay.length + " entries."
 	} else {
-		document.getElementById("atlasSize").innerHTML = "The Atlas contains " + sortedAtlas.length + " entries."
+		document.getElementById("atlasSize").innerHTML = "The Atlas contains " + atlasDisplay.length + " entries."
 	}
 
-	if (sort === null) {
-		sort = defaultSort
-	}
+	sort ||= defaultSort
 
-	renderBackground(sortedAtlas)
+	renderBackground(atlasDisplay)
 	render()
 
 	document.getElementById("sort").value = sort
@@ -390,17 +394,15 @@ function buildObjectsList(filter = null, sort = null) {
 	}
 
 	if (sortFunction) {
-		sortedAtlas.sort(sortFunction)
+		atlasDisplay.sort(sortFunction)
 	}
 
 	for (let i = entriesOffset; i < entriesOffset + entriesLimit; i++) {
 
-		if (i >= sortedAtlas.length) {
-			break
-		}
+		if (i >= atlasDisplay.length) break
 
-		const element = createInfoBlock(sortedAtlas[i])
-		const entry = sortedAtlas[i]
+		const element = createInfoBlock(atlasDisplay[i])
+		const entry = atlasDisplay[i]
 
 		element.addEventListener("mouseenter", function () {
 			if (fixed || dragging) return
@@ -425,7 +427,7 @@ function buildObjectsList(filter = null, sort = null) {
 			applyView()
 		})
 
-		element.addEventListener("mouseleave", function () {
+		element.addEventListener("mouseleave", () => {
 			if (fixed || dragging) return
 
 			scaleZoomOrigin = [...previousScaleZoomOrigin]
@@ -445,19 +447,19 @@ function buildObjectsList(filter = null, sort = null) {
 
 	entriesOffset += entriesLimit
 
-	if (sortedAtlas.length > entriesOffset) {
-		moreEntriesButton.innerHTML = "Show " + Math.min(entriesLimit, sortedAtlas.length - entriesOffset) + " more"
+	if (atlasDisplay.length > entriesOffset) {
+		moreEntriesButton.innerHTML = "Show " + Math.min(entriesLimit, atlasDisplay.length - entriesOffset) + " more"
 		entriesList.appendChild(moreEntriesButton)
 	}
 }
 
 function shuffle() {
 	//console.log("shuffled atlas")
-	for (let i = sortedAtlas.length - 1; i > 0; i--) {
+	for (let i = atlasDisplay.length - 1; i > 0; i--) {
 		const j = Math.floor(Math.random() * (i + 1))
-		const temp = sortedAtlas[i]
-		sortedAtlas[i] = sortedAtlas[j]
-		sortedAtlas[j] = temp
+		const temp = atlasDisplay[i]
+		atlasDisplay[i] = atlasDisplay[j]
+		atlasDisplay[j] = temp
 	}
 }
 
@@ -584,22 +586,20 @@ function updateHovering(e, tapped) {
 		(e.clientX - (container.clientWidth / 2 - innerContainer.clientWidth / 2 + zoomOrigin[0] + container.offsetLeft)) / zoom,
 		(e.clientY - (container.clientHeight / 2 - innerContainer.clientHeight / 2 + zoomOrigin[1] + container.offsetTop)) / zoom
 	]
-	const coords_p = document.getElementById("coords_p")
+	const coordsEl = document.getElementById("coords_p")
 
 	// Displays coordinates as zero instead of NaN
-	if (isNaN(pos[0]) === true) {
-		coords_p.textContent = "0, 0"
+	if (isNaN(pos[0])) {
+		coordsEl.textContent = "0, 0"
 	} else {
-		coords_p.textContent = Math.ceil(pos[0]) + ", " + Math.ceil(pos[1])
+		coordsEl.textContent = Math.ceil(pos[0]) + ", " + Math.ceil(pos[1])
 	}
 
 	if (!(pos[0] <= 2200 && pos[0] >= -100 && pos[0] <= 2200 && pos[0] >= -100)) return
 
 	const newHovered = []
-	for (let i = 0; i < atlas.length; i++) {
-		if (pointIsInPolygon(pos, atlas[i].path)) {
-			newHovered.push(atlas[i])
-		}
+	for (const entry of atlasDisplay) {
+		if (pointIsInPolygon(pos, entry.path)) newHovered.push(entry)
 	}
 
 	let changed = false
@@ -623,15 +623,15 @@ function updateHovering(e, tapped) {
 
 	objectsContainer.replaceChildren()
 
-	for (const i in hovered) {
-		const element = createInfoBlock(hovered[i])
+	for (const entry of hovered) {
+		const element = createInfoBlock(entry)
 
 		objectsContainer.appendChild(element)
 
-		hovered[i].element = element
+		entry.element = element
 	}
 
-	if (hovered.length > 0) {
+	if (hovered.length) {
 		document.getElementById("timeControlsSlider").blur()
 		closeObjectsListButton.classList.remove("d-none")
 		if ((objectsContainer.scrollHeight > objectsContainer.clientHeight) && !tapped) {
@@ -655,14 +655,18 @@ function highlightEntryFromUrl() {
 	let [id, period] = hash.split('/')
 
 	// Handle zzz and 0.. prefix
-	let newId = id.replace(/^zzz([a-z0-9]{7})$/g, "$1").replace(/^0+/, '')
-	if (id !== newId) history.replaceState({}, "", `./#${[newId, period].filter(e => e).join('/')}`)
-	id = newId
+	let newId = id.replace(/^zzz([a-z0-9]{8,})$/g, "$1").replace(/^0+/, '')
+	if (id !== newId) {
+		id = newId
+		const newLocation = new URL(window.location)
+		newLocation.hash = '#' + [newId, period].join('/')
+		history.replaceState({}, "", newLocation)
+	}
 
 	let targetPeriod, targetVariation
 
 	if (period) {
-		[, targetPeriod, targetVariation] = parsePeriod(period)
+		[targetPeriod, , targetVariation] = parsePeriod(period)
 	} else {
 		targetPeriod = defaultPeriod
 		targetVariation = defaultVariation
@@ -734,7 +738,7 @@ function initView() {
 	render()
 	
 	document.addEventListener('timeupdate', () => {
-		sortedAtlas = atlas.concat()
+		atlasDisplay = atlas.slice()
 		resetEntriesList(null, null)
 	})
 
@@ -754,7 +758,7 @@ function initView() {
 function initExplore() {
 
 	window.updateHovering = updateHovering
-	window.render = function () { }
+	window.render = () => { }
 
 	function updateHovering(e, tapped) {
 		if (dragging || (fixed && !tapped)) return
@@ -790,8 +794,9 @@ function initGlobal() {
 
 	document.addEventListener('timeupdate', event => {
 		let hashData = window.location.hash.substring(1).split('/')
-		const targetHash = formatHash(hashData[0], event.detail.period, event.detail.period, event.detail.variation)
-		if (location.hash !== targetHash) history.replaceState({}, "", `./${targetHash}`)
+		const newLocation = new URL(window.location)
+		newLocation.hash = formatHash(hashData[0], event.detail.period, event.detail.period, event.detail.variation)
+		if (location.hash !== newLocation.hash) history.replaceState({}, "", newLocation)
 	})
 }
 
