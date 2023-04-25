@@ -1,10 +1,12 @@
 #!/usr/bin/python
 
+from io import TextIOWrapper
 import json
 import traceback
 import numpy
 from PIL import Image, ImageDraw
 import gc
+import tqdm
 
 """
 # 166 to 164 with reference of 165
@@ -147,16 +149,17 @@ def remove_white(entry: dict):
 
 	return entry
 
-def per_line_entries(entries: list):
+def per_line_entries(entries: list, file: TextIOWrapper):
 	"""
 	Returns a string of all the entries, with every entry in one line.
 	"""
-	out = "[\n"
-	for entry in entries:
-		if entry:
-			out += json.dumps(entry, ensure_ascii=False) + ",\n"
-	out = out[:-2] + "\n]"
-	return out
+	file.write("[\n")
+	line_temp = ""
+	for entry in tqdm.tqdm(entries):
+		if line_temp:
+			file.write(line_temp + ",\n")
+		line_temp = json.dumps(entry, ensure_ascii=False)
+	file.write(line_temp + "\n]")
 
 def format_all(entry: dict, silent=False):
 	def print_(*args, **kwargs):
@@ -168,7 +171,7 @@ def format_all(entry: dict, silent=False):
 	return entry
 
 def scale_back_entries(entries):
-	for i in range(len(entries)):
+	for i in tqdm.trange(len(entries)):
 		try:
 			entry_formatted = format_all(entries[i], True)
 			entries[i] = entry_formatted
@@ -191,7 +194,7 @@ def go(path):
 	print(f"{len(entries)} checked. Writing...")
 
 	with open(path, "w", encoding='utf-8', newline='\n') as f2:
-		f2.write(per_line_entries(entries))
+		per_line_entries(entries, f2)
 
 	print("Writing completed. All done.")
 

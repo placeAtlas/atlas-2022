@@ -81,7 +81,7 @@ for entry in out_json:
 
 print('Writing...')
 with open('../web/atlas.json', 'w', encoding='utf-8') as atlas_file:
-	atlas_file.write(per_line_entries(atlas_json))
+	per_line_entries(atlas_json, atlas_file)
 
 with open('../data/read-ids.txt', 'a', encoding='utf-8') as read_ids_file:
 	with open('temp-read-ids.txt', 'r+', encoding='utf-8') as read_ids_temp_file:

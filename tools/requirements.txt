@@ -1,1 +1,2 @@
 praw
+tqdm
