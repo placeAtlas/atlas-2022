@@ -14,4 +14,6 @@ jobs:
       - name: Checkout code
         uses: actions/checkout@v3
       - name: Validate JSON
-        run: python3 tools/ci/validate_json.py web/atlas.json
+        run: |
+          pip3 install -r tools/ci/requirements.txt
+          python3 tools/ci/validate_json.py web/atlas.json tools/atlas.schema.json
