@@ -103,13 +103,13 @@ with open('temp-atlas.json', 'w', encoding='utf-8') as OUT_FILE, open('temp-read
 
 					if submission.link_flair_text == "Edit Entry":
 
-						assert submission_json["id"] != 0, "Edit invalid because ID is tampered, it must not be 0!"
+						assert submission_json["id"] > 0, "Edit invalid because ID is tampered, it must not be 0 or -1!"
 
 						submission_json_dummy = {"id": submission_json["id"], "edit": submission.id}
 
 					else:
 
-						assert submission_json["id"] == 0, "Edit invalid because ID is tampered, it must be 0!"
+						assert submission_json["id"] <= 0, "Addition invalid because ID is tampered, it must be 0 or -1!"
 
 						submission_json_dummy = {"id": submission.id}
 

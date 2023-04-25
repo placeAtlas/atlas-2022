@@ -10,7 +10,8 @@
 						"type": "string"
 					},
 					{
-						"type": "integer"
+						"type": "integer",
+						"minimum": 0
 					}
 				],
 				"description": "The ID of the entry. Usually this is the post ID of the new entry submission."
