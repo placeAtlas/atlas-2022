@@ -595,10 +595,10 @@ function initDraw() {
 		const inputField = baseInputField.cloneNode()
 		inputField.id = "subredditField" + index
 		inputField.placeholder = "r/example"
-		inputField.pattern = "^r\/[A-Za-z0-9][A-Za-z0-9_]{1,20}$"
+		inputField.pattern = "^r\/[A-Za-z0-9][A-Za-z0-9_]{1,50}$"
 		inputField.title = "Subreddit in format of r/example"
 		inputField.minLength = "4"
-		inputField.maxLength = "22"
+		inputField.maxLength = "50"
 		inputField.setAttribute("aria-labelledby", "subredditLabel")
 		inputField.setAttribute("aria-describedby", "subredditField" + index + "-addon")
 		if (link) {
