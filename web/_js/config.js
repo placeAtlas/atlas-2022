@@ -33,11 +33,11 @@ const variationsConfig = {
 		default: 164,
 		drawablePeriods: [1, 164],
 		drawableRegions: [
-			[[1, 55], [0, 0, 1000, 1000]],
-			[[56, 108], [0, 0, 2000, 1000]],
+			[[1, 54], [0, 0, 1000, 1000]],
+			[[55, 108], [0, 0, 2000, 1000]],
 			[[109, 164], [0, 0, 2000, 2000]]
 		],
-		expansions: [56, 109],
+		expansions: [55, 109],
 		versions: [
 			{ "timestamp": 1648818000, "url": ["./_img/canvas/place30ex/start.png"] },
 			{ "timestamp": 1648819800, "url": ["./_img/canvas/place30/005.png", "./_img/canvas/place30/000_005.png"] },
