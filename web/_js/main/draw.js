@@ -578,7 +578,7 @@ function initDraw() {
 			inputButton.className = "btn btn-outline-secondary"
 			inputButton.title = "Remove website"
 			inputButton.innerHTML = '<i class="bi bi-trash-fill" aria-hidden="true"></i>'
-			inputButton.addEventListener('click', () => removeFieldButton(inputGroup, array, index))
+			inputButton.addEventListener('click', () => removeFieldButton(inputGroup, websiteGroupElements, index))
 		}
 		inputGroup.appendChild(inputButton)
 	}
@@ -621,7 +621,7 @@ function initDraw() {
 			inputButton.className = "btn btn-outline-secondary"
 			inputButton.title = "Remove subreddit"
 			inputButton.innerHTML = '<i class="bi bi-trash-fill" aria-hidden="true"></i>'
-			inputButton.addEventListener('click', () => removeFieldButton(inputGroup, array, index))
+			inputButton.addEventListener('click', () => removeFieldButton(inputGroup, subredditGroupElements, index))
 		}
 
 		inputField.addEventListener('paste', event => {
@@ -666,7 +666,7 @@ function initDraw() {
 			inputButton.className = "btn btn-outline-secondary"
 			inputButton.title = "Remove Discord invite"
 			inputButton.innerHTML = '<i class="bi bi-trash-fill" aria-hidden="true"></i>'
-			inputButton.addEventListener('click', () => removeFieldButton(inputGroup, array, index))
+			inputButton.addEventListener('click', () => removeFieldButton(inputGroup, discordGroupElements, index))
 		}
 
 		inputField.addEventListener('paste', event => {
@@ -705,7 +705,7 @@ function initDraw() {
 			inputButton.className = "btn btn-outline-secondary"
 			inputButton.title = "Remove wiki page"
 			inputButton.innerHTML = '<i class="bi bi-trash-fill" aria-hidden="true"></i>'
-			inputButton.addEventListener('click', () => removeFieldButton(inputGroup, array, index))
+			inputButton.addEventListener('click', () => removeFieldButton(inputGroup, wikiGroupElements, index))
 		}
 		inputGroup.appendChild(inputButton)
 	}
