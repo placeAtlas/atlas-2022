@@ -878,12 +878,12 @@ function initPeriodGroups() {
 			if (path.length >= 3) {
 				periodCenter = calculateCenter(path)
 				// @instance-only
-				if ((periodCenter[1] > 1000) && (startPeriodEl.valueAsNumber <= variationsConfig[variation].expansions[1])) {
+				if ((periodCenter[1] > 1000) && (startPeriodEl.valueAsNumber <= variationsConfig[getCurrentVariation()].expansions[1])) {
 					// Second expansion
-					startPeriodEl.value = variationsConfig[variation].expansions[1];
-				} else if ((periodCenter[0] > 1000) && (startPeriodEl.valueAsNumber <= variationsConfig[variation].expansions[0])) {
+					startPeriodEl.value = variationsConfig[getCurrentVariation()].expansions[1];
+				} else if ((periodCenter[0] > 1000) && (startPeriodEl.valueAsNumber <= variationsConfig[getCurrentVariation()].expansions[0])) {
 					// First expansion
-					startPeriodEl.value = variationsConfig[variation].expansions[0];
+					startPeriodEl.value = variationsConfig[getCurrentVariation()].expansions[0];
 				}
 			}
 			startPeriodUpdate(startPeriodEl.value)
@@ -897,12 +897,16 @@ function initPeriodGroups() {
 			startPeriodUpdate(startPeriodEl.value)
 		})
 		startPeriodViewEl.addEventListener('click', () => {
-			updateTime(parseInt(startPeriodEl.value), variation)
+			updateTime(parseInt(startPeriodEl.value), getCurrentVariation())
 			
 			// Set zoom view
 			periodCenter = calculateCenter(path)
 			setView(periodCenter[0], periodCenter[1], setZoomByPath(path))
 		})
+		
+		function getCurrentVariation() {
+			return periodVariationEl[periodVariationEl.selectedIndex].value
+		}
 
 		function startPeriodUpdate(value) {
 			endPeriodListEl.innerHTML = '<option value="' + (parseInt(value) + 1) + '"></option>'
@@ -910,7 +914,7 @@ function initPeriodGroups() {
 			// Update time only when value changes
 			if (startPeriodEl.value !== timelineSlider.value) {
 				timelineSlider.value = value
-				updateTime(parseInt(value), variation)
+				updateTime(parseInt(value), getCurrentVariation())
 			}
 
 			// Set start incremental button disabled states
@@ -924,11 +928,11 @@ function initPeriodGroups() {
 				if (path.length >= 3) {
 					periodCenter = calculateCenter(path)
 					// @instance-only
-					if ((periodCenter[1] > 1000) && (startPeriodEl.valueAsNumber <= variationsConfig[variation].expansions[1])) {
+					if ((periodCenter[1] > 1000) && (startPeriodEl.valueAsNumber <= variationsConfig[getCurrentVariation()].expansions[1])) {
 						// Second expansion
 						startPeriodLeftEl.disabled = true
 						startPeriodRightEl.disabled = false
-					} else if ((periodCenter[0] > 1000) && (startPeriodEl.valueAsNumber <= variationsConfig[variation].expansions[0])) {
+					} else if ((periodCenter[0] > 1000) && (startPeriodEl.valueAsNumber <= variationsConfig[getCurrentVariation()].expansions[0])) {
 						// First expansion
 						startPeriodLeftEl.disabled = true
 						startPeriodRightEl.disabled = false
@@ -945,12 +949,12 @@ function initPeriodGroups() {
 			if (path.length >= 3) {
 				periodCenter = calculateCenter(path)
 				// @instance-only
-				if ((periodCenter[1] > 1000) && (endPeriodEl.valueAsNumber <= variationsConfig[variation].expansions[1])) {
+				if ((periodCenter[1] > 1000) && (endPeriodEl.valueAsNumber <= variationsConfig[getCurrentVariation()].expansions[1])) {
 					// Second expansion
-					endPeriodEl.value = variationsConfig[variation].expansions[1];
-				} else if ((periodCenter[0] > 1000) && (endPeriodEl.valueAsNumber <= variationsConfig[variation].expansions[0])) {
+					endPeriodEl.value = variationsConfig[getCurrentVariation()].expansions[1];
+				} else if ((periodCenter[0] > 1000) && (endPeriodEl.valueAsNumber <= variationsConfig[getCurrentVariation()].expansions[0])) {
 					// First expansion
-					endPeriodEl.value = variationsConfig[variation].expansions[0];
+					endPeriodEl.value = variationsConfig[getCurrentVariation()].expansions[0];
 				}
 			}
 			endPeriodUpdate(endPeriodEl.value)
@@ -964,7 +968,7 @@ function initPeriodGroups() {
 			endPeriodUpdate(endPeriodEl.value)
 		})
 		endPeriodViewEl.addEventListener('click', () => {
-			updateTime(parseInt(endPeriodEl.value), variation)
+			updateTime(parseInt(endPeriodEl.value), getCurrentVariation())
 
 			// Set zoom view
 			periodCenter = calculateCenter(path)
@@ -976,8 +980,8 @@ function initPeriodGroups() {
 			// Update time only when value changes
 			if (endPeriodEl.value !== timelineSlider.value) {
 				timelineSlider.value = value
-				updateTime(parseInt(value), variation)
 			}
+			updateTime(parseInt(value), getCurrentVariation(), true)
 
 			// Set end incremental button disabled states
 			if (endPeriodEl.value === endPeriodEl.min) {
@@ -990,11 +994,11 @@ function initPeriodGroups() {
 				if (path.length >= 3) {
 					periodCenter = calculateCenter(path)
 					// @instance-only
-					if (periodCenter && (periodCenter[1] > 1000) && (endPeriodEl.valueAsNumber <= variationsConfig[variation].expansions[1])) {
+					if (periodCenter && (periodCenter[1] > 1000) && (endPeriodEl.valueAsNumber <= variationsConfig[getCurrentVariation()].expansions[1])) {
 						// Second expansion
 						endPeriodLeftEl.disabled = true
 						endPeriodRightEl.disabled = false
-					} else if (periodCenter && (periodCenter[0] > 1000) && (endPeriodEl.valueAsNumber <= variationsConfig[variation].expansions[0])) {
+					} else if (periodCenter && (periodCenter[0] > 1000) && (endPeriodEl.valueAsNumber <= variationsConfig[getCurrentVariation()].expansions[0])) {
 						// First expansion
 						endPeriodLeftEl.disabled = true
 						endPeriodRightEl.disabled = false
