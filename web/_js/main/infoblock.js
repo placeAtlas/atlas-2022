@@ -155,7 +155,7 @@ function createInfoBlock(entry, isPreview) {
 			if (!link) return
 			const wikiLinkElement = baseLinkElement.cloneNode()
 			wikiLinkElement.href = "https://place-wiki.stefanocoding.me/wiki/" + link.replace(/ /g, '_')
-			wikiLinkElement.innerHTML = `<i class="bi bi-book" aria-hidden="true"></i> Wiki Article`
+			wikiLinkElement.innerHTML = `<i class="bi bi-book" aria-hidden="true"></i>r/place Wiki Article`
 			wikiGroupElement.appendChild(wikiLinkElement)
 		})
 	}
