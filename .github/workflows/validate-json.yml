@@ -1,4 +1,4 @@
-name: Validate JSON
+name: Validate Atlas data
 on:
   push:
     paths:
@@ -8,12 +8,19 @@ on:
       - web/atlas.json
 jobs:
   validate:
-    name: Validate JSON
+    name: Validate
     runs-on: ubuntu-latest
     steps:
       - name: Checkout code
         uses: actions/checkout@v3
-      - name: Validate JSON
+      - name: Cache dependencies
+        uses: actions/cache@v3
+        with:
+          path: ~/.cache/pip
+          key: ${{ runner.os }}-pip-${{ hashFiles('**/requirements.txt') }}
+          restore-keys: |
+            ${{ runner.os }}-pip-
+      - name: Validate
         run: |
           pip3 install -r tools/ci/requirements.txt
           python3 tools/ci/validate_json.py web/atlas.json tools/atlas.schema.json
