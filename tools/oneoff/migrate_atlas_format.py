@@ -10,7 +10,6 @@ Migrator script from old atlas format to remastered atlas format.
 from io import TextIOWrapper
 import re
 import json
-
 import tqdm
 
 END_IMAGE = 166
