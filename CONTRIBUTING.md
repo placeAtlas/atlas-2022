@@ -6,8 +6,6 @@ You may contribute to the project by submitting a Pull Request on the GitHub rep
 
 ## New Atlas entries
 
-> **Warning**: **WE ONLY ACCEPT NEW ENTRIES ON REDDIT!**
-
 To contribute to the map, we require a certain format for artwork region and labels. This can be generated on [the drawing mode](https://place-atlas.stefanocoding.me?mode=draw) on the website. 
 
 To add a new entry, go to [the drawing mode](https://place-atlas.stefanocoding.me?mode=draw) and draw a shape/polygon around the region you'd like to describe. You can use the <kbd>Undo</kbd>, <kbd>Redo</kbd>, and <kbd>Reset</kbd> buttons to help you creating a good polygon. Make sure that the lines you're drawing don't form a [self-intersecting polygon](https://upload.wikimedia.org/wikipedia/commons/thumb/0/0f/Complex_polygon.svg/288px-Complex_polygon.svg.png). 
@@ -26,9 +24,33 @@ When you're happy with the shape you've drawn, press <kbd>Finish</kbd>. You will
 
 All fields but the name are optional. For example, a country flag doesn't necessarily need a description.
 
-Once you've entered all the information, you'll be presented with a pop-up window containing some [JSON](https://en.wikipedia.org/wiki/JSON)-formatted data. You can press the <kbd>Post Direct to Reddit</kbd> button and just press the send button on Reddit, or copy the entire JSON text and [create a new text post on the subreddit](https://www.reddit.com/r/placeAtlas2/submit). You don't need to add any other text; just directly send the data. 
+Once you've entered all the information, you'll be presented with a pop-up window containing some [JSON](https://en.wikipedia.org/wiki/JSON)-formatted submission data. Depending on the method, there are two preferred methods. 
+
+### Through Reddit
+
+You can press the <kbd>Post Direct to Reddit</kbd> button and just press the send button on Reddit, or copy the entire JSON text and [create a new text post on the subreddit](https://www.reddit.com/r/placeAtlas2/submit). You don't need to add any other text; just directly send the data. 
 
 Remember to flair your post with <kbd>New Entry</kbd>. On New Reddit, click the <kbd>Flair</kbd> button on the bottom part, and select <kbd>New Entry</kbd>. On Old Reddit, click the <kbd>select</kbd> button on the "choose a flair" section instead.
+
+### Through GitHub
+
+If you know about Git and how to create a pull request on GitHub, you can try create a patch that will be merged, along with other patches, by one of the members.
+
+You can use the provided `tools/create_patch.py` script. This script helps you to create a working patch, along with additional data such as your name for attribution sakes. Simply run the script inside the `tools/` folder and follow the given instructions. 
+
+If you want to do this manually (e.g. you don't have Python), you can create a patch by creating a `.json` file inside `data/patches`, with the content of the JSON-formatted data that is given earlier. You may add attribution by adding a `_author` key with the value of your Reddit username or your GitHub username plus a `gh:` prefix.
+
+```json5
+{
+	"id": 0, 
+	// ...
+	"_author": "Hans5958_",
+	// or...
+	"_author": "gh:Hans5958",
+}
+```
+
+Once you have successfully created the patch, the file can be committed, and a pull request towards the `cleanup` branch can be created.  A member will merge the pull request if it is adequate.
 
 ## Edits to Atlas entries
 
@@ -36,24 +58,25 @@ Other than adding new ones, you can edit existing atlas entries.
 
 ### Using the web interface
 
-You can use the website to edit single entries easily. On the website, click <kbd>Edit</kbd> on an entry box. Afterwards, you are now on the drawing mode, editing the entry, in which you can follow the same instructions as [when creating a new entry](#new-atlas-entries). Upon submitting, please flair it as <kbd>Edit Entry</kbd> instead.
+You can use the website to edit single entries easily. On the website, click <kbd>Edit</kbd> on an entry box. Afterwards, you are now on the drawing mode, editing the entry, in which you can follow the same instructions as [when creating a new entry](#new-atlas-entries). 
 
-As an alternative, you can also submit an issue on GitHub using [this form](https://github.com/placeAtlas/atlas/issues/new?assignees=&labels=entry+update&template=edit-entry.yml).
+Upon submitting, if you use Reddit, please flair it as <kbd>Edit Entry</kbd> instead. The method stays the same if you use GitHub.
+
+As an alternative, you can also submit an issue on GitHub using [this form](https://github.com/placeAtlas/atlas/issues/new?assignees=&labels=entry+update&template=edit-entry.yml) or report it on our Discord server.
 
 ### Manually
 
-Edits are also welcome on this repository through GitHub. You may use GitHub for bulk or large-scale changes, such as removing duplicates.
+Edits are also welcome on this repository using Git through GitHub. You may use Git or GitHub for bulk or large-scale changes, such as removing duplicates.
 
-`web/atlas.json` is where the Atlas data is located, in which you can edit on GitHub. Below is an example of an entry. The example has been expanded, but please save it in the way so each line is an entry which is minified.
+`web/atlas.json` is where the Atlas data is located, in which you can edit on GitHub. The next section includes an example of an entry.
 
-Upon creating a fork of this repository and pushing the changes, create a Pull Request against the `cleanup` branch. A member will merge the pull request if it is adequate.
+Upon creating a fork of this repository and pushing the changes, create a pull request towards the `cleanup` branch. A member will merge the pull request if it is adequate.
 
 To help find duplicates, [use the Overlap mode](https://place-atlas.stefanocoding.me?mode=overlap).
 
-
 ### Example
 
-Hereforth is an example of the structured data.
+Hereforth is an example of the structured data. The example has been expanded, but please save it in the way so each line is an entry which is minified. The `aformatter.py` script can help you with this.
 
 ```json5
 {
