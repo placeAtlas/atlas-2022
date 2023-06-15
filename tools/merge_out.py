@@ -18,16 +18,16 @@ with open('../data/read-ids.txt', 'r', encoding='utf-8') as ids_file:
 with open('../web/atlas.json', 'r', encoding='utf-8') as atlas_file:
 	atlas_data = json.loads(atlas_file.read())
 
-# format_all_entries(atlas_file)
+# format_all_entries(atlas_data)
 
 # base_image_path = os.path.join('..', 'web', '_img', 'canvas', 'place30')
 # ScaleConfig.image1 = os.path.join(base_image_path, '159.png')
 # scale_back.swap_source_dest('164', '165', os.path.join(base_image_path, '163_159.png'))
-# scale_back.scale_back_entries(atlas_file)
+# scale_back.scale_back_entries(atlas_data)
 # scale_back.swap_source_dest('165', '166', os.path.join(base_image_path, '164_159.png'))
-# scale_back.scale_back_entries(atlas_file)
+# scale_back.scale_back_entries(atlas_data)
 # scale_back.swap_source_dest('166', '167', os.path.join(base_image_path, '165_159.png'))
-# scale_back.scale_back_entries(atlas_file)
+# scale_back.scale_back_entries(atlas_data)
 
 last_id = 0
 
