@@ -2,6 +2,7 @@ import json
 import os
 from aformatter import format_all_entries, per_line_entries
 import scale_back
+import traceback
 
 from scale_back import ScaleConfig
 
@@ -50,44 +51,48 @@ for filename in os.listdir(patches_dir):
 	if not os.path.isfile(f) or not f.endswith('json'):
 		continue
 
-	with open(f, 'r', encoding='utf-8') as entry_file:
-		entry = json.loads(entry_file.read())
+	try:
+		with open(f, 'r', encoding='utf-8') as entry_file:
+			entry = json.loads(entry_file.read())
 
-		if '_reddit_id' in entry:
-			reddit_id = entry['_reddit_id']
-			if reddit_id in out_ids:
+			if '_reddit_id' in entry:
+				reddit_id = entry['_reddit_id']
+				if reddit_id in out_ids:
+					print(f"{filename}: Submission from {entry['id']} has been included! This will be ignored from the merge.")
+					continue
+				out_ids.append(reddit_id)
+				del entry['_reddit_id']
+
+			if '_author' in entry:
+				author = entry['_author']
+				if author not in authors:
+					authors.append(author)
+				del entry['_author']
+
+			if entry['id'] in out_ids:
 				print(f"{filename}: Submission from {entry['id']} has been included! This will be ignored from the merge.")
 				continue
-			out_ids.append(reddit_id)
-			del entry['_reddit_id']
 
-		if '_author' in entry:
-			author = entry['_author']
-			if author not in authors:
-				authors.append(author)
-			del entry['_author']
+			if entry['id'] < 1:
+				last_id += 1
+				print(f"{filename}: Entry is new, assigned ID {last_id}")
+				entry['id'] = str(last_id)
+			else:
+				out_ids.append(entry['id'])
 
-		if entry['id'] in out_ids:
-			print(f"{filename}: Submission from {entry['id']} has been included! This will be ignored from the merge.")
-			continue
+			if entry['id'] in atlas_ids:
+				index = atlas_ids[entry['id']]
+				print(f"{filename}: Edited {atlas_data[index]['id']}.")
+				atlas_data[index] = entry
+			else:
+				print(f"{filename}: Added {entry['id']}.")
+				atlas_data.append(entry)
 
-		if entry['id'] < 1:
-			last_id += 1
-			print(f"{filename}: Entry is new, assigned ID {last_id}")
-			entry['id'] = str(last_id)
-		else:
-			out_ids.append(entry['id'])
+		os.remove(f)
 
-
-		if entry['id'] in atlas_ids:
-			index = atlas_ids[entry['id']]
-			print(f"{filename}: Edited {atlas_data[index]['id']}.")
-			atlas_data[index] = entry
-		else:
-			print(f"{filename}: Added {entry['id']}.")
-			atlas_data.append(entry)
-
-	os.remove(f)
+	except:
+		print(f"{filename}: Something went wrong; patch couldn't be implemented. Skipping.")
+		traceback.print_exc()
 
 print('Writing...')
 with open('../web/atlas.json', 'w', encoding='utf-8') as atlas_file:
