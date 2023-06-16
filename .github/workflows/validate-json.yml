@@ -23,4 +23,5 @@ jobs:
       - name: Validate
         run: |
           pip3 install -r tools/ci/requirements.txt
-          python3 tools/ci/validate_json.py web/atlas.json tools/atlas.schema.json
+          python3 tools/ci/validate_json.py web/atlas.json tools/schema/atlas.json
+          python3 tools/ci/validate_json.py data/patches tools/schema/patch.json  
