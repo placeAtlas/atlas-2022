@@ -12,14 +12,21 @@
 						},
 						{
 							"type": "integer",
-							"minimum": 0
+							"minimum": 1
+						},
+						{
+							"type": "integer",
+							"minimum": -1,
+							"maximum": 0,
+							"description": "The ID of the entry. The value is a placeholder for new entries."
 						}
 					],
-					"description": "The ID of the entry. Usually this is the post ID of the new entry submission."
+					"description": "The ID of the entry. Usually, this is a number (string or number) this is the post ID of the new entry submission."
 				},
 				"name": {
 					"type": "string",
-					"description": "The short, descriptive name of the entry."
+					"description": "The short, descriptive name of the entry.",
+					"minLength": 1
 				},
 				"description": {
 					"type": "string",
@@ -55,7 +62,8 @@
 							"items": {
 								"type": "string",
 								"description": "The invite code of a Discord server related to the entry.",
-								"minItems": 1
+								"minItems": 1,
+								"minLength": 1
 							}
 						},
 						"wiki": {
@@ -64,7 +72,8 @@
 							"items": {
 								"type": "string",
 								"description": "The title of the wiki page related to the entry.",
-								"minItems": 1
+								"minItems": 1,
+								"minLength": 1
 							}
 						}
 					},
