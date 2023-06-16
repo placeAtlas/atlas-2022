@@ -82,7 +82,7 @@ count_total = 0
 with open('temp-atlas-manual.txt', 'w', encoding='utf-8') as FAIL_FILE:
 
 	submission: Submission
-	for submission in reddit.subreddit('u_Hans5958_').new(limit=5):
+	for submission in reddit.subreddit('placeAtlas2').new(limit=1000):
 		total_all_flairs += 1
 
 		print(f"{submission.id}: Submitted {humanize.naturaltime(datetime.utcnow() - datetime.utcfromtimestamp(submission.created_utc))}.")
