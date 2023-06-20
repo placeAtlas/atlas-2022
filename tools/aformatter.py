@@ -1,10 +1,12 @@
 #!/usr/bin/python
 
+from io import TextIOWrapper
+from typing import List
 import re
 import json
 import math
 import traceback
-from typing import List
+import tqdm
 
 END_NORMAL_IMAGE = "164"
 END_WHITEOUT_IMAGE = "166"
@@ -302,7 +304,6 @@ def floor_points(entry: dict):
 
 	return entry
 
-
 def validate(entry: dict):
 	"""
 	Validates the entry. Catch errors and tell warnings related to the entry.
@@ -339,16 +340,17 @@ def validate(entry: dict):
 			print(f"{key} of entry {entry['id']} is still invalid! {entry[key]}")
 	return return_status
 
-def per_line_entries(entries: list):
+def per_line_entries(entries: list, file: TextIOWrapper):
 	"""
 	Returns a string of all the entries, with every entry in one line.
 	"""
-	out = "[\n"
-	for entry in entries:
-		if entry:
-			out += json.dumps(entry, ensure_ascii=False) + ",\n"
-	out = out[:-2] + "\n]"
-	return out
+	file.write("[\n")
+	line_temp = ""
+	for entry in tqdm.tqdm(entries):
+		if line_temp:
+			file.write(line_temp + ",\n")
+		line_temp = json.dumps(entry, ensure_ascii=False)
+	file.write(line_temp + "\n]")
 
 def format_all(entry: dict, silent=False):
 	"""
@@ -387,7 +389,7 @@ def format_all(entry: dict, silent=False):
 	return entry
 
 def format_all_entries(entries):
-	for i in range(len(entries)):
+	for i in tqdm.trange(len(entries)):
 		try:
 			entry_formatted = format_all(entries[i], True)
 			validation_status = validate(entries[i])
@@ -399,8 +401,6 @@ def format_all_entries(entries):
 		except Exception:
 			print(f"Exception occured when formatting ID {entries[i]['id']}")
 			print(traceback.format_exc())
-		if not (i % 200):
-			print(f"{i} checked.")
 
 def go(path):
 
@@ -411,10 +411,10 @@ def go(path):
 
 	format_all_entries(entries)
 
-	print(f"{len(entries)} checked. Writing...")
+	print(f"Writing...")
 
 	with open(path, "w", encoding='utf-8', newline='\n') as f2:
-		f2.write(per_line_entries(entries))
+		per_line_entries(entries, f2)
 
 	print("Writing completed. All done.")
 

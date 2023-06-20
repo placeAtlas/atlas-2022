@@ -1,0 +1,16 @@
+{
+	"$schema": "https://json-schema.org/draft-07/schema",
+	"$ref": "atlas.json#/definitions/entry",
+	"properties": {
+		"_author": {
+			"type": "string",
+			"description": "Patch only: Author of the entry.",
+			"minLength": 1
+		},
+		"_reddit_id": {
+			"type": "string",
+			"description": "Patch only: Submission ID, if submitted from Reddit.",
+			"minLength": 1
+		}
+	}
+}

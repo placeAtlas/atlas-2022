@@ -500,7 +500,9 @@ async function init() {
 }
 
 function updateAtlasAll(atlas = atlasAll) {
-	for (const entry of atlas) {
+	for (const index in atlas) {
+		const entry = atlas[index]
+		entry._index = index
 		const currentLinks = entry.links
 		entry.links = {
 			website: [],

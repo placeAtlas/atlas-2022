@@ -7,8 +7,10 @@ Migrator script from old atlas format to remastered atlas format.
 - submitted_by removed
 """
 
+from io import TextIOWrapper
 import re
 import json
+import tqdm
 
 END_IMAGE = 166
 INIT_CANVAS_RANGE = (1, END_IMAGE)
@@ -73,16 +75,17 @@ def migrate_atlas_format(entry: dict):
 
 	return toreturn
 
-def per_line_entries(entries: list):
+def per_line_entries(entries: list, file: TextIOWrapper):
 	"""
 	Returns a string of all the entries, with every entry in one line.
 	"""
-	out = "[\n"
-	for entry in entries:
-		if entry:
-			out += json.dumps(entry, ensure_ascii=False) + ",\n"
-	out = out[:-2] + "\n]"
-	return out
+	file.write("[\n")
+	line_temp = ""
+	for entry in tqdm.tqdm(entries):
+		if line_temp:
+			file.write(line_temp + ",\n")
+		line_temp = json.dumps(entry, ensure_ascii=False)
+	file.write(line_temp + "\n]")
 
 if __name__ == '__main__':
 
@@ -93,16 +96,14 @@ if __name__ == '__main__':
 		with open(path, "r+", encoding='UTF-8') as f1:
 			entries = json.loads(f1.read())
 
-		for i in range(len(entries)):
+		for i in tqdm.trange(len(entries)):
 			entry_formatted = migrate_atlas_format(entries[i])
 			entries[i] = entry_formatted
-			if not (i % 1000):
-				print(f"{i} checked.")
 
 		print(f"{len(entries)} checked. Writing...")
 
 		with open(path, "w", encoding='utf-8', newline='\n') as f2:
-			f2.write(per_line_entries(entries))
+			per_line_entries(entries, f2)
 
 		print("Writing completed. All done.")
 

@@ -2,90 +2,108 @@ import json
 import os
 from aformatter import format_all_entries, per_line_entries
 import scale_back
+import traceback
 
 from scale_back import ScaleConfig
 
-merge_source_file = 'temp-atlas.json'
-
-with open(merge_source_file, 'r', encoding='UTF-8') as f1:
-	out_json = json.loads(f1.read())
-
-format_all_entries(out_json)
-
-base_image_path = os.path.join('..', 'web', '_img', 'canvas', 'place30')
-ScaleConfig.image1 = os.path.join(base_image_path, '159.png')
-scale_back.swap_source_dest('164', '165', os.path.join(base_image_path, '163_159.png'))
-scale_back.scale_back_entries(out_json)
-scale_back.swap_source_dest('165', '166', os.path.join(base_image_path, '164_159.png'))
-scale_back.scale_back_entries(out_json)
-scale_back.swap_source_dest('166', '167', os.path.join(base_image_path, '165_159.png'))
-scale_back.scale_back_entries(out_json)
-
-out_ids = set()
-out_dupe_ids = set()
+out_ids = []
 atlas_ids = {}
+authors = []
+
+with open('../web/all-authors.txt', 'r', encoding='utf-8') as authors_file:
+	authors = authors_file.read().strip().split()
+
+with open('../data/read-ids.txt', 'r', encoding='utf-8') as ids_file:
+	out_ids = ids_file.read().strip().split()
 
 with open('../web/atlas.json', 'r', encoding='utf-8') as atlas_file:
-	atlas_json = json.loads(atlas_file.read())
+	atlas_data = json.loads(atlas_file.read())
 
-for i, entry in enumerate(atlas_json):
+# format_all_entries(atlas_data)
+
+# base_image_path = os.path.join('..', 'web', '_img', 'canvas', 'place30')
+# ScaleConfig.image1 = os.path.join(base_image_path, '159.png')
+# scale_back.swap_source_dest('164', '165', os.path.join(base_image_path, '163_159.png'))
+# scale_back.scale_back_entries(atlas_data)
+# scale_back.swap_source_dest('165', '166', os.path.join(base_image_path, '164_159.png'))
+# scale_back.scale_back_entries(atlas_data)
+# scale_back.swap_source_dest('166', '167', os.path.join(base_image_path, '165_159.png'))
+# scale_back.scale_back_entries(atlas_data)
+
+last_id = 0
+
+for i, entry in enumerate(atlas_data):
 	atlas_ids[entry['id']] = i
+	id = entry['id']
+	if id.isnumeric() and int(id) > last_id and int(id) - last_id < 100:
+		last_id = int(id)
 
-last_existing_id = list(atlas_json[-1]['id'])
+patches_dir = "../data/patches/"
+if not os.path.exists(patches_dir):
+	print("Patches folder not found. Exiting.")
+	exit()
+
+for filename in os.listdir(patches_dir):
+	f = os.path.join(patches_dir, filename)
+
+	print(f"{filename}: Processing...")
 	
-for entry in out_json:
-	if entry['id'] == 0 or entry['id'] == '0':
-		# "Increment" the last ID to derive a new ID.
-		current_index = -1
-		while current_index > -(len(last_existing_id)):
-			current_char = last_existing_id[current_index]
-			
-			if current_char == 'z':
-				last_existing_id[current_index] = '0'
-				current_index -= 1
-			else:
-				if current_char == '9':
-					current_char = 'a'
-				else:
-					current_char = chr(ord(current_char) + 1)
-				last_existing_id[current_index] = current_char
-				break
-		entry['id'] = ''.join(last_existing_id)
-
-for entry in out_json:
-	if entry['id'] in out_ids:
-		print(f"Entry {entry['id']} has duplicates! Please resolve this conflict. This will be excluded from the merge.")
-		out_dupe_ids.add(entry['id'])
-	out_ids.add(entry['id'])
-
-for entry in out_json:
-	if entry['id'] in out_dupe_ids:
+	if not os.path.isfile(f) or not f.endswith('json'):
 		continue
 
-	if 'edit' in entry and entry['edit']:
-		assert entry['id'] in atlas_ids, "Edit failed! ID not found on Atlas."
-		index = atlas_ids[entry['id']]
+	try:
+		with open(f, 'r', encoding='utf-8') as entry_file:
+			entry = json.loads(entry_file.read())
 
-		assert index != None, "Edit failed! ID not found on Atlas."
+			if '_reddit_id' in entry:
+				reddit_id = entry['_reddit_id']
+				if reddit_id in out_ids:
+					print(f"{filename}: Submission from {entry['id']} has been included! This will be ignored from the merge.")
+					continue
+				out_ids.append(reddit_id)
+				del entry['_reddit_id']
 
-		print(f"Edited {atlas_json[index]['id']} with {entry['edit']}")
+			# This wouldn't work if it is an edit.
+			# If needed, we can add a type to the patch to be more foolproof.
+			# if entry['id'] in out_ids:
+			# 	print(f"{filename}: Submission from {entry['id']} has been included! This will be ignored from the merge.")
+			# 	continue
 
-		del entry['edit']
-		atlas_json[index] = entry
-	elif entry['id'] in atlas_ids:
-		print(f"Edited {entry['id']} manually.")
-		atlas_json[atlas_ids[entry['id']]] = entry
-	else:
-		print(f"Added {entry['id']}.")
-		atlas_json.append(entry)
+			if '_author' in entry:
+				author = entry['_author']
+				if author not in authors:
+					authors.append(author)
+				del entry['_author']
+
+			if entry['id'] is int and entry['id'] < 1:
+				last_id += 1
+				print(f"{filename}: Entry is new, assigned ID {last_id}")
+				entry['id'] = str(last_id)
+			elif entry['id'] not in out_ids:
+				out_ids.append(entry['id'])
+
+			if entry['id'] in atlas_ids:
+				index = atlas_ids[entry['id']]
+				print(f"{filename}: Edited {atlas_data[index]['id']}.")
+				atlas_data[index] = entry
+			else:
+				print(f"{filename}: Added {entry['id']}.")
+				atlas_data.append(entry)
+
+		os.remove(f)
+
+	except:
+		print(f"{filename}: Something went wrong; patch couldn't be implemented. Skipping.")
+		traceback.print_exc()
 
 print('Writing...')
 with open('../web/atlas.json', 'w', encoding='utf-8') as atlas_file:
-	atlas_file.write(per_line_entries(atlas_json))
+	per_line_entries(atlas_data, atlas_file)
 
-with open('../data/read-ids.txt', 'a', encoding='utf-8') as read_ids_file:
-	with open('temp-read-ids.txt', 'r+', encoding='utf-8') as read_ids_temp_file:
-		read_ids_file.writelines(read_ids_temp_file.readlines())
-		read_ids_temp_file.truncate(0)
+with open('../data/read-ids.txt', 'w', encoding='utf-8') as ids_file:
+	ids_file.write("\n".join(out_ids) + "\n")
+
+with open('../web/all-authors.txt', 'w', encoding='utf-8') as authors_file:
+	authors_file.write("\n".join(authors) + "\n")
 
 print('All done.')

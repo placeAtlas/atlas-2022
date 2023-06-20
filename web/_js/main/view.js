@@ -370,10 +370,10 @@ function buildObjectsList(filter, sort = defaultSort) {
 			sortFunction = (a, b) => b.name.toLowerCase().localeCompare(a.name.toLowerCase())
 			break
 		case "newest":
-			sortFunction = (a, b) => b.id.length - a.id.length || b.id.localeCompare(a.id)
+			sortFunction = (a, b) => b._index - a._index
 			break
 		case "oldest":
-			sortFunction = (a, b) => a.id.length - b.id.length || a.id.localeCompare(b.id)
+			sortFunction = (a, b) => a._index - b._index
 			break
 		case "area":
 			sortFunction = (a, b) => calcPolygonArea(b.path) - calcPolygonArea(a.path)
