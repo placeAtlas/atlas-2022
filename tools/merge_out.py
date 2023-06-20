@@ -31,6 +31,27 @@ with open('../web/atlas.json', 'r', encoding='utf-8') as atlas_file:
 for i, entry in enumerate(atlas_json):
 	atlas_ids[entry['id']] = i
 
+last_existing_id = list(atlas_json[-1]['id'])
+	
+for entry in out_json:
+	if entry['id'] == 0 or entry['id'] == '0':
+		# "Increment" the last ID to derive a new ID.
+		current_index = -1
+		while current_index > -(len(last_existing_id)):
+			current_char = last_existing_id[current_index]
+			
+			if current_char == 'z':
+				last_existing_id[current_index] = '0'
+				current_index -= 1
+			else:
+				if current_char == '9':
+					current_char = 'a'
+				else:
+					current_char = chr(ord(current_char) + 1)
+				last_existing_id[current_index] = current_char
+				break
+		entry['id'] = ''.join(last_existing_id)
+
 for entry in out_json:
 	if entry['id'] in out_ids:
 		print(f"Entry {entry['id']} has duplicates! Please resolve this conflict. This will be excluded from the merge.")
