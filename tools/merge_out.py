@@ -63,21 +63,23 @@ for filename in os.listdir(patches_dir):
 				out_ids.append(reddit_id)
 				del entry['_reddit_id']
 
+			# This wouldn't work if it is an edit.
+			# If needed, we can add a type to the patch to be more foolproof.
+			# if entry['id'] in out_ids:
+			# 	print(f"{filename}: Submission from {entry['id']} has been included! This will be ignored from the merge.")
+			# 	continue
+
 			if '_author' in entry:
 				author = entry['_author']
 				if author not in authors:
 					authors.append(author)
 				del entry['_author']
 
-			if entry['id'] in out_ids:
-				print(f"{filename}: Submission from {entry['id']} has been included! This will be ignored from the merge.")
-				continue
-
-			if entry['id'] < 1:
+			if entry['id'] is int and entry['id'] < 1:
 				last_id += 1
 				print(f"{filename}: Entry is new, assigned ID {last_id}")
 				entry['id'] = str(last_id)
-			else:
+			elif entry['id'] not in out_ids:
 				out_ids.append(entry['id'])
 
 			if entry['id'] in atlas_ids:
