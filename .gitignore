@@ -9,6 +9,7 @@ temp.*
 temp-read-ids.txt
 allCharacters.txt
 combined.js
+data/patches
 
 # Excluded files
 *.DS_Store
