@@ -24,8 +24,10 @@ const periodsAdd = document.getElementById('periodsAdd')
 
 const exportButton = document.getElementById("exportButton")
 const cancelButton = document.getElementById("cancelButton")
-const exportDirectPostButton = document.getElementById("exportDirectPost")
-let exportDirectPostTooltip = null
+const redditPostButton = document.getElementById("exportRedditPost")
+let redditPostTooltip = null
+const githubPostButton = document.getElementById("exportGithubPost")
+let githubPostTooltip = null
 
 const exportModalElement = document.getElementById("exportModal")
 const exportModal = new bootstrap.Modal(exportModalElement)
@@ -85,6 +87,17 @@ baseInputField.type = "text"
 		this.style.height = (this.scrollHeight) + "px"
 	})
 })
+
+// https://gist.github.com/codeguy/6684588?permalink_comment_id=3243980#gistcomment-3243980
+function slugify(text) {
+	return text
+		.normalize('NFKD')
+		.toLowerCase()
+		.trim()
+		.replace(/\s+/g, '-')
+		.replace(/[^\w\-]+/g, '')
+		.replace(/\-+/g, '-');
+}
 
 window.initDraw = initDraw
 function initDraw() {
@@ -303,42 +316,75 @@ function initDraw() {
 		return exportObject
 	}
 
+	document.getElementById("exportCopy").addEventListener("click", () => {
+		navigator.clipboard.writeText(exportArea.value)
+	})
+
 	function exportJson() {
 		const exportObject = generateExportObject()
+		const prettyJsonString = JSON.stringify(exportObject, null, "\t")
+		const miniJsonString = JSON.stringify(exportObject)
 
-		let prettyJsonString = JSON.stringify(exportObject, null, "\t")
-		prettyJsonString = "    " + prettyJsonString.split("\n").join("\n    ")
-		exportArea.value = prettyJsonString
-		let directPostJsonString = prettyJsonString
-		
-		let directPostUrl = `https://www.reddit.com/r/${instanceSubreddit}/submit?selftext=true&title=`
-		if (exportObject.id === 0) directPostUrl += `✨%20${encodeURIComponent(exportObject.name)}`
-		else directPostUrl += `✏%20${encodeURIComponent(exportObject.name)}`
-		directPostUrl += "&text="
+		// Export area
 
-		if (directPostJsonString.length + directPostJsonString > 7579) {
-			directPostJsonString = "    " + JSON.stringify(exportObject)
-		}
+		exportArea.value = "    " + prettyJsonString.split("\n").join("\n    ")
 		if (exportArea.value > 40000) {
-			exportArea.value = "    " + JSON.stringify(exportObject)
+			exportArea.value = "    " + miniJsonString
 		}
-		directPostUrl += encodeURIComponent(directPostJsonString)
+		
+		// Reddit
 
-		if (directPostUrl.length > 7579) {
-			// exportDirectPostButton.classList.add("disabled")
-			// exportDirectPostButton.ariaDisabled = true
-			exportDirectPostButton.dataset.bsToggle = "tooltip"
-			exportDirectPostButton.dataset.bsTitle = "This may not work due to the length of the entry. If needed, please copy manually."
-			if (!exportDirectPostTooltip) exportDirectPostTooltip = new bootstrap.Tooltip(exportDirectPostButton)
-		} else {
-			// exportDirectPostButton.classList.remove("disabled")
-			// exportDirectPostButton.ariaDisabled = false
-			exportDirectPostButton.dataset.bsTitle = ""
+		let redditPostJsonString = "    " + prettyJsonString.split("\n").join("\n    ")
+		let redditPostUrl = `https://www.reddit.com/r/${instanceSubreddit}/submit?selftext=true&title=`
+		if (exportObject.id === 0) redditPostUrl += `✨%20${encodeURIComponent(exportObject.name)}`
+		else redditPostUrl += `✏%20${encodeURIComponent(exportObject.name)}`
+		redditPostUrl += "&text="
+
+		if (encodeURIComponent(redditPostJsonString).length > 7579 - redditPostUrl.length) {
+			redditPostJsonString = "    " + miniJsonString
 		}
-		exportDirectPostButton.href = directPostUrl
+
+		redditPostUrl += encodeURIComponent(redditPostJsonString)
+		if (encodeURIComponent(redditPostUrl).length > 7579) {
+			// redditPostButton.classList.add("disabled")
+			// redditPostButton.ariaDisabled = true
+			redditPostButton.dataset.bsToggle = "tooltip"
+			redditPostButton.dataset.bsTitle = "This may not work due to the length of the entry. If needed, please copy manually."
+			if (!redditPostTooltip) redditPostTooltip = new bootstrap.Tooltip(redditPostButton)
+		} else {
+			// redditPostButton.classList.remove("disabled")
+			// redditPostButton.ariaDisabled = false
+			redditPostButton.dataset.bsTitle = ""
+		}
+		redditPostButton.href = redditPostUrl
 
 		if (exportObject.id === 0) document.getElementById("redditFlair").textContent = "New Entry"
 		else document.getElementById("redditFlair").textContent = "Edit Entry"
+
+		// GitHub
+
+		let githubPostJsonString = prettyJsonString
+		let githubPostUrl = `${instanceRepo}/new/cleanup/data/patches?filename=gh-${[...Array(4)].map(() => Math.floor(Math.random() * 16).toString(16)).join('')}-${slugify(exportObject.name)}.json&value=`
+
+		if (encodeURIComponent(githubPostJsonString).length > 8192 - githubPostUrl.length) {
+			githubPostJsonString = miniJsonString
+		}
+
+		githubPostUrl += encodeURIComponent(githubPostJsonString)
+		if (githubPostUrl.length > 8192) {
+			// githubPostButton.classList.add("disabled")
+			// githubPostButton.ariaDisabled = true
+			githubPostButton.dataset.bsToggle = "tooltip"
+			githubPostButton.dataset.bsTitle = "This may not work due to the length of the entry. If needed, please copy manually."
+			if (!githubPostTooltip) githubPostTooltip = new bootstrap.Tooltip(githubPostButton)
+		} else {
+			// githubPostButton.classList.remove("disabled")
+			// githubPostButton.ariaDisabled = false
+			githubPostButton.dataset.bsTitle = ""
+		}
+		githubPostButton.href = githubPostUrl
+
+		console.log(githubPostUrl)
 
 		exportModal.show()
 	}

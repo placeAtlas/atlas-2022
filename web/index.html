@@ -347,13 +347,17 @@
 					<p>
 						If you want to use Reddit, use the <span class="badge bg-primary">Post Direct to Reddit</span> button or manually copy the text below and submit it as a new text post to <a href="https://www.reddit.com/r/placeAtlas2/" target="_blank" rel="noopener noreferrer">r/placeAtlas2</a> on Reddit.
 						Don't forget to flair it with the <span class="badge rounded-pill bg-primary"><i class="bi bi-tag" aria-hidden="true"></i> <span id="redditFlair">New Entry</span></span> flair.</p>
-					<p>If you want to use GitHub, read <a href="https://github.com/placeAtlas/atlas/blob/master/CONTRIBUTING.md#through-github" target="_blank" rel="noopener noreferrer">the contributing guide</a> to submit a patch.</p>
+					<p>
+						If you want to use GitHub, use the <span class="badge bg-primary">Submit Direct to GitHub</span> button, or read <a href="https://github.com/placeAtlas/atlas/blob/master/CONTRIBUTING.md#through-github" target="_blank" rel="noopener noreferrer">the contributing guide</a> to submit a patch.
+					</p>
 					<p>We will then check it and add it to the Atlas.</p>
 					<textarea class="form-control flex-grow-1" cols="40" rows="20" id="exportString" title="Raw JSON string" readonly></textarea>
 				</div>
 				<div class="modal-footer">
 					<button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Done</button>
-					<a id="exportDirectPost" class="btn btn-primary" href="#" target="_blank" rel="noopener noreferrer">Post Direct to Reddit</a>
+					<button id="exportCopy" type="button" class="btn btn-secondary">Copy</button>
+					<a id="exportGithubPost" class="btn btn-primary" href="#" target="_blank" rel="noopener noreferrer">Submit Direct on GitHub</a>
+					<a id="exportRedditPost" class="btn btn-primary" href="#" target="_blank" rel="noopener noreferrer">Post Direct on Reddit</a>
 				</div>
 				</div>
 			</div>
