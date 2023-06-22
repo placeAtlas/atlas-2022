@@ -28,7 +28,9 @@ Once you've entered all the information, you'll be presented with a pop-up windo
 
 ### Through Reddit
 
-You can press the <kbd>Post Direct to Reddit</kbd> button and just press the send button on Reddit, or copy the entire JSON text and [create a new text post on the subreddit](https://www.reddit.com/r/placeAtlas2/submit). You don't need to add any other text; just directly send the data. 
+You can press the <kbd>Post Direct to Reddit</kbd> button, which will open a page with the title and body already been filled for you. You don't need to change anything what has been prepared.
+
+If that didn't work, copy the entire JSON text and [create a new text post on the subreddit](https://www.reddit.com/r/placeAtlas2/submit). You don't need to add any other text; just directly send the data. 
 
 Remember to flair your post with <kbd>New Entry</kbd>. On New Reddit, click the <kbd>Flair</kbd> button on the bottom part, and select <kbd>New Entry</kbd>. On Old Reddit, click the <kbd>select</kbd> button on the "choose a flair" section instead.
 
@@ -36,9 +38,11 @@ Remember to flair your post with <kbd>New Entry</kbd>. On New Reddit, click the 
 
 If you know about Git and how to create a pull request on GitHub, you can try create a patch that will be merged, along with other patches, by one of the members.
 
-You can use the provided `tools/create_patch.py` script. This script helps you to create a working patch, along with additional data such as your name for attribution sakes. Simply run the script inside the `tools/` folder and follow the given instructions. 
+You can try pressing the <kbd>Submit Direct to GitHub</kbd> button, which will open a page with the patch file already been prepared to you. If you haven't forked the repository, you would need to fork it with the provided instruction shown on the page. You may add attribution by adding an `_author` key, explained in the next paragraphs. After that, you can press <kbd>Submit changes</kbd>, add follow the steps to create a pull request within GitHub.
 
-If you want to do this manually (e.g. you don't have Python), you can create a patch by creating a `.json` file inside `data/patches`, with the content of the JSON-formatted data that is given earlier. You may add attribution by adding a `_author` key with the value of your Reddit username or your GitHub username plus a `gh:` prefix.
+If you can fork and clone the repository, you can use the provided `tools/create_patch.py` script. This script helps you to create a working patch, along with additional data such as your name for attribution sakes. Simply run the script inside the `tools/` folder and follow the given instructions. 
+
+If you want to do this manually (e.g. you don't have Python), you can create a patch by creating a `.json` file inside `data/patches`, with the content of the JSON-formatted data that is given earlier. You may add attribution by adding an `_author` key with the value of your Reddit username or your GitHub username plus a `gh:` prefix.
 
 ```json5
 {
