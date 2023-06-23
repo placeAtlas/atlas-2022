@@ -85,10 +85,12 @@ for filename in filenames:
 						authors.append(author)
 					del entry['_author']
 
-				if entry['id'] is int and entry['id'] < 1:
+				if isinstance(entry['id'], int) and entry['id'] < 1 or entry['id'] == '0':
 					last_id += 1
 					print(f"{filename}: Entry is new, assigned ID {last_id}")
 					entry['id'] = str(last_id)
+				elif isinstance(entry['id'], int):
+					entry['id'] = str(entry['id'])
 				elif entry['id'] not in out_ids:
 					out_ids.append(entry['id'])
 
