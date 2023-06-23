@@ -27,6 +27,7 @@ for i, entry in enumerate(atlas_data):
 		last_id = int(id)
 
 patches_dir = "../data/patches/"
+permanent_patch_file = "temp-atlas.json"
 if not os.path.exists(patches_dir):
 	print("Patches folder not found. Exiting.")
 	exit()
@@ -34,8 +35,14 @@ if not os.path.exists(patches_dir):
 base_image_path = os.path.join('..', 'web', '_img', 'canvas', 'place30')
 ScaleConfig.image1 = os.path.join(base_image_path, '159.png')
 
-for filename in os.listdir(patches_dir):
-	f = os.path.join(patches_dir, filename)
+filenames = os.listdir(patches_dir)
+filenames.append(permanent_patch_file)
+
+for filename in filenames:
+	if filename == permanent_patch_file:
+		f = filename
+	else:
+		f = os.path.join(patches_dir, filename)
 
 	print(f"{filename}: Processing...")
 	
@@ -92,6 +99,9 @@ for filename in os.listdir(patches_dir):
 				else:
 					print(f"{filename}: Added {entry['id']}.")
 					atlas_data.append(entry)
+
+			if filename != permanent_patch_file:
+				os.remove(f)
 
 	except:
 		print(f"{filename}: Something went wrong; patch couldn't be implemented. Skipping.")
