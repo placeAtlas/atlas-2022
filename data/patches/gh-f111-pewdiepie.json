@@ -1,0 +1,47 @@
+{
+	"id": "131rbhv",
+	"name": "PewDiePie",
+	"description": "The signature red and black wave pattern of the Swedish YouTuber Felix Kjellberg a.k.a. PewDiePie. It was supposed to cover from (442, 1340) to (469, 1361), but most of it was later covered except for the top left corner.",
+	"links": {
+		"website": [
+			"https://www.youtube.com/user/pewdiepie",
+			"https://en.wikipedia.org/wiki/PewDiePie"
+		],
+		"subreddit": [
+			"PewdiepieSubmissions"
+		],
+		"discord": [
+			"pewdiepie"
+		]
+	},
+	"path": {
+		"T:0-1, 109-164": [
+			[
+				441,
+				1339
+			],
+			[
+				448,
+				1339
+			],
+			[
+				448,
+				1350
+			],
+			[
+				441,
+				1350
+			],
+			[
+				441,
+				1339
+			]
+		]
+	},
+	"center": {
+		"T:0-1, 109-164": [
+			445,
+			1345
+		]
+	}
+}
