@@ -39,7 +39,8 @@ filenames = os.listdir(patches_dir)
 filenames.append(permanent_patch_file)
 
 for filename in filenames:
-	if filename == permanent_patch_file:
+	is_permanent_file = filename == permanent_patch_file
+	if is_permanent_file:
 		f = filename
 	else:
 		f = os.path.join(patches_dir, filename)
@@ -91,7 +92,7 @@ for filename in filenames:
 					entry['id'] = str(last_id)
 				elif isinstance(entry['id'], int):
 					entry['id'] = str(entry['id'])
-				elif entry['id'] not in out_ids:
+				elif not is_permanent_file and entry['id'] not in out_ids:
 					out_ids.append(entry['id'])
 
 				if entry['id'] in atlas_ids:
@@ -102,7 +103,7 @@ for filename in filenames:
 					print(f"{filename}: Added {entry['id']}.")
 					atlas_data.append(entry)
 
-			if filename != permanent_patch_file:
+			if not is_permanent_file:
 				os.remove(f)
 
 	except:

@@ -254,7 +254,7 @@ window.defaultVariation = defaultVariation
 let defaultPeriod = variationsConfig[defaultVariation].default
 window.defaultPeriod = defaultPeriod
 
-const useNumericalId = true
+const useNumericalId = false
 window.useNumericalId = useNumericalId
 
 console.info(`%cThe 2022 r/place Atlas
