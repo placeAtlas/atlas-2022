@@ -1,0 +1,78 @@
+{
+	"id": -1,
+  "_author": "gh:Slymeball",
+	"name": "Blancworks Logo",
+	"description": "A logo for the Blancworks development team.\n\nBlancworks was the development team responsible for the Figura mod until the original developer of the mod asked for the team to stop using the Blancworks branding and logo. The modding team is now known as Moonlight and continues working on Figura.",
+	"links": {
+		"website": [
+			"https://github.com/Kingdom-Of-The-Moon",
+			"https://github.com/Moonlight-MC"
+		],
+		"subreddit": [
+			"figura"
+		],
+		"discord": [
+			"ekHGHcH8Af"
+		]
+	},
+	"path": {
+		"11-49": [
+			[
+				743,
+				962
+			],
+			[
+				743,
+				957
+			],
+			[
+				746,
+				955
+			],
+			[
+				747,
+				955
+			],
+			[
+				750,
+				957
+			],
+			[
+				750,
+				962
+			]
+		],
+		"51-99": [
+			[
+				735,
+				953
+			],
+			[
+				735,
+				948
+			],
+			[
+				738,
+				946
+			],
+			[
+				742,
+				948
+			],
+			[
+				742,
+				953
+			]
+		]
+	},
+	"center": {
+		"11-49": [
+			747,
+			959
+		],
+		"51-99": [
+			738,
+			950
+		]
+	}
+}
