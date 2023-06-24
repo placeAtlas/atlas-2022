@@ -1,0 +1,105 @@
+{
+	"id": "tzwtx2",
+	"name": "Shiny Solosis",
+	"description": "Solosis is a Psychic-type Pokémon from the Generation 5 Pokémon games (Pokémon Black/White). This art originally used Solosis's normal green coloration, and later changed to its blue Shiny coloration.",
+	"links": {
+		"website": [
+			"https://bulbapedia.bulbagarden.net/wiki/Solosis_(Pok%C3%A9mon)"
+		],
+		"subreddit": [
+			"pokemon"
+		]
+	},
+	"path": {
+		"71-129": [
+			[
+				41,
+				353
+			],
+			[
+				38,
+				355
+			],
+			[
+				36,
+				358
+			],
+			[
+				36,
+				361
+			],
+			[
+				38,
+				364
+			],
+			[
+				40,
+				365
+			],
+			[
+				45,
+				365
+			],
+			[
+				48,
+				363
+			],
+			[
+				50,
+				360
+			],
+			[
+				50,
+				357
+			],
+			[
+				46,
+				353
+			]
+		],
+		"T:0-1, 143-162": [
+			[
+				36,
+				335
+			],
+			[
+				33,
+				337
+			],
+			[
+				31,
+				340
+			],
+			[
+				31,
+				343
+			],
+			[
+				33,
+				346
+			],
+			[
+				35,
+				347
+			],
+			[
+				40,
+				347
+			],
+			[
+				40,
+				335
+			]
+		]
+	},
+	"center": {
+		"71-129": [
+			43,
+			359
+		],
+		"T:0-1, 143-162": [
+			36,
+			341
+		]
+	}
+}
