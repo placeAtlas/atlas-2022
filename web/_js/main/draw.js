@@ -43,7 +43,7 @@ const exportArea = document.getElementById("exportString")
 const subredditPattern = /^(?:(?:(?:(?:(?:https?:\/\/)?(?:(?:www|old|new|np)\.)?)?reddit\.com)?\/)?[rR]\/)?([A-Za-z0-9][A-Za-z0-9_]{1,20})(?:\/[^" ]*)*$/
 const discordPattern = /^(?:(?:https?:\/\/)?(?:www\.)?(?:(?:discord)?\.?gg|discord(?:app)?\.com\/invite)\/)?([^\s/]+?)(?=\b)$/
 
-let entryId = undefined
+let entry
 let path = []
 let center = [canvasCenter.x, canvasCenter.y]
 
@@ -273,7 +273,7 @@ function initDraw() {
 
 	function generateExportObject() {
 		const exportObject = {
-			id: entryId ?? -1,
+			id: -1,
 			name: nameField.value,
 			description: descriptionField.value,
 			links: {},
@@ -336,8 +336,8 @@ function initDraw() {
 
 		let redditPostJsonString = "    " + prettyJsonString.split("\n").join("\n    ")
 		let redditPostUrl = `https://www.reddit.com/r/${instanceSubreddit}/submit?selftext=true&title=`
-		if (exportObject.id === 0) redditPostUrl += `✨%20${encodeURIComponent(exportObject.name)}`
-		else redditPostUrl += `✏%20${encodeURIComponent(exportObject.name)}`
+		if (exportObject.id === 0) redditPostUrl += `✨%20${encodeURIComponent(exportObject.name ?? entry.name)}`
+		else redditPostUrl += `✏%20${encodeURIComponent(exportObject.name ?? entry.name)}`
 		redditPostUrl += "&text="
 
 		if (encodeURIComponent(redditPostJsonString).length > 7579 - redditPostUrl.length) {
@@ -364,7 +364,7 @@ function initDraw() {
 		// GitHub
 
 		let githubPostJsonString = prettyJsonString
-		let githubPostUrl = `${instanceRepo}/new/cleanup/data/patches?filename=gh-${[...Array(4)].map(() => Math.floor(Math.random() * 16).toString(16)).join('')}-${slugify(exportObject.name)}.json&value=`
+		let githubPostUrl = `${instanceRepo}/new/cleanup/data/patches?filename=gh-${[...Array(4)].map(() => Math.floor(Math.random() * 16).toString(16)).join('')}-${slugify(exportObject.name ?? entry.name)}.json&value=`
 
 		if (encodeURIComponent(githubPostJsonString).length > 8192 - githubPostUrl.length) {
 			githubPostJsonString = miniJsonString
@@ -565,13 +565,11 @@ function initDraw() {
 	}
 
 	const getEntry = id => {
+		if (!id) return
 		const entries = atlasAll.filter(entry => entry.id.toString() === id.toString())
 		if (entries.length === 1) return entries[0]
-		return {}
+		return
 	}
-
-	const params = new URLSearchParams(document.location.search)
-
 
 	function addFieldButton(inputButton, inputGroup, array, index, name) {
 		if (inputButton.title === "Remove " + name) {
@@ -756,9 +754,11 @@ function initDraw() {
 		inputGroup.appendChild(inputButton)
 	}
 
-	if (params.has('id') && getEntry(params.get('id'))) {
-		entryId = params.get('id')
-		const entry = getEntry(entryId)
+	const params = new URLSearchParams(document.location.search)
+	const entryId = params.get('id')
+	entry = getEntry(entryId)
+
+	if (entry) {
 
 		nameField.value = entry.name
 		descriptionField.value = entry.description
@@ -827,10 +827,10 @@ function initDraw() {
 		initPeriodGroups()
 	})
 
-	drawBackButton.href = "./" + formatHash(entryId, currentPeriod, currentPeriod, currentVariation)
+	drawBackButton.href = "./" + formatHash(entry?.id, currentPeriod, currentPeriod, currentVariation)
 
 	document.addEventListener('timeupdate', event => {
-		drawBackButton.href = "./" + formatHash(entryId, event.detail.period, event.detail.period, event.detail.variation)
+		drawBackButton.href = "./" + formatHash(entry?.id, event.detail.period, event.detail.period, event.detail.variation)
 	})
 
 }
