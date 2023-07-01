@@ -285,7 +285,7 @@ function initDraw() {
 			if (!isNaN(Number(exportObject.id))) exportObject.id = Number(exportObject.id)
 		}
 
-		const pathWithPeriodsTemp = JSON.parse(JSON.stringify(pathWithPeriods))
+		const pathWithPeriodsTemp = structuredClone(pathWithPeriods)
 
 		for (let i = pathWithPeriodsTemp.length - 1; i > 0; i--) {
 			for (let j = 0; j < i; j++) {
