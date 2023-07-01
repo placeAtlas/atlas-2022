@@ -7,6 +7,7 @@ import json
 import math
 import traceback
 import tqdm
+import os
 
 END_NORMAL_IMAGE = "164"
 END_WHITEOUT_IMAGE = "166"
@@ -420,4 +421,7 @@ def go(path):
 
 if __name__ == '__main__':
 
-	go("../web/atlas.json")
+	while not os.path.exists('README.md'):
+		os.chdir('..')
+
+	go("web/atlas.json")

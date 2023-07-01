@@ -34,8 +34,12 @@ from pathlib import Path
 import humanize
 from datetime import datetime
 import secrets
+import os
 
-patches_dir = "../data/patches/"
+while not os.path.exists('README.md'):
+	os.chdir('..')
+
+patches_dir = "data/patches/"
 Path(patches_dir).mkdir(parents=True, exist_ok=True)
 
 def set_flair(submission, flair):
@@ -69,7 +73,7 @@ print("Running...")
 
 existing_ids = []
 
-with open('../data/read-ids.txt', 'r') as edit_ids_file:
+with open('data/read-ids.txt', 'r') as edit_ids_file:
 	for id in [x.strip() for x in edit_ids_file.readlines()]:
 		existing_ids.append(id)
 

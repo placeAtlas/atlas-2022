@@ -6,16 +6,20 @@ from jsonschema import validate, RefResolver
 from pathlib import Path, PurePosixPath
 import os
 
-instance_path = "../../web/atlas.json"
+if len(sys.argv) == 1:
+	while not os.path.exists('README.md'):
+		os.chdir('..')
+
+instance_path = "web/atlas.json"
 
 # path override as 1st param: validate_json.py path_to_file.json
-if (len(sys.argv) > 1):
+if len(sys.argv) > 1:
 	instance_path = sys.argv[1]
 
-schema_path = "../schema/atlas.json"
+schema_path = "tools/schema/atlas.json"
 
 # schema override as 2nd param: validate_json.py [...] path_to_schema.json
-if (len(sys.argv) > 2):
+if len(sys.argv) > 2:
 	schema_path = sys.argv[2]
 
 relative_path = "file:" + str(PurePosixPath(Path(os.getcwd(), schema_path)))

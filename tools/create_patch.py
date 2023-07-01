@@ -3,7 +3,10 @@ import os
 import secrets
 from pathlib import Path
 
-patches_dir = "../data/patches/"
+while not os.path.exists('README.md'):
+	os.chdir('..')
+
+patches_dir = "data/patches/"
 Path(patches_dir).mkdir(parents=True, exist_ok=True)
 
 entry = None
