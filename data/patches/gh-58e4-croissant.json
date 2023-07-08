@@ -1,0 +1,103 @@
+{
+	"id": "twvrsl",
+	"name": "Croissant",
+	"description": "A crescent-shaped pastry commonly associated with France.\n\nThis also a reference to the French subreddit r/memesdecentralises, a subreddit that shares memes about not living in Paris while being French.",
+	"links": {
+		"website": [
+			"https://en.wikipedia.org/wiki/Croissant"
+		],
+		"subreddit": [
+			"placefrance",
+			"franceplace",
+			"placeFR",
+			"france",
+			"memedecentralises"
+		]
+	},
+	"path": {
+		"T:0-1, 109-164": [
+			[
+				98,
+				1772
+			],
+			[
+				115,
+				1756
+			],
+			[
+				130,
+				1757
+			],
+			[
+				147,
+				1768
+			],
+			[
+				152,
+				1782
+			],
+			[
+				148,
+				1795
+			],
+			[
+				140,
+				1799
+			],
+			[
+				133,
+				1795
+			],
+			[
+				132,
+				1791
+			],
+			[
+				137,
+				1791
+			],
+			[
+				139,
+				1789
+			],
+			[
+				137,
+				1784
+			],
+			[
+				133,
+				1779
+			],
+			[
+				121,
+				1781
+			],
+			[
+				112,
+				1785
+			],
+			[
+				118,
+				1793
+			],
+			[
+				114,
+				1796
+			],
+			[
+				103,
+				1796
+			],
+			[
+				97,
+				1788
+			]
+		]
+	},
+	"center": {
+		"T:0-1, 109-164": [
+			120,
+			1768
+		]
+	}
+}
