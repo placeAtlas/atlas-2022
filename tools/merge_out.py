@@ -9,13 +9,16 @@ out_ids = []
 atlas_ids = {}
 authors = []
 
-with open('../web/all-authors.txt', 'r', encoding='utf-8') as authors_file:
+while not os.path.exists('README.md'):
+	os.chdir('..')
+
+with open('web/all-authors.txt', 'r', encoding='utf-8') as authors_file:
 	authors = authors_file.read().strip().split()
 
-with open('../data/read-ids.txt', 'r', encoding='utf-8') as ids_file:
+with open('data/read-ids.txt', 'r', encoding='utf-8') as ids_file:
 	out_ids = ids_file.read().strip().split()
 
-with open('../web/atlas.json', 'r', encoding='utf-8') as atlas_file:
+with open('web/atlas.json', 'r', encoding='utf-8') as atlas_file:
 	atlas_data = json.loads(atlas_file.read())
 
 last_id = 0
@@ -26,13 +29,13 @@ for i, entry in enumerate(atlas_data):
 	if id.isnumeric() and int(id) > last_id and int(id) - last_id < 100:
 		last_id = int(id)
 
-patches_dir = "../data/patches/"
-permanent_patch_file = "temp-atlas.json"
+patches_dir = "data/patches/"
+permanent_patch_file = "tools/temp-atlas.json"
 if not os.path.exists(patches_dir):
 	print("Patches folder not found. Exiting.")
 	exit()
 
-base_image_path = os.path.join('..', 'web', '_img', 'canvas', 'place30')
+base_image_path = os.path.join('web', '_img', 'canvas', 'place30')
 ScaleConfig.image1 = os.path.join(base_image_path, '159.png')
 
 filenames = os.listdir(patches_dir)
@@ -111,13 +114,13 @@ for filename in filenames:
 		traceback.print_exc()
 
 print('Writing...')
-with open('../web/atlas.json', 'w', encoding='utf-8') as atlas_file:
+with open('web/atlas.json', 'w', encoding='utf-8') as atlas_file:
 	per_line_entries(atlas_data, atlas_file)
 
-with open('../data/read-ids.txt', 'w', encoding='utf-8') as ids_file:
+with open('data/read-ids.txt', 'w', encoding='utf-8') as ids_file:
 	ids_file.write("\n".join(out_ids) + "\n")
 
-with open('../web/all-authors.txt', 'w', encoding='utf-8') as authors_file:
+with open('web/all-authors.txt', 'w', encoding='utf-8') as authors_file:
 	authors_file.write("\n".join(authors) + "\n")
 
 print('All done.')

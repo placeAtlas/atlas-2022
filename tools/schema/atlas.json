@@ -21,7 +21,7 @@
 							"description": "The ID of the entry. The value is a placeholder for new entries."
 						}
 					],
-					"description": "The ID of the entry. Usually, this is a number (string or number) this is the post ID of the new entry submission."
+					"description": "The ID of the entry. Usually, this is a number (preferably number, or string), or the post ID of the new entry submission."
 				},
 				"name": {
 					"type": "string",
