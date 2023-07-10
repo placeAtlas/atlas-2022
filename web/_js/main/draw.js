@@ -273,7 +273,7 @@ function initDraw() {
 
 	function generateExportObject() {
 		const exportObject = {
-			id: -1,
+			id: entry ? entry.id : -1,
 			name: nameField.value,
 			description: descriptionField.value,
 			links: {},
