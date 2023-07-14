@@ -1,0 +1,93 @@
+{
+	"id": "twsm00",
+	"name": "Elemental on Discord",
+	"description": "Elemental on Discord (EoD) is a community-based alchemy game created in a Discord bot, inspired by Elemental 3, Little Alchemy, and Doodle God. Players start with four elements: air, earth, fire, and water. The ability to combine these and make new ones is what makes the game special. The game was created by ryan, the owner of R74n, and is completely based on the community!",
+	"links": {
+		"subreddit": [
+			"ElementalOnDiscord"
+		],
+		"discord": [
+			"jHeqgdM"
+		]
+	},
+	"path": {
+		"78-122": [
+			[
+				1789,
+				941
+			],
+			[
+				1785,
+				945
+			],
+			[
+				1785,
+				949
+			],
+			[
+				1789,
+				953
+			],
+			[
+				1793,
+				953
+			],
+			[
+				1797,
+				949
+			],
+			[
+				1797,
+				945
+			],
+			[
+				1793,
+				941
+			]
+		],
+		"T:0-1, 125-164": [
+			[
+				1789,
+				940
+			],
+			[
+				1785,
+				944
+			],
+			[
+				1785,
+				948
+			],
+			[
+				1789,
+				952
+			],
+			[
+				1793,
+				952
+			],
+			[
+				1797,
+				948
+			],
+			[
+				1797,
+				944
+			],
+			[
+				1793,
+				940
+			]
+		]
+	},
+	"center": {
+		"78-122": [
+			1791,
+			947
+		],
+		"T:0-1, 125-164": [
+			1791,
+			946
+		]
+	}
+}
