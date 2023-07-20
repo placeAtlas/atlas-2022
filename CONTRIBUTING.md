@@ -6,9 +6,9 @@ You may contribute to the project by submitting a Pull Request on the GitHub rep
 
 ## New Atlas entries
 
-To contribute to the map, we require a certain format for artwork region and labels. This can be generated on [the drawing mode](https://place-atlas.stefanocoding.me?mode=draw) on the website. 
+To contribute to the map, we require a certain format for artwork region and labels. This can be generated on [the drawing mode](https://2022.place-atlas.stefanocoding.me?mode=draw) on the website. 
 
-To add a new entry, go to [the drawing mode](https://place-atlas.stefanocoding.me?mode=draw) and draw a shape/polygon around the region you'd like to describe. You can use the <kbd>Undo</kbd>, <kbd>Redo</kbd>, and <kbd>Reset</kbd> buttons to help you creating a good polygon. Make sure that the lines you're drawing don't form a [self-intersecting polygon](https://upload.wikimedia.org/wikipedia/commons/thumb/0/0f/Complex_polygon.svg/288px-Complex_polygon.svg.png). 
+To add a new entry, go to [the drawing mode](https://2022.place-atlas.stefanocoding.me?mode=draw) and draw a shape/polygon around the region you'd like to describe. You can use the <kbd>Undo</kbd>, <kbd>Redo</kbd>, and <kbd>Reset</kbd> buttons to help you creating a good polygon. Make sure that the lines you're drawing don't form a [self-intersecting polygon](https://upload.wikimedia.org/wikipedia/commons/thumb/0/0f/Complex_polygon.svg/288px-Complex_polygon.svg.png). 
 
 Multiple periods can be added to represent the changing state of the artwork on different times. You can set the start and end period, as well as chosing the appropriate canvas variations. You can also copy the polygon from one period to the other, duplicating a period to be edited later, as well as deleting a period (if there is more than one). An alert is also shown if there are errors for assistance.
 
@@ -76,7 +76,7 @@ Edits are also welcome on this repository using Git through GitHub. You may use 
 
 Upon creating a fork of this repository and pushing the changes, create a pull request towards the `cleanup` branch. A member will merge the pull request if it is adequate.
 
-To help find duplicates, [use the Overlap mode](https://place-atlas.stefanocoding.me?mode=overlap).
+To help find duplicates, [use the Overlap mode](https://2022.place-atlas.stefanocoding.me?mode=overlap).
 
 ### Example
 
@@ -107,8 +107,8 @@ Hereforth is an example of the structured data. The example has been expanded, b
 ```
 
 `109-166, T:0-1` has this meaning.
-  - `109-166`: Default canvas variation (r/place), period [109](https://place-atlas.stefanocoding.me/#/109) to [166](https://place-atlas.stefanocoding.me/#/166).
-  - `T:0-1`: "The Final Clean" canvas variation, period [0](https://place-atlas.stefanocoding.me/#/T:0) (The Final Clean) to [1](https://place-atlas.stefanocoding.me/#/T:1) (Unofficial Corrections).
+  - `109-166`: Default canvas variation (r/place), period [109](https://2022.place-atlas.stefanocoding.me/#/109) to [166](https://2022.place-atlas.stefanocoding.me/#/166).
+  - `T:0-1`: "The Final Clean" canvas variation, period [0](https://2022.place-atlas.stefanocoding.me/#/T:0) (The Final Clean) to [1](https://2022.place-atlas.stefanocoding.me/#/T:1) (Unofficial Corrections).
 
 ## Development
 

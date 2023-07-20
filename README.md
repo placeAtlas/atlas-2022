@@ -1,10 +1,10 @@
-[![Entry count](https://img.shields.io/badge/dynamic/json?color=blue&label=entries&query=%24.length&url=https%3A%2F%2Fgithub.com%2FplaceAtlas%2Fatlas%2Fblob%2Fmaster%2Fweb%2Fatlas.json%3Fraw%3Dtrue)](https://place-atlas.stefanocoding.me/)
+[![Entry count](https://img.shields.io/badge/dynamic/json?color=blue&label=entries&query=%24.length&url=https%3A%2F%2Fgithub.com%2FplaceAtlas%2Fatlas%2Fblob%2Fmaster%2Fweb%2Fatlas.json%3Fraw%3Dtrue)](https://2022.place-atlas.stefanocoding.me/)
 ![Commit activity](https://img.shields.io/github/commit-activity/w/placeAtlas/atlas)
 [![Netlify](https://img.shields.io/netlify/1e7291ce-0680-45ed-9843-47a32a992bbb?logo=netlify&logoColor=white)](https://app.netlify.com/sites/place-atlas/deploys)
 [![License](https://img.shields.io/github/license/placeAtlas/atlas)](https://github.com/placeAtlas/atlas/blob/master/LICENSE)  
 [![Discord](https://img.shields.io/discord/960791635342524496?color=%235865F2&logo=discord&logoColor=white)](https://discord.gg/pJkm23b2nA)
 [![Subreddit subscribers](https://img.shields.io/reddit/subreddit-subscribers/placeAtlas2?color=%23FF4500&label=r%2FplaceAtlas2&logo=reddit&logoColor=white)](https://www.reddit.com/r/placeAtlas2/)
-[![Website](https://img.shields.io/static/v1?label=website&message=place-atlas.stefanocoding.me&color=blue)](https://place-atlas.stefanocoding.me/)
+[![Website](https://img.shields.io/static/v1?label=website&message=2022.place-atlas.stefanocoding.me&color=blue)](https://2022.place-atlas.stefanocoding.me/)
 
 # The 2022 r/place Atlas
 
@@ -14,7 +14,7 @@ This project was established by Roland Rytz for the event in 2017, and further d
 
 This project is licensed under the [GNU Affero General Public License v3.0](LICENSE).
 
-You can check out the website by visiting [place-atlas.stefanocoding.me](https://place-atlas.stefanocoding.me/). If you want to keep distance from GitHub, you may visit [r/placeAtlas2](https://www.reddit.com/r/placeAtlas2/).
+You can check out the website by visiting [2022.place-atlas.stefanocoding.me](https://2022.place-atlas.stefanocoding.me/). If you want to keep distance from GitHub, you may visit [r/placeAtlas2](https://www.reddit.com/r/placeAtlas2/).
 
 ## Contributing
 
@@ -53,4 +53,4 @@ Thanks goes to these wonderful people ([emoji key](https://allcontributors.org/d
 
 <!-- ALL-CONTRIBUTORS-LIST:END -->
 
-This project follows the [all-contributors](https://github.com/all-contributors/all-contributors) specification. This section only includes GitHub contributions. Other credits are shown on [the About page](https://place-atlas.stefanocoding.me/about).
+This project follows the [all-contributors](https://github.com/all-contributors/all-contributors) specification. This section only includes GitHub contributions. Other credits are shown on [the About page](https://2022.place-atlas.stefanocoding.me/about).
