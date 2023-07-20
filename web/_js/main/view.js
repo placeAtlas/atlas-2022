@@ -676,7 +676,7 @@ function highlightEntryFromUrl() {
 	if (!id) return
 
 	const entries = atlas.filter(e => {
-		return e.id === id
+		return e.id.toString() === id
 	})
 
 	if (entries.length !== 1) return 
