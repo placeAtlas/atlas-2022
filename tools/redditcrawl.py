@@ -104,7 +104,7 @@ with open('temp-atlas-manual.txt', 'w', encoding='utf-8') as FAIL_FILE:
 
 		print(f"{submission.id}: Processing...")
 
-		if submission.link_flair_text == "New Entry" or submission.link_flair_text == "Edit Entry" or True:
+		if submission.link_flair_text == "New Entry" or submission.link_flair_text == "Edit Entry":
 
 			try:
 
@@ -122,9 +122,9 @@ with open('temp-atlas-manual.txt', 'w', encoding='utf-8') as FAIL_FILE:
 				if submission_json:
 
 					if submission.link_flair_text == "Edit Entry":
-						assert submission_json["id"] > 0, "Edit invalid because ID is tampered, it must not be 0 or -1!"
+						assert submission_json["id"] != -1, "Edit invalid because ID is tampered, it must not be -1!"
 					else:
-						assert submission_json["id"] <= 0, "Addition invalid because ID is tampered, it must be 0 or -1!"
+						assert submission_json["id"] == -1, "Addition invalid because ID is tampered, it must be -1!"
 						
 					submission_json_dummy = {"id": submission_json["id"], "_reddit_id": submission.id, "_author": submission.author.name}
 
@@ -137,7 +137,7 @@ with open('temp-atlas-manual.txt', 'w', encoding='utf-8') as FAIL_FILE:
 					assert validation_status < 3, \
 						"Submission invalid after validation. This may be caused by not enough points on the path."
 					
-					with open(f'{patches_dir}reddit-{submission.id}-{"-".join(submission["name"].split()).lower()}.json', 'w', encoding='utf-8') as out_file:
+					with open(f'{patches_dir}reddit-{submission.id}-{"-".join(submission.name.split()).lower()}.json', 'w', encoding='utf-8') as out_file:
 						out_file.write(json.dumps(submission_json, ensure_ascii=False))
 
 					count_success += 1
