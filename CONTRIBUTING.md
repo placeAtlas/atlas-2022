@@ -20,7 +20,7 @@ When you're happy with the shape you've drawn, press <kbd>Finish</kbd>. You will
 	- **Website**: If you're describing a project, the project's main website would be suitable here.
 	- **Subreddit**: Format it like `r/subreddit`.
 	- **Discord**: Write the invite code, that the invite link without the `discord.gg/` part.
-	- **Wiki**: The page title of [The r/place Wiki](https://place-wiki.stefanocoding.me/).
+	- **Wiki**: The page title of [the r/place Wiki](https://place-wiki.stefanocoding.me/).
 
 All fields but the name are optional. For example, a country flag doesn't necessarily need a description.
 
