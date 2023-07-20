@@ -66,7 +66,7 @@ You can use the website to edit single entries easily. On the website, click <kb
 
 Upon submitting, if you use Reddit, please flair it as <kbd>Edit Entry</kbd> instead. The method stays the same if you use GitHub.
 
-As an alternative, you can also submit an issue on GitHub using [this form](https://github.com/placeAtlas/atlas/issues/new?assignees=&labels=entry+update&template=edit-entry.yml) or report it on our Discord server.
+As an alternative, you can also submit an issue on GitHub using [this form](https://github.com/placeAtlas/atlas-2022/issues/new?assignees=&labels=entry+update&template=edit-entry.yml) or report it on our Discord server.
 
 ### Manually
 
