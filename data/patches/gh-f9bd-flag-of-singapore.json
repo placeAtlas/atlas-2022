@@ -1,0 +1,156 @@
+{
+	"id": 133,
+	"name": "Flag of Singapore",
+	"description": "Singapore is a city-state in Southeast Asia with a population of 5.5M. This flag is overlaid by a silhouette of the country and its prominent landmarks: the Merlion, Marina Bay Sands, Changi Airport control tower, and the Mass Rapid Transit system. The greenery showcases Singapore as a City in Nature, while the purple flower on the Merlion represents our national flower, Vanda Ms. Joaquim.",
+	"links": {
+		"website": [
+			"https://en.wikipedia.org/wiki/Singapore",
+			"https://en.wikipedia.org/wiki/Flag_of_Singapore"
+		],
+		"subreddit": [
+			"PlaceSG",
+			"singapore",
+			"place_CentralAlliance"
+		]
+	},
+	"path": {
+		"57-129": [
+			[
+				285,
+				960
+			],
+			[
+				285,
+				978
+			],
+			[
+				316,
+				978
+			],
+			[
+				316,
+				974
+			],
+			[
+				318,
+				972
+			],
+			[
+				321,
+				972
+			],
+			[
+				323,
+				974
+			],
+			[
+				323,
+				960
+			]
+		],
+		"46-56": [
+			[
+				297,
+				960
+			],
+			[
+				297,
+				978
+			],
+			[
+				316,
+				978
+			],
+			[
+				316,
+				974
+			],
+			[
+				318,
+				972
+			],
+			[
+				321,
+				972
+			],
+			[
+				323,
+				974
+			],
+			[
+				323,
+				960
+			]
+		],
+		"39-45": [
+			[
+				298,
+				960
+			],
+			[
+				298,
+				978
+			],
+			[
+				323,
+				978
+			],
+			[
+				323,
+				960
+			]
+		],
+		"T:0-1, 130-164": [
+			[
+				285,
+				960
+			],
+			[
+				285,
+				985
+			],
+			[
+				315,
+				985
+			],
+			[
+				315,
+				980
+			],
+			[
+				317,
+				978
+			],
+			[
+				320,
+				978
+			],
+			[
+				323,
+				981
+			],
+			[
+				323,
+				960
+			]
+		]
+	},
+	"center": {
+		"57-129": [
+			304,
+			969
+		],
+		"46-56": [
+			306,
+			969
+		],
+		"39-45": [
+			311,
+			969
+		],
+		"T:0-1, 130-164": [
+			304,
+			973
+		]
+	}
+}
