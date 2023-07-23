@@ -1,0 +1,71 @@
+{
+	"id": "u13gcr",
+	"name": "Mount Kinabalu",
+	"description": "Mount Kinabalu is Southeast Asia's tallest mountain, located in the state of Sabah in Malaysia.\n\nThis art was built with the Petronas Twin Towers. It was originally proposed to be twice the size that is currently is, with a more grey-ish color.",
+	"links": {
+		"website": [
+			"https://en.wikipedia.org/wiki/Mount_Kinabalu"
+		],
+		"subreddit": [
+			"placeMY",
+			"malaysia",
+			"malaysians",
+			"Bolehland",
+			"place_CentralAlliance"
+		]
+	},
+	"path": {
+		"T:0-1, 100-164": [
+			[
+				335,
+				992
+			],
+			[
+				335,
+				991
+			],
+			[
+				337,
+				989
+			],
+			[
+				342,
+				986
+			],
+			[
+				342,
+				984
+			],
+			[
+				347,
+				984
+			],
+			[
+				350,
+				980
+			],
+			[
+				359,
+				980
+			],
+			[
+				369,
+				987
+			],
+			[
+				372,
+				989
+			],
+			[
+				372,
+				992
+			]
+		]
+	},
+	"center": {
+		"T:0-1, 100-164": [
+			354,
+			986
+		]
+	}
+}
