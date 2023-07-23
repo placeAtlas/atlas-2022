@@ -1,0 +1,61 @@
+{
+	"id": "tyvbse",
+	"name": "Mass Rapid Transit",
+	"description": "The Mass Rapid Transit (MRT) is a rapid transit train system in Singapore.",
+	"links": {
+		"website": [
+			"https://en.wikipedia.org/wiki/Mass_Rapid_Transit_(Singapore)"
+		],
+		"subreddit": [
+			"PlaceSG",
+			"singapore",
+			"place_CentralAlliance"
+		]
+	},
+	"path": {
+		"T:0-1, 130-164": [
+			[
+				301,
+				977
+			],
+			[
+				299,
+				979
+			],
+			[
+				299,
+				980
+			],
+			[
+				298,
+				981
+			],
+			[
+				298,
+				985
+			],
+			[
+				315,
+				985
+			],
+			[
+				315,
+				980
+			],
+			[
+				316,
+				979
+			],
+			[
+				316,
+				977
+			]
+		]
+	},
+	"center": {
+		"T:0-1, 130-164": [
+			307,
+			981
+		]
+	}
+}
