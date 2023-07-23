@@ -1,0 +1,89 @@
+{
+	"id": "tx6lpn",
+	"name": "Changi Airport control tower",
+	"description": "The control tower at the Changi Airport in Singapore.",
+	"links": {
+		"website": [
+			"https://en.wikipedia.org/wiki/Changi_Airport"
+		],
+		"subreddit": [
+			"PlaceSG",
+			"singapore",
+			"place_CentralAlliance"
+		]
+	},
+	"path": {
+		"T:0-1, 92-164": [
+			[
+				319,
+				971
+			],
+			[
+				319,
+				968
+			],
+			[
+				318,
+				968
+			],
+			[
+				318,
+				967
+			],
+			[
+				317,
+				967
+			],
+			[
+				317,
+				965
+			],
+			[
+				317,
+				964
+			],
+			[
+				318,
+				964
+			],
+			[
+				318,
+				963
+			],
+			[
+				319,
+				963
+			],
+			[
+				320,
+				962
+			],
+			[
+				321,
+				963
+			],
+			[
+				322,
+				964
+			],
+			[
+				322,
+				968
+			],
+			[
+				321,
+				968
+			],
+			[
+				321,
+				972
+			]
+		]
+	},
+	"center": {
+		"T:0-1, 92-164": [
+			320,
+			965
+		]
+	}
+}
