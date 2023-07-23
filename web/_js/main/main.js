@@ -524,3 +524,19 @@ function updateAtlasAll(atlas = atlasAll) {
 	}
 	return atlas
 }
+
+// Announcement system
+
+const announcementEl = document.querySelector("#headerAnnouncement")
+const announcementButton = announcementEl.querySelector('[role=button]')
+const announcementText = announcementEl.querySelector('p').textContent.trim()
+
+if (announcementText && announcementText !== window.localStorage.getItem('announcement-closed')) {
+	announcementButton.click()
+	document.querySelector('#objectsList').style.marginTop = '2.8rem'
+}
+
+announcementEl.querySelector('[role=button]').addEventListener('click', () => {
+	window.localStorage.setItem('announcement-closed', announcementText)
+	document.querySelector('#objectsList').style.marginTop = '0'
+})
