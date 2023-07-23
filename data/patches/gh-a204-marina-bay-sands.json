@@ -1,0 +1,58 @@
+{
+	"id": "tx6gxm",
+	"name": "Marina Bay Sands",
+	"description": "The Marina Bay Sands is an iconic resort in Singapore, opening in 2010. It has since become a national symbol of Singapore.",
+	"links": {
+		"website": [
+			"http://marinabaysands.com/",
+			"https://en.wikipedia.org/wiki/Marina_Bay_Sands"
+		],
+		"subreddit": [
+			"PlaceSG",
+			"singapore",
+			"place_CentralAlliance"
+		]
+	},
+	"path": {
+		"T:0-1, 86-164": [
+			[
+				286,
+				970
+			],
+			[
+				286,
+				972
+			],
+			[
+				287,
+				972
+			],
+			[
+				287,
+				978
+			],
+			[
+				299,
+				978
+			],
+			[
+				299,
+				972
+			],
+			[
+				300,
+				972
+			],
+			[
+				300,
+				970
+			]
+		]
+	},
+	"center": {
+		"T:0-1, 86-164": [
+			293,
+			974
+		]
+	}
+}
