@@ -1,0 +1,178 @@
+{
+	"id": 135,
+	"name": "Flag of Malaysia",
+	"description": "Malaysia is a country in Southeast Asia with a population of 32 million. The background is the flag of Malaysia, known as Jalur Gemilang. The towers in the middle are the Petronas Twin Towers, the tallest twin towers in the world. At the back of the towers is Mount Kinabalu, the highest summit in the country, and Borneo island. The bird at the left is a rhinoceros hornbill, Malaysia's national bird.",
+	"links": {
+		"website": [
+			"https://en.wikipedia.org/wiki/Malaysia",
+			"https://en.wikipedia.org/wiki/Flag_of_Malaysia"
+		],
+		"subreddit": [
+			"placeMY",
+			"malaysia",
+			"malaysians",
+			"Bolehland",
+			"place_CentralAlliance"
+		]
+	},
+	"path": {
+		"60-130": [
+			[
+				323,
+				961
+			],
+			[
+				393,
+				961
+			],
+			[
+				393,
+				992
+			],
+			[
+				323,
+				992
+			],
+			[
+				323,
+				985
+			],
+			[
+				330,
+				978
+			],
+			[
+				330,
+				974
+			],
+			[
+				328,
+				972
+			],
+			[
+				325,
+				972
+			],
+			[
+				323,
+				974
+			]
+		],
+		"46-59": [
+			[
+				323,
+				961
+			],
+			[
+				390,
+				961
+			],
+			[
+				390,
+				992
+			],
+			[
+				323,
+				992
+			],
+			[
+				323,
+				985
+			],
+			[
+				330,
+				978
+			],
+			[
+				330,
+				974
+			],
+			[
+				328,
+				972
+			],
+			[
+				325,
+				972
+			],
+			[
+				323,
+				974
+			]
+		],
+		"30-45": [
+			[
+				323,
+				961
+			],
+			[
+				390,
+				961
+			],
+			[
+				390,
+				992
+			],
+			[
+				323,
+				992
+			]
+		],
+		"T:0-1, 131-164": [
+			[
+				323,
+				961
+			],
+			[
+				393,
+				961
+			],
+			[
+				393,
+				992
+			],
+			[
+				323,
+				992
+			],
+			[
+				331,
+				984
+			],
+			[
+				331,
+				980
+			],
+			[
+				329,
+				978
+			],
+			[
+				326,
+				978
+			],
+			[
+				323,
+				981
+			]
+		]
+	},
+	"center": {
+		"60-130": [
+			358,
+			977
+		],
+		"46-59": [
+			357,
+			977
+		],
+		"30-45": [
+			357,
+			977
+		],
+		"T:0-1, 131-164": [
+			358,
+			977
+		]
+	}
+}
