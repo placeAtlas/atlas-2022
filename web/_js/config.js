@@ -11,7 +11,7 @@ window.instanceId = instanceId
 const instanceSubreddit = "placeAtlas2"
 window.instanceSubreddit = instanceSubreddit
 
-const instanceRepo = "https://github.com/placeAtlas/atlas"
+const instanceRepo = "https://github.com/placeAtlas/atlas-2022"
 window.instanceRepo = instanceRepo
 
 const pageTitle = "The 2022 r/place Atlas"
@@ -265,7 +265,7 @@ Licensed under AGPL-3.0 (https://2022.place-atlas.stefanocoding.me/license.txt)
 https://2022.place-atlas.stefanocoding.me/
 https://discord.gg/pJkm23b2nA
 https://reddit.com/r/placeatlas2
-https://github.com/placeAtlas/atlas
+https://github.com/placeAtlas/atlas-2022
 
 To get the image of the canvas, use downloadCanvas().
 `, 'font-size: 150%; line-height: 150%', '')

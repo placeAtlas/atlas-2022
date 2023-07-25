@@ -5,7 +5,7 @@ body:
   - type: markdown
     attributes:
       value: |
-        Make sure you have prepared your JSON data that you get after editing. If you haven't, [CONTRIBUTING.md](https://github.com/placeAtlas/atlas/blob/master/CONTRIBUTING.md) has a guide for editing an existing entry.
+        Make sure you have prepared your JSON data that you get after editing. If you haven't, [CONTRIBUTING.md](https://github.com/placeAtlas/atlas-2022/blob/master/CONTRIBUTING.md) has a guide for editing an existing entry.
   - type: textarea
     id: description
     attributes:
