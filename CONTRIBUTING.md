@@ -20,7 +20,7 @@ When you're happy with the shape you've drawn, press <kbd>Finish</kbd>. You will
 	- **Website**: If you're describing a project, the project's main website would be suitable here.
 	- **Subreddit**: Format it like `r/subreddit`.
 	- **Discord**: Write the invite code, that the invite link without the `discord.gg/` part.
-	- **Wiki**: The page title of [The r/place Wiki](https://place-wiki.stefanocoding.me/).
+	- **Wiki**: The page title of [the r/place Wiki](https://place-wiki.stefanocoding.me/).
 
 All fields but the name are optional. For example, a country flag doesn't necessarily need a description.
 
@@ -66,7 +66,7 @@ You can use the website to edit single entries easily. On the website, click <kb
 
 Upon submitting, if you use Reddit, please flair it as <kbd>Edit Entry</kbd> instead. The method stays the same if you use GitHub.
 
-As an alternative, you can also submit an issue on GitHub using [this form](https://github.com/placeAtlas/atlas/issues/new?assignees=&labels=entry+update&template=edit-entry.yml) or report it on our Discord server.
+As an alternative, you can also submit an issue on GitHub using [this form](https://github.com/placeAtlas/atlas-2022/issues/new?assignees=&labels=entry+update&template=edit-entry.yml) or report it on our Discord server.
 
 ### Manually
 
