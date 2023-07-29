@@ -1,14 +1,18 @@
-name: Validate Atlas data
+name: Validate JSON files
 on:
   push:
     paths:
       - web/atlas.json
+      - data/patches/*.json
   pull_request:
     paths:
       - web/atlas.json
+      - data/patches/*.json
 jobs:
   validate:
     name: Validate
+    permissions:
+      contents: read
     runs-on: ubuntu-latest
     steps:
       - name: Checkout code
@@ -17,7 +21,7 @@ jobs:
         uses: actions/cache@v3
         with:
           path: ~/.cache/pip
-          key: ${{ runner.os }}-pip-${{ hashFiles('**/requirements.txt') }}
+          key: ${{ runner.os }}-pip-${{ hashFiles('tools/ci/requirements.txt') }}
           restore-keys: |
             ${{ runner.os }}-pip-
       - name: Validate

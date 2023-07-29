@@ -26,14 +26,12 @@ Running:
 from praw import Reddit
 from praw.models import Submission
 import json
-import time
 import re
 import traceback
 from aformatter import format_all, validate
 from pathlib import Path
 import humanize
 from datetime import datetime
-import secrets
 import os
 
 while not os.path.exists('README.md'):

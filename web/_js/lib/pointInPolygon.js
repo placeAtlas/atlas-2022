@@ -42,3 +42,4 @@ function pointIsInPolygon(point, polygon) {
 
 	return inside;
 }
+window.pointIsInPolygon = pointIsInPolygon

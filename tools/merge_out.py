@@ -2,8 +2,11 @@ import json
 import os
 from aformatter import format_all_entries, per_line_entries
 import traceback
-import scale_back
-from scale_back import ScaleConfig
+
+IS_DEPLOY_PREVIEW = False
+
+if os.getenv('NETLIFY') == 'true' and os.getenv('CONTEXT') == 'deploy-preview':
+	IS_DEPLOY_PREVIEW = True
 
 out_ids = []
 atlas_ids = {}
@@ -23,12 +26,14 @@ with open('web/atlas.json', 'r', encoding='utf-8') as atlas_file:
 
 last_id = 0
 
-for i, entry in enumerate(atlas_data):
-	atlas_ids[entry['id']] = i
-	id = entry['id']
-	
-	if isinstance(id, int) and id > last_id and id - last_id < 100:
-		last_id = int(id)
+if not IS_DEPLOY_PREVIEW:
+	for i, entry in enumerate(atlas_data):
+		atlas_ids[entry['id']] = i
+		id = entry['id']
+		if type(id) is str and id.isnumeric():
+			id = id.isnumeric()
+		if type(id) is int and id > last_id and id - last_id < 100:
+			last_id = int(id)
 
 patches_dir = "data/patches/"
 permanent_patch_file = "tools/temp-atlas.json"
@@ -70,12 +75,14 @@ for filename in filenames:
 			scale_back.scale_back_entries(entries)
 			
 			for entry in entries:
+				if entry is None:
+					continue
 				if '_reddit_id' in entry:
 					reddit_id = entry['_reddit_id']
 					if reddit_id in out_ids:
 						print(f"{filename}: Submission from {entry['id']} has been included! This will be ignored from the merge.")
 						continue
-					out_ids.append(str(reddit_id))
+					out_ids.append(reddit_id)
 					del entry['_reddit_id']
 
 				# This wouldn't work if it is an edit.
@@ -91,11 +98,16 @@ for filename in filenames:
 					del entry['_author']
 
 				if isinstance(entry['id'], int) and entry['id'] < 1 or entry['id'] == '0':
-					last_id += 1
+					if IS_DEPLOY_PREVIEW:
+						last_id -= 1
+					else:
+						last_id += 1
 					print(f"{filename}: Entry is new, assigned ID {last_id}")
 					entry['id'] = last_id
-				elif not is_permanent_file and entry['id'] not in out_ids:
-					out_ids.append(str(entry['id']))
+				elif isinstance(entry['id'], str) and entry['id'].isnumeric():
+					entry['id'] = int(entry['id'])
+				elif not is_permanent_file and type(entry['id']) is str and len(entry['id']) > 5 and entry['id'] not in out_ids:
+					out_ids.append(entry['id'])
 
 				if entry['id'] in atlas_ids:
 					index = atlas_ids[entry['id']]
@@ -105,8 +117,8 @@ for filename in filenames:
 					print(f"{filename}: Added {entry['id']}.")
 					atlas_data.append(entry)
 
-			if not is_permanent_file:
-				os.remove(f)
+		if not is_permanent_file:
+			os.remove(f)
 
 	except:
 		print(f"{filename}: Something went wrong; patch couldn't be implemented. Skipping.")
