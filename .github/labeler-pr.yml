@@ -1,0 +1,3 @@
+staging merge: 
+  - 'cleanup'
+  - 'staging/*'

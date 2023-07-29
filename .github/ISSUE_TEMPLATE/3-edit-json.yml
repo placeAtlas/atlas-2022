@@ -1,6 +1,6 @@
-name: Entry edit submission
-description: Edit an existing entry after using the website
-labels: ["entry update"]
+name: Patch submission
+description: Make changes to the Atlas data after using the website
+labels: ["atlas data: patch"]
 body:
   - type: markdown
     attributes:
@@ -14,8 +14,8 @@ body:
   - type: textarea
     id: json
     attributes:
-      label: Entry data
-      description: Upon editing, please copy the exported JSON-formatted data. This will be automatically formatted into code, so no need for backticks.
+      label: Patch
+      description: Upon editing, please copy the exported JSON-formatted patch. This will be automatically formatted into code, so no need for backticks.
       render: json
     validations:
       required: true

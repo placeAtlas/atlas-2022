@@ -92,9 +92,27 @@
         "design",
         "doc"
       ]
+    },
+    {
+      "login": "Hans5958",
+      "name": "Hans5958",
+      "avatar_url": "https://avatars.githubusercontent.com/u/11584103?v=4",
+      "profile": "https://github.com/Hans5958",
+      "contributions": [
+        "a11y",
+        "bug",
+        "code",
+        "content",
+        "data",
+        "doc",
+        "design",
+        "maintenance",
+        "projectManagement",
+        "tool"
+      ]
     }
   ],
-  "contributorsPerLine": 7,
+  "contributorsPerLine": 4,
   "skipCi": true,
   "repoType": "github",
   "repoHost": "https://github.com",

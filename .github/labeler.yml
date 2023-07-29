@@ -1,0 +1,5 @@
+'atlas data: patch':
+  - data/patches/**
+
+'atlas data: direct':
+  - web/atlas.json

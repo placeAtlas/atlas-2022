@@ -42,10 +42,10 @@ function createInfoBlock(entry, isPreview) {
 	linkElement.className = "text-decoration-none d-flex justify-content-between text-body"
 	if (isPreview) linkElement.href = "#"
 	else {
-		linkElement.href = formatHash(entry.id)
+		linkElement.href = formatHash(entry.id, null, null, null, false, false, false)
 		linkElement.addEventListener('click', e => {
 			e.preventDefault()
-			location.hash = formatHash(entry.id)
+			location.hash = formatHash(entry.id, null, null, null, false, false, false)
 			window.dispatchEvent(new HashChangeEvent("hashchange"))
 		})
 	}
@@ -155,7 +155,7 @@ function createInfoBlock(entry, isPreview) {
 			if (!link) return
 			const wikiLinkElement = baseLinkElement.cloneNode()
 			wikiLinkElement.href = "https://place-wiki.stefanocoding.me/wiki/" + link.replace(/ /g, '_')
-			wikiLinkElement.innerHTML = `<i class="bi bi-book" aria-hidden="true"></i>r/place Wiki Article`
+			wikiLinkElement.innerHTML = `<i class="bi bi-book" aria-hidden="true"></i> r/place Wiki Article`
 			wikiGroupElement.appendChild(wikiLinkElement)
 		})
 	}
@@ -174,7 +174,7 @@ function createInfoBlock(entry, isPreview) {
 		const editElement = document.createElement("a")
 		editElement.textContent = "Edit"
 		editElement.className = "btn btn-sm btn-outline-primary"
-		editElement.href = "./?mode=draw&id=" + entry.id + formatHash(undefined)
+		editElement.href = "./?mode=draw&id=" + entry.id + formatHash(false)
 		editElement.title = "Edit " + entry.name
 		idElementContainer.appendChild(editElement)
 	}
