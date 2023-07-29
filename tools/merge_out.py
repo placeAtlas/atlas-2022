@@ -75,7 +75,7 @@ for filename in filenames:
 					if reddit_id in out_ids:
 						print(f"{filename}: Submission from {entry['id']} has been included! This will be ignored from the merge.")
 						continue
-					out_ids.append(reddit_id)
+					out_ids.append(str(reddit_id))
 					del entry['_reddit_id']
 
 				# This wouldn't work if it is an edit.
@@ -95,7 +95,7 @@ for filename in filenames:
 					print(f"{filename}: Entry is new, assigned ID {last_id}")
 					entry['id'] = last_id
 				elif not is_permanent_file and entry['id'] not in out_ids:
-					out_ids.append(entry['id'])
+					out_ids.append(str(entry['id']))
 
 				if entry['id'] in atlas_ids:
 					index = atlas_ids[entry['id']]
