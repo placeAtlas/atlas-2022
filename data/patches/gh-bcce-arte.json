@@ -1,0 +1,40 @@
+{
+	"id": -1,
+	"name": "arte",
+	"description": "Arte is a European TV network, broadcasting cultural programs and documentaries.",
+	"links": {
+		"website": [
+			"https://en.wikipedia.org/wiki/Arte"
+		]
+	},
+	"path": {
+		"91-164": [
+			[
+				1135,
+				844
+			],
+			[
+				1135,
+				858
+			],
+			[
+				1190,
+				858
+			],
+			[
+				1190,
+				844
+			],
+			[
+				1136,
+				844
+			]
+		]
+	},
+	"center": {
+		"91-164": [
+			1163,
+			851
+		]
+	}
+}
