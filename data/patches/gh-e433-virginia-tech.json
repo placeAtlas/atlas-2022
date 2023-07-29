@@ -1,0 +1,95 @@
+{
+	"id": "tx0moa",
+	"name": "Virginia Tech",
+	"description": "Virginia Tech is an engineering-focused university in Blacksburg, a city in southwest Virginia, United States. Go Hokies!\n\nThis is the fifth version of the logo after the previous one was destroyed by the French.",
+	"links": {
+		"website": [
+			"https://vt.edu/",
+			"https://en.wikipedia.org/wiki/Virginia_Tech"
+		],
+		"subreddit": [
+			"VirginiaTech"
+		],
+		"discord": [
+			"vt"
+		]
+	},
+	"path": {
+		"98-99": [
+			[
+				1844,
+				548
+			],
+			[
+				1844,
+				565
+			],
+			[
+				1880,
+				565
+			],
+			[
+				1880,
+				548
+			]
+		],
+		"61-94": [
+			[
+				1800,
+				579
+			],
+			[
+				1800,
+				594
+			],
+			[
+				1833,
+				594
+			],
+			[
+				1833,
+				582
+			],
+			[
+				1826,
+				582
+			],
+			[
+				1826,
+				579
+			]
+		],
+		"T:0-1, 158-164": [
+			[
+				964,
+				364
+			],
+			[
+				964,
+				378
+			],
+			[
+				990,
+				378
+			],
+			[
+				990,
+				364
+			]
+		]
+	},
+	"center": {
+		"98-99": [
+			1862,
+			557
+		],
+		"61-94": [
+			1817,
+			587
+		],
+		"T:0-1, 158-164": [
+			977,
+			371
+		]
+	}
+}
