@@ -26,7 +26,8 @@ last_id = 0
 for i, entry in enumerate(atlas_data):
 	atlas_ids[entry['id']] = i
 	id = entry['id']
-	if id.isnumeric() and int(id) > last_id and int(id) - last_id < 100:
+	
+	if isinstance(id, int) and id > last_id and id - last_id < 100:
 		last_id = int(id)
 
 patches_dir = "data/patches/"
@@ -74,7 +75,7 @@ for filename in filenames:
 					if reddit_id in out_ids:
 						print(f"{filename}: Submission from {entry['id']} has been included! This will be ignored from the merge.")
 						continue
-					out_ids.append(reddit_id)
+					out_ids.append(str(reddit_id))
 					del entry['_reddit_id']
 
 				# This wouldn't work if it is an edit.
@@ -92,11 +93,9 @@ for filename in filenames:
 				if isinstance(entry['id'], int) and entry['id'] < 1 or entry['id'] == '0':
 					last_id += 1
 					print(f"{filename}: Entry is new, assigned ID {last_id}")
-					entry['id'] = str(last_id)
-				elif isinstance(entry['id'], int):
-					entry['id'] = str(entry['id'])
+					entry['id'] = last_id
 				elif not is_permanent_file and entry['id'] not in out_ids:
-					out_ids.append(entry['id'])
+					out_ids.append(str(entry['id']))
 
 				if entry['id'] in atlas_ids:
 					index = atlas_ids[entry['id']]
