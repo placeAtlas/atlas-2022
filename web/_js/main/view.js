@@ -335,7 +335,7 @@ function buildObjectsList(filter, sort = defaultSort) {
 				entry.name.toLowerCase().includes(filter.toLowerCase())
 				|| entry.description?.toLowerCase().includes(filter.toLowerCase())
 				|| Object.values(entry.links).flat().some(str => str.toLowerCase().includes(filter))
-				|| entry.id === filter
+				|| entry.id.toString() === filter
 			)
 		})
 		document.getElementById("atlasSize").innerHTML = "Found " + atlasDisplay.length + " entries."
