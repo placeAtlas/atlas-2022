@@ -2,7 +2,7 @@
  * The 2022 r/place Atlas
  * Copyright (c) 2017 Roland Rytz <roland@draemm.li>
  * Copyright (c) 2022 Place Atlas contributors
- * Licensed under AGPL-3.0 (https://place-atlas.stefanocoding.me/license.txt)
+ * Licensed under AGPL-3.0 (https://2022.place-atlas.stefanocoding.me/license.txt)
  */
 
 const innerContainer = document.getElementById("innerContainer")
@@ -524,3 +524,19 @@ function updateAtlasAll(atlas = atlasAll) {
 	}
 	return atlas
 }
+
+// Announcement system
+
+const announcementEl = document.querySelector("#headerAnnouncement")
+const announcementButton = announcementEl.querySelector('[role=button]')
+const announcementText = announcementEl.querySelector('p').textContent.trim()
+
+if (announcementText && announcementText !== window.localStorage.getItem('announcement-closed')) {
+	announcementButton.click()
+	document.querySelector('#objectsList').style.marginTop = '2.8rem'
+}
+
+announcementEl.querySelector('[role=button]').addEventListener('click', () => {
+	window.localStorage.setItem('announcement-closed', announcementText)
+	document.querySelector('#objectsList').style.marginTop = '0'
+})

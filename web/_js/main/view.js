@@ -2,7 +2,7 @@
  * The 2022 r/place Atlas
  * Copyright (c) 2017 Roland Rytz <roland@draemm.li>
  * Copyright (c) 2022 Place Atlas contributors
- * Licensed under AGPL-3.0 (https://place-atlas.stefanocoding.me/license.txt)
+ * Licensed under AGPL-3.0 (https://2022.place-atlas.stefanocoding.me/license.txt)
  */
 
 const linesCanvas = document.getElementById("linesCanvas")
@@ -676,7 +676,7 @@ function highlightEntryFromUrl() {
 	if (!id) return
 
 	const entries = atlas.filter(e => {
-		return e.id === id
+		return e.id.toString() === id
 	})
 
 	if (entries.length !== 1) return 
