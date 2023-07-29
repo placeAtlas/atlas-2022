@@ -1,0 +1,73 @@
+{
+	"id": "tx6kq5",
+	"name": "Merlion",
+	"description": "The Merlion is the national mascot of Singapore. It is half lion and half fish.",
+	"links": {
+		"website": [
+			"https://en.wikipedia.org/wiki/Merlion"
+		],
+		"subreddit": [
+			"PlaceSG",
+			"singapore",
+			"place_CentralAlliance"
+		]
+	},
+	"path": {
+		"T:0-1, 88-164": [
+			[
+				310,
+				960
+			],
+			[
+				306,
+				964
+			],
+			[
+				306,
+				966
+			],
+			[
+				303,
+				969
+			],
+			[
+				300,
+				976
+			],
+			[
+				300,
+				978
+			],
+			[
+				317,
+				978
+			],
+			[
+				317,
+				974
+			],
+			[
+				319,
+				972
+			],
+			[
+				317,
+				970
+			],
+			[
+				317,
+				964
+			],
+			[
+				314,
+				960
+			]
+		]
+	},
+	"center": {
+		"T:0-1, 88-164": [
+			310,
+			971
+		]
+	}
+}
