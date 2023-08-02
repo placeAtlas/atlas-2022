@@ -1,11 +1,11 @@
 [build]
 	publish = "dist/"
 	command = "FILE=tools/ci/build-prod.sh; rm -rf dist/; if [ -f $FILE ]; then bash $FILE; else cp -r web/ dist/; fi"
-	ignore = "git diff --quiet $CACHED_COMMIT_REF $COMMIT_REF web/ .parcelrc netlify.toml package-lock.json package.json postcss.config.js"
+	ignore = "git diff --quiet $CACHED_COMMIT_REF $COMMIT_REF web/ tools/ .parcelrc netlify.toml package-lock.json package.json postcss.config.js"
 
 [build.environment]
 	PYTHON_VERSION = "3.8"
 
 [context.deploy-preview]
 	command = "FILE=tools/ci/build-preview.sh; rm -rf dist/; if [ -f $FILE ]; then bash $FILE; else cp -r web/ dist/; fi"
-	ignore = "git diff --quiet $CACHED_COMMIT_REF $COMMIT_REF data/patches/ web/ .parcelrc netlify.toml package-lock.json package.json postcss.config.js"
+	ignore = "git diff --quiet $CACHED_COMMIT_REF $COMMIT_REF data/patches/ web/ tools/ .parcelrc netlify.toml package-lock.json package.json postcss.config.js"

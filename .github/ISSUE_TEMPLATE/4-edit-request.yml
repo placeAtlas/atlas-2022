@@ -1,6 +1,6 @@
 name: Edit request
-description: Request for edits of the Atlas data 
-labels: ["entry update"]
+description: Request for changes to the Atlas data 
+labels: ["atlas data: request"]
 body:
   - type: textarea
     id: description

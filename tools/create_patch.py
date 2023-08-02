@@ -2,6 +2,7 @@ import json
 import os
 import secrets
 from pathlib import Path
+import re
 
 while not os.path.exists('README.md'):
 	os.chdir('..')
@@ -32,8 +33,11 @@ author = input("Author: ")
 if author:
 	entry['_author'] = author
 
-filename = f'gh-{secrets.token_hex(2)}-{"-".join(entry["name"].split()).lower()}.json'
-with open(f'{patches_dir}gh-{secrets.token_hex(2)}-{"-".join(entry["name"].split()).lower()}.json', 'w', encoding='utf-8') as out_file:
+slug_name = re.sub('\s+', ' ', entry['name'])
+slug_name = re.sub('[^a-zA-Z0-9 ]', '', slug_name)
+slug_name = "-".join(slug_name.split(' ')).lower()
+filename = f'gh-{secrets.token_hex(2)}-{slug_name}.json'
+with open(f'{patches_dir}{filename}', 'w', encoding='utf-8') as out_file:
 	out_file.write(json.dumps(entry, ensure_ascii=False))
 
 print("Patch created as " + filename + "!")

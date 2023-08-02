@@ -8,6 +8,8 @@ rm -rf .parcel-cache
 cp -r web/ dist-temp/
 
 npm i
+pip install -r tools/ci/requirements.txt
+
 python tools/ci/cdn_to_local.py
 npx parcel build dist-temp/index.html dist-temp/**.html --dist-dir "dist" --no-source-maps --no-content-hash
 
