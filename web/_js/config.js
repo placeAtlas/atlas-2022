@@ -1,8 +1,8 @@
 // This script only applies to this instance of the Atlas.
-// Please also check code indicated with "@instance-only" outside this file.
+// Please also check code indicated with "@instanceonly" outside this file.
 // TODO: Avoid having instance-only code inside the main scripts to make updating easier.
 
-const prodDomain = "place-atlas.stefanocoding.me"
+const prodDomain = "2022.place-atlas.stefanocoding.me"
 window.prodDomain = prodDomain
 
 const instanceId = "2022"
@@ -11,7 +11,7 @@ window.instanceId = instanceId
 const instanceSubreddit = "placeAtlas2"
 window.instanceSubreddit = instanceSubreddit
 
-const instanceRepo = "https://github.com/placeAtlas/atlas"
+const instanceRepo = "https://github.com/placeAtlas/atlas-2022"
 window.instanceRepo = instanceRepo
 
 const pageTitle = "The 2022 r/place Atlas"
@@ -23,9 +23,15 @@ const canvasSize = {
 }
 window.canvasSize = canvasSize
 
+const canvasOffset = {
+	x: 0,
+	y: 0
+}
+window.canvasOffset = canvasOffset
+
 const canvasCenter = {
-	x: canvasSize.x/2,
-	y: canvasSize.y/2
+	x: canvasSize.x/2 + canvasOffset.x,
+	y: canvasSize.y/2 + canvasOffset.y
 }
 window.canvasCenter = canvasCenter
 
@@ -254,18 +260,18 @@ window.defaultVariation = defaultVariation
 let defaultPeriod = variationsConfig[defaultVariation].default
 window.defaultPeriod = defaultPeriod
 
-const useNumericalId = false
+const useNumericalId = true
 window.useNumericalId = useNumericalId
 
 console.info(`%cThe 2022 r/place Atlas
 %cCopyright (c) 2017 Roland Rytz <roland@draemm.li>
 Copyright (c) 2022 Place Atlas contributors
-Licensed under AGPL-3.0 (https://place-atlas.stefanocoding.me/license.txt)
+Licensed under AGPL-3.0 (https://2022.place-atlas.stefanocoding.me/license.txt)
 
-https://place-atlas.stefanocoding.me/
+https://2022.place-atlas.stefanocoding.me/
 https://discord.gg/pJkm23b2nA
 https://reddit.com/r/placeatlas2
-https://github.com/placeAtlas/atlas
+https://github.com/placeAtlas/atlas-2022
 
 To get the image of the canvas, use downloadCanvas().
 `, 'font-size: 150%; line-height: 150%', '')

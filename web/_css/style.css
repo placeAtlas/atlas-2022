@@ -2,7 +2,7 @@
  * The 2022 r/place Atlas
  * Copyright (c) 2017 Roland Rytz <roland@draemm.li>
  * Copyright (c) 2022 Place Atlas contributors
- * Licensed under AGPL-3.0 (https://place-atlas.stefanocoding.me/license.txt)
+ * Licensed under AGPL-3.0 (https://2022.place-atlas.stefanocoding.me/license.txt)
  */
 
 /* purgecss start ignore */
@@ -30,6 +30,7 @@ svg.icon {
 body[data-mode] {
 	overflow: hidden;
 	background-color: #111;
+	touch-action: none;
 }
 
 #wrapper {
@@ -82,7 +83,6 @@ body[data-mode]:not([data-mode="draw"]) #drawNavButtons, [data-mode="draw"] #def
 	width: calc(100% - 400px);
 	height: 100%;
 	margin-left: 400px;
-	touch-action: manipulation;
 	overflow: hidden;
 }
 
@@ -433,6 +433,11 @@ body:not([data-dev]) .show-only-on-dev {
 .period-group.no-time-slider input,
 .period-group.no-time-slider .period-input-controls {
 	display: none !important;
+}
+
+[data-mode="explore"] #entriesListControls,
+[data-mode="explore"] #entriesList {
+	display: none !important
 }
 
 /* about.html */

@@ -2,7 +2,7 @@
  * The 2022 r/place Atlas
  * Copyright (c) 2017 Roland Rytz <roland@draemm.li>
  * Copyright (c) 2022 Place Atlas contributors
- * Licensed under AGPL-3.0 (https://place-atlas.stefanocoding.me/license.txt)
+ * Licensed under AGPL-3.0 (https://2022.place-atlas.stefanocoding.me/license.txt)
  */
 
 const innerContainer = document.getElementById("innerContainer")
@@ -23,7 +23,7 @@ if (window.devicePixelRatio) {
 }
 
 const maxZoom = 128
-const minZoom = 0.1
+const minZoom = 0.125
 
 let zoomOrigin = [0, 0]
 let scaleZoomOrigin = [0, 0]
@@ -39,28 +39,37 @@ function applyView() {
 	//console.log(zoomOrigin, scaleZoomOrigin)
 	//console.log(scaleZoomOrigin[0])
 
-	scaleZoomOrigin[0] = Math.max(-canvasCenter.x, Math.min(canvasCenter.x, scaleZoomOrigin[0]))
-	scaleZoomOrigin[1] = Math.max(-canvasCenter.y, Math.min(canvasCenter.y, scaleZoomOrigin[1]))
+	scaleZoomOrigin[0] = Math.max(-canvasCenter.x + canvasOffset.x, Math.min(canvasCenter.x - canvasOffset.x, scaleZoomOrigin[0]))
+	scaleZoomOrigin[1] = Math.max(-canvasCenter.y + canvasOffset.y, Math.min(canvasCenter.y - canvasOffset.y, scaleZoomOrigin[1]))
+	zoom = Math.max(minZoom, Math.min(maxZoom, zoom))
 
 	zoomOrigin = [scaleZoomOrigin[0] * zoom, scaleZoomOrigin[1] * zoom]
 
-	innerContainer.style.height = (~~(zoom * canvasSize.x)) + "px"
-	innerContainer.style.width = (~~(zoom * canvasSize.y)) + "px"
+	innerContainer.style.width = (~~(zoom * canvasSize.x)) + "px"
+	innerContainer.style.height = (~~(zoom * canvasSize.y)) + "px"
 
 	innerContainer.style.left = ~~(container.clientWidth / 2 - innerContainer.clientWidth / 2 + zoomOrigin[0] + container.offsetLeft) + "px"
 	innerContainer.style.top = ~~(container.clientHeight / 2 - innerContainer.clientHeight / 2 + zoomOrigin[1] + container.offsetTop) + "px"
 
 }
 
-function setView(x, y, zoomN = zoom) {
-	
-	zoom = zoomN
-	scaleZoomOrigin = [
-		canvasCenter.x - x, 
-		canvasCenter.y - y
-	]
+function setView(targetX, targetY, targetZoom) {
+
+	if (isNaN(targetX)) targetX = null
+	if (isNaN(targetY)) targetY = null
+
+	zoom = targetZoom ?? zoom
+	if ((targetX ?? null) !== null) scaleZoomOrigin[0] = canvasCenter.x - targetX
+	if ((targetY ?? null) !== null) scaleZoomOrigin[1] = canvasCenter.y - targetY
+
 	applyView()
 
+}
+
+function updateHash(...args) {
+	const newLocation = new URL(window.location)
+	newLocation.hash = formatHash(...args)
+	if (location.hash !== newLocation.hash) history.replaceState({}, "", newLocation)
 }
 
 let atlas = null
@@ -76,15 +85,6 @@ async function init() {
 
 	const args = window.location.search
 	const params = new URLSearchParams(args)
-
-	// For Reviewing Reddit Changes
-	// const atlasRef = '../tools/temp-atlas.json'
-	const atlasRef = params.get('atlas') || './atlas.json'
-	const atlasResp = await fetch(atlasRef)
-	atlas = await atlasResp.json()
-	atlas.sort((a, b) => a.center[1] - b.center[1])
-
-	atlasAll = updateAtlasAll(atlas)
 
 	let mode = "view"
 
@@ -102,11 +102,19 @@ async function init() {
 		}
 	}
 
-	const hash = window.location.hash.substring(1)
-	const [, period] = hash.split('/')
+	if (mode === "about") window.location.replace("./about.html")
 
-	if (period) {
-		const [, targetPeriod, targetVariation] = parsePeriod(period)
+	// For Reviewing Reddit Changes
+	// const atlasRef = '../tools/temp-atlas.json'
+	const atlasRef = params.get('atlas') || './atlas.json'
+	const atlasResp = await fetch(atlasRef)
+	atlasAll = updateAtlasAll(await atlasResp.json())
+
+	const hash = window.location.hash.substring(1)
+	const [, hashPeriod, hashX, hashY, hashZoom] = hash.split('/')
+
+	if (hashPeriod) {
+		const [, targetPeriod, targetVariation] = parsePeriod(hashPeriod)
 		await updateTime(targetPeriod, targetVariation, true)
 	} else {
 		await updateTime(currentPeriod, currentVariation, true)
@@ -114,15 +122,18 @@ async function init() {
 
 	//console.log(document.documentElement.clientWidth, document.documentElement.clientHeight)
 
-	zoomOrigin = [0, 0]
-	applyView()
+	setView(
+		(isNaN(hashX) || hashX === '') ? canvasCenter.x : Number(hashX), 
+		(isNaN(hashY) || hashY === '') ? canvasCenter.y : Number(hashY), 
+		(isNaN(hashZoom) || hashZoom === '') ? zoom : Number(hashZoom)
+	)
 
 	let initialPinchDistance = 0
 	let initialPinchZoom = 0
 	let initialPinchZoomOrigin = [0, 0]
 
-	let desiredZoom
-	let zoomAnimationFrame
+	// let desiredZoom
+	// let zoomAnimationFrame
 
 	document.body.dataset.mode = mode
 
@@ -131,12 +142,8 @@ async function init() {
 
 	if (mode === "draw") {
 		initDraw()
-	} else if (mode === "about") {
-		window.location = "./about.html"
 	} else if (mode === "overlap") {
-		if (initOverlap) {
-			initOverlap()
-		}
+		if (initOverlap) initOverlap()
 	} else if (mode === "explore") {
 		initExplore()
 	} else if (mode.startsWith("diff")) {
@@ -146,13 +153,15 @@ async function init() {
 			let liveAtlas = await liveAtlasResp.json()
 			liveAtlas = updateAtlasAll(liveAtlas)
 
-			const liveAtlasReduced = liveAtlas.reduce(function (a, c) {
-				a[c.id] = c
-				return a
+			const liveAtlasReduced = liveAtlas.reduce((atlas, entry) => {
+				delete entry._index
+				atlas[entry.id] = entry
+				return atlas
 			}, {})
 			// Mark added/edited entries
 			atlasAll = atlasAll.map(function (entry) {
-				if (liveAtlasReduced[entry.id] === undefined) {
+				delete entry._index
+				if (!liveAtlasReduced[entry.id]) {
 					entry.diff = "add"
 				} else if (JSON.stringify(entry) !== JSON.stringify(liveAtlasReduced[entry.id])) {
 					entry.diff = "edit"
@@ -161,23 +170,23 @@ async function init() {
 			})
 
 			// Mark removed entries
-			const atlasReduced = atlasAll.reduce(function (a, c) {
-				a[c.id] = c
-				return a
+			const atlasReduced = atlasAll.reduce((atlas, entry) => {
+				delete entry._index
+				atlas[entry.id] = entry
+				return atlas
 			}, {})
-			const removedEntries = liveAtlas.filter(entry =>
-				atlasReduced[entry.id] === undefined
-			).map(entry => {
+			const removedEntries = liveAtlas.filter(entry => !atlasReduced[entry.id]).map(entry => {
+				delete entry._index
 				entry.diff = "delete"
 				return entry
 			})
 			atlasAll.push(...removedEntries)
 
 			if (mode.includes("only")) {
-				atlasAll = atlasAll.filter(function (entry) {
-					return typeof entry.diff === "string"
-				})
+				atlasAll = atlasAll.filter(entry => entry.diff)
 			}
+
+			atlas = generateAtlasForPeriod()
 
 		} catch (error) {
 			console.warn("Diff mode failed to load, reverting to normal view.", error)
@@ -309,6 +318,7 @@ async function init() {
 
 		zoom = Math.max(minZoom, Math.min(maxZoom, zoom))
 		applyZoom(x, y, zoom)
+		updateHash()
 	}, { passive: true })
 
 	/*function setDesiredZoom(x, y, target){
@@ -365,8 +375,8 @@ async function init() {
 			]
 
 			mousedown(
-				(e.touches[0].clientX + e.touches[1].clientX) / 2,
-				(e.touches[0].clientY + e.touches[1].clientY) / 2
+				(e.touches[0].clientX + e.touches[1].clientX) / 2 - container.offsetLeft,
+				(e.touches[0].clientY + e.touches[1].clientY) / 2 - container.offsetTop
 			)
 
 		}
@@ -374,12 +384,13 @@ async function init() {
 	}
 
 	window.addEventListener("mousemove", e => {
-		updateLines()
+		// updateLines()
 		mousemove(e.clientX, e.clientY)
 		if (dragging) {
 			e.preventDefault()
 		}
 	})
+
 	window.addEventListener("touchmove", e => {
 
 		if (e.touches.length === 2 || e.scale > 1) {
@@ -411,8 +422,6 @@ async function init() {
 	}
 
 	function touchmove(e) {
-
-		updateLines()
 
 		if (e.touches.length === 1) {
 
@@ -470,17 +479,15 @@ async function init() {
 	window.addEventListener("touchend", touchend)
 
 	function mouseup(x, y) {
-		if (dragging) {
-			dragging = false
-		}
+		dragging = false
+		updateHash()
 	}
 
 	function touchend(e) {
-
 		if (e.touches.length === 0) {
-
 			mouseup()
 			setTimeout(() => updateLines(), 0)
+			dragging = false
 
 		} else if (e.touches.length === 1) {
 			initialPinchZoom = zoom
@@ -524,3 +531,19 @@ function updateAtlasAll(atlas = atlasAll) {
 	}
 	return atlas
 }
+
+// Announcement system
+
+const announcementEl = document.querySelector("#headerAnnouncement")
+const announcementButton = announcementEl.querySelector('[role=button]')
+const announcementText = announcementEl.querySelector('p').textContent.trim()
+
+if (announcementText && announcementText !== window.localStorage.getItem('announcement-closed')) {
+	announcementButton.click()
+	document.querySelector('#objectsList').style.marginTop = '2.8rem'
+}
+
+announcementEl.querySelector('[role=button]').addEventListener('click', () => {
+	window.localStorage.setItem('announcement-closed', announcementText)
+	document.querySelector('#objectsList').style.marginTop = '0'
+})

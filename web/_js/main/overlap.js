@@ -2,7 +2,7 @@
  * The 2022 r/place Atlas
  * Copyright (c) 2017 Roland Rytz <roland@draemm.li>
  * Copyright (c) 2022 Place Atlas contributors
- * Licensed under AGPL-3.0 (https://place-atlas.stefanocoding.me/license.txt)
+ * Licensed under AGPL-3.0 (https://2022.place-atlas.stefanocoding.me/license.txt)
  */
 
 function initOverlap() {
@@ -11,13 +11,13 @@ function initOverlap() {
 
 	// const hovered = []
 
-	buildObjectsList(null, null)
+	resetEntriesList()
 	renderBackground(atlas)
 	render()
 
 	document.addEventListener('timeupdate', () => {
 		atlasDisplay = atlas.slice()
-		resetEntriesList(null, null)
+		resetEntriesList()
 		renderBackground(atlasDisplay)
 		render()
 	})
@@ -27,7 +27,7 @@ function initOverlap() {
 	updateLines()
 
 	if (window.location.hash) {
-		highlightEntryFromUrl()
+		updateViewFromHash()
 	}
 
 	function renderBackground(atlas) {
@@ -44,11 +44,11 @@ function initOverlap() {
 			backgroundContext.beginPath()
 
 			if (path[0]) {
-				backgroundContext.moveTo(path[0][0], path[0][1])
+				backgroundContext.moveTo(path[0][0] - canvasOffset.x, path[0][1] - canvasOffset.y)
 			}
 
 			for (let p = 1; p < path.length; p++) {
-				backgroundContext.lineTo(path[p][0], path[p][1])
+				backgroundContext.lineTo(path[p][0] - canvasOffset.x, path[p][1] - canvasOffset.y)
 			}
 
 			backgroundContext.closePath()

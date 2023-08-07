@@ -2,7 +2,7 @@
 	The 2022 r/place Atlas
 	Copyright (c) 2017 Roland Rytz <roland@draemm.li>
 	Copyright (c) 2022 Place Atlas contributors
-	Licensed under AGPL-3.0 (https://place-atlas.stefanocoding.me/license.txt)
+	Licensed under AGPL-3.0 (https://2022.place-atlas.stefanocoding.me/license.txt)
 -->
 
 <!DOCTYPE html>
@@ -17,14 +17,22 @@
 		
 		<meta property="og:title" content="The 2022 r/place Atlas">
 		<meta property="og:type" content="website">
-		<meta property="og:url" content="https://place-atlas.stefanocoding.me/">
-		<meta property="og:image" content="https://place-atlas.stefanocoding.me/_img/logo.png">
+		<meta property="og:url" content="https://2022.place-atlas.stefanocoding.me/">
+		<meta property="og:image" content="https://2022.place-atlas.stefanocoding.me/_img/logo.png">
 		<meta property="og:image:type" content="image/png">
 		<meta property="og:image:width" content="512">
 		<meta property="og:image:height" content="512">
 		<meta property="og:image:alt" content="The r/place Atlas logo">
 		<meta property="og:description" content="An interactive map of Reddit's 2022 r/place, with information to each artwork of the canvas provided by the community.">
-		
+
+		<meta name="twitter:card" content="summary">
+		<meta name="twitter:creator" content="Place Atlas contributors (original by Roland Rytz)">
+		<meta name="twitter:url" content="https://2022.place-atlas.stefanocoding.me/">
+		<meta name="twitter:title" content="The 2022 r/place Atlas">
+		<meta name="twitter:description" content="An interactive map of Reddit's 2022 r/place, with information to each artwork of the canvas provided by the community.">
+		<meta name="twitter:image" content="https://2022.place-atlas.stefanocoding.me/_img/logo.png">
+		<meta name="twitter:image:alt" content="The 2022 r/place Atlas logo">
+
 		<!-- <meta name="google-site-verification" content="gZGHpBSMzffAbIn0qB8b00We6EwSGkDTfDoQVv-NWss"/> -->
 		
 		<meta name="viewport" content="width=device-width, height=device-height, initial-scale=1, minimum-scale=1, maximum-scale=1, shrink-to-fit=no, viewport-fit=cover"> <!-- user-scalable=no -->
@@ -49,7 +57,7 @@
 				"@context": "https://schema.org",
 				"@type": "WebSite",
 				"name": "The 2022 r/place Atlas",
-				"url": "https://place-atlas.stefanocoding.me/",
+				"url": "https://2022.place-atlas.stefanocoding.me/",
 				"author": [
 					   {
 							"@type": "Person",
@@ -78,7 +86,7 @@
 						"name": "Place Atlas",
 						"alternateName": "r/placeatlas2",
 						"url": "https://github.com/placeAtlas",
-						"image": "http://place-atlas.stefanocoding.me/_img/logo.png",
+						"image": "http://2022.place-atlas.stefanocoding.me/_img/logo.png",
 						"founder": {
 							"@type": "Person",
 							"@id": "#Codixer",
@@ -94,58 +102,74 @@
 					}
 				],
 				"copyrightYear": 2017,
-				"license": "https://place-atlas.stefanocoding.me/license.txt",
+				"license": "https://2022.place-atlas.stefanocoding.me/license.txt",
 				"inLanguage": "English",
 				"isAccessibleForFree": true,
 				"keywords": "reddit, r/place, place, experiment",
-				"thumbnailUrl": "https://place-atlas.stefanocoding.me/_img/logo.png",
-				"image": "https://place-atlas.stefanocoding.me/_img/logo.png",
+				"thumbnailUrl": "https://2022.place-atlas.stefanocoding.me/_img/logo.png",
+				"image": "https://2022.place-atlas.stefanocoding.me/_img/logo.png",
 				"description": "An interactive map of Reddit's 2022 r/place, with information to each artwork of the canvas."
 			}
 		</script>
 	</head>
 	<body>
 		<div id="wrapper" class="listHidden">
-			<nav id="main-navbar" class="navbar navbar-expand-md fixed-top bg-body border-bottom">
-				<div class="container-fluid">
-					<a class="navbar-brand text-body d-flex align-items-center" href="./">
-						<picture>
-							<source srcset="./_img/favicon-dark.svg" media="(prefers-color-scheme: dark)">
-							<img class="d-block me-2" height="32" width="32" src="./_img/favicon.svg" alt="">
-						</picture>
-						The 2022 r/place Atlas
-					</a>
-					<button class="navbar-toggler text-body collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
-						<i class="bi bi-list" aria-hidden="true"></i>
-					</button>
-					<div class="collapse navbar-collapse" id="navbarCollapse">
-						<ul class="navbar-nav me-auto my-2 my-md-0">
-							<li class="nav-item">
-								<div class="btn-group" role="group">
-									<button id="showListButton" class="btn btn-outline-primary" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasList" aria-controls="offcanvasList">Entries List</button>
-								</div>
-							</li>
-						</ul>
-						<ul class="navbar-nav mx-auto d-block d-md-none d-lg-block">
-							<li class="nav-item d-flex align-items-center gap-2">
-								<span class="p-2">Coordinates: <span class="badge bg-secondary" id="coords_p">0, 0</span></span>
-							</li>
-						</ul>
-						<hr class="d-md-none">
-						<ul class="navbar-nav flex-row flex-wrap ms-auto">
-							<li class="nav-item col-6 col-md-auto">
-								<a class="nav-link active" href="./" aria-current="page">Atlas Map</a>
-							</li>
-							<li class="nav-item col-6 col-md-auto">
-								<a class="nav-link" href="https://place-wiki.stefanocoding.me/">Wiki</a>
-							</li>
-							<li class="nav-item col-6 col-md-auto">
-								<a class="nav-link" href="./about.html">About</a>
-							</li>
-						</ul>
+			<header class="fixed-top">
+				<aside class="container-fluid alert-primary collapse" id="headerAnnouncement">
+					<div class="d-flex w-100 py-2 align-items-center">
+						<i class="bi bi-info-circle-fill fs-5"></i>
+						<p class="mb-0 flex-grow-1 px-2"> The 2023 edition of r/place is currently underway, and we are back! Check out <a class="alert-link" href="https://2023.place-atlas.stefanocoding.me">The 2023 r/place Atlas</a>!</p>
+						<a class="fs-5" data-bs-toggle="collapse" href="#headerAnnouncement" role="button" aria-expanded="false" aria-controls="headerAnnouncement"><i class="bi bi-x-lg"></i></a>	
 					</div>
-				</div>
-			</nav>
+				</aside>
+				<nav id="main-navbar" class="navbar navbar-expand-md bg-body border-bottom">
+					<div class="container-fluid">
+						<a class="navbar-brand text-body d-flex align-items-center" href="./">
+							<picture>
+								<source srcset="./_img/favicon-dark.svg" media="(prefers-color-scheme: dark)">
+								<img class="d-block me-2" height="32" width="32" src="./_img/favicon.svg" alt="">
+							</picture>
+							The 2022 r/place Atlas
+						</a>
+						<button class="navbar-toggler text-body collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
+							<i class="bi bi-list" aria-hidden="true"></i>
+						</button>
+						<div class="collapse navbar-collapse" id="navbarCollapse">
+							<ul class="navbar-nav me-auto my-2 my-md-0">
+								<li class="nav-item">
+									<div class="btn-group" role="group">
+										<button id="showListButton" class="btn btn-outline-primary" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasList" aria-controls="offcanvasList">Entries List</button>
+									</div>
+								</li>
+							</ul>
+							<ul class="navbar-nav mx-auto d-block d-md-none d-lg-block">
+								<li class="nav-item d-flex align-items-center gap-2">
+									<span class="p-2">Coordinates: <span class="badge bg-secondary" id="coords_p">0, 0</span></span>
+								</li>
+							</ul>
+							<hr class="d-md-none">
+							<ul class="navbar-nav flex-row flex-wrap ms-auto">
+								<li class="nav-item dropdown">
+									<a class="nav-link dropdown-toggle active" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false" aria-current="page">
+										Atlas Map
+									</a>
+									<ul class="dropdown-menu">
+										<li><a class="dropdown-item" href="https://2017.place-atlas.stefanocoding.me/">2017</a></li>
+										<li><a class="dropdown-item" href="#" aria-current="page">2022</a></li>
+										<li><a class="dropdown-item" href="https://2023.place-atlas.stefanocoding.me/">2023</a></li>
+									</ul>
+								</li>
+								<li class="nav-item col-6 col-md-auto">
+									<a class="nav-link" href="https://place-wiki.stefanocoding.me/">Place Wiki</a>
+								</li>
+								<li class="nav-item col-6 col-md-auto">
+									<a class="nav-link" href="./about.html">About</a>
+								</li>
+							</ul>
+						</div>
+					</div>
+				</nav>
+			</header>
 			<div id="container">
 				<div id="loading" class="d-flex justify-content-center">
 					<div id="loadingContent" class="my-auto mx-3 text-center text-white">
@@ -156,7 +180,7 @@
 						<noscript>
 							<p>Sorry, you need JavaScript to view the Atlas.</p>
 							<p>All JavaScript on this site is licensed under either the MIT or AGPL license.</p>
-							<p><a href="https://github.com/placeAtlas/atlas">See the source on GitHub</a></p>
+							<p><a href="https://github.com/placeAtlas/atlas-2022">See the source on GitHub</a></p>
 						</noscript>
 					</div>
 				</div>
@@ -248,7 +272,7 @@
 					</datalist>
 				</div>
 				<div id="author" class="bg-body d-flex align-items-center justify-content-center py-1 px-2 rounded shadow" style="--bs-bg-opacity: .9;">
-					<span style="font-size: 0.7rem;">Code by <a href="https://github.com/placeAtlas" target="_blank" rel="noopener noreferrer">Place Atlas</a>. Source on <a href="https://github.com/placeAtlas/atlas" target="_blank" rel="noopener noreferrer">GitHub</a>. Site powered by <a href="https://www.netlify.com" target="_blank" rel="noopener noreferrer">Netlify</a>.</span>
+					<span style="font-size: 0.7rem;">Code by <a href="https://github.com/placeAtlas" target="_blank" rel="noopener noreferrer">Place Atlas</a>. Source on <a href="https://github.com/placeAtlas/atlas-2022" target="_blank" rel="noopener noreferrer">GitHub</a>. Site powered by <a href="https://www.netlify.com" target="_blank" rel="noopener noreferrer">Netlify</a>.</span>
 				</div>
 			</div>
 			<div class="offcanvas offcanvas-start bg-body" data-bs-scroll="true" data-bs-backdrop="false" tabindex="-1" id="offcanvasDraw" aria-labelledby="offcanvasDrawLabel">
@@ -288,7 +312,7 @@
 						<button type="button" class="btn btn-primary d-block mx-auto" id="periodsAdd">Add Period</button>
 					</div>
 					<div id="hint">
-						<p class="text-center">Please read <a href="https://github.com/placeAtlas/atlas/blob/master/CONTRIBUTING.md" target="_blank" rel="noopener noreferrer">this guide</a> for instructions.</p>
+						<p class="text-center">Please read <a href="https://github.com/placeAtlas/atlas-2022/blob/master/CONTRIBUTING.md" target="_blank" rel="noopener noreferrer">this guide</a> for instructions.</p>
 						<hr>
 						<p>You can suggest new entries to the Atlas for art that isn't mapped yet, or update entries by editing it.</p>
 						<p>Click anywhere on the image to start drawing a shape. Switch between periods by adding a period, and/or seek through the timeline.</p>
@@ -349,7 +373,7 @@
 						If you want to use Reddit, use the <span class="badge bg-primary">Post Direct to Reddit</span> button or manually copy the text below and submit it as a new text post to <a href="https://www.reddit.com/r/placeAtlas2/" target="_blank" rel="noopener noreferrer">r/placeAtlas2</a> on Reddit.
 						Don't forget to flair it with the <span class="badge rounded-pill bg-primary"><i class="bi bi-tag" aria-hidden="true"></i> <span id="redditFlair">New Entry</span></span> flair.</p>
 					<p>
-						If you want to use GitHub, use the <span class="badge bg-primary">Submit Direct to GitHub</span> button, or read <a href="https://github.com/placeAtlas/atlas/blob/master/CONTRIBUTING.md#through-github" target="_blank" rel="noopener noreferrer">the contributing guide</a> to submit a patch.
+						If you want to use GitHub, use the <span class="badge bg-primary">Submit Direct to GitHub</span> button, or read <a href="https://github.com/placeAtlas/atlas-2022/blob/master/CONTRIBUTING.md#through-github" target="_blank" rel="noopener noreferrer">the contributing guide</a> to submit a patch.
 					</p>
 					<p>We will then check it and add it to the Atlas.</p>
 					<textarea class="form-control flex-grow-1" cols="40" rows="20" id="exportString" title="Raw JSON string" readonly></textarea>

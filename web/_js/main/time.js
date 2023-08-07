@@ -2,7 +2,7 @@
  * The 2022 r/place Atlas
  * Copyright (c) 2017 Roland Rytz <roland@draemm.li>
  * Copyright (c) 2022 Place Atlas contributors
- * Licensed under AGPL-3.0 (https://place-atlas.stefanocoding.me/license.txt)
+ * Licensed under AGPL-3.0 (https://2022.place-atlas.stefanocoding.me/license.txt)
  */
 
 const codeReference = {}
@@ -79,7 +79,8 @@ const dispatchTimeUpdateEvent = (period = currentPeriod, variation = currentVari
 
 async function updateBackground(newPeriod = currentPeriod, newVariation = currentVariation) {
 	abortController.abort()
-	abortController = new AbortController()
+	myAbortController = new AbortController()
+	abortController = myAbortController
 	currentUpdateIndex++
 	const myUpdateIndex = currentUpdateIndex
 	const variationConfig = variationsConfig[newVariation]
@@ -109,6 +110,7 @@ async function updateBackground(newPeriod = currentPeriod, newVariation = curren
 
 	layers.length = layerUrls.length 
 	await Promise.all(layerUrls.map(async (url, i) => {
+		const imageBlob = await (await fetch(url, { signal: myAbortController.signal })).blob()
 		const imageLayer = new Image()
 		await new Promise(resolve => {
 			imageLayer.onload = () => {
@@ -117,9 +119,13 @@ async function updateBackground(newPeriod = currentPeriod, newVariation = curren
 				layers[i] = imageLayer
 				resolve()
 			}
-			imageLayer.src = url
+			imageLayer.src = URL.createObjectURL(imageBlob)
 		})
 	}))
+
+	if (myAbortController.signal.aborted || newPeriod !== currentPeriod || newVariation !== currentVariation) {
+		return
+	}
 
 	for (const imageLayer of layers) {
 		context.drawImage(imageLayer, 0, 0)
@@ -137,7 +143,7 @@ async function updateTime(newPeriod = currentPeriod, newVariation = currentVaria
 	}
 	document.body.dataset.canvasLoading = ""
 
-	const oldPeriod = currentPeriod
+	// const oldPeriod = currentPeriod
 	const oldVariation = currentVariation
 
 	if (!variationsConfig[newVariation]) newVariation = defaultVariation
@@ -163,7 +169,21 @@ async function updateTime(newPeriod = currentPeriod, newVariation = currentVaria
 
 	await updateBackground(newPeriod, newVariation)
 
-	atlas = []
+	atlas = generateAtlasForPeriod(newPeriod, newVariation)
+
+	dispatchTimeUpdateEvent(newPeriod, newVariation, atlas)
+	delete document.body.dataset.canvasLoading
+	tooltip.dataset.forceVisible = ""
+	clearTimeout(tooltipDelayHide)
+	tooltipDelayHide = setTimeout(() => {
+		delete tooltip.dataset.forceVisible
+	}, 1000)
+
+}
+
+function generateAtlasForPeriod(newPeriod = currentPeriod, newVariation = currentVariation) {
+
+	const atlas = []
 	for (const entry of atlasAll) {
 		let chosenIndex
 
@@ -194,13 +214,7 @@ async function updateTime(newPeriod = currentPeriod, newVariation = currentVaria
 		})
 	}
 
-	dispatchTimeUpdateEvent(newPeriod, newVariation, atlas)
-	delete document.body.dataset.canvasLoading
-	tooltip.dataset.forceVisible = ""
-	clearTimeout(tooltipDelayHide)
-	tooltipDelayHide = setTimeout(() => {
-		delete tooltip.dataset.forceVisible
-	}, 1000)
+	return atlas
 
 }
 
@@ -233,6 +247,7 @@ function isOnPeriod(start, end, variation, currentPeriod, currentVariation) {
 	if (start > end) [start, end] = [end, start]
 	return currentPeriod >= start && currentPeriod <= end && variation === currentVariation
 }
+window.isOnPeriod = isOnPeriod
 
 function parsePeriod(periodString) {
 	let variation = defaultVariation
@@ -256,36 +271,52 @@ function parsePeriod(periodString) {
 	}
 }
 
-function formatPeriod(start, end, variation) {
-	start ??= currentPeriod
-	end ??= currentPeriod
-	variation ??= currentVariation
+function formatPeriod(targetStart, targetEnd, targetVariation, forUrl = false) {
+	targetStart ??= currentPeriod
+	targetEnd ??= currentPeriod
+	targetVariation ??= currentVariation
 
 	let periodString, variationString
-	variationString = variationsConfig[variation].code
-	if (start > end) [start, end] = [end, start]
-	if (start === end) {
-		if (start === variationsConfig[variation].default && variation !== defaultVariation) {
+	variationString = variationsConfig[targetVariation].code
+	if (targetStart > targetEnd) [targetStart, targetEnd] = [targetEnd, targetStart]
+	if (targetStart === targetEnd) {
+		if (forUrl && targetVariation === defaultVariation && targetStart === variationsConfig[defaultVariation].default) {
 			periodString = ""
 		}
-		else periodString = start
+		else periodString = targetStart
 	}
-	else periodString = start + "-" + end
-	if (periodString && variationString) return variationsConfig[variation].code + ":" + periodString
+	else periodString = targetStart + "-" + targetEnd
+	if (periodString && variationString) return variationsConfig[targetVariation].code + ":" + periodString
 	if (variationString) return variationString
+
 	return periodString
 }
 
-function formatHash(id, start, end, variation) {
-	start ??= currentPeriod
-	end ??= currentPeriod
-	variation ??= currentVariation
+function setReferenceVal(reference, newValue) {
+	if (reference === false || reference === "") return null
+	else return reference ?? newValue
+}
+
+function formatHash(targetEntry, targetPeriodStart, targetPeriodEnd, targetVariation, targetX, targetY, targetZoom) {
+	let hashData = window.location.hash.substring(1).split('/')
+
+	targetEntry = setReferenceVal(targetEntry, hashData[0])
+	targetPeriodStart = setReferenceVal(targetPeriodStart, currentPeriod)
+	targetPeriodEnd = setReferenceVal(targetPeriodEnd, currentPeriod)
+	targetVariation = setReferenceVal(targetVariation, currentVariation)
+	targetX = setReferenceVal(targetX, canvasCenter.x - scaleZoomOrigin[0])
+	targetY = setReferenceVal(targetY, canvasCenter.y - scaleZoomOrigin[1])
+	targetZoom = setReferenceVal(targetZoom, zoom)
 	
-	const result = [id]
-	const targetPeriod = formatPeriod(start, end, variation)
-	if (targetPeriod && targetPeriod !== defaultPeriod) result.push(targetPeriod)
+	if (targetX) targetX = Math.round(targetX)
+	if (targetY) targetY = Math.round(targetY)
+	if (targetZoom) targetZoom = targetZoom.toFixed(3).replace(/\.?0+$/, '')
+
+	const result = [targetEntry]
+	const targetPeriod = formatPeriod(targetPeriodStart, targetPeriodEnd, targetVariation, true)
+	result.push(targetPeriod, targetX, targetY, targetZoom)
 	if (!result.some(el => el || el === 0)) return ''
-	return '#' + result.join('/')
+	return '#' + result.join('/').replace(/\/+$/, '')
 }
 
 function downloadCanvas() {
