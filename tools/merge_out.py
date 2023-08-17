@@ -1,6 +1,8 @@
 import json
 import os
 from aformatter import format_all_entries, per_line_entries
+from scale_back import ScaleConfig
+import scale_back
 import traceback
 
 IS_DEPLOY_PREVIEW = False
