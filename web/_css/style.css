@@ -52,6 +52,14 @@ body[data-mode] {
 	padding-left: env(safe-area-inset-left);
 }
 
+.opacity-0 {
+	opacity: 0;
+}
+
+.transition-opacity {
+	transition: opacity .15s linear;
+}
+
 @supports (backdrop-filter: blur()) or (-webkit-backdrop-filter: blur()) {
 	.navbar, .offcanvas {
 		-webkit-backdrop-filter: saturate(180%) blur(15px);

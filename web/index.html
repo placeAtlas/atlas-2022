@@ -9,16 +9,16 @@
 <html lang="en">
 	<head>
 		<meta charset="UTF-8">
-		<title>The 2022 r/place Atlas</title>
-		<meta name="description" content="An interactive map of Reddit's 2022 r/place, with information to each artwork of the canvas provided by the community.">
+		<title>The 2023 r/place Atlas</title>
+		<meta name="description" content="An interactive map of Reddit's 2023 r/place, with information to each artwork of the canvas provided by the community.">
 		<meta name="author" content="Place Atlas contributors (original by Roland Rytz)">
-		<meta name="application-name" content="The r/place Atlas 2022">
+		<meta name="application-name" content="The r/place Atlas 2023">
 		<meta name="robots" content="index, follow">
-
-		<meta property="og:title" content="The 2022 r/place Atlas">
+		
+		<meta property="og:title" content="The 2023 r/place Atlas">
 		<meta property="og:type" content="website">
-		<meta property="og:url" content="https://2022.place-atlas.stefanocoding.me/">
-		<meta property="og:image" content="https://2022.place-atlas.stefanocoding.me/_img/logo.png">
+		<meta property="og:url" content="https://2023.place-atlas.stefanocoding.me/">
+		<meta property="og:image" content="https://2023.place-atlas.stefanocoding.me/_img/logo.png">
 		<meta property="og:image:type" content="image/png">
 		<meta property="og:image:width" content="512">
 		<meta property="og:image:height" content="512">
@@ -34,17 +34,17 @@
 		<meta name="twitter:image:alt" content="The 2022 r/place Atlas logo">
 
 		<!-- <meta name="google-site-verification" content="gZGHpBSMzffAbIn0qB8b00We6EwSGkDTfDoQVv-NWss"/> -->
-
+		
 		<meta name="viewport" content="width=device-width, height=device-height, initial-scale=1, minimum-scale=1, maximum-scale=1, shrink-to-fit=no, viewport-fit=cover"> <!-- user-scalable=no -->
 		<meta name="mobile-web-app-capable" content="yes">
 		<meta name="color-scheme" content="light dark">
 		<meta name="theme-color" media="(prefers-color-scheme: light)" content="white">
 		<meta name="theme-color" media="(prefers-color-scheme: dark)" content="#222">
-
+		
 		<link rel="apple-touch-icon" href="_img/apple-touch-icon.png" sizes="180x180">
 		<link rel="icon alternate" href="_img/favicon.png" type="image/png" class="js-site-favicon">
 		<link rel="icon" href="_img/favicon.svg" type="image/svg+xml" class="js-site-favicon">
-
+		
 		<link rel="stylesheet" href="./_css/style.css">
 		<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-dark-5@1.1.3/dist/css/bootstrap-dark.min.css">
 		<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.8.1/font/bootstrap-icons.css">
@@ -138,18 +138,19 @@
 							<ul class="navbar-nav me-auto my-2 my-md-0">
 								<li class="nav-item">
 									<div class="btn-group" role="group">
-										<button id="showListButton" class="btn btn-outline-primary" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasList" aria-controls="offcanvasList">Entries List</button>
+										<button id="showListButton" class="btn btn-outline-primary" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasList" aria-controls="offcanvasList">Menu</button>
+										<a class="btn btn-outline-primary" id="drawLink" href="./?mode=draw">Draw</a>
 									</div>
 								</li>
 							</ul>
 							<ul class="navbar-nav mx-auto d-block d-md-none d-lg-block">
 								<li class="nav-item d-flex align-items-center gap-2">
-									<span class="p-2">Coordinates: <span class="badge bg-secondary" id="coords_p">0, 0</span></span>
+									<span class="p-md-2">Coordinates: <span class="badge bg-secondary" id="coords_p">0, 0</span></span>
 								</li>
 							</ul>
 							<hr class="d-md-none">
 							<ul class="navbar-nav flex-row flex-wrap ms-auto">
-								<li class="nav-item dropdown">
+								<li class="nav-item col-6 col-md-auto dropdown">
 									<a class="nav-link dropdown-toggle active" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false" aria-current="page">
 										Atlas Map
 									</a>
@@ -199,8 +200,7 @@
 				</header>
 				<div class="py-3 mx-3 border-bottom">
 					<div class="d-flex gap-2 mb-2">
-						<a class="btn btn-primary w-50" id="drawLink" href="./?mode=draw">Draw</a>
-						<button type="button" class="btn btn-primary dropdown-toggle w-50" id="dropdownModes" data-bs-toggle="dropdown" aria-expanded="false">Modes</button>
+						<button type="button" class="btn btn-primary dropdown-toggle w-100" id="dropdownModes" data-bs-toggle="dropdown" aria-expanded="false">Layer Views</button>
 						<ul class="dropdown-menu dropdown-menu-end" aria-labelledby="dropdownModes">
 							<li><a class="dropdown-item" href="./">Normal</a></li>
 							<li><a class="dropdown-item" href="./?mode=explore">Explore</a></li>
@@ -295,7 +295,7 @@
 								Redo
 							</button>
 						</div>
-						<button type="button" class="btn btn-primary" id="finishButton" title="Finish drawing" disabled>Finish</button>
+						<button type="button" class="btn btn-primary" id="finishButton" title="Finish drawing" disabled>Next</button>
 						<button type="button" class="btn btn-secondary" id="resetButton">Reset</button>
 
 						<div class="form-check" id="highlightUnchartedLabel">
@@ -332,7 +332,7 @@
 						</div>
 						<div class="mb-3">
 							<label for="descriptionField" class="form-label">Description</label>
-							<textarea id="descriptionField" class="form-control overflow-hidden" placeholder="A short description to be understood by everyone"></textarea>
+							<textarea id="descriptionField" class="form-control overflow-hidden" placeholder="A short description to be understood by everyone."></textarea>
 						</div>
 						<label id="websiteLabel" class="form-label">Website</label>
 						<div id="websiteGroup" class="mb-3 d-flex flex-column gap-2"></div>
