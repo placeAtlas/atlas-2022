@@ -73,8 +73,15 @@ def remove_white(entry: dict):
 	# print(entry['path'])
 
 	for (period, polygonList) in entry['path'].items():
-
-		if not f"-{ScaleConfig.source}" in period: continue
+		# Check if the entry's period applies to the current scale config.
+		period_split = period.split(', ')
+		period_index = None
+		for i, period_section in enumerate(period_split):
+			if f'-{ScaleConfig.source}' in period_section or period_section == ScaleConfig.source:
+				period_index = i
+				break
+		if period_index is None:
+			continue
 
 		# Get bounding rectangle and have a list of tuples for polygon
 
@@ -136,7 +143,12 @@ def remove_white(entry: dict):
 
 		if (ScaleConfig.type == "shrink" and colorness < ScaleConfig.threshold) or (ScaleConfig.type == "expand" and colorness > ScaleConfig.threshold):
 			print(f"[{entry['id']} {period}] {colored_pixel_count}/{all_pixel_count} ({colorness}%)")
-			new_period = period.replace(f'-{ScaleConfig.source}', f'-{ScaleConfig.destination}')
+			if f'-{ScaleConfig.source}' in period:
+				period_section = period_section.replace(f'-{ScaleConfig.source}', f'-{ScaleConfig.destination}')
+			else:
+				period_section = f'{period_section}-{ScaleConfig.destination}'
+			period_split[period_index] = period_section
+			new_period = ', '.join(period_split)
 			entry['path'][new_period] = entry['path'][period]
 			del entry['path'][period]
 			entry['center'][new_period] = entry['center'][period]

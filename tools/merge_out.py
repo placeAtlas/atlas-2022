@@ -57,7 +57,7 @@ for filename in filenames:
 		f = os.path.join(patches_dir, filename)
 
 	print(f"{filename}: Processing...")
-	
+
 	if not os.path.isfile(f) or not f.endswith('json'):
 		continue
 
@@ -75,7 +75,16 @@ for filename in filenames:
 			scale_back.scale_back_entries(entries)
 			scale_back.swap_source_dest('166', '167', os.path.join(base_image_path, '165_159.png'))
 			scale_back.scale_back_entries(entries)
-			
+
+			# Add TFC if the entry is in the final canvas.
+			for entry in entries:
+				for key in ['path', 'center']:
+					for period, value in entry[key].items():
+						if ('164' in period or '165' in period or '166' in period) and 'T' not in period:
+							entry[key][period + ', T:0-1'] = value
+							del(entry[key][period])
+							break
+
 			for entry in entries:
 				if entry is None:
 					continue
