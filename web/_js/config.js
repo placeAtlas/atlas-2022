@@ -265,8 +265,8 @@ window.useNumericalId = useNumericalId
 
 console.info(`%cThe 2022 r/place Atlas
 %cCopyright (c) 2017 Roland Rytz <roland@draemm.li>
-Copyright (c) 2022 Place Atlas contributors
-Licensed under AGPL-3.0 (https://2022.place-atlas.stefanocoding.me/license.txt)
+Copyright (c) 2022 Place Atlas Initiative and contributors
+Licensed under AGPL-3.0 (https://2023.place-atlas.stefanocoding.me/license.txt)
 
 https://2022.place-atlas.stefanocoding.me/
 https://discord.gg/pJkm23b2nA

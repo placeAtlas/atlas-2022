@@ -121,6 +121,14 @@ Hereforth is an example of the structured entry data. The example has been expan
 
 ## Development
 
+> [!IMPORTANT]
+> 
+> Instead of here, consider directing your contributions to [The 2023 r/place Atlas](https://github.com/placeAtlas/atlas-2023).
+>
+> Updates from the latest Atlas would be backported occasionally for the benefit of the other instances (e.g. the 2017 Atlas and the 2022 Atlas). Furthermore, there is a great chance that what you want to do would also benefit the other instances.
+>
+> There may some cases where what you want to do only apply on this specific instance. In that case, you may proceed. When in doubt, don't hesitate to contact us.
+
 Other than contributing to the Atlas data, code contributions are also accepted. Here are some information regarding some aspects on the repository.
 
 ### Web interface

@@ -1,7 +1,7 @@
 /*!
  * The 2022 r/place Atlas
  * Copyright (c) 2017 Roland Rytz <roland@draemm.li>
- * Copyright (c) 2022 Place Atlas contributors
+ * Copyright (c) 2022 Place Atlas Initiative and contributors
  * Licensed under AGPL-3.0 (https://2022.place-atlas.stefanocoding.me/license.txt)
  */
 
@@ -203,7 +203,7 @@ console.info("The " + topCount + " largest entries:")
 let outstring = ""
 
 for (let i = 0; i < topCount; i++) {
-	outstring += ((i + 1) + "|[" + atlas[atlas.length - i - 1].name + "](http://2022.place-atlas.stefanocoding.me/?id=" + atlas[atlas.length - i - 1].id + ")|" + ~~atlas[atlas.length - i - 1].area + "|" + Math.round(atlas[atlas.length - i - 1].area / 100) / 100 + "%\n")
+	outstring += ((i + 1) + "|[" + atlas[atlas.length - i - 1].name + "](http://2023.place-atlas.stefanocoding.me/?id=" + atlas[atlas.length - i - 1].id + ")|" + ~~atlas[atlas.length - i - 1].area + "|" + Math.round(atlas[atlas.length - i - 1].area / 100) / 100 + "%\n")
 }
 
 console.info(outstring)
