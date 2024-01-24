@@ -1,7 +1,7 @@
 /*!
  * The 2022 r/place Atlas
  * Copyright (c) 2017 Roland Rytz <roland@draemm.li>
- * Copyright (c) 2022 Place Atlas contributors
+ * Copyright (c) 2022 Place Atlas Initiative and contributors
  * Licensed under AGPL-3.0 (https://2022.place-atlas.stefanocoding.me/license.txt)
  */
 
@@ -26,7 +26,7 @@ const maxZoom = 128
 const minZoom = 0.125
 
 let zoomOrigin = [0, 0]
-let scaleZoomOrigin = [0, 0]
+let scaleZoomOrigin = [canvasCenter.x, canvasCenter.y]
 
 let dragging = false
 let lastPosition = [0, 0]
@@ -54,7 +54,7 @@ function applyView() {
 }
 
 function setView(targetX, targetY, targetZoom) {
-
+	
 	if (isNaN(targetX)) targetX = null
 	if (isNaN(targetY)) targetY = null
 
@@ -72,8 +72,6 @@ function updateHash(...args) {
 	if (location.hash !== newLocation.hash) history.replaceState({}, "", newLocation)
 }
 
-let atlas = null
-window.atlas = atlas
 let atlasAll = null
 window.atlasAll = atlasAll
 
@@ -102,13 +100,24 @@ async function init() {
 		}
 	}
 
+	// Experimental: TemplateManager support
+	// Add a .json file of TemplateManager on the "template" URL param.
+	// e.g. ?template=https://osu.place/e/osuplace2023.json
+	// CORS bypass is required (e.g. a proxy, CORS Anywhere).
+	if (params.get("template")) {
+		const [ templateDatas ] = await loadTemplateData(params.get("template"))
+		const templateLayers = await loadTemplateImages(templateDatas)
+		additionalLayers.push(...templateLayers)
+		updateAdditionalLayer(additionalLayers)
+	}
+
 	if (mode === "about") window.location.replace("./about.html")
 
 	// For Reviewing Reddit Changes
 	// const atlasRef = '../tools/temp-atlas.json'
-	const atlasRef = params.get('atlas') || './atlas.json'
-	const atlasResp = await fetch(atlasRef)
-	atlasAll = updateAtlasAll(await atlasResp.json())
+	const atlasAllUrl = params.get('atlas') || './atlas.json'
+	atlasAll = generateAtlasAll(await (await fetch(atlasAllUrl)).json())
+	// console.log(atlas, atlasOrder)
 
 	const hash = window.location.hash.substring(1)
 	const [, hashPeriod, hashX, hashY, hashZoom] = hash.split('/')
@@ -148,45 +157,33 @@ async function init() {
 		initExplore()
 	} else if (mode.startsWith("diff")) {
 		try {
-			const liveAtlasRef = params.get('liveatlas') || `https://${prodDomain}/atlas.json`
-			const liveAtlasResp = await fetch(liveAtlasRef)
-			let liveAtlas = await liveAtlasResp.json()
-			liveAtlas = updateAtlasAll(liveAtlas)
+			const liveAtlasUrl = params.get('liveatlas') || `https://${prodDomain}/atlas.json`
+			let liveAtlasAll = generateAtlasAll(await (await fetch(liveAtlasUrl)).json())
 
-			const liveAtlasReduced = liveAtlas.reduce((atlas, entry) => {
-				delete entry._index
-				atlas[entry.id] = entry
-				return atlas
-			}, {})
 			// Mark added/edited entries
-			atlasAll = atlasAll.map(function (entry) {
-				delete entry._index
-				if (!liveAtlasReduced[entry.id]) {
+			for (const entry of Object.values(atlasAll)) {
+				if (!liveAtlasAll[entry.id]) {
 					entry.diff = "add"
-				} else if (JSON.stringify(entry) !== JSON.stringify(liveAtlasReduced[entry.id])) {
+				} else {
+					if (JSON.stringify({ ...entry, _index: undefined }) === JSON.stringify({ ...liveAtlasAll[entry.id], _index: undefined })) continue
 					entry.diff = "edit"
 				}
-				return entry
-			})
-
-			// Mark removed entries
-			const atlasReduced = atlasAll.reduce((atlas, entry) => {
-				delete entry._index
-				atlas[entry.id] = entry
-				return atlas
-			}, {})
-			const removedEntries = liveAtlas.filter(entry => !atlasReduced[entry.id]).map(entry => {
-				delete entry._index
-				entry.diff = "delete"
-				return entry
-			})
-			atlasAll.push(...removedEntries)
-
-			if (mode.includes("only")) {
-				atlasAll = atlasAll.filter(entry => entry.diff)
 			}
 
-			atlas = generateAtlasForPeriod()
+			// Mark removed entries
+			for (const entry of Object.values(liveAtlasAll)) {
+				if (!atlasAll[entry.id]) {
+					entry.diff = "delete"
+					atlasAll[entry.id] = entry
+				}
+			}
+
+			if (mode.includes('only')) {
+				for (const key of Object.keys(atlasAll)) {
+					if (atlasAll[key].diff) continue
+					delete atlasAll[key]
+				}
+			}
 
 		} catch (error) {
 			console.warn("Diff mode failed to load, reverting to normal view.", error)
@@ -255,7 +252,7 @@ async function init() {
 		zoom = 1
 		zoomOrigin = [0, 0]
 		scaleZoomOrigin = [0, 0]
-		updateLines()
+		renderLines()
 		applyView()
 	})
 
@@ -384,7 +381,6 @@ async function init() {
 	}
 
 	window.addEventListener("mousemove", e => {
-		// updateLines()
 		mousemove(e.clientX, e.clientY)
 		if (dragging) {
 			e.preventDefault()
@@ -417,7 +413,7 @@ async function init() {
 		scaleZoomOrigin[0] += deltaX / zoom
 		scaleZoomOrigin[1] += deltaY / zoom
 
-		updateLines()
+		renderLines()
 		applyView()
 	}
 
@@ -460,7 +456,7 @@ async function init() {
 		zoomOrigin[1] = scaleZoomOrigin[1] * zoom
 
 		applyView()
-		updateLines()
+		renderLines()
 	}
 
 	window.addEventListener("mouseup", e => {
@@ -478,7 +474,7 @@ async function init() {
 	})
 	window.addEventListener("touchend", touchend)
 
-	function mouseup(x, y) {
+	function mouseup() {
 		dragging = false
 		updateHash()
 	}
@@ -486,7 +482,7 @@ async function init() {
 	function touchend(e) {
 		if (e.touches.length === 0) {
 			mouseup()
-			setTimeout(() => updateLines(), 0)
+			renderLines()
 			dragging = false
 
 		} else if (e.touches.length === 1) {
@@ -506,7 +502,8 @@ async function init() {
 
 }
 
-function updateAtlasAll(atlas = atlasAll) {
+function generateAtlasAll(atlas = atlasAll) {
+	const newAtlas = {}
 	for (const index in atlas) {
 		const entry = atlas[index]
 		entry._index = index
@@ -528,22 +525,37 @@ function updateAtlasAll(atlas = atlasAll) {
 		}
 		entry.path = currentPath
 		entry.center = currentCenter
+		newAtlas[entry.id] = entry
 	}
-	return atlas
+	// console.log(newAtlas)
+	return newAtlas
 }
 
-// Announcement system
+// Notice system
 
-const announcementEl = document.querySelector("#headerAnnouncement")
-const announcementButton = announcementEl.querySelector('[role=button]')
-const announcementText = announcementEl.querySelector('p').textContent.trim()
+const noticeEl = document.querySelector("#headerNotice")
+const noticeButton = noticeEl.querySelector('[role=button]')
+const noticeText = noticeEl.querySelector('p').textContent.trim()
 
-if (announcementText && announcementText !== window.localStorage.getItem('announcement-closed')) {
-	announcementButton.click()
-	document.querySelector('#objectsList').style.marginTop = '2.8rem'
+const resizeGlobalTopPadding = () => {
+	document.body.style.setProperty("--global-top-padding", noticeEl.offsetHeight + 'px')
 }
 
-announcementEl.querySelector('[role=button]').addEventListener('click', () => {
-	window.localStorage.setItem('announcement-closed', announcementText)
-	document.querySelector('#objectsList').style.marginTop = '0'
+if (window.localStorage.getItem('announcement-closed')) {
+	window.localStorage.setItem('closed-notice', window.localStorage.getItem('announcement-closed'))
+	window.localStorage.removeItem('announcement-closed')
+}
+
+if (noticeText && noticeText !== window.localStorage.getItem('closed-notice')) {
+	noticeButton.click()
+	setTimeout(() => {
+		document.body.style.setProperty("--global-top-padding", noticeEl.offsetHeight + 'px')
+	}, 500)
+	window.addEventListener('resize', resizeGlobalTopPadding)
+}
+
+noticeEl.querySelector('[role=button]').addEventListener('click', () => {
+	window.localStorage.setItem('closed-notice', noticeText)
+	window.removeEventListener('resize', resizeGlobalTopPadding)
+	document.body.style.setProperty("--global-top-padding", null)
 })

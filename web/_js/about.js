@@ -1,11 +1,11 @@
 /*!
  * The 2022 r/place Atlas
  * Copyright (c) 2017 Roland Rytz <roland@draemm.li>
- * Copyright (c) 2022 Place Atlas contributors
+ * Copyright (c) 2022 Place Atlas Initiative and contributors
  * Licensed under AGPL-3.0 (https://2022.place-atlas.stefanocoding.me/license.txt)
  */
 
-const contributorsEl = document.querySelector('#contributors-wrapper')
+const contributorsEl = document.querySelector('#entry-contributors-wrapper')
 
 // <i aria-label="GitHub" class="bi bi-github"></i>
 const gitHubEl = document.createElement("i")
@@ -34,6 +34,8 @@ fetch('all-authors.txt')
 				userEl.href = 'https://reddit.com/user/' + contributor
 				userEl.textContent = contributor
 			}
+			userEl.target = '_blank'
+			userEl.rel = 'noreferrer'
 			contributorsEl.appendChild(userEl)
 			contributorsEl.appendChild(document.createTextNode(' '))
 		}

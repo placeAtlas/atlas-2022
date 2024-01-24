@@ -19,6 +19,5 @@ cp -r web/_img/ dist/
 cp web/atlas.json dist/
 cp web/*.txt dist/
 cp web/_headers dist/
-cp web/_redirects dist/
 cp web/favicon.ico dist/
 cp web/sw.js dist/
