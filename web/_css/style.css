@@ -1,7 +1,7 @@
 /*!
  * The 2022 r/place Atlas
  * Copyright (c) 2017 Roland Rytz <roland@draemm.li>
- * Copyright (c) 2022 Place Atlas contributors
+ * Copyright (c) 2022 Place Atlas Initiative and contributors
  * Licensed under AGPL-3.0 (https://2022.place-atlas.stefanocoding.me/license.txt)
  */
 
@@ -50,6 +50,14 @@ body[data-mode] {
 .offcanvas {
 	top: 3.7rem !important;
 	padding-left: env(safe-area-inset-left);
+}
+
+.opacity-0 {
+	opacity: 0;
+}
+
+.transition-opacity {
+	transition: opacity .15s linear;
 }
 
 @supports (backdrop-filter: blur()) or (-webkit-backdrop-filter: blur()) {
@@ -258,12 +266,12 @@ body[data-init-done] .listTransitioning #innerContainer {
 }
 
 #variantControls {
-	flex: 1 0 auto;
+	flex: 2 0 auto;
 }
 
 #timeControls {
 	position: relative;
-	flex: 6 0 300px;
+	flex: 12 0 300px;
 }
 
 #bottomBar.no-time-slider #timeControls {
@@ -440,13 +448,25 @@ body:not([data-dev]) .show-only-on-dev {
 	display: none !important
 }
 
+#objectsList,
+#offcanvasList,
+#offcanvasDraw,
+#closeObjectsListButton {
+	margin-top: var(--global-top-padding);
+}
+
+.copyleft {
+	display: inline-block;
+	transform: rotateY(180deg);
+}
+
 /* about.html */
 
-#credits a {
+#entry-contributors-wrapper a {
 	text-decoration: none;
 }
 
-#credits a:hover {
+#entry-contributors-wrapper a:hover {
 	text-decoration: underline;
 }
 
