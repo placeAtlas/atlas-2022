@@ -225,6 +225,9 @@ const variationsConfig = {
 		code: "T",
 		default: 1,
 		drawablePeriods: [0, 1],
+		drawableRegions: [
+			[[0, 1], [0, 0, 2000, 2000]]
+		],
 		versions: [
 			{
 				timestamp: "Final",
