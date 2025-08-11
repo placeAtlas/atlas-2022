@@ -1,0 +1,39 @@
+{
+	"id": "twtwc9",
+	"name": "Noisestorm - Crab Rave",
+	"description": "Crab Rave, it was both a meme and a song that gained popularity during 2018 because of its memeable and catchy tunes. It was released in Monstercat Instinct and was composed by Noisestorm. This Pixelart was an idea from someone in the official Discord server of Monstercat named IridescentAva",
+	"links": {
+		"website": [
+			"https://www.youtube.com/watch?v=LDU_Txk06tM"
+		],
+		"subreddit": [
+			"monstercat"
+		]
+	},
+	"path": {
+		"T:0-1, 109-164": [
+			[
+				341,
+				1898
+			],
+			[
+				341,
+				1915
+			],
+			[
+				377,
+				1915
+			],
+			[
+				377,
+				1898
+			]
+		]
+	},
+	"center": {
+		"T:0-1, 109-164": [
+			359,
+			1907
+		]
+	}
+}
