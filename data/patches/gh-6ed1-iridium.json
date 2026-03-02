@@ -1,0 +1,32 @@
+{
+	"id": -1,
+	"name": "Iridium",
+	"description": "A little french group of riends, or may i say family, that stood up against thousands of people to leave a mark on what was a piece of history...",
+	"links": {},
+	"path": {
+		"164": [
+			[
+				1048,
+				1967
+			],
+			[
+				1048,
+				1971
+			],
+			[
+				1057,
+				1971
+			],
+			[
+				1057,
+				1967
+			]
+		]
+	},
+	"center": {
+		"164": [
+			1053,
+			1969
+		]
+	}
+}
