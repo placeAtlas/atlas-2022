@@ -1,6 +1,6 @@
 {
 	"devDependencies": {
-		"@fullhuman/postcss-purgecss": "^5.0.0",
+		"@fullhuman/postcss-purgecss": "^8.0.0",
 		"@parcel/packager-raw-url": "^2.8.3",
 		"@parcel/transformer-jsonld": "^2.8.3",
 		"@parcel/transformer-webmanifest": "^2.8.3",
